@@ -61,7 +61,7 @@
     /* PACCHETTI GRID */
     .packages-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:32px;
       margin-bottom:60px;
     }
@@ -344,9 +344,6 @@
     }
 
     @media(max-width:768px){
-      .packages-grid{
-        grid-template-columns:1fr;
-      }
       .modal-header, .modal-layout{
         padding-left:24px;
         padding-right:24px;

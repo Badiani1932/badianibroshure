@@ -15,7 +15,7 @@
 
     .section-title{ font-size:clamp(20px, 2.4vw, 30px); margin:40px 0 18px; }
 
-    .event-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; }
+    .event-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px; }
     .event-card{
       position:relative;
       border-radius:24px;
@@ -80,8 +80,8 @@
     .tag{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--badiani-pink); font-weight:600; }
     .pill{ background:#f5f6f8; border-radius:16px; padding:10px 14px; font-size:14px; }
     .list{ padding-left:18px; display:grid; gap:8px; font-size:15px; color:#6a6b6e; }
-    .dual-list{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:18px; }
-    .gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:14px; }
+    .dual-list{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
+    .gallery-grid{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; }
     .gallery-card{ background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,0.08); }
     .gallery-card img{ width:100%; aspect-ratio:4 / 3; object-fit:cover; display:block; }
     .gallery-card span{ display:block; padding:10px 12px; font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-blue); }
@@ -171,7 +171,7 @@
       color:var(--badiani-blue);
       font-size:12px;
     }
-    .corporate-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:18px; }
+    .corporate-grid{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
     .corporate-card{
       background:#fff;
       border-radius:20px;
@@ -197,7 +197,7 @@
     .corporate-card:hover::after{ opacity:1; }
     .corporate-card h3{ margin-bottom:12px; font-size:15px; text-transform:uppercase; letter-spacing:1.4px; color:var(--badiani-blue); }
     .corporate-card .list{ padding-left:18px; margin:0; }
-    .corporate-gallery{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:18px; }
+    .corporate-gallery{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
     .corporate-gallery .gallery-card{ transform:translateY(20px); opacity:0; transition:transform 0.6s ease, opacity 0.6s ease; }
     .corporate-highlight.is-visible .corporate-gallery .gallery-card{ transform:translateY(0); opacity:1; }
     .corporate-highlight.is-visible .corporate-gallery .gallery-card:nth-child(2){ transition-delay:0.15s; }

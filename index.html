@@ -305,7 +305,7 @@
     }
     .story-lead{ font-size:clamp(16px, 1.8vw, 22px); margin-bottom:40px; line-height:1.9; max-width:900px; margin-left:auto; margin-right:auto; font-weight:300; text-align:center; }
     .highlight-pink{ background:var(--badiani-pink); color:#fff; padding:3px 10px; font-weight:500; border-radius:3px; white-space:nowrap; text-transform:uppercase; }
-    .story-timeline{ display:flex; gap:36px; margin-top:50px; justify-content:center; flex-wrap:wrap; }
+    .story-timeline{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:36px; margin-top:50px; }
     .timeline-item{ 
       flex:1 1 300px;
       max-width:420px;
@@ -357,7 +357,7 @@
       text-align:center;
     }
     .heritage-intro{ max-width:950px; margin:0 auto 45px; font-size:clamp(16px, 1.6vw, 20px); line-height:1.9; font-weight:300; }
-    .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:25px; max-width:1150px; margin:0 auto; }
+    .stats{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:25px; max-width:1150px; margin:0 auto; }
     .stat{ background:var(--badiani-blue); color:#fff; padding:50px 25px; border-radius:20px; transition:transform 0.3s; }
     .stat:hover{ transform:translateY(-5px); }
     .stat:nth-child(2){ background:var(--badiani-pink); }
@@ -681,10 +681,8 @@
       <source src="home-b2b.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay">
-      <p class="hero-overlay__subtitle" data-i18n="home.video.caption">Paolo in laboratorio produzione del Buontalenti</p>
     </div>
   </section>
-  <p class="video-note" data-i18n="home.video.todo">TODO: sostituire il video con “Paolo in laboratorio produzione del Buontalenti”.</p>
 
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
     <h2 data-i18n="home.choice.title">Scegli l’esperienza che ti serve</h2>
