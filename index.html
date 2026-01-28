@@ -10,6 +10,14 @@
     @media(max-width:500px){
       .topbar__nav a{ padding:6px 10px; font-size:10px; letter-spacing:1px; }
     }
+    @media(max-width:900px){
+      .topbar__nav a{
+        font-size:10px;
+        padding:5px 7px;
+        letter-spacing:0.8px;
+      }
+      .topbar__right{ gap:10px; }
+    }
 
     .page-shell{ min-height:calc(100vh - 64px); display:flex; flex-direction:column; justify-content:center; padding:var(--space-xl) clamp(16px, 4vw, 80px); }
     .intro{ max-width:900px; margin:0 auto var(--space-lg); text-align:center; }
@@ -66,6 +74,24 @@
     @media(max-width:768px){
       .page-shell{ padding:var(--space-lg) 18px; }
       .choice-card{ padding:30px 22px; }
+    }
+    @media(max-width:900px){
+      .hero-intro{
+        padding:24px 16px 18px;
+        gap:10px;
+      }
+      .hero-intro__logo img{ height:40px; }
+      .hero-intro__title{ font-size:clamp(22px, 6vw, 28px); }
+      .hero-intro__note{ display:none; }
+
+      .choice-section{ padding:24px 16px 28px; }
+      .choice-grid{ gap:14px; }
+      .choice-card{ padding:20px 16px; gap:12px; }
+      .choice-desc{ font-size:13px; }
+      .choice-cta{ font-size:11px; }
+      .todo-note{ display:none; }
+
+      .video-note{ margin:10px auto 24px; }
     }
 
     /* HERO VIDEO */
