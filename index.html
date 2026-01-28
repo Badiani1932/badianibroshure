@@ -51,7 +51,7 @@
       color:var(--badiani-pink);
     }
 
-    .choice-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px; max-width:860px; margin:0 auto; }
+    .choice-grid{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:24px; max-width:860px; margin:0 auto; }
     .choice-card{
       background:var(--surface);
       border-radius:24px;
@@ -269,6 +269,49 @@
       letter-spacing:1.6px;
       text-transform:uppercase;
       color:var(--badiani-pink);
+    }
+
+    .home-contact{
+      background:#fff;
+      color:var(--badiani-gray);
+      padding:60px 20px;
+      text-align:center;
+      border-top:1px solid rgba(30,57,141,0.08);
+      text-transform:lowercase;
+    }
+    .home-contact h2{
+      font-size:clamp(24px, 3vw, 38px);
+      margin-bottom:14px;
+      text-transform:lowercase;
+      letter-spacing:0.4px;
+      color:var(--badiani-blue);
+    }
+    .home-contact p{
+      font-size:clamp(14px, 1.4vw, 18px);
+      margin-bottom:22px;
+      opacity:0.95;
+      color:#6a6b6e;
+    }
+    .home-contact__links{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .home-contact__links a{
+      color:var(--badiani-blue);
+      text-decoration:none;
+      font-size:clamp(13px, 1.2vw, 16px);
+      letter-spacing:0.4px;
+      text-transform:lowercase;
+      padding:0;
+      border:none;
+      background:transparent;
+    }
+    .home-contact__links a:hover{
+      color:var(--badiani-blue);
+      text-decoration:underline;
     }
 
     /* SEZIONE STORIA CON SFONDO FIRENZE */
@@ -726,6 +769,31 @@
     <span class="hero-intro__note" data-i18n="home.hero.note">TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”</span>
   </section>
 
+  <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
+    <h2 data-i18n="home.choice.title">Scegli l’esperienza che ti serve</h2>
+    <div class="choice-grid">
+      <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
+        <h3 class="choice-title">EVENTI</h3>
+        <p class="choice-desc" data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</p>
+        <span class="choice-cta" data-i18n="home.choice.cta">Scopri</span>
+      </a>
+      <a class="choice-card" href="b2b/" data-i18n-attr="aria-label:home.choice.b2b.aria">
+        <h3 class="choice-title">B2B</h3>
+        <p class="choice-desc" data-i18n="home.choice.b2b.desc">Soluzioni gelato per catering, hotel</p>
+        <span class="choice-cta" data-i18n="home.choice.cta">Scopri</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- VIDEO LABORATORIO -->
+  <section class="hero-video" data-i18n-attr="aria-label:home.video.label">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="home-b2b.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay">
+    </div>
+  </section>
+
   <!-- STORIA DI BADIANI -->
   <section id="story" class="buontalenti-story">
     <div class="story-inner">
@@ -800,41 +868,16 @@
     <div class="global-presence-scroll-hint" aria-hidden="true">← Scorri per vedere tutto →</div>
   </section>
 
-  <!-- VIDEO LABORATORIO -->
-  <section class="hero-video" data-i18n-attr="aria-label:home.video.label">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="home-b2b.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay">
+  <section id="contatti" class="home-contact" data-i18n-attr="aria-label:home.contact.label">
+    <h2 data-i18n="home.contact.title">Contatti</h2>
+    <p data-i18n="home.contact.subtitle">Scrivici per informazioni su eventi, B2B e retail.</p>
+    <div class="home-contact__links">
+      <a href="mailto:eventi@badiani1932.com" data-i18n="home.contact.eventi">eventi@badiani1932.com</a>
+      <a href="mailto:retail@badiani1932.com" data-i18n="home.contact.retail">retail@badiani1932.com</a>
+      <a href="https://www.badiani1932.com" target="_blank" rel="noopener" data-i18n="home.contact.site">www.badiani1932.com</a>
     </div>
   </section>
 
-  <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
-    <h2 data-i18n="home.choice.title">Scegli l’esperienza che ti serve</h2>
-    <div class="choice-grid">
-      <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
-        <span class="choice-tag" data-i18n="home.choice.tag">Percorso</span>
-        <h3 class="choice-title">EVENTI</h3>
-        <p class="choice-desc" data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</p>
-        <span class="todo-note" data-i18n="home.choice.eventi.todo">TODO: alternativa slogan “Il tuo party personalizzato con Badiani”</span>
-        <span class="choice-cta" data-i18n="home.choice.cta">Scopri</span>
-      </a>
-      <a class="choice-card" href="b2b/" data-i18n-attr="aria-label:home.choice.b2b.aria">
-        <span class="choice-tag" data-i18n="home.choice.tag">Percorso</span>
-        <h3 class="choice-title">B2B</h3>
-        <p class="choice-desc" data-i18n="home.choice.b2b.desc">Soluzioni gelato per catering, hotel</p>
-        <span class="todo-note" data-i18n="home.choice.b2b.todo">TODO: definire categorie</span>
-        <span class="choice-cta" data-i18n="home.choice.cta">Scopri</span>
-      </a>
-      <a class="choice-card" href="magazine/" data-i18n-attr="aria-label:home.choice.magazine.aria">
-        <span class="choice-tag" data-i18n="home.choice.tag">Percorso</span>
-        <h3 class="choice-title">MAGAZINE</h3>
-        <p class="choice-desc" data-i18n="home.choice.magazine.desc">Rassegna stampa con articoli su Badiani</p>
-        <span class="todo-note" data-i18n="home.choice.magazine.note">Sfoglia le anteprime dei media</span>
-        <span class="choice-cta" data-i18n="home.choice.cta">Scopri</span>
-      </a>
-    </div>
-  </section>
 
   <script>
     (function(){
@@ -873,6 +916,12 @@
           'home.choice.magazine.note': 'Sfoglia le anteprime dei media',
           'home.choice.magazine.aria': 'Vai alla pagina Magazine',
           'home.choice.cta': 'Scopri',
+          'home.contact.label': 'Contatti',
+          'home.contact.title': 'Contatti',
+          'home.contact.subtitle': 'Scrivici per informazioni su eventi, B2B e retail.',
+          'home.contact.eventi': 'eventi@badiani1932.com',
+          'home.contact.retail': 'retail@badiani1932.com',
+          'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Seleziona il percorso',
           'home.title': 'Placeholder titolo introduttivo',
           'home.subtitle': 'Placeholder testo breve: scegli il percorso più adatto alle tue esigenze.',
@@ -933,6 +982,12 @@
           'home.choice.magazine.note': 'Browse media previews',
           'home.choice.magazine.aria': 'Go to Magazine page',
           'home.choice.cta': 'Scopri',
+          'home.contact.label': 'Contacts',
+          'home.contact.title': 'Contacts',
+          'home.contact.subtitle': 'Write to us for events, B2B and retail information.',
+          'home.contact.eventi': 'eventi@badiani1932.com',
+          'home.contact.retail': 'retail@badiani1932.com',
+          'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Select your path',
           'home.title': 'Placeholder intro title',
           'home.subtitle': 'Placeholder short text: choose the path that best fits your needs.',
@@ -993,6 +1048,12 @@
           'home.choice.magazine.note': 'Parcourez les aperçus des médias',
           'home.choice.magazine.aria': 'Aller à la page Magazine',
           'home.choice.cta': 'Scopri',
+          'home.contact.label': 'Contacts',
+          'home.contact.title': 'Contacts',
+          'home.contact.subtitle': 'Écrivez-nous pour des informations sur les événements, le B2B et le retail.',
+          'home.contact.eventi': 'eventi@badiani1932.com',
+          'home.contact.retail': 'retail@badiani1932.com',
+          'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Choisissez votre parcours',
           'home.title': 'Titre d’introduction (placeholder)',
           'home.subtitle': 'Texte court (placeholder) : choisissez le parcours le plus adapté.',
@@ -1053,6 +1114,12 @@
           'home.choice.magazine.note': 'Explora las vistas previas de los medios',
           'home.choice.magazine.aria': 'Ir a la página Magazine',
           'home.choice.cta': 'Scopri',
+          'home.contact.label': 'Contactos',
+          'home.contact.title': 'Contactos',
+          'home.contact.subtitle': 'Escríbenos para información sobre eventos, B2B y retail.',
+          'home.contact.eventi': 'eventi@badiani1932.com',
+          'home.contact.retail': 'retail@badiani1932.com',
+          'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Selecciona el recorrido',
           'home.title': 'Título introductorio (placeholder)',
           'home.subtitle': 'Texto breve (placeholder): elige el recorrido más adecuado.',

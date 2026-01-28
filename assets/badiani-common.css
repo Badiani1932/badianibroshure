@@ -58,6 +58,44 @@ body, html {
   line-height: 1.6;
 }
 
+body > * {
+  opacity: 0;
+  transform: translateY(-16px);
+  animation: page-reveal 0.6s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+body > *:nth-child(1){ animation-delay: 0.04s; }
+body > *:nth-child(2){ animation-delay: 0.10s; }
+body > *:nth-child(3){ animation-delay: 0.16s; }
+body > *:nth-child(4){ animation-delay: 0.22s; }
+body > *:nth-child(5){ animation-delay: 0.28s; }
+body > *:nth-child(6){ animation-delay: 0.34s; }
+body > *:nth-child(7){ animation-delay: 0.40s; }
+body > *:nth-child(8){ animation-delay: 0.46s; }
+body > *:nth-child(9){ animation-delay: 0.52s; }
+body > *:nth-child(10){ animation-delay: 0.58s; }
+body > *:nth-child(11){ animation-delay: 0.64s; }
+body > *:nth-child(12){ animation-delay: 0.70s; }
+body > *:nth-child(13){ animation-delay: 0.76s; }
+body > *:nth-child(14){ animation-delay: 0.82s; }
+body > *:nth-child(15){ animation-delay: 0.88s; }
+
+@keyframes page-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 h1, h2, h3 {
   font-family: 'SuperGroteskB', 'SuperGroteskA', sans-serif;
   font-weight: 600;

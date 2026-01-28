@@ -41,9 +41,7 @@
     .category-card.b2b-card--vasche,
     .category-card.b2b-card--pezziduri,
     .category-card.b2b-card--coppette,
-    .category-card.b2b-card--barattoli,
     .category-card.b2b-card--cono,
-    .category-card.b2b-card--semifreddi,
     .category-card.b2b-card--cialde,
     .category-card.b2b-card--contenitori{
       position:relative;
@@ -67,14 +65,8 @@
     .category-card.b2b-card--coppette{
       background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/coppette.png');
     }
-    .category-card.b2b-card--barattoli{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/group-barattoli.webp');
-    }
     .category-card.b2b-card--cono{
       background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/gelati%20tenda.png');
-    }
-    .category-card.b2b-card--semifreddi{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/semifreddi.png');
     }
     .category-card.b2b-card--cialde{
       background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/wafer-pulsante.png');
@@ -87,9 +79,7 @@
     .category-card.b2b-card--vasche::before,
     .category-card.b2b-card--pezziduri::before,
     .category-card.b2b-card--coppette::before,
-    .category-card.b2b-card--barattoli::before,
     .category-card.b2b-card--cono::before,
-    .category-card.b2b-card--semifreddi::before,
     .category-card.b2b-card--cialde::before,
     .category-card.b2b-card--contenitori::before{
       content:"";
@@ -103,9 +93,7 @@
     .category-card.b2b-card--vasche > *,
     .category-card.b2b-card--pezziduri > *,
     .category-card.b2b-card--coppette > *,
-    .category-card.b2b-card--barattoli > *,
     .category-card.b2b-card--cono > *,
-    .category-card.b2b-card--semifreddi > *,
     .category-card.b2b-card--cialde > *,
     .category-card.b2b-card--contenitori > *{
       position:relative;
@@ -135,9 +123,7 @@
     .category-card.b2b-card--vasche .category-title,
     .category-card.b2b-card--pezziduri .category-title,
     .category-card.b2b-card--coppette .category-title,
-    .category-card.b2b-card--barattoli .category-title,
     .category-card.b2b-card--cono .category-title,
-    .category-card.b2b-card--semifreddi .category-title,
     .category-card.b2b-card--cialde .category-title,
     .category-card.b2b-card--contenitori .category-title{
       color:#fff;
@@ -151,9 +137,7 @@
     .category-card.b2b-card--vasche .category-desc,
     .category-card.b2b-card--pezziduri .category-desc,
     .category-card.b2b-card--coppette .category-desc,
-    .category-card.b2b-card--barattoli .category-desc,
     .category-card.b2b-card--cono .category-desc,
-    .category-card.b2b-card--semifreddi .category-desc,
     .category-card.b2b-card--cialde .category-desc,
     .category-card.b2b-card--contenitori .category-desc{
       color:rgba(255,255,255,0.88);
@@ -492,7 +476,13 @@
       .modal__body{ grid-template-columns:200px 1fr; }
     }
     @media(max-width:720px){
-      .modal{ width:100%; height:100%; max-height:100%; border-radius:0; }
+      .modal{
+        width:100%;
+        height:auto;
+        max-height:calc(100% - 64px);
+        border-radius:18px;
+        margin-top:12px;
+      }
       .gelato-card.is-expanded{ grid-column:span 2; grid-row:span 2; }
       .modal__body{ grid-template-columns:1fr; }
       .modal__sidebar{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); }
@@ -501,7 +491,7 @@
       .gelato-card__details{ transition:none; }
 
       /* Modal mobile: compatta come inspiration */
-      .modal-overlay{ padding:42px 12px 22px; align-items:center; }
+      .modal-overlay{ padding:42px 12px 22px; align-items:flex-start; }
       .modal__header{ padding:16px 18px; }
       .modal__title{ font-size:clamp(16px, 5.6vw, 22px); letter-spacing:0.8px; }
       .modal__close{ font-size:22px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(30,57,141,0.08); }
@@ -619,14 +609,6 @@
         </article>
         <article class="category-card b2b-card--torte" data-category="TORTE" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.TORTE"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
-        </article>
-        <article class="category-card b2b-card--semifreddi" data-category="SEMIFREDDI" role="button" tabindex="0" aria-haspopup="dialog">
-          <h3 class="category-title" data-i18n="b2b.categories.SEMIFREDDI"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
-        </article>
-        <article class="category-card b2b-card--barattoli" data-category="BARATTOLI" role="button" tabindex="0" aria-haspopup="dialog">
-          <h3 class="category-title" data-i18n="b2b.categories.BARATTOLI"></h3>
           <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
         <article class="category-card b2b-card--coppette" data-category="COPPETTE" role="button" tabindex="0" aria-haspopup="dialog">
@@ -820,7 +802,7 @@
           'b2b.areas.label': 'Aree B2B',
           'b2b.areas.title': 'Aree B2B',
           'b2b.categories.desc': 'Contenuto in preparazione.<br>Questa sezione verrà arricchita con informazioni dedicate.',
-          'b2b.categories.GELATO': 'GELATO',
+          'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'VASCHE',
           'b2b.categories.PEZZI_DURI': 'PEZZI DURI',
           'b2b.categories.TORTE': 'TORTE',
@@ -1021,7 +1003,7 @@
           'b2b.areas.label': 'B2B areas',
           'b2b.areas.title': 'B2B areas',
           'b2b.categories.desc': 'Content in progress.<br>This section will be enriched with dedicated information.',
-          'b2b.categories.GELATO': 'GELATO',
+          'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'TUBS',
           'b2b.categories.PEZZI_DURI': 'HARD ITEMS',
           'b2b.categories.TORTE': 'CAKES',
@@ -1222,7 +1204,7 @@
           'b2b.areas.label': 'Zones B2B',
           'b2b.areas.title': 'Zones B2B',
           'b2b.categories.desc': 'Contenu en préparation.<br>Cette section sera enrichie avec des informations dédiées.',
-          'b2b.categories.GELATO': 'GELATO',
+          'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'BACS',
           'b2b.categories.PEZZI_DURI': 'PIÈCES DURES',
           'b2b.categories.TORTE': 'GÂTEAUX',
@@ -1423,7 +1405,7 @@
           'b2b.areas.label': 'Áreas B2B',
           'b2b.areas.title': 'Áreas B2B',
           'b2b.categories.desc': 'Contenido en preparación.<br>Esta sección se enriquecerá con información dedicada.',
-          'b2b.categories.GELATO': 'GELATO',
+          'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'CUBAS',
           'b2b.categories.PEZZI_DURI': 'PIEZAS DURAS',
           'b2b.categories.TORTE': 'TARTAS',
@@ -1782,6 +1764,8 @@
       const defaultContent = document.getElementById('b2bDefaultContent');
       let activeGelatoId = '';
       let expandedFlavorId = '';
+      let lastGridRects = null;
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       const categories = Array.from(cards).map((card) => card.getAttribute('data-category'));
       let activeCategory = categories[0] || '';
@@ -2006,6 +1990,16 @@
             btn.innerHTML = mediaBlock;
           }
           btn.addEventListener('click', () => {
+            if (gelatoGrid && !prefersReducedMotion) {
+              lastGridRects = new Map();
+              gelatoGrid.querySelectorAll('.gelato-card').forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const id = card.dataset.flavorId;
+                if (id) lastGridRects.set(id, rect);
+              });
+            } else {
+              lastGridRects = null;
+            }
             expandedFlavorId = expandedFlavorId === flavor.id ? '' : flavor.id;
             renderGelatoGrid();
             if(expandedFlavorId){
@@ -2017,6 +2011,31 @@
           });
           gelatoGrid.appendChild(btn);
         });
+
+        if (lastGridRects && !prefersReducedMotion) {
+          const newCards = gelatoGrid.querySelectorAll('.gelato-card');
+          newCards.forEach((card) => {
+            const id = card.dataset.flavorId;
+            const first = id ? lastGridRects.get(id) : null;
+            if (!first) return;
+            const last = card.getBoundingClientRect();
+            const dx = first.left - last.left;
+            const dy = first.top - last.top;
+            const sx = first.width / last.width;
+            const sy = first.height / last.height;
+            card.animate(
+              [
+                { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
+                { transform: 'translate(0, 0) scale(1, 1)' }
+              ],
+              {
+                duration: 280,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+              }
+            );
+          });
+          lastGridRects = null;
+        }
       }
 
       function renderCategoryNav(){
