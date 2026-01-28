@@ -197,10 +197,88 @@
     .corporate-card:hover::after{ opacity:1; }
     .corporate-card h3{ margin-bottom:12px; font-size:15px; text-transform:uppercase; letter-spacing:1.4px; color:var(--badiani-blue); }
     .corporate-card .list{ padding-left:18px; margin:0; }
+    .corporate-gallery-title{
+      font-size:clamp(22px, 3vw, 32px);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      color:#1e398d;
+      margin:30px 0 24px;
+      text-align:center;
+      font-weight:700;
+      position:relative;
+      z-index:5;
+    }
     .corporate-gallery{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
-    .corporate-gallery .gallery-card{ transform:translateY(20px); opacity:0; transition:transform 0.6s ease, opacity 0.6s ease; }
+    .corporate-gallery .gallery-card{ transform:translateY(20px); opacity:0; transition:transform 0.6s ease, opacity 0.6s ease; cursor:pointer; }
     .corporate-highlight.is-visible .corporate-gallery .gallery-card{ transform:translateY(0); opacity:1; }
     .corporate-highlight.is-visible .corporate-gallery .gallery-card:nth-child(2){ transition-delay:0.15s; }
+
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.92);
+      z-index:10000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      animation:none !important;
+      transform:none !important;
+    }
+    .lightbox.active{
+      display:flex;
+      opacity:1;
+    }
+    .lightbox img{
+      max-width:90vw;
+      max-height:90vh;
+      object-fit:contain;
+      border-radius:12px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-close{
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:rgba(255,255,255,0.15);
+      border:none;
+      color:#fff;
+      font-size:36px;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      cursor:pointer;
+      transition:background 0.3s;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lightbox-close:hover{
+      background:var(--badiani-pink);
+    }
+    .lightbox-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,0.15);
+      border:none;
+      color:#fff;
+      font-size:32px;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      cursor:pointer;
+      transition:background 0.3s;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lightbox-nav:hover{
+      background:var(--badiani-pink);
+    }
+    .lightbox-prev{ left:20px; }
+    .lightbox-next{ right:20px; }
     .corporate-cta{
       display:flex;
       flex-wrap:wrap;
@@ -294,6 +372,91 @@
         transform:none;
         box-shadow:0 16px 40px rgba(0,0,0,0.12);
       }
+
+      /* Corporate section mobile */
+      .corporate-highlight{
+        margin:40px -16px 50px;
+        padding:28px 16px;
+        border-radius:0;
+      }
+      .corporate-header{
+        gap:10px;
+      }
+      .corporate-header .section-title{
+        font-size:clamp(18px, 5vw, 24px);
+        text-align:center;
+      }
+      .corporate-header p{
+        font-size:14px;
+        text-align:center;
+      }
+      .corporate-pill-row{
+        display:flex;
+        gap:8px;
+        overflow-x:auto;
+        padding:6px 0 10px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .corporate-pill-row::-webkit-scrollbar{ display:none; }
+      .corporate-pill{
+        flex:0 0 auto;
+        scroll-snap-align:start;
+        padding:6px 12px;
+        font-size:11px;
+      }
+      .corporate-grid{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        padding:6px 0 10px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .corporate-grid::-webkit-scrollbar{ display:none; }
+      .corporate-card{
+        flex:0 0 75vw;
+        max-width:300px;
+        min-width:240px;
+        scroll-snap-align:start;
+        padding:18px;
+      }
+      .corporate-card h3{
+        font-size:13px;
+      }
+      .corporate-card .list{
+        font-size:13px;
+      }
+      .corporate-card .list li{
+        padding:6px 0;
+      }
+      .corporate-cta{
+        flex-direction:column;
+        text-align:center;
+        padding:14px 16px;
+        gap:10px;
+      }
+      .corporate-cta strong{
+        font-size:14px;
+      }
+      .corporate-cta .pill{
+        font-size:12px;
+      }
+      .corporate-gallery{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        padding:6px 0 10px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+      }
+      .corporate-gallery::-webkit-scrollbar{ display:none; }
+      .gallery-card{
+        flex:0 0 70vw;
+        max-width:260px;
+        min-width:200px;
+        scroll-snap-align:start;
+      }
     }
 
     @media(max-width:600px){
@@ -326,14 +489,10 @@
   </header>
 
   <main class="page-shell">
-    <section class="hero" data-i18n-attr="aria-label:eventi.hero.label">
-      <h1 data-i18n="eventi.hero.title">Eventi Badiani</h1>
-      <p data-i18n="eventi.hero.desc">Seleziona la tipologia di evento per scoprire i dettagli e richiedere un preventivo personalizzato.</p>
-    </section>
-
+    <h1 style="font-size:clamp(32px, 5vw, 56px); color:#1e398d; text-transform:uppercase; letter-spacing:3px; text-align:center; margin-bottom:40px;">Eventi</h1>
+    
     <section data-i18n-attr="aria-label:eventi.types.label">
-      <span class="tag" data-i18n="eventi.types.tag">Tipologie</span>
-      <h2 class="section-title" data-i18n="eventi.types.title">Eventi</h2>
+      <span class="tag" style="margin-bottom:15px; display:inline-block;" data-i18n="eventi.types.tag">Tipologie</span>
       <div class="van-grid">
         <a class="van-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
           <div class="van-card__media">
@@ -406,12 +565,13 @@
           <span class="pill" data-i18n="eventi.corporate.intro2">Ogni azienda ha un'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</span>
         </div>
 
+        <h3 style="font-size:28px; text-transform:uppercase; letter-spacing:3px; color:#1e398d; margin:30px 0 24px; text-align:center; font-weight:700; position:relative; z-index:10;">FOTO EVENTI</h3>
         <div class="corporate-gallery">
-          <div class="gallery-card">
+          <div class="gallery-card" onclick="openEventLightbox(0)">
             <img src="./foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Steve Madden" />
             <span>Steve Madden</span>
           </div>
-          <div class="gallery-card">
+          <div class="gallery-card" onclick="openEventLightbox(1)">
             <img src="../assets/extracted/1b2a5cc62945aea094a8e00e488dd08378eef958.webp" alt="Menarini" />
             <span>Menarini</span>
           </div>
@@ -465,7 +625,60 @@
     </section>
   </main>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="eventLightbox" onclick="closeEventLightbox(event)">
+    <button class="lightbox-close" onclick="closeEventLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevEventImage(event)">&#10094;</button>
+    <img id="eventLightbox-img" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" onclick="nextEventImage(event)">&#10095;</button>
+  </div>
+
   <script>
+    // Lightbox functions for event gallery
+    const eventImages = [
+      './foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg',
+      '../assets/extracted/1b2a5cc62945aea094a8e00e488dd08378eef958.webp'
+    ];
+    let currentEventIndex = 0;
+
+    function openEventLightbox(index) {
+      currentEventIndex = index;
+      const lightbox = document.getElementById('eventLightbox');
+      const img = document.getElementById('eventLightbox-img');
+      img.src = eventImages[index];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEventLightbox(e) {
+      if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
+      const lightbox = document.getElementById('eventLightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function prevEventImage(e) {
+      e.stopPropagation();
+      currentEventIndex = (currentEventIndex - 1 + eventImages.length) % eventImages.length;
+      document.getElementById('eventLightbox-img').src = eventImages[currentEventIndex];
+    }
+
+    function nextEventImage(e) {
+      e.stopPropagation();
+      currentEventIndex = (currentEventIndex + 1) % eventImages.length;
+      document.getElementById('eventLightbox-img').src = eventImages[currentEventIndex];
+    }
+
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('eventLightbox');
+      if (lightbox && lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeEventLightbox();
+        if (e.key === 'ArrowLeft') prevEventImage(e);
+        if (e.key === 'ArrowRight') nextEventImage(e);
+      }
+    });
+
     // i18n System
     (function(){
       const SUPPORTED = ['it','en','fr','es'];
