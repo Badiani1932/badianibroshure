@@ -89,72 +89,82 @@
   </style>
 </head>
 <body>
-  <header class="topbar" aria-label="Barra brand">
+  <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <div class="topbar__logo">
       <img src="../assets/extracted/f473fa4a48ae6948929084c736e84f6274322e2d.webp" alt="Badiani 1932" />
     </div>
-    <nav class="topbar__nav" aria-label="Navigazione principale">
-      <a href="../">Home</a>
-      <a href="../b2b/">B2B</a>
-    </nav>
+    <div class="topbar__right">
+      <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
+        <a href="../" data-i18n="nav.home">Home</a>
+        <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+      </nav>
+      <div class="topbar__lang">
+        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+          <option value="it" data-i18n="lang.it"></option>
+          <option value="en" data-i18n="lang.en"></option>
+          <option value="es" data-i18n="lang.es"></option>
+          <option value="fr" data-i18n="lang.fr"></option>
+        </select>
+      </div>
+    </div>
   </header>
 
   <main class="page-shell">
-    <section class="hero" aria-label="Eventi Badiani">
-      <h1>Eventi Badiani</h1>
-      <p>Seleziona la tipologia di evento per scoprire i dettagli e richiedere un preventivo personalizzato.</p>
+    <section class="hero" data-i18n-attr="aria-label:eventi.hero.label">
+      <h1 data-i18n="eventi.hero.title">Eventi Badiani</h1>
+      <p data-i18n="eventi.hero.desc">Seleziona la tipologia di evento per scoprire i dettagli e richiedere un preventivo personalizzato.</p>
     </section>
 
-    <section aria-label="Tipologie eventi">
-      <span class="tag">Tipologie</span>
-      <h2 class="section-title">Eventi</h2>
+    <section data-i18n-attr="aria-label:eventi.types.label">
+      <span class="tag" data-i18n="eventi.types.tag">Tipologie</span>
+      <h2 class="section-title" data-i18n="eventi.types.title">Eventi</h2>
       <div class="event-grid">
-        <a class="event-card" href="./saletta-privata-tosinghi/" aria-label="Vai alla pagina Saletta privata Tosinghi">
-          <img src="../assets/extracted/a7a56600066a6e356fdf55d5683807c4328d597b.webp" alt="Saletta privata Tosinghi" />
+        <a class="event-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
+          <img src="../assets/extracted/a7a56600066a6e356fdf55d5683807c4328d597b.webp" data-i18n-attr="alt:eventi.tosinghi.alt" />
           <div class="event-card__overlay">
-            <h3 class="event-card__title">Saletta privata Tosinghi</h3>
-            <p class="event-card__desc">Il tuo party nella nostra saletta privata con pacchetti su misura.</p>
+            <h3 class="event-card__title" data-i18n="eventi.tosinghi.title">Saletta privata Tosinghi</h3>
+            <p class="event-card__desc" data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata con pacchetti su misura.</p>
           </div>
         </a>
-        <a class="event-card" href="./evento-esterno/" aria-label="Vai alla pagina Evento esterno">
-          <img src="../assets/extracted/5a21d37ff7aad42e4cbf72325d7f2285026d0fda.webp" alt="Evento esterno" />
+        <a class="event-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
+          <img src="../assets/extracted/5a21d37ff7aad42e4cbf72325d7f2285026d0fda.webp" data-i18n-attr="alt:eventi.external.alt" />
           <div class="event-card__overlay">
-            <h3 class="event-card__title">Evento esterno</h3>
-            <p class="event-card__desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</p>
+            <h3 class="event-card__title" data-i18n="eventi.external.title">Evento esterno</h3>
+            <p class="event-card__desc" data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</p>
           </div>
         </a>
       </div>
     </section>
 
-    <section aria-label="Gelato van">
-      <h2 class="section-title">GELATO VAN</h2>
-      <div class="coming-soon">COMING SOON</div>
+    <section data-i18n-attr="aria-label:eventi.van.label">
+      <h2 class="section-title" data-i18n="eventi.van.title">GELATO VAN</h2>
+      <div class="coming-soon" data-i18n="eventi.van.status">COMING SOON</div>
     </section>
 
-    <section aria-label="Speciale aziende">
-      <h2 class="section-title">CREA IL TUO EVENTO AZIENDALE SU MISURA</h2>
-      <p>Crea un evento unico, pensato intorno al tuo brand</p>
-      <p>Ogni azienda ha un’identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</p>
+    <section data-i18n-attr="aria-label:eventi.corporate.label">
+      <h2 class="section-title" data-i18n="eventi.corporate.title">CREA IL TUO EVENTO AZIENDALE SU MISURA</h2>
+      <p data-i18n="eventi.corporate.intro1">Crea un evento unico, pensato intorno al tuo brand</p>
+      <p data-i18n="eventi.corporate.intro2">Ogni azienda ha un'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</p>
 
       <div class="dual-list" style="margin-top:24px;">
         <div>
-          <h3 class="tag">Cosa possiamo personalizzare</h3>
+          <h3 class="tag" data-i18n="eventi.corporate.custom.title">Cosa possiamo personalizzare</h3>
           <ul class="list">
-            <li>Tipologia di servizio gelato</li>
-            <li>Selezione dei gusti (possibilità di avere gusti personalizzati e/o su richiesta)</li>
-            <li>Allestimento dell’evento</li>
-            <li>Branding personalizzato</li>
-            <li>Concept creativo in linea con il tuo brand</li>
+            <li data-i18n="eventi.corporate.custom.item1">Tipologia di servizio gelato</li>
+            <li data-i18n="eventi.corporate.custom.item2">Selezione dei gusti (possibilità di avere gusti personalizzati e/o su richiesta)</li>
+            <li data-i18n="eventi.corporate.custom.item3">Allestimento dell'evento</li>
+            <li data-i18n="eventi.corporate.custom.item4">Branding personalizzato</li>
+            <li data-i18n="eventi.corporate.custom.item5">Concept creativo in linea con il tuo brand</li>
           </ul>
         </div>
         <div>
-          <h3 class="tag">Ideale per</h3>
+          <h3 class="tag" data-i18n="eventi.corporate.ideal.title">Ideale per</h3>
           <ul class="list">
-            <li>Eventi aziendali</li>
-            <li>Inaugurazioni</li>
-            <li>Attivazioni in store</li>
-            <li>Conferenze e press day</li>
-            <li>Eventi corporate e team building</li>
+            <li data-i18n="eventi.corporate.ideal.item1">Eventi aziendali</li>
+            <li data-i18n="eventi.corporate.ideal.item2">Inaugurazioni</li>
+            <li data-i18n="eventi.corporate.ideal.item3">Attivazioni in store</li>
+            <li data-i18n="eventi.corporate.ideal.item4">Conferenze e press day</li>
+            <li data-i18n="eventi.corporate.ideal.item5">Eventi corporate e team building</li>
           </ul>
         </div>
       </div>
@@ -171,50 +181,369 @@
       </div>
     </section>
 
-    <section id="contatti" aria-label="Contatti eventi">
-      <h2 class="section-title">Contatti</h2>
+    <section id="contatti" data-i18n-attr="aria-label:eventi.contact.label">
+      <h2 class="section-title" data-i18n="eventi.contact.title">Contatti</h2>
       <div class="contact-block">
         <form action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain">
           <div class="contact-grid">
             <div>
-              <label for="tipoRichiesta">Tipo richiesta</label>
-              <select id="tipoRichiesta" name="tipoRichiesta" aria-label="Tipo richiesta">
-                <option>Evento</option>
-                <option>B2B</option>
+              <label for="tipoRichiesta" data-i18n="eventi.contact.form.type">Tipo richiesta</label>
+              <select id="tipoRichiesta" name="tipoRichiesta" data-i18n-attr="aria-label:eventi.contact.form.type">
+                <option data-i18n="eventi.contact.form.type.event">Evento</option>
+                <option data-i18n="eventi.contact.form.type.b2b">B2B</option>
               </select>
             </div>
             <div>
-              <label for="nome">Nome</label>
+              <label for="nome" data-i18n="eventi.contact.form.name">Nome</label>
               <input id="nome" name="nome" type="text" autocomplete="name" required />
             </div>
             <div>
-              <label for="azienda">Azienda</label>
+              <label for="azienda" data-i18n="eventi.contact.form.company">Azienda</label>
               <input id="azienda" name="azienda" type="text" autocomplete="organization" />
             </div>
             <div>
-              <label for="email">Email</label>
+              <label for="email" data-i18n="eventi.contact.form.email">Email</label>
               <input id="email" name="email" type="email" autocomplete="email" required />
             </div>
             <div>
-              <label for="telefono">Telefono</label>
+              <label for="telefono" data-i18n="eventi.contact.form.phone">Telefono</label>
               <input id="telefono" name="telefono" type="tel" autocomplete="tel" />
             </div>
             <div style="grid-column:1/-1;">
-              <label for="messaggio">Messaggio</label>
+              <label for="messaggio" data-i18n="eventi.contact.form.message">Messaggio</label>
               <textarea id="messaggio" name="messaggio" required></textarea>
             </div>
           </div>
           <div class="contact-actions">
             <label class="privacy-row">
-              <input type="checkbox" required aria-label="Accetta privacy" />
-              <span>Ho letto e accetto la privacy policy. TODO: integrare link privacy.</span>
+              <input type="checkbox" required data-i18n-attr="aria-label:eventi.contact.form.privacy.aria" />
+              <span data-i18n="eventi.contact.form.privacy.text">Ho letto e accetto la privacy policy. TODO: integrare link privacy.</span>
             </label>
-            <button type="submit" aria-label="Invia richiesta">Invia richiesta</button>
+            <button type="submit" data-i18n-attr="aria-label:eventi.contact.form.submit.aria" data-i18n="eventi.contact.form.submit">Invia richiesta</button>
           </div>
-          <p class="contact-note">TODO: integrare backend per invio form. Email eventi: eventi@badiani1932.com</p>
+          <p class="contact-note" data-i18n="eventi.contact.form.note">TODO: integrare backend per invio form. Email eventi: eventi@badiani1932.com</p>
         </form>
       </div>
     </section>
   </main>
+
+  <script>
+    // i18n System
+    (function(){
+      const SUPPORTED = ['it','en','fr','es'];
+      const DEFAULT_LANG = 'it';
+      const STORAGE_KEY = 'badianiLang';
+
+      const STRINGS = {
+        it: {
+          'meta.title': 'Eventi — Badiani 1932',
+          'topbar.label': 'Barra brand',
+          'nav.label': 'Navigazione principale',
+          'lang.label': 'Selettore lingua',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Home',
+          'nav.b2b': 'B2B',
+          'eventi.hero.label': 'Eventi Badiani',
+          'eventi.hero.title': 'Eventi Badiani',
+          'eventi.hero.desc': 'Seleziona la tipologia di evento per scoprire i dettagli e richiedere un preventivo personalizzato.',
+          'eventi.types.label': 'Tipologie eventi',
+          'eventi.types.tag': 'Tipologie',
+          'eventi.types.title': 'Eventi',
+          'eventi.tosinghi.aria': 'Vai alla pagina Saletta privata Tosinghi',
+          'eventi.tosinghi.alt': 'Saletta privata Tosinghi',
+          'eventi.tosinghi.title': 'Saletta privata Tosinghi',
+          'eventi.tosinghi.desc': 'Il tuo party nella nostra saletta privata con pacchetti su misura.',
+          'eventi.external.aria': 'Vai alla pagina Evento esterno',
+          'eventi.external.alt': 'Evento esterno',
+          'eventi.external.title': 'Evento esterno',
+          'eventi.external.desc': 'Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.',
+          'eventi.van.label': 'Gelato van',
+          'eventi.van.title': 'GELATO VAN',
+          'eventi.van.status': 'COMING SOON',
+          'eventi.corporate.label': 'Speciale aziende',
+          'eventi.corporate.title': 'CREA IL TUO EVENTO AZIENDALE SU MISURA',
+          'eventi.corporate.intro1': 'Crea un evento unico, pensato intorno al tuo brand',
+          'eventi.corporate.intro2': 'Ogni azienda ha un\'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.',
+          'eventi.corporate.custom.title': 'Cosa possiamo personalizzare',
+          'eventi.corporate.custom.item1': 'Tipologia di servizio gelato',
+          'eventi.corporate.custom.item2': 'Selezione dei gusti (possibilità di avere gusti personalizzati e/o su richiesta)',
+          'eventi.corporate.custom.item3': 'Allestimento dell\'evento',
+          'eventi.corporate.custom.item4': 'Branding personalizzato',
+          'eventi.corporate.custom.item5': 'Concept creativo in linea con il tuo brand',
+          'eventi.corporate.ideal.title': 'Ideale per',
+          'eventi.corporate.ideal.item1': 'Eventi aziendali',
+          'eventi.corporate.ideal.item2': 'Inaugurazioni',
+          'eventi.corporate.ideal.item3': 'Attivazioni in store',
+          'eventi.corporate.ideal.item4': 'Conferenze e press day',
+          'eventi.corporate.ideal.item5': 'Eventi corporate e team building',
+          'eventi.contact.label': 'Contatti eventi',
+          'eventi.contact.title': 'Contatti',
+          'eventi.contact.form.type': 'Tipo richiesta',
+          'eventi.contact.form.type.event': 'Evento',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Nome',
+          'eventi.contact.form.company': 'Azienda',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Telefono',
+          'eventi.contact.form.message': 'Messaggio',
+          'eventi.contact.form.privacy.aria': 'Accetta privacy',
+          'eventi.contact.form.privacy.text': 'Ho letto e accetto la privacy policy. TODO: integrare link privacy.',
+          'eventi.contact.form.submit.aria': 'Invia richiesta',
+          'eventi.contact.form.submit': 'Invia richiesta',
+          'eventi.contact.form.note': 'TODO: integrare backend per invio form. Email eventi: eventi@badiani1932.com'
+        },
+        en: {
+          'meta.title': 'Events — Badiani 1932',
+          'topbar.label': 'Brand bar',
+          'nav.label': 'Main navigation',
+          'lang.label': 'Language selector',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Home',
+          'nav.b2b': 'B2B',
+          'eventi.hero.label': 'Badiani Events',
+          'eventi.hero.title': 'Badiani Events',
+          'eventi.hero.desc': 'Select the event type to discover details and request a personalized quote.',
+          'eventi.types.label': 'Event types',
+          'eventi.types.tag': 'Types',
+          'eventi.types.title': 'Events',
+          'eventi.tosinghi.aria': 'Go to Tosinghi Private Room page',
+          'eventi.tosinghi.alt': 'Tosinghi Private Room',
+          'eventi.tosinghi.title': 'Tosinghi Private Room',
+          'eventi.tosinghi.desc': 'Your party in our private room with tailored packages.',
+          'eventi.external.aria': 'Go to External Event page',
+          'eventi.external.alt': 'External Event',
+          'eventi.external.title': 'External Event',
+          'eventi.external.desc': 'Mobile solutions to bring Badiani everywhere: cool box, cart, display.',
+          'eventi.van.label': 'Gelato van',
+          'eventi.van.title': 'GELATO VAN',
+          'eventi.van.status': 'COMING SOON',
+          'eventi.corporate.label': 'Corporate special',
+          'eventi.corporate.title': 'CREATE YOUR TAILORED CORPORATE EVENT',
+          'eventi.corporate.intro1': 'Create a unique event, designed around your brand',
+          'eventi.corporate.intro2': 'Every company has a different identity. That\'s why we create personalized events, tailored to your needs, context and type of audience.',
+          'eventi.corporate.custom.title': 'What we can customize',
+          'eventi.corporate.custom.item1': 'Gelato service type',
+          'eventi.corporate.custom.item2': 'Flavor selection (possibility of customized and/or on-demand flavors)',
+          'eventi.corporate.custom.item3': 'Event setup',
+          'eventi.corporate.custom.item4': 'Personalized branding',
+          'eventi.corporate.custom.item5': 'Creative concept aligned with your brand',
+          'eventi.corporate.ideal.title': 'Ideal for',
+          'eventi.corporate.ideal.item1': 'Corporate events',
+          'eventi.corporate.ideal.item2': 'Inaugurations',
+          'eventi.corporate.ideal.item3': 'In-store activations',
+          'eventi.corporate.ideal.item4': 'Conferences and press days',
+          'eventi.corporate.ideal.item5': 'Corporate events and team building',
+          'eventi.contact.label': 'Events contacts',
+          'eventi.contact.title': 'Contacts',
+          'eventi.contact.form.type': 'Request type',
+          'eventi.contact.form.type.event': 'Event',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Name',
+          'eventi.contact.form.company': 'Company',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Phone',
+          'eventi.contact.form.message': 'Message',
+          'eventi.contact.form.privacy.aria': 'Accept privacy',
+          'eventi.contact.form.privacy.text': 'I have read and accept the privacy policy. TODO: integrate privacy link.',
+          'eventi.contact.form.submit.aria': 'Send request',
+          'eventi.contact.form.submit': 'Send request',
+          'eventi.contact.form.note': 'TODO: integrate backend for form submission. Events email: eventi@badiani1932.com'
+        },
+        fr: {
+          'meta.title': 'Événements — Badiani 1932',
+          'topbar.label': 'Barre de marque',
+          'nav.label': 'Navigation principale',
+          'lang.label': 'Sélecteur de langue',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Accueil',
+          'nav.b2b': 'B2B',
+          'eventi.hero.label': 'Événements Badiani',
+          'eventi.hero.title': 'Événements Badiani',
+          'eventi.hero.desc': 'Sélectionnez le type d\'événement pour découvrir les détails et demander un devis personnalisé.',
+          'eventi.types.label': 'Types d\'événements',
+          'eventi.types.tag': 'Types',
+          'eventi.types.title': 'Événements',
+          'eventi.tosinghi.aria': 'Aller à la page Salle Privée Tosinghi',
+          'eventi.tosinghi.alt': 'Salle Privée Tosinghi',
+          'eventi.tosinghi.title': 'Salle Privée Tosinghi',
+          'eventi.tosinghi.desc': 'Votre fête dans notre salle privée avec des forfaits sur mesure.',
+          'eventi.external.aria': 'Aller à la page Événement Externe',
+          'eventi.external.alt': 'Événement Externe',
+          'eventi.external.title': 'Événement Externe',
+          'eventi.external.desc': 'Solutions mobiles pour amener Badiani partout : cool box, chariot, vitrine.',
+          'eventi.van.label': 'Van à gelato',
+          'eventi.van.title': 'VAN À GELATO',
+          'eventi.van.status': 'BIENTÔT DISPONIBLE',
+          'eventi.corporate.label': 'Spécial entreprises',
+          'eventi.corporate.title': 'CRÉEZ VOTRE ÉVÉNEMENT D\'ENTREPRISE SUR MESURE',
+          'eventi.corporate.intro1': 'Créez un événement unique, pensé autour de votre marque',
+          'eventi.corporate.intro2': 'Chaque entreprise a une identité différente. C\'est pourquoi nous réalisons des événements personnalisés, conçus sur mesure selon vos besoins, le contexte et le type de public.',
+          'eventi.corporate.custom.title': 'Ce que nous pouvons personnaliser',
+          'eventi.corporate.custom.item1': 'Type de service gelato',
+          'eventi.corporate.custom.item2': 'Sélection des parfums (possibilité d\'avoir des parfums personnalisés et/ou sur demande)',
+          'eventi.corporate.custom.item3': 'Aménagement de l\'événement',
+          'eventi.corporate.custom.item4': 'Branding personnalisé',
+          'eventi.corporate.custom.item5': 'Concept créatif aligné avec votre marque',
+          'eventi.corporate.ideal.title': 'Idéal pour',
+          'eventi.corporate.ideal.item1': 'Événements d\'entreprise',
+          'eventi.corporate.ideal.item2': 'Inaugurations',
+          'eventi.corporate.ideal.item3': 'Activations en magasin',
+          'eventi.corporate.ideal.item4': 'Conférences et jours de presse',
+          'eventi.corporate.ideal.item5': 'Événements corporate et team building',
+          'eventi.contact.label': 'Contacts événements',
+          'eventi.contact.title': 'Contacts',
+          'eventi.contact.form.type': 'Type de demande',
+          'eventi.contact.form.type.event': 'Événement',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Nom',
+          'eventi.contact.form.company': 'Entreprise',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Téléphone',
+          'eventi.contact.form.message': 'Message',
+          'eventi.contact.form.privacy.aria': 'Accepter la confidentialité',
+          'eventi.contact.form.privacy.text': 'J\'ai lu et j\'accepte la politique de confidentialité. TODO: intégrer le lien de confidentialité.',
+          'eventi.contact.form.submit.aria': 'Envoyer la demande',
+          'eventi.contact.form.submit': 'Envoyer la demande',
+          'eventi.contact.form.note': 'TODO: intégrer le backend pour l\'envoi du formulaire. Email événements: eventi@badiani1932.com'
+        },
+        es: {
+          'meta.title': 'Eventos — Badiani 1932',
+          'topbar.label': 'Barra de marca',
+          'nav.label': 'Navegación principal',
+          'lang.label': 'Selector de idioma',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Inicio',
+          'nav.b2b': 'B2B',
+          'eventi.hero.label': 'Eventos Badiani',
+          'eventi.hero.title': 'Eventos Badiani',
+          'eventi.hero.desc': 'Selecciona el tipo de evento para descubrir los detalles y solicitar un presupuesto personalizado.',
+          'eventi.types.label': 'Tipos de eventos',
+          'eventi.types.tag': 'Tipos',
+          'eventi.types.title': 'Eventos',
+          'eventi.tosinghi.aria': 'Ir a la página Sala Privada Tosinghi',
+          'eventi.tosinghi.alt': 'Sala Privada Tosinghi',
+          'eventi.tosinghi.title': 'Sala Privada Tosinghi',
+          'eventi.tosinghi.desc': 'Tu fiesta en nuestra sala privada con paquetes a medida.',
+          'eventi.external.aria': 'Ir a la página Evento Externo',
+          'eventi.external.alt': 'Evento Externo',
+          'eventi.external.title': 'Evento Externo',
+          'eventi.external.desc': 'Soluciones móviles para llevar Badiani a cualquier lugar: cool box, carrito, vitrina.',
+          'eventi.van.label': 'Furgoneta de helado',
+          'eventi.van.title': 'FURGONETA DE HELADO',
+          'eventi.van.status': 'PRÓXIMAMENTE',
+          'eventi.corporate.label': 'Especial empresas',
+          'eventi.corporate.title': 'CREA TU EVENTO CORPORATIVO A MEDIDA',
+          'eventi.corporate.intro1': 'Crea un evento único, pensado en torno a tu marca',
+          'eventi.corporate.intro2': 'Cada empresa tiene una identidad diferente. Por eso realizamos eventos personalizados, diseñados a medida según tus necesidades, contexto y tipo de público.',
+          'eventi.corporate.custom.title': 'Lo que podemos personalizar',
+          'eventi.corporate.custom.item1': 'Tipo de servicio de helado',
+          'eventi.corporate.custom.item2': 'Selección de sabores (posibilidad de tener sabores personalizados y/o bajo pedido)',
+          'eventi.corporate.custom.item3': 'Montaje del evento',
+          'eventi.corporate.custom.item4': 'Branding personalizado',
+          'eventi.corporate.custom.item5': 'Concepto creativo alineado con tu marca',
+          'eventi.corporate.ideal.title': 'Ideal para',
+          'eventi.corporate.ideal.item1': 'Eventos corporativos',
+          'eventi.corporate.ideal.item2': 'Inauguraciones',
+          'eventi.corporate.ideal.item3': 'Activaciones en tienda',
+          'eventi.corporate.ideal.item4': 'Conferencias y días de prensa',
+          'eventi.corporate.ideal.item5': 'Eventos corporativos y team building',
+          'eventi.contact.label': 'Contactos eventos',
+          'eventi.contact.title': 'Contactos',
+          'eventi.contact.form.type': 'Tipo de solicitud',
+          'eventi.contact.form.type.event': 'Evento',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Nombre',
+          'eventi.contact.form.company': 'Empresa',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Teléfono',
+          'eventi.contact.form.message': 'Mensaje',
+          'eventi.contact.form.privacy.aria': 'Aceptar privacidad',
+          'eventi.contact.form.privacy.text': 'He leído y acepto la política de privacidad. TODO: integrar enlace de privacidad.',
+          'eventi.contact.form.submit.aria': 'Enviar solicitud',
+          'eventi.contact.form.submit': 'Enviar solicitud',
+          'eventi.contact.form.note': 'TODO: integrar backend para envío de formulario. Email eventos: eventi@badiani1932.com'
+        }
+      };
+
+      function normalizeLang(lang){
+        if(!lang) return DEFAULT_LANG;
+        const base = String(lang).toLowerCase().split('-')[0];
+        return SUPPORTED.includes(base) ? base : DEFAULT_LANG;
+      }
+
+      function getInitialLang(){
+        try{
+          const params = new URLSearchParams(window.location.search || '');
+          const q = params.get('lang');
+          if(q) return normalizeLang(q);
+        }catch{}
+        try{
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if(saved) return normalizeLang(saved);
+        }catch{}
+        return normalizeLang(navigator.language || DEFAULT_LANG);
+      }
+
+      let currentLang = getInitialLang();
+
+      function t(key){
+        const dict = STRINGS[currentLang] || STRINGS[DEFAULT_LANG];
+        return dict && dict[key] ? dict[key] : '';
+      }
+
+      function applyTranslations(){
+        document.documentElement.setAttribute('lang', currentLang);
+        document.title = t('meta.title');
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if(!key) return;
+          el.textContent = t(key);
+        });
+
+        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-html');
+          if(!key) return;
+          el.innerHTML = t(key);
+        });
+
+        document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+          const raw = el.getAttribute('data-i18n-attr') || '';
+          raw.split(',').forEach((pair) => {
+            const [attr, key] = pair.split(':').map((s) => s.trim());
+            if(attr && key) el.setAttribute(attr, t(key));
+          });
+        });
+      }
+
+      function setLang(lang){
+        const next = normalizeLang(lang);
+        if(next === currentLang) return;
+        currentLang = next;
+        try{ localStorage.setItem(STORAGE_KEY, currentLang); }catch{}
+        applyTranslations();
+      }
+
+      const select = document.getElementById('langSelect');
+      if(select){
+        select.value = currentLang;
+        select.addEventListener('change', (e) => setLang(e.target.value));
+      }
+
+      applyTranslations();
+    })();
+  </script>
 </body>
 </html>

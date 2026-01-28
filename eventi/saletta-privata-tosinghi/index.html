@@ -32,10 +32,26 @@
     }
 
     .section{
+      position: relative;
+      overflow: hidden;
+      background-color: #fff;
       padding:clamp(48px, 8vw, 90px) clamp(16px, 4vw, 80px);
       max-width:1400px;
       margin:0 auto;
     }
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('../../assets/extracted/1b2a5cc62945aea094a8e00e488dd08378eef958.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .section > *{ position:relative; z-index:1; }
     .section-title{
       font-size:clamp(24px, 3vw, 38px);
       text-align:center;
@@ -63,7 +79,7 @@
       transform:translateY(-12px);
       box-shadow:0 25px 70px rgba(240,103,166,0.25);
     }
-    .package-card.silver .package-header{ background:linear-gradient(135deg, var(--badiani-blue), #2a4ab0); }
+    .package-card.silver .package-header{ background:linear-gradient(135deg, #6F7C4A, #7f8c5a); }
     .package-card.gold .package-header{ background:linear-gradient(135deg, var(--badiani-yellow), #e0ad00); }
     .package-card.platinum .package-header{ background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7); }
 
@@ -187,12 +203,12 @@
     }
     .modal-title{
       font-size:clamp(28px, 3.5vw, 42px);
-      color:#fff;
+      color:var(--badiani-blue);
       margin-bottom:10px;
     }
     .modal-subtitle{
       font-size:clamp(18px, 2vw, 24px);
-      color:rgba(255,255,255,0.9);
+      color:#4a4f57;
     }
     .modal-body{
       padding:0 40px 40px;
@@ -293,131 +309,141 @@
     <div class="topbar__logo">
       <img src="../../assets/extracted/f473fa4a48ae6948929084c736e84f6274322e2d.webp" alt="Badiani 1932" />
     </div>
-    <nav class="topbar__nav">
-      <a href="../../">Home</a>
-      <a href="../">Eventi</a>
-      <a href="../../b2b/">B2B</a>
-    </nav>
+    <div class="topbar__right">
+      <nav class="topbar__nav">
+        <a href="../../" data-i18n="nav.home">Home</a>
+        <a href="../" data-i18n="nav.eventi">Eventi</a>
+        <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
+      </nav>
+      <div class="topbar__lang">
+        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+          <option value="it" data-i18n="lang.it"></option>
+          <option value="en" data-i18n="lang.en"></option>
+          <option value="es" data-i18n="lang.es"></option>
+          <option value="fr" data-i18n="lang.fr"></option>
+        </select>
+      </div>
+    </div>
   </header>
 
   <section class="hero">
     <div>
-      <h1>Il tuo party nella nostra saletta privata</h1>
-      <p>Scegli il pacchetto perfetto per il tuo evento nella nostra elegante saletta Tosinghi a Firenze</p>
+      <h1 data-i18n="tosinghi.hero.title">Il tuo party nella nostra saletta privata</h1>
+      <p data-i18n="tosinghi.hero.desc">Scegli il pacchetto perfetto per il tuo evento nella nostra elegante saletta Tosinghi a Firenze</p>
     </div>
   </section>
 
   <section class="section">
-    <h2 class="section-title">Pacchetti Disponibili</h2>
+    <h2 class="section-title" data-i18n="tosinghi.packages.title">Pacchetti Disponibili</h2>
 
     <div class="packages-grid">
       <!-- SILVER -->
-      <article class="package-card silver" onclick="openModal('silver')" tabindex="0" aria-label="Pacchetto Silver">
+      <article class="package-card silver" onclick="openModal('silver')" tabindex="0" data-i18n-attr="aria-label:tosinghi.silver.aria">
         <div class="package-header">
           <h3 class="package-name">SILVER</h3>
-          <p class="package-price">€20,00/persona</p>
+          <p class="package-price" data-i18n="tosinghi.silver.price">€20,00/persona</p>
         </div>
         <div class="package-body">
-          <p class="package-desc">Aperitivo di base con rustici e pizzette, bevande selezionate e un'esperienza classica.</p>
+          <p class="package-desc" data-i18n="tosinghi.silver.desc">Aperitivo di base con rustici e pizzette, bevande selezionate e un'esperienza classica.</p>
           <ul class="package-features">
-            <li><strong>Food:</strong> Pizzette, tramezzini, rustici, panettone gastronomico</li>
-            <li><strong>Drink:</strong> 2 cocktail alcolici, 1 analcolico, Prosecco</li>
-            <li><strong>Durata:</strong> Fino a 1h 30min</li>
-            <li><strong>Prenotazione:</strong> Minimo 10 giorni prima</li>
+            <li data-i18n-html="tosinghi.silver.food"><strong>Food:</strong> Pizzette, tramezzini, rustici, panettone gastronomico</li>
+            <li data-i18n-html="tosinghi.silver.drink"><strong>Drink:</strong> 2 cocktail alcolici, 1 analcolico, Prosecco</li>
+            <li data-i18n-html="tosinghi.silver.duration"><strong>Durata:</strong> Fino a 1h 30min</li>
+            <li data-i18n-html="tosinghi.silver.booking"><strong>Prenotazione:</strong> Minimo 10 giorni prima</li>
           </ul>
-          <p class="package-note">IVA inclusa • 15-35 pax sedute</p>
+          <p class="package-note" data-i18n="tosinghi.silver.note">IVA inclusa • 15-35 pax sedute</p>
         </div>
       </article>
 
       <!-- GOLD -->
-      <article class="package-card gold" onclick="openModal('gold')" tabindex="0" aria-label="Pacchetto Gold">
+      <article class="package-card gold" onclick="openModal('gold')" tabindex="0" data-i18n-attr="aria-label:tosinghi.gold.aria">
         <div class="package-header">
           <h3 class="package-name">GOLD</h3>
-          <p class="package-price">€30,00/persona</p>
+          <p class="package-price" data-i18n="tosinghi.gold.price">€30,00/persona</p>
         </div>
         <div class="package-body">
-          <p class="package-desc">Pacchetto premium con finger food gourmet, cocktail d'autore e un'esperienza ricca.</p>
+          <p class="package-desc" data-i18n="tosinghi.gold.desc">Pacchetto premium con finger food gourmet, cocktail d'autore e un'esperienza ricca.</p>
           <ul class="package-features">
-            <li><strong>Food:</strong> Panettone, 5 finger food, monoporzioni dolci o Buontalenti</li>
-            <li><strong>Drink:</strong> 2 cocktail alcolici, 1 analcolico, Franciacorta</li>
-            <li><strong>Durata:</strong> Fino a 2 ore</li>
-            <li><strong>Prenotazione:</strong> Minimo 10 giorni prima</li>
+            <li data-i18n-html="tosinghi.gold.food"><strong>Food:</strong> Panettone, 5 finger food, monoporzioni dolci o Buontalenti</li>
+            <li data-i18n-html="tosinghi.gold.drink"><strong>Drink:</strong> 2 cocktail alcolici, 1 analcolico, Franciacorta</li>
+            <li data-i18n-html="tosinghi.gold.duration"><strong>Durata:</strong> Fino a 2 ore</li>
+            <li data-i18n-html="tosinghi.gold.booking"><strong>Prenotazione:</strong> Minimo 10 giorni prima</li>
           </ul>
-          <p class="package-note">IVA inclusa • 15-35 pax sedute</p>
+          <p class="package-note" data-i18n="tosinghi.gold.note">IVA inclusa • 15-35 pax sedute</p>
         </div>
       </article>
 
       <!-- PLATINUM -->
-      <article class="package-card platinum" onclick="openModal('platinum')" tabindex="0" aria-label="Pacchetto Platinum">
+      <article class="package-card platinum" onclick="openModal('platinum')" tabindex="0" data-i18n-attr="aria-label:tosinghi.platinum.aria">
         <div class="package-header">
           <h3 class="package-name">PLATINUM</h3>
-          <p class="package-price">Da €40,00/persona</p>
+          <p class="package-price" data-i18n="tosinghi.platinum.price">Da €40,00/persona</p>
         </div>
         <div class="package-body">
-          <p class="package-desc">L'esperienza definitiva con chef dedicato, champagne, servizio esclusivo e un evento completamente personalizzabile.</p>
+          <p class="package-desc" data-i18n="tosinghi.platinum.desc">L'esperienza definitiva con chef dedicato, champagne, servizio esclusivo e un evento completamente personalizzabile.</p>
           <ul class="package-features">
-            <li><strong>Food:</strong> 7 finger food, gusto gelato dedicato (35+ pax), dolci cake designer</li>
-            <li><strong>Drink:</strong> Cocktail a tema personalizzato, 1 analcolico, Champagne</li>
-            <li><strong>Durata:</strong> Fino a 2 ore</li>
-            <li><strong>Extra:</strong> Allestimento personalizzabile</li>
-            <li><strong>Prenotazione:</strong> Minimo 14 giorni prima</li>
+            <li data-i18n-html="tosinghi.platinum.food"><strong>Food:</strong> 7 finger food, gusto gelato dedicato (35+ pax), dolci cake designer</li>
+            <li data-i18n-html="tosinghi.platinum.drink"><strong>Drink:</strong> Cocktail a tema personalizzato, 1 analcolico, Champagne</li>
+            <li data-i18n-html="tosinghi.platinum.duration"><strong>Durata:</strong> Fino a 2 ore</li>
+            <li data-i18n-html="tosinghi.platinum.extra"><strong>Extra:</strong> Allestimento personalizzabile</li>
+            <li data-i18n-html="tosinghi.platinum.booking"><strong>Prenotazione:</strong> Minimo 14 giorni prima</li>
           </ul>
-          <p class="package-note">IVA inclusa • Prezzo da valutare in base a preventivo</p>
+          <p class="package-note" data-i18n="tosinghi.platinum.note">IVA inclusa • Prezzo da valutare in base a preventivo</p>
         </div>
       </article>
     </div>
 
     <!-- TERMINI E CONDIZIONI -->
     <div class="terms">
-      <h3>Termini e Condizioni</h3>
+      <h3 data-i18n="tosinghi.terms.title">Termini e Condizioni</h3>
       <ul>
-        <li><strong>Capienza:</strong> 15-35 persone sedute</li>
-        <li><strong>Extra drink:</strong> Prezzo pieno, pagamento immediato</li>
-        <li><strong>Acconto:</strong> 50% al momento della conferma</li>
-        <li><strong>Saldo:</strong> Entro il giorno dell'evento tramite bonifico</li>
+        <li data-i18n-html="tosinghi.terms.capacity"><strong>Capienza:</strong> 15-35 persone sedute</li>
+        <li data-i18n-html="tosinghi.terms.extradrink"><strong>Extra drink:</strong> Prezzo pieno, pagamento immediato</li>
+        <li data-i18n-html="tosinghi.terms.deposit"><strong>Acconto:</strong> 50% al momento della conferma</li>
+        <li data-i18n-html="tosinghi.terms.balance"><strong>Saldo:</strong> Entro il giorno dell'evento tramite bonifico</li>
       </ul>
     </div>
   </section>
 
   <!-- CONTACT FOOTER -->
   <footer class="contact-footer">
-    <h3>Richiedi Informazioni</h3>
+    <h3 data-i18n="tosinghi.contact.title">Richiedi Informazioni</h3>
     <a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a>
   </footer>
 
   <!-- MODAL SILVER -->
   <div class="modal-overlay" id="modalSilver" onclick="closeModal('silver')">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal('silver')" aria-label="Chiudi">&times;</button>
+      <button class="modal-close" onclick="closeModal('silver')" data-i18n-attr="aria-label:tosinghi.modal.close">&times;</button>
       <div class="package-header silver">
-        <h2 class="modal-title">PACCHETTO SILVER</h2>
-        <p class="modal-subtitle">€20,00 a persona (IVA inclusa)</p>
+        <h2 class="modal-title" data-i18n="tosinghi.modal.silver.title">PACCHETTO SILVER</h2>
+        <p class="modal-subtitle" data-i18n="tosinghi.modal.silver.subtitle">€20,00 a persona (IVA inclusa)</p>
       </div>
       <div class="modal-body">
         <div class="modal-section">
-          <h4>Food (tutto preparato da noi)</h4>
+          <h4 data-i18n="tosinghi.modal.silver.food.title">Food (tutto preparato da noi)</h4>
           <ul>
-            <li>Pizzette</li>
-            <li>Tramezzini</li>
-            <li>Rustici</li>
-            <li>Panettone gastronomico (con farcitura a scelta: pesce / carne / vegetariano, quantità panettoni in base al numero di persone)</li>
+            <li data-i18n="tosinghi.modal.silver.food.item1">Pizzette</li>
+            <li data-i18n="tosinghi.modal.silver.food.item2">Tramezzini</li>
+            <li data-i18n="tosinghi.modal.silver.food.item3">Rustici</li>
+            <li data-i18n="tosinghi.modal.silver.food.item4">Panettone gastronomico (con farcitura a scelta: pesce / carne / vegetariano, quantità panettoni in base al numero di persone)</li>
           </ul>
         </div>
         <div class="modal-section">
-          <h4>Drink (1 a persona, scelta tra)</h4>
+          <h4 data-i18n="tosinghi.modal.silver.drink.title">Drink (1 a persona, scelta tra)</h4>
           <ul>
-            <li>2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
-            <li>1 cocktail analcolico</li>
-            <li>Prosecco</li>
+            <li data-i18n="tosinghi.modal.silver.drink.item1">2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
+            <li data-i18n="tosinghi.modal.silver.drink.item2">1 cocktail analcolico</li>
+            <li data-i18n="tosinghi.modal.silver.drink.item3">Prosecco</li>
           </ul>
-          <p style="font-size:14px;color:#90949a;margin-top:8px;">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
+          <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.silver.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
         </div>
         <div class="modal-section">
-          <h4>Dettagli</h4>
+          <h4 data-i18n="tosinghi.modal.silver.details.title">Dettagli</h4>
           <ul>
-            <li>Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
-            <li>Durata evento: fino a 1 ora e 30 minuti</li>
-            <li>Capienza: 15-35 pax sedute</li>
+            <li data-i18n="tosinghi.modal.silver.details.booking">Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
+            <li data-i18n="tosinghi.modal.silver.details.duration">Durata evento: fino a 1 ora e 30 minuti</li>
+            <li data-i18n="tosinghi.modal.silver.details.capacity">Capienza: 15-35 pax sedute</li>
           </ul>
         </div>
       </div>
@@ -427,35 +453,35 @@
   <!-- MODAL GOLD -->
   <div class="modal-overlay" id="modalGold" onclick="closeModal('gold')">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal('gold')" aria-label="Chiudi">&times;</button>
+      <button class="modal-close" onclick="closeModal('gold')" data-i18n-attr="aria-label:tosinghi.modal.close">&times;</button>
       <div class="package-header gold">
-        <h2 class="modal-title">PACCHETTO GOLD</h2>
-        <p class="modal-subtitle">€30,00 a persona (IVA inclusa)</p>
+        <h2 class="modal-title" data-i18n="tosinghi.modal.gold.title">PACCHETTO GOLD</h2>
+        <p class="modal-subtitle" data-i18n="tosinghi.modal.gold.subtitle">€30,00 a persona (IVA inclusa)</p>
       </div>
       <div class="modal-body">
         <div class="modal-section">
-          <h4>Food (tutto preparato da noi)</h4>
+          <h4 data-i18n="tosinghi.modal.gold.food.title">Food (tutto preparato da noi)</h4>
           <ul>
-            <li>Panettone gastronomico (pesce / carne / vegetariano a scelta, quantità panettoni in base al numero di persone)</li>
-            <li>5 tipi di finger food (a scelta da lista completa da concordare)</li>
-            <li>Monoporzioni dolci o coppetta Buontalenti</li>
+            <li data-i18n="tosinghi.modal.gold.food.item1">Panettone gastronomico (pesce / carne / vegetariano a scelta, quantità panettoni in base al numero di persone)</li>
+            <li data-i18n="tosinghi.modal.gold.food.item2">5 tipi di finger food (a scelta da lista completa da concordare)</li>
+            <li data-i18n="tosinghi.modal.gold.food.item3">Monoporzioni dolci o coppetta Buontalenti</li>
           </ul>
         </div>
         <div class="modal-section">
-          <h4>Drink (1 a persona, scelta tra)</h4>
+          <h4 data-i18n="tosinghi.modal.gold.drink.title">Drink (1 a persona, scelta tra)</h4>
           <ul>
-            <li>2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
-            <li>1 cocktail analcolico</li>
-            <li>Franciacorta</li>
+            <li data-i18n="tosinghi.modal.gold.drink.item1">2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
+            <li data-i18n="tosinghi.modal.gold.drink.item2">1 cocktail analcolico</li>
+            <li data-i18n="tosinghi.modal.gold.drink.item3">Franciacorta</li>
           </ul>
-          <p style="font-size:14px;color:#90949a;margin-top:8px;">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
+          <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.gold.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
         </div>
         <div class="modal-section">
-          <h4>Dettagli</h4>
+          <h4 data-i18n="tosinghi.modal.gold.details.title">Dettagli</h4>
           <ul>
-            <li>Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
-            <li>Durata evento: fino a 2 ore</li>
-            <li>Capienza: 15-35 pax sedute</li>
+            <li data-i18n="tosinghi.modal.gold.details.booking">Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
+            <li data-i18n="tosinghi.modal.gold.details.duration">Durata evento: fino a 2 ore</li>
+            <li data-i18n="tosinghi.modal.gold.details.capacity">Capienza: 15-35 pax sedute</li>
           </ul>
         </div>
       </div>
@@ -465,43 +491,43 @@
   <!-- MODAL PLATINUM -->
   <div class="modal-overlay" id="modalPlatinum" onclick="closeModal('platinum')">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal('platinum')" aria-label="Chiudi">&times;</button>
+      <button class="modal-close" onclick="closeModal('platinum')" data-i18n-attr="aria-label:tosinghi.modal.close">&times;</button>
       <div class="package-header platinum">
-        <h2 class="modal-title">PACCHETTO PLATINUM</h2>
-        <p class="modal-subtitle">A partire da €40,00 a persona (IVA inclusa)</p>
+        <h2 class="modal-title" data-i18n="tosinghi.modal.platinum.title">PACCHETTO PLATINUM</h2>
+        <p class="modal-subtitle" data-i18n="tosinghi.modal.platinum.subtitle">A partire da €40,00 a persona (IVA inclusa)</p>
       </div>
       <div class="modal-body">
         <div class="modal-section">
-          <h4>Food (tutto preparato da noi)</h4>
+          <h4 data-i18n="tosinghi.modal.platinum.food.title">Food (tutto preparato da noi)</h4>
           <ul>
-            <li>7 tipi di finger food (a scelta da lista completa da concordare)</li>
-            <li>Possibilità di concordare un gusto di gelato dedicato (per minimo 35 pax; prezzo da concordare a parte)</li>
-            <li>Monoporzioni o dolci creati dalla cake designer a tema evento</li>
+            <li data-i18n="tosinghi.modal.platinum.food.item1">7 tipi di finger food (a scelta da lista completa da concordare)</li>
+            <li data-i18n="tosinghi.modal.platinum.food.item2">Possibilità di concordare un gusto di gelato dedicato (per minimo 35 pax; prezzo da concordare a parte)</li>
+            <li data-i18n="tosinghi.modal.platinum.food.item3">Monoporzioni o dolci creati dalla cake designer a tema evento</li>
           </ul>
         </div>
         <div class="modal-section">
-          <h4>Drink (1 a persona, scelta tra)</h4>
+          <h4 data-i18n="tosinghi.modal.platinum.drink.title">Drink (1 a persona, scelta tra)</h4>
           <ul>
-            <li>Cocktail a tema con nome personalizzato</li>
-            <li>1 cocktail analcolico</li>
-            <li>Champagne</li>
+            <li data-i18n="tosinghi.modal.platinum.drink.item1">Cocktail a tema con nome personalizzato</li>
+            <li data-i18n="tosinghi.modal.platinum.drink.item2">1 cocktail analcolico</li>
+            <li data-i18n="tosinghi.modal.platinum.drink.item3">Champagne</li>
           </ul>
-          <p style="font-size:14px;color:#90949a;margin-top:8px;">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
+          <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.platinum.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
         </div>
         <div class="modal-section">
-          <h4>Extra</h4>
+          <h4 data-i18n="tosinghi.modal.platinum.extra.title">Extra</h4>
           <ul>
-            <li>Allestimento personalizzabile</li>
-            <li>Concept creativo su misura per il tuo evento</li>
+            <li data-i18n="tosinghi.modal.platinum.extra.item1">Allestimento personalizzabile</li>
+            <li data-i18n="tosinghi.modal.platinum.extra.item2">Concept creativo su misura per il tuo evento</li>
           </ul>
         </div>
         <div class="modal-section">
-          <h4>Dettagli</h4>
+          <h4 data-i18n="tosinghi.modal.platinum.details.title">Dettagli</h4>
           <ul>
-            <li>Conferma prenotazione: minimo 14 giorni prima della data dell'evento</li>
-            <li>Durata evento: fino a 2 ore</li>
-            <li>Capienza: 15-35 pax sedute</li>
-            <li>Prezzo da valutare in base al preventivo dei prodotti scelti dalla cake designer</li>
+            <li data-i18n="tosinghi.modal.platinum.details.booking">Conferma prenotazione: minimo 14 giorni prima della data dell'evento</li>
+            <li data-i18n="tosinghi.modal.platinum.details.duration">Durata evento: fino a 2 ore</li>
+            <li data-i18n="tosinghi.modal.platinum.details.capacity">Capienza: 15-35 pax sedute</li>
+            <li data-i18n="tosinghi.modal.platinum.details.price">Prezzo da valutare in base al preventivo dei prodotti scelti dalla cake designer</li>
           </ul>
         </div>
       </div>
@@ -509,6 +535,7 @@
   </div>
 
   <script>
+    // Modal functions
     function openModal(type) {
       const modal = document.getElementById('modal' + type.charAt(0).toUpperCase() + type.slice(1));
       if (modal) {
@@ -544,6 +571,139 @@
         }
       });
     });
+
+    // i18n System
+    (function(){
+      const SUPPORTED = ['it','en','fr','es'];
+      const DEFAULT_LANG = 'it';
+      const STORAGE_KEY = 'badianiLang';
+
+      const STRINGS = {
+        it: {
+          'meta.title': 'Saletta Privata Tosinghi — Eventi Badiani',
+          'lang.label': 'Selettore lingua',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Home',
+          'nav.eventi': 'Eventi',
+          'nav.b2b': 'B2B',
+          'tosinghi.hero.title': 'Il tuo party nella nostra saletta privata',
+          'tosinghi.hero.desc': 'Scegli il pacchetto perfetto per il tuo evento nella nostra elegante saletta Tosinghi a Firenze',
+          'tosinghi.packages.title': 'Pacchetti Disponibili'
+        },
+        en: {
+          'meta.title': 'Tosinghi Private Room — Badiani Events',
+          'lang.label': 'Language selector',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Home',
+          'nav.eventi': 'Events',
+          'nav.b2b': 'B2B',
+          'tosinghi.hero.title': 'Your party in our private room',
+          'tosinghi.hero.desc': 'Choose the perfect package for your event in our elegant Tosinghi room in Florence',
+          'tosinghi.packages.title': 'Available Packages'
+        },
+        fr: {
+          'meta.title': 'Salle Privée Tosinghi — Événements Badiani',
+          'lang.label': 'Sélecteur de langue',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Accueil',
+          'nav.eventi': 'Événements',
+          'nav.b2b': 'B2B',
+          'tosinghi.hero.title': 'Votre fête dans notre salle privée',
+          'tosinghi.hero.desc': 'Choisissez le forfait parfait pour votre événement dans notre élégante salle Tosinghi à Florence',
+          'tosinghi.packages.title': 'Forfaits Disponibles'
+        },
+        es: {
+          'meta.title': 'Sala Privada Tosinghi — Eventos Badiani',
+          'lang.label': 'Selector de idioma',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Inicio',
+          'nav.eventi': 'Eventos',
+          'nav.b2b': 'B2B',
+          'tosinghi.hero.title': 'Tu fiesta en nuestra sala privada',
+          'tosinghi.hero.desc': 'Elige el paquete perfecto para tu evento en nuestra elegante sala Tosinghi en Florencia',
+          'tosinghi.packages.title': 'Paquetes Disponibles'
+        }
+      };
+
+      function normalizeLang(lang){
+        if(!lang) return DEFAULT_LANG;
+        const base = String(lang).toLowerCase().split('-')[0];
+        return SUPPORTED.includes(base) ? base : DEFAULT_LANG;
+      }
+
+      function getInitialLang(){
+        try{
+          const params = new URLSearchParams(window.location.search || '');
+          const q = params.get('lang');
+          if(q) return normalizeLang(q);
+        }catch{}
+        try{
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if(saved) return normalizeLang(saved);
+        }catch{}
+        return normalizeLang(navigator.language || DEFAULT_LANG);
+      }
+
+      let currentLang = getInitialLang();
+
+      function t(key){
+        const dict = STRINGS[currentLang] || STRINGS[DEFAULT_LANG];
+        return dict && dict[key] ? dict[key] : '';
+      }
+
+      function applyTranslations(){
+        document.documentElement.setAttribute('lang', currentLang);
+        document.title = t('meta.title');
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if(!key) return;
+          el.textContent = t(key);
+        });
+
+        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-html');
+          if(!key) return;
+          el.innerHTML = t(key);
+        });
+
+        document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+          const raw = el.getAttribute('data-i18n-attr') || '';
+          raw.split(',').forEach((pair) => {
+            const [attr, key] = pair.split(':').map((s) => s.trim());
+            if(attr && key) el.setAttribute(attr, t(key));
+          });
+        });
+      }
+
+      function setLang(lang){
+        const next = normalizeLang(lang);
+        if(next === currentLang) return;
+        currentLang = next;
+        try{ localStorage.setItem(STORAGE_KEY, currentLang); }catch{}
+        applyTranslations();
+      }
+
+      const select = document.getElementById('langSelect');
+      if(select){
+        select.value = currentLang;
+        select.addEventListener('change', (e) => setLang(e.target.value));
+      }
+
+      applyTranslations();
+    })();
   </script>
 </body>
 </html>
