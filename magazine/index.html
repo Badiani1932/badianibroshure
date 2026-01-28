@@ -10,9 +10,14 @@
     .top-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:32px; }
     .back-link{ text-decoration:none; color:var(--badiani-blue); font-weight:600; letter-spacing:1px; text-transform:uppercase; font-size:12px; }
 
-    .hero{ background:var(--surface); border-radius:28px; padding:40px; box-shadow:0 18px 40px rgba(0,0,0,0.08); margin-bottom:36px; }
-    .hero h1{ font-size:clamp(28px, 3.6vw, 46px); margin-bottom:10px; }
-    .hero p{ font-size:clamp(15px, 1.5vw, 19px); color:#6a6b6e; max-width:860px; }
+    .page-title-centered{
+      text-align:center;
+      font-size:clamp(32px, 5vw, 56px);
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      margin-bottom:40px;
+    }
 
     .magazine-wrap{ background:#f7f7fb; border-radius:28px; padding:28px; box-shadow:0 14px 30px rgba(0,0,0,0.08); }
     .magazine-header{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; }
@@ -87,7 +92,6 @@
     @media(max-width:720px){
       .news-columns{ column-count:1; }
       .magazine-controls{ display:none; }
-      .hero{ padding:28px; }
     }
   </style>
 </head>
@@ -119,10 +123,7 @@
       <span class="category-tag" data-i18n="magazine.tag">Magazine</span>
     </div>
 
-    <section class="hero" data-i18n-attr="aria-label:magazine.hero.label">
-      <h1 data-i18n="magazine.hero.title">Magazine</h1>
-      <p data-i18n="magazine.hero.subtitle">Una rassegna stampa con gli articoli che parlano di Badiani, sfogliabile come un giornale.</p>
-    </section>
+    <h1 class="page-title-centered" data-i18n="magazine.hero.title">Magazine</h1>
 
     <section class="magazine-wrap" data-i18n-attr="aria-label:magazine.list.label">
       <div class="magazine-header">
@@ -138,7 +139,7 @@
     <section class="news-columns" data-i18n-attr="aria-label:magazine.columns.label">
       <h3 data-i18n="magazine.columns.title">In breve</h3>
       <p data-i18n="magazine.columns.lead">Abbiamo raccolto link, articoli e segnalazioni dai media italiani e internazionali. Ogni card porta all’articolo originale.</p>
-      <p data-i18n="magazine.columns.note">Se vuoi aggiungere nuovi articoli, basta inserire il link nel file di rassegna stampa.</p>
+
     </section>
   </main>
 
