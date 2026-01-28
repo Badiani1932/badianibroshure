@@ -77,6 +77,33 @@
       transform:translateY(-12px);
       box-shadow:0 25px 70px rgba(0,0,0,0.25);
     }
+    .option-media{
+      position:relative;
+      width:100%;
+      height:0;
+      padding-top:100%;
+      overflow:hidden;
+      background:linear-gradient(135deg, #f5f5f5, #fff);
+      background-size:cover;
+      background-position:center center;
+      background-repeat:no-repeat;
+    }
+    .option-media img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      filter:brightness(1.03) drop-shadow(0 10px 30px rgba(0,0,0,0.18));
+      transition: transform 0.45s ease, filter 0.28s ease;
+      transform: scale(1.0);
+      will-change: transform;
+    }
+    .option-card:hover .option-media img{
+      transform:scale(1.12);
+      filter:brightness(1.08);
+    }
     .option-card.coolbox .option-header{ background:linear-gradient(135deg, #6F7C4A, #7f8c5a); }
     .option-card.carretto .option-header{ background:linear-gradient(135deg, var(--badiani-yellow), #e0ad00); }
     .option-card.vetrina .option-header{ background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7); }
@@ -155,7 +182,7 @@
       background:var(--surface);
       color:var(--badiani-gray);
       border-radius:25px;
-      max-width:900px;
+      max-width:1100px;
       width:100%;
       position:relative;
       margin:auto;
@@ -201,11 +228,49 @@
       background:#f5f6f8;
       color:var(--badiani-blue);
     }
-    .modal-body{
+    .modal-layout{
+      display:grid;
+      grid-template-columns:minmax(260px, 0.95fr) minmax(320px, 1.25fr);
+      gap:28px;
       padding:0 40px 40px;
+      align-items:start;
+    }
+    .modal-media{
+      width:100%;
+      position:relative;
+      aspect-ratio:1 / 1;
+      overflow:hidden;
+      border-radius:18px;
+      background:linear-gradient(135deg, #f5f5f5, #fff);
+      box-shadow:0 12px 35px rgba(240,103,166,0.25);
+    }
+    .modal-media img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      filter:brightness(1.02);
+    }
+    .modal-info{
+      background:linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      max-height:70vh;
+      overflow-y:auto;
     }
     .modal-section{
-      margin-bottom:30px;
+      margin-bottom:18px;
+      background:#fff;
+      border-radius:14px;
+      padding:16px 18px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+      border-left:4px solid var(--badiani-pink);
+    }
+    .modal-section:nth-child(odd){
+      border-left-color:var(--badiani-blue);
     }
     .modal-section h4{
       font-size:18px;
@@ -293,9 +358,15 @@
       .options-grid{
         grid-template-columns:1fr;
       }
-      .modal-header, .modal-body{
+      .modal-header, .modal-layout{
         padding-left:24px;
         padding-right:24px;
+      }
+      .modal-layout{
+        grid-template-columns:1fr;
+      }
+      .modal-info{
+        max-height:none;
       }
     }
   </style>
@@ -333,6 +404,9 @@
     <div class="options-grid">
       <!-- COOL BOX -->
       <article class="option-card coolbox" onclick="openModal('coolbox')" tabindex="0" data-i18n-attr="aria-label:external.coolbox.aria">
+        <div class="option-media">
+          <img src="../../assets/extracted/brochure-italia/brochure-italia_p13_2.png" alt="Cool box Badiani" data-i18n-attr="alt:external.coolbox.imageAlt" />
+        </div>
         <div class="option-header">
           <h3 class="option-name">COOL BOX</h3>
           <p class="option-subtitle" data-i18n="external.coolbox.subtitle">Pratico e versatile</p>
@@ -351,6 +425,9 @@
 
       <!-- CARRETTO E BICICLETTA -->
       <article class="option-card carretto" onclick="openModal('carretto')" tabindex="0" data-i18n-attr="aria-label:external.carretto.aria">
+        <div class="option-media">
+          <img src="../../assets/extracted/brochure-italia/brochure-italia_p14_2.png" alt="Carretto e bicicletta Badiani" data-i18n-attr="alt:external.carretto.imageAlt" />
+        </div>
         <div class="option-header">
           <h3 class="option-name">CARRETTO E BICICLETTA</h3>
           <p class="option-subtitle" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</p>
@@ -370,6 +447,9 @@
 
       <!-- VETRINA GELATO -->
       <article class="option-card vetrina" onclick="openModal('vetrina')" tabindex="0" data-i18n-attr="aria-label:external.vetrina.aria">
+        <div class="option-media">
+          <img src="../../assets/extracted/brochure-italia/brochure-italia_p15_2.png" alt="Vetrina gelato Badiani" data-i18n-attr="alt:external.vetrina.imageAlt" />
+        </div>
         <div class="option-header">
           <h3 class="option-name">VETRINA GELATO</h3>
           <p class="option-subtitle" data-i18n="external.vetrina.subtitle">Soluzione istituzionale ed elegante</p>
@@ -414,23 +494,28 @@
         <h2 class="modal-title">COOL BOX</h2>
         <p class="modal-subtitle" data-i18n="external.modal.coolbox.subtitle">Pratico e versatile</p>
       </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.coolbox.desc.title">Descrizione</h4>
-          <p data-i18n="external.modal.coolbox.desc.text">Pratico e versatile, ideale per eventi su piccola scala, da 40pax a 90pax (dipende se c'è spazio per stoccare), max 2 gusti.</p>
+      <div class="modal-layout">
+        <div class="modal-media">
+          <img src="../../assets/extracted/brochure-italia/brochure-italia_p13_2.png" alt="Cool box Badiani" data-i18n-attr="alt:external.coolbox.imageAlt" />
         </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.coolbox.cost.title">Costo Servizio</h4>
-          <ul>
-            <li data-i18n="external.modal.coolbox.cost.price">Prezzo del Gelato (prezzo da concordare in fase d'ordine)</li>
-            <li data-i18n="external.modal.coolbox.cost.service">Costo servizio 1 operatore - da definire in base al tempo</li>
-            <li data-i18n="external.modal.coolbox.cost.transport">Trasporto da definire in base alla distanza</li>
-            <li data-i18n="external.modal.coolbox.cost.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni</li>
-          </ul>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.coolbox.gallery.title">Gallery</h4>
-          <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.coolbox.gallery.text">Allegare foto esempio di eventi passati</p>
+        <div class="modal-info">
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.coolbox.desc.title">Descrizione</h4>
+            <p data-i18n="external.modal.coolbox.desc.text">Pratico e versatile, ideale per eventi su piccola scala, da 40pax a 90pax (dipende se c'è spazio per stoccare), max 2 gusti.</p>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.coolbox.cost.title">Costo Servizio</h4>
+            <ul>
+              <li data-i18n="external.modal.coolbox.cost.price">Prezzo del Gelato (prezzo da concordare in fase d'ordine)</li>
+              <li data-i18n="external.modal.coolbox.cost.service">Costo servizio 1 operatore - da definire in base al tempo</li>
+              <li data-i18n="external.modal.coolbox.cost.transport">Trasporto da definire in base alla distanza</li>
+              <li data-i18n="external.modal.coolbox.cost.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.coolbox.gallery.title">Gallery</h4>
+            <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.coolbox.gallery.text">Allegare foto esempio di eventi passati</p>
+          </div>
         </div>
       </div>
     </div>
@@ -444,32 +529,37 @@
         <h2 class="modal-title">CARRETTO E BICICLETTA</h2>
         <p class="modal-subtitle" data-i18n="external.modal.carretto.subtitle">Ideale per eventi casual e all'aperto</p>
       </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.carretto.cost.title">Costo Servizio</h4>
-          <ul>
-            <li data-i18n="external.modal.carretto.cost.price1">0 - 50 pax: gelato, cono/ coppetta €1.000,00 + 10% (€900)</li>
-            <li data-i18n="external.modal.carretto.cost.price2">50 - 70 pax: gelato, cono/ coppetta €1.200,00 + 10%</li>
-            <li data-i18n="external.modal.carretto.cost.price3">70 - 100 pax: gelato, cono/ coppetta €1.400,00 + 10% (€1500)</li>
-          </ul>
+      <div class="modal-layout">
+        <div class="modal-media">
+          <img src="../../assets/extracted/brochure-italia/brochure-italia_p14_2.png" alt="Carretto e bicicletta Badiani" data-i18n-attr="alt:external.carretto.imageAlt" />
         </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.carretto.included.title">Incluso</h4>
-          <ul>
-            <li data-i18n="external.modal.carretto.included.service">Include 2h di servizio con 1 operatore</li>
-            <li data-i18n="external.modal.carretto.included.extra">Extra time €100,00/h + iva al 10%</li>
-          </ul>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.carretto.transport.title">Trasporto e Personalizzazione</h4>
-          <ul>
-            <li data-i18n="external.modal.carretto.transport.info">Trasporto per veicolo entro i 100 km €250,00 + iva</li>
-            <li data-i18n="external.modal.carretto.transport.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni (da definire)</li>
-          </ul>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.carretto.gallery.title">Gallery</h4>
-          <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.carretto.gallery.text">Allegare foto esempio di eventi passati</p>
+        <div class="modal-info">
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.carretto.cost.title">Costo Servizio</h4>
+            <ul>
+              <li data-i18n="external.modal.carretto.cost.price1">0 - 50 pax: gelato, cono/ coppetta €1.000,00 + 10% (€900)</li>
+              <li data-i18n="external.modal.carretto.cost.price2">50 - 70 pax: gelato, cono/ coppetta €1.200,00 + 10%</li>
+              <li data-i18n="external.modal.carretto.cost.price3">70 - 100 pax: gelato, cono/ coppetta €1.400,00 + 10% (€1500)</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.carretto.included.title">Incluso</h4>
+            <ul>
+              <li data-i18n="external.modal.carretto.included.service">Include 2h di servizio con 1 operatore</li>
+              <li data-i18n="external.modal.carretto.included.extra">Extra time €100,00/h + iva al 10%</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.carretto.transport.title">Trasporto e Personalizzazione</h4>
+            <ul>
+              <li data-i18n="external.modal.carretto.transport.info">Trasporto per veicolo entro i 100 km €250,00 + iva</li>
+              <li data-i18n="external.modal.carretto.transport.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni (da definire)</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.carretto.gallery.title">Gallery</h4>
+            <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.carretto.gallery.text">Allegare foto esempio di eventi passati</p>
+          </div>
         </div>
       </div>
     </div>
@@ -483,32 +573,37 @@
         <h2 class="modal-title">VETRINA GELATO</h2>
         <p class="modal-subtitle" data-i18n="external.modal.vetrina.subtitle">Soluzione istituzionale, elegante, per eventi aziendali</p>
       </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.vetrina.cost.title">Costo Servizio</h4>
-          <ul>
-            <li data-i18n="external.modal.vetrina.cost.price1">0 - 50 pax: gelato, cono/ coppetta €1.000,00 + 10% (€900)</li>
-            <li data-i18n="external.modal.vetrina.cost.price2">50 - 70 pax: gelato, cono/ coppetta €1.200,00 + 10%</li>
-            <li data-i18n="external.modal.vetrina.cost.price3">70 - 100 pax: gelato, cono/ coppetta €1.400,00 + 10% (€1500)</li>
-          </ul>
+      <div class="modal-layout">
+        <div class="modal-media">
+          <img src="../../assets/extracted/brochure-italia/brochure-italia_p15_2.png" alt="Vetrina gelato Badiani" data-i18n-attr="alt:external.vetrina.imageAlt" />
         </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.vetrina.included.title">Incluso</h4>
-          <ul>
-            <li data-i18n="external.modal.vetrina.included.service">Include 2h di servizio con 1 operatore</li>
-            <li data-i18n="external.modal.vetrina.included.extra">Extra time €100,00/h + iva al 10%</li>
-          </ul>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.vetrina.transport.title">Trasporto e Personalizzazione</h4>
-          <ul>
-            <li data-i18n="external.modal.vetrina.transport.info">Trasporto per veicolo entro i 100 km €250,00 + iva</li>
-            <li data-i18n="external.modal.vetrina.transport.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni (da definire)</li>
-          </ul>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="external.modal.vetrina.gallery.title">Gallery</h4>
-          <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.vetrina.gallery.text">Allegare foto esempio di eventi passati</p>
+        <div class="modal-info">
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.vetrina.cost.title">Costo Servizio</h4>
+            <ul>
+              <li data-i18n="external.modal.vetrina.cost.price1">0 - 50 pax: gelato, cono/ coppetta €1.000,00 + 10% (€900)</li>
+              <li data-i18n="external.modal.vetrina.cost.price2">50 - 70 pax: gelato, cono/ coppetta €1.200,00 + 10%</li>
+              <li data-i18n="external.modal.vetrina.cost.price3">70 - 100 pax: gelato, cono/ coppetta €1.400,00 + 10% (€1500)</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.vetrina.included.title">Incluso</h4>
+            <ul>
+              <li data-i18n="external.modal.vetrina.included.service">Include 2h di servizio con 1 operatore</li>
+              <li data-i18n="external.modal.vetrina.included.extra">Extra time €100,00/h + iva al 10%</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.vetrina.transport.title">Trasporto e Personalizzazione</h4>
+            <ul>
+              <li data-i18n="external.modal.vetrina.transport.info">Trasporto per veicolo entro i 100 km €250,00 + iva</li>
+              <li data-i18n="external.modal.vetrina.transport.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni (da definire)</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="external.modal.vetrina.gallery.title">Gallery</h4>
+            <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.vetrina.gallery.text">Allegare foto esempio di eventi passati</p>
+          </div>
         </div>
       </div>
     </div>
@@ -575,6 +670,7 @@
           // Cool Box
           'external.coolbox.aria': 'Cool Box - Pratico e versatile',
           'external.coolbox.subtitle': 'Pratico e versatile',
+          'external.coolbox.imageAlt': 'Cool box Badiani',
           'external.coolbox.desc': 'Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.',
           'external.coolbox.capacity': '<strong>Capacità:</strong> 40-90 pax (max 2 gusti)',
           'external.coolbox.price': '<strong>Prezzo gelato:</strong> Da concordare in fase d\'ordine',
@@ -584,6 +680,7 @@
           // Carretto
           'external.carretto.aria': 'Carretto e Bicicletta - Ideale per eventi casual',
           'external.carretto.subtitle': 'Ideale per eventi casual e all\'aperto',
+          'external.carretto.imageAlt': 'Carretto e bicicletta Badiani',
           'external.carretto.desc': 'Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.',
           'external.carretto.price1': '<strong>0-50 pax:</strong> €1.000,00 + 10% (€900)',
           'external.carretto.price2': '<strong>50-70 pax:</strong> €1.200,00 + 10%',
@@ -594,6 +691,7 @@
           // Vetrina
           'external.vetrina.aria': 'Vetrina Gelato - Soluzione istituzionale ed elegante',
           'external.vetrina.subtitle': 'Soluzione istituzionale ed elegante',
+          'external.vetrina.imageAlt': 'Vetrina gelato Badiani',
           'external.vetrina.desc': 'Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.',
           'external.vetrina.price1': '<strong>0-50 pax:</strong> €1.000,00 + 10% (€900)',
           'external.vetrina.price2': '<strong>50-70 pax:</strong> €1.200,00 + 10%',
@@ -667,6 +765,7 @@
           // Cool Box
           'external.coolbox.aria': 'Cool Box - Practical and versatile',
           'external.coolbox.subtitle': 'Practical and versatile',
+          'external.coolbox.imageAlt': 'Badiani cool box',
           'external.coolbox.desc': 'Ideal for small-scale events, from 40 to 90 guests (depending on storage space), max 2 flavors.',
           'external.coolbox.capacity': '<strong>Capacity:</strong> 40-90 guests (max 2 flavors)',
           'external.coolbox.price': '<strong>Gelato price:</strong> To be agreed upon ordering',
@@ -676,6 +775,7 @@
           // Carretto
           'external.carretto.aria': 'Cart and Bicycle - Ideal for casual events',
           'external.carretto.subtitle': 'Ideal for casual and outdoor events',
+          'external.carretto.imageAlt': 'Badiani cart and bicycle',
           'external.carretto.desc': 'Iconic and mobile solution to bring Badiani gelato directly to your outdoor event.',
           'external.carretto.price1': '<strong>0-50 guests:</strong> €1,000.00 + 10% (€900)',
           'external.carretto.price2': '<strong>50-70 guests:</strong> €1,200.00 + 10%',
@@ -686,6 +786,7 @@
           // Vetrina
           'external.vetrina.aria': 'Gelato Display - Institutional and elegant solution',
           'external.vetrina.subtitle': 'Institutional and elegant solution',
+          'external.vetrina.imageAlt': 'Badiani gelato display',
           'external.vetrina.desc': 'Perfect for corporate events, conferences and formal occasions requiring professional service.',
           'external.vetrina.price1': '<strong>0-50 guests:</strong> €1,000.00 + 10% (€900)',
           'external.vetrina.price2': '<strong>50-70 guests:</strong> €1,200.00 + 10%',
@@ -759,6 +860,7 @@
           // Cool Box
           'external.coolbox.aria': 'Cool Box - Pratique et polyvalent',
           'external.coolbox.subtitle': 'Pratique et polyvalent',
+          'external.coolbox.imageAlt': 'Cool box Badiani',
           'external.coolbox.desc': 'Idéal pour les événements à petite échelle, de 40 à 90 personnes (selon l\'espace de stockage), max 2 parfums.',
           'external.coolbox.capacity': '<strong>Capacité:</strong> 40-90 personnes (max 2 parfums)',
           'external.coolbox.price': '<strong>Prix gelato:</strong> À convenir lors de la commande',
@@ -768,6 +870,7 @@
           // Carretto
           'external.carretto.aria': 'Chariot et Vélo - Idéal pour événements décontractés',
           'external.carretto.subtitle': 'Idéal pour événements décontractés et en plein air',
+          'external.carretto.imageAlt': 'Chariot et vélo Badiani',
           'external.carretto.desc': 'Solution emblématique et mobile pour apporter le gelato Badiani directement à votre événement en plein air.',
           'external.carretto.price1': '<strong>0-50 personnes:</strong> €1.000,00 + 10% (€900)',
           'external.carretto.price2': '<strong>50-70 personnes:</strong> €1.200,00 + 10%',
@@ -778,6 +881,7 @@
           // Vetrina
           'external.vetrina.aria': 'Vitrine Gelato - Solution institutionnelle et élégante',
           'external.vetrina.subtitle': 'Solution institutionnelle et élégante',
+          'external.vetrina.imageAlt': 'Vitrine gelato Badiani',
           'external.vetrina.desc': 'Parfait pour événements d\'entreprise, conférences et occasions formelles nécessitant un service professionnel.',
           'external.vetrina.price1': '<strong>0-50 personnes:</strong> €1.000,00 + 10% (€900)',
           'external.vetrina.price2': '<strong>50-70 personnes:</strong> €1.200,00 + 10%',
@@ -851,6 +955,7 @@
           // Cool Box
           'external.coolbox.aria': 'Cool Box - Práctico y versátil',
           'external.coolbox.subtitle': 'Práctico y versátil',
+          'external.coolbox.imageAlt': 'Cool box Badiani',
           'external.coolbox.desc': 'Ideal para eventos a pequeña escala, de 40 a 90 personas (según el espacio de almacenamiento), máx. 2 sabores.',
           'external.coolbox.capacity': '<strong>Capacidad:</strong> 40-90 personas (máx. 2 sabores)',
           'external.coolbox.price': '<strong>Precio gelato:</strong> A acordar al pedir',
@@ -860,6 +965,7 @@
           // Carretto
           'external.carretto.aria': 'Carrito y Bicicleta - Ideal para eventos casuales',
           'external.carretto.subtitle': 'Ideal para eventos casuales y al aire libre',
+          'external.carretto.imageAlt': 'Carrito y bicicleta Badiani',
           'external.carretto.desc': 'Solución icónica y móvil para llevar el gelato Badiani directamente a tu evento al aire libre.',
           'external.carretto.price1': '<strong>0-50 personas:</strong> €1.000,00 + 10% (€900)',
           'external.carretto.price2': '<strong>50-70 personas:</strong> €1.200,00 + 10%',
@@ -870,6 +976,7 @@
           // Vetrina
           'external.vetrina.aria': 'Vitrina Gelato - Solución institucional y elegante',
           'external.vetrina.subtitle': 'Solución institucional y elegante',
+          'external.vetrina.imageAlt': 'Vitrina gelato Badiani',
           'external.vetrina.desc': 'Perfecta para eventos corporativos, conferencias y ocasiones formales que requieren servicio profesional.',
           'external.vetrina.price1': '<strong>0-50 personas:</strong> €1.000,00 + 10% (€900)',
           'external.vetrina.price2': '<strong>50-70 personas:</strong> €1.200,00 + 10%',

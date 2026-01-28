@@ -164,7 +164,7 @@
       background:var(--surface);
       color:var(--badiani-gray);
       border-radius:25px;
-      max-width:900px;
+      max-width:1100px;
       width:100%;
       position:relative;
       margin:auto;
@@ -210,11 +210,49 @@
       font-size:clamp(18px, 2vw, 24px);
       color:#4a4f57;
     }
-    .modal-body{
+    .modal-layout{
+      display:grid;
+      grid-template-columns:minmax(260px, 0.95fr) minmax(320px, 1.25fr);
+      gap:28px;
       padding:0 40px 40px;
+      align-items:start;
+    }
+    .modal-media{
+      width:100%;
+      position:relative;
+      aspect-ratio:1 / 1;
+      overflow:hidden;
+      border-radius:18px;
+      background:linear-gradient(135deg, #f5f5f5, #fff);
+      box-shadow:0 12px 35px rgba(240,103,166,0.25);
+    }
+    .modal-media img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      filter:brightness(1.02);
+    }
+    .modal-info{
+      background:linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      max-height:70vh;
+      overflow-y:auto;
     }
     .modal-section{
-      margin-bottom:30px;
+      margin-bottom:18px;
+      background:#fff;
+      border-radius:14px;
+      padding:16px 18px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+      border-left:4px solid var(--badiani-pink);
+    }
+    .modal-section:nth-child(odd){
+      border-left-color:var(--badiani-blue);
     }
     .modal-section h4{
       font-size:18px;
@@ -297,9 +335,15 @@
       .packages-grid{
         grid-template-columns:1fr;
       }
-      .modal-header, .modal-body{
+      .modal-header, .modal-layout{
         padding-left:24px;
         padding-right:24px;
+      }
+      .modal-layout{
+        grid-template-columns:1fr;
+      }
+      .modal-info{
+        max-height:none;
       }
     }
   </style>
@@ -419,32 +463,37 @@
         <h2 class="modal-title" data-i18n="tosinghi.modal.silver.title">PACCHETTO SILVER</h2>
         <p class="modal-subtitle" data-i18n="tosinghi.modal.silver.subtitle">€20,00 a persona (IVA inclusa)</p>
       </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.silver.food.title">Food (tutto preparato da noi)</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.silver.food.item1">Pizzette</li>
-            <li data-i18n="tosinghi.modal.silver.food.item2">Tramezzini</li>
-            <li data-i18n="tosinghi.modal.silver.food.item3">Rustici</li>
-            <li data-i18n="tosinghi.modal.silver.food.item4">Panettone gastronomico (con farcitura a scelta: pesce / carne / vegetariano, quantità panettoni in base al numero di persone)</li>
-          </ul>
+      <div class="modal-layout">
+        <div class="modal-media">
+          <img src="../../assets/extracted/a7a56600066a6e356fdf55d5683807c4328d597b.webp" alt="Saletta privata Tosinghi" data-i18n-attr="alt:tosinghi.modal.imageAlt" />
         </div>
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.silver.drink.title">Drink (1 a persona, scelta tra)</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.silver.drink.item1">2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
-            <li data-i18n="tosinghi.modal.silver.drink.item2">1 cocktail analcolico</li>
-            <li data-i18n="tosinghi.modal.silver.drink.item3">Prosecco</li>
-          </ul>
-          <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.silver.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.silver.details.title">Dettagli</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.silver.details.booking">Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
-            <li data-i18n="tosinghi.modal.silver.details.duration">Durata evento: fino a 1 ora e 30 minuti</li>
-            <li data-i18n="tosinghi.modal.silver.details.capacity">Capienza: 15-35 pax sedute</li>
-          </ul>
+        <div class="modal-info">
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.silver.food.title">Food (tutto preparato da noi)</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.silver.food.item1">Pizzette</li>
+              <li data-i18n="tosinghi.modal.silver.food.item2">Tramezzini</li>
+              <li data-i18n="tosinghi.modal.silver.food.item3">Rustici</li>
+              <li data-i18n="tosinghi.modal.silver.food.item4">Panettone gastronomico (con farcitura a scelta: pesce / carne / vegetariano, quantità panettoni in base al numero di persone)</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.silver.drink.title">Drink (1 a persona, scelta tra)</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.silver.drink.item1">2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
+              <li data-i18n="tosinghi.modal.silver.drink.item2">1 cocktail analcolico</li>
+              <li data-i18n="tosinghi.modal.silver.drink.item3">Prosecco</li>
+            </ul>
+            <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.silver.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.silver.details.title">Dettagli</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.silver.details.booking">Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
+              <li data-i18n="tosinghi.modal.silver.details.duration">Durata evento: fino a 1 ora e 30 minuti</li>
+              <li data-i18n="tosinghi.modal.silver.details.capacity">Capienza: 15-35 pax sedute</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -458,31 +507,36 @@
         <h2 class="modal-title" data-i18n="tosinghi.modal.gold.title">PACCHETTO GOLD</h2>
         <p class="modal-subtitle" data-i18n="tosinghi.modal.gold.subtitle">€30,00 a persona (IVA inclusa)</p>
       </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.gold.food.title">Food (tutto preparato da noi)</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.gold.food.item1">Panettone gastronomico (pesce / carne / vegetariano a scelta, quantità panettoni in base al numero di persone)</li>
-            <li data-i18n="tosinghi.modal.gold.food.item2">5 tipi di finger food (a scelta da lista completa da concordare)</li>
-            <li data-i18n="tosinghi.modal.gold.food.item3">Monoporzioni dolci o coppetta Buontalenti</li>
-          </ul>
+      <div class="modal-layout">
+        <div class="modal-media">
+          <img src="../../assets/extracted/a7a56600066a6e356fdf55d5683807c4328d597b.webp" alt="Saletta privata Tosinghi" data-i18n-attr="alt:tosinghi.modal.imageAlt" />
         </div>
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.gold.drink.title">Drink (1 a persona, scelta tra)</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.gold.drink.item1">2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
-            <li data-i18n="tosinghi.modal.gold.drink.item2">1 cocktail analcolico</li>
-            <li data-i18n="tosinghi.modal.gold.drink.item3">Franciacorta</li>
-          </ul>
-          <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.gold.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.gold.details.title">Dettagli</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.gold.details.booking">Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
-            <li data-i18n="tosinghi.modal.gold.details.duration">Durata evento: fino a 2 ore</li>
-            <li data-i18n="tosinghi.modal.gold.details.capacity">Capienza: 15-35 pax sedute</li>
-          </ul>
+        <div class="modal-info">
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.gold.food.title">Food (tutto preparato da noi)</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.gold.food.item1">Panettone gastronomico (pesce / carne / vegetariano a scelta, quantità panettoni in base al numero di persone)</li>
+              <li data-i18n="tosinghi.modal.gold.food.item2">5 tipi di finger food (a scelta da lista completa da concordare)</li>
+              <li data-i18n="tosinghi.modal.gold.food.item3">Monoporzioni dolci o coppetta Buontalenti</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.gold.drink.title">Drink (1 a persona, scelta tra)</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.gold.drink.item1">2 cocktail alcolici (la scelta dei 2 tipi di cocktail la lasciamo al cliente fra i classici)</li>
+              <li data-i18n="tosinghi.modal.gold.drink.item2">1 cocktail analcolico</li>
+              <li data-i18n="tosinghi.modal.gold.drink.item3">Franciacorta</li>
+            </ul>
+            <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.gold.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.gold.details.title">Dettagli</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.gold.details.booking">Conferma prenotazione: minimo 10 giorni prima della data dell'evento</li>
+              <li data-i18n="tosinghi.modal.gold.details.duration">Durata evento: fino a 2 ore</li>
+              <li data-i18n="tosinghi.modal.gold.details.capacity">Capienza: 15-35 pax sedute</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -496,39 +550,44 @@
         <h2 class="modal-title" data-i18n="tosinghi.modal.platinum.title">PACCHETTO PLATINUM</h2>
         <p class="modal-subtitle" data-i18n="tosinghi.modal.platinum.subtitle">A partire da €40,00 a persona (IVA inclusa)</p>
       </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.platinum.food.title">Food (tutto preparato da noi)</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.platinum.food.item1">7 tipi di finger food (a scelta da lista completa da concordare)</li>
-            <li data-i18n="tosinghi.modal.platinum.food.item2">Possibilità di concordare un gusto di gelato dedicato (per minimo 35 pax; prezzo da concordare a parte)</li>
-            <li data-i18n="tosinghi.modal.platinum.food.item3">Monoporzioni o dolci creati dalla cake designer a tema evento</li>
-          </ul>
+      <div class="modal-layout">
+        <div class="modal-media">
+          <img src="../../assets/extracted/a7a56600066a6e356fdf55d5683807c4328d597b.webp" alt="Saletta privata Tosinghi" data-i18n-attr="alt:tosinghi.modal.imageAlt" />
         </div>
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.platinum.drink.title">Drink (1 a persona, scelta tra)</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.platinum.drink.item1">Cocktail a tema con nome personalizzato</li>
-            <li data-i18n="tosinghi.modal.platinum.drink.item2">1 cocktail analcolico</li>
-            <li data-i18n="tosinghi.modal.platinum.drink.item3">Champagne</li>
-          </ul>
-          <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.platinum.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.platinum.extra.title">Extra</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.platinum.extra.item1">Allestimento personalizzabile</li>
-            <li data-i18n="tosinghi.modal.platinum.extra.item2">Concept creativo su misura per il tuo evento</li>
-          </ul>
-        </div>
-        <div class="modal-section">
-          <h4 data-i18n="tosinghi.modal.platinum.details.title">Dettagli</h4>
-          <ul>
-            <li data-i18n="tosinghi.modal.platinum.details.booking">Conferma prenotazione: minimo 14 giorni prima della data dell'evento</li>
-            <li data-i18n="tosinghi.modal.platinum.details.duration">Durata evento: fino a 2 ore</li>
-            <li data-i18n="tosinghi.modal.platinum.details.capacity">Capienza: 15-35 pax sedute</li>
-            <li data-i18n="tosinghi.modal.platinum.details.price">Prezzo da valutare in base al preventivo dei prodotti scelti dalla cake designer</li>
-          </ul>
+        <div class="modal-info">
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.platinum.food.title">Food (tutto preparato da noi)</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.platinum.food.item1">7 tipi di finger food (a scelta da lista completa da concordare)</li>
+              <li data-i18n="tosinghi.modal.platinum.food.item2">Possibilità di concordare un gusto di gelato dedicato (per minimo 35 pax; prezzo da concordare a parte)</li>
+              <li data-i18n="tosinghi.modal.platinum.food.item3">Monoporzioni o dolci creati dalla cake designer a tema evento</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.platinum.drink.title">Drink (1 a persona, scelta tra)</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.platinum.drink.item1">Cocktail a tema con nome personalizzato</li>
+              <li data-i18n="tosinghi.modal.platinum.drink.item2">1 cocktail analcolico</li>
+              <li data-i18n="tosinghi.modal.platinum.drink.item3">Champagne</li>
+            </ul>
+            <p style="font-size:14px;color:#90949a;margin-top:8px;" data-i18n="tosinghi.modal.platinum.drink.note">Per i cocktail verrà realizzato un menù come di consueto, esposto sulla postazione beverage</p>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.platinum.extra.title">Extra</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.platinum.extra.item1">Allestimento personalizzabile</li>
+              <li data-i18n="tosinghi.modal.platinum.extra.item2">Concept creativo su misura per il tuo evento</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4 data-i18n="tosinghi.modal.platinum.details.title">Dettagli</h4>
+            <ul>
+              <li data-i18n="tosinghi.modal.platinum.details.booking">Conferma prenotazione: minimo 14 giorni prima della data dell'evento</li>
+              <li data-i18n="tosinghi.modal.platinum.details.duration">Durata evento: fino a 2 ore</li>
+              <li data-i18n="tosinghi.modal.platinum.details.capacity">Capienza: 15-35 pax sedute</li>
+              <li data-i18n="tosinghi.modal.platinum.details.price">Prezzo da valutare in base al preventivo dei prodotti scelti dalla cake designer</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -630,6 +689,7 @@
           'tosinghi.contact.title': 'Richiedi Informazioni',
           // Modal Common
           'tosinghi.modal.close': 'Chiudi',
+          'tosinghi.modal.imageAlt': 'Saletta privata Tosinghi',
           // Modal Silver
           'tosinghi.modal.silver.title': 'PACCHETTO SILVER',
           'tosinghi.modal.silver.subtitle': '€20,00 a persona (IVA inclusa)',
@@ -735,6 +795,7 @@
           'tosinghi.contact.title': 'Request Information',
           // Modal Common
           'tosinghi.modal.close': 'Close',
+          'tosinghi.modal.imageAlt': 'Tosinghi private room',
           // Modal Silver
           'tosinghi.modal.silver.title': 'SILVER PACKAGE',
           'tosinghi.modal.silver.subtitle': '€20.00 per person (VAT included)',
@@ -840,6 +901,7 @@
           'tosinghi.contact.title': 'Demander des Informations',
           // Modal Common
           'tosinghi.modal.close': 'Fermer',
+          'tosinghi.modal.imageAlt': 'Salle privée Tosinghi',
           // Modal Silver
           'tosinghi.modal.silver.title': 'FORFAIT SILVER',
           'tosinghi.modal.silver.subtitle': '€20,00 par personne (TVA incluse)',
@@ -945,6 +1007,7 @@
           'tosinghi.contact.title': 'Solicitar Información',
           // Modal Common
           'tosinghi.modal.close': 'Cerrar',
+          'tosinghi.modal.imageAlt': 'Sala privada Tosinghi',
           // Modal Silver
           'tosinghi.modal.silver.title': 'PAQUETE SILVER',
           'tosinghi.modal.silver.subtitle': '€20,00 por persona (IVA incluido)',
