@@ -349,6 +349,9 @@
       object-fit:cover;
       display:block;
     }
+    .gelato-card--tub img{
+      aspect-ratio:3081 / 4393;
+    }
     .gelato-card span{
       font-size:12px;
       letter-spacing:0.5px;
@@ -385,8 +388,14 @@
       object-fit:cover;
       display:block;
     }
+    .gelato-card--tub .gelato-card__media img{
+      aspect-ratio:3081 / 4393;
+    }
     .gelato-card.is-expanded .gelato-card__media img{
       aspect-ratio:4 / 3;
+    }
+    .gelato-card--tub.is-expanded .gelato-card__media img{
+      aspect-ratio:1 / 1;
     }
     .gelato-card__details{
       display:grid;
@@ -471,6 +480,139 @@
       color:#4a4f57;
     }
     .gelato-empty{ font-size:13px; color:#6a6b6e; text-align:center; padding:12px; }
+
+    .pezziduri-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+    }
+    .pezziduri-card{
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+    .pezziduri-media{
+      width:100%;
+      aspect-ratio:1 / 1;
+      background:#f0f1f3;
+      overflow:hidden;
+    }
+    .pezziduri-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .pezziduri-body{
+      padding:12px 14px 14px;
+      display:grid;
+      gap:8px;
+    }
+    .pezziduri-title{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.3px;
+      color:var(--badiani-blue);
+    }
+    .pezziduri-meta{
+      display:grid;
+      gap:6px;
+      font-size:12px;
+      color:#5b5f66;
+    }
+    .pezziduri-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:#f5f6f8;
+      padding:6px 8px;
+      border-radius:10px;
+    }
+    .pezziduri-note{
+      font-size:12px;
+      color:#9aa0a6;
+      margin-top:6px;
+    }
+    .torte-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:18px;
+    }
+    .torte-card{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 12px 26px rgba(0,0,0,0.07);
+      display:flex;
+      flex-direction:column;
+      cursor:pointer;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .torte-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
+    .torte-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
+    .torte-card.is-expanded{
+      grid-column:span 2;
+    }
+    .torte-media{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      padding:12px;
+      background:#f7f7f9;
+    }
+    .torte-media figure{
+      margin:0;
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(30,57,141,0.12);
+      display:grid;
+      gap:6px;
+    }
+    .torte-media img{
+      width:100%;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      display:block;
+    }
+    .torte-media figcaption{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:#6a6b6e;
+      text-align:center;
+      padding:6px 0 10px;
+      background:#fff;
+    }
+    .torte-body{
+      padding:14px 16px 16px;
+      display:grid;
+      gap:10px;
+    }
+    .torte-title{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.3px;
+      color:var(--badiani-blue);
+    }
+    .torte-price{
+      font-size:12px;
+      color:#5b5f66;
+      background:#f5f6f8;
+      padding:6px 8px;
+      border-radius:10px;
+      display:flex;
+      justify-content:space-between;
+    }
+    @media(max-width:768px){
+      .torte-card.is-expanded{ grid-column:span 1; }
+    }
 
     @media(max-width:840px){
       .modal__body{ grid-template-columns:200px 1fr; }
@@ -1716,6 +1858,35 @@
         'PEZZI DURI': '*ordine minimo o multipli'
       };
 
+      const PEZZI_DURI_IMAGES = {
+        'Classico Buontalenti': '../foto_pezziduri/bianco.png',
+        'Classico Stracciatella': '../foto_pezziduri/stracciatella.png',
+        'Biscotto Buontalenti': '../foto_pezziduri/biscotto.png',
+        'Biscotto Stracciatella': '../foto_pezziduri/biscotto.png',
+        'Cuore di Buontalenti fondente': '../foto_pezziduri/cuore.png',
+        'Cuore di Buontalenti alla fragola': '../foto_pezziduri/cuore.png',
+        'Donut cioccolato': '../foto_pezziduri/pinguino tondo.png',
+        'Donut cioccolato bianco': '../foto_pezziduri/pinguino1 bianco.png',
+        'Donut cioccolato alla fragola': '../foto_pezziduri/rosa.png',
+        'Donut cioccolato al pistacchio': '../foto_pezziduri/pistacchio .png',
+        'Zampa': '../foto_pezziduri/zampetta.png'
+      };
+
+      const TORTE_IMAGES = {
+        'Millefoglie Buontalenti': {
+          small: '../foto_torte/millefoglie buontalenti s.png',
+          large: '../foto_torte/millefoglie buontalenti L.png'
+        },
+        'Millefoglie Buontalenti con salsa Dolcevita (Nocciole e cacao)': {
+          small: '../foto_torte/la dolcevita s.png',
+          large: '../foto_torte/la dolcevita L.png'
+        },
+        'Millefoglie Buontalenti con salsa Pistacchio': {
+          small: '../foto_torte/buontalenti pistacchio s.png',
+          large: '../foto_torte/buontalenti pistacchio L.png'
+        }
+      };
+
       const PRICING_NOTE = 'Prezzi IVA esclusa.';
       const SHIPPING_INFO = [
         "All'interno del comune di Firenze: costo di spedizione gratuita, il listino è valido per minimo 250 EUR per ordine (IVA esclusa);",
@@ -1764,6 +1935,7 @@
       const defaultContent = document.getElementById('b2bDefaultContent');
       let activeGelatoId = '';
       let expandedFlavorId = '';
+      let expandedTorteId = '';
       let lastGridRects = null;
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1823,6 +1995,98 @@
         `;
       }
 
+      function renderPezziDuriGallery(rows){
+        if(!rows || !rows.length) return '';
+        const cards = rows
+          .map(([name, price, weight, min]) => {
+            const src = PEZZI_DURI_IMAGES[name];
+            if(!src) return '';
+            const imageSrc = encodeURI(src);
+            return `
+              <article class="pezziduri-card">
+                <div class="pezziduri-media">
+                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
+                </div>
+                <div class="pezziduri-body">
+                  <div class="pezziduri-title">${name}</div>
+                  <div class="pezziduri-meta">
+                    <span><strong>Prezzo</strong><em>${price}</em></span>
+                    <span><strong>Peso medio</strong><em>${weight}</em></span>
+                    <span><strong>Ordine minimo</strong><em>${min}</em></span>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .filter(Boolean)
+          .join('');
+
+        return `
+          <div class="modal__section">
+            <h4>${CATEGORY_DATA['PEZZI DURI'].title}</h4>
+            <div class="pezziduri-grid">${cards}</div>
+          </div>
+        `;
+      }
+
+      function renderTorteGallery(rows){
+        if(!rows || !rows.length) return '';
+        const cards = rows
+          .map(([name, price]) => {
+            const images = TORTE_IMAGES[name];
+            if(!images) return '';
+            const smallSrc = encodeURI(images.small);
+            const largeSrc = encodeURI(images.large);
+            const isExpanded = expandedTorteId === name;
+            return `
+              <article class="torte-card${isExpanded ? ' is-expanded' : ''}" data-torte-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
+                <div class="torte-media">
+                  <figure>
+                    <img src="${smallSrc}" alt="${name} S" loading="lazy" decoding="async" />
+                    <figcaption>S</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="${largeSrc}" alt="${name} L" loading="lazy" decoding="async" />
+                    <figcaption>L</figcaption>
+                  </figure>
+                </div>
+                <div class="torte-body">
+                  <div class="torte-title">${name}</div>
+                  <div class="torte-price"><strong>Prezzo per kg</strong><em>${price}</em></div>
+                </div>
+              </article>
+            `;
+          })
+          .filter(Boolean)
+          .join('');
+
+        return `
+          <div class="modal__section">
+            <h4>${CATEGORY_DATA['TORTE'].title}</h4>
+            <div class="torte-grid">${cards}</div>
+          </div>
+        `;
+      }
+
+      function setupTorteZoom(){
+        const cards = defaultContent ? defaultContent.querySelectorAll('.torte-card[data-torte-id]') : [];
+        cards.forEach((card) => {
+          const id = card.dataset.torteId;
+          if(!id) return;
+          card.addEventListener('click', () => {
+            expandedTorteId = expandedTorteId === id ? '' : id;
+            renderCategoryContent('TORTE');
+          });
+          card.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              event.preventDefault();
+              expandedTorteId = expandedTorteId === id ? '' : id;
+              renderCategoryContent('TORTE');
+            }
+          });
+        });
+      }
+
       function renderCategoryContent(category){
         if(!defaultContent) return;
         const data = CATEGORY_DATA[category];
@@ -1832,12 +2096,23 @@
         }
         const note = CATEGORY_NOTES[category];
         const sections = [
-          `<div class="modal__section"><p class="modal__note">${PRICING_NOTE}</p></div>`,
-          renderTableSection(data)
+          `<div class="modal__section"><p class="modal__note">${PRICING_NOTE}</p></div>`
         ];
 
+        if(category === 'PEZZI DURI'){
+          sections.push(renderPezziDuriGallery(data.rows));
+        }else if(category === 'TORTE'){
+          sections.push(renderTorteGallery(data.rows));
+        }else{
+          sections.push(renderTableSection(data));
+        }
+
         if(note){
-          sections.push(`<div class="modal__section"><p class="modal__note">${note}</p></div>`);
+          sections.push(`<div class="modal__section"><p class="pezziduri-note">${note}</p></div>`);
+        }
+
+        if(category === 'TORTE'){
+          requestAnimationFrame(setupTorteZoom);
         }
 
         sections.push(renderListSection('Spedizione', SHIPPING_INFO));
@@ -1865,12 +2140,13 @@
           ['flags.containsAlcohol', flavor.flags.containsAlcohol]
         ];
 
+        const flavorLabel = tGelato(flavor.nameKey) || flavor.label || flavor.id;
         gelatoDetail.innerHTML = `
           <div class=\"gelato-detail__header\">
             <div class=\"gelato-section-title\">${tGelato('flavorDetail.title')}</div>
             <button class=\"gelato-detail__close\" type=\"button\">${tGelato('common.close')}</button>
           </div>
-          <h4>${tGelato(flavor.nameKey)}</h4>
+          <h4>${flavorLabel}</h4>
           <div>
             <div class=\"gelato-section-title\">${tGelato('flavorDetail.ingredients')}</div>
             <div class="gelato-list">${ingredients}</div>
@@ -1920,7 +2196,7 @@
         const season = gelatoSeason ? gelatoSeason.value : 'tutti';
         const query = gelatoSearch ? gelatoSearch.value.trim().toLowerCase() : '';
         const filtered = gelatoFlavors.filter((flavor) => {
-          const name = tGelato(flavor.nameKey).toLowerCase();
+          const name = (tGelato(flavor.nameKey) || flavor.label || flavor.id).toLowerCase();
           const matchSeason = matchesSeason(flavor, season);
           const matchQuery = !query || name.includes(query);
           return matchSeason && matchQuery;
@@ -1937,13 +2213,15 @@
           const btn = document.createElement('button');
           btn.type = 'button';
           const isExpanded = expandedFlavorId === flavor.id;
-          btn.className = `gelato-card${isExpanded ? ' is-expanded is-selected' : ''}`;
+          const tubClass = flavor.isTub ? ' gelato-card--tub' : '';
+          btn.className = `gelato-card${tubClass}${isExpanded ? ' is-expanded is-selected' : ''}`;
           btn.dataset.flavorId = flavor.id;
           btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-          const flavorName = tGelato(flavor.nameKey);
+          const flavorName = tGelato(flavor.nameKey) || flavor.label || flavor.id;
+          const imageSrc = isExpanded && flavor.detailImage ? flavor.detailImage : flavor.image;
           const mediaBlock = `
             <div class=\"gelato-card__media\">
-              <img src=\"${flavor.image}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
+              <img src=\"${imageSrc}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
             </div>
             <span>${flavorName}</span>
           `;

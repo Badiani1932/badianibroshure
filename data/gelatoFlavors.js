@@ -1,5 +1,53 @@
 export const gelatoFlavors = [
   {
+    id: "buontalenti",
+    nameKey: "flavor.buontalenti",
+    label: "Buontalenti",
+    seasons: ["tutti"],
+    image: "../foto_vasche/Buontalenti/buontalenti.png",
+    detailImage: "../foto_vasche/Buontalenti/buontalenti-2.png",
+    ingredients: [],
+    allergens: [],
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    isTub: true
+  },
+  {
+    id: "buontalenti-pistacchio",
+    nameKey: "flavor.buontalentiPistacchio",
+    label: "Buontalenti al Pistacchio",
+    seasons: ["tutti"],
+    image: "../foto_vasche/Buontalenti al Pistacchio/buontalenti_pistachio.png",
+    detailImage: "../foto_vasche/Buontalenti al Pistacchio/buontalenti_pistachio-2.png",
+    ingredients: [],
+    allergens: [],
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    isTub: true
+  },
+  {
+    id: "buontalenti-caramello",
+    nameKey: "flavor.buontalentiCaramello",
+    label: "Buontalenti Caramello",
+    seasons: ["tutti"],
+    image: "../foto_vasche/Buontalenti Caramello/buontalenti_caramello.png",
+    detailImage: "../foto_vasche/Buontalenti Caramello/buontalenti_caramello-2.png",
+    ingredients: [],
+    allergens: [],
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    isTub: true
+  },
+  {
+    id: "buontalenti-amarena",
+    nameKey: "flavor.buontalentiAmarena",
+    label: "Buontalenti all’Amarena",
+    seasons: ["tutti"],
+    image: "../foto_vasche/Buontalenti all_Amarena/buontalenti_amarena.png",
+    detailImage: "../foto_vasche/Buontalenti all_Amarena/buontalenti_amarena-2.png",
+    ingredients: [],
+    allergens: [],
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    isTub: true
+  },
+  {
     id: "fior-di-latte",
     nameKey: "flavor.fiorDiLatte",
     seasons: ["tutti"],
