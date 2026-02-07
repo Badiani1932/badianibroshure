@@ -2311,10 +2311,12 @@
 
       function getBaseImageSrc(flavor){
         const baseSrc = flavor.image;
-        if(window.matchMedia && window.matchMedia('(max-width: 768px)').matches){
-          if(baseSrc && baseSrc.endsWith('.webp')){
-            return baseSrc.replace(/\.webp$/i, '-thumb.webp');
-          }
+        const supportsMatchMedia = window.matchMedia;
+        const useThumbs = supportsMatchMedia
+          ? (window.matchMedia('(max-width: 1024px)').matches || window.matchMedia('(hover: none)').matches)
+          : false;
+        if(useThumbs && baseSrc && baseSrc.endsWith('.webp')){
+          return baseSrc.replace(/\.webp$/i, '-thumb.webp');
         }
         return baseSrc;
       }
