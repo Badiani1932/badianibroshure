@@ -2262,24 +2262,39 @@
         `;
       }
 
-      function cacheImage(src){
-        if(!src || gelatoImageCache.has(src)) return;
+      function cacheImage(src, onload){
+        if(!src) return;
+        if(gelatoImageCache.has(src)){
+          if(typeof onload === 'function') onload();
+          return;
+        }
         const img = new Image();
-        img.onload = () => gelatoImageCache.add(src);
+        img.onload = () => {
+          gelatoImageCache.add(src);
+          if(typeof onload === 'function') onload();
+        };
         img.src = `${encodeURI(src)}?v=${ASSET_VERSION}`;
       }
 
       function updateGelatoCardImage(img, baseSrc, detailSrc, isExpanded){
         if(!img) return;
         if(!detailSrc || !isExpanded){
+          img.dataset.detailSrc = '';
           img.src = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
           return;
         }
+        img.dataset.detailSrc = detailSrc;
         if(gelatoImageCache.has(detailSrc)){
           img.src = `${encodeURI(detailSrc)}?v=${ASSET_VERSION}`;
           return;
         }
-        cacheImage(detailSrc);
+        cacheImage(detailSrc, () => {
+          if(!img.isConnected) return;
+          const card = img.closest('.gelato-card');
+          if(!card || !card.classList.contains('is-expanded')) return;
+          if(img.dataset.detailSrc !== detailSrc) return;
+          img.src = `${encodeURI(detailSrc)}?v=${ASSET_VERSION}`;
+        });
         img.src = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
       }
 
