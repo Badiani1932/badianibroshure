@@ -2309,12 +2309,23 @@
         img.src = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
       }
 
+      function getBaseImageSrc(flavor){
+        const baseSrc = flavor.image;
+        if(window.matchMedia && window.matchMedia('(max-width: 768px)').matches){
+          if(baseSrc && baseSrc.endsWith('.webp')){
+            return baseSrc.replace(/\.webp$/i, '-thumb.webp');
+          }
+        }
+        return baseSrc;
+      }
+
       function setGelatoCardExpanded(card, flavor, isExpanded){
         card.classList.toggle('is-expanded', isExpanded);
         card.classList.toggle('is-selected', isExpanded);
         card.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
         const img = card.querySelector('img');
-        updateGelatoCardImage(img, flavor.image, flavor.detailImage, isExpanded);
+        const baseSrc = getBaseImageSrc(flavor);
+        updateGelatoCardImage(img, baseSrc, flavor.detailImage, isExpanded);
         const existing = card.querySelector('.gelato-card__details');
         if(isExpanded){
           const details = existing || document.createElement('div');
@@ -2352,7 +2363,8 @@
           btn.dataset.flavorId = flavor.id;
           btn.setAttribute('aria-expanded', 'false');
           const flavorName = tGelato(flavor.nameKey) || flavor.label || flavor.id;
-          const imageUrl = `${encodeURI(flavor.image)}?v=${ASSET_VERSION}`;
+          const baseSrc = getBaseImageSrc(flavor);
+          const imageUrl = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
           const mediaBlock = `
             <div class=\"gelato-card__media\">
               <img src=\"${imageUrl}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
@@ -2360,7 +2372,7 @@
             <span>${flavorName}</span>
           `;
           btn.innerHTML = mediaBlock;
-          cacheImage(flavor.image);
+          cacheImage(baseSrc);
 
           btn.addEventListener('click', () => {
             const nextId = expandedFlavorId === flavor.id ? '' : flavor.id;
