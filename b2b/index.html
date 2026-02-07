@@ -918,7 +918,7 @@
   </div>
 
   <script type="module">
-    import { gelatoFlavors } from "../data/gelatoFlavors.js";
+    import { gelatoFlavors } from "../data/gelatoFlavors.js?v=20260207";
     import { initI18n, t as tGelato, setLanguage as setGelatoLanguage } from "../src/i18n/i18n.js";
 
     (function(){
@@ -1948,6 +1948,7 @@
       let expandedPezziDuriId = '';
       let lastGridRects = null;
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const ASSET_VERSION = '20260207';
 
       const categories = Array.from(cards).map((card) => card.getAttribute('data-category'));
       let activeCategory = categories[0] || '';
@@ -2252,7 +2253,7 @@
           btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
           const flavorName = tGelato(flavor.nameKey) || flavor.label || flavor.id;
           const imageSrc = isExpanded && flavor.detailImage ? flavor.detailImage : flavor.image;
-          const imageUrl = encodeURI(imageSrc);
+          const imageUrl = `${encodeURI(imageSrc)}?v=${ASSET_VERSION}`;
           const mediaBlock = `
             <div class=\"gelato-card__media\">
               <img src=\"${imageUrl}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
