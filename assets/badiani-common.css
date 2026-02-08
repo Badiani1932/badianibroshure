@@ -4,8 +4,8 @@
 /* Font Declarations */
 @font-face {
   font-family: 'SuperGroteskB';
-  src: url('../fonts/SuperGroteskB-CdMed.woff2') format('woff2'),
-       url('../fonts/SuperGroteskB-CdMed.woff') format('woff');
+  src: url('fonts/SuperGroteskB-CdMed.woff2') format('woff2'),
+       url('fonts/SuperGroteskB-CdMed.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -13,8 +13,8 @@
 
 @font-face {
   font-family: 'SuperGroteskA';
-  src: url('../fonts/SuperGroteskA-Rg[7511].woff2') format('woff2'),
-       url('../fonts/SuperGroteskA-Rg[7511].woff') format('woff');
+  src: url('fonts/SuperGroteskA-Rg%5B7511%5D.woff2') format('woff2'),
+       url('fonts/SuperGroteskA-Rg%5B7511%5D.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -47,16 +47,19 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scrollbar-gutter: stable;
+  overflow-x: hidden;
 }
 
 body, html {
   font-family: 'SuperGroteskA', 'SuperGroteskB', sans-serif;
   font-weight: 400;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg-light);
   color: var(--badiani-gray);
   line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body > * {
@@ -154,9 +157,11 @@ h1, h2, h3 {
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 6px 28px 6px 12px;
+  min-height: 44px;
   border-radius: 18px;
   font-family: inherit;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .topbar__select option {
@@ -178,9 +183,13 @@ h1, h2, h3 {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 6px 14px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: background 0.3s, border-color 0.3s;
+  touch-action: manipulation;
 }
 
 .topbar__nav a:hover {

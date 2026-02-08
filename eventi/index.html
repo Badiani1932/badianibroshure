@@ -457,6 +457,10 @@
         min-width:200px;
         scroll-snap-align:start;
       }
+      .gallery-grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:10px;
+      }
     }
 
     @media(max-width:600px){
@@ -470,7 +474,7 @@
 <body>
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <div class="topbar__logo">
-      <img src="../assets/extracted/f473fa4a48ae6948929084c736e84f6274322e2d.webp" alt="Badiani 1932" />
+      <img src="../assets/images/branding/logo.webp" alt="Badiani 1932" />
     </div>
     <div class="topbar__right">
       <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
@@ -496,7 +500,7 @@
       <div class="van-grid">
         <a class="van-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
           <div class="van-card__media">
-            <img src="./foto%20eventi/4.jpg" data-i18n-attr="alt:eventi.tosinghi.alt" />
+            <img src="./foto%20eventi/4.jpg" data-i18n-attr="alt:eventi.tosinghi.alt" loading="lazy" decoding="async" />
           </div>
           <div class="van-card__body">
             <h3 class="van-card__title" data-i18n="eventi.tosinghi.title">Saletta privata Tosinghi</h3>
@@ -505,7 +509,7 @@
         </a>
         <a class="van-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
           <div class="van-card__media">
-            <img src="./foto%20eventi/Steve%20Madden%20MICAM/DSC01280.JPG" data-i18n-attr="alt:eventi.external.alt" />
+            <img src="./foto%20eventi/Steve%20Madden%20MICAM/DSC01280.JPG" data-i18n-attr="alt:eventi.external.alt" loading="lazy" decoding="async" />
           </div>
           <div class="van-card__body">
             <h3 class="van-card__title" data-i18n="eventi.external.title">Evento esterno</h3>
@@ -514,7 +518,7 @@
         </a>
         <a class="van-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
           <div class="van-card__media">
-            <img src="../assets/extracted/gelatovan.png" alt="Gelato Van" data-i18n-attr="alt:eventi.van.card1.alt" />
+            <img src="../assets/images/eventi/gelatovan.png" alt="Gelato Van" data-i18n-attr="alt:eventi.van.card1.alt" loading="lazy" decoding="async" />
           </div>
           <div class="van-card__body">
             <h3 class="van-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h3>
@@ -568,11 +572,11 @@
         <h3 style="font-size:28px; text-transform:uppercase; letter-spacing:3px; color:#1e398d; margin:30px 0 24px; text-align:center; font-weight:700; position:relative; z-index:10;">FOTO EVENTI</h3>
         <div class="corporate-gallery">
           <div class="gallery-card" onclick="openEventLightbox(0)">
-            <img src="./foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Steve Madden" />
+            <img src="./foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Steve Madden" loading="lazy" decoding="async" />
             <span>Steve Madden</span>
           </div>
           <div class="gallery-card" onclick="openEventLightbox(1)">
-            <img src="../assets/extracted/1b2a5cc62945aea094a8e00e488dd08378eef958.webp" alt="Menarini" />
+            <img src="../assets/images/branding/eventi-bg.webp" alt="Menarini" loading="lazy" decoding="async" />
             <span>Menarini</span>
           </div>
         </div>
@@ -629,7 +633,7 @@
   <div class="lightbox" id="eventLightbox" onclick="closeEventLightbox(event)">
     <button class="lightbox-close" onclick="closeEventLightbox()">&times;</button>
     <button class="lightbox-nav lightbox-prev" onclick="prevEventImage(event)">&#10094;</button>
-    <img id="eventLightbox-img" src="" alt="" />
+    <img id="eventLightbox-img" src="" alt="" loading="lazy" decoding="async" />
     <button class="lightbox-nav lightbox-next" onclick="nextEventImage(event)">&#10095;</button>
   </div>
 
@@ -637,7 +641,7 @@
     // Lightbox functions for event gallery
     const eventImages = [
       './foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg',
-      '../assets/extracted/1b2a5cc62945aea094a8e00e488dd08378eef958.webp'
+      '../assets/images/branding/eventi-bg.webp'
     ];
     let currentEventIndex = 0;
 

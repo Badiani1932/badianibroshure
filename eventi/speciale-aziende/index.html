@@ -166,13 +166,45 @@
     }
 
     @media(max-width:768px){
+      .features-grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:16px;
+      }
+      .feature-card{
+        padding:24px 18px;
+      }
+      .use-cases-list{
+        grid-template-columns:repeat(2, 1fr);
+        gap:10px;
+      }
+      .use-cases-list li{
+        padding:14px 16px;
+        font-size:14px;
+      }
+      .use-cases{
+        padding:30px 20px;
+      }
+      .section{
+        padding:40px 16px;
+      }
+      .hero{
+        padding:40px 16px;
+      }
+    }
+    @media(max-width:480px){
+      .features-grid{
+        grid-template-columns:1fr;
+      }
+      .use-cases-list{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar__logo">
-      <img src="../../assets/extracted/f473fa4a48ae6948929084c736e84f6274322e2d.webp" alt="Badiani 1932" />
+      <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" />
     </div>
     <nav class="topbar__nav">
       <a href="../../">Home</a>

@@ -43,9 +43,10 @@
     .category-card.b2b-card--coppette,
     .category-card.b2b-card--cono,
     .category-card.b2b-card--cialde,
-    .category-card.b2b-card--contenitori{
+    .category-card.b2b-card--contenitori,
+    .category-card.b2b-card--accessori{
       position:relative;
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/gelato.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/vasche.png');
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -54,25 +55,28 @@
       overflow:hidden;
     }
     .category-card.b2b-card--torte{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/torte.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/torte.png');
     }
     .category-card.b2b-card--vasche{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/vasche.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/vasche.png');
     }
     .category-card.b2b-card--pezziduri{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/pezziduri.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/pezziduri.png');
     }
     .category-card.b2b-card--coppette{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/coppette.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/coppette.png');
     }
     .category-card.b2b-card--cono{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/gelati%20tenda.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/gelati-tenda.png');
     }
     .category-card.b2b-card--cialde{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/wafer-pulsante.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/wafer-pulsante.png');
     }
     .category-card.b2b-card--contenitori{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../pdf_extracted/contenitori.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/contenitori.png');
+    }
+    .category-card.b2b-card--accessori{
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/wafer-pulsante.png');
     }
     .category-card.b2b-card--gelato::before,
     .category-card.b2b-card--torte::before,
@@ -81,7 +85,8 @@
     .category-card.b2b-card--coppette::before,
     .category-card.b2b-card--cono::before,
     .category-card.b2b-card--cialde::before,
-    .category-card.b2b-card--contenitori::before{
+    .category-card.b2b-card--contenitori::before,
+    .category-card.b2b-card--accessori::before{
       content:"";
       position:absolute;
       inset:0;
@@ -95,7 +100,8 @@
     .category-card.b2b-card--coppette > *,
     .category-card.b2b-card--cono > *,
     .category-card.b2b-card--cialde > *,
-    .category-card.b2b-card--contenitori > *{
+    .category-card.b2b-card--contenitori > *,
+    .category-card.b2b-card--accessori > *{
       position:relative;
       z-index:1;
     }
@@ -194,6 +200,7 @@
       padding-left:calc(24px + constant(safe-area-inset-left));
       padding-right:calc(24px + constant(safe-area-inset-right));
       z-index:2000;
+      overscroll-behavior-y:contain;
     }
     .modal-overlay.is-open{ display:flex; }
     .modal{
@@ -404,8 +411,8 @@
       position:absolute;
       top:10px;
       right:10px;
-      width:32px;
-      height:32px;
+      width:44px;
+      height:44px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,0.6);
       background:rgba(0,0,0,0.28);
@@ -416,6 +423,7 @@
       cursor:pointer;
       backdrop-filter:blur(6px);
       transition:transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      touch-action:manipulation;
     }
     .gelato-card__zoom:hover,
     .card-zoom:hover{ transform:scale(1.05); background:rgba(0,0,0,0.38); border-color:rgba(255,255,255,0.8); }
@@ -575,8 +583,8 @@
       position:absolute;
       top:-14px;
       right:-14px;
-      width:40px;
-      height:40px;
+      width:44px;
+      height:44px;
       border-radius:50%;
       border:none;
       background:#fff;
@@ -584,6 +592,7 @@
       font-size:20px;
       cursor:pointer;
       box-shadow:0 10px 24px rgba(0,0,0,0.25);
+      touch-action:manipulation;
     }
 
     .pezziduri-grid{
@@ -825,7 +834,7 @@
 <body>
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <div class="topbar__logo">
-      <img src="../assets/extracted/f473fa4a48ae6948929084c736e84f6274322e2d.webp" data-i18n-attr="alt:brand.alt" alt="" />
+      <img src="../assets/images/branding/logo.webp" data-i18n-attr="alt:brand.alt" alt="" />
     </div>
     <div class="topbar__lang">
       <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
@@ -868,7 +877,7 @@
           <h3 class="category-title" data-i18n="b2b.categories.CONI_COPPETTE"></h3>
           <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
-        <article class="category-card" data-category="ACCESSORI" role="button" tabindex="0" aria-haspopup="dialog">
+        <article class="category-card b2b-card--accessori" data-category="ACCESSORI" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.ACCESSORI"></h3>
           <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
@@ -1945,31 +1954,31 @@
       };
 
       const PEZZI_DURI_IMAGES = {
-        'Classico Buontalenti': '../foto_pezziduri/bianco.png',
-        'Classico Stracciatella': '../foto_pezziduri/stracciatella.png',
-        'Biscotto Buontalenti': '../foto_pezziduri/biscotto.png',
-        'Biscotto Stracciatella': '../foto_pezziduri/biscotto.png',
-        'Cuore di Buontalenti fondente': '../foto_pezziduri/cuore.png',
-        'Cuore di Buontalenti alla fragola': '../foto_pezziduri/cuore.png',
-        'Donut cioccolato': '../foto_pezziduri/pinguino tondo.png',
-        'Donut cioccolato bianco': '../foto_pezziduri/pinguino1 bianco.png',
-        'Donut cioccolato alla fragola': '../foto_pezziduri/rosa.png',
-        'Donut cioccolato al pistacchio': '../foto_pezziduri/pistacchio .png',
-        'Zampa': '../foto_pezziduri/zampetta.png'
+        'Classico Buontalenti': '../assets/images/pezziduri/bianco.png',
+        'Classico Stracciatella': '../assets/images/pezziduri/stracciatella.png',
+        'Biscotto Buontalenti': '../assets/images/pezziduri/biscotto.png',
+        'Biscotto Stracciatella': '../assets/images/pezziduri/biscotto.png',
+        'Cuore di Buontalenti fondente': '../assets/images/pezziduri/cuore.png',
+        'Cuore di Buontalenti alla fragola': '../assets/images/pezziduri/cuore.png',
+        'Donut cioccolato': '../assets/images/pezziduri/pinguino tondo.png',
+        'Donut cioccolato bianco': '../assets/images/pezziduri/pinguino1 bianco.png',
+        'Donut cioccolato alla fragola': '../assets/images/pezziduri/rosa.png',
+        'Donut cioccolato al pistacchio': '../assets/images/pezziduri/pistacchio .png',
+        'Zampa': '../assets/images/pezziduri/zampetta.png'
       };
 
       const TORTE_IMAGES = {
         'Millefoglie Buontalenti': {
-          small: '../foto_torte/millefoglie buontalenti s.png',
-          large: '../foto_torte/millefoglie buontalenti L.png'
+          small: '../assets/images/torte/millefoglie buontalenti s.webp',
+          large: '../assets/images/torte/millefoglie buontalenti L.webp'
         },
         'Millefoglie Buontalenti con salsa Dolcevita (Nocciole e cacao)': {
-          small: '../foto_torte/la dolcevita s.png',
-          large: '../foto_torte/la dolcevita L.png'
+          small: '../assets/images/torte/la dolcevita s.webp',
+          large: '../assets/images/torte/la dolcevita L.webp'
         },
         'Millefoglie Buontalenti con salsa Pistacchio': {
-          small: '../foto_torte/buontalenti pistacchio s.png',
-          large: '../foto_torte/buontalenti pistacchio L.png'
+          small: '../assets/images/torte/buontalenti pistacchio s.webp',
+          large: '../assets/images/torte/buontalenti pistacchio L.webp'
         }
       };
 
@@ -2415,6 +2424,16 @@
         img.src = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
       }
 
+      function getDetailImageSrc(flavor){
+        const src = flavor.detailImage;
+        if(!src) return src;
+        const useLightVersion = window.innerWidth <= 1024;
+        if(useLightVersion && src.endsWith('-2.webp')){
+          return src.replace(/-2\.webp$/i, '-2-light.webp');
+        }
+        return src;
+      }
+
       function getBaseImageSrc(flavor){
         const baseSrc = flavor.image;
         if(baseSrc && baseSrc.endsWith('.webp')){
@@ -2458,7 +2477,7 @@
         card.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
         const img = card.querySelector('img');
         const baseSrc = getBaseImageSrc(flavor);
-        updateGelatoCardImage(img, baseSrc, flavor.detailImage, isExpanded);
+        updateGelatoCardImage(img, baseSrc, getDetailImageSrc(flavor), isExpanded);
         const existing = card.querySelector('.gelato-card__details');
         if(isExpanded){
           const details = existing || document.createElement('div');
@@ -2519,7 +2538,7 @@
           if(zoomBtn){
             zoomBtn.addEventListener('click', (event) => {
               event.stopPropagation();
-              openFullscreenImage(flavor.image || flavor.detailImage || baseSrc, flavorName);
+              openFullscreenImage(flavor.image || getDetailImageSrc(flavor) || baseSrc, flavorName);
             });
           }
 

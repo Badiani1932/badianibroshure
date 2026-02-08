@@ -151,7 +151,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url('../../assets/extracted/1b2a5cc62945aea094a8e00e488dd08378eef958.webp');
+      background-image: url('../../assets/images/branding/eventi-bg.webp');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -260,6 +260,7 @@
       opacity:0;
       transition:opacity 0.4s ease;
       overflow-y:auto;
+      overscroll-behavior-y:contain;
       padding:40px 20px;
     }
     .modal-overlay.active{
@@ -466,13 +467,13 @@
       /* Modal mobile: compatta come inspiration */
       .modal-overlay{ padding:42px 12px 22px; align-items:center; }
       .modal-content{ border-radius:18px; }
-      .modal-close{ top:8px; right:8px; width:40px; height:40px; font-size:22px; }
+      .modal-close{ top:8px; right:8px; width:44px; height:44px; font-size:22px; }
       .modal-header{ padding:28px 18px 16px; }
       .modal-title{ font-size:clamp(18px, 6vw, 24px); margin-bottom:6px; }
       .modal-subtitle{ font-size:clamp(12px, 4vw, 16px); }
       .modal-layout{ gap:10px; padding:0 18px 18px; }
       .modal-media{ width:min(68vw, 240px); margin:0 auto; }
-      .modal-info{ padding:12px; max-height:50vh; overflow:hidden; }
+      .modal-info{ padding:12px; max-height:50vh; overflow-y:auto; -webkit-overflow-scrolling:touch; }
       .modal-section{ padding:10px 12px; margin-bottom:10px; }
       .modal-section h4{ font-size:13px; margin-bottom:6px; letter-spacing:0.6px; }
       .modal-section li,
@@ -519,7 +520,7 @@
 <body>
   <header class="topbar">
     <div class="topbar__logo">
-      <img src="../../assets/extracted/f473fa4a48ae6948929084c736e84f6274322e2d.webp" alt="Badiani 1932" />
+      <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" />
     </div>
     <div class="topbar__right">
       <nav class="topbar__nav">
@@ -548,11 +549,11 @@
   <section class="gallery-section">
     <h2 class="gallery-title" data-i18n="tosinghi.gallery.title">La nostra sala</h2>
     <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox(0)"><img src="../foto%20eventi/1.jpg" alt="Saletta Tosinghi" /></div>
-      <div class="gallery-item" onclick="openLightbox(1)"><img src="../foto%20eventi/2.jpg" alt="Saletta Tosinghi" /></div>
-      <div class="gallery-item" onclick="openLightbox(2)"><img src="../foto%20eventi/3.jpg" alt="Saletta Tosinghi" /></div>
-      <div class="gallery-item" onclick="openLightbox(3)"><img src="../foto%20eventi/4.jpg" alt="Saletta Tosinghi" /></div>
-      <div class="gallery-item" onclick="openLightbox(4)"><img src="../foto%20eventi/5.jpg" alt="Saletta Tosinghi" /></div>
+      <div class="gallery-item" onclick="openLightbox(0)"><img src="../foto%20eventi/1.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(1)"><img src="../foto%20eventi/2.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(2)"><img src="../foto%20eventi/3.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(3)"><img src="../foto%20eventi/4.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(4)"><img src="../foto%20eventi/5.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
     </div>
   </section>
 
@@ -560,7 +561,7 @@
   <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
     <button class="lightbox-nav lightbox-prev" onclick="prevImage(event)">&#10094;</button>
-    <img id="lightbox-img" src="" alt="" />
+    <img id="lightbox-img" src="" alt="" loading="lazy" decoding="async" />
     <button class="lightbox-nav lightbox-next" onclick="nextImage(event)">&#10095;</button>
   </div>
 
