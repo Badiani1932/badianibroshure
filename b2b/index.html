@@ -744,10 +744,12 @@
     @media(max-width:768px){
       .pezziduri-card.is-expanded{
         grid-column:span 1;
-        transform:scale(1.02);
-        box-shadow:0 18px 36px rgba(0,0,0,0.14);
+        transform:scale(1.06);
+        box-shadow:0 20px 40px rgba(0,0,0,0.16);
+        z-index:2;
+        position:relative;
       }
-      .pezziduri-card.is-expanded .pezziduri-media{ aspect-ratio:4 / 3; }
+      .pezziduri-card.is-expanded .pezziduri-media{ aspect-ratio:3 / 4; }
     }
 
     @media(max-width:840px){
@@ -1883,8 +1885,7 @@
             ['Classico Buontalenti', '€2.20', '90 g', '24'],
             ['Classico Stracciatella', '€2.20', '100 g', '24'],
             ['Classico Fondente', '€2.20', '100 g', '24'],
-            ['Tavoletta Buontalenti e cioccolato', '€2.50', '110 g', '24'],
-            ['Cuore di Buontalenti fondente', '€2.50', '110 g', '16'],
+            ['Cuore Buontalenti fondente', '€2.50', '110 g', '24'],
             ['Cuore di Buontalenti alla fragola', '€2.50', '110 g', '16'],
             ['Biscotto Buontalenti', '€2.20', '110 g', '12'],
             ['Biscotto Stracciatella', '€2.20', '110 g', '12'],
@@ -1954,14 +1955,15 @@
       };
 
       const PEZZI_DURI_IMAGES = {
-        'Classico Buontalenti': '../assets/images/pezziduri/bianco.png',
+        'Classico Buontalenti': '../assets/images/pezziduri/pinguino1 bianco.png',
         'Classico Stracciatella': '../assets/images/pezziduri/stracciatella.png',
+        'Classico Fondente': '../assets/images/pezziduri/pinguino fondente.jpeg',
+        'Cuore Buontalenti fondente': '../assets/images/pezziduri/cuore dolcevita.jpeg',
         'Biscotto Buontalenti': '../assets/images/pezziduri/biscotto.png',
-        'Biscotto Stracciatella': '../assets/images/pezziduri/biscotto.png',
-        'Cuore di Buontalenti fondente': '../assets/images/pezziduri/cuore.png',
+        'Biscotto Stracciatella': '../assets/images/pezziduri/biscotto stracciatella.png',
         'Cuore di Buontalenti alla fragola': '../assets/images/pezziduri/cuore.png',
         'Donut cioccolato': '../assets/images/pezziduri/pinguino tondo.png',
-        'Donut cioccolato bianco': '../assets/images/pezziduri/pinguino1 bianco.png',
+        'Donut cioccolato bianco': '../assets/images/pezziduri/bianco.png',
         'Donut cioccolato alla fragola': '../assets/images/pezziduri/rosa.png',
         'Donut cioccolato al pistacchio': '../assets/images/pezziduri/pistacchio .png',
         'Zampa': '../assets/images/pezziduri/zampetta.png'
