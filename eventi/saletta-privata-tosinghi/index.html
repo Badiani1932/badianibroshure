@@ -16,25 +16,79 @@
       background-size:100% auto;
     }
 
-    .page-shell{ padding:48px clamp(16px, 4vw, 80px) 80px; }
-
-    .page-title{
-      font-size:clamp(32px, 5vw, 56px);
+    /* ===== VIDEO HERO ===== */
+    .video-hero{
+      position:relative;
+      height:72vh;
+      min-height:500px;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      text-align:center;
       color:#fff;
+      background:#000;
+    }
+    .video-hero video{
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center center;
+      filter:brightness(0.35);
+      transition: filter 0.8s cubic-bezier(0.4,0,0.2,1), transform 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .video-hero:hover video{
+      filter:brightness(0.9) saturate(1.1);
+      transform:scale(1.04);
+    }
+    .video-hero__content{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:900px;
+      padding:20px;
+      transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .video-hero:hover .video-hero__content{
+      opacity:0;
+      pointer-events:none;
+    }
+    .video-hero__title{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(30px, 5vw, 64px);
+      font-weight:700;
+      letter-spacing:clamp(1px, 0.3vw, 4px);
       text-transform:uppercase;
-      letter-spacing:3px;
-      text-align:center;
-      margin-bottom:12px;
-      text-shadow:0 2px 12px rgba(0,0,0,0.3);
+      line-height:1.1;
+      color:#fff;
+      text-shadow:2px 2px 14px rgba(0,0,0,0.5);
+      margin-bottom:16px;
     }
-    .page-subtitle{
-      font-size:clamp(16px, 1.8vw, 22px);
+    .video-hero__sub{
+      font-size:clamp(16px, 2vw, 26px);
       color:rgba(255,255,255,0.9);
-      text-align:center;
-      max-width:700px;
-      margin:0 auto 40px;
-      text-shadow:0 1px 8px rgba(0,0,0,0.25);
+      font-weight:400;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      text-shadow:1px 1px 8px rgba(0,0,0,0.4);
     }
+    @media(max-width:900px){
+      .video-hero{
+        height:auto;
+        min-height:44vh;
+        padding:36px 15px 32px;
+      }
+      .video-hero__title{
+        font-size:clamp(24px, 7vw, 38px);
+        letter-spacing:1px;
+        line-height:1.2;
+      }
+      .video-hero__sub{
+        font-size:clamp(14px, 3.5vw, 20px);
+      }
+    }
+
+    .page-shell{ padding:48px clamp(16px, 4vw, 80px) 80px; }
 
     /* GALLERY SECTION */
     .gallery-section{
@@ -181,6 +235,8 @@
       cursor:pointer;
       display:flex;
       flex-direction:column;
+      aspect-ratio:1 / 1;
+      justify-content:stretch;
     }
     .package-card:hover{
       transform:translateY(-12px);
@@ -191,31 +247,32 @@
     .package-card.platinum .package-header{ background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7); }
 
     .package-header{
-      padding:40px 30px;
+      padding:28px 24px;
       text-align:center;
       color:#fff;
     }
     .package-name{
-      font-size:clamp(28px, 3vw, 36px);
+      font-size:clamp(22px, 2.4vw, 30px);
       letter-spacing:1px;
-      margin-bottom:12px;
+      margin-bottom:8px;
     }
     .package-price{
-      font-size:clamp(20px, 2.2vw, 28px);
+      font-size:clamp(16px, 1.8vw, 22px);
       font-weight:700;
       opacity:0.95;
     }
     .package-body{
-      padding:35px 30px;
+      padding:20px 24px;
       flex:1;
       display:flex;
       flex-direction:column;
+      justify-content:center;
     }
     .package-desc{
-      font-size:16px;
+      font-size:14px;
       color:#6a6b6e;
-      margin-bottom:24px;
-      line-height:1.7;
+      margin-bottom:16px;
+      line-height:1.6;
     }
     .package-features{
       list-style:none;
@@ -223,18 +280,18 @@
       margin-bottom:auto;
     }
     .package-features li{
-      font-size:15px;
-      padding:10px 0;
+      font-size:13px;
+      padding:7px 0;
       border-bottom:1px solid rgba(30,57,141,0.08);
       display:flex;
       align-items:flex-start;
-      gap:10px;
-      line-height:1.5;
+      gap:8px;
+      line-height:1.4;
     }
     .package-features li::before{
       content:"✓";
       color:var(--badiani-pink);
-      font-size:18px;
+      font-size:15px;
       font-weight:700;
       flex-shrink:0;
     }
@@ -243,9 +300,9 @@
       font-weight:600;
     }
     .package-note{
-      font-size:13px;
+      font-size:12px;
       color:#90949a;
-      margin-top:20px;
+      margin-top:auto;
       font-style:italic;
     }
 
@@ -319,19 +376,19 @@
 
     .modal-panel{
       width:100%;
-      max-width:680px;
-      max-height:80vh;
+      max-width:1180px;
+      max-height:90vh;
       overflow-y:auto;
       background:linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
       border-radius:20px;
-      padding:48px 44px;
+      padding:56px 52px;
       box-shadow:0 20px 60px rgba(0,0,0,0.5);
       animation:slideUp 0.5s cubic-bezier(0.34,1.56,0.64,1);
     }
     @keyframes slideUp{ from{transform:translateY(40px);opacity:0;} to{transform:translateY(0);opacity:1;} }
 
     .modal-panel-title{
-      font-size:clamp(24px, 3vw, 32px);
+      font-size:clamp(28px, 3.5vw, 42px);
       letter-spacing:2px;
       text-transform:uppercase;
       color:var(--badiani-blue);
@@ -340,40 +397,100 @@
       text-align:center;
     }
     .modal-panel-desc{
-      font-size:16px;
+      font-size:20px;
       color:#6a6b6e;
       line-height:1.7;
-      margin-bottom:28px;
+      margin-bottom:32px;
       text-align:center;
+    }
+
+    /* ===== COCKTAIL LIST TOGGLE ===== */
+    .cocktail-toggle-btn{
+      position:absolute;
+      top:12px;
+      right:12px;
+      padding:0;
+      border:none;
+      background:none;
+      color:var(--badiani-pink);
+      font-size:13px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      cursor:pointer;
+      font-family:inherit;
+      transition:color 0.2s;
+    }
+    .cocktail-toggle-btn:hover{
+      color:var(--badiani-blue);
+    }
+    .cocktail-list-panel{
+      display:none;
+      margin-top:10px;
+      padding:12px 14px;
+      background:#f8f9fc;
+      border-radius:10px;
+      border:1px solid rgba(30,57,141,0.1);
+      animation:cocktailReveal 0.3s ease;
+    }
+    .cocktail-list-panel.visible{ display:block; }
+    @keyframes cocktailReveal{
+      from{ opacity:0; transform:translateY(-6px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .cocktail-list-panel ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .cocktail-list-panel li{
+      font-size:15px;
+      color:#4a4f57;
+      line-height:1.5;
+      padding:5px 0;
+      border-bottom:1px solid rgba(30,57,141,0.06);
+    }
+    .cocktail-list-panel li:last-child{ border-bottom:none; }
+    .cocktail-list-panel li strong{
+      color:var(--badiani-blue);
+      font-weight:600;
+    }
+    .cocktail-list-panel li small{
+      color:#90949a;
+      font-size:13px;
     }
     .specs-grid{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:12px;
+      gap:16px;
     }
     .spec-card{
       background:#fff;
-      padding:14px;
-      border-radius:10px;
+      padding:20px;
+      border-radius:12px;
       box-shadow:0 2px 8px rgba(0,0,0,0.08);
       transition:transform 0.3s ease, box-shadow 0.3s ease;
+      position:relative;
     }
     .spec-card:hover{ transform:translateY(-2px); box-shadow:0 4px 12px rgba(240,103,166,0.15); }
     .spec-label{
-      font-size:11px;
+      font-size:14px;
       text-transform:uppercase;
-      letter-spacing:1px;
+      letter-spacing:1.2px;
       color:var(--badiani-pink);
       font-weight:700;
-      margin-bottom:6px;
+      margin-bottom:8px;
       display:block;
     }
     .spec-card:nth-child(odd) .spec-label{ color:var(--badiani-blue); }
     .spec-value{
-      font-size:13px;
+      font-size:16px;
       font-weight:400;
       color:var(--badiani-gray);
-      line-height:1.5;
+      line-height:1.6;
     }
 
     @media(max-width:768px){
@@ -394,18 +511,18 @@
     /* TERMINI */
     .terms{
       background:#fff;
-      padding:28px 34px;
+      padding:40px 48px;
       border-radius:16px;
       margin-top:48px;
       border:1px solid rgba(30,57,141,0.12);
       box-shadow:0 4px 16px rgba(0,0,0,0.06);
     }
     .terms h3{
-      font-size:14px;
+      font-size:20px;
       font-weight:700;
       text-transform:uppercase;
-      letter-spacing:0.05em;
-      margin-bottom:12px;
+      letter-spacing:0.08em;
+      margin-bottom:16px;
       color:var(--badiani-blue);
     }
     .terms ul{
@@ -414,10 +531,10 @@
       margin:0;
     }
     .terms li{
-      font-size:12px;
-      line-height:1.5;
-      padding:4px 0;
-      padding-left:18px;
+      font-size:16px;
+      line-height:1.7;
+      padding:6px 0;
+      padding-left:22px;
       position:relative;
       color:var(--badiani-blue);
     }
@@ -430,7 +547,7 @@
       position:absolute;
       left:0;
       color:var(--badiani-pink);
-      font-size:11px;
+      font-size:15px;
     }
 
     /* CONTACT */
@@ -478,6 +595,7 @@
         min-width:200px;
         scroll-snap-align:start;
         border-radius:12px;
+        aspect-ratio:auto;
       }
       .package-card:hover{
         transform:none;
@@ -766,28 +884,18 @@
     </div>
   </header>
 
-  <main class="page-shell">
-    <h1 class="page-title" data-i18n="tosinghi.hero.title">Il tuo party nella nostra saletta privata</h1>
-    <p class="page-subtitle" data-i18n="tosinghi.hero.desc">Scegli il pacchetto perfetto per il tuo evento nella nostra elegante saletta Tosinghi a Firenze</p>
-
-  <section class="gallery-section">
-    <h2 class="gallery-title" data-i18n="tosinghi.gallery.title">La nostra sala</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox(0)"><img src="../foto%20eventi/1.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
-      <div class="gallery-item" onclick="openLightbox(1)"><img src="../foto%20eventi/2.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
-      <div class="gallery-item" onclick="openLightbox(2)"><img src="../foto%20eventi/3.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
-      <div class="gallery-item" onclick="openLightbox(3)"><img src="../foto%20eventi/4.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
-      <div class="gallery-item" onclick="openLightbox(4)"><img src="../foto%20eventi/5.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+  <!-- VIDEO HERO -->
+  <section class="video-hero">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="../../assets/video/videotosinghi.mp4" type="video/mp4">
+    </video>
+    <div class="video-hero__content">
+      <h1 class="video-hero__title" data-i18n="tosinghi.hero.title">Il tuo partner nella nostra saletta privata</h1>
+      <p class="video-hero__sub" data-i18n="tosinghi.hero.sub">Scegli il tuo pacchetto</p>
     </div>
   </section>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <button class="lightbox-nav lightbox-prev" onclick="prevImage(event)">&#10094;</button>
-    <img id="lightbox-img" src="" alt="" loading="lazy" decoding="async" />
-    <button class="lightbox-nav lightbox-next" onclick="nextImage(event)">&#10095;</button>
-  </div>
+  <main class="page-shell">
 
   <section class="section">
     <h2 class="section-title" data-i18n="tosinghi.packages.title">Pacchetti Disponibili</h2>
@@ -832,6 +940,25 @@
 
   </section>
 
+  <section class="gallery-section">
+    <h2 class="gallery-title" data-i18n="tosinghi.gallery.title">La nostra sala</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(0)"><img src="../foto%20eventi/1.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(1)"><img src="../foto%20eventi/2.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(2)"><img src="../foto%20eventi/3.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(3)"><img src="../foto%20eventi/4.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+      <div class="gallery-item" onclick="openLightbox(4)"><img src="../foto%20eventi/5.jpg" alt="Saletta Tosinghi" loading="lazy" decoding="async" /></div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevImage(event)">&#10094;</button>
+    <img id="lightbox-img" src="" alt="" loading="lazy" decoding="async" />
+    <button class="lightbox-nav lightbox-next" onclick="nextImage(event)">&#10095;</button>
+  </div>
+
   <!-- TERMINI E CONDIZIONI -->
   <div class="terms">
     <h3 data-i18n="tosinghi.terms.title">Termini e Condizioni</h3>
@@ -862,6 +989,18 @@
           <div class="spec-card">
             <span class="spec-label">Drink</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.silver.drink.compact">2 cocktail alcolici<br>1 analcolico<br>Prosecco<br>Acqua<br><small style="color:#90949a">Men&ugrave; esposto sulla postazione beverage</small></span>
+            <button type="button" class="cocktail-toggle-btn" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('visible'); this.textContent = this.nextElementSibling.classList.contains('visible') ? 'Chiudi' : 'Lista'">Lista</button>
+            <div class="cocktail-list-panel">
+              <ul>
+                <li><strong>Spritz</strong> <small>(a scelta tra Campari, Aperol, Select, Salvia e Limone)</small></li>
+                <li><strong>Paloma Sorbetto</strong> <small>(tequila, lime, sorbetto, soda)</small></li>
+                <li><strong>Americano</strong> <small>(bitter, vermouth rosso)</small></li>
+                <li><strong>Negroni</strong> <small>(gin, bitter, vermouth rosso)</small></li>
+                <li><strong>London Mule</strong> <small>(gin, ginger beer, lime)</small></li>
+                <li><strong>Moscow Mule</strong> <small>(lime, ginger beer, vodka)</small></li>
+                <li><strong>Vodka Imperiale</strong> <small>(vodka, succo pera, sorbetto sottobosco)</small></li>
+              </ul>
+            </div>
           </div>
           <div class="spec-card">
             <span class="spec-label">Durata</span>
@@ -898,6 +1037,18 @@
           <div class="spec-card">
             <span class="spec-label">Drink</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.gold.drink.compact">2 cocktail alcolici<br>1 analcolico<br>Franciacorta<br>Acqua<br><small style="color:#90949a">Men&ugrave; esposto sulla postazione beverage</small></span>
+            <button type="button" class="cocktail-toggle-btn" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('visible'); this.textContent = this.nextElementSibling.classList.contains('visible') ? 'Chiudi' : 'Lista'">Lista</button>
+            <div class="cocktail-list-panel">
+              <ul>
+                <li><strong>Spritz</strong> <small>(a scelta tra Campari, Aperol, Select, Salvia e Limone)</small></li>
+                <li><strong>Paloma Sorbetto</strong> <small>(tequila, lime, sorbetto, soda)</small></li>
+                <li><strong>Americano</strong> <small>(bitter, vermouth rosso)</small></li>
+                <li><strong>Negroni</strong> <small>(gin, bitter, vermouth rosso)</small></li>
+                <li><strong>London Mule</strong> <small>(gin, ginger beer, lime)</small></li>
+                <li><strong>Moscow Mule</strong> <small>(lime, ginger beer, vodka)</small></li>
+                <li><strong>Vodka Imperiale</strong> <small>(vodka, succo pera, sorbetto sottobosco)</small></li>
+              </ul>
+            </div>
           </div>
           <div class="spec-card">
             <span class="spec-label">Durata</span>
@@ -934,6 +1085,18 @@
           <div class="spec-card">
             <span class="spec-label">Drink</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.platinum.drink.compact">2 cocktail alcolici<br>1 analcolico<br>Champagne (da concordare)<br>Acqua<br><small style="color:#90949a">Men&ugrave; esposto sulla postazione beverage</small></span>
+            <button type="button" class="cocktail-toggle-btn" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('visible'); this.textContent = this.nextElementSibling.classList.contains('visible') ? 'Chiudi' : 'Lista'">Lista</button>
+            <div class="cocktail-list-panel">
+              <ul>
+                <li><strong>Spritz</strong> <small>(a scelta tra Campari, Aperol, Select, Salvia e Limone)</small></li>
+                <li><strong>Paloma Sorbetto</strong> <small>(tequila, lime, sorbetto, soda)</small></li>
+                <li><strong>Americano</strong> <small>(bitter, vermouth rosso)</small></li>
+                <li><strong>Negroni</strong> <small>(gin, bitter, vermouth rosso)</small></li>
+                <li><strong>London Mule</strong> <small>(gin, ginger beer, lime)</small></li>
+                <li><strong>Moscow Mule</strong> <small>(lime, ginger beer, vodka)</small></li>
+                <li><strong>Vodka Imperiale</strong> <small>(vodka, succo pera, sorbetto sottobosco)</small></li>
+              </ul>
+            </div>
           </div>
           <div class="spec-card">
             <span class="spec-label">Durata</span>
@@ -1119,8 +1282,8 @@
           'nav.home': 'Home',
           'nav.eventi': 'Eventi',
           'nav.b2b': 'B2B',
-          'tosinghi.hero.title': 'Il tuo party nella nostra saletta privata',
-          'tosinghi.hero.desc': 'Scegli il pacchetto perfetto per il tuo evento nella nostra elegante saletta Tosinghi a Firenze',
+          'tosinghi.hero.title': 'Il tuo partner nella nostra saletta privata',
+          'tosinghi.hero.sub': 'Scegli il tuo pacchetto',
           'tosinghi.packages.title': 'Pacchetti Disponibili',
           // Silver Package
           'tosinghi.silver.aria': 'Pacchetto Silver - Aperitivo classico',
@@ -1234,8 +1397,8 @@
           'nav.home': 'Home',
           'nav.eventi': 'Events',
           'nav.b2b': 'B2B',
-          'tosinghi.hero.title': 'Your party in our private room',
-          'tosinghi.hero.desc': 'Choose the perfect package for your event in our elegant Tosinghi room in Florence',
+          'tosinghi.hero.title': 'Your partner in our private room',
+          'tosinghi.hero.sub': 'Choose your package',
           'tosinghi.packages.title': 'Available Packages',
           // Silver Package
           'tosinghi.silver.aria': 'Silver Package - Classic aperitif',
@@ -1349,8 +1512,8 @@
           'nav.home': 'Accueil',
           'nav.eventi': 'Événements',
           'nav.b2b': 'B2B',
-          'tosinghi.hero.title': 'Votre fête dans notre salle privée',
-          'tosinghi.hero.desc': 'Choisissez le forfait parfait pour votre événement dans notre élégante salle Tosinghi à Florence',
+          'tosinghi.hero.title': 'Votre partenaire dans notre salle privée',
+          'tosinghi.hero.sub': 'Choisissez votre forfait',
           'tosinghi.packages.title': 'Forfaits Disponibles',
           // Silver Package
           'tosinghi.silver.aria': 'Forfait Silver - Apéritif classique',
@@ -1464,8 +1627,8 @@
           'nav.home': 'Inicio',
           'nav.eventi': 'Eventos',
           'nav.b2b': 'B2B',
-          'tosinghi.hero.title': 'Tu fiesta en nuestra sala privada',
-          'tosinghi.hero.desc': 'Elige el paquete perfecto para tu evento en nuestra elegante sala Tosinghi en Florencia',
+          'tosinghi.hero.title': 'Tu socio en nuestra sala privada',
+          'tosinghi.hero.sub': 'Elige tu paquete',
           'tosinghi.packages.title': 'Paquetes Disponibles',
           // Silver Package
           'tosinghi.silver.aria': 'Paquete Silver - Aperitivo clásico',

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -23,7 +23,7 @@
     .hero h1{ font-size:clamp(28px, 3.6vw, 46px); margin-bottom:12px; }
     .hero p{ font-size:clamp(16px, 1.5vw, 20px); color:#6a6b6e; max-width:780px; }
 
-    .section-title{ font-size:clamp(20px, 2.4vw, 30px); margin:40px 0 18px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.3); }
+    .section-title{ font-size:clamp(2rem, 5vw, 3.5rem); margin:40px 0 18px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.3); }
 
     .category-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px; }
     .category-card{
@@ -68,10 +68,10 @@
       background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/vasche.png');
     }
     .category-card.b2b-card--pezziduri{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/pezziduri.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/pezzi-duri.png');
     }
     .category-card.b2b-card--coppette{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/coppette.png');
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/coni-coppette.png');
     }
     .category-card.b2b-card--cono{
       background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/gelati-tenda.png');
@@ -141,7 +141,8 @@
     .category-card.b2b-card--coppette .category-title,
     .category-card.b2b-card--cono .category-title,
     .category-card.b2b-card--cialde .category-title,
-    .category-card.b2b-card--contenitori .category-title{
+    .category-card.b2b-card--contenitori .category-title,
+    .category-card.b2b-card--accessori .category-title{
       color:#fff;
       background:rgba(0,0,0,0.45);
       padding:6px 10px;
@@ -155,7 +156,8 @@
     .category-card.b2b-card--coppette .category-desc,
     .category-card.b2b-card--cono .category-desc,
     .category-card.b2b-card--cialde .category-desc,
-    .category-card.b2b-card--contenitori .category-desc{
+    .category-card.b2b-card--contenitori .category-desc,
+    .category-card.b2b-card--accessori .category-desc{
       color:rgba(255,255,255,0.88);
     }
 
@@ -182,11 +184,11 @@
       padding:0 10px;
     }
     .b2b-step__num{
-      width:48px;
-      height:48px;
+      width:64px;
+      height:64px;
       border-radius:50%;
       color:#fff;
-      font-size:18px;
+      font-size:24px;
       font-weight:700;
       display:flex;
       align-items:center;
@@ -198,17 +200,17 @@
     }
     .b2b-step__connector{
       position:absolute;
-      top:24px;
-      left:calc(50% + 24px);
-      width:calc(100% - 48px);
+      top:32px;
+      left:calc(50% + 32px);
+      width:calc(100% - 64px);
       height:2px;
       background:linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
       z-index:1;
     }
     .b2b-step:last-child .b2b-step__connector{ display:none; }
     .b2b-step__title{
-      margin-top:16px;
-      font-size:14px;
+      margin-top:20px;
+      font-size:clamp(14px, 1.6vw, 21px);
       font-weight:700;
       text-transform:uppercase;
       letter-spacing:1.2px;
@@ -216,8 +218,8 @@
       text-shadow:0 1px 6px rgba(0,0,0,0.3);
     }
     .b2b-step__desc{
-      margin-top:10px;
-      font-size:13px;
+      margin-top:12px;
+      font-size:clamp(13px, 1.3vw, 18px);
       line-height:1.6;
       color:rgba(255,255,255,0.85);
       text-shadow:0 1px 4px rgba(0,0,0,0.2);
@@ -225,7 +227,7 @@
       backdrop-filter:blur(8px);
       -webkit-backdrop-filter:blur(8px);
       border-radius:14px;
-      padding:14px 12px;
+      padding:18px 16px;
       border:1px solid rgba(255,255,255,0.15);
     }
     @media(max-width:980px){
@@ -291,7 +293,8 @@
     .step-num{ width:32px; height:32px; border-radius:50%; background:var(--badiani-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:13px; }
     .cta-block{ background:var(--surface); border-radius:22px; padding:26px; border:2px solid rgba(255,255,255,0.15); box-shadow:0 14px 30px rgba(0,0,0,0.08); }
     .cta-block p{ color:#6a6b6e; margin-top:8px; }
-    .cta-button{ display:inline-flex; margin-top:16px; padding:12px 28px; border-radius:30px; background:var(--badiani-blue); color:#fff; text-decoration:none; font-size:13px; text-transform:uppercase; letter-spacing:2px; font-weight:600; }
+    .cta-button{ display:inline-flex; margin-top:16px; padding:16px 38px; border-radius:30px; background:var(--badiani-blue); color:#fff; text-decoration:none; font-size:16px; text-transform:uppercase; letter-spacing:2.5px; font-weight:600; transition:background 0.3s, transform 0.3s, box-shadow 0.3s; box-shadow:0 8px 24px rgba(30,57,141,0.2); }
+    .cta-button:hover{ background:var(--badiani-pink); transform:translateY(-2px); box-shadow:0 12px 32px rgba(240,103,166,0.25); }
 
     .modal-overlay{
       position:fixed;
@@ -727,6 +730,204 @@
         position:relative;
       }
     }
+
+    /* ── Coni & Coppette gallery ── */
+    .coni-header-img{
+      width:100%;
+      border-radius:16px;
+      margin-bottom:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
+    .coni-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+    }
+    .coni-card{
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      cursor:pointer;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .coni-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
+    .coni-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
+    .coni-card.is-expanded{ grid-column:span 2; }
+    .coni-media{
+      width:100%;
+      aspect-ratio:1 / 1;
+      background:#f0f1f3;
+      overflow:hidden;
+      position:relative;
+    }
+    .coni-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .coni-body{
+      padding:12px 14px 14px;
+      display:grid;
+      gap:8px;
+    }
+    .coni-title{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.6px;
+      color:var(--badiani-blue);
+      text-align:center;
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .coni-meta{
+      display:grid;
+      gap:6px;
+      font-size:12px;
+      color:#5b5f66;
+    }
+    .coni-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:#f5f6f8;
+      padding:6px 8px;
+      border-radius:10px;
+    }
+    .coni-gf-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:6px;
+      padding:6px 12px;
+      border:1.5px solid var(--badiani-green);
+      border-radius:10px;
+      background:transparent;
+      color:var(--badiani-green);
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:0.5px;
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      cursor:pointer;
+      transition:background 0.2s, color 0.2s;
+    }
+    .coni-gf-btn:hover{ background:var(--badiani-green); color:#fff; }
+    .coni-gf-btn .gf-chevron{
+      display:inline-block;
+      transition:transform 0.25s ease;
+      font-size:10px;
+    }
+    .coni-gf-btn.is-open .gf-chevron{ transform:rotate(180deg); }
+    .coni-gf-details{
+      display:none;
+      margin-top:8px;
+      padding:10px 12px;
+      background:rgba(111,124,74,0.08);
+      border-radius:10px;
+      font-size:12px;
+      color:#3a3e44;
+    }
+    .coni-gf-details.is-visible{ display:block; }
+    .coni-gf-details strong{
+      color:var(--badiani-green);
+      text-transform:uppercase;
+      letter-spacing:0.4px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    @media(max-width:768px){
+      .coni-card.is-expanded{
+        grid-column:span 1;
+        transform:scale(1.06);
+        box-shadow:0 20px 40px rgba(0,0,0,0.16);
+        z-index:2;
+        position:relative;
+      }
+    }
+
+    /* ── Accessori gallery ── */
+    .accessori-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+    }
+    .accessori-card{
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      cursor:pointer;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .accessori-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
+    .accessori-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
+    .accessori-card.is-expanded{ grid-column:span 2; }
+    .accessori-media{
+      width:100%;
+      aspect-ratio:1 / 1;
+      background:#f0f1f3;
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .accessori-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .accessori-media--placeholder{
+      background:#fff;
+    }
+    .accessori-body{
+      padding:12px 14px 14px;
+      display:grid;
+      gap:8px;
+    }
+    .accessori-title{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.6px;
+      color:var(--badiani-blue);
+      text-align:center;
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .accessori-meta{
+      display:grid;
+      gap:6px;
+      font-size:12px;
+      color:#5b5f66;
+    }
+    .accessori-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:#f5f6f8;
+      padding:6px 8px;
+      border-radius:10px;
+    }
+    @media(max-width:768px){
+      .accessori-card.is-expanded{
+        grid-column:span 1;
+        transform:scale(1.06);
+        box-shadow:0 20px 40px rgba(0,0,0,0.16);
+        z-index:2;
+        position:relative;
+      }
+    }
+
     .vasche-flavor-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -875,87 +1076,99 @@
     }
     .torte-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:18px;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
     }
-    .torte-card{
-      background:#fff;
+    .torte-set{
+      display:contents;
+    }
+    .torte-img-wrap{
+      position:relative;
       border-radius:18px;
       overflow:hidden;
-      border:1px solid rgba(30,57,141,0.12);
-      box-shadow:0 12px 26px rgba(0,0,0,0.07);
-      display:flex;
-      flex-direction:column;
-      cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .torte-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
-    .torte-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .torte-card.is-expanded{
-      grid-column:span 2;
-    }
-    .torte-media{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px;
-      padding:12px;
       background:#f7f7f9;
-      position:relative;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      cursor:pointer;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .torte-media figure{
-      margin:0;
-      background:#fff;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(30,57,141,0.12);
-      display:grid;
-      gap:6px;
+    .torte-img-wrap:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 32px rgba(0,0,0,0.14);
     }
-    .torte-media img{
+    .torte-img-wrap img{
       width:100%;
-      aspect-ratio:1 / 1;
-      object-fit:cover;
       display:block;
+      object-fit:cover;
+      aspect-ratio:4 / 3;
     }
-    .torte-media figcaption{
+    .torte-img-wrap .torte-size-badge{
+      position:absolute;
+      top:12px;
+      left:12px;
+      background:rgba(30,57,141,0.85);
+      color:#fff;
       font-size:11px;
+      font-weight:700;
       text-transform:uppercase;
-      letter-spacing:1px;
-      color:#6a6b6e;
+      letter-spacing:1.5px;
+      padding:4px 12px;
+      border-radius:20px;
+      backdrop-filter:blur(4px);
+    }
+    .torte-img-wrap .torte-zoom-btn{
+      position:absolute;
+      top:12px;
+      right:12px;
+      width:36px;
+      height:36px;
+      background:rgba(0,0,0,0.3);
+      border:1px solid rgba(255,255,255,0.5);
+      border-radius:50%;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:background 0.2s, transform 0.2s;
+      backdrop-filter:blur(4px);
+    }
+    .torte-img-wrap .torte-zoom-btn:hover{
+      background:rgba(0,0,0,0.5);
+      transform:scale(1.1);
+    }
+    .torte-img-wrap .torte-zoom-btn svg{
+      width:16px;
+      height:16px;
+    }
+    .torte-set-info{
+      grid-column:1 / -1;
       text-align:center;
-      padding:6px 0 10px;
-      background:#fff;
+      padding:4px 0 12px;
+      border-bottom:1px solid rgba(30,57,141,0.08);
+      margin-bottom:4px;
     }
-    .torte-body{
-      padding:14px 16px 16px;
-      display:grid;
-      gap:10px;
+    .torte-set-info:last-child{
+      border-bottom:none;
+      margin-bottom:0;
     }
-    .torte-title{
-      font-size:13px;
+    .torte-set-name{
+      font-size:14px;
       font-weight:600;
       letter-spacing:0.6px;
       color:var(--badiani-blue);
       text-transform:uppercase;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .torte-price{
+    .torte-set-price{
       font-size:12px;
-      color:#5b5f66;
-      background:#f5f6f8;
-      padding:6px 8px;
-      border-radius:10px;
-      display:flex;
-      justify-content:space-between;
+      color:#6a6b6e;
+      margin-top:4px;
     }
-    @media(max-width:768px){
-      .torte-card.is-expanded{
-        grid-column:span 1;
-        transform:scale(1.02);
-        box-shadow:0 18px 36px rgba(0,0,0,0.14);
+    @media(max-width:600px){
+      .torte-grid{
+        grid-template-columns:1fr;
+        gap:16px;
       }
-      .torte-card.is-expanded .torte-media{ grid-template-columns:1fr; }
-      .torte-card.is-expanded .torte-media img{ aspect-ratio:4 / 3; }
     }
 
     @media(max-width:768px){
@@ -1120,6 +1333,214 @@
       .hero{ padding:30px; }
 
     }
+
+    /* ========== B2B REQUEST FORM MODAL ========== */
+    .b2b-form-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.7);
+      z-index:20000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      overflow-y:auto;
+    }
+    .b2b-form-overlay.active{
+      display:flex;
+    }
+    .b2b-form{
+      background:#fff;
+      border-radius:24px;
+      max-width:720px;
+      width:100%;
+      position:relative;
+      box-shadow:0 30px 80px rgba(0,0,0,0.3);
+      overflow:hidden;
+      animation:b2bFormSlideUp 0.4s ease;
+    }
+    @keyframes b2bFormSlideUp{
+      from{ transform:translateY(40px); opacity:0; }
+      to{ transform:translateY(0); opacity:1; }
+    }
+    .b2b-form__header{
+      background:linear-gradient(135deg, var(--badiani-blue), #2a4faf);
+      padding:28px 32px;
+      color:#fff;
+      text-align:center;
+    }
+    .b2b-form__header h2{
+      font-size:clamp(18px, 2.4vw, 26px);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#fff;
+      margin-bottom:4px;
+    }
+    .b2b-form__header p{
+      font-size:14px;
+      color:rgba(255,255,255,0.7);
+    }
+    .b2b-form__close{
+      position:absolute;
+      top:16px; right:16px;
+      width:40px; height:40px;
+      background:rgba(255,255,255,0.15);
+      border:none;
+      border-radius:50%;
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:background 0.3s;
+      z-index:2;
+    }
+    .b2b-form__close:hover{
+      background:var(--badiani-pink);
+    }
+    .b2b-form__body{
+      padding:28px 32px;
+      max-height:65vh;
+      overflow-y:auto;
+    }
+    .b2b-form__grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
+    .b2b-form__grid .fm-field{
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+    .b2b-form__grid .fm-field.full{
+      grid-column:1 / -1;
+    }
+    .b2b-form__grid label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:#6a6b6e;
+      font-weight:600;
+    }
+    .b2b-form__grid input,
+    .b2b-form__grid select,
+    .b2b-form__grid textarea{
+      width:100%;
+      border:1px solid rgba(30,57,141,0.15);
+      border-radius:10px;
+      padding:10px 12px;
+      font-family:inherit;
+      font-size:13px;
+      background:#f8f9fc;
+      color:#4a4f57;
+      transition:border-color 0.3s;
+      box-sizing:border-box;
+    }
+    .b2b-form__grid textarea{
+      resize:vertical;
+      min-height:80px;
+    }
+    .b2b-form__grid input:focus,
+    .b2b-form__grid select:focus,
+    .b2b-form__grid textarea:focus{
+      outline:none;
+      border-color:var(--badiani-blue);
+      box-shadow:0 0 0 3px rgba(30,57,141,0.08);
+    }
+    .b2b-form .fm-checkbox-group{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .b2b-form .fm-checkbox-group label{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:12px;
+      font-weight:400;
+      text-transform:none;
+      letter-spacing:0;
+      color:#58595b;
+      cursor:pointer;
+      background:#f8f9fc;
+      padding:7px 12px;
+      border-radius:8px;
+      border:1px solid rgba(30,57,141,0.1);
+      transition:border-color 0.2s, background 0.2s;
+    }
+    .b2b-form .fm-checkbox-group label:hover{
+      border-color:var(--badiani-blue);
+      background:#eef1f8;
+    }
+    .b2b-form .fm-checkbox-group input[type="checkbox"]{
+      width:14px; height:14px;
+      accent-color:var(--badiani-blue);
+    }
+    .b2b-form__section-label{
+      font-size:13px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:var(--badiani-blue);
+      margin-top:8px;
+      margin-bottom:2px;
+    }
+    .b2b-form__actions{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid rgba(30,57,141,0.08);
+    }
+    .b2b-form__actions .fm-privacy{
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      font-size:12px;
+      color:#6a6b6e;
+    }
+    .b2b-form__actions .fm-privacy input{
+      margin-top:2px;
+      width:14px; height:14px;
+      accent-color:var(--badiani-blue);
+    }
+    .b2b-form__submit{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:none;
+      background:var(--badiani-blue);
+      color:#fff;
+      padding:12px 30px;
+      border-radius:999px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-family:inherit;
+      font-weight:600;
+      cursor:pointer;
+      transition:background 0.3s, transform 0.3s;
+      box-shadow:0 6px 20px rgba(30,57,141,0.18);
+    }
+    .b2b-form__submit:hover{
+      background:var(--badiani-pink);
+      transform:translateY(-2px);
+    }
+    .b2b-form__submit svg{
+      width:16px; height:16px; fill:currentColor;
+    }
+    @media(max-width:600px){
+      .b2b-form__grid{ grid-template-columns:1fr; }
+      .b2b-form__body{ padding:20px 18px; }
+      .b2b-form__header{ padding:22px 18px; }
+      .b2b-form__actions{ flex-direction:column; align-items:stretch; text-align:center; }
+      .b2b-form__submit{ justify-content:center; }
+    }
   </style>
 </head>
 <body>
@@ -1150,39 +1571,33 @@
       <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 0.5rem; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.3);" data-i18n="b2b.hero.title"></h1>
       <p style="font-size: 1.1rem; opacity: 0.85; color:#fff; text-shadow:0 1px 6px rgba(0,0,0,0.2);" data-i18n="b2b.hero.subtitle"></p>
       <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 0.5rem; color:rgba(255,255,255,0.8); text-shadow:0 1px 4px rgba(0,0,0,0.2);" data-i18n="b2b.hero.note"></p>
+      <a class="cta-button" href="#" onclick="openB2BForm(); return false;" style="margin-top:1.5rem;" data-i18n="b2b.cta.button"></a>
     </section>
 
-    <section data-i18n-attr="aria-label:b2b.areas.label">
-      <h2 class="section-title" data-i18n="b2b.areas.title"></h2>
+    <section data-i18n-attr="aria-label:b2b.areas.label" style="margin-top:1.5rem;">
       <div class="category-grid">
         <article class="category-card b2b-card--gelato" data-category="GELATO" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.GELATO"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
         <article class="category-card b2b-card--pezziduri" data-category="PEZZI DURI" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.PEZZI_DURI"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
         <article class="category-card b2b-card--torte" data-category="TORTE" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.TORTE"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
-        <article class="category-card b2b-card--cono" data-category="CONI_COPPETTE" role="button" tabindex="0" aria-haspopup="dialog">
+        <article class="category-card b2b-card--coppette" data-category="CONI_COPPETTE" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.CONI_COPPETTE"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
         <article class="category-card b2b-card--accessori" data-category="ACCESSORI" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.ACCESSORI"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
         <article class="category-card b2b-card--contenitori" data-category="CONTENITORI" role="button" tabindex="0" aria-haspopup="dialog">
           <h3 class="category-title" data-i18n="b2b.categories.CONTENITORI"></h3>
-          <p class="category-desc" data-i18n-html="b2b.categories.desc"></p>
         </article>
       </div>
     </section>
 
-    <section data-i18n-attr="aria-label:b2b.steps.label" style="max-width:960px; margin:0 auto;">
+    <section data-i18n-attr="aria-label:b2b.steps.label" style="max-width:1200px; margin:0 auto;">
       <h2 class="section-title" style="text-align:center;" data-i18n="b2b.steps.title"></h2>
       <div class="b2b-steps">
         <div class="b2b-step">
@@ -1217,14 +1632,75 @@
       </div>
     </section>
 
-    <section data-i18n-attr="aria-label:b2b.cta.label">
-      <h2 class="section-title" data-i18n="b2b.cta.title"></h2>
-      <div class="cta-block">
-        <a class="cta-button" href="#" data-i18n="b2b.cta.button"></a>
-        <p data-i18n="b2b.cta.note"></p>
-      </div>
-    </section>
   </main>
+
+  <!-- B2B REQUEST FORM MODAL -->
+  <div class="b2b-form-overlay" id="b2bFormModal" onclick="closeB2BForm(event)">
+    <div class="b2b-form" onclick="event.stopPropagation()">
+      <button class="b2b-form__close" onclick="closeB2BForm()" aria-label="Chiudi">&times;</button>
+      <div class="b2b-form__header">
+        <h2 data-i18n="b2b.form.title"></h2>
+        <p data-i18n="b2b.form.subtitle"></p>
+      </div>
+      <div class="b2b-form__body">
+        <form id="b2bRequestForm" action="mailto:b2b@badiani1932.com" method="post" enctype="text/plain">
+          <div class="b2b-form__grid">
+            <!-- Nome / Cognome -->
+            <div class="fm-field"><label data-i18n="b2b.form.nome"></label><input name="nome" type="text" data-i18n-attr="placeholder:b2b.form.nome_ph" required /></div>
+            <div class="fm-field"><label data-i18n="b2b.form.cognome"></label><input name="cognome" type="text" data-i18n-attr="placeholder:b2b.form.cognome_ph" required /></div>
+
+            <!-- Email / Telefono -->
+            <div class="fm-field"><label data-i18n="b2b.form.email"></label><input name="email" type="email" data-i18n-attr="placeholder:b2b.form.email_ph" required /></div>
+            <div class="fm-field"><label data-i18n="b2b.form.telefono"></label><input name="telefono" type="tel" placeholder="+39 ..." required /></div>
+
+            <!-- Nome Azienda (required) -->
+            <div class="fm-field"><label data-i18n="b2b.form.azienda"></label><input name="azienda" type="text" data-i18n-attr="placeholder:b2b.form.azienda_ph" required /></div>
+
+            <!-- Tipo Azienda -->
+            <div class="fm-field"><label data-i18n="b2b.form.tipo"></label>
+              <select name="tipo_azienda" required>
+                <option value="" disabled selected data-i18n="b2b.form.tipo_select"></option>
+                <option value="hotel" data-i18n="b2b.form.tipo_hotel"></option>
+                <option value="ristorante" data-i18n="b2b.form.tipo_ristorante"></option>
+                <option value="bar-caffetteria" data-i18n="b2b.form.tipo_bar"></option>
+                <option value="catering" data-i18n="b2b.form.tipo_catering"></option>
+                <option value="gelateria" data-i18n="b2b.form.tipo_gelateria"></option>
+                <option value="pasticceria" data-i18n="b2b.form.tipo_pasticceria"></option>
+                <option value="altro" data-i18n="b2b.form.tipo_altro"></option>
+              </select>
+            </div>
+
+            <!-- P.IVA / Dati Aziendali -->
+            <div class="fm-field full"><label data-i18n="b2b.form.piva"></label><input name="partita_iva" type="text" data-i18n-attr="placeholder:b2b.form.piva_ph" /></div>
+
+            <!-- Categorie di interesse -->
+            <div class="fm-field full">
+              <p class="b2b-form__section-label" data-i18n="b2b.form.interessi"></p>
+              <div class="fm-checkbox-group">
+                <label><input type="checkbox" name="interessi[]" value="gusti" /> <span data-i18n="b2b.form.int_gusti"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="vasche" /> <span data-i18n="b2b.form.int_vasche"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="pezzi-duri" /> <span data-i18n="b2b.form.int_pezzi"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="torte" /> <span data-i18n="b2b.form.int_torte"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="semifreddi" /> <span data-i18n="b2b.form.int_semifreddi"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="barattoli" /> <span data-i18n="b2b.form.int_barattoli"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="coni-coppette" /> <span data-i18n="b2b.form.int_coni"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="accessori" /> <span data-i18n="b2b.form.int_accessori"></span></label>
+                <label><input type="checkbox" name="interessi[]" value="contenitori" /> <span data-i18n="b2b.form.int_contenitori"></span></label>
+              </div>
+            </div>
+
+            <!-- Messaggio -->
+            <div class="fm-field full"><label data-i18n="b2b.form.messaggio"></label><textarea name="messaggio" data-i18n-attr="placeholder:b2b.form.messaggio_ph"></textarea></div>
+          </div>
+
+          <div class="b2b-form__actions">
+            <label class="fm-privacy"><input type="checkbox" required /><span data-i18n-html="b2b.form.privacy"></span></label>
+            <button type="submit" class="b2b-form__submit"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg><span data-i18n="b2b.form.submit"></span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <div class="modal-overlay" id="categoryModal" role="dialog" aria-modal="true" aria-labelledby="categoryModalTitle">
     <div class="modal">
@@ -1367,7 +1843,6 @@
           'b2b.target.item6': 'Location private e spazi eventi',
           'b2b.areas.label': 'Aree B2B',
           'b2b.areas.title': 'Aree B2B',
-          'b2b.categories.desc': 'Contenuto in preparazione.<br>Questa sezione verrà arricchita con informazioni dedicate.',
           'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'VASCHE',
           'b2b.categories.PEZZI_DURI': 'PEZZI DURI',
@@ -1399,6 +1874,42 @@
           'b2b.cta.title': 'Richiedi informazioni',
           'b2b.cta.button': 'Richiedi informazioni B2B',
           'b2b.cta.note': 'Ogni progetto viene costruito su misura in base al contesto e agli obiettivi',
+          'b2b.form.title': 'Richiedi Informazioni B2B',
+          'b2b.form.subtitle': 'Compila il modulo e ti ricontatteremo',
+          'b2b.form.nome': 'Nome *',
+          'b2b.form.nome_ph': 'Il tuo nome',
+          'b2b.form.cognome': 'Cognome *',
+          'b2b.form.cognome_ph': 'Il tuo cognome',
+          'b2b.form.email': 'Email *',
+          'b2b.form.email_ph': 'email@azienda.com',
+          'b2b.form.telefono': 'Telefono *',
+          'b2b.form.azienda': 'Nome Azienda *',
+          'b2b.form.azienda_ph': 'Ragione sociale',
+          'b2b.form.tipo': 'Tipo Attivit\u00e0 *',
+          'b2b.form.tipo_select': 'Seleziona...',
+          'b2b.form.tipo_hotel': 'Hotel',
+          'b2b.form.tipo_ristorante': 'Ristorante',
+          'b2b.form.tipo_bar': 'Bar / Caffetteria',
+          'b2b.form.tipo_catering': 'Catering',
+          'b2b.form.tipo_gelateria': 'Gelateria',
+          'b2b.form.tipo_pasticceria': 'Pasticceria',
+          'b2b.form.tipo_altro': 'Altro',
+          'b2b.form.piva': 'Partita IVA / Dati Aziendali',
+          'b2b.form.piva_ph': 'P.IVA o altri dati aziendali',
+          'b2b.form.interessi': 'Categorie di interesse',
+          'b2b.form.int_gusti': 'Gusti Gelato',
+          'b2b.form.int_vasche': 'Vasche',
+          'b2b.form.int_pezzi': 'Pezzi Duri',
+          'b2b.form.int_torte': 'Torte',
+          'b2b.form.int_semifreddi': 'Semifreddi',
+          'b2b.form.int_barattoli': 'Barattoli',
+          'b2b.form.int_coni': 'Coni & Coppette',
+          'b2b.form.int_accessori': 'Accessori',
+          'b2b.form.int_contenitori': 'Contenitori',
+          'b2b.form.messaggio': 'Messaggio',
+          'b2b.form.messaggio_ph': 'Descrivi le tue esigenze o richieste...',
+          'b2b.form.privacy': 'Ho letto e accetto la <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.',
+          'b2b.form.submit': 'Invia Richiesta',
           'b2b.modal.titleDefault': 'Categoria',
           'b2b.modal.close': 'Chiudi',
           'b2b.modal.select': 'Seleziona categoria',
@@ -1437,6 +1948,11 @@
           'gelato.filters.search.placeholder': 'Cerca per nome...',
           'b2b.gelato.vascheButton': 'Vasche: mostra listino',
           'b2b.gelato.tipologiaButton': 'Tipologia vasca',
+          'b2b.coni.gfVariant': 'Variante Gluten Free',
+          'b2b.coni.description': 'Descrizione',
+          'b2b.coni.quantity': 'Quantit\u00e0',
+          'b2b.accessori.description': 'Descrizione',
+          'b2b.accessori.quantity': 'Quantit\u00e0',
           'gelato.detail.empty': 'Seleziona un gusto per vedere i dettagli.',
           'gelato.detail.description': 'Descrizione',
           'gelato.detail.ingredients': 'Ingredienti',
@@ -1576,7 +2092,6 @@
           'b2b.target.item6': 'Private locations and event spaces',
           'b2b.areas.label': 'B2B areas',
           'b2b.areas.title': 'B2B areas',
-          'b2b.categories.desc': 'Content in progress.<br>This section will be enriched with dedicated information.',
           'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'TUBS',
           'b2b.categories.PEZZI_DURI': 'HARD ITEMS',
@@ -1608,6 +2123,42 @@
           'b2b.cta.title': 'Request information',
           'b2b.cta.button': 'Request B2B information',
           'b2b.cta.note': 'Each project is tailored to the context and objectives',
+          'b2b.form.title': 'Request B2B Information',
+          'b2b.form.subtitle': 'Fill in the form and we will get back to you',
+          'b2b.form.nome': 'First Name *',
+          'b2b.form.nome_ph': 'Your first name',
+          'b2b.form.cognome': 'Last Name *',
+          'b2b.form.cognome_ph': 'Your last name',
+          'b2b.form.email': 'Email *',
+          'b2b.form.email_ph': 'email@company.com',
+          'b2b.form.telefono': 'Phone *',
+          'b2b.form.azienda': 'Company Name *',
+          'b2b.form.azienda_ph': 'Company name',
+          'b2b.form.tipo': 'Business Type *',
+          'b2b.form.tipo_select': 'Select...',
+          'b2b.form.tipo_hotel': 'Hotel',
+          'b2b.form.tipo_ristorante': 'Restaurant',
+          'b2b.form.tipo_bar': 'Bar / Caf\u00e9',
+          'b2b.form.tipo_catering': 'Catering',
+          'b2b.form.tipo_gelateria': 'Ice Cream Shop',
+          'b2b.form.tipo_pasticceria': 'Pastry Shop',
+          'b2b.form.tipo_altro': 'Other',
+          'b2b.form.piva': 'VAT Number / Company Details',
+          'b2b.form.piva_ph': 'VAT number or company details',
+          'b2b.form.interessi': 'Categories of Interest',
+          'b2b.form.int_gusti': 'Gelato Flavours',
+          'b2b.form.int_vasche': 'Tubs',
+          'b2b.form.int_pezzi': 'Ice Cream Bars',
+          'b2b.form.int_torte': 'Cakes',
+          'b2b.form.int_semifreddi': 'Semifreddi',
+          'b2b.form.int_barattoli': 'Jars',
+          'b2b.form.int_coni': 'Cones & Cups',
+          'b2b.form.int_accessori': 'Accessories',
+          'b2b.form.int_contenitori': 'Containers',
+          'b2b.form.messaggio': 'Message',
+          'b2b.form.messaggio_ph': 'Describe your needs or requests...',
+          'b2b.form.privacy': 'I have read and accept the <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.',
+          'b2b.form.submit': 'Send Request',
           'b2b.modal.titleDefault': 'Category',
           'b2b.modal.close': 'Close',
           'b2b.modal.select': 'Select category',
@@ -1646,6 +2197,11 @@
           'gelato.filters.search.placeholder': 'Search by name...',
           'b2b.gelato.vascheButton': 'Tubs: show price list',
           'b2b.gelato.tipologiaButton': 'Tub types',
+          'b2b.coni.gfVariant': 'Gluten Free Variant',
+          'b2b.coni.description': 'Description',
+          'b2b.coni.quantity': 'Quantity',
+          'b2b.accessori.description': 'Description',
+          'b2b.accessori.quantity': 'Quantity',
           'gelato.detail.empty': 'Select a flavour to see details.',
           'gelato.detail.description': 'Description',
           'gelato.detail.ingredients': 'Ingredients',
@@ -1785,7 +2341,6 @@
           'b2b.target.item6': 'Lieux privés et espaces événementiels',
           'b2b.areas.label': 'Zones B2B',
           'b2b.areas.title': 'Zones B2B',
-          'b2b.categories.desc': 'Contenu en préparation.<br>Cette section sera enrichie avec des informations dédiées.',
           'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'BACS',
           'b2b.categories.PEZZI_DURI': 'PIÈCES DURES',
@@ -1817,6 +2372,42 @@
           'b2b.cta.title': 'Demander des informations',
           'b2b.cta.button': 'Demander des informations B2B',
           'b2b.cta.note': 'Chaque projet est construit sur mesure selon le contexte et les objectifs',
+          'b2b.form.title': 'Demander des informations B2B',
+          'b2b.form.subtitle': 'Remplissez le formulaire et nous vous recontacterons',
+          'b2b.form.nome': 'Prénom *',
+          'b2b.form.nome_ph': 'Votre prénom',
+          'b2b.form.cognome': 'Nom *',
+          'b2b.form.cognome_ph': 'Votre nom',
+          'b2b.form.email': 'Email *',
+          'b2b.form.email_ph': 'email@entreprise.com',
+          'b2b.form.telefono': 'Téléphone *',
+          'b2b.form.azienda': 'Nom de l’entreprise *',
+          'b2b.form.azienda_ph': 'Raison sociale',
+          'b2b.form.tipo': 'Type d’activité *',
+          'b2b.form.tipo_select': 'Sélectionner...',
+          'b2b.form.tipo_hotel': 'Hôtel',
+          'b2b.form.tipo_ristorante': 'Restaurant',
+          'b2b.form.tipo_bar': 'Bar / Café',
+          'b2b.form.tipo_catering': 'Traiteur',
+          'b2b.form.tipo_gelateria': 'Glacier',
+          'b2b.form.tipo_pasticceria': 'Pâtisserie',
+          'b2b.form.tipo_altro': 'Autre',
+          'b2b.form.piva': 'TVA / Données de l’entreprise',
+          'b2b.form.piva_ph': 'Numéro de TVA ou données',
+          'b2b.form.interessi': 'Catégories d’intérêt',
+          'b2b.form.int_gusti': 'Parfums de glace',
+          'b2b.form.int_vasche': 'Bacs',
+          'b2b.form.int_pezzi': 'Glaces en bâtonnet',
+          'b2b.form.int_torte': 'Gâteaux',
+          'b2b.form.int_semifreddi': 'Semifreddi',
+          'b2b.form.int_barattoli': 'Pots',
+          'b2b.form.int_coni': 'Cônes & Coupes',
+          'b2b.form.int_accessori': 'Accessoires',
+          'b2b.form.int_contenitori': 'Conteneurs',
+          'b2b.form.messaggio': 'Message',
+          'b2b.form.messaggio_ph': 'Décrivez vos besoins ou demandes...',
+          'b2b.form.privacy': 'J’ai lu et j’accepte la <a href="#" style="color:var(--badiani-blue);">politique de confidentialité</a>.',
+          'b2b.form.submit': 'Envoyer la demande',
           'b2b.modal.titleDefault': 'Catégorie',
           'b2b.modal.close': 'Fermer',
           'b2b.modal.select': 'Sélectionner une catégorie',
@@ -1855,6 +2446,11 @@
           'gelato.filters.search.placeholder': 'Rechercher par nom...',
           'b2b.gelato.vascheButton': 'Bacs : afficher la liste',
           'b2b.gelato.tipologiaButton': 'Types de bacs',
+          'b2b.coni.gfVariant': 'Variante Sans Gluten',
+          'b2b.coni.description': 'Description',
+          'b2b.coni.quantity': 'Quantité',
+          'b2b.accessori.description': 'Description',
+          'b2b.accessori.quantity': 'Quantité',
           'gelato.detail.empty': 'Sélectionnez un parfum pour voir les détails.',
           'gelato.detail.description': 'Description',
           'gelato.detail.ingredients': 'Ingrédients',
@@ -1994,7 +2590,6 @@
           'b2b.target.item6': 'Ubicaciones privadas y espacios para eventos',
           'b2b.areas.label': 'Áreas B2B',
           'b2b.areas.title': 'Áreas B2B',
-          'b2b.categories.desc': 'Contenido en preparación.<br>Esta sección se enriquecerá con información dedicada.',
           'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'CUBAS',
           'b2b.categories.PEZZI_DURI': 'PIEZAS DURAS',
@@ -2026,6 +2621,42 @@
           'b2b.cta.title': 'Solicitar información',
           'b2b.cta.button': 'Solicitar información B2B',
           'b2b.cta.note': 'Cada proyecto se construye a medida según el contexto y los objetivos',
+          'b2b.form.title': 'Solicitar Información B2B',
+          'b2b.form.subtitle': 'Completa el formulario y te contactaremos',
+          'b2b.form.nome': 'Nombre *',
+          'b2b.form.nome_ph': 'Tu nombre',
+          'b2b.form.cognome': 'Apellido *',
+          'b2b.form.cognome_ph': 'Tu apellido',
+          'b2b.form.email': 'Email *',
+          'b2b.form.email_ph': 'email@empresa.com',
+          'b2b.form.telefono': 'Teléfono *',
+          'b2b.form.azienda': 'Nombre de la empresa *',
+          'b2b.form.azienda_ph': 'Razón social',
+          'b2b.form.tipo': 'Tipo de actividad *',
+          'b2b.form.tipo_select': 'Seleccionar...',
+          'b2b.form.tipo_hotel': 'Hotel',
+          'b2b.form.tipo_ristorante': 'Restaurante',
+          'b2b.form.tipo_bar': 'Bar / Cafetería',
+          'b2b.form.tipo_catering': 'Catering',
+          'b2b.form.tipo_gelateria': 'Heladería',
+          'b2b.form.tipo_pasticceria': 'Pastelería',
+          'b2b.form.tipo_altro': 'Otro',
+          'b2b.form.piva': 'NIF / Datos de la empresa',
+          'b2b.form.piva_ph': 'NIF o datos de la empresa',
+          'b2b.form.interessi': 'Categorías de interés',
+          'b2b.form.int_gusti': 'Sabores de helado',
+          'b2b.form.int_vasche': 'Cubetas',
+          'b2b.form.int_pezzi': 'Helados en barra',
+          'b2b.form.int_torte': 'Tartas',
+          'b2b.form.int_semifreddi': 'Semifríos',
+          'b2b.form.int_barattoli': 'Tarros',
+          'b2b.form.int_coni': 'Conos y Copas',
+          'b2b.form.int_accessori': 'Accesorios',
+          'b2b.form.int_contenitori': 'Contenedores',
+          'b2b.form.messaggio': 'Mensaje',
+          'b2b.form.messaggio_ph': 'Describe tus necesidades o solicitudes...',
+          'b2b.form.privacy': 'He leído y acepto la <a href="#" style="color:var(--badiani-blue);">política de privacidad</a>.',
+          'b2b.form.submit': 'Enviar solicitud',
           'b2b.modal.titleDefault': 'Categoría',
           'b2b.modal.close': 'Cerrar',
           'b2b.modal.select': 'Seleccionar categoría',
@@ -2064,6 +2695,11 @@
           'gelato.filters.search.placeholder': 'Buscar por nombre...',
           'b2b.gelato.vascheButton': 'Cubas: ver lista',
           'b2b.gelato.tipologiaButton': 'Tipos de cubas',
+          'b2b.coni.gfVariant': 'Variante Sin Gluten',
+          'b2b.coni.description': 'Descripci\u00f3n',
+          'b2b.coni.quantity': 'Cantidad',
+          'b2b.accessori.description': 'Descripci\u00f3n',
+          'b2b.accessori.quantity': 'Cantidad',
           'gelato.detail.empty': 'Selecciona un sabor para ver los detalles.',
           'gelato.detail.description': 'Descripción',
           'gelato.detail.ingredients': 'Ingredientes',
@@ -2271,7 +2907,7 @@
           title: 'Accessori',
           columns: ['Prodotto', 'Descrizione', 'Quantità', 'Prezzo'],
           rows: [
-            ['Hawaii', 'Palettine gelato', '1 Kg', '€ 15.00'],
+            ['Palettine', 'Palettine gelato', '1 Kg', '€ 15.00'],
             ['Cialdine', 'Cialdine logate Badiani', '1200pz', '€ 45.00'],
             ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '40 pacchetti', '€ 45.00']
           ]
@@ -2340,6 +2976,37 @@
         }
       };
 
+      const CONI_COPPETTE_IMAGES = {
+        'Sottozero':        '../assets/images/coni-coppette/SOTTOZZERO.jpg',
+        'Maxi 1':           '../assets/images/coni-coppette/MAXI 1.jpg',
+        'Maxi 2':           '../assets/images/coni-coppette/MAXI 2.jpg',
+        'Bicchierini 16B':  '../assets/images/coni-coppette/Bicchierini 16B.png',
+        'Bicchierini 108':  '../assets/images/coni-coppette/Bicchierini 108.jpeg',
+        'Bicchierini 4C':   '../assets/images/coni-coppette/Bicchierini 4C.png',
+        'Bicchierini 4CA':  '../assets/images/coni-coppette/Bicchierini 4CA.png'
+      };
+
+      const CONI_GF_VARIANTS = {
+        'Sottozero': {
+          gfName: 'Coni Gluten Free (083)',
+          gfDesc: '1\u00aa misura',
+          gfQty:  '240 pz'
+        },
+        'Maxi 1': {
+          gfName: 'Coni Gluten Free (084)',
+          gfDesc: '2\u00aa misura',
+          gfQty:  '212 pz'
+        }
+      };
+
+      const CONI_GROUP_IMAGE = '../assets/images/coni-coppette/GROUP COPPETTE.png';
+
+      const ACCESSORI_IMAGES = {
+        'Palettine':            '../assets/images/accessori/palettine.jpg',
+        'Cialdine':             '../assets/images/accessori/WAFFER.jpg',
+        'Tovagliolini stampati': '../assets/images/accessori/tovagliolini.png'
+      };
+
       const PRICING_NOTE = 'Prezzi IVA esclusa.';
       const SHIPPING_INFO = [
         "All'interno del comune di Firenze: costo di spedizione gratuita, il listino è valido per minimo 250 EUR per ordine (IVA esclusa);",
@@ -2397,6 +3064,8 @@
       let expandedPezziDuriId = '';
       let expandedContenitoriId = '';
       let expandedTipologiaId = '';
+      let expandedConiId = '';
+      let expandedAccessoriId = '';
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const ASSET_VERSION = '20260207';
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
@@ -2517,13 +3186,6 @@
       function renderTipologiaGallery(){
         const items = TIPOLOGIA_VASCA;
         if(!items || !items.length) return '';
-        const zoomIcon = `
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        `;
         const cards = items
           .map(({ name, capacity, image }) => {
             const imageSrc = encodeURI(image);
@@ -2532,7 +3194,6 @@
               <article class="tipologia-card${isExpanded ? ' is-expanded' : ''}" data-tipologia-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
                 <div class="tipologia-media">
                   <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
-                  <button class="card-zoom" type="button" aria-label="Ingrandisci" data-zoom-src="${imageSrc}" data-zoom-alt="${name}">${zoomIcon}</button>
                 </div>
                 <div class="tipologia-body">
                   <div class="tipologia-title">${name}</div>
@@ -2553,31 +3214,18 @@
         cards.forEach((card) => {
           const id = card.dataset.tipologiaId;
           if(!id) return;
-          card.addEventListener('click', (event) => {
-            if(event.target.closest('.card-zoom')) return;
+          card.addEventListener('click', () => {
             expandedTipologiaId = expandedTipologiaId === id ? '' : id;
             tipologiaContent.innerHTML = renderTipologiaGallery();
             setupTipologiaZoom();
-            setupZoomButtons();
           });
           card.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
-              if(event.target.closest('.card-zoom')) return;
               event.preventDefault();
               expandedTipologiaId = expandedTipologiaId === id ? '' : id;
               tipologiaContent.innerHTML = renderTipologiaGallery();
               setupTipologiaZoom();
-              setupZoomButtons();
             }
-          });
-        });
-        /* zoom buttons inside tipologia */
-        el.querySelectorAll('[data-zoom-src]').forEach((button) => {
-          button.addEventListener('click', (event) => {
-            event.stopPropagation();
-            const src = button.getAttribute('data-zoom-src');
-            const alt = button.getAttribute('data-zoom-alt') || '';
-            openFullscreenImage(src, alt);
           });
         });
       }
@@ -2590,18 +3238,10 @@
             if(!src) return '';
             const imageSrc = encodeURI(src);
             const isExpanded = expandedContenitoriId === name;
-            const zoomIcon = `
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
-                <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            `;
             return `
               <article class="contenitori-card${isExpanded ? ' is-expanded' : ''}" data-contenitori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
                 <div class="contenitori-media">
                   <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
-                  <button class="card-zoom" type="button" aria-label="Ingrandisci" data-zoom-src="${imageSrc}" data-zoom-alt="${name}">${zoomIcon}</button>
                 </div>
                 <div class="contenitori-body">
                   <div class="contenitori-title">${name}</div>
@@ -2626,38 +3266,34 @@
 
       function renderTorteGallery(rows){
         if(!rows || !rows.length) return '';
-        const cards = rows
+        const zoomIcon = `
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        `;
+        const sets = rows
           .map(([name, price]) => {
             const images = TORTE_IMAGES[name];
             if(!images) return '';
             const smallSrc = encodeURI(images.small);
             const largeSrc = encodeURI(images.large);
-            const isExpanded = expandedTorteId === name;
-            const zoomIcon = `
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
-                <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            `;
             return `
-              <article class="torte-card${isExpanded ? ' is-expanded' : ''}" data-torte-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
-                <div class="torte-media">
-                  <figure>
-                    <img src="${smallSrc}" alt="${name} S" loading="lazy" decoding="async" />
-                    <figcaption>S</figcaption>
-                  </figure>
-                  <figure>
-                    <img src="${largeSrc}" alt="${name} L" loading="lazy" decoding="async" />
-                    <figcaption>L</figcaption>
-                  </figure>
-                  <button class="card-zoom" type="button" aria-label="Ingrandisci" data-zoom-src="${largeSrc}" data-zoom-alt="${name}">${zoomIcon}</button>
-                </div>
-                <div class="torte-body">
-                  <div class="torte-title">${name}</div>
-                  <div class="torte-price"><strong>Prezzo per kg</strong><em>${price}</em></div>
-                </div>
-              </article>
+              <div class="torte-img-wrap" data-zoom-src="${smallSrc}" data-zoom-alt="${name} S">
+                <img src="${smallSrc}" alt="${name} S" loading="lazy" decoding="async" />
+                <span class="torte-size-badge">S</span>
+                <button class="torte-zoom-btn" type="button" aria-label="Ingrandisci">${zoomIcon}</button>
+              </div>
+              <div class="torte-img-wrap" data-zoom-src="${largeSrc}" data-zoom-alt="${name} L">
+                <img src="${largeSrc}" alt="${name} L" loading="lazy" decoding="async" />
+                <span class="torte-size-badge">L</span>
+                <button class="torte-zoom-btn" type="button" aria-label="Ingrandisci">${zoomIcon}</button>
+              </div>
+              <div class="torte-set-info">
+                <div class="torte-set-name">${name}</div>
+                <div class="torte-set-price">${price}</div>
+              </div>
             `;
           })
           .filter(Boolean)
@@ -2666,27 +3302,23 @@
         return `
           <div class="modal__section">
             <h4>${CATEGORY_DATA['TORTE'].title}</h4>
-            <div class="torte-grid">${cards}</div>
+            <div class="torte-grid">${sets}</div>
           </div>
         `;
       }
 
       function setupTorteZoom(){
-        const cards = defaultContent ? defaultContent.querySelectorAll('.torte-card[data-torte-id]') : [];
-        cards.forEach((card) => {
-          const id = card.dataset.torteId;
-          if(!id) return;
-          card.addEventListener('click', () => {
-            expandedTorteId = expandedTorteId === id ? '' : id;
-            renderCategoryContent('TORTE');
-          });
-          card.addEventListener('keydown', (event) => {
-            if(event.key === 'Enter' || event.key === ' '){
-              event.preventDefault();
-              expandedTorteId = expandedTorteId === id ? '' : id;
-              renderCategoryContent('TORTE');
-            }
-          });
+        const wraps = defaultContent ? defaultContent.querySelectorAll('.torte-img-wrap[data-zoom-src]') : [];
+        wraps.forEach((wrap) => {
+          const btn = wrap.querySelector('.torte-zoom-btn');
+          if(btn){
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const src = wrap.getAttribute('data-zoom-src');
+              const alt = wrap.getAttribute('data-zoom-alt') || '';
+              openFullscreenImage(src, alt);
+            });
+          }
         });
       }
 
@@ -2695,14 +3327,12 @@
         cards.forEach((card) => {
           const id = card.dataset.contenitoriId;
           if(!id) return;
-          card.addEventListener('click', (event) => {
-            if(event.target.closest('.card-zoom')) return;
+          card.addEventListener('click', () => {
             expandedContenitoriId = expandedContenitoriId === id ? '' : id;
             renderCategoryContent('CONTENITORI');
           });
           card.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
-              if(event.target.closest('.card-zoom')) return;
               event.preventDefault();
               expandedContenitoriId = expandedContenitoriId === id ? '' : id;
               renderCategoryContent('CONTENITORI');
@@ -2728,6 +3358,150 @@
               expandedPezziDuriId = expandedPezziDuriId === id ? '' : id;
               renderCategoryContent('PEZZI DURI');
             }
+          });
+        });
+      }
+
+      function renderConiCoppetteGallery(rows){
+        if(!rows || !rows.length) return '';
+        const headerSrc = encodeURI(CONI_GROUP_IMAGE);
+        const cards = rows
+          .filter(([name]) => name.indexOf('Gluten free') === -1)
+          .map(([name, desc, qty]) => {
+            const src = CONI_COPPETTE_IMAGES[name];
+            if(!src) return '';
+            const imageSrc = encodeURI(src);
+            const isExpanded = expandedConiId === name;
+            const gf = CONI_GF_VARIANTS[name];
+            const zoomIcon = `
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            `;
+            const gfBlock = gf ? `
+              <button class="coni-gf-btn" type="button" data-gf-toggle="${name}">
+                ${t('b2b.coni.gfVariant')} <span class="gf-chevron">▼</span>
+              </button>
+              <div class="coni-gf-details" data-gf-details="${name}">
+                <strong>${gf.gfName}</strong><br>
+                <span>${gf.gfDesc} &mdash; ${gf.gfQty}</span>
+              </div>
+            ` : '';
+            return `
+              <article class="coni-card${isExpanded ? ' is-expanded' : ''}" data-coni-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
+                <div class="coni-media">
+                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
+                </div>
+                <div class="coni-body">
+                  <div class="coni-title">${name}</div>
+                  <div class="coni-meta">
+                    <span><strong>${t('b2b.coni.description')}</strong><em>${desc}</em></span>
+                    <span><strong>${t('b2b.coni.quantity')}</strong><em>${qty}</em></span>
+                  </div>
+                  ${gfBlock}
+                </div>
+              </article>
+            `;
+          })
+          .filter(Boolean)
+          .join('');
+
+        return `
+          <div class="modal__section">
+            <h4>${CATEGORY_DATA['CONI_COPPETTE'].title}</h4>
+            <img class="coni-header-img" src="${headerSrc}" alt="Coni &amp; Coppette" loading="lazy" decoding="async" />
+            <div class="coni-grid">${cards}</div>
+          </div>
+        `;
+      }
+
+      function renderAccessoriGallery(rows){
+        if(!rows || !rows.length) return '';
+        const cards = rows
+          .map(([name, desc, qty]) => {
+            const src = ACCESSORI_IMAGES[name];
+            const hasImage = !!src;
+            const imageSrc = hasImage ? encodeURI(src) : '';
+            const isExpanded = expandedAccessoriId === name;
+            const mediaContent = hasImage
+              ? `<img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />`
+              : '';
+            return `
+              <article class="accessori-card${isExpanded ? ' is-expanded' : ''}" data-accessori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
+                <div class="accessori-media${hasImage ? '' : ' accessori-media--placeholder'}">
+                  ${mediaContent}
+                </div>
+                <div class="accessori-body">
+                  <div class="accessori-title">${name}</div>
+                  <div class="accessori-meta">
+                    <span><strong>${t('b2b.accessori.description')}</strong><em>${desc}</em></span>
+                    <span><strong>${t('b2b.accessori.quantity')}</strong><em>${qty}</em></span>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .filter(Boolean)
+          .join('');
+
+        return `
+          <div class="modal__section">
+            <h4>${CATEGORY_DATA['ACCESSORI'].title}</h4>
+            <div class="accessori-grid">${cards}</div>
+          </div>
+        `;
+      }
+
+      function setupAccessoriZoom(){
+        const cards = defaultContent ? defaultContent.querySelectorAll('.accessori-card[data-accessori-id]') : [];
+        cards.forEach((card) => {
+          const id = card.dataset.accessoriId;
+          if(!id) return;
+          card.addEventListener('click', () => {
+            expandedAccessoriId = expandedAccessoriId === id ? '' : id;
+            renderCategoryContent('ACCESSORI');
+          });
+          card.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              event.preventDefault();
+              expandedAccessoriId = expandedAccessoriId === id ? '' : id;
+              renderCategoryContent('ACCESSORI');
+            }
+          });
+        });
+      }
+
+      function setupConiZoom(){
+        const cards = defaultContent ? defaultContent.querySelectorAll('.coni-card[data-coni-id]') : [];
+        cards.forEach((card) => {
+          const id = card.dataset.coniId;
+          if(!id) return;
+          card.addEventListener('click', (event) => {
+            if(event.target.closest('.card-zoom') || event.target.closest('.coni-gf-btn')) return;
+            expandedConiId = expandedConiId === id ? '' : id;
+            renderCategoryContent('CONI_COPPETTE');
+          });
+          card.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              if(event.target.closest('.card-zoom') || event.target.closest('.coni-gf-btn')) return;
+              event.preventDefault();
+              expandedConiId = expandedConiId === id ? '' : id;
+              renderCategoryContent('CONI_COPPETTE');
+            }
+          });
+        });
+        /* GF toggle buttons */
+        const gfBtns = defaultContent ? defaultContent.querySelectorAll('[data-gf-toggle]') : [];
+        gfBtns.forEach((btn) => {
+          btn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const key = btn.getAttribute('data-gf-toggle');
+            const details = defaultContent.querySelector(`[data-gf-details="${key}"]`);
+            if(!details) return;
+            const isOpen = details.classList.toggle('is-visible');
+            btn.classList.toggle('is-open', isOpen);
           });
         });
       }
@@ -2762,6 +3536,10 @@
           sections.push(renderTorteGallery(data.rows));
         }else if(category === 'CONTENITORI'){
           sections.push(renderContenitoriGallery(data.rows));
+        }else if(category === 'CONI_COPPETTE'){
+          sections.push(renderConiCoppetteGallery(data.rows));
+        }else if(category === 'ACCESSORI'){
+          sections.push(renderAccessoriGallery(data.rows));
         }else{
           sections.push(renderTableSection(data));
         }
@@ -2778,6 +3556,12 @@
         }
         if(category === 'CONTENITORI'){
           requestAnimationFrame(setupContenitoriZoom);
+        }
+        if(category === 'CONI_COPPETTE'){
+          requestAnimationFrame(setupConiZoom);
+        }
+        if(category === 'ACCESSORI'){
+          requestAnimationFrame(setupAccessoriZoom);
         }
 
         requestAnimationFrame(setupZoomButtons);
@@ -3260,6 +4044,25 @@
         renderGelatoGrid();
       });
       applyTranslations();
+
+      // B2B Request Form – open / close
+      window.openB2BForm = function() {
+        const overlay = document.getElementById('b2bFormModal');
+        if (overlay) { overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      };
+      window.closeB2BForm = function(e) {
+        if (e && e.target !== e.currentTarget) return;
+        const overlay = document.getElementById('b2bFormModal');
+        if (overlay) { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+      };
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeB2BForm();
+      });
+
+      // wire any other CTA buttons inside modals
+      document.querySelectorAll('.cta-button[data-i18n="b2b.modal.cta"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) { e.preventDefault(); openB2BForm(); });
+      });
     })();
   </script>
 </body>
