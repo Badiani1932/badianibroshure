@@ -6,9 +6,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti/buontalenti.webp",
     detailImage: "../assets/gelato/Buontalenti/buontalenti-2.webp",
+    description: "Il nostro gusto iconico realizzato solo con 4 ingredienti: panna, latte, zucchero, uova",
+    allergensText: "Latte, uova",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -18,9 +20,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/La Dolcevita/la_dolcevita.webp",
     detailImage: "../assets/gelato/La Dolcevita/la_dolcevita-2.webp",
+    description: "Buontalenti con salsa di nocciole e cacao, il nostro gusto vincitore del Gelato Festival",
+    allergensText: "Latte, uova, frutta a guscio",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: true, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
   },
   {
@@ -30,9 +34,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti al Pistacchio/buontalenti_pistachio.webp",
     detailImage: "../assets/gelato/Buontalenti al Pistacchio/buontalenti_pistachio-2.webp",
+    description: "Buontalenti con salsa di pistacchio",
+    allergensText: "Latte, uova, frutta a guscio",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
   },
   {
@@ -42,9 +48,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti Caramello/buontalenti_caramello.webp",
     detailImage: "../assets/gelato/Buontalenti Caramello/buontalenti_caramello-2.webp",
+    description: "Buontalenti con salsa al caramello",
+    allergensText: "Latte, uova, soia, glutine",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: false, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -54,9 +62,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti all_Amarena/buontalenti_amarena.webp",
     detailImage: "../assets/gelato/Buontalenti all_Amarena/buontalenti_amarena-2.webp",
+    description: "Buontalenti con variegatura di amarene",
+    allergensText: "Latte, uova",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -66,9 +76,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti Delattosato/buontalenti_delattosato.webp",
     detailImage: "../assets/gelato/Buontalenti Delattosato/buontalenti_delattosato-2.webp",
+    description: "Il nostro gusto iconico realizzato solo con 4 ingredienti: panna e latte delattosato, zucchero, uova",
+    allergensText: "Latte, uova",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: true, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: true, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -78,9 +90,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti Fondente/buontalenti_fondente.webp",
     detailImage: "../assets/gelato/Buontalenti Fondente/buontalenti_fondente-2.webp",
+    description: "Buontalenti con salsa di cioccolato fondente",
+    allergensText: "Latte, uova, soia",
     ingredients: [],
     allergens: [],
-    flags: { vegan: true, glutenFree: true, lactoseFree: true, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -90,9 +104,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Caffè/caffè.webp",
     detailImage: "../assets/gelato/Caffè/caffè-2.webp",
+    description: "Gelato al caffè arabica dal gusto aromatico e vellutato",
+    allergensText: "Latte, uova",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.zucchero", "gelato.ingredients.caffe"],
     allergens: ["gelato.allergens.latte"],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -102,9 +118,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Caramello Salato/caramello_salato.webp",
     detailImage: "../assets/gelato/Caramello Salato/caramello_salato-2.webp",
+    description: "Gelato al caramello con una nota di sale per un equilibrio dolce-salato",
+    allergensText: "Latte, uova, arachidi",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.panna", "gelato.ingredients.zucchero", "gelato.ingredients.caramello", "gelato.ingredients.sale"],
     allergens: ["gelato.allergens.latte"],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -114,9 +132,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Cassandra/cassandra.webp",
     detailImage: "../assets/gelato/Cassandra/cassandra-2.webp",
+    description: "Buontalenti con salsa al caramello e scaglie di nocciole e mandorle",
+    allergensText: "Latte, uova, frutta a guscio",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
   },
   {
@@ -126,9 +146,11 @@ export const gelatoFlavors = [
     seasons: ["primavera", "estate"],
     image: "../assets/gelato/Cheesecake Frutti Rossi/cheesecake_fruttirossi.webp",
     detailImage: "../assets/gelato/Cheesecake Frutti Rossi/cheesecake_fruttirossi-2.webp",
+    description: "Gelato al cheesecake con variegatura ai frutti rossi",
+    allergensText: "Latte, uova, glutine",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.zucchero", "gelato.ingredients.base-cheesecake"],
     allergens: ["gelato.allergens.latte", "gelato.allergens.glutine"],
-    flags: { vegan: false, glutenFree: false, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: false, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -138,9 +160,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Cioccolato al latte/cioccolato_al_latte.webp",
     detailImage: "../assets/gelato/Cioccolato al latte/cioccolato_al_latte-2.webp",
+    description: "Gelato al cioccolato al latte dalla consistenza cremosa e avvolgente",
+    allergensText: "Latte, uova",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -150,9 +174,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Cioccolato Bianco all_Arancia/cioccolato_bianco_all_arancia.webp",
     detailImage: "../assets/gelato/Cioccolato Bianco all_Arancia/cioccolato_bianco_all_arancia-2.webp",
+    description: "Gelato al cioccolato bianco con una fresca nota di arancia",
+    allergensText: "Latte, uova",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -162,9 +188,11 @@ export const gelatoFlavors = [
     seasons: ["estate"],
     image: "../assets/gelato/Cocco/cocco.webp",
     detailImage: "../assets/gelato/Cocco/cocco-2.webp",
+    description: "Gelato al cocco dalla consistenza cremosa e dal gusto tropicale",
+    allergensText: "Latte, uova",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.zucchero", "gelato.ingredients.cocco"],
     allergens: ["gelato.allergens.latte"],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
     isTub: true
   },
   {
@@ -174,9 +202,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Cremino al Pistacchio/cremino_al_pistacchio.webp",
     detailImage: "../assets/gelato/Cremino al Pistacchio/cremino_al_pistacchio-2.webp",
+    description: "Gelato cremino con pasta di pistacchio dal gusto intenso e vellutato",
+    allergensText: "Latte, uova, frutta a guscio",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: true, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
   },
   {
@@ -186,9 +216,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Cremino alla Nocciola/cremino_alla_nocciola.webp",
     detailImage: "../assets/gelato/Cremino alla Nocciola/cremino_alla_nocciola-2.webp",
+    description: "Gelato cremino con pasta di nocciole tostate, soia e cacao",
+    allergensText: "Latte, uova, soia, frutta a guscio",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: true, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
   },
   {
@@ -198,6 +230,8 @@ export const gelatoFlavors = [
     seasons: ["primavera", "estate"],
     image: "../assets/gelato/Fragola/fragola.webp",
     detailImage: "../assets/gelato/Fragola/fragola-2.webp",
+    description: "Sorbetto alla fragola fresca dal gusto fruttato e naturale",
+    allergensText: "Può contenere soia",
     ingredients: ["gelato.ingredients.acqua", "gelato.ingredients.zucchero", "gelato.ingredients.fragola"],
     allergens: [],
     flags: { vegan: true, glutenFree: true, lactoseFree: true, containsEggs: false, containsNuts: false, containsAlcohol: false },
@@ -210,6 +244,8 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Fondente/fondente.webp",
     detailImage: "../assets/gelato/Fondente/fondente-2.webp",
+    description: "Gelato al cioccolato fondente dal gusto intenso e deciso",
+    allergensText: "Soia",
     ingredients: ["gelato.ingredients.base-latte-acqua", "gelato.ingredients.zucchero", "gelato.ingredients.cacao"],
     allergens: [],
     flags: { vegan: true, glutenFree: true, lactoseFree: true, containsEggs: false, containsNuts: false, containsAlcohol: false },
@@ -222,6 +258,8 @@ export const gelatoFlavors = [
     seasons: ["estate"],
     image: "../assets/gelato/Lampone/lampone.webp",
     detailImage: "../assets/gelato/Lampone/lampone-2.webp",
+    description: "Sorbetto al lampone dal gusto fresco e leggermente acidulo",
+    allergensText: "Può contenere soia",
     ingredients: ["gelato.ingredients.acqua", "gelato.ingredients.zucchero", "gelato.ingredients.lampone"],
     allergens: [],
     flags: { vegan: true, glutenFree: true, lactoseFree: true, containsEggs: false, containsNuts: false, containsAlcohol: false },
@@ -234,6 +272,8 @@ export const gelatoFlavors = [
     seasons: ["estate"],
     image: "../assets/gelato/Limone/limone.webp",
     detailImage: "../assets/gelato/Limone/limone-2.webp",
+    description: "Sorbetto al limone fresco e dissetante con scorza di limone",
+    allergensText: "Può contenere soia",
     ingredients: ["gelato.ingredients.acqua", "gelato.ingredients.zucchero", "gelato.ingredients.limone"],
     allergens: [],
     flags: { vegan: true, glutenFree: true, lactoseFree: true, containsEggs: false, containsNuts: false, containsAlcohol: false },
@@ -246,9 +286,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Malaga/malaga.webp",
     detailImage: "../assets/gelato/Malaga/malaga-2.webp",
+    description: "Gelato alla crema con uvetta macerata nel rum",
+    allergensText: "Latte, uova",
     ingredients: [],
     allergens: [],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: true },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: true },
     isTub: true
   },
   {
@@ -258,6 +300,8 @@ export const gelatoFlavors = [
     seasons: ["estate"],
     image: "../assets/gelato/Mango/mango.webp",
     detailImage: "../assets/gelato/Mango/mango-2.webp",
+    description: "Sorbetto al mango maturo dal gusto tropicale e profumato",
+    allergensText: "Può contenere soia",
     ingredients: ["gelato.ingredients.acqua", "gelato.ingredients.zucchero", "gelato.ingredients.mango"],
     allergens: [],
     flags: { vegan: true, glutenFree: true, lactoseFree: true, containsEggs: false, containsNuts: false, containsAlcohol: false },
@@ -270,9 +314,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Nocciola/nocciola.webp",
     detailImage: "../assets/gelato/Nocciola/nocciola-2.webp",
+    description: "Gelato alla nocciola tostata dal gusto ricco e avvolgente",
+    allergensText: "Latte, uova, frutta a guscio",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.panna", "gelato.ingredients.zucchero", "gelato.ingredients.nocciole"],
     allergens: ["gelato.allergens.latte", "gelato.allergens.frutta-guscio"],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: true, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
   },
   {
@@ -282,9 +328,11 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Pistacchio/pistacchio.webp",
     detailImage: "../assets/gelato/Pistacchio/pistacchio-2.webp",
+    description: "Gelato al pistacchio con pasta di pistacchio puro",
+    allergensText: "Latte, uova, frutta a guscio",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.panna", "gelato.ingredients.zucchero", "gelato.ingredients.pistacchio"],
     allergens: ["gelato.allergens.latte", "gelato.allergens.frutta-guscio"],
-    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: true, containsAlcohol: false },
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
   },
   {
@@ -294,6 +342,8 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Stracciatella/stracciatella.webp",
     detailImage: "../assets/gelato/Stracciatella/stracciatella-2.webp",
+    description: "Gelato alla crema di latte con scaglie di cioccolato fondente",
+    allergensText: "Latte, soia",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.panna", "gelato.ingredients.zucchero", "gelato.ingredients.cioccolato"],
     allergens: ["gelato.allergens.latte"],
     flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
@@ -306,6 +356,8 @@ export const gelatoFlavors = [
     seasons: ["autunno", "inverno"],
     image: "../assets/gelato/Tiramisù/tiramisù.webp",
     detailImage: "../assets/gelato/Tiramisù/tiramisù-2.webp",
+    description: "Gelato al tiramisù con mascarpone, caffè e cacao",
+    allergensText: "Latte, uova, glutine",
     ingredients: ["gelato.ingredients.latte", "gelato.ingredients.zucchero", "gelato.ingredients.caffe", "gelato.ingredients.mascarpone"],
     allergens: ["gelato.allergens.latte", "gelato.allergens.uova"],
     flags: { vegan: false, glutenFree: false, lactoseFree: false, containsEggs: true, containsNuts: false, containsAlcohol: false },
@@ -318,6 +370,22 @@ export const gelatoFlavors = [
     seasons: ["tutti"],
     image: "../assets/gelato/Yogurt Mirtillo/yogurt_mirtillo.webp",
     detailImage: "../assets/gelato/Yogurt Mirtillo/yogurt_mirtillo-2.webp",
+    description: "Gelato allo yogurt con variegatura di mirtilli",
+    allergensText: "Latte",
+    ingredients: [],
+    allergens: [],
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
+    isTub: true
+  },
+  {
+    id: "yogurt",
+    nameKey: "flavor.yogurt",
+    label: "Yogurt",
+    seasons: ["tutti"],
+    image: "../assets/gelato/Yogurt/yogurt.webp",
+    detailImage: "../assets/gelato/Yogurt/yogurt-2.webp",
+    description: "Gelato allo yogurt fresco e delicato",
+    allergensText: "Latte",
     ingredients: [],
     allergens: [],
     flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },

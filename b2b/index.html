@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -8,15 +8,22 @@
   <style>
     /* Page-specific styles for B2B page */
 
+    body{
+      background-color:#f5f6f8;
+      background-image:url('../assets/images/branding/eventi-bg.webp');
+      background-repeat:repeat-y;
+      background-position:top center;
+      background-size:100% auto;
+    }
+
     .page-shell{ padding:48px clamp(16px, 4vw, 80px) 80px; }
-    .top-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:32px; }
-    .back-link{ text-decoration:none; color:var(--badiani-blue); font-weight:600; letter-spacing:1px; text-transform:uppercase; font-size:12px; }
+
 
     .hero{ background:var(--surface); border-radius:28px; padding:40px; box-shadow:0 18px 40px rgba(0,0,0,0.08); margin-bottom:48px; }
     .hero h1{ font-size:clamp(28px, 3.6vw, 46px); margin-bottom:12px; }
     .hero p{ font-size:clamp(16px, 1.5vw, 20px); color:#6a6b6e; max-width:780px; }
 
-    .section-title{ font-size:clamp(20px, 2.4vw, 30px); margin:40px 0 18px; }
+    .section-title{ font-size:clamp(20px, 2.4vw, 30px); margin:40px 0 18px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.3); }
 
     .category-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px; }
     .category-card{
@@ -119,6 +126,9 @@
       color:#6a6b6e;
       font-size:13px;
       line-height:1.45;
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
       display:-webkit-box;
       -webkit-line-clamp:2;
       -webkit-box-orient:vertical;
@@ -154,19 +164,119 @@
 
     .list{ padding-left:18px; display:grid; gap:8px; font-size:15px; color:#6a6b6e; }
     .pill-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; }
-    .pill{ background:#f5f6f8; border-radius:16px; padding:14px 16px; font-size:14px; color:#6a6b6e; }
+    .pill{ background:rgba(255,255,255,0.92); border-radius:16px; padding:14px 16px; font-size:14px; color:#6a6b6e; box-shadow:0 4px 12px rgba(0,0,0,0.06); }
+
+    /* ===== B2B STEPS ===== */
+    .b2b-steps{
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:0;
+      position:relative;
+    }
+    .b2b-step{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      position:relative;
+      padding:0 10px;
+    }
+    .b2b-step__num{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      color:#fff;
+      font-size:18px;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 6px 20px rgba(0,0,0,0.15);
+      position:relative;
+      z-index:2;
+      flex-shrink:0;
+    }
+    .b2b-step__connector{
+      position:absolute;
+      top:24px;
+      left:calc(50% + 24px);
+      width:calc(100% - 48px);
+      height:2px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+      z-index:1;
+    }
+    .b2b-step:last-child .b2b-step__connector{ display:none; }
+    .b2b-step__title{
+      margin-top:16px;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:#fff;
+      text-shadow:0 1px 6px rgba(0,0,0,0.3);
+    }
+    .b2b-step__desc{
+      margin-top:10px;
+      font-size:13px;
+      line-height:1.6;
+      color:rgba(255,255,255,0.85);
+      text-shadow:0 1px 4px rgba(0,0,0,0.2);
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      border-radius:14px;
+      padding:14px 12px;
+      border:1px solid rgba(255,255,255,0.15);
+    }
+    @media(max-width:980px){
+      .b2b-steps{
+        grid-template-columns:repeat(3, 1fr);
+        gap:28px 16px;
+      }
+      .b2b-step__connector{ display:none; }
+    }
+    @media(max-width:640px){
+      .b2b-steps{
+        grid-template-columns:1fr;
+        gap:24px;
+        max-width:400px;
+        margin:0 auto;
+      }
+      .b2b-step{
+        flex-direction:row;
+        text-align:left;
+        gap:16px;
+        padding:0;
+      }
+      .b2b-step__num{
+        width:40px;
+        height:40px;
+        font-size:16px;
+        flex-shrink:0;
+      }
+      .b2b-step__title{ margin-top:0; font-size:13px; }
+      .b2b-step__desc{
+        margin-top:6px;
+        font-size:12px;
+        padding:10px;
+      }
+      .b2b-step__connector{ display:none; }
+    }
+
     .stepper{ display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:8px; }
     .step{
       background:var(--surface);
       border-radius:16px;
       padding:12px 10px;
-      border:1px solid rgba(30,57,141,0.12);
+      border:1px solid rgba(255,255,255,0.2);
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
       display:flex;
       flex-direction:column;
       align-items:center;
       gap:8px;
       text-align:center;
       position:relative;
+      color:#4a4f57;
     }
     .step::after{
       content:"";
@@ -179,7 +289,7 @@
     }
     .step:last-child::after{ display:none; }
     .step-num{ width:32px; height:32px; border-radius:50%; background:var(--badiani-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:13px; }
-    .cta-block{ background:var(--surface); border-radius:22px; padding:26px; border:2px solid rgba(30,57,141,0.1); box-shadow:0 14px 30px rgba(0,0,0,0.08); }
+    .cta-block{ background:var(--surface); border-radius:22px; padding:26px; border:2px solid rgba(255,255,255,0.15); box-shadow:0 14px 30px rgba(0,0,0,0.08); }
     .cta-block p{ color:#6a6b6e; margin-top:8px; }
     .cta-button{ display:inline-flex; margin-top:16px; padding:12px 28px; border-radius:30px; background:var(--badiani-blue); color:#fff; text-decoration:none; font-size:13px; text-transform:uppercase; letter-spacing:2px; font-weight:600; }
 
@@ -206,6 +316,9 @@
     .modal{
       background:var(--surface);
       color:var(--badiani-blue);
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-transform:uppercase;
+      letter-spacing:0.6px;
       width:min(1280px, 96vw);
       max-height:85vh;
       border-radius:20px;
@@ -286,7 +399,7 @@
     }
     .modal__section h4{ font-size:14px; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; color:var(--badiani-blue); }
     .modal__section p,
-    .modal__section li{ font-size:14px; color:#6a6b6e; }
+    .modal__section li{ font-size:14px; color:#6a6b6e; text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .modal__grid{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
     .modal__card{ background:#f5f6f8; border-radius:14px; padding:12px; }
     .modal__cta{ display:flex; justify-content:flex-end; }
@@ -297,6 +410,7 @@
     .modal__table th,
     .modal__table td{ padding:8px 10px; border-bottom:1px solid rgba(30,57,141,0.08); text-align:left; vertical-align:top; }
     .modal__table th{ background:#f5f6f8; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#6a6b6e; position:sticky; top:0; z-index:1; }
+    .modal__table td{ text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .modal__table tr:last-child td{ border-bottom:none; }
     .modal__note{ font-size:12px; color:#9aa0a6; }
 
@@ -380,11 +494,13 @@
     .gelato-card span{
       font-size:13px;
       font-weight:600;
-      letter-spacing:0.3px;
+      letter-spacing:0.6px;
       padding:8px 10px;
       color:var(--badiani-blue);
       background:#fafbfc;
       text-align:center;
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .gelato-card:focus-visible{
       outline:2px solid rgba(30,57,141,0.6);
@@ -523,6 +639,11 @@
       display:grid;
       gap:12px;
     }
+    .gelato-vasche__buttons{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
     .gelato-vasche__toggle{
       justify-self:flex-start;
       padding:10px 16px;
@@ -542,8 +663,86 @@
       border-color:var(--badiani-blue);
     }
     .gelato-vasche__content[hidden]{ display:none; }
+    /* ── Tipologia vasca gallery ── */
+    .tipologia-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:16px;
+    }
+    .tipologia-card{
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      cursor:pointer;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tipologia-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
+    .tipologia-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
+    .tipologia-card.is-expanded{ grid-column:span 2; }
+    .tipologia-media{
+      width:100%;
+      aspect-ratio:1 / 1;
+      background:#f0f1f3;
+      overflow:hidden;
+      position:relative;
+    }
+    .tipologia-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .tipologia-body{
+      padding:12px 14px 14px;
+      display:grid;
+      gap:4px;
+      text-align:center;
+    }
+    .tipologia-title{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.6px;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .tipologia-capacity{
+      font-size:11px;
+      color:#90949a;
+      letter-spacing:0.4px;
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    @media(max-width:768px){
+      .tipologia-card.is-expanded{
+        grid-column:span 1;
+        transform:scale(1.06);
+        box-shadow:0 20px 40px rgba(0,0,0,0.16);
+        z-index:2;
+        position:relative;
+      }
+    }
+    .vasche-flavor-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:6px 24px;
+    }
+    .vasche-flavor{
+      font-size:13px;
+      color:#4a4f57;
+      padding:5px 0;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
     .gelato-section-title{ font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#90949a; }
-    .gelato-list{ display:grid; gap:6px; font-size:13px; color:#4a4f57; }
+    .gelato-list{ display:grid; gap:6px; font-size:13px; color:#4a4f57; text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .gelato-flags{ display:grid; gap:8px; }
     .gelato-flag{
       display:flex;
@@ -554,6 +753,9 @@
       background:#f5f6f8;
       font-size:12px;
       color:#4a4f57;
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .gelato-empty{ font-size:13px; color:#6a6b6e; text-align:center; padding:12px; }
 
@@ -646,9 +848,11 @@
     .pezziduri-title{
       font-size:13px;
       font-weight:600;
-      letter-spacing:0.3px;
+      letter-spacing:0.6px;
       color:var(--badiani-blue);
       text-align:center;
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .pezziduri-meta{
       display:grid;
@@ -730,8 +934,10 @@
     .torte-title{
       font-size:13px;
       font-weight:600;
-      letter-spacing:0.3px;
+      letter-spacing:0.6px;
       color:var(--badiani-blue);
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .torte-price{
       font-size:12px;
@@ -761,6 +967,78 @@
         position:relative;
       }
       .pezziduri-card.is-expanded .pezziduri-media{ aspect-ratio:1 / 1; }
+    }
+
+    /* ── Contenitori gallery ── */
+    .contenitori-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+    }
+    .contenitori-card{
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      cursor:pointer;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .contenitori-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
+    .contenitori-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
+    .contenitori-card.is-expanded{ grid-column:span 2; }
+    .contenitori-media{
+      width:100%;
+      aspect-ratio:1 / 1;
+      background:#f0f1f3;
+      overflow:hidden;
+      position:relative;
+    }
+    .contenitori-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .contenitori-body{
+      padding:12px 14px 14px;
+      display:grid;
+      gap:8px;
+    }
+    .contenitori-title{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.6px;
+      color:var(--badiani-blue);
+      text-align:center;
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .contenitori-meta{
+      display:grid;
+      gap:6px;
+      font-size:12px;
+      color:#5b5f66;
+    }
+    .contenitori-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:#f5f6f8;
+      padding:6px 8px;
+      border-radius:10px;
+    }
+    @media(max-width:768px){
+      .contenitori-card.is-expanded{
+        grid-column:span 1;
+        transform:scale(1.06);
+        box-shadow:0 20px 40px rgba(0,0,0,0.16);
+        z-index:2;
+        position:relative;
+      }
     }
 
     @media(max-width:840px){
@@ -840,7 +1118,7 @@
     }
     @media(max-width:768px){
       .hero{ padding:30px; }
-      .top-bar{ flex-direction:column; align-items:flex-start; }
+
     }
   </style>
 </head>
@@ -849,26 +1127,29 @@
     <a href="../" class="topbar__logo">
       <img src="../assets/images/branding/logo.webp" data-i18n-attr="alt:brand.alt" alt="" />
     </a>
-    <div class="topbar__lang">
-      <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
-        <option value="it" data-i18n="lang.it"></option>
-        <option value="en" data-i18n="lang.en"></option>
-        <option value="es" data-i18n="lang.es"></option>
-        <option value="fr" data-i18n="lang.fr"></option>
-      </select>
+    <div class="topbar__right">
+      <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
+        <a href="../" data-i18n="nav.home">Home</a>
+        <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
+        <a href="../magazine/" data-i18n="nav.magazine">Magazine</a>
+      </nav>
+      <div class="topbar__lang">
+        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+          <option value="it" data-i18n="lang.it"></option>
+          <option value="en" data-i18n="lang.en"></option>
+          <option value="es" data-i18n="lang.es"></option>
+          <option value="fr" data-i18n="lang.fr"></option>
+        </select>
+      </div>
     </div>
   </header>
 
   <main class="page-shell">
-    <div class="top-bar">
-      <a class="back-link" href="../" data-i18n="b2b.back"></a>
-      <span class="category-tag" data-i18n="b2b.tag"></span>
-    </div>
 
     <section class="page-title-section" style="text-align: center; padding: 2rem 1rem;">
-      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 0.5rem;" data-i18n="b2b.hero.title"></h1>
-      <p style="font-size: 1.1rem; opacity: 0.85;" data-i18n="b2b.hero.subtitle"></p>
-      <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 0.5rem;" data-i18n="b2b.hero.note"></p>
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 0.5rem; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.3);" data-i18n="b2b.hero.title"></h1>
+      <p style="font-size: 1.1rem; opacity: 0.85; color:#fff; text-shadow:0 1px 6px rgba(0,0,0,0.2);" data-i18n="b2b.hero.subtitle"></p>
+      <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 0.5rem; color:rgba(255,255,255,0.8); text-shadow:0 1px 4px rgba(0,0,0,0.2);" data-i18n="b2b.hero.note"></p>
     </section>
 
     <section data-i18n-attr="aria-label:b2b.areas.label">
@@ -901,35 +1182,38 @@
       </div>
     </section>
 
-    <section data-i18n-attr="aria-label:b2b.target.label" style="padding: 2rem 1rem;">
-      <h2 class="section-title" data-i18n="b2b.target.title"></h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; max-width: 900px; margin: 0 auto;">
-        <span style="background: var(--badiani-blue); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem;" data-i18n="b2b.target.item1"></span>
-        <span style="background: var(--badiani-blue); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem;" data-i18n="b2b.target.item2"></span>
-        <span style="background: var(--badiani-blue); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem;" data-i18n="b2b.target.item3"></span>
-        <span style="background: var(--badiani-blue); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem;" data-i18n="b2b.target.item4"></span>
-        <span style="background: var(--badiani-blue); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem;" data-i18n="b2b.target.item5"></span>
-        <span style="background: var(--badiani-blue); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem;" data-i18n="b2b.target.item6"></span>
-      </div>
-    </section>
-
-    <section data-i18n-attr="aria-label:b2b.experiences.label">
-      <h2 class="section-title" data-i18n="b2b.experiences.title"></h2>
-      <div class="pill-grid">
-        <div class="pill" data-i18n="b2b.experiences.item1"></div>
-        <div class="pill" data-i18n="b2b.experiences.item2"></div>
-        <div class="pill" data-i18n="b2b.experiences.item3"></div>
-      </div>
-    </section>
-
-    <section data-i18n-attr="aria-label:b2b.steps.label">
-      <h2 class="section-title" data-i18n="b2b.steps.title"></h2>
-      <div class="stepper">
-        <div class="step"><span class="step-num">1</span><span data-i18n="b2b.steps.item1"></span></div>
-        <div class="step"><span class="step-num">2</span><span data-i18n="b2b.steps.item2"></span></div>
-        <div class="step"><span class="step-num">3</span><span data-i18n="b2b.steps.item3"></span></div>
-        <div class="step"><span class="step-num">4</span><span data-i18n="b2b.steps.item4"></span></div>
-        <div class="step"><span class="step-num">5</span><span data-i18n="b2b.steps.item5"></span></div>
+    <section data-i18n-attr="aria-label:b2b.steps.label" style="max-width:960px; margin:0 auto;">
+      <h2 class="section-title" style="text-align:center;" data-i18n="b2b.steps.title"></h2>
+      <div class="b2b-steps">
+        <div class="b2b-step">
+          <div class="b2b-step__num" style="background:var(--badiani-blue);">1</div>
+          <div class="b2b-step__connector"></div>
+          <h3 class="b2b-step__title" data-i18n="b2b.steps.item1"></h3>
+          <p class="b2b-step__desc" data-i18n="b2b.steps.desc1"></p>
+        </div>
+        <div class="b2b-step">
+          <div class="b2b-step__num" style="background:var(--badiani-pink);">2</div>
+          <div class="b2b-step__connector"></div>
+          <h3 class="b2b-step__title" data-i18n="b2b.steps.item2"></h3>
+          <p class="b2b-step__desc" data-i18n="b2b.steps.desc2"></p>
+        </div>
+        <div class="b2b-step">
+          <div class="b2b-step__num" style="background:var(--badiani-cyan);">3</div>
+          <div class="b2b-step__connector"></div>
+          <h3 class="b2b-step__title" data-i18n="b2b.steps.item3"></h3>
+          <p class="b2b-step__desc" data-i18n="b2b.steps.desc3"></p>
+        </div>
+        <div class="b2b-step">
+          <div class="b2b-step__num" style="background:var(--badiani-green);">4</div>
+          <div class="b2b-step__connector"></div>
+          <h3 class="b2b-step__title" data-i18n="b2b.steps.item4"></h3>
+          <p class="b2b-step__desc" data-i18n="b2b.steps.desc4"></p>
+        </div>
+        <div class="b2b-step">
+          <div class="b2b-step__num" style="background:var(--badiani-blue);">5</div>
+          <h3 class="b2b-step__title" data-i18n="b2b.steps.item5"></h3>
+          <p class="b2b-step__desc" data-i18n="b2b.steps.desc5"></p>
+        </div>
       </div>
     </section>
 
@@ -956,8 +1240,12 @@
         <div class="modal__content" id="categoryContent">
           <div class="gelato-showcase" id="gelatoShowcase">
             <div class="gelato-vasche">
-              <button class="gelato-vasche__toggle" id="vascheToggle" type="button" data-i18n="b2b.gelato.vascheButton" aria-expanded="false"></button>
+              <div class="gelato-vasche__buttons">
+                <button class="gelato-vasche__toggle" id="vascheToggle" type="button" data-i18n="b2b.gelato.vascheButton" aria-expanded="false"></button>
+                <button class="gelato-vasche__toggle" id="tipologiaToggle" type="button" data-i18n="b2b.gelato.tipologiaButton" aria-expanded="false"></button>
+              </div>
               <div class="gelato-vasche__content" id="vascheContent" hidden></div>
+              <div class="gelato-vasche__content" id="tipologiaContent" hidden></div>
             </div>
             <div class="gelato-header">
               <h4 data-gelato-i18n="vetrinaGelato.title"></h4>
@@ -1061,11 +1349,13 @@
           'lang.en': 'EN',
           'lang.fr': 'FR',
           'lang.es': 'ES',
-          'b2b.back': '← Torna alla home',
-          'b2b.tag': 'Percorso B2B',
+          'nav.label': 'Navigazione principale',
+          'nav.home': 'Home',
+          'nav.eventi': 'Eventi',
+          'nav.magazine': 'Magazine',
           'b2b.hero.label': 'Hero B2B',
           'b2b.hero.title': 'Soluzioni B2B per aziende, hotel e professionisti',
-          'b2b.hero.subtitle': 'Esperienze, prodotti e servizi pensati per il mondo business, hospitality e corporate',
+          'b2b.hero.subtitle': 'Esperienze B2B su misura: dal corporate all\'hospitality, un\'unica regia per eventi, travel e partnership',
           'b2b.hero.note': 'Progetti personalizzabili · Collaborazioni su misura · Supporto dedicato',
           'b2b.target.label': 'A chi è dedicato',
           'b2b.target.title': 'A chi è dedicato',
@@ -1099,6 +1389,12 @@
           'b2b.steps.item3': 'Proposta',
           'b2b.steps.item4': 'Conferma',
           'b2b.steps.item5': 'Esperienza',
+          'b2b.steps.desc1': 'Capire rapidamente esigenze, obiettivi e contesto.',
+          'b2b.steps.desc2': 'Target, budget, tempistiche, logistica e opportunità di partnership.',
+          'b2b.steps.desc3': 'Concept chiaro e su misura, con servizi inclusi e deliverable.',
+          'b2b.steps.desc4': 'Dettagli operativi, accordi e calendario.',
+          'b2b.steps.desc5': 'Coordinamento completo, esecuzione impeccabile e cura di ogni touchpoint.',
+          'b2b.steps.desc': 'Il nostro processo è semplice e strutturato in cinque passaggi. Si parte dal contatto, per capire rapidamente esigenze, obiettivi e contesto. Proseguiamo con un\'analisi accurata: target, budget, tempistiche, logistica e opportunità di partnership. A quel punto sviluppiamo una proposta chiara e su misura, con concept, servizi inclusi e deliverable. Una volta allineati, passiamo alla conferma, definendo dettagli operativi, accordi e calendario. Infine arriva l\'esperienza: coordinamento completo, esecuzione impeccabile e cura di ogni touchpoint, per garantire un risultato coerente con il brand e misurabile.',
           'b2b.cta.label': 'CTA finale',
           'b2b.cta.title': 'Richiedi informazioni',
           'b2b.cta.button': 'Richiedi informazioni B2B',
@@ -1140,7 +1436,9 @@
           'gelato.filters.search.label': 'Cerca gusto',
           'gelato.filters.search.placeholder': 'Cerca per nome...',
           'b2b.gelato.vascheButton': 'Vasche: mostra listino',
+          'b2b.gelato.tipologiaButton': 'Tipologia vasca',
           'gelato.detail.empty': 'Seleziona un gusto per vedere i dettagli.',
+          'gelato.detail.description': 'Descrizione',
           'gelato.detail.ingredients': 'Ingredienti',
           'gelato.detail.allergens': 'Allergeni',
           'gelato.detail.seasons': 'Disponibilità',
@@ -1260,11 +1558,13 @@
           'lang.en': 'EN',
           'lang.fr': 'FR',
           'lang.es': 'ES',
-          'b2b.back': '← Back to home',
-          'b2b.tag': 'B2B path',
+          'nav.label': 'Main navigation',
+          'nav.home': 'Home',
+          'nav.eventi': 'Events',
+          'nav.magazine': 'Magazine',
           'b2b.hero.label': 'B2B hero',
           'b2b.hero.title': 'B2B solutions for companies, hotels, and professionals',
-          'b2b.hero.subtitle': 'Experiences, products and services designed for business, hospitality and corporate worlds',
+          'b2b.hero.subtitle': 'Tailor-made B2B experiences: from corporate to hospitality, a single direction for events, travel and partnerships',
           'b2b.hero.note': 'Customisable projects · Tailor-made collaborations · Dedicated support',
           'b2b.target.label': 'Who it is for',
           'b2b.target.title': 'Who it is for',
@@ -1298,6 +1598,12 @@
           'b2b.steps.item3': 'Proposal',
           'b2b.steps.item4': 'Confirmation',
           'b2b.steps.item5': 'Experience',
+          'b2b.steps.desc1': 'Quickly understand needs, goals and context.',
+          'b2b.steps.desc2': 'Target, budget, timelines, logistics and partnership opportunities.',
+          'b2b.steps.desc3': 'Clear, tailored concept with included services and deliverables.',
+          'b2b.steps.desc4': 'Operational details, agreements and schedule.',
+          'b2b.steps.desc5': 'Complete coordination, flawless execution and attention to every touchpoint.',
+          'b2b.steps.desc': 'Our process is simple and structured in five steps. We start with contact, to quickly understand needs, goals and context. We continue with a thorough analysis: target, budget, timelines, logistics and partnership opportunities. At that point we develop a clear, tailored proposal with concept, included services and deliverables. Once aligned, we move to confirmation, defining operational details, agreements and schedule. Finally comes the experience: complete coordination, flawless execution and attention to every touchpoint, ensuring a result that is brand-consistent and measurable.',
           'b2b.cta.label': 'Final CTA',
           'b2b.cta.title': 'Request information',
           'b2b.cta.button': 'Request B2B information',
@@ -1339,7 +1645,9 @@
           'gelato.filters.search.label': 'Search flavour',
           'gelato.filters.search.placeholder': 'Search by name...',
           'b2b.gelato.vascheButton': 'Tubs: show price list',
+          'b2b.gelato.tipologiaButton': 'Tub types',
           'gelato.detail.empty': 'Select a flavour to see details.',
+          'gelato.detail.description': 'Description',
           'gelato.detail.ingredients': 'Ingredients',
           'gelato.detail.allergens': 'Allergens',
           'gelato.detail.seasons': 'Availability',
@@ -1459,11 +1767,13 @@
           'lang.en': 'EN',
           'lang.fr': 'FR',
           'lang.es': 'ES',
-          'b2b.back': '← Retour à l’accueil',
-          'b2b.tag': 'Parcours B2B',
+          'nav.label': 'Navigation principale',
+          'nav.home': 'Accueil',
+          'nav.eventi': 'Événements',
+          'nav.magazine': 'Magazine',
           'b2b.hero.label': 'Hero B2B',
           'b2b.hero.title': 'Solutions B2B pour entreprises, hôtels et professionnels',
-          'b2b.hero.subtitle': 'Expériences, produits et services pensés pour le business, l’hospitalité et le corporate',
+          'b2b.hero.subtitle': 'Expériences B2B sur mesure : du corporate à l’hospitalité, une direction unique pour événements, voyages et partenariats',
           'b2b.hero.note': 'Projets personnalisables · Collaborations sur mesure · Support dédié',
           'b2b.target.label': 'À qui c’est dédié',
           'b2b.target.title': 'À qui c’est dédié',
@@ -1497,6 +1807,12 @@
           'b2b.steps.item3': 'Proposition',
           'b2b.steps.item4': 'Confirmation',
           'b2b.steps.item5': 'Expérience',
+          'b2b.steps.desc1': 'Comprendre rapidement les besoins, objectifs et contexte.',
+          'b2b.steps.desc2': 'Cible, budget, délais, logistique et opportunités de partenariat.',
+          'b2b.steps.desc3': 'Concept clair et sur mesure, avec services inclus et livrables.',
+          'b2b.steps.desc4': 'Détails opérationnels, accords et calendrier.',
+          'b2b.steps.desc5': 'Coordination complète, exécution impeccable et soin de chaque point de contact.',
+          'b2b.steps.desc': 'Notre processus est simple et structuré en cinq étapes. Nous commençons par le contact, pour comprendre rapidement les besoins, objectifs et contexte. Nous poursuivons avec une analyse approfondie : cible, budget, délais, logistique et opportunités de partenariat. Nous développons ensuite une proposition claire et sur mesure, avec concept, services inclus et livrables. Une fois alignés, nous passons à la confirmation, en définissant les détails opérationnels, accords et calendrier. Enfin vient l\'expérience : coordination complète, exécution impeccable et soin de chaque point de contact, pour garantir un résultat cohérent avec la marque et mesurable.',
           'b2b.cta.label': 'CTA final',
           'b2b.cta.title': 'Demander des informations',
           'b2b.cta.button': 'Demander des informations B2B',
@@ -1538,7 +1854,9 @@
           'gelato.filters.search.label': 'Rechercher un parfum',
           'gelato.filters.search.placeholder': 'Rechercher par nom...',
           'b2b.gelato.vascheButton': 'Bacs : afficher la liste',
+          'b2b.gelato.tipologiaButton': 'Types de bacs',
           'gelato.detail.empty': 'Sélectionnez un parfum pour voir les détails.',
+          'gelato.detail.description': 'Description',
           'gelato.detail.ingredients': 'Ingrédients',
           'gelato.detail.allergens': 'Allergènes',
           'gelato.detail.seasons': 'Disponibilité',
@@ -1658,11 +1976,13 @@
           'lang.en': 'EN',
           'lang.fr': 'FR',
           'lang.es': 'ES',
-          'b2b.back': '← Volver al inicio',
-          'b2b.tag': 'Ruta B2B',
+          'nav.label': 'Navegación principal',
+          'nav.home': 'Inicio',
+          'nav.eventi': 'Eventos',
+          'nav.magazine': 'Magazine',
           'b2b.hero.label': 'Hero B2B',
           'b2b.hero.title': 'Soluciones B2B para empresas, hoteles y profesionales',
-          'b2b.hero.subtitle': 'Experiencias, productos y servicios pensados para el mundo business, hospitality y corporate',
+          'b2b.hero.subtitle': 'Experiencias B2B a medida: del corporate al hospitality, una única dirección para eventos, travel y partnerships',
           'b2b.hero.note': 'Proyectos personalizables · Colaboraciones a medida · Soporte dedicado',
           'b2b.target.label': 'A quién va dirigido',
           'b2b.target.title': 'A quién va dirigido',
@@ -1696,6 +2016,12 @@
           'b2b.steps.item3': 'Propuesta',
           'b2b.steps.item4': 'Confirmación',
           'b2b.steps.item5': 'Experiencia',
+          'b2b.steps.desc1': 'Entender rápidamente necesidades, objetivos y contexto.',
+          'b2b.steps.desc2': 'Target, presupuesto, plazos, logística y oportunidades de partnership.',
+          'b2b.steps.desc3': 'Concepto claro y a medida, con servicios incluidos y entregables.',
+          'b2b.steps.desc4': 'Detalles operativos, acuerdos y calendario.',
+          'b2b.steps.desc5': 'Coordinación completa, ejecución impecable y cuidado de cada punto de contacto.',
+          'b2b.steps.desc': 'Nuestro proceso es sencillo y estructurado en cinco pasos. Comenzamos con el contacto, para entender rápidamente necesidades, objetivos y contexto. Continuamos con un análisis detallado: target, presupuesto, plazos, logística y oportunidades de partnership. En ese punto desarrollamos una propuesta clara y a medida, con concepto, servicios incluidos y entregables. Una vez alineados, pasamos a la confirmación, definiendo detalles operativos, acuerdos y calendario. Finalmente llega la experiencia: coordinación completa, ejecución impecable y cuidado de cada punto de contacto, para garantizar un resultado coherente con la marca y medible.',
           'b2b.cta.label': 'CTA final',
           'b2b.cta.title': 'Solicitar información',
           'b2b.cta.button': 'Solicitar información B2B',
@@ -1737,7 +2063,9 @@
           'gelato.filters.search.label': 'Buscar sabor',
           'gelato.filters.search.placeholder': 'Buscar por nombre...',
           'b2b.gelato.vascheButton': 'Cubas: ver lista',
+          'b2b.gelato.tipologiaButton': 'Tipos de cubas',
           'gelato.detail.empty': 'Selecciona un sabor para ver los detalles.',
+          'gelato.detail.description': 'Descripción',
           'gelato.detail.ingredients': 'Ingredientes',
           'gelato.detail.allergens': 'Alérgenos',
           'gelato.detail.seasons': 'Disponibilidad',
@@ -1911,7 +2239,7 @@
             ['Ghiacciolo di frutta al limone', '€2.00', '100 g', '20'],
             ['Ghiacciolo di frutta la mango', '€2.00', '100 g', '20'],
             ['Ghiacciolo alla menta', '€2.00', '100 g', '20'],
-            ['Lingotto', '€2.00', '60 g', '96'],
+            ['Lingotto Buontalenti', '€2.00', '60 g', '96'],
             ['Zampa', '€3.00', '150 g', '16']
           ]
         },
@@ -1981,6 +2309,22 @@
         'Zampa': '../assets/images/pezziduri/zampetta.png'
       };
 
+      const CONTENITORI_IMAGES = {
+        'RE-MAXIGEL 350': '../assets/images/contenitori/350.jpeg',
+        'RE-MAGIGEL 500': '../assets/images/contenitori/750.jpeg',
+        'RE-MAXIGEL 750': '../assets/images/contenitori/500.jpeg',
+        'RE-MAXIGEL 1000': '../assets/images/contenitori/1000.jpeg',
+        'Contenitore polistirolo T2': '../assets/images/contenitori/T2.jpeg'
+      };
+
+      const TIPOLOGIA_VASCA = [
+        { name: 'Vaschetta 3500cc', capacity: '3500 cc', image: '../assets/images/vasche/Vaschetta 3500cc.png' },
+        { name: 'Vaschetta 4800cc', capacity: '4800 cc', image: '../assets/images/vasche/Vaschetta 4800cc.jpeg' },
+        { name: 'Vaschetta 5000cc', capacity: '5000 cc', image: '../assets/images/vasche/Vaschetta 5000cc.jpeg' },
+        { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.jpeg' },
+        { name: 'Vaschetta 8000cc', capacity: '8000 cc', image: '../assets/images/vasche/Vaschetta 8000cc.jpeg' }
+      ];
+
       const TORTE_IMAGES = {
         'Millefoglie Buontalenti': {
           small: '../assets/images/torte/millefoglie buontalenti s.webp',
@@ -2042,6 +2386,8 @@
       const gelatoSearch = document.getElementById('gelatoSearch');
       const vascheToggle = document.getElementById('vascheToggle');
       const vascheContent = document.getElementById('vascheContent');
+      const tipologiaToggle = document.getElementById('tipologiaToggle');
+      const tipologiaContent = document.getElementById('tipologiaContent');
       const defaultContent = document.getElementById('b2bDefaultContent');
       const fullscreenOverlay = document.getElementById('gelatoFullscreen');
       const fullscreenImage = document.getElementById('gelatoFullscreenImage');
@@ -2049,6 +2395,8 @@
       let expandedFlavorId = '';
       let expandedTorteId = '';
       let expandedPezziDuriId = '';
+      let expandedContenitoriId = '';
+      let expandedTipologiaId = '';
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const ASSET_VERSION = '20260207';
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
@@ -2112,8 +2460,15 @@
 
       function renderVascheSection(){
         const data = CATEGORY_DATA['VASCHE'];
-        if(!data) return '';
-        return renderTableSection(data);
+        if(!data || !data.rows || !data.rows.length) return '';
+        const names = data.rows.map(r => r[0]).sort((a, b) => a.localeCompare(b, 'it'));
+        const items = names.map(n => `<span class="vasche-flavor">${n}</span>`).join('');
+        return `
+          <div class="modal__section">
+            <h4>${data.title}</h4>
+            <div class="vasche-flavor-grid">${items}</div>
+          </div>
+        `;
       }
 
       function renderPezziDuriGallery(rows){
@@ -2155,6 +2510,116 @@
           <div class="modal__section">
             <h4>${CATEGORY_DATA['PEZZI DURI'].title}</h4>
             <div class="pezziduri-grid">${cards}</div>
+          </div>
+        `;
+      }
+
+      function renderTipologiaGallery(){
+        const items = TIPOLOGIA_VASCA;
+        if(!items || !items.length) return '';
+        const zoomIcon = `
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        `;
+        const cards = items
+          .map(({ name, capacity, image }) => {
+            const imageSrc = encodeURI(image);
+            const isExpanded = expandedTipologiaId === name;
+            return `
+              <article class="tipologia-card${isExpanded ? ' is-expanded' : ''}" data-tipologia-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
+                <div class="tipologia-media">
+                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
+                  <button class="card-zoom" type="button" aria-label="Ingrandisci" data-zoom-src="${imageSrc}" data-zoom-alt="${name}">${zoomIcon}</button>
+                </div>
+                <div class="tipologia-body">
+                  <div class="tipologia-title">${name}</div>
+                  <div class="tipologia-capacity">${capacity}</div>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+
+        return `<div class="tipologia-grid">${cards}</div>`;
+      }
+
+      function setupTipologiaZoom(){
+        const el = document.getElementById('tipologiaContent');
+        if(!el) return;
+        const cards = el.querySelectorAll('.tipologia-card[data-tipologia-id]');
+        cards.forEach((card) => {
+          const id = card.dataset.tipologiaId;
+          if(!id) return;
+          card.addEventListener('click', (event) => {
+            if(event.target.closest('.card-zoom')) return;
+            expandedTipologiaId = expandedTipologiaId === id ? '' : id;
+            tipologiaContent.innerHTML = renderTipologiaGallery();
+            setupTipologiaZoom();
+            setupZoomButtons();
+          });
+          card.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              if(event.target.closest('.card-zoom')) return;
+              event.preventDefault();
+              expandedTipologiaId = expandedTipologiaId === id ? '' : id;
+              tipologiaContent.innerHTML = renderTipologiaGallery();
+              setupTipologiaZoom();
+              setupZoomButtons();
+            }
+          });
+        });
+        /* zoom buttons inside tipologia */
+        el.querySelectorAll('[data-zoom-src]').forEach((button) => {
+          button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const src = button.getAttribute('data-zoom-src');
+            const alt = button.getAttribute('data-zoom-alt') || '';
+            openFullscreenImage(src, alt);
+          });
+        });
+      }
+
+      function renderContenitoriGallery(rows){
+        if(!rows || !rows.length) return '';
+        const cards = rows
+          .map(([name, desc, qty, price]) => {
+            const src = CONTENITORI_IMAGES[name];
+            if(!src) return '';
+            const imageSrc = encodeURI(src);
+            const isExpanded = expandedContenitoriId === name;
+            const zoomIcon = `
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            `;
+            return `
+              <article class="contenitori-card${isExpanded ? ' is-expanded' : ''}" data-contenitori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
+                <div class="contenitori-media">
+                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
+                  <button class="card-zoom" type="button" aria-label="Ingrandisci" data-zoom-src="${imageSrc}" data-zoom-alt="${name}">${zoomIcon}</button>
+                </div>
+                <div class="contenitori-body">
+                  <div class="contenitori-title">${name}</div>
+                  <div class="contenitori-meta">
+                    <span><strong>Descrizione</strong><em>${desc}</em></span>
+                    <span><strong>Quantit\u00e0</strong><em>${qty}</em></span>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .filter(Boolean)
+          .join('');
+
+        return `
+          <div class="modal__section">
+            <h4>${CATEGORY_DATA['CONTENITORI'].title}</h4>
+            <div class="contenitori-grid">${cards}</div>
           </div>
         `;
       }
@@ -2225,6 +2690,27 @@
         });
       }
 
+      function setupContenitoriZoom(){
+        const cards = defaultContent ? defaultContent.querySelectorAll('.contenitori-card[data-contenitori-id]') : [];
+        cards.forEach((card) => {
+          const id = card.dataset.contenitoriId;
+          if(!id) return;
+          card.addEventListener('click', (event) => {
+            if(event.target.closest('.card-zoom')) return;
+            expandedContenitoriId = expandedContenitoriId === id ? '' : id;
+            renderCategoryContent('CONTENITORI');
+          });
+          card.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              if(event.target.closest('.card-zoom')) return;
+              event.preventDefault();
+              expandedContenitoriId = expandedContenitoriId === id ? '' : id;
+              renderCategoryContent('CONTENITORI');
+            }
+          });
+        });
+      }
+
       function setupPezziDuriZoom(){
         const cards = defaultContent ? defaultContent.querySelectorAll('.pezziduri-card[data-pezziduri-id]') : [];
         cards.forEach((card) => {
@@ -2274,6 +2760,8 @@
           sections.push(renderPezziDuriGallery(data.rows));
         }else if(category === 'TORTE'){
           sections.push(renderTorteGallery(data.rows));
+        }else if(category === 'CONTENITORI'){
+          sections.push(renderContenitoriGallery(data.rows));
         }else{
           sections.push(renderTableSection(data));
         }
@@ -2288,6 +2776,9 @@
         if(category === 'PEZZI DURI'){
           requestAnimationFrame(setupPezziDuriZoom);
         }
+        if(category === 'CONTENITORI'){
+          requestAnimationFrame(setupContenitoriZoom);
+        }
 
         requestAnimationFrame(setupZoomButtons);
 
@@ -2298,60 +2789,53 @@
       function renderGelatoDetail(flavor){
         if(!gelatoDetail) return;
         if(!flavor){
-          gelatoDetail.innerHTML = `<div class=\"gelato-empty\">${tGelato('vetrinaGelato.selectFlavorHint')}</div>`;
+          gelatoDetail.innerHTML = `<div class=\"gelato-empty\">${t('gelato.detail.empty')}</div>`;
           gelatoDetail.classList.add('is-collapsed');
           gelatoDetail.classList.remove('is-open');
           return;
         }
 
-        const ingredients = tGelato('flavorDetail.placeholderIngredients');
-        const allergens = tGelato('flavorDetail.placeholderAllergens');
+        const description = flavor.description || '';
+        const allergensText = flavor.allergensText || t('gelato.detail.none');
         const seasons = flavor.seasons.map((season) => seasonLabel(season)).join(', ');
         const flags = [
-          ['flags.vegan', flavor.flags.vegan],
-          ['flags.glutenFree', flavor.flags.glutenFree],
-          ['flags.lactoseFree', flavor.flags.lactoseFree],
-          ['flags.containsEggs', flavor.flags.containsEggs],
-          ['flags.containsNuts', flavor.flags.containsNuts],
-          ['flags.containsAlcohol', flavor.flags.containsAlcohol]
+          ['gelato.flags.vegan', flavor.flags.vegan],
+          ['gelato.flags.glutenFree', flavor.flags.glutenFree],
+          ['gelato.flags.lactoseFree', flavor.flags.lactoseFree],
+          ['gelato.flags.containsEggs', flavor.flags.containsEggs],
+          ['gelato.flags.containsNuts', flavor.flags.containsNuts],
+          ['gelato.flags.containsAlcohol', flavor.flags.containsAlcohol]
         ];
 
         const flavorLabel = tGelato(flavor.nameKey) || flavor.label || flavor.id;
         gelatoDetail.innerHTML = `
           <div class=\"gelato-detail__header\">
-            <div class=\"gelato-section-title\">${tGelato('flavorDetail.title')}</div>
-            <button class=\"gelato-detail__close\" type=\"button\">${tGelato('common.close')}</button>
+            <div class=\"gelato-section-title\">${flavorLabel}</div>
+            <button class=\"gelato-detail__close\" type=\"button\">✕</button>
           </div>
           <h4>${flavorLabel}</h4>
+          ${description ? `<div>
+            <div class=\"gelato-section-title\">${t('gelato.detail.description')}</div>
+            <div class="gelato-list">${description}</div>
+          </div>` : ''}
           <div>
-            <div class=\"gelato-section-title\">${tGelato('flavorDetail.ingredients')}</div>
-            <div class="gelato-list">${ingredients}</div>
+            <div class=\"gelato-section-title\">${t('gelato.detail.allergens')}</div>
+            <div class="gelato-list">${allergensText}</div>
           </div>
           <div>
-            <div class=\"gelato-section-title\">${tGelato('flavorDetail.allergens')}</div>
-            <div class="gelato-list">${allergens}</div>
-          </div>
-          <div>
-            <div class=\"gelato-section-title\">${tGelato('flavorDetail.availability')}</div>
+            <div class=\"gelato-section-title\">${t('gelato.detail.seasons')}</div>
             <div class="gelato-list">${seasons}</div>
           </div>
           <div>
-            <div class=\"gelato-section-title\">${tGelato('flavorDetail.parameters')}</div>
+            <div class=\"gelato-section-title\">${t('gelato.detail.flags')}</div>
             <div class="gelato-flags">
               ${flags.map(([label, value]) => `
                 <div class="gelato-flag">
-                  <span>${tGelato(label)}</span>
+                  <span>${t(label)}</span>
                   <strong>${value ? '✓' : '—'}</strong>
                 </div>
               `).join('')}
             </div>
-          </div>
-          <div>
-            <div class=\"gelato-section-title\">${tGelato('flavorDetail.notes')}</div>
-            <div class="gelato-list">${tGelato('flavorDetail.placeholderNotes')}</div>
-          </div>
-          <div>
-            <a class=\"cta-button\" href=\"#\">${tGelato('common.requestInfo')}</a>
           </div>
         `;
 
@@ -2368,34 +2852,36 @@
       }
 
       function buildGelatoDetailsHTML(flavor){
+        const description = flavor.description || '';
+        const allergensText = flavor.allergensText || t('gelato.detail.none');
         const seasons = flavor.seasons.map((season) => seasonLabel(season)).join(', ');
         const flags = [
-          ['flags.vegan', flavor.flags.vegan],
-          ['flags.glutenFree', flavor.flags.glutenFree],
-          ['flags.lactoseFree', flavor.flags.lactoseFree],
-          ['flags.containsEggs', flavor.flags.containsEggs],
-          ['flags.containsNuts', flavor.flags.containsNuts],
-          ['flags.containsAlcohol', flavor.flags.containsAlcohol]
+          ['gelato.flags.vegan', flavor.flags.vegan],
+          ['gelato.flags.glutenFree', flavor.flags.glutenFree],
+          ['gelato.flags.lactoseFree', flavor.flags.lactoseFree],
+          ['gelato.flags.containsEggs', flavor.flags.containsEggs],
+          ['gelato.flags.containsNuts', flavor.flags.containsNuts],
+          ['gelato.flags.containsAlcohol', flavor.flags.containsAlcohol]
         ];
         return `
+          ${description ? `<div>
+            <div class="gelato-section-title">${t('gelato.detail.description')}</div>
+            <div class="gelato-list">${description}</div>
+          </div>` : ''}
           <div>
-            <div class="gelato-section-title">${tGelato('flavorDetail.ingredients')}</div>
-            <div class="gelato-list">${tGelato('flavorDetail.placeholderIngredients')}</div>
+            <div class="gelato-section-title">${t('gelato.detail.allergens')}</div>
+            <div class="gelato-list">${allergensText}</div>
           </div>
           <div>
-            <div class="gelato-section-title">${tGelato('flavorDetail.allergens')}</div>
-            <div class="gelato-list">${tGelato('flavorDetail.placeholderAllergens')}</div>
-          </div>
-          <div>
-            <div class="gelato-section-title">${tGelato('flavorDetail.availability')}</div>
+            <div class="gelato-section-title">${t('gelato.detail.seasons')}</div>
             <div class="gelato-list">${seasons}</div>
           </div>
           <div>
-            <div class="gelato-section-title">${tGelato('flavorDetail.parameters')}</div>
+            <div class="gelato-section-title">${t('gelato.detail.flags')}</div>
             <div class="gelato-flags">
               ${flags.map(([label, value]) => `
                 <div class="gelato-flag">
-                  <span>${tGelato(label)}</span>
+                  <span>${t(label)}</span>
                   <strong>${value ? '✓' : '—'}</strong>
                 </div>
               `).join('')}
@@ -2742,6 +3228,27 @@
             vascheContent.setAttribute('hidden', '');
             vascheToggle.classList.remove('is-open');
             vascheToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      if(tipologiaToggle && tipologiaContent){
+        tipologiaToggle.addEventListener('click', () => {
+          const willOpen = tipologiaContent.hasAttribute('hidden');
+          if(willOpen){
+            tipologiaContent.innerHTML = renderTipologiaGallery();
+            tipologiaContent.removeAttribute('hidden');
+            tipologiaToggle.classList.add('is-open');
+            tipologiaToggle.setAttribute('aria-expanded', 'true');
+            requestAnimationFrame(() => {
+              setupTipologiaZoom();
+              setupZoomButtons();
+              tipologiaContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          }else{
+            tipologiaContent.setAttribute('hidden', '');
+            tipologiaToggle.classList.remove('is-open');
+            tipologiaToggle.setAttribute('aria-expanded', 'false');
           }
         });
       }
