@@ -273,14 +273,11 @@
       position:relative;
       z-index:2;
       display:flex;
-      flex-direction:row;
       align-items:center;
       justify-content:center;
       width:100%;
-      max-width:1150px;
       height:100vh;
       margin:0 auto;
-      gap:30px;
       padding:25px;
     }
     .modal-close{
@@ -319,57 +316,35 @@
       transform:rotate(90deg) scale(1.1);
       box-shadow:0 8px 28px rgba(30,57,141,0.6);
     }
-    .modal-image{
-      width:42%;
-      max-width:420px;
-      aspect-ratio:1/1;
-      overflow:hidden;
-      border-radius:12px;
-      animation:slideLeft 0.6s cubic-bezier(0.34,1.56,0.64,1);
-      flex-shrink:0;
-      position:relative;
-    }
-    .modal-image.silver{ background:linear-gradient(135deg, #c0c5cc, #8a919b); box-shadow:0 10px 35px rgba(88,89,91,0.4); }
-    .modal-image.gold{ background:linear-gradient(135deg, #f4d13f, #d8a200); box-shadow:0 10px 35px rgba(216,162,0,0.4); }
-    .modal-image.platinum{ background:linear-gradient(135deg, #e8e6f0, #b8b5c8); box-shadow:0 10px 35px rgba(185,183,196,0.4); }
-    .modal-image img{
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-      filter:brightness(1.05);
-    }
-    @keyframes slideLeft{ from{transform:translateX(-50px);opacity:0;} to{transform:translateX(0);opacity:1;} }
 
     .modal-panel{
-      width:55%;
-      max-width:650px;
+      width:100%;
+      max-width:680px;
       max-height:80vh;
       overflow-y:auto;
       background:linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
-      border-radius:12px;
-      padding:25px;
-      box-shadow:0 10px 40px rgba(0,0,0,0.6);
-      animation:slideRight 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
-      flex-shrink:0;
+      border-radius:20px;
+      padding:48px 44px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+      animation:slideUp 0.5s cubic-bezier(0.34,1.56,0.64,1);
     }
-    @keyframes slideRight{ from{transform:translateX(50px);opacity:0;} to{transform:translateX(0);opacity:1;} }
+    @keyframes slideUp{ from{transform:translateY(40px);opacity:0;} to{transform:translateY(0);opacity:1;} }
 
     .modal-panel-title{
-      font-size:20px;
-      letter-spacing:1px;
+      font-size:clamp(24px, 3vw, 32px);
+      letter-spacing:2px;
       text-transform:uppercase;
       color:var(--badiani-blue);
-      margin-bottom:6px;
+      margin-bottom:10px;
       font-weight:700;
+      text-align:center;
     }
-    .modal-panel-subtitle{
-      font-size:15px;
+    .modal-panel-desc{
+      font-size:16px;
       color:#6a6b6e;
-      margin-bottom:18px;
-      padding-bottom:10px;
-      border-bottom:3px solid var(--badiani-pink);
+      line-height:1.7;
+      margin-bottom:28px;
+      text-align:center;
     }
     .specs-grid{
       display:grid;
@@ -403,56 +378,59 @@
 
     @media(max-width:768px){
       .modal-content{
-        flex-direction:column;
         padding:15px;
         height:100vh;
         overflow-y:auto;
-        gap:14px;
-      }
-      .modal-image{
-        width:50vw;
-        max-width:200px;
-        max-height:25vh;
       }
       .modal-panel{
         width:100%;
         max-height:none;
-        padding:16px;
+        padding:32px 24px;
       }
-      .modal-panel-title{ font-size:16px; }
-      .modal-panel-subtitle{ font-size:13px; margin-bottom:12px; }
-      .specs-grid{ grid-template-columns:1fr; gap:8px; }
-      .spec-card{ padding:10px; }
-      .spec-label{ font-size:10px; margin-bottom:4px; }
-      .spec-value{ font-size:12px; line-height:1.4; }
+      .modal-panel-title{ font-size:20px; }
+      .modal-panel-desc{ font-size:14px; margin-bottom:24px; }
     }
 
     /* TERMINI */
     .terms{
-      background:rgba(30,57,141,0.04);
-      padding:30px;
-      border-radius:20px;
-      margin-top:40px;
+      background:#fff;
+      padding:28px 34px;
+      border-radius:16px;
+      margin-top:48px;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 4px 16px rgba(0,0,0,0.06);
     }
     .terms h3{
-      font-size:20px;
-      margin-bottom:16px;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      margin-bottom:12px;
+      color:var(--badiani-blue);
     }
     .terms ul{
       list-style:none;
       padding:0;
+      margin:0;
     }
     .terms li{
-      font-size:14px;
-      padding:6px 0;
-      padding-left:20px;
+      font-size:12px;
+      line-height:1.5;
+      padding:4px 0;
+      padding-left:18px;
       position:relative;
+      color:var(--badiani-blue);
+    }
+    .terms li strong{
+      color:var(--badiani-blue);
+      font-weight:700;
     }
     .terms li::before{
       content:"→";
       position:absolute;
       left:0;
-      color:var(--badiani-blue);
+      color:var(--badiani-pink);
+      font-size:11px;
     }
 
     /* CONTACT */
@@ -696,6 +674,20 @@
       width:14px; height:14px;
       accent-color:var(--badiani-blue);
     }
+    .fm-extras-panel{
+      display:none;
+      margin-top:10px;
+      padding:12px 14px;
+      background:#f0f2f8;
+      border-radius:10px;
+      border:1px solid rgba(30,57,141,0.1);
+      animation:fmExtrasReveal 0.35s ease;
+    }
+    .fm-extras-panel.visible{ display:block; }
+    @keyframes fmExtrasReveal{
+      from{ opacity:0; transform:translateY(-8px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
     .form-modal__actions{
       display:flex;
       align-items:center;
@@ -754,9 +746,9 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar__logo">
+    <a href="../../" class="topbar__logo">
       <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" />
-    </div>
+    </a>
     <div class="topbar__right">
       <nav class="topbar__nav">
         <a href="../../" data-i18n="nav.home">Home</a>
@@ -809,12 +801,6 @@
         </div>
         <div class="package-body">
           <p class="package-desc" data-i18n="tosinghi.silver.desc">Aperitivo con rustici, pizzette, panettone gastronomico, Coppetta Buontalenti e bevande selezionate.</p>
-          <ul class="package-features">
-            <li data-i18n-html="tosinghi.silver.food"><strong>Food:</strong> Pizzette, tramezzini, rustici, panettone gastronomico, Coppetta Buontalenti</li>
-            <li data-i18n-html="tosinghi.silver.drink"><strong>Drink:</strong> 1 drink a persona — 2 cocktail alcolici, 1 analcolico, Prosecco, Acqua</li>
-            <li data-i18n-html="tosinghi.silver.duration"><strong>Durata:</strong> Fino a 1h 30min</li>
-            <li data-i18n-html="tosinghi.silver.booking"><strong>Prenotazione:</strong> Minimo 10 giorni prima, minimo 30 persone con saletta riservata</li>
-          </ul>
           <p class="package-note" data-i18n="tosinghi.silver.note">IVA inclusa • Minimo 30 persone</p>
         </div>
       </article>
@@ -827,12 +813,6 @@
         </div>
         <div class="package-body">
           <p class="package-desc" data-i18n="tosinghi.gold.desc">Pacchetto premium con panettone gastronomico, finger food dello Chef, monoporzioni dolci o Buontalenti e bevande selezionate.</p>
-          <ul class="package-features">
-            <li data-i18n-html="tosinghi.gold.food"><strong>Food:</strong> Panettone gastronomico, 5 finger food dello Chef, monoporzioni dolci o Buontalenti</li>
-            <li data-i18n-html="tosinghi.gold.drink"><strong>Drink:</strong> 1 drink a persona — 2 cocktail alcolici, 1 analcolico, Franciacorta, Acqua</li>
-            <li data-i18n-html="tosinghi.gold.duration"><strong>Durata:</strong> Fino a 2 ore</li>
-            <li data-i18n-html="tosinghi.gold.booking"><strong>Prenotazione:</strong> Minimo 10 giorni prima, minimo 30 persone con saletta riservata</li>
-          </ul>
           <p class="package-note" data-i18n="tosinghi.gold.note">IVA inclusa • Minimo 30 persone</p>
         </div>
       </article>
@@ -845,34 +825,25 @@
         </div>
         <div class="package-body">
           <p class="package-desc" data-i18n="tosinghi.platinum.desc">L'esperienza esclusiva con finger food dello Chef, monoporzioni dolci, Champagne e servizio premium.</p>
-          <ul class="package-features">
-            <li data-i18n-html="tosinghi.platinum.food"><strong>Food:</strong> 7 finger food dello Chef, monoporzioni dolci, Mignon o Buontalenti</li>
-            <li data-i18n-html="tosinghi.platinum.drink"><strong>Drink:</strong> 1 drink a persona — 2 cocktail alcolici, 1 analcolico, Champagne, Acqua</li>
-            <li data-i18n-html="tosinghi.platinum.duration"><strong>Durata:</strong> Fino a 2 ore</li>
-            <li data-i18n-html="tosinghi.platinum.booking"><strong>Prenotazione:</strong> Minimo 14 giorni prima, minimo 30 persone con saletta riservata</li>
-          </ul>
           <p class="package-note" data-i18n="tosinghi.platinum.note">IVA inclusa • Minimo 30 persone</p>
         </div>
       </article>
     </div>
 
-    <!-- TERMINI E CONDIZIONI -->
-    <div class="terms">
-      <h3 data-i18n="tosinghi.terms.title">Termini e Condizioni</h3>
-      <ul>
-        <li data-i18n-html="tosinghi.terms.capacity"><strong>Capienza:</strong> 15-35 persone sedute</li>
-        <li data-i18n-html="tosinghi.terms.extradrink"><strong>Extra drink:</strong> Prezzo pieno, pagamento immediato</li>
-        <li data-i18n-html="tosinghi.terms.deposit"><strong>Acconto:</strong> 50% al momento della conferma</li>
-        <li data-i18n-html="tosinghi.terms.balance"><strong>Saldo:</strong> Entro il giorno dell'evento tramite bonifico</li>
-      </ul>
-    </div>
   </section>
 
-  <!-- CONTACT FOOTER -->
-  <footer class="contact-footer">
-    <h3 data-i18n="tosinghi.contact.title">Richiedi Informazioni</h3>
-    <a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a>
-  </footer>
+  <!-- TERMINI E CONDIZIONI -->
+  <div class="terms">
+    <h3 data-i18n="tosinghi.terms.title">Termini e Condizioni</h3>
+    <ul>
+      <li data-i18n-html="tosinghi.terms.capacity"><strong>Capienza:</strong> Minimo 30 persone, massimo 35 persone sedute</li>
+      <li data-i18n-html="tosinghi.terms.extradrink"><strong>Extra drink:</strong> Prezzo pieno, pagamento immediato alla cassa</li>
+      <li data-i18n-html="tosinghi.terms.deposit"><strong>Acconto:</strong> 50% al momento della conferma tramite bonifico</li>
+      <li data-i18n-html="tosinghi.terms.balance"><strong>Saldo:</strong> 3 giorni prima dell'evento tramite bonifico</li>
+    </ul>
+  </div>
+
+
   </main>
 
   <!-- MODAL SILVER -->
@@ -880,28 +851,33 @@
     <div class="modal-bg"></div>
     <button class="modal-close" onclick="closeModal('silver')" data-i18n-attr="aria-label:tosinghi.modal.close"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="modal-image silver" role="img" aria-label="Silver"></div>
       <div class="modal-panel">
         <h2 class="modal-panel-title" data-i18n="tosinghi.modal.silver.title">PACCHETTO SILVER</h2>
-        <p class="modal-panel-subtitle" data-i18n="tosinghi.modal.silver.subtitle">&euro;20,00 a persona (IVA inclusa)</p>
+        <p class="modal-panel-desc" data-i18n="tosinghi.silver.desc">Aperitivo con rustici, pizzette, panettone gastronomico, Coppetta Buontalenti e bevande selezionate.</p>
         <div class="specs-grid">
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.food">Food</span>
+            <span class="spec-label">Food</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.silver.food.compact">Pizzette &bull; Tramezzini &bull; Rustici &bull; Panettone gastronomico (1 ogni 6-8 pp.) &bull; Coppetta Buontalenti</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.drink">Drink</span>
+            <span class="spec-label">Drink</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.silver.drink.compact">2 cocktail alcolici &bull; 1 analcolico &bull; Prosecco &bull; Acqua<br><small style="color:#90949a">Men&ugrave; esposto sulla postazione beverage</small></span>
           </div>
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.details">Dettagli</span>
-            <span class="spec-value" data-i18n-html="tosinghi.modal.silver.details.compact">Conferma: min. 10 gg prima &bull; Min. 30 persone con saletta riservata &bull; Durata: fino a 1h30</span>
+            <span class="spec-label">Durata</span>
+            <span class="spec-value">Fino a 1h 30min</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Prenotazione</span>
+            <span class="spec-value">Minimo 10 giorni prima &bull; Minimo 30 persone con saletta riservata</span>
           </div>
         </div>
-        <button type="button" class="modal-request-btn" onclick="openRequestForm('Saletta Privata — Silver')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Richiedi Informazioni
-        </button>
+        <div style="text-align:center; margin-top:24px;">
+          <button type="button" class="modal-request-btn" onclick="openRequestForm('Saletta Privata — Silver')">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Richiedi Informazioni
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -911,28 +887,33 @@
     <div class="modal-bg"></div>
     <button class="modal-close" onclick="closeModal('gold')" data-i18n-attr="aria-label:tosinghi.modal.close"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="modal-image gold" role="img" aria-label="Gold"></div>
       <div class="modal-panel">
         <h2 class="modal-panel-title" data-i18n="tosinghi.modal.gold.title">PACCHETTO GOLD</h2>
-        <p class="modal-panel-subtitle" data-i18n="tosinghi.modal.gold.subtitle">&euro;30,00 a persona (IVA inclusa)</p>
+        <p class="modal-panel-desc" data-i18n="tosinghi.gold.desc">Pacchetto premium con panettone gastronomico, finger food dello Chef, monoporzioni dolci o Buontalenti e bevande selezionate.</p>
         <div class="specs-grid">
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.food">Food</span>
+            <span class="spec-label">Food</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.gold.food.compact">Panettone gastronomico (1 ogni 6-8 pp.) &bull; 5 tipi di finger food a cura dello Chef &bull; Monoporzioni dolci o coppetta Buontalenti</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.drink">Drink</span>
+            <span class="spec-label">Drink</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.gold.drink.compact">2 cocktail alcolici &bull; 1 analcolico &bull; Franciacorta &bull; Acqua<br><small style="color:#90949a">Men&ugrave; esposto sulla postazione beverage</small></span>
           </div>
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.details">Dettagli</span>
-            <span class="spec-value" data-i18n-html="tosinghi.modal.gold.details.compact">Conferma: min. 10 gg prima &bull; Min. 30 persone con saletta riservata &bull; Durata: fino a 2h</span>
+            <span class="spec-label">Durata</span>
+            <span class="spec-value">Fino a 2 ore</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Prenotazione</span>
+            <span class="spec-value">Minimo 10 giorni prima &bull; Minimo 30 persone con saletta riservata</span>
           </div>
         </div>
-        <button type="button" class="modal-request-btn" onclick="openRequestForm('Saletta Privata — Gold')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Richiedi Informazioni
-        </button>
+        <div style="text-align:center; margin-top:24px;">
+          <button type="button" class="modal-request-btn" onclick="openRequestForm('Saletta Privata — Gold')">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Richiedi Informazioni
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -942,28 +923,33 @@
     <div class="modal-bg"></div>
     <button class="modal-close" onclick="closeModal('platinum')" data-i18n-attr="aria-label:tosinghi.modal.close"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="modal-image platinum" role="img" aria-label="Platinum"></div>
       <div class="modal-panel">
         <h2 class="modal-panel-title" data-i18n="tosinghi.modal.platinum.title">PACCHETTO PLATINUM</h2>
-        <p class="modal-panel-subtitle" data-i18n="tosinghi.modal.platinum.subtitle">&euro;40,00 a persona (IVA inclusa)</p>
+        <p class="modal-panel-desc" data-i18n="tosinghi.platinum.desc">L'esperienza esclusiva con finger food dello Chef, monoporzioni dolci, Champagne e servizio premium.</p>
         <div class="specs-grid">
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.food">Food</span>
+            <span class="spec-label">Food</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.platinum.food.compact">7 tipi di finger food a cura dello Chef &bull; Monoporzioni dolci, Mignon o coppetta Buontalenti</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.drink">Drink</span>
+            <span class="spec-label">Drink</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.platinum.drink.compact">2 cocktail alcolici &bull; 1 analcolico &bull; Champagne (da concordare) &bull; Acqua<br><small style="color:#90949a">Men&ugrave; esposto sulla postazione beverage</small></span>
           </div>
           <div class="spec-card">
-            <span class="spec-label" data-i18n="tosinghi.modal.label.details">Dettagli</span>
-            <span class="spec-value" data-i18n-html="tosinghi.modal.platinum.details.compact">Conferma: min. 14 gg prima &bull; Min. 30 persone con saletta riservata &bull; Durata: fino a 2h</span>
+            <span class="spec-label">Durata</span>
+            <span class="spec-value">Fino a 2 ore</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Prenotazione</span>
+            <span class="spec-value">Minimo 14 giorni prima &bull; Minimo 30 persone con saletta riservata</span>
           </div>
         </div>
-        <button type="button" class="modal-request-btn" onclick="openRequestForm('Saletta Privata — Platinum')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Richiedi Informazioni
-        </button>
+        <div style="text-align:center; margin-top:24px;">
+          <button type="button" class="modal-request-btn" onclick="openRequestForm('Saletta Privata — Platinum')">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Richiedi Informazioni
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -989,7 +975,16 @@
             <div class="fm-field"><label>Orario</label><input name="orario" type="time" /></div>
             <div class="fm-field"><label>Numero Persone</label><input name="persone" type="number" min="1" placeholder="Es. 50" /></div>
             <div class="fm-field"><label>Opzioni Extra?</label>
-              <div class="fm-radio-group"><label><input type="radio" name="extra" value="si" /> Sì</label><label><input type="radio" name="extra" value="no" checked /> No</label></div>
+              <div class="fm-radio-group"><label><input type="radio" name="extra" value="si" onchange="document.getElementById('extrasTosinghi').classList.add('visible')" /> Sì</label><label><input type="radio" name="extra" value="no" checked onchange="document.getElementById('extrasTosinghi').classList.remove('visible')" /> No</label></div>
+              <div class="fm-extras-panel" id="extrasTosinghi">
+                <div class="fm-checkbox-group">
+                  <label><input type="checkbox" name="extras[]" value="allestimento-tema" /> Allestimento a tema</label>
+                  <label><input type="checkbox" name="extras[]" value="cake-designer" /> Prodotti dolciari creati dal Cake Designer</label>
+                  <label><input type="checkbox" name="extras[]" value="gusto-personalizzato" /> Gusto di gelato personalizzato o su richiesta</label>
+                  <label><input type="checkbox" name="extras[]" value="torta-ricorrenza" /> Torta di ricorrenza</label>
+                  <label><input type="checkbox" name="extras[]" value="dj-set" /> Dj set</label>
+                </div>
+              </div>
             </div>
             <div class="fm-field full"><label>Evento di interesse *</label>
               <div class="fm-checkbox-group">
@@ -1156,10 +1151,10 @@
           'tosinghi.platinum.note': 'IVA inclusa • Minimo 30 persone',
           // Terms
           'tosinghi.terms.title': 'Termini e Condizioni',
-          'tosinghi.terms.capacity': '<strong>Capienza:</strong> 15-35 persone sedute',
-          'tosinghi.terms.extradrink': '<strong>Extra drink:</strong> Prezzo pieno, pagamento immediato',
-          'tosinghi.terms.deposit': '<strong>Acconto:</strong> 50% al momento della conferma',
-          'tosinghi.terms.balance': '<strong>Saldo:</strong> Entro il giorno dell\'evento tramite bonifico',
+          'tosinghi.terms.capacity': '<strong>Capienza:</strong> Minimo 30 persone, massimo 35 persone sedute',
+          'tosinghi.terms.extradrink': '<strong>Extra drink:</strong> Prezzo pieno, pagamento immediato alla cassa',
+          'tosinghi.terms.deposit': '<strong>Acconto:</strong> 50% al momento della conferma tramite bonifico',
+          'tosinghi.terms.balance': '<strong>Saldo:</strong> 3 giorni prima dell\'evento tramite bonifico',
           // Contact
           'tosinghi.contact.title': 'Richiedi Informazioni',
           // Modal Common
@@ -1271,10 +1266,10 @@
           'tosinghi.platinum.note': 'VAT included • Minimum 30 guests',
           // Terms
           'tosinghi.terms.title': 'Terms and Conditions',
-          'tosinghi.terms.capacity': '<strong>Capacity:</strong> 15-35 seated guests',
-          'tosinghi.terms.extradrink': '<strong>Extra drinks:</strong> Full price, immediate payment',
-          'tosinghi.terms.deposit': '<strong>Deposit:</strong> 50% upon confirmation',
-          'tosinghi.terms.balance': '<strong>Balance:</strong> By event day via bank transfer',
+          'tosinghi.terms.capacity': '<strong>Capacity:</strong> Minimum 30 guests, maximum 35 seated guests',
+          'tosinghi.terms.extradrink': '<strong>Extra drinks:</strong> Full price, immediate payment at the counter',
+          'tosinghi.terms.deposit': '<strong>Deposit:</strong> 50% upon confirmation via bank transfer',
+          'tosinghi.terms.balance': '<strong>Balance:</strong> 3 days before the event via bank transfer',
           // Contact
           'tosinghi.contact.title': 'Request Information',
           // Modal Common
@@ -1386,10 +1381,10 @@
           'tosinghi.platinum.note': 'TVA incluse • Minimum 30 personnes',
           // Terms
           'tosinghi.terms.title': 'Termes et Conditions',
-          'tosinghi.terms.capacity': '<strong>Capacité:</strong> 15-35 personnes assises',
-          'tosinghi.terms.extradrink': '<strong>Boissons supplémentaires:</strong> Prix plein, paiement immédiat',
-          'tosinghi.terms.deposit': '<strong>Acompte:</strong> 50% à la confirmation',
-          'tosinghi.terms.balance': '<strong>Solde:</strong> Le jour de l\'événement par virement bancaire',
+          'tosinghi.terms.capacity': '<strong>Capacité:</strong> Minimum 30 personnes, maximum 35 personnes assises',
+          'tosinghi.terms.extradrink': '<strong>Boissons supplémentaires:</strong> Prix plein, paiement immédiat à la caisse',
+          'tosinghi.terms.deposit': '<strong>Acompte:</strong> 50% à la confirmation par virement bancaire',
+          'tosinghi.terms.balance': '<strong>Solde:</strong> 3 jours avant l\'événement par virement bancaire',
           // Contact
           'tosinghi.contact.title': 'Demander des Informations',
           // Modal Common
@@ -1501,10 +1496,10 @@
           'tosinghi.platinum.note': 'IVA incluido • Mínimo 30 personas',
           // Terms
           'tosinghi.terms.title': 'Términos y Condiciones',
-          'tosinghi.terms.capacity': '<strong>Capacidad:</strong> 15-35 personas sentadas',
-          'tosinghi.terms.extradrink': '<strong>Bebidas extra:</strong> Precio completo, pago inmediato',
-          'tosinghi.terms.deposit': '<strong>Depósito:</strong> 50% en la confirmación',
-          'tosinghi.terms.balance': '<strong>Saldo:</strong> El día del evento mediante transferencia bancaria',
+          'tosinghi.terms.capacity': '<strong>Capacidad:</strong> Mínimo 30 personas, máximo 35 personas sentadas',
+          'tosinghi.terms.extradrink': '<strong>Bebidas extra:</strong> Precio completo, pago inmediato en caja',
+          'tosinghi.terms.deposit': '<strong>Depósito:</strong> 50% en la confirmación mediante transferencia bancaria',
+          'tosinghi.terms.balance': '<strong>Saldo:</strong> 3 días antes del evento mediante transferencia bancaria',
           // Contact
           'tosinghi.contact.title': 'Solicitar Información',
           // Modal Common

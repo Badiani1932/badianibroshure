@@ -163,149 +163,146 @@
       font-weight:600;
     }
 
-    /* MODAL */
+    /* MODAL — inspiration style (matching saletta) */
     .modal-overlay{
       position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.75);
+      top:0; left:0;
+      width:100%; height:100%;
       z-index:9999;
       display:none;
       opacity:0;
-      transition:opacity 0.4s ease;
-      overflow-y:auto;
-      overscroll-behavior-y:contain;
-      padding:40px 20px;
+      transition:opacity 0.5s ease;
+      overflow:hidden;
     }
-    .modal-overlay.active{
-      display:flex;
-      opacity:1;
-      align-items:flex-start;
-      justify-content:center;
+    .modal-overlay.active{ display:block; opacity:1; }
+    .modal-bg{
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.95);
+      -webkit-backdrop-filter:blur(10px);
+      backdrop-filter:blur(10px);
     }
     .modal-content{
-      background:var(--surface);
-      color:var(--badiani-gray);
-      border-radius:25px;
-      max-width:1100px;
-      width:100%;
       position:relative;
-      margin:auto;
-      box-shadow:0 30px 80px rgba(0,0,0,0.3);
-      transform:translateY(50px);
-      transition:transform 0.4s ease;
-      overflow:hidden;
-    }
-    .modal-overlay.active .modal-content{
-      transform:translateY(0);
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      height:100vh;
+      margin:0 auto;
+      padding:25px;
     }
     .modal-close{
-      position:absolute;
-      top:20px;
-      right:20px;
-      background:rgba(255,255,255,0.15);
+      --close-icon-size:22px;
+      --close-icon-stroke:3px;
+      position:fixed;
+      top:18px; right:18px;
+      width:55px; height:55px;
+      background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7);
       border:none;
-      color:var(--badiani-blue);
-      font-size:32px;
-      width:50px;
-      height:50px;
       border-radius:50%;
       cursor:pointer;
-      transition:background 0.3s;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       z-index:10;
+      box-shadow:0 5px 20px rgba(240,103,166,0.5);
+      padding:0; line-height:0; font-size:0; color:transparent;
+      transition:transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     }
+    .modal-close::before,
+    .modal-close::after{
+      content:"";
+      position:absolute;
+      left:50%; top:50%;
+      width:var(--close-icon-size);
+      height:var(--close-icon-stroke);
+      background:#fff;
+      border-radius:999px;
+      transform-origin:center;
+    }
+    .modal-close::before{ transform:translate(-50%,-50%) rotate(45deg); }
+    .modal-close::after{ transform:translate(-50%,-50%) rotate(-45deg); }
     .modal-close:hover{
-      background:var(--badiani-pink);
+      background:linear-gradient(135deg, var(--badiani-blue), #2a4ab0);
+      transform:rotate(90deg) scale(1.1);
+      box-shadow:0 8px 28px rgba(30,57,141,0.6);
     }
-    .modal-header{
-      padding:50px 40px 30px;
-      text-align:center;
+
+    .modal-panel{
+      width:100%;
+      max-width:680px;
+      max-height:80vh;
+      overflow-y:auto;
+      background:linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+      border-radius:20px;
+      padding:48px 44px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+      animation:slideUp 0.5s cubic-bezier(0.34,1.56,0.64,1);
     }
-    .modal-title{
-      font-size:clamp(28px, 3.5vw, 42px);
+    @keyframes slideUp{ from{transform:translateY(40px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+
+    .modal-panel-title{
+      font-size:clamp(24px, 3vw, 32px);
+      letter-spacing:2px;
+      text-transform:uppercase;
       color:var(--badiani-blue);
       margin-bottom:10px;
+      font-weight:700;
+      text-align:center;
     }
-    .modal-subtitle{
-      font-size:clamp(16px, 1.8vw, 20px);
-      color:#4a4f57;
+    .modal-panel-desc{
+      font-size:16px;
+      color:#6a6b6e;
+      line-height:1.7;
+      margin-bottom:28px;
+      text-align:center;
     }
-    .modal-content .option-header{
-      background:#f5f6f8;
-      color:var(--badiani-blue);
-    }
-    .modal-layout{
+    .specs-grid{
       display:grid;
-      grid-template-columns:minmax(260px, 0.95fr) minmax(320px, 1.25fr);
-      gap:28px;
-      padding:0 40px 40px;
-      align-items:start;
+      grid-template-columns:repeat(2, 1fr);
+      gap:12px;
     }
-    .modal-media{
-      width:100%;
-      position:relative;
-      aspect-ratio:1 / 1;
-      overflow:hidden;
-      border-radius:18px;
-      background:linear-gradient(135deg, #f5f5f5, #fff);
-      box-shadow:0 12px 35px rgba(240,103,166,0.25);
-    }
-    .modal-media img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center center;
-      filter:brightness(1.02);
-    }
-    .modal-info{
-      background:linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
-      border-radius:18px;
-      padding:22px;
-      box-shadow:0 10px 35px rgba(0,0,0,0.08);
-      max-height:70vh;
-      overflow-y:auto;
-    }
-    .modal-section{
-      margin-bottom:18px;
+    .spec-card{
       background:#fff;
-      border-radius:14px;
-      padding:16px 18px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.06);
-      border-left:4px solid var(--badiani-pink);
+      padding:14px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .modal-section:nth-child(odd){
-      border-left-color:var(--badiani-blue);
-    }
-    .modal-section h4{
-      font-size:18px;
-      color:var(--badiani-blue);
-      margin-bottom:12px;
+    .spec-card:hover{ transform:translateY(-2px); box-shadow:0 4px 12px rgba(240,103,166,0.15); }
+    .spec-label{
+      font-size:11px;
       text-transform:uppercase;
       letter-spacing:1px;
-    }
-    .modal-section ul{
-      list-style:none;
-      padding:0;
-    }
-    .modal-section li{
-      padding:8px 0;
-      padding-left:22px;
-      position:relative;
-      font-size:15px;
-      line-height:1.6;
-    }
-    .modal-section li::before{
-      content:"•";
-      position:absolute;
-      left:0;
       color:var(--badiani-pink);
       font-weight:700;
+      margin-bottom:6px;
+      display:block;
     }
-    .modal-section p{
-      font-size:15px;
-      line-height:1.7;
-      color:#6a6b6e;
+    .spec-card:nth-child(odd) .spec-label{ color:var(--badiani-blue); }
+    .spec-value{
+      font-size:13px;
+      font-weight:400;
+      color:var(--badiani-gray);
+      line-height:1.5;
+    }
+
+    @media(max-width:768px){
+      .modal-content{
+        padding:15px;
+        height:100vh;
+        overflow-y:auto;
+      }
+      .modal-panel{
+        width:100%;
+        max-height:none;
+        padding:32px 24px;
+      }
+      .modal-panel-title{ font-size:20px; }
+      .modal-panel-desc{ font-size:14px; margin-bottom:24px; }
     }
 
     /* TERMINI */
@@ -362,31 +359,10 @@
     }
 
     @media(max-width:768px){
-      .modal-header, .modal-layout{
-        padding-left:24px;
-        padding-right:24px;
-      }
-      .modal-layout{
-        grid-template-columns:1fr;
-      }
-      .modal-info{
-        max-height:none;
-      }
 
       /* Modal mobile: compatta come inspiration */
       .modal-overlay{ padding:42px 12px 22px; align-items:center; }
-      .modal-content{ border-radius:18px; }
-      .modal-close{ top:8px; right:8px; width:44px; height:44px; font-size:22px; }
-      .modal-header{ padding:28px 18px 16px; }
-      .modal-title{ font-size:clamp(18px, 6vw, 24px); margin-bottom:6px; }
-      .modal-subtitle{ font-size:clamp(12px, 4vw, 16px); }
-      .modal-layout{ gap:10px; padding:0 18px 18px; }
-      .modal-media{ width:min(68vw, 240px); margin:0 auto; }
-      .modal-info{ padding:12px; max-height:50vh; overflow-y:auto; -webkit-overflow-scrolling:touch; }
-      .modal-section{ padding:10px 12px; margin-bottom:10px; }
-      .modal-section h4{ font-size:13px; margin-bottom:6px; letter-spacing:0.6px; }
-      .modal-section li,
-      .modal-section p{ font-size:12px; line-height:1.45; }
+      .modal-close{ top:8px; right:8px; width:44px; height:44px; }
 
       /* Mobile cards: swipeable like inspiration mobile */
       .options-grid{
@@ -417,11 +393,11 @@
       .option-subtitle{ font-size:12px; }
       .option-body{ padding:16px; }
       .option-desc{ font-size:13px; line-height:1.5; margin-bottom:14px; }
-      .option-features li{ font-size:12.5px; padding:8px 0; }
+      .option-note{ font-size:11px; margin-top:12px; }
     }
 
     @media (hover:none) and (pointer:coarse){
-      .option-card:hover .option-media img{ transform:none; filter:brightness(1.03) drop-shadow(0 10px 30px rgba(0,0,0,0.18)); }
+      .option-card:hover{ transform:none; }
     }
 
     /* ========== REQUEST INFO BUTTON IN MODALS ========== */
@@ -602,6 +578,20 @@
       width:14px; height:14px;
       accent-color:var(--badiani-blue);
     }
+    .fm-extras-panel{
+      display:none;
+      margin-top:10px;
+      padding:12px 14px;
+      background:#f0f2f8;
+      border-radius:10px;
+      border:1px solid rgba(30,57,141,0.1);
+      animation:fmExtrasReveal 0.35s ease;
+    }
+    .fm-extras-panel.visible{ display:block; }
+    @keyframes fmExtrasReveal{
+      from{ opacity:0; transform:translateY(-8px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
     .form-modal__actions{
       display:flex;
       align-items:center;
@@ -660,9 +650,9 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar__logo">
+    <a href="../../" class="topbar__logo">
       <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" />
-    </div>
+    </a>
     <div class="topbar__right">
       <nav class="topbar__nav">
         <a href="../../" data-i18n="nav.home">Home</a>
@@ -691,7 +681,7 @@
       <!-- COOL BOX -->
       <article class="option-card coolbox" onclick="openModal('coolbox')" tabindex="0" data-i18n-attr="aria-label:external.coolbox.aria">
         <div class="option-media">
-          <img src="../../assets/images/eventi/evento-esterno-1.png" alt="Cool box Badiani" data-i18n-attr="alt:external.coolbox.imageAlt" loading="lazy" decoding="async" />
+          <img src="../../assets/images/eventi/evento-esterno-1.png" alt="Cool box Badiani" loading="lazy" decoding="async" />
         </div>
         <div class="option-header">
           <h3 class="option-name">COOL BOX</h3>
@@ -699,20 +689,14 @@
         </div>
         <div class="option-body">
           <p class="option-desc" data-i18n="external.coolbox.desc">Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.</p>
-          <ul class="option-features">
-            <li data-i18n-html="external.coolbox.capacity"><strong>Capacità:</strong> 40-90 pax (max 2 gusti)</li>
-            <li data-i18n-html="external.coolbox.price"><strong>Prezzo gelato:</strong> Da concordare in fase d'ordine</li>
-            <li data-i18n-html="external.coolbox.service"><strong>Servizio:</strong> 1 operatore (da definire in base al tempo)</li>
-            <li data-i18n-html="external.coolbox.transport"><strong>Trasporto:</strong> Da definire in base alla distanza</li>
-            <li data-i18n-html="external.coolbox.custom"><strong>Personalizzazione:</strong> Minimo 14 giorni preavviso</li>
-          </ul>
+          <p class="option-note">Servizio e trasporto da concordare</p>
         </div>
       </article>
 
       <!-- CARRETTO E BICICLETTA -->
       <article class="option-card carretto" onclick="openModal('carretto')" tabindex="0" data-i18n-attr="aria-label:external.carretto.aria">
         <div class="option-media">
-          <img src="../../assets/images/eventi/evento-esterno-2.png" alt="Carretto e bicicletta Badiani" data-i18n-attr="alt:external.carretto.imageAlt" loading="lazy" decoding="async" />
+          <img src="../../assets/images/eventi/evento-esterno-2.png" alt="Carretto e bicicletta Badiani" loading="lazy" decoding="async" />
         </div>
         <div class="option-header">
           <h3 class="option-name">CARRETTO E BICICLETTA</h3>
@@ -720,21 +704,14 @@
         </div>
         <div class="option-body">
           <p class="option-desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.</p>
-          <ul class="option-features">
-            <li data-i18n-html="external.carretto.price1"><strong>0-50 pax:</strong> €1.000,00 + 10% (€900)</li>
-            <li data-i18n-html="external.carretto.price2"><strong>50-70 pax:</strong> €1.200,00 + 10%</li>
-            <li data-i18n-html="external.carretto.price3"><strong>70-100 pax:</strong> €1.400,00 + 10% (€1500)</li>
-            <li data-i18n-html="external.carretto.include"><strong>Include:</strong> 2h servizio con 1 operatore</li>
-            <li data-i18n-html="external.carretto.extra"><strong>Extra time:</strong> €100,00/h + IVA 10%</li>
-            <li data-i18n-html="external.carretto.transport"><strong>Trasporto:</strong> Entro 100km €250,00 + IVA</li>
-          </ul>
+          <p class="option-note">Include 2h servizio con 1 operatore</p>
         </div>
       </article>
 
       <!-- VETRINA GELATO -->
       <article class="option-card vetrina" onclick="openModal('vetrina')" tabindex="0" data-i18n-attr="aria-label:external.vetrina.aria">
         <div class="option-media">
-          <img src="../../assets/images/eventi/evento-esterno-3.png" alt="Vetrina gelato Badiani" data-i18n-attr="alt:external.vetrina.imageAlt" loading="lazy" decoding="async" />
+          <img src="../../assets/images/eventi/evento-esterno-3.png" alt="Vetrina gelato Badiani" loading="lazy" decoding="async" />
         </div>
         <div class="option-header">
           <h3 class="option-name">VETRINA GELATO</h3>
@@ -742,14 +719,7 @@
         </div>
         <div class="option-body">
           <p class="option-desc" data-i18n="external.vetrina.desc">Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.</p>
-          <ul class="option-features">
-            <li data-i18n-html="external.vetrina.price1"><strong>0-50 pax:</strong> €1.000,00 + 10% (€900)</li>
-            <li data-i18n-html="external.vetrina.price2"><strong>50-70 pax:</strong> €1.200,00 + 10%</li>
-            <li data-i18n-html="external.vetrina.price3"><strong>70-100 pax:</strong> €1.400,00 + 10% (€1500)</li>
-            <li data-i18n-html="external.vetrina.include"><strong>Include:</strong> 2h servizio con 1 operatore</li>
-            <li data-i18n-html="external.vetrina.extra"><strong>Extra time:</strong> €100,00/h + IVA 10%</li>
-            <li data-i18n-html="external.vetrina.transport"><strong>Trasporto:</strong> Entro 100km €250,00 + IVA</li>
-          </ul>
+          <p class="option-note">Include 2h servizio con 1 operatore</p>
         </div>
       </article>
     </div>
@@ -775,34 +745,31 @@
 
   <!-- MODAL COOL BOX -->
   <div class="modal-overlay" id="modalCoolbox" onclick="closeModal('coolbox')">
+    <div class="modal-bg"></div>
+    <button class="modal-close" onclick="closeModal('coolbox')" data-i18n-attr="aria-label:external.modal.close"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal('coolbox')" data-i18n-attr="aria-label:external.modal.close">&times;</button>
-      <div class="option-header coolbox">
-        <h2 class="modal-title">COOL BOX</h2>
-        <p class="modal-subtitle" data-i18n="external.modal.coolbox.subtitle">Pratico e versatile</p>
-      </div>
-      <div class="modal-layout">
-        <div class="modal-media">
-          <img src="../../assets/images/eventi/evento-esterno-1.png" alt="Cool box Badiani" data-i18n-attr="alt:external.coolbox.imageAlt" loading="lazy" decoding="async" />
+      <div class="modal-panel">
+        <h2 class="modal-panel-title">COOL BOX</h2>
+        <p class="modal-panel-desc" data-i18n="external.coolbox.desc">Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.</p>
+        <div class="specs-grid">
+          <div class="spec-card">
+            <span class="spec-label">Capacità</span>
+            <span class="spec-value">40-90 pax (max 2 gusti)</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Servizio</span>
+            <span class="spec-value">1 operatore &bull; durata da definire in base al tempo</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Trasporto</span>
+            <span class="spec-value">Da definire in base alla distanza</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Personalizzazione</span>
+            <span class="spec-value">Minimo 14 giorni di preavviso &bull; costi da concordare</span>
+          </div>
         </div>
-        <div class="modal-info">
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.coolbox.desc.title">Descrizione</h4>
-            <p data-i18n="external.modal.coolbox.desc.text">Pratico e versatile, ideale per eventi su piccola scala, da 40pax a 90pax (dipende se c'è spazio per stoccare), max 2 gusti.</p>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.coolbox.cost.title">Costo Servizio</h4>
-            <ul>
-              <li data-i18n="external.modal.coolbox.cost.price">Prezzo del Gelato (prezzo da concordare in fase d'ordine)</li>
-              <li data-i18n="external.modal.coolbox.cost.service">Costo servizio 1 operatore - da definire in base al tempo</li>
-              <li data-i18n="external.modal.coolbox.cost.transport">Trasporto da definire in base alla distanza</li>
-              <li data-i18n="external.modal.coolbox.cost.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni</li>
-            </ul>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.coolbox.gallery.title">Gallery</h4>
-            <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.coolbox.gallery.text">Allegare foto esempio di eventi passati</p>
-          </div>
+        <div style="text-align:center; margin-top:24px;">
           <button type="button" class="modal-request-btn" onclick="openRequestForm('Evento Esterno — Cool Box')">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Richiedi Informazioni
@@ -814,43 +781,31 @@
 
   <!-- MODAL CARRETTO -->
   <div class="modal-overlay" id="modalCarretto" onclick="closeModal('carretto')">
+    <div class="modal-bg"></div>
+    <button class="modal-close" onclick="closeModal('carretto')" data-i18n-attr="aria-label:external.modal.close"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal('carretto')" data-i18n-attr="aria-label:external.modal.close">&times;</button>
-      <div class="option-header carretto">
-        <h2 class="modal-title">CARRETTO E BICICLETTA</h2>
-        <p class="modal-subtitle" data-i18n="external.modal.carretto.subtitle">Ideale per eventi casual e all'aperto</p>
-      </div>
-      <div class="modal-layout">
-        <div class="modal-media">
-          <img src="../../assets/images/eventi/evento-esterno-2.png" alt="Carretto e bicicletta Badiani" data-i18n-attr="alt:external.carretto.imageAlt" loading="lazy" decoding="async" />
+      <div class="modal-panel">
+        <h2 class="modal-panel-title">CARRETTO E BICICLETTA</h2>
+        <p class="modal-panel-desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.</p>
+        <div class="specs-grid">
+          <div class="spec-card">
+            <span class="spec-label">Servizio</span>
+            <span class="spec-value">Gelato servito in cono o coppetta &bull; Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Incluso</span>
+            <span class="spec-value">2h di servizio con 1 operatore &bull; Extra time disponibile su richiesta</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Trasporto</span>
+            <span class="spec-value">Per veicolo entro i 100 km</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Personalizzazione</span>
+            <span class="spec-value">Minimo 14 giorni di preavviso &bull; costi da concordare</span>
+          </div>
         </div>
-        <div class="modal-info">
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.carretto.cost.title">Costo Servizio</h4>
-            <ul>
-              <li data-i18n="external.modal.carretto.cost.price1">0 - 50 pax: gelato, cono/ coppetta €1.000,00 + 10% (€900)</li>
-              <li data-i18n="external.modal.carretto.cost.price2">50 - 70 pax: gelato, cono/ coppetta €1.200,00 + 10%</li>
-              <li data-i18n="external.modal.carretto.cost.price3">70 - 100 pax: gelato, cono/ coppetta €1.400,00 + 10% (€1500)</li>
-            </ul>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.carretto.included.title">Incluso</h4>
-            <ul>
-              <li data-i18n="external.modal.carretto.included.service">Include 2h di servizio con 1 operatore</li>
-              <li data-i18n="external.modal.carretto.included.extra">Extra time €100,00/h + iva al 10%</li>
-            </ul>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.carretto.transport.title">Trasporto e Personalizzazione</h4>
-            <ul>
-              <li data-i18n="external.modal.carretto.transport.info">Trasporto per veicolo entro i 100 km €250,00 + iva</li>
-              <li data-i18n="external.modal.carretto.transport.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni (da definire)</li>
-            </ul>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.carretto.gallery.title">Gallery</h4>
-            <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.carretto.gallery.text">Allegare foto esempio di eventi passati</p>
-          </div>
+        <div style="text-align:center; margin-top:24px;">
           <button type="button" class="modal-request-btn" onclick="openRequestForm('Evento Esterno — Carretto e Bicicletta')">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Richiedi Informazioni
@@ -862,43 +817,31 @@
 
   <!-- MODAL VETRINA -->
   <div class="modal-overlay" id="modalVetrina" onclick="closeModal('vetrina')">
+    <div class="modal-bg"></div>
+    <button class="modal-close" onclick="closeModal('vetrina')" data-i18n-attr="aria-label:external.modal.close"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal('vetrina')" data-i18n-attr="aria-label:external.modal.close">&times;</button>
-      <div class="option-header vetrina">
-        <h2 class="modal-title">VETRINA GELATO</h2>
-        <p class="modal-subtitle" data-i18n="external.modal.vetrina.subtitle">Soluzione istituzionale, elegante, per eventi aziendali</p>
-      </div>
-      <div class="modal-layout">
-        <div class="modal-media">
-          <img src="../../assets/images/eventi/evento-esterno-3.png" alt="Vetrina gelato Badiani" data-i18n-attr="alt:external.vetrina.imageAlt" loading="lazy" decoding="async" />
+      <div class="modal-panel">
+        <h2 class="modal-panel-title">VETRINA GELATO</h2>
+        <p class="modal-panel-desc" data-i18n="external.vetrina.desc">Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.</p>
+        <div class="specs-grid">
+          <div class="spec-card">
+            <span class="spec-label">Servizio</span>
+            <span class="spec-value">Gelato servito in cono o coppetta &bull; Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Incluso</span>
+            <span class="spec-value">2h di servizio con 1 operatore &bull; Extra time disponibile su richiesta</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Trasporto</span>
+            <span class="spec-value">Per veicolo entro i 100 km</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">Personalizzazione</span>
+            <span class="spec-value">Minimo 14 giorni di preavviso &bull; costi da concordare</span>
+          </div>
         </div>
-        <div class="modal-info">
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.vetrina.cost.title">Costo Servizio</h4>
-            <ul>
-              <li data-i18n="external.modal.vetrina.cost.price1">0 - 50 pax: gelato, cono/ coppetta €1.000,00 + 10% (€900)</li>
-              <li data-i18n="external.modal.vetrina.cost.price2">50 - 70 pax: gelato, cono/ coppetta €1.200,00 + 10%</li>
-              <li data-i18n="external.modal.vetrina.cost.price3">70 - 100 pax: gelato, cono/ coppetta €1.400,00 + 10% (€1500)</li>
-            </ul>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.vetrina.included.title">Incluso</h4>
-            <ul>
-              <li data-i18n="external.modal.vetrina.included.service">Include 2h di servizio con 1 operatore</li>
-              <li data-i18n="external.modal.vetrina.included.extra">Extra time €100,00/h + iva al 10%</li>
-            </ul>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.vetrina.transport.title">Trasporto e Personalizzazione</h4>
-            <ul>
-              <li data-i18n="external.modal.vetrina.transport.info">Trasporto per veicolo entro i 100 km €250,00 + iva</li>
-              <li data-i18n="external.modal.vetrina.transport.custom">Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni (da definire)</li>
-            </ul>
-          </div>
-          <div class="modal-section">
-            <h4 data-i18n="external.modal.vetrina.gallery.title">Gallery</h4>
-            <p style="font-size:14px;color:#90949a;" data-i18n="external.modal.vetrina.gallery.text">Allegare foto esempio di eventi passati</p>
-          </div>
+        <div style="text-align:center; margin-top:24px;">
           <button type="button" class="modal-request-btn" onclick="openRequestForm('Evento Esterno — Vetrina Gelato')">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Richiedi Informazioni
@@ -929,7 +872,16 @@
             <div class="fm-field"><label>Orario</label><input name="orario" type="time" /></div>
             <div class="fm-field"><label>Numero Persone</label><input name="persone" type="number" min="1" placeholder="Es. 50" /></div>
             <div class="fm-field"><label>Opzioni Extra?</label>
-              <div class="fm-radio-group"><label><input type="radio" name="extra" value="si" /> Sì</label><label><input type="radio" name="extra" value="no" checked /> No</label></div>
+              <div class="fm-radio-group"><label><input type="radio" name="extra" value="si" onchange="document.getElementById('extrasEsterno').classList.add('visible')" /> Sì</label><label><input type="radio" name="extra" value="no" checked onchange="document.getElementById('extrasEsterno').classList.remove('visible')" /> No</label></div>
+              <div class="fm-extras-panel" id="extrasEsterno">
+                <div class="fm-checkbox-group">
+                  <label><input type="checkbox" name="extras[]" value="allestimento-tema" /> Allestimento a tema</label>
+                  <label><input type="checkbox" name="extras[]" value="cake-designer" /> Prodotti dolciari creati dal Cake Designer</label>
+                  <label><input type="checkbox" name="extras[]" value="gusto-personalizzato" /> Gusto di gelato personalizzato o su richiesta</label>
+                  <label><input type="checkbox" name="extras[]" value="torta-ricorrenza" /> Torta di ricorrenza</label>
+                  <label><input type="checkbox" name="extras[]" value="dj-set" /> Dj set</label>
+                </div>
+              </div>
             </div>
             <div class="fm-field full"><label>Evento di interesse *</label>
               <div class="fm-checkbox-group">

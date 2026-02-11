@@ -217,6 +217,20 @@
       height:16px;
       accent-color:var(--badiani-blue);
     }
+    .extras-panel{
+      display:none;
+      margin-top:12px;
+      padding:14px 16px;
+      background:#f0f2f8;
+      border-radius:12px;
+      border:1px solid rgba(30,57,141,0.1);
+      animation:extrasReveal 0.35s ease;
+    }
+    .extras-panel.visible{ display:block; }
+    @keyframes extrasReveal{
+      from{ opacity:0; transform:translateY(-8px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
     .request-form-actions{
       display:flex;
       align-items:center;
@@ -347,61 +361,45 @@
     .custom-event__columns{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:28px;
+      gap:20px;
+      max-width:800px;
+      margin:0 auto;
     }
     .custom-event__col{
       background:#f8f9fc;
-      border-radius:20px;
-      padding:clamp(22px, 2.5vw, 32px);
+      border-radius:14px;
+      padding:20px 24px;
       border:1px solid rgba(30,57,141,0.06);
     }
-    .custom-event__col-icon{
-      width:44px;
-      height:44px;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      margin-bottom:16px;
-    }
-    .custom-event__col-icon--customize{
-      background:linear-gradient(135deg, rgba(30,57,141,0.12), rgba(30,57,141,0.04));
-      color:var(--badiani-blue);
-    }
-    .custom-event__col-icon--ideal{
-      background:linear-gradient(135deg, rgba(240,103,166,0.14), rgba(240,103,166,0.04));
-      color:var(--badiani-pink);
-    }
     .custom-event__col h3{
-      font-size:clamp(14px, 1.3vw, 17px);
+      font-size:clamp(12px, 1.1vw, 14px);
       text-transform:uppercase;
       letter-spacing:1.5px;
       color:var(--badiani-blue);
-      margin-bottom:16px;
+      margin-bottom:12px;
     }
     .custom-event__list{
       list-style:none;
       padding:0;
       margin:0;
       display:grid;
-      gap:12px;
+      gap:6px;
     }
     .custom-event__list li{
       display:flex;
       align-items:flex-start;
-      gap:10px;
-      font-size:clamp(13px, 1.1vw, 15px);
+      gap:8px;
+      font-size:clamp(12px, 1vw, 14px);
       color:#58595b;
-      line-height:1.55;
+      line-height:1.5;
     }
     .custom-event__list li::before{
       content:"";
       flex-shrink:0;
-      width:7px;
-      height:7px;
+      width:6px;
+      height:6px;
       border-radius:50%;
-      margin-top:7px;
+      margin-top:6px;
     }
     .custom-event__col--customize .custom-event__list li::before{
       background:var(--badiani-blue);
@@ -673,9 +671,9 @@
 </head>
 <body>
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
-    <div class="topbar__logo">
+    <a href="../" class="topbar__logo">
       <img src="../assets/images/branding/logo.webp" alt="Badiani 1932" />
-    </div>
+    </a>
     <div class="topbar__right">
       <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
         <a href="../" data-i18n="nav.home">Home</a>
@@ -744,7 +742,6 @@
         <!-- Two columns: Personalizzare + Ideale per -->
         <div class="custom-event__columns">
           <div class="custom-event__col custom-event__col--customize">
-            <div class="custom-event__col-icon custom-event__col-icon--customize">&#9881;</div>
             <h3 data-i18n="eventi.corporate.custom.title">Cosa possiamo personalizzare</h3>
             <ul class="custom-event__list">
               <li data-i18n="eventi.corporate.custom.item1">Tipologia di servizio gelato</li>
@@ -755,7 +752,6 @@
             </ul>
           </div>
           <div class="custom-event__col custom-event__col--ideal">
-            <div class="custom-event__col-icon custom-event__col-icon--ideal">&#9733;</div>
             <h3 data-i18n="eventi.corporate.ideal.title">Ideale per</h3>
             <ul class="custom-event__list">
               <li data-i18n="eventi.corporate.ideal.item1">Eventi aziendali</li>
@@ -807,14 +803,7 @@
           </div>
         </div>
 
-        <!-- CTA -->
-        <div class="custom-event__cta">
-          <p>Per info e costi contattare il nostro team eventi</p>
-          <a href="mailto:eventi@badiani1932.com" class="custom-event__cta-btn">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            eventi@badiani1932.com
-          </a>
-        </div>
+
       </div>
     </section>
 
@@ -862,8 +851,17 @@
               <div class="form-field">
                 <label>Opzioni Extra?</label>
                 <div class="radio-group">
-                  <label><input type="radio" name="opzioniExtra" value="si" /> Sì</label>
-                  <label><input type="radio" name="opzioniExtra" value="no" checked /> No</label>
+                  <label><input type="radio" name="opzioniExtra" value="si" onchange="document.getElementById('extrasMain').classList.add('visible')" /> Sì</label>
+                  <label><input type="radio" name="opzioniExtra" value="no" checked onchange="document.getElementById('extrasMain').classList.remove('visible')" /> No</label>
+                </div>
+                <div class="extras-panel" id="extrasMain">
+                  <div class="checkbox-group">
+                    <label><input type="checkbox" name="extras[]" value="allestimento-tema" /> Allestimento a tema</label>
+                    <label><input type="checkbox" name="extras[]" value="cake-designer" /> Prodotti dolciari creati dal Cake Designer</label>
+                    <label><input type="checkbox" name="extras[]" value="gusto-personalizzato" /> Gusto di gelato personalizzato o su richiesta</label>
+                    <label><input type="checkbox" name="extras[]" value="torta-ricorrenza" /> Torta di ricorrenza</label>
+                    <label><input type="checkbox" name="extras[]" value="dj-set" /> Dj set</label>
+                  </div>
                 </div>
               </div>
               <div class="form-field full-width">

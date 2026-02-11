@@ -196,48 +196,7 @@
       color:var(--badiani-pink);
     }
 
-    .home-contact{
-      background:#fff;
-      color:var(--badiani-gray);
-      padding:60px 20px;
-      text-align:center;
-      border-top:1px solid rgba(30,57,141,0.08);
-      text-transform:lowercase;
-    }
-    .home-contact h2{
-      font-size:clamp(24px, 3vw, 38px);
-      margin-bottom:14px;
-      text-transform:lowercase;
-      letter-spacing:0.4px;
-      color:var(--badiani-blue);
-    }
-    .home-contact p{
-      font-size:clamp(14px, 1.4vw, 18px);
-      margin-bottom:22px;
-      opacity:0.95;
-      color:#6a6b6e;
-    }
-    .home-contact__links{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:8px;
-      max-width:900px;
-      margin:0 auto;
-    }
-    .home-contact__links a{
-      color:var(--badiani-blue);
-      text-decoration:none;
-      font-size:clamp(13px, 1.2vw, 16px);
-      letter-spacing:0.4px;
-      text-transform:lowercase;
-      padding:0;
-      border:none;
-      background:transparent;
-    }
-    .home-contact__links a:hover{
-      color:var(--badiani-blue);
-      text-decoration:underline;
-    }
+
 
     /* SEZIONE STORIA CON SFONDO FIRENZE */
     .buontalenti-story{
@@ -550,9 +509,9 @@
 </head>
 <body>
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
-    <div class="topbar__logo">
+    <a href="/" class="topbar__logo">
       <img src="assets/images/branding/logo.webp" alt="Badiani 1932" />
-    </div>
+    </a>
     <div class="topbar__right">
       <nav class="topbar__nav">
         <a href="eventi/" data-i18n="nav.eventi">Eventi</a>
@@ -598,7 +557,7 @@
       <source src="assets/video/home-b2b.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-      <h1 data-i18n="home.hero.title">Badiani Events</h1>
+      <h1 data-i18n="home.hero.title">Badiani Experience</h1>
     </div>
   </section>
 
@@ -675,15 +634,7 @@
     </div>
   </section>
 
-  <section id="contatti" class="home-contact" data-i18n-attr="aria-label:home.contact.label">
-    <h2 data-i18n="home.contact.title">Contatti</h2>
-    <p data-i18n="home.contact.subtitle">Scrivici per informazioni su eventi, B2B e retail.</p>
-    <div class="home-contact__links">
-      <a href="mailto:eventi@badiani1932.com" data-i18n="home.contact.eventi">eventi@badiani1932.com</a>
-      <a href="mailto:retail@badiani1932.com" data-i18n="home.contact.retail">retail@badiani1932.com</a>
-      <a href="https://www.badiani1932.com" target="_blank" rel="noopener" data-i18n="home.contact.site">www.badiani1932.com</a>
-    </div>
-  </section>
+
 
 
   <script>
@@ -705,7 +656,7 @@
           'nav.b2b': 'B2B',
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
-          'home.hero.title': 'Badiani events',
+          'home.hero.title': 'Badiani Experience',
           'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
@@ -771,7 +722,7 @@
           'nav.b2b': 'B2B',
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
-          'home.hero.title': 'Badiani events',
+          'home.hero.title': 'Badiani Experience',
           'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
@@ -837,7 +788,7 @@
           'nav.b2b': 'B2B',
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
-          'home.hero.title': 'Badiani events',
+          'home.hero.title': 'Badiani Experience',
           'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
@@ -903,7 +854,7 @@
           'nav.b2b': 'B2B',
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
-          'home.hero.title': 'Badiani events',
+          'home.hero.title': 'Badiani Experience',
           'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',

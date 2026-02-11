@@ -53,40 +53,37 @@
 
     .features-grid{
       display:grid;
-      grid-template-columns:repeat(5, minmax(0, 1fr));
-      gap:32px;
+      grid-template-columns:repeat(auto-fit, minmax(200px, 220px));
+      gap:24px;
       margin-bottom:60px;
+      justify-content:center;
     }
     .feature-card{
       background:var(--surface);
-      padding:40px 30px;
+      aspect-ratio:1;
+      padding:28px 22px;
       border-radius:20px;
       box-shadow:0 12px 30px rgba(0,0,0,0.1);
       transition:transform 0.3s ease, box-shadow 0.3s ease;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
     }
     .feature-card:hover{
       transform:translateY(-6px);
       box-shadow:0 18px 40px rgba(240,103,166,0.2);
     }
-    .feature-icon{
-      width:60px;
-      height:60px;
-      background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7);
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      margin-bottom:20px;
-    }
     .feature-title{
-      font-size:20px;
-      margin-bottom:12px;
+      font-size:18px;
+      margin-bottom:10px;
+      color:var(--badiani-blue);
     }
     .feature-desc{
-      font-size:15px;
+      font-size:14px;
       color:#6a6b6e;
-      line-height:1.7;
+      line-height:1.6;
     }
 
     .use-cases{
@@ -102,16 +99,22 @@
     }
     .use-cases-list{
       display:grid;
-      grid-template-columns:repeat(5, minmax(0, 1fr));
-      gap:16px;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 200px));
+      gap:20px;
       list-style:none;
       padding:0;
+      justify-content:center;
     }
     .use-cases-list li{
       background:var(--surface);
-      padding:20px 24px;
-      border-radius:12px;
-      font-size:16px;
+      aspect-ratio:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px 16px;
+      border-radius:16px;
+      font-size:15px;
       font-weight:500;
       color:var(--badiani-blue);
       box-shadow:0 4px 12px rgba(0,0,0,0.06);
@@ -124,7 +127,7 @@
       content:"✓";
       color:var(--badiani-pink);
       font-weight:700;
-      margin-right:10px;
+      margin-right:8px;
     }
 
     .gallery-note{
@@ -167,18 +170,14 @@
 
     @media(max-width:768px){
       .features-grid{
-        grid-template-columns:repeat(2, 1fr);
+        grid-template-columns:repeat(auto-fit, minmax(160px, 180px));
         gap:16px;
       }
-      .feature-card{
-        padding:24px 18px;
-      }
       .use-cases-list{
-        grid-template-columns:repeat(2, 1fr);
-        gap:10px;
+        grid-template-columns:repeat(auto-fit, minmax(150px, 170px));
+        gap:14px;
       }
       .use-cases-list li{
-        padding:14px 16px;
         font-size:14px;
       }
       .use-cases{
@@ -193,19 +192,19 @@
     }
     @media(max-width:480px){
       .features-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(auto-fit, minmax(140px, 160px));
       }
       .use-cases-list{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(auto-fit, minmax(140px, 160px));
       }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar__logo">
+    <a href="../../" class="topbar__logo">
       <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" />
-    </div>
+    </a>
     <nav class="topbar__nav">
       <a href="../../">Home</a>
       <a href="../">Eventi</a>
@@ -224,31 +223,26 @@
 
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">🍦</div>
         <h3 class="feature-title">Tipologia di servizio gelato</h3>
         <p class="feature-desc">Scegli tra cool box, carretto, vetrina o soluzioni custom per il tuo evento.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">🎨</div>
         <h3 class="feature-title">Selezione dei gusti</h3>
         <p class="feature-desc">Possibilità di avere gusti personalizzati e/o su richiesta, creati appositamente per il tuo brand.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">✨</div>
         <h3 class="feature-title">Allestimento dell'evento</h3>
         <p class="feature-desc">Allestimenti personalizzati che riflettono l'identità e i valori della tua azienda.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">🏷️</div>
         <h3 class="feature-title">Branding personalizzato</h3>
         <p class="feature-desc">Integrazione del tuo logo e brand identity su packaging, postazioni e materiali.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">💡</div>
         <h3 class="feature-title">Concept creativo</h3>
         <p class="feature-desc">Sviluppiamo concept creativi in linea con il tuo brand e gli obiettivi dell'evento.</p>
       </div>
