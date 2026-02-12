@@ -466,6 +466,58 @@
       color:#90949a;
       font-size:13px;
     }
+
+    /* ===== FINGER FOOD LIST TOGGLE ===== */
+    .fingerfood-toggle-btn{
+      position:absolute;
+      top:12px;
+      right:12px;
+      padding:0;
+      border:none;
+      background:none;
+      color:var(--badiani-blue);
+      font-size:13px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      cursor:pointer;
+      font-family:inherit;
+      transition:color 0.2s;
+    }
+    .fingerfood-toggle-btn:hover{
+      color:var(--badiani-pink);
+    }
+    .fingerfood-list-panel{
+      display:none;
+      margin-top:10px;
+      padding:12px 14px;
+      background:#f8f9fc;
+      border-radius:10px;
+      border:1px solid rgba(30,57,141,0.1);
+      animation:cocktailReveal 0.3s ease;
+    }
+    .fingerfood-list-panel.visible{ display:block; }
+    .fingerfood-list-panel ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .fingerfood-list-panel li{
+      font-size:15px;
+      color:#4a4f57;
+      line-height:1.5;
+      padding:5px 0;
+      border-bottom:1px solid rgba(30,57,141,0.06);
+    }
+    .fingerfood-list-panel li:last-child{ border-bottom:none; }
+    .fingerfood-list-panel li strong{
+      color:var(--badiani-blue);
+      font-weight:600;
+    }
+
     .specs-grid{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
@@ -1000,6 +1052,22 @@
           <div class="spec-card">
             <span class="spec-label" data-i18n="tosinghi.modal.label.food">Food</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.silver.food.compact">Pizzette<br>Tramezzini<br>Rustici<br>Panettone gastronomico (1 ogni 6-8 pp.)<br>Coppetta Buontalenti</span>
+            <button type="button" class="fingerfood-toggle-btn" data-i18n="tosinghi.fingerfood.btn.list" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('visible'); var o=this.nextElementSibling.classList.contains('visible'); this.textContent = window._t ? window._t(o?'tosinghi.fingerfood.btn.close':'tosinghi.fingerfood.btn.list') : (o?'Chiudi':'Lista')">Lista</button>
+            <div class="fingerfood-list-panel">
+              <ul>
+                <li data-i18n-html="tosinghi.fingerfood.bresaola"><strong>Rotolino di Bresaola</strong>, rucola e grana</li>
+                <li data-i18n-html="tosinghi.fingerfood.caprese"><strong>Spiedini di caprese</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.zucchine"><strong>Zucchine</strong>, stracchino e prosciutto cotto</li>
+                <li data-i18n-html="tosinghi.fingerfood.fegatini"><strong>Tartine di sfoglia</strong> con fegatini</li>
+                <li data-i18n-html="tosinghi.fingerfood.salsiccia"><strong>Tartine di sfoglia</strong> salsiccia e stracchino</li>
+                <li data-i18n-html="tosinghi.fingerfood.salmone"><strong>Fagottino salmone</strong>, philadelphia e avocado</li>
+                <li data-i18n-html="tosinghi.fingerfood.pinzimonio"><strong>Crudit&eacute; di pinzimonio</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.melanzane"><strong>Sformatino melanzane</strong> e mozzarella</li>
+                <li data-i18n-html="tosinghi.fingerfood.pomodorini"><strong>Pomodorini confit</strong> e stracciatella</li>
+                <li data-i18n-html="tosinghi.fingerfood.miniburger"><strong>Mini burger</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.pappa"><strong>Pappa al pomodoro</strong><br><strong>Ribollita</strong></li>
+              </ul>
+            </div>
           </div>
           <div class="spec-card">
             <span class="spec-label" data-i18n="tosinghi.modal.label.drink">Drink</span>
@@ -1048,6 +1116,22 @@
           <div class="spec-card">
             <span class="spec-label" data-i18n="tosinghi.modal.label.food">Food</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.gold.food.compact">Panettone gastronomico (1 ogni 6-8 pp.)<br>5 tipi di finger food a cura dello Chef<br>Monoporzioni dolci o coppetta Buontalenti</span>
+            <button type="button" class="fingerfood-toggle-btn" data-i18n="tosinghi.fingerfood.btn.list" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('visible'); var o=this.nextElementSibling.classList.contains('visible'); this.textContent = window._t ? window._t(o?'tosinghi.fingerfood.btn.close':'tosinghi.fingerfood.btn.list') : (o?'Chiudi':'Lista')">Lista</button>
+            <div class="fingerfood-list-panel">
+              <ul>
+                <li data-i18n-html="tosinghi.fingerfood.bresaola"><strong>Rotolino di Bresaola</strong>, rucola e grana</li>
+                <li data-i18n-html="tosinghi.fingerfood.caprese"><strong>Spiedini di caprese</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.zucchine"><strong>Zucchine</strong>, stracchino e prosciutto cotto</li>
+                <li data-i18n-html="tosinghi.fingerfood.fegatini"><strong>Tartine di sfoglia</strong> con fegatini</li>
+                <li data-i18n-html="tosinghi.fingerfood.salsiccia"><strong>Tartine di sfoglia</strong> salsiccia e stracchino</li>
+                <li data-i18n-html="tosinghi.fingerfood.salmone"><strong>Fagottino salmone</strong>, philadelphia e avocado</li>
+                <li data-i18n-html="tosinghi.fingerfood.pinzimonio"><strong>Crudit&eacute; di pinzimonio</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.melanzane"><strong>Sformatino melanzane</strong> e mozzarella</li>
+                <li data-i18n-html="tosinghi.fingerfood.pomodorini"><strong>Pomodorini confit</strong> e stracciatella</li>
+                <li data-i18n-html="tosinghi.fingerfood.miniburger"><strong>Mini burger</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.pappa"><strong>Pappa al pomodoro</strong><br><strong>Ribollita</strong></li>
+              </ul>
+            </div>
           </div>
           <div class="spec-card">
             <span class="spec-label" data-i18n="tosinghi.modal.label.drink">Drink</span>
@@ -1096,6 +1180,22 @@
           <div class="spec-card">
             <span class="spec-label" data-i18n="tosinghi.modal.label.food">Food</span>
             <span class="spec-value" data-i18n-html="tosinghi.modal.platinum.food.compact">7 tipi di finger food a cura dello Chef<br>Monoporzioni dolci, Mignon o coppetta Buontalenti</span>
+            <button type="button" class="fingerfood-toggle-btn" data-i18n="tosinghi.fingerfood.btn.list" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('visible'); var o=this.nextElementSibling.classList.contains('visible'); this.textContent = window._t ? window._t(o?'tosinghi.fingerfood.btn.close':'tosinghi.fingerfood.btn.list') : (o?'Chiudi':'Lista')">Lista</button>
+            <div class="fingerfood-list-panel">
+              <ul>
+                <li data-i18n-html="tosinghi.fingerfood.bresaola"><strong>Rotolino di Bresaola</strong>, rucola e grana</li>
+                <li data-i18n-html="tosinghi.fingerfood.caprese"><strong>Spiedini di caprese</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.zucchine"><strong>Zucchine</strong>, stracchino e prosciutto cotto</li>
+                <li data-i18n-html="tosinghi.fingerfood.fegatini"><strong>Tartine di sfoglia</strong> con fegatini</li>
+                <li data-i18n-html="tosinghi.fingerfood.salsiccia"><strong>Tartine di sfoglia</strong> salsiccia e stracchino</li>
+                <li data-i18n-html="tosinghi.fingerfood.salmone"><strong>Fagottino salmone</strong>, philadelphia e avocado</li>
+                <li data-i18n-html="tosinghi.fingerfood.pinzimonio"><strong>Crudit&eacute; di pinzimonio</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.melanzane"><strong>Sformatino melanzane</strong> e mozzarella</li>
+                <li data-i18n-html="tosinghi.fingerfood.pomodorini"><strong>Pomodorini confit</strong> e stracciatella</li>
+                <li data-i18n-html="tosinghi.fingerfood.miniburger"><strong>Mini burger</strong></li>
+                <li data-i18n-html="tosinghi.fingerfood.pappa"><strong>Pappa al pomodoro</strong><br><strong>Ribollita</strong></li>
+              </ul>
+            </div>
           </div>
           <div class="spec-card">
             <span class="spec-label" data-i18n="tosinghi.modal.label.drink">Drink</span>
@@ -1426,6 +1526,21 @@
           'tosinghi.cocktail.londonmule': '<strong>London Mule</strong> <small>(gin, ginger beer, lime)</small>',
           'tosinghi.cocktail.moscowmule': '<strong>Moscow Mule</strong> <small>(lime, ginger beer, vodka)</small>',
           'tosinghi.cocktail.vodkaimperiale': '<strong>Vodka Imperiale</strong> <small>(vodka, succo pera, sorbetto sottobosco)</small>',
+          // Finger Food Toggle
+          'tosinghi.fingerfood.btn.list': 'Lista',
+          'tosinghi.fingerfood.btn.close': 'Chiudi',
+          // Finger Food Items
+          'tosinghi.fingerfood.bresaola': '<strong>Rotolino di Bresaola</strong>, rucola e grana',
+          'tosinghi.fingerfood.caprese': '<strong>Spiedini di caprese</strong>',
+          'tosinghi.fingerfood.zucchine': '<strong>Zucchine</strong>, stracchino e prosciutto cotto',
+          'tosinghi.fingerfood.fegatini': '<strong>Tartine di sfoglia</strong> con fegatini',
+          'tosinghi.fingerfood.salsiccia': '<strong>Tartine di sfoglia</strong> salsiccia e stracchino',
+          'tosinghi.fingerfood.salmone': '<strong>Fagottino salmone</strong>, philadelphia e avocado',
+          'tosinghi.fingerfood.pinzimonio': '<strong>Crudit&eacute; di pinzimonio</strong>',
+          'tosinghi.fingerfood.melanzane': '<strong>Sformatino melanzane</strong> e mozzarella',
+          'tosinghi.fingerfood.pomodorini': '<strong>Pomodorini confit</strong> e stracciatella',
+          'tosinghi.fingerfood.miniburger': '<strong>Mini burger</strong>',
+          'tosinghi.fingerfood.pappa': '<strong>Pappa al pomodoro</strong><br><strong>Ribollita</strong>',
           // Form
           'tosinghi.form.title': 'Richiedi Informazioni',
           'tosinghi.form.subtitle': 'Compila il modulo e ti ricontatteremo',
@@ -1598,6 +1713,21 @@
           'tosinghi.cocktail.londonmule': '<strong>London Mule</strong> <small>(gin, ginger beer, lime)</small>',
           'tosinghi.cocktail.moscowmule': '<strong>Moscow Mule</strong> <small>(lime, ginger beer, vodka)</small>',
           'tosinghi.cocktail.vodkaimperiale': '<strong>Vodka Imperiale</strong> <small>(vodka, pear juice, forest fruit sorbet)</small>',
+          // Finger Food Toggle
+          'tosinghi.fingerfood.btn.list': 'List',
+          'tosinghi.fingerfood.btn.close': 'Close',
+          // Finger Food Items
+          'tosinghi.fingerfood.bresaola': '<strong>Bresaola Roll</strong>, rocket & parmesan',
+          'tosinghi.fingerfood.caprese': '<strong>Caprese Skewers</strong>',
+          'tosinghi.fingerfood.zucchine': '<strong>Courgette</strong>, stracchino & cooked ham',
+          'tosinghi.fingerfood.fegatini': '<strong>Puff pastry tartines</strong> with chicken livers',
+          'tosinghi.fingerfood.salsiccia': '<strong>Puff pastry tartines</strong> sausage & stracchino',
+          'tosinghi.fingerfood.salmone': '<strong>Salmon parcel</strong>, cream cheese & avocado',
+          'tosinghi.fingerfood.pinzimonio': '<strong>Crudit&eacute;s with pinzimonio dip</strong>',
+          'tosinghi.fingerfood.melanzane': '<strong>Aubergine flan</strong> & mozzarella',
+          'tosinghi.fingerfood.pomodorini': '<strong>Confit cherry tomatoes</strong> & stracciatella',
+          'tosinghi.fingerfood.miniburger': '<strong>Mini burger</strong>',
+          'tosinghi.fingerfood.pappa': '<strong>Pappa al pomodoro</strong><br><strong>Ribollita</strong>',
           // Form
           'tosinghi.form.title': 'Request Information',
           'tosinghi.form.subtitle': 'Fill in the form and we will get back to you',
@@ -1770,6 +1900,21 @@
           'tosinghi.cocktail.londonmule': '<strong>London Mule</strong> <small>(gin, ginger beer, citron vert)</small>',
           'tosinghi.cocktail.moscowmule': '<strong>Moscow Mule</strong> <small>(citron vert, ginger beer, vodka)</small>',
           'tosinghi.cocktail.vodkaimperiale': '<strong>Vodka Imperiale</strong> <small>(vodka, jus de poire, sorbet fruits des bois)</small>',
+          // Finger Food Toggle
+          'tosinghi.fingerfood.btn.list': 'Liste',
+          'tosinghi.fingerfood.btn.close': 'Fermer',
+          // Finger Food Items
+          'tosinghi.fingerfood.bresaola': '<strong>Roul&eacute; de Bresaola</strong>, roquette et parmesan',
+          'tosinghi.fingerfood.caprese': '<strong>Brochettes caprese</strong>',
+          'tosinghi.fingerfood.zucchine': '<strong>Courgettes</strong>, stracchino et jambon cuit',
+          'tosinghi.fingerfood.fegatini': '<strong>Tartines feuillet&eacute;es</strong> aux foies de volaille',
+          'tosinghi.fingerfood.salsiccia': '<strong>Tartines feuillet&eacute;es</strong> saucisse et stracchino',
+          'tosinghi.fingerfood.salmone': '<strong>Aumôni&egrave;re de saumon</strong>, fromage frais et avocat',
+          'tosinghi.fingerfood.pinzimonio': '<strong>Crudit&eacute;s en pinzimonio</strong>',
+          'tosinghi.fingerfood.melanzane': '<strong>Flan d\'aubergine</strong> et mozzarella',
+          'tosinghi.fingerfood.pomodorini': '<strong>Tomates cerises confites</strong> et stracciatella',
+          'tosinghi.fingerfood.miniburger': '<strong>Mini burger</strong>',
+          'tosinghi.fingerfood.pappa': '<strong>Pappa al pomodoro</strong><br><strong>Ribollita</strong>',
           // Form
           'tosinghi.form.title': 'Demander des Informations',
           'tosinghi.form.subtitle': 'Remplissez le formulaire et nous vous recontacterons',
