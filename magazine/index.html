@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
   <style>
+    body{
+      background-color:#f5f6f8;
+      background-image:url('../assets/images/branding/sfondo.webp');
+      background-repeat:no-repeat;
+      background-position:top center;
+      background-size:cover;
+      filter:none;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:rgba(245,246,248,0.82);
+      pointer-events:none;
+      z-index:0;
+    }
+    body > *{ position:relative; z-index:1; }
     .page-shell{ padding:48px clamp(16px, 4vw, 80px) 80px; }
     .top-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:32px; }
     .back-link{ text-decoration:none; color:var(--badiani-blue); font-weight:600; letter-spacing:1px; text-transform:uppercase; font-size:12px; }
@@ -98,9 +115,8 @@
     .article-cta{ margin-top:auto; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:var(--badiani-pink); transition:color 0.2s ease; }
     .article-card:hover .article-cta{ color:var(--badiani-blue); }
 
-    .news-columns{ margin-top:28px; column-count:3; column-gap:24px; }
-    .news-columns h3{ break-inside:avoid; font-size:14px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-blue); margin-bottom:8px; }
-    .news-columns p{ break-inside:avoid; font-size:14px; color:#6a6b6e; margin-bottom:18px; line-height:1.6; }
+    .news-columns{ margin-top:28px; text-align:center; }
+    .news-columns p{ font-size:14px; color:#6a6b6e; margin-bottom:18px; line-height:1.6; max-width:600px; margin-left:auto; margin-right:auto; }
 
     @media(max-width:1024px){
       .news-columns{ column-count:2; }
@@ -137,10 +153,6 @@
   </header>
 
   <main class="page-shell">
-    <div class="top-bar">
-      <a class="back-link" href="../" data-i18n="magazine.back">← Torna alla home</a>
-      <span class="category-tag" data-i18n="magazine.tag">Magazine</span>
-    </div>
 
     <h1 class="page-title-centered" data-i18n="magazine.hero.title">Magazine</h1>
     <p class="page-subtitle" data-i18n="magazine.hero.subtitle">Una rassegna stampa con gli articoli che parlano di Badiani, sfogliabile come un giornale.</p>
@@ -157,7 +169,7 @@
     </section>
 
     <section class="news-columns" data-i18n-attr="aria-label:magazine.columns.label">
-      <h3 data-i18n="magazine.columns.title">In breve</h3>
+
       <p data-i18n="magazine.columns.lead">Abbiamo raccolto link, articoli e segnalazioni dai media italiani e internazionali. Ogni card porta all’articolo originale.</p>
 
     </section>
@@ -280,70 +292,70 @@
         {
           title: 'Il Buontalenti di Badiani sbarca al Carrousel du Louvre',
           source: 'Intoscana',
-          date: '26 giugno 2024',
+          dateISO: '2024-06-26',
           url: 'https://www.intoscana.it/it/il-buontalenti-di-badiani-sbarca-al-carrousel-du-louvre/',
           image: 'https://www.intoscana.it/wp-content/uploads/20240620-L1010607-scaled-e1719316587691.jpg'
         },
         {
           title: 'Badiani in the World: Firenze val bene un Gelato',
           source: 'Firenze Spettacolo',
-          date: '25 giugno 2024',
+          dateISO: '2024-06-25',
           url: 'https://www.firenzespettacolo.it/badiani-in-the-world-firenze-val-bene-un-gelato-6791',
           image: 'https://www.firenzespettacolo.it/media/immagini/1719323839-IMG_1019-Modifica-Modifica2.jpg'
         },
         {
           title: 'Un gelato italiano al Louvre',
           source: 'MAG 1861',
-          date: '3 luglio 2024',
+          dateISO: '2024-07-03',
           url: 'https://www.mag1861.it/it/news/articolo/gelato_italiano_louvre-26997869',
           image: 'https://www.mag1861.it/_next/image?url=https%3A%2F%2Fwww.mag1861.it%2Fpictures%2F2024%2F07%2F03%2F095105283-a88532bf-a304-4a88-b048-de27f83af4df.jpg&w=1920&q=75'
         },
         {
           title: 'Paolo Pomposi della Gelateria Badiani è il miglior gelatiere d’Europa',
           source: 'WineNews',
-          date: '5 ottobre 2015',
+          dateISO: '2015-10-05',
           url: 'https://winenews.it/it/e-paolo-pomposi-della-gelateria-badiani-di-firenze_329420/',
           image: 'https://static.winenews.it/2018/04/GelatoFestival.jpg'
         },
         {
           title: 'Paolo Pomposi trionfa con “Dolce Vita” e diventa Miglior gelatiere d’Europa',
           source: 'Italia a Tavola',
-          date: '6 ottobre 2015',
+          dateISO: '2015-10-06',
           url: 'https://www.italiaatavola.net/horeca/2015/10/6/paolo-pomposi-trionfa-dolce-vita-diventa-miglior-gelatiere-europa/41435/',
           image: 'https://www.italiaatavola.net/images/contenutiarticoli/Pomposi-GelatoFestival.jpg'
         },
         {
           title: 'Il gusto La Dolcevita di Badiani conquista il London Gelato Festival',
           source: 'Italia a Tavola',
-          date: '30 giugno 2015',
+          dateISO: '2015-06-30',
           url: 'https://www.italiaatavola.net/alimenti-bevande/2015/6/30/gusto-dolcevita-badiani-conquista-london-gelato-festival/40310/',
           image: 'https://www.italiaatavola.net/images/contenutiarticoli/Paolo-Pomposi.jpg'
         },
         {
           title: 'Le migliori gelaterie artigianali di Firenze',
           source: 'Dissapore',
-          date: '1 luglio 2024',
+          dateISO: '2024-07-01',
           url: 'https://www.dissapore.com/locali/le-migliori-gelaterie-artigianali-di-firenze/?fbclid=PAZXh0bgNhZW0CMTEAAaYfn-_zQ7MroVx3JVakWPddcEBKqr5FpFFAyjcwfGScRPka3-vbPxeURBc_aem_qLOfaKEzchzHjyWtojCXWw',
           image: 'https://images.dissapore.com/wp-content/uploads/2024/06/Edoardo-scaled-e1719826053163.jpg?width=1280&height=720&quality=50'
         },
         {
           title: 'Crystal Launches New Gelato Collection',
           source: 'Cruise Industry News',
-          date: '29 maggio 2025',
+          dateISO: '2025-05-29',
           url: 'https://cruiseindustrynews.com/cruise-news/2025/05/crystal-launches-new-gelato-collection/',
           image: 'https://cruiseindustrynews.com/wp-content/uploads/2025/05/crystal_gelato.jpg.webp'
         },
         {
           title: 'Badiani su Food & Beverage',
           source: 'Food & Beverage',
-          date: '',
+          dateISO: '',
           url: 'https://drive.google.com/file/d/11Z8dCd4pCsp0k7z1Lg49wk-d3-gZ8Cr4/view?usp=sharing',
           image: '../assets/images/rassegna-stampa/food-beverage.png'
         },
         {
           title: 'Badiani su Il Tirreno',
           source: 'Il Tirreno',
-          date: '',
+          dateISO: '',
           url: 'https://drive.google.com/file/d/1FJY8X6u3uk1q-I8zRez5j4Qy_xRLDrXv/view?usp=sharing',
           url2: 'https://drive.google.com/file/d/13knh29b9nR18AEiq2kiz3vhXyLhX90Kr/view?usp=sharing',
           image: '../assets/images/rassegna-stampa/il-tirreno-1.png'
@@ -351,28 +363,28 @@
         {
           title: 'Non solo arte, a Firenze si mangia pure un buon gelato',
           source: 'Gambero Rosso',
-          date: '27 aprile 2025',
+          dateISO: '2025-04-27',
           url: 'https://www.gamberorosso.it/notizie/rubriche/miniguide/migliori-gelaterie-di-firenze/',
           image: 'https://static.gamberorosso.it/2025/04/Gelato-con-dietro-panoramica-di-Firenze.-Foto-di-Gelateria-della-Passera.jpg'
         },
         {
           title: 'Badiani al Carrousel du Louvre — Instagram',
           source: 'Instagram',
-          date: 'luglio 2024',
+          dateISO: '2024-07-01',
           url: 'https://www.instagram.com/p/C9wnAWjoB7O/?igsh=MThieWt4cXFicTcwNg%3D%3D',
           image: '../assets/images/branding/hero-bg.webp'
         },
         {
           title: 'Badiani fa novant\u2019anni. Una storia dolcissima',
           source: 'La Nazione',
-          date: '18 settembre 2022',
+          dateISO: '2022-09-18',
           url: 'https://www.lanazione.it/firenze/cronaca/badiani-fa-novantanni-una-storia-dolcissima-4d7cb30f',
           image: 'https://www.lanazione.it/image-service/version/c:YzdhYmIyYmUtODA5OC00:ZmNlNDkz/la-gelateria.jpg?f=16:9&w=1200&h=675'
         },
         {
           title: '90 anni di Badiani, il gelato di Firenze che spopola a Londra',
           source: 'Dolcesalato',
-          date: '17 settembre 2022',
+          dateISO: '2022-09-17',
           url: 'https://www.dolcesalato.com/2022/09/17/90-anni-di-badiani-il-gelato-di-firenze-che-spopola-a-londra/',
           image: 'https://www.dolcesalato.com/wp-content/uploads/sites/5/2022/09/fs-sitonl-2022-09-16T141913.422.png'
         }
@@ -404,22 +416,81 @@
         return dict && dict[key] ? dict[key] : '';
       }
 
-      const EXCERPT_MAP = [
-        'La storica gelateria fiorentina apre il 28° punto vendita al Carrousel du Louvre a Parigi.',
-        'Firenze viene esportata nel mondo grazie alla storica gelateria Badiani. Ultima apertura al Louvre di Parigi.',
-        'Badiani inaugura il primo punto vendita nella prestigiosa galleria del Carrousel du Louvre a Parigi.',
-        'Paolo Pomposi premiato al Gelato Festival 2015 per il gusto Dolcevita, a base di Buontalenti con nocciole e cacao.',
-        'Finale europea del Gelato Festival 2015: Pomposi conquista il titolo con la rivisitazione del Buontalenti.',
-        'Paolo Pomposi miglior gelatiere: il gusto La Dolcevita, panna gelato variegata con cioccolato e nocciole.',
-        'Badiani tra le 5 migliori gelaterie artigianali di Firenze. Oltre 90 anni di storia, Buontalenti come simbolo.',
-        'Crystal Cruises introduce il gelato Badiani a bordo di Symphony e Serenity con 22 gusti esclusivi.',
-        'Articolo dedicato a Badiani pubblicato su Food & Beverage.',
-        'Articolo dedicato a Badiani pubblicato su Il Tirreno — due pagine.',
-        'Badiani nella guida delle migliori gelaterie di Firenze del Gambero Rosso. Oltre 90 anni di tradizione.',
-        'Scopri il post dedicato a Badiani al Carrousel du Louvre di Parigi su Instagram.',
-        'Nel viale dei Mille a Firenze, dal 1932 la gelateria famosa nel mondo. Una fortuna fondata sul Buontalenti.',
-        '90° anniversario Badiani: 12 gelaterie nel mondo, 9 a Londra, 130 dipendenti, 250 tonnellate di gelato.'
-      ];
+      function formatDate(isoStr){
+        if(!isoStr) return '';
+        try{
+          const d = new Date(isoStr + 'T00:00:00');
+          const locale = currentLang === 'en' ? 'en-GB' : currentLang;
+          return d.toLocaleDateString(locale, { day:'numeric', month:'long', year:'numeric' });
+        }catch(e){ return isoStr; }
+      }
+
+      const EXCERPT_I18N = {
+        it: [
+          'La storica gelateria fiorentina apre il 28° punto vendita al Carrousel du Louvre a Parigi.',
+          'Firenze viene esportata nel mondo grazie alla storica gelateria Badiani. Ultima apertura al Louvre di Parigi.',
+          'Badiani inaugura il primo punto vendita nella prestigiosa galleria del Carrousel du Louvre a Parigi.',
+          'Paolo Pomposi premiato al Gelato Festival 2015 per il gusto Dolcevita, a base di Buontalenti con nocciole e cacao.',
+          'Finale europea del Gelato Festival 2015: Pomposi conquista il titolo con la rivisitazione del Buontalenti.',
+          'Paolo Pomposi miglior gelatiere: il gusto La Dolcevita, panna gelato variegata con cioccolato e nocciole.',
+          'Badiani tra le 5 migliori gelaterie artigianali di Firenze. Oltre 90 anni di storia, Buontalenti come simbolo.',
+          'Crystal Cruises introduce il gelato Badiani a bordo di Symphony e Serenity con 22 gusti esclusivi.',
+          'Articolo dedicato a Badiani pubblicato su Food & Beverage.',
+          'Articolo dedicato a Badiani pubblicato su Il Tirreno — due pagine.',
+          'Badiani nella guida delle migliori gelaterie di Firenze del Gambero Rosso. Oltre 90 anni di tradizione.',
+          'Scopri il post dedicato a Badiani al Carrousel du Louvre di Parigi su Instagram.',
+          'Nel viale dei Mille a Firenze, dal 1932 la gelateria famosa nel mondo. Una fortuna fondata sul Buontalenti.',
+          '90° anniversario Badiani: 12 gelaterie nel mondo, 9 a Londra, 130 dipendenti, 250 tonnellate di gelato.'
+        ],
+        en: [
+          'The historic Florentine gelateria opens its 28th location at the Carrousel du Louvre in Paris.',
+          'Florence is exported to the world through the historic Badiani gelateria. Latest opening at the Louvre in Paris.',
+          'Badiani opens its first shop in the prestigious Carrousel du Louvre gallery in Paris.',
+          'Paolo Pomposi awarded at Gelato Festival 2015 for La Dolcevita flavour, based on Buontalenti with hazelnuts and cocoa.',
+          'European final of Gelato Festival 2015: Pomposi wins the title with a Buontalenti reinterpretation.',
+          'Paolo Pomposi named best gelato maker: La Dolcevita flavour, cream gelato with chocolate and hazelnut ripple.',
+          'Badiani among the 5 best artisan gelaterias in Florence. Over 90 years of history, Buontalenti as its symbol.',
+          'Crystal Cruises introduces Badiani gelato aboard Symphony and Serenity with 22 exclusive flavours.',
+          'Article dedicated to Badiani published in Food & Beverage.',
+          'Article dedicated to Badiani published in Il Tirreno — two pages.',
+          'Badiani in the Gambero Rosso guide to the best gelaterias in Florence. Over 90 years of tradition.',
+          'See the post dedicated to Badiani at the Carrousel du Louvre in Paris on Instagram.',
+          'On Viale dei Mille in Florence, since 1932 the gelateria famous worldwide. A fortune built on Buontalenti.',
+          '90th anniversary of Badiani: 12 gelaterias worldwide, 9 in London, 130 employees, 250 tonnes of gelato.'
+        ],
+        fr: [
+          'La célèbre gelateria florentine ouvre son 28e point de vente au Carrousel du Louvre à Paris.',
+          'Florence est exportée dans le monde grâce à la historique gelateria Badiani. Dernière ouverture au Louvre de Paris.',
+          'Badiani inaugure son premier point de vente dans la prestigieuse galerie du Carrousel du Louvre à Paris.',
+          'Paolo Pomposi primé au Gelato Festival 2015 pour le parfum Dolcevita, à base de Buontalenti aux noisettes et cacao.',
+          'Finale européenne du Gelato Festival 2015 : Pomposi remporte le titre avec une réinterprétation du Buontalenti.',
+          'Paolo Pomposi meilleur glacier : le parfum La Dolcevita, crème glacée marbrée chocolat et noisettes.',
+          'Badiani parmi les 5 meilleures glaceries artisanales de Florence. Plus de 90 ans d\'histoire, le Buontalenti comme symbole.',
+          'Crystal Cruises introduit la glace Badiani à bord de Symphony et Serenity avec 22 parfums exclusifs.',
+          'Article dédié à Badiani publié dans Food & Beverage.',
+          'Article dédié à Badiani publié dans Il Tirreno — deux pages.',
+          'Badiani dans le guide Gambero Rosso des meilleures glaceries de Florence. Plus de 90 ans de tradition.',
+          'Découvrez le post dédié à Badiani au Carrousel du Louvre de Paris sur Instagram.',
+          'Sur le Viale dei Mille à Florence, depuis 1932 la gelateria célèbre dans le monde. Une fortune bâtie sur le Buontalenti.',
+          '90e anniversaire de Badiani : 12 glaceries dans le monde, 9 à Londres, 130 employés, 250 tonnes de glace.'
+        ],
+        es: [
+          'La histórica heladería florentina abre su 28º punto de venta en el Carrousel du Louvre de París.',
+          'Florencia se exporta al mundo gracias a la histórica heladería Badiani. Última apertura en el Louvre de París.',
+          'Badiani inaugura el primer punto de venta en la prestigiosa galería del Carrousel du Louvre de París.',
+          'Paolo Pomposi premiado en el Gelato Festival 2015 por el sabor Dolcevita, a base de Buontalenti con avellanas y cacao.',
+          'Final europea del Gelato Festival 2015: Pomposi conquista el título con la reinterpretación del Buontalenti.',
+          'Paolo Pomposi mejor heladero: el sabor La Dolcevita, helado de nata jaspeado con chocolate y avellanas.',
+          'Badiani entre las 5 mejores heladerías artesanales de Florencia. Más de 90 años de historia, el Buontalenti como símbolo.',
+          'Crystal Cruises introduce el helado Badiani a bordo de Symphony y Serenity con 22 sabores exclusivos.',
+          'Artículo dedicado a Badiani publicado en Food & Beverage.',
+          'Artículo dedicado a Badiani publicado en Il Tirreno — dos páginas.',
+          'Badiani en la guía Gambero Rosso de las mejores heladerías de Florencia. Más de 90 años de tradición.',
+          'Descubre el post dedicado a Badiani en el Carrousel du Louvre de París en Instagram.',
+          'En el Viale dei Mille de Florencia, desde 1932 la heladería famosa en el mundo. Una fortuna basada en el Buontalenti.',
+          '90º aniversario de Badiani: 12 heladerías en el mundo, 9 en Londres, 130 empleados, 250 toneladas de helado.'
+        ]
+      };
 
       function renderArticles(){
         const track = document.getElementById('magazineTrack');
@@ -463,11 +534,12 @@
 
           const meta = document.createElement('div');
           meta.className = 'article-meta';
-          meta.textContent = [article.source, article.date].filter(Boolean).join(' · ');
+          meta.textContent = [article.source, formatDate(article.dateISO)].filter(Boolean).join(' · ');
 
           const excerpt = document.createElement('div');
           excerpt.className = 'article-excerpt';
-          excerpt.textContent = EXCERPT_MAP[idx] || '';
+          const excerpts = EXCERPT_I18N[currentLang] || EXCERPT_I18N[DEFAULT_LANG];
+          excerpt.textContent = (excerpts && excerpts[idx]) || '';
 
           const cta = document.createElement('div');
           cta.className = 'article-cta';

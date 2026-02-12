@@ -140,6 +140,9 @@ h1, h2, h3 {
   padding-top: env(safe-area-inset-top);
   padding-top: constant(safe-area-inset-top);
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .topbar__logo {
@@ -149,7 +152,7 @@ h1, h2, h3 {
 }
 
 .topbar__logo img {
-  height: 32px;
+  height: 39px;
   width: auto;
 }
 

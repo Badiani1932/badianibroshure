@@ -14,10 +14,10 @@
 
     body{
       background-color:#f5f6f8;
-      background-image:url('../../assets/images/branding/eventi-bg.webp');
-      background-repeat:repeat-y;
+      background-image:url('../../assets/images/branding/sfondo.webp');
+      background-repeat:no-repeat;
       background-position:top center;
-      background-size:100% auto;
+      background-size:cover;
     }
 
     .page-shell{ padding:48px clamp(16px, 4vw, 80px) 80px; }
@@ -48,6 +48,9 @@
       border-radius:28px;
       box-shadow:0 18px 40px rgba(0,0,0,0.08);
       margin-bottom:40px;
+      max-width:1224px;
+      margin-left:auto;
+      margin-right:auto;
     }
     .section::before {
       content: none;
@@ -63,22 +66,25 @@
     .options-grid{
       display:grid;
       grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:32px;
-      margin-bottom:60px;
+      gap:24px;
+      margin-bottom:0;
+      max-width:1124px;
+      margin-left:auto;
+      margin-right:auto;
     }
     .option-card{
       background:var(--surface);
-      border-radius:25px;
+      border-radius:16px;
       overflow:hidden;
-      box-shadow:0 15px 50px rgba(0,0,0,0.15);
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
       transition:transform 0.4s ease, box-shadow 0.4s ease;
       cursor:pointer;
       display:flex;
       flex-direction:column;
     }
     .option-card:hover{
-      transform:translateY(-12px);
-      box-shadow:0 25px 70px rgba(0,0,0,0.25);
+      transform:translateY(-8px);
+      box-shadow:0 18px 50px rgba(0,0,0,0.2);
     }
     .option-media{
       position:relative;
@@ -112,30 +118,31 @@
     .option-card.vetrina .option-header{ background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7); }
 
     .option-header{
-      padding:40px 30px;
+      padding:20px 16px;
       text-align:center;
       color:#fff;
     }
     .option-name{
-      font-size:clamp(28px, 3vw, 36px);
+      font-size:clamp(16px, 2vw, 22px);
       letter-spacing:1px;
-      margin-bottom:8px;
+      margin-bottom:4px;
     }
     .option-subtitle{
-      font-size:16px;
+      font-size:13px;
       opacity:0.9;
     }
     .option-body{
-      padding:35px 30px;
+      padding:20px 18px;
       flex:1;
       display:flex;
       flex-direction:column;
+      text-align:center;
     }
     .option-desc{
-      font-size:16px;
+      font-size:13px;
       color:#6a6b6e;
-      margin-bottom:24px;
-      line-height:1.7;
+      margin-bottom:0;
+      line-height:1.6;
     }
     .option-features{
       list-style:none;
@@ -233,12 +240,12 @@
 
     .modal-panel{
       width:100%;
-      max-width:680px;
-      max-height:80vh;
+      max-width:1180px;
+      max-height:90vh;
       overflow-y:auto;
       background:linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
       border-radius:20px;
-      padding:48px 44px;
+      padding:56px 52px;
       box-shadow:0 20px 60px rgba(0,0,0,0.5);
       animation:slideUp 0.5s cubic-bezier(0.34,1.56,0.64,1);
     }
@@ -307,30 +314,51 @@
 
     /* TERMINI */
     .terms{
-      background:rgba(30,57,141,0.04);
-      padding:30px;
-      border-radius:20px;
-      margin-top:40px;
+      background:#fff;
+      padding:32px 36px;
+      border-radius:16px;
+      margin-top:48px;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 4px 16px rgba(0,0,0,0.06);
+      max-width:520px;
+      margin-left:auto;
+      margin-right:auto;
+      text-align:center;
     }
     .terms h3{
       font-size:20px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
       margin-bottom:16px;
+      color:var(--badiani-blue);
     }
     .terms ul{
       list-style:none;
       padding:0;
+      margin:0;
+      display:inline-block;
+      text-align:left;
     }
     .terms li{
-      font-size:14px;
+      font-size:16px;
+      line-height:1.7;
       padding:6px 0;
-      padding-left:20px;
+      padding-left:22px;
       position:relative;
+      color:var(--badiani-blue);
+      text-align:left;
+    }
+    .terms li strong{
+      color:var(--badiani-blue);
+      font-weight:700;
     }
     .terms li::before{
       content:"→";
       position:absolute;
       left:0;
-      color:var(--badiani-blue);
+      color:var(--badiani-pink);
+      font-size:15px;
     }
 
     /* CONTACT */
@@ -674,6 +702,13 @@
     <h1 class="page-title" data-i18n="external.hero.title">Evento Esterno</h1>
     <p class="page-subtitle" data-i18n="external.hero.desc">Porta Badiani al tuo evento con soluzioni mobili eleganti e versatili</p>
 
+    <div style="text-align:center; margin:24px auto 48px;">
+      <button type="button" class="modal-request-btn" onclick="openRequestForm('Evento Esterno')" style="margin-top:0;">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
+      </button>
+    </div>
+
   <section class="section">
     <h2 class="section-title" data-i18n="external.solutions.title">Soluzioni Disponibili</h2>
 
@@ -689,7 +724,6 @@
         </div>
         <div class="option-body">
           <p class="option-desc" data-i18n="external.coolbox.desc">Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.</p>
-          <p class="option-note">Servizio e trasporto da concordare</p>
         </div>
       </article>
 
@@ -704,7 +738,6 @@
         </div>
         <div class="option-body">
           <p class="option-desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.</p>
-          <p class="option-note">Include 2h servizio con 1 operatore</p>
         </div>
       </article>
 
@@ -719,28 +752,23 @@
         </div>
         <div class="option-body">
           <p class="option-desc" data-i18n="external.vetrina.desc">Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.</p>
-          <p class="option-note">Include 2h servizio con 1 operatore</p>
         </div>
       </article>
     </div>
-
-    <!-- TERMINI E CONDIZIONI -->
-    <div class="terms">
-      <h3 data-i18n="external.terms.title">Termini e Condizioni Evento Esterno</h3>
-      <ul>
-        <li data-i18n-html="external.terms.deposit"><strong>Acconto:</strong> 50% al momento della conferma tramite bonifico</li>
-        <li data-i18n-html="external.terms.balance"><strong>Saldo:</strong> Entro il giorno dell'evento tramite bonifico</li>
-        <li data-i18n-html="external.terms.notice"><strong>Preavviso:</strong> Da definire</li>
-        <li data-i18n-html="external.terms.custom"><strong>Personalizzazione:</strong> Costi da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni</li>
-      </ul>
-    </div>
   </section>
 
-  <!-- CONTACT FOOTER -->
-  <footer class="contact-footer">
-    <h3 data-i18n="external.contact.title">Richiedi Informazioni</h3>
-    <a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a>
-  </footer>
+  <!-- TERMINI E CONDIZIONI -->
+  <div class="terms">
+    <h3 data-i18n="external.terms.title">Termini e Condizioni Evento Esterno</h3>
+    <ul>
+      <li data-i18n-html="external.terms.deposit"><strong>Acconto:</strong> 50% al momento della conferma tramite bonifico</li>
+      <li data-i18n-html="external.terms.balance"><strong>Saldo:</strong> Entro il giorno dell'evento tramite bonifico</li>
+      <li data-i18n-html="external.terms.notice"><strong>Preavviso:</strong> Da definire</li>
+      <li data-i18n-html="external.terms.custom"><strong>Personalizzazione:</strong> Costi da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni</li>
+    </ul>
+  </div>
+
+
   </main>
 
   <!-- MODAL COOL BOX -->
@@ -753,26 +781,26 @@
         <p class="modal-panel-desc" data-i18n="external.coolbox.desc">Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.</p>
         <div class="specs-grid">
           <div class="spec-card">
-            <span class="spec-label">Capacità</span>
-            <span class="spec-value">40-90 pax (max 2 gusti)</span>
+            <span class="spec-label" data-i18n="external.modal.coolbox.capacity.label">Capacità</span>
+            <span class="spec-value" data-i18n-html="external.modal.coolbox.capacity.value">40-90 pax (max 2 gusti)</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Servizio</span>
-            <span class="spec-value">1 operatore<br>Durata da definire in base al tempo</span>
+            <span class="spec-label" data-i18n="external.modal.coolbox.service.label">Servizio</span>
+            <span class="spec-value" data-i18n-html="external.modal.coolbox.service.value">1 operatore<br>Durata da definire in base al tempo</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Trasporto</span>
-            <span class="spec-value">Da definire in base alla distanza</span>
+            <span class="spec-label" data-i18n="external.modal.coolbox.transport.label">Trasporto</span>
+            <span class="spec-value" data-i18n-html="external.modal.coolbox.transport.value">Da definire in base alla distanza</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Personalizzazione</span>
-            <span class="spec-value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
+            <span class="spec-label" data-i18n="external.modal.coolbox.custom.label">Personalizzazione</span>
+            <span class="spec-value" data-i18n-html="external.modal.coolbox.custom.value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
           </div>
         </div>
         <div style="text-align:center; margin-top:24px;">
           <button type="button" class="modal-request-btn" onclick="openRequestForm('Evento Esterno — Cool Box')">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Richiedi Informazioni
+            <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
           </button>
         </div>
       </div>
@@ -789,26 +817,26 @@
         <p class="modal-panel-desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.</p>
         <div class="specs-grid">
           <div class="spec-card">
-            <span class="spec-label">Servizio</span>
-            <span class="spec-value">Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
+            <span class="spec-label" data-i18n="external.modal.carretto.service.label">Servizio</span>
+            <span class="spec-value" data-i18n-html="external.modal.carretto.service.value">Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Incluso</span>
-            <span class="spec-value">2h di servizio con 1 operatore<br>Extra time disponibile su richiesta</span>
+            <span class="spec-label" data-i18n="external.modal.carretto.included.label">Incluso</span>
+            <span class="spec-value" data-i18n-html="external.modal.carretto.included.value">2h di servizio con 1 operatore<br>Extra time disponibile su richiesta</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Trasporto</span>
-            <span class="spec-value">Per veicolo entro i 100 km</span>
+            <span class="spec-label" data-i18n="external.modal.carretto.transport.label">Trasporto</span>
+            <span class="spec-value" data-i18n-html="external.modal.carretto.transport.value">Per veicolo entro i 100 km</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Personalizzazione</span>
-            <span class="spec-value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
+            <span class="spec-label" data-i18n="external.modal.carretto.custom.label">Personalizzazione</span>
+            <span class="spec-value" data-i18n-html="external.modal.carretto.custom.value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
           </div>
         </div>
         <div style="text-align:center; margin-top:24px;">
           <button type="button" class="modal-request-btn" onclick="openRequestForm('Evento Esterno — Carretto e Bicicletta')">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Richiedi Informazioni
+            <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
           </button>
         </div>
       </div>
@@ -825,26 +853,26 @@
         <p class="modal-panel-desc" data-i18n="external.vetrina.desc">Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.</p>
         <div class="specs-grid">
           <div class="spec-card">
-            <span class="spec-label">Servizio</span>
-            <span class="spec-value">Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
+            <span class="spec-label" data-i18n="external.modal.vetrina.service.label">Servizio</span>
+            <span class="spec-value" data-i18n-html="external.modal.vetrina.service.value">Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Incluso</span>
-            <span class="spec-value">2h di servizio con 1 operatore<br>Extra time disponibile su richiesta</span>
+            <span class="spec-label" data-i18n="external.modal.vetrina.included.label">Incluso</span>
+            <span class="spec-value" data-i18n-html="external.modal.vetrina.included.value">2h di servizio con 1 operatore<br>Extra time disponibile su richiesta</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Trasporto</span>
-            <span class="spec-value">Per veicolo entro i 100 km</span>
+            <span class="spec-label" data-i18n="external.modal.vetrina.transport.label">Trasporto</span>
+            <span class="spec-value" data-i18n-html="external.modal.vetrina.transport.value">Per veicolo entro i 100 km</span>
           </div>
           <div class="spec-card">
-            <span class="spec-label">Personalizzazione</span>
-            <span class="spec-value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
+            <span class="spec-label" data-i18n="external.modal.vetrina.custom.label">Personalizzazione</span>
+            <span class="spec-value" data-i18n-html="external.modal.vetrina.custom.value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
           </div>
         </div>
         <div style="text-align:center; margin-top:24px;">
           <button type="button" class="modal-request-btn" onclick="openRequestForm('Evento Esterno — Vetrina Gelato')">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Richiedi Informazioni
+            <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
           </button>
         </div>
       </div>
@@ -856,45 +884,45 @@
     <div class="form-modal" onclick="event.stopPropagation()">
       <button class="form-modal__close" onclick="closeRequestForm()">&times;</button>
       <div class="form-modal__header">
-        <h2>Richiedi Informazioni</h2>
-        <p id="requestFormSubtitle">Compila il modulo e ti ricontatteremo</p>
+        <h2 data-i18n="external.form.title">Richiedi Informazioni</h2>
+        <p id="requestFormSubtitle" data-i18n="external.form.subtitle">Compila il modulo e ti ricontatteremo</p>
       </div>
       <div class="form-modal__body">
         <form action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain">
           <div class="form-modal__grid">
-            <div class="fm-field"><label>Nome *</label><input name="nome" type="text" placeholder="Il tuo nome" required /></div>
-            <div class="fm-field"><label>Cognome *</label><input name="cognome" type="text" placeholder="Il tuo cognome" required /></div>
-            <div class="fm-field"><label>Azienda o Privato *</label>
-              <select name="tipo" required><option value="" disabled selected>Seleziona...</option><option value="azienda">Azienda</option><option value="privato">Privato</option></select>
+            <div class="fm-field"><label data-i18n="external.form.firstName">Nome *</label><input name="nome" type="text" placeholder="Il tuo nome" data-i18n-attr="placeholder:external.form.firstName.placeholder" required /></div>
+            <div class="fm-field"><label data-i18n="external.form.lastName">Cognome *</label><input name="cognome" type="text" placeholder="Il tuo cognome" data-i18n-attr="placeholder:external.form.lastName.placeholder" required /></div>
+            <div class="fm-field"><label data-i18n="external.form.clientType">Azienda o Privato *</label>
+              <select name="tipo" required><option value="" disabled selected data-i18n="external.form.clientType.placeholder">Seleziona...</option><option value="azienda" data-i18n="external.form.clientType.company">Azienda</option><option value="privato" data-i18n="external.form.clientType.private">Privato</option></select>
             </div>
-            <div class="fm-field"><label>Telefono *</label><input name="telefono" type="tel" placeholder="+39 ..." required /></div>
-            <div class="fm-field"><label>Data</label><input name="data" type="date" /></div>
-            <div class="fm-field"><label>Orario</label><input name="orario" type="time" /></div>
-            <div class="fm-field"><label>Numero Persone</label><input name="persone" type="number" min="1" placeholder="Es. 50" /></div>
-            <div class="fm-field"><label>Opzioni Extra?</label>
-              <div class="fm-radio-group"><label><input type="radio" name="extra" value="si" onchange="document.getElementById('extrasEsterno').classList.add('visible')" /> Sì</label><label><input type="radio" name="extra" value="no" checked onchange="document.getElementById('extrasEsterno').classList.remove('visible')" /> No</label></div>
+            <div class="fm-field"><label data-i18n="external.form.phone">Telefono *</label><input name="telefono" type="tel" placeholder="+39 ..." data-i18n-attr="placeholder:external.form.phone.placeholder" required /></div>
+            <div class="fm-field"><label data-i18n="external.form.eventDate">Data</label><input name="data" type="date" /></div>
+            <div class="fm-field"><label data-i18n="external.form.eventTime">Orario</label><input name="orario" type="time" /></div>
+            <div class="fm-field"><label data-i18n="external.form.guests">Numero Persone</label><input name="persone" type="number" min="1" placeholder="Es. 50" data-i18n-attr="placeholder:external.form.guests.placeholder" /></div>
+            <div class="fm-field"><label data-i18n="external.form.extras">Opzioni Extra?</label>
+              <div class="fm-radio-group"><label><input type="radio" name="extra" value="si" onchange="document.getElementById('extrasEsterno').classList.add('visible')" /> <span data-i18n="external.form.extras.yes">Sì</span></label><label><input type="radio" name="extra" value="no" checked onchange="document.getElementById('extrasEsterno').classList.remove('visible')" /> <span data-i18n="external.form.extras.no">No</span></label></div>
               <div class="fm-extras-panel" id="extrasEsterno">
                 <div class="fm-checkbox-group">
-                  <label><input type="checkbox" name="extras[]" value="allestimento-tema" /> Allestimento a tema</label>
-                  <label><input type="checkbox" name="extras[]" value="cake-designer" /> Prodotti dolciari creati dal Cake Designer</label>
-                  <label><input type="checkbox" name="extras[]" value="gusto-personalizzato" /> Gusto di gelato personalizzato o su richiesta</label>
-                  <label><input type="checkbox" name="extras[]" value="torta-ricorrenza" /> Torta di ricorrenza</label>
-                  <label><input type="checkbox" name="extras[]" value="dj-set" /> Dj set</label>
+                  <label><input type="checkbox" name="extras[]" value="allestimento-tema" /> <span data-i18n="external.form.extras.themedDecor">Allestimento a tema</span></label>
+                  <label><input type="checkbox" name="extras[]" value="cake-designer" /> <span data-i18n="external.form.extras.cakeDesigner">Prodotti dolciari creati dal Cake Designer</span></label>
+                  <label><input type="checkbox" name="extras[]" value="gusto-personalizzato" /> <span data-i18n="external.form.extras.customFlavour">Gusto di gelato personalizzato o su richiesta</span></label>
+                  <label><input type="checkbox" name="extras[]" value="torta-ricorrenza" /> <span data-i18n="external.form.extras.celebrationCake">Torta di ricorrenza</span></label>
+                  <label><input type="checkbox" name="extras[]" value="dj-set" /> <span data-i18n="external.form.extras.djSet">Dj set</span></label>
                 </div>
               </div>
             </div>
-            <div class="fm-field full"><label>Evento di interesse *</label>
+            <div class="fm-field full"><label data-i18n="external.form.eventInterest">Evento di interesse *</label>
               <div class="fm-checkbox-group">
-                <label><input type="checkbox" name="evento[]" value="saletta-privata" /> Saletta Privata</label>
-                <label><input type="checkbox" name="evento[]" value="evento-esterno" /> Evento Esterno</label>
-                <label><input type="checkbox" name="evento[]" value="gelato-van" /> Gelato Van</label>
-                <label><input type="checkbox" name="evento[]" value="su-misura" /> Evento su Misura</label>
+                <label><input type="checkbox" name="evento[]" value="saletta-privata" /> <span data-i18n="external.form.eventInterest.privateRoom">Saletta Privata</span></label>
+                <label><input type="checkbox" name="evento[]" value="evento-esterno" /> <span data-i18n="external.form.eventInterest.external">Evento Esterno</span></label>
+                <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="external.form.eventInterest.van">Gelato Van</span></label>
+                <label><input type="checkbox" name="evento[]" value="su-misura" /> <span data-i18n="external.form.eventInterest.tailored">Evento su Misura</span></label>
               </div>
             </div>
           </div>
           <div class="form-modal__actions">
-            <label class="fm-privacy"><input type="checkbox" required /><span>Ho letto e accetto la <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.</span></label>
-            <button type="submit" class="form-modal__submit"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>Invia Richiesta</button>
+            <label class="fm-privacy"><input type="checkbox" required /><span data-i18n-html="external.form.privacy">Ho letto e accetto la <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.</span></label>
+            <button type="submit" class="form-modal__submit"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg><span data-i18n="external.form.submit">Invia Richiesta</span></button>
           </div>
         </form>
       </div>
@@ -1053,7 +1081,68 @@
           'external.modal.vetrina.transport.info': 'Trasporto per veicolo entro i 100 km €250,00 + iva',
           'external.modal.vetrina.transport.custom': 'Costi di personalizzazione da concordare previa richiesta con un minimo di preavviso di almeno 14 giorni (da definire)',
           'external.modal.vetrina.gallery.title': 'Gallery',
-          'external.modal.vetrina.gallery.text': 'Allegare foto esempio di eventi passati'
+          'external.modal.vetrina.gallery.text': 'Allegare foto esempio di eventi passati',
+          // CTA
+          'external.cta.requestInfo': 'Richiedi Informazioni',
+          // Modal Spec Labels & Values — Cool Box
+          'external.modal.coolbox.capacity.label': 'Capacità',
+          'external.modal.coolbox.capacity.value': '40-90 pax (max 2 gusti)',
+          'external.modal.coolbox.service.label': 'Servizio',
+          'external.modal.coolbox.service.value': '1 operatore<br>Durata da definire in base al tempo',
+          'external.modal.coolbox.transport.label': 'Trasporto',
+          'external.modal.coolbox.transport.value': 'Da definire in base alla distanza',
+          'external.modal.coolbox.custom.label': 'Personalizzazione',
+          'external.modal.coolbox.custom.value': 'Minimo 14 giorni di preavviso<br>Costi da concordare',
+          // Modal Spec Labels & Values — Carretto
+          'external.modal.carretto.service.label': 'Servizio',
+          'external.modal.carretto.service.value': 'Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax',
+          'external.modal.carretto.included.label': 'Incluso',
+          'external.modal.carretto.included.value': '2h di servizio con 1 operatore<br>Extra time disponibile su richiesta',
+          'external.modal.carretto.transport.label': 'Trasporto',
+          'external.modal.carretto.transport.value': 'Per veicolo entro i 100 km',
+          'external.modal.carretto.custom.label': 'Personalizzazione',
+          'external.modal.carretto.custom.value': 'Minimo 14 giorni di preavviso<br>Costi da concordare',
+          // Modal Spec Labels & Values — Vetrina
+          'external.modal.vetrina.service.label': 'Servizio',
+          'external.modal.vetrina.service.value': 'Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax',
+          'external.modal.vetrina.included.label': 'Incluso',
+          'external.modal.vetrina.included.value': '2h di servizio con 1 operatore<br>Extra time disponibile su richiesta',
+          'external.modal.vetrina.transport.label': 'Trasporto',
+          'external.modal.vetrina.transport.value': 'Per veicolo entro i 100 km',
+          'external.modal.vetrina.custom.label': 'Personalizzazione',
+          'external.modal.vetrina.custom.value': 'Minimo 14 giorni di preavviso<br>Costi da concordare',
+          // Request Form
+          'external.form.title': 'Richiedi Informazioni',
+          'external.form.subtitle': 'Compila il modulo e ti ricontatteremo',
+          'external.form.firstName': 'Nome *',
+          'external.form.firstName.placeholder': 'Il tuo nome',
+          'external.form.lastName': 'Cognome *',
+          'external.form.lastName.placeholder': 'Il tuo cognome',
+          'external.form.clientType': 'Azienda o Privato *',
+          'external.form.clientType.placeholder': 'Seleziona...',
+          'external.form.clientType.company': 'Azienda',
+          'external.form.clientType.private': 'Privato',
+          'external.form.phone': 'Telefono *',
+          'external.form.phone.placeholder': '+39 ...',
+          'external.form.eventDate': 'Data',
+          'external.form.eventTime': 'Orario',
+          'external.form.guests': 'Numero Persone',
+          'external.form.guests.placeholder': 'Es. 50',
+          'external.form.extras': 'Opzioni Extra?',
+          'external.form.extras.yes': 'Sì',
+          'external.form.extras.no': 'No',
+          'external.form.extras.themedDecor': 'Allestimento a tema',
+          'external.form.extras.cakeDesigner': 'Prodotti dolciari creati dal Cake Designer',
+          'external.form.extras.customFlavour': 'Gusto di gelato personalizzato o su richiesta',
+          'external.form.extras.celebrationCake': 'Torta di ricorrenza',
+          'external.form.extras.djSet': 'Dj set',
+          'external.form.eventInterest': 'Evento di interesse *',
+          'external.form.eventInterest.privateRoom': 'Saletta Privata',
+          'external.form.eventInterest.external': 'Evento Esterno',
+          'external.form.eventInterest.van': 'Gelato Van',
+          'external.form.eventInterest.tailored': 'Evento su Misura',
+          'external.form.privacy': 'Ho letto e accetto la <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.',
+          'external.form.submit': 'Invia Richiesta'
         },
         en: {
           'meta.title': 'External Event — Badiani Events',
@@ -1148,7 +1237,68 @@
           'external.modal.vetrina.transport.info': 'Transport by vehicle within 100 km €250.00 + VAT',
           'external.modal.vetrina.transport.custom': 'Customisation costs to be agreed upon request with at least 14 days notice (to be defined)',
           'external.modal.vetrina.gallery.title': 'Gallery',
-          'external.modal.vetrina.gallery.text': 'Photos from past events to be attached'
+          'external.modal.vetrina.gallery.text': 'Photos from past events to be attached',
+          // CTA
+          'external.cta.requestInfo': 'Request Information',
+          // Modal Spec Labels & Values — Cool Box
+          'external.modal.coolbox.capacity.label': 'Capacity',
+          'external.modal.coolbox.capacity.value': '40-90 guests (max 2 flavours)',
+          'external.modal.coolbox.service.label': 'Service',
+          'external.modal.coolbox.service.value': '1 operator<br>Duration to be defined based on time',
+          'external.modal.coolbox.transport.label': 'Transport',
+          'external.modal.coolbox.transport.value': 'To be defined based on distance',
+          'external.modal.coolbox.custom.label': 'Customisation',
+          'external.modal.coolbox.custom.value': 'Minimum 14 days\' notice<br>Costs to be agreed',
+          // Modal Spec Labels & Values — Carretto
+          'external.modal.carretto.service.label': 'Service',
+          'external.modal.carretto.service.value': 'Gelato served in cone or cup<br>Tiers: 0-50 guests, 50-70 guests, 70-100 guests',
+          'external.modal.carretto.included.label': 'Included',
+          'external.modal.carretto.included.value': '2h service with 1 operator<br>Extra time available on request',
+          'external.modal.carretto.transport.label': 'Transport',
+          'external.modal.carretto.transport.value': 'Per vehicle within 100 km',
+          'external.modal.carretto.custom.label': 'Customisation',
+          'external.modal.carretto.custom.value': 'Minimum 14 days\' notice<br>Costs to be agreed',
+          // Modal Spec Labels & Values — Vetrina
+          'external.modal.vetrina.service.label': 'Service',
+          'external.modal.vetrina.service.value': 'Gelato served in cone or cup<br>Tiers: 0-50 guests, 50-70 guests, 70-100 guests',
+          'external.modal.vetrina.included.label': 'Included',
+          'external.modal.vetrina.included.value': '2h service with 1 operator<br>Extra time available on request',
+          'external.modal.vetrina.transport.label': 'Transport',
+          'external.modal.vetrina.transport.value': 'Per vehicle within 100 km',
+          'external.modal.vetrina.custom.label': 'Customisation',
+          'external.modal.vetrina.custom.value': 'Minimum 14 days\' notice<br>Costs to be agreed',
+          // Request Form
+          'external.form.title': 'Request Information',
+          'external.form.subtitle': 'Fill in the form and we will get back to you',
+          'external.form.firstName': 'First Name *',
+          'external.form.firstName.placeholder': 'Your first name',
+          'external.form.lastName': 'Surname *',
+          'external.form.lastName.placeholder': 'Your surname',
+          'external.form.clientType': 'Company or Private *',
+          'external.form.clientType.placeholder': 'Select...',
+          'external.form.clientType.company': 'Company',
+          'external.form.clientType.private': 'Private',
+          'external.form.phone': 'Telephone *',
+          'external.form.phone.placeholder': '+44 ...',
+          'external.form.eventDate': 'Date',
+          'external.form.eventTime': 'Time',
+          'external.form.guests': 'Number of Guests',
+          'external.form.guests.placeholder': 'e.g. 50',
+          'external.form.extras': 'Extra Options?',
+          'external.form.extras.yes': 'Yes',
+          'external.form.extras.no': 'No',
+          'external.form.extras.themedDecor': 'Themed décor',
+          'external.form.extras.cakeDesigner': 'Confectionery products by the Cake Designer',
+          'external.form.extras.customFlavour': 'Bespoke or custom gelato flavour',
+          'external.form.extras.celebrationCake': 'Celebration cake',
+          'external.form.extras.djSet': 'DJ set',
+          'external.form.eventInterest': 'Event of interest *',
+          'external.form.eventInterest.privateRoom': 'Private Room',
+          'external.form.eventInterest.external': 'External Event',
+          'external.form.eventInterest.van': 'Gelato Van',
+          'external.form.eventInterest.tailored': 'Tailored Event',
+          'external.form.privacy': 'I have read and accept the <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.',
+          'external.form.submit': 'Send Request'
         },
         fr: {
           'meta.title': 'Événement Externe — Événements Badiani',
@@ -1243,7 +1393,68 @@
           'external.modal.vetrina.transport.info': 'Transport par véhicule dans les 100 km €250,00 + TVA',
           'external.modal.vetrina.transport.custom': 'Coûts de personnalisation à convenir sur demande avec au moins 14 jours de préavis (à définir)',
           'external.modal.vetrina.gallery.title': 'Galerie',
-          'external.modal.vetrina.gallery.text': 'Photos d\'événements passés à joindre'
+          'external.modal.vetrina.gallery.text': 'Photos d\'événements passés à joindre',
+          // CTA
+          'external.cta.requestInfo': 'Demander des Informations',
+          // Modal Spec Labels & Values — Cool Box
+          'external.modal.coolbox.capacity.label': 'Capacité',
+          'external.modal.coolbox.capacity.value': '40-90 personnes (max 2 parfums)',
+          'external.modal.coolbox.service.label': 'Service',
+          'external.modal.coolbox.service.value': '1 opérateur<br>Durée à définir selon le temps',
+          'external.modal.coolbox.transport.label': 'Transport',
+          'external.modal.coolbox.transport.value': 'À définir selon la distance',
+          'external.modal.coolbox.custom.label': 'Personnalisation',
+          'external.modal.coolbox.custom.value': 'Préavis minimum 14 jours<br>Coûts à convenir',
+          // Modal Spec Labels & Values — Carretto
+          'external.modal.carretto.service.label': 'Service',
+          'external.modal.carretto.service.value': 'Gelato servi en cornet ou coupe<br>Tranches : 0-50 personnes, 50-70 personnes, 70-100 personnes',
+          'external.modal.carretto.included.label': 'Inclus',
+          'external.modal.carretto.included.value': '2h de service avec 1 opérateur<br>Temps supplémentaire disponible sur demande',
+          'external.modal.carretto.transport.label': 'Transport',
+          'external.modal.carretto.transport.value': 'Par véhicule dans les 100 km',
+          'external.modal.carretto.custom.label': 'Personnalisation',
+          'external.modal.carretto.custom.value': 'Préavis minimum 14 jours<br>Coûts à convenir',
+          // Modal Spec Labels & Values — Vetrina
+          'external.modal.vetrina.service.label': 'Service',
+          'external.modal.vetrina.service.value': 'Gelato servi en cornet ou coupe<br>Tranches : 0-50 personnes, 50-70 personnes, 70-100 personnes',
+          'external.modal.vetrina.included.label': 'Inclus',
+          'external.modal.vetrina.included.value': '2h de service avec 1 opérateur<br>Temps supplémentaire disponible sur demande',
+          'external.modal.vetrina.transport.label': 'Transport',
+          'external.modal.vetrina.transport.value': 'Par véhicule dans les 100 km',
+          'external.modal.vetrina.custom.label': 'Personnalisation',
+          'external.modal.vetrina.custom.value': 'Préavis minimum 14 jours<br>Coûts à convenir',
+          // Request Form
+          'external.form.title': 'Demander des Informations',
+          'external.form.subtitle': 'Remplissez le formulaire et nous vous recontacterons',
+          'external.form.firstName': 'Prénom *',
+          'external.form.firstName.placeholder': 'Votre prénom',
+          'external.form.lastName': 'Nom *',
+          'external.form.lastName.placeholder': 'Votre nom',
+          'external.form.clientType': 'Entreprise ou Particulier *',
+          'external.form.clientType.placeholder': 'Sélectionner...',
+          'external.form.clientType.company': 'Entreprise',
+          'external.form.clientType.private': 'Particulier',
+          'external.form.phone': 'Téléphone *',
+          'external.form.phone.placeholder': '+33 ...',
+          'external.form.eventDate': 'Date',
+          'external.form.eventTime': 'Heure',
+          'external.form.guests': 'Nombre de personnes',
+          'external.form.guests.placeholder': 'Ex. 50',
+          'external.form.extras': 'Options supplémentaires ?',
+          'external.form.extras.yes': 'Oui',
+          'external.form.extras.no': 'Non',
+          'external.form.extras.themedDecor': 'Décoration à thème',
+          'external.form.extras.cakeDesigner': 'Créations pâtissières du Cake Designer',
+          'external.form.extras.customFlavour': 'Parfum de gelato personnalisé ou sur demande',
+          'external.form.extras.celebrationCake': 'Gâteau de fête',
+          'external.form.extras.djSet': 'DJ set',
+          'external.form.eventInterest': 'Événement d\'intérêt *',
+          'external.form.eventInterest.privateRoom': 'Salle Privée',
+          'external.form.eventInterest.external': 'Événement Externe',
+          'external.form.eventInterest.van': 'Gelato Van',
+          'external.form.eventInterest.tailored': 'Événement sur Mesure',
+          'external.form.privacy': 'J\'ai lu et j\'accepte la <a href="#" style="color:var(--badiani-blue);">politique de confidentialité</a>.',
+          'external.form.submit': 'Envoyer la Demande'
         },
         es: {
           'meta.title': 'Evento Externo — Eventos Badiani',
@@ -1338,7 +1549,68 @@
           'external.modal.vetrina.transport.info': 'Transporte por vehículo dentro de 100 km €250,00 + IVA',
           'external.modal.vetrina.transport.custom': 'Costos de personalización a acordar previa solicitud con al menos 14 días de aviso (a definir)',
           'external.modal.vetrina.gallery.title': 'Galería',
-          'external.modal.vetrina.gallery.text': 'Fotos de eventos pasados a adjuntar'
+          'external.modal.vetrina.gallery.text': 'Fotos de eventos pasados a adjuntar',
+          // CTA
+          'external.cta.requestInfo': 'Solicitar Información',
+          // Modal Spec Labels & Values — Cool Box
+          'external.modal.coolbox.capacity.label': 'Capacidad',
+          'external.modal.coolbox.capacity.value': '40-90 personas (máx. 2 sabores)',
+          'external.modal.coolbox.service.label': 'Servicio',
+          'external.modal.coolbox.service.value': '1 operador<br>Duración a definir según el tiempo',
+          'external.modal.coolbox.transport.label': 'Transporte',
+          'external.modal.coolbox.transport.value': 'A definir según la distancia',
+          'external.modal.coolbox.custom.label': 'Personalización',
+          'external.modal.coolbox.custom.value': 'Aviso mínimo 14 días<br>Costos a acordar',
+          // Modal Spec Labels & Values — Carretto
+          'external.modal.carretto.service.label': 'Servicio',
+          'external.modal.carretto.service.value': 'Gelato servido en cono o copa<br>Franjas: 0-50 personas, 50-70 personas, 70-100 personas',
+          'external.modal.carretto.included.label': 'Incluido',
+          'external.modal.carretto.included.value': '2h de servicio con 1 operador<br>Tiempo extra disponible bajo petición',
+          'external.modal.carretto.transport.label': 'Transporte',
+          'external.modal.carretto.transport.value': 'Por vehículo dentro de 100 km',
+          'external.modal.carretto.custom.label': 'Personalización',
+          'external.modal.carretto.custom.value': 'Aviso mínimo 14 días<br>Costos a acordar',
+          // Modal Spec Labels & Values — Vetrina
+          'external.modal.vetrina.service.label': 'Servicio',
+          'external.modal.vetrina.service.value': 'Gelato servido en cono o copa<br>Franjas: 0-50 personas, 50-70 personas, 70-100 personas',
+          'external.modal.vetrina.included.label': 'Incluido',
+          'external.modal.vetrina.included.value': '2h de servicio con 1 operador<br>Tiempo extra disponible bajo petición',
+          'external.modal.vetrina.transport.label': 'Transporte',
+          'external.modal.vetrina.transport.value': 'Por vehículo dentro de 100 km',
+          'external.modal.vetrina.custom.label': 'Personalización',
+          'external.modal.vetrina.custom.value': 'Aviso mínimo 14 días<br>Costos a acordar',
+          // Request Form
+          'external.form.title': 'Solicitar Información',
+          'external.form.subtitle': 'Completa el formulario y nos pondremos en contacto contigo',
+          'external.form.firstName': 'Nombre *',
+          'external.form.firstName.placeholder': 'Tu nombre',
+          'external.form.lastName': 'Apellido *',
+          'external.form.lastName.placeholder': 'Tu apellido',
+          'external.form.clientType': 'Empresa o Particular *',
+          'external.form.clientType.placeholder': 'Seleccionar...',
+          'external.form.clientType.company': 'Empresa',
+          'external.form.clientType.private': 'Particular',
+          'external.form.phone': 'Teléfono *',
+          'external.form.phone.placeholder': '+34 ...',
+          'external.form.eventDate': 'Fecha',
+          'external.form.eventTime': 'Hora',
+          'external.form.guests': 'Número de Personas',
+          'external.form.guests.placeholder': 'Ej. 50',
+          'external.form.extras': '¿Opciones extra?',
+          'external.form.extras.yes': 'Sí',
+          'external.form.extras.no': 'No',
+          'external.form.extras.themedDecor': 'Decoración temática',
+          'external.form.extras.cakeDesigner': 'Productos de repostería del Cake Designer',
+          'external.form.extras.customFlavour': 'Sabor de gelato personalizado o bajo petición',
+          'external.form.extras.celebrationCake': 'Tarta de celebración',
+          'external.form.extras.djSet': 'DJ set',
+          'external.form.eventInterest': 'Evento de interés *',
+          'external.form.eventInterest.privateRoom': 'Sala Privada',
+          'external.form.eventInterest.external': 'Evento Externo',
+          'external.form.eventInterest.van': 'Gelato Van',
+          'external.form.eventInterest.tailored': 'Evento a Medida',
+          'external.form.privacy': 'He leído y acepto la <a href="#" style="color:var(--badiani-blue);">política de privacidad</a>.',
+          'external.form.submit': 'Enviar Solicitud'
         }
       };
 

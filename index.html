@@ -27,37 +27,32 @@
     /* HERO - VIDEO + TITLE (inspiration style) */
     .hero{
       position:relative;
-      height:550px;
       overflow:hidden;
-      display:grid;
-      place-items:center;
       text-align:center;
       color:#fff;
       background:#000;
     }
     .hero video{
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      object-position:center center;
+      display:block;
+      width:100%;
+      height:auto;
       filter:brightness(0.32);
       transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .hero:hover video,
     .hero.is-active video{
       filter:brightness(1) saturate(1.1);
       transform:scale(1.05);
     }
     .hero-content{
-      position:relative;
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
       z-index:2;
       width:100%;
       max-width:900px;
       padding:20px;
       transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .hero:hover .hero-content,
     .hero.is-active .hero-content{
       opacity:0;
       pointer-events:none;
@@ -71,6 +66,17 @@
       line-height:1.08;
       color:#fff;
       text-shadow:2px 2px 12px rgba(0,0,0,0.4);
+    }
+    .hero-subtitle{
+      font-size:clamp(14px, 1.8vw, 20px);
+      font-weight:300;
+      color:rgba(255,255,255,0.92);
+      line-height:1.6;
+      margin-top:18px;
+      text-shadow:1px 1px 8px rgba(0,0,0,0.5);
+      max-width:700px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     .choice-grid{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:32px; max-width:960px; margin:0 auto; }
@@ -134,8 +140,6 @@
     @media(max-width:900px){
       .hero{
         height:auto;
-        min-height:50vh;
-        padding:40px 15px 35px;
       }
       .hero-content h1{
         font-size:clamp(32px, 8.4vw, 44px);
@@ -176,10 +180,10 @@
       padding:var(--space-xl) clamp(16px, 4vw, 80px);
       text-align:center;
       background-color:#1e398d;
-      background-image:url('assets/images/branding/eventi-bg.webp');
-      background-repeat:repeat-y;
+      background-image:url('assets/images/branding/sfondo.webp');
+      background-repeat:no-repeat;
       background-position:top center;
-      background-size:100% auto;
+      background-size:cover;
     }
     .choice-section h2{
       font-size:clamp(24px, 3vw, 38px);
@@ -265,10 +269,10 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url('assets/images/branding/eventi-bg.webp');
+      background-image: url('assets/images/branding/sfondo.webp');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: top center;
       opacity: 0.25;
       pointer-events: none;
       z-index: 0;
@@ -529,13 +533,24 @@
     </div>
   </header>
 
+  <!-- HERO: VIDEO + TITLE -->
+  <section class="hero" id="hero">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="assets/video/home-b2b.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h1 data-i18n="home.hero.title">Badiani Experience</h1>
+      <p class="hero-subtitle" data-i18n-html="home.hero.subtitle">Un momento iconico che accende l'evento.<br>Gelato artigianale, bello da vedere e buonissimo da vivere.<br>Personalizziamo format, setup e servizio in base alla tua occasione.</p>
+    </div>
+  </section>
+
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
     <h2 data-i18n="home.choice.title">Scegli l'esperienza che ti serve</h2>
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
-        <img class="choice-card__img" src="assets/images/eventi/evento-esterno-2.png" alt="Eventi" loading="lazy" decoding="async" />
+        <img class="choice-card__img" src="assets/images/eventi/evento-esterno-2.png" alt="Eventi" loading="lazy" decoding="async" data-i18n-attr="alt:home.card.eventi.title" />
         <div class="choice-card__overlay">
-          <h3 class="choice-title">EVENTI</h3>
+          <h3 class="choice-title" data-i18n="home.card.eventi.title">EVENTI</h3>
           <p class="choice-desc" data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</p>
           <span class="choice-cta" data-i18n="home.choice.cta">Scopri</span>
         </div>
@@ -548,16 +563,6 @@
           <span class="choice-cta" data-i18n="home.choice.cta">Scopri</span>
         </div>
       </a>
-    </div>
-  </section>
-
-  <!-- HERO: VIDEO + TITLE -->
-  <section class="hero" id="hero">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="assets/video/home-b2b.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <h1 data-i18n="home.hero.title">Badiani Experience</h1>
     </div>
   </section>
 
@@ -657,7 +662,8 @@
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
           'home.hero.title': 'Badiani Experience',
-          'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
+          'home.hero.subtitle': 'Un momento iconico che accende l\'evento.<br>Gelato artigianale, bello da vedere e buonissimo da vivere.<br>Personalizziamo format, setup e servizio in base alla tua occasione.',
+          'home.hero.note': 'TODO: alternativa titolo "Esperienze Badiani?" o "Gelato su misura?"',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.video.todo': 'TODO: sostituire il video con “Paolo in laboratorio produzione del Buontalenti”.',
@@ -723,23 +729,24 @@
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
           'home.hero.title': 'Badiani Experience',
-          'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
+          'home.hero.subtitle': 'An iconic moment that lights up the event.<br>Artisan gelato, beautiful to see and delicious to experience.<br>We customize format, setup and service based on your occasion.',
+          'home.hero.note': 'TODO: alternativa titolo "Esperienze Badiani?" o "Gelato su misura?"',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.video.todo': 'TODO: sostituire il video con “Paolo in laboratorio produzione del Buontalenti”.',
-          'home.choice.label': 'Scelta esperienza',
-          'home.choice.title': 'Scegli l’esperienza che ti serve',
-          'home.choice.tag': 'Percorso',
-          'home.choice.eventi.desc': 'Feste private ed eventi su misura',
-          'home.choice.eventi.todo': 'TODO: alternativa slogan “Il tuo party personalizzato con Badiani”',
-          'home.choice.eventi.aria': 'Vai alla pagina Eventi',
-          'home.choice.b2b.desc': 'Soluzioni gelato per catering, hotel',
+          'home.choice.label': 'Experience selection',
+          'home.choice.title': 'Choose the experience you need',
+          'home.choice.tag': 'Path',
+          'home.choice.eventi.desc': 'Private parties and bespoke events',
+          'home.choice.eventi.todo': 'TODO: alternativa slogan "Il tuo party personalizzato con Badiani"',
+          'home.choice.eventi.aria': 'Go to Events page',
+          'home.choice.b2b.desc': 'Gelato solutions for catering, hotels',
           'home.choice.b2b.todo': 'TODO: definire categorie',
-          'home.choice.b2b.aria': 'Vai alla pagina B2B',
+          'home.choice.b2b.aria': 'Go to B2B page',
           'home.choice.magazine.desc': 'Press review with articles about Badiani',
           'home.choice.magazine.note': 'Browse media previews',
           'home.choice.magazine.aria': 'Go to Magazine page',
-          'home.choice.cta': 'Scopri',
+          'home.choice.cta': 'Discover',
           'home.contact.label': 'Contacts',
           'home.contact.title': 'Contacts',
           'home.contact.subtitle': 'Write to us for events, B2B and retail information.',
@@ -758,7 +765,7 @@
           'home.card.cta': 'Enter',
           'home.card.eventi.aria': 'Go to Events page',
           'home.card.b2b.aria': 'Go to B2B page',
-          'story.title': 'BADIANI LA STORIA',
+          'story.title': 'BADIANI THE HISTORY',
           'story.lead': 'In the 1960s, in Florence, Badiani dedicated a special flavour to <span class="highlight-pink">Bernardo Buontalenti</span>, the Renaissance architect to whom tradition attributes the birth of <span class="highlight-pink">gelato</span> in the 16th century.',
           'story.tl.title.origin': 'The Origin',
           'story.tl.desc.origin': 'Bernardo Buontalenti invents gelato in <span class="highlight-pink">Renaissance Florence</span>, creating a frozen delicacy for the Medici court.',
@@ -767,7 +774,7 @@
           'story.tl.year.today': 'TODAY',
           'story.tl.title.legacy': 'The Legacy',
           'story.tl.desc.legacy': 'Il Barattolo Gelato brings this iconic Florentine flavour to <span class="highlight-pink">premium retail</span> worldwide.',
-          'heritage.title': 'BADIANI NEL MONDO',
+          'heritage.title': 'BADIANI WORLDWIDE',
           'heritage.intro': 'Born in <span class="highlight-pink">Florence in 1932</span>, Badiani is one of the world\'s most prestigious gelato producers. From the birthplace of gelato, we have built an international presence spanning five countries across three continents.',
           'heritage.stat.founded': 'Founded in Florence',
           'heritage.stat.stores': 'Stores Worldwide',
@@ -789,23 +796,24 @@
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
           'home.hero.title': 'Badiani Experience',
-          'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
+          'home.hero.subtitle': 'Un moment iconique qui illumine l\'événement.<br>Gelato artisanal, beau à voir et délicieux à vivre.<br>Nous personnalisons le format, le setup et le service selon votre occasion.',
+          'home.hero.note': 'TODO: alternativa titolo "Esperienze Badiani?" o "Gelato su misura?"',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.video.todo': 'TODO: sostituire il video con “Paolo in laboratorio produzione del Buontalenti”.',
-          'home.choice.label': 'Scelta esperienza',
-          'home.choice.title': 'Scegli l’esperienza che ti serve',
-          'home.choice.tag': 'Percorso',
-          'home.choice.eventi.desc': 'Feste private ed eventi su misura',
-          'home.choice.eventi.todo': 'TODO: alternativa slogan “Il tuo party personalizzato con Badiani”',
-          'home.choice.eventi.aria': 'Vai alla pagina Eventi',
-          'home.choice.b2b.desc': 'Soluzioni gelato per catering, hotel',
+          'home.choice.label': 'Choix de l\'expérience',
+          'home.choice.title': 'Choisissez l\'expérience qui vous convient',
+          'home.choice.tag': 'Parcours',
+          'home.choice.eventi.desc': 'Fêtes privées et événements sur mesure',
+          'home.choice.eventi.todo': 'TODO: alternativa slogan "Il tuo party personalizzato con Badiani"',
+          'home.choice.eventi.aria': 'Aller à la page Événements',
+          'home.choice.b2b.desc': 'Solutions gelato pour traiteurs, hôtels',
           'home.choice.b2b.todo': 'TODO: definire categorie',
-          'home.choice.b2b.aria': 'Vai alla pagina B2B',
+          'home.choice.b2b.aria': 'Aller à la page B2B',
           'home.choice.magazine.desc': 'Revue de presse avec des articles sur Badiani',
           'home.choice.magazine.note': 'Parcourez les aperçus des médias',
           'home.choice.magazine.aria': 'Aller à la page Magazine',
-          'home.choice.cta': 'Scopri',
+          'home.choice.cta': 'Découvrir',
           'home.contact.label': 'Contacts',
           'home.contact.title': 'Contacts',
           'home.contact.subtitle': 'Écrivez-nous pour des informations sur les événements, le B2B et le retail.',
@@ -824,7 +832,7 @@
           'home.card.cta': 'Entrer',
           'home.card.eventi.aria': 'Aller à la page Événements',
           'home.card.b2b.aria': 'Aller à la page B2B',
-          'story.title': 'BADIANI LA STORIA',
+          'story.title': 'BADIANI L\'HISTOIRE',
           'story.lead': 'Dans les années 1960, à Florence, Badiani a dédié un parfum spécial à <span class="highlight-pink">Bernardo Buontalenti</span>, l\'architecte de la Renaissance auquel la tradition attribue la naissance du <span class="highlight-pink">gelato</span> au XVIe siècle.',
           'story.tl.title.origin': 'L\'Origine',
           'story.tl.desc.origin': 'Bernardo Buontalenti invente le gelato dans la <span class="highlight-pink">Florence de la Renaissance</span>, créant une gourmandise glacée pour la cour des Médicis.',
@@ -833,7 +841,7 @@
           'story.tl.year.today': 'AUJOURD\'HUI',
           'story.tl.title.legacy': 'L\'Héritage',
           'story.tl.desc.legacy': 'Il Barattolo Gelato apporte ce parfum florentin iconique au <span class="highlight-pink">retail premium</span> dans le monde entier.',
-          'heritage.title': 'BADIANI NEL MONDO',
+          'heritage.title': 'BADIANI DANS LE MONDE',
           'heritage.intro': 'Née à <span class="highlight-pink">Florence en 1932</span>, Badiani est l\'un des producteurs de gelato les plus prestigieux au monde. Depuis le berceau du gelato, nous avons bâti une présence internationale dans cinq pays sur trois continents.',
           'heritage.stat.founded': 'Fondée à Florence',
           'heritage.stat.stores': 'Boutiques Mondiales',
@@ -855,23 +863,24 @@
           'nav.magazine': 'Magazine',
           'home.hero.label': 'Hero home',
           'home.hero.title': 'Badiani Experience',
-          'home.hero.note': 'TODO: alternativa titolo “Esperienze Badiani?” o “Gelato su misura?”',
+          'home.hero.subtitle': 'Un momento icónico que enciende el evento.<br>Helado artesanal, hermoso de ver y delicioso de vivir.<br>Personalizamos formato, montaje y servicio según tu ocasión.',
+          'home.hero.note': 'TODO: alternativa titolo "Esperienze Badiani?" o "Gelato su misura?"',
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.video.todo': 'TODO: sostituire il video con “Paolo in laboratorio produzione del Buontalenti”.',
-          'home.choice.label': 'Scelta esperienza',
-          'home.choice.title': 'Scegli l’esperienza che ti serve',
-          'home.choice.tag': 'Percorso',
-          'home.choice.eventi.desc': 'Feste private ed eventi su misura',
-          'home.choice.eventi.todo': 'TODO: alternativa slogan “Il tuo party personalizzato con Badiani”',
-          'home.choice.eventi.aria': 'Vai alla pagina Eventi',
-          'home.choice.b2b.desc': 'Soluzioni gelato per catering, hotel',
+          'home.choice.label': 'Selección de experiencia',
+          'home.choice.title': 'Elige la experiencia que necesitas',
+          'home.choice.tag': 'Recorrido',
+          'home.choice.eventi.desc': 'Fiestas privadas y eventos a medida',
+          'home.choice.eventi.todo': 'TODO: alternativa slogan "Il tuo party personalizzato con Badiani"',
+          'home.choice.eventi.aria': 'Ir a la página de Eventos',
+          'home.choice.b2b.desc': 'Soluciones de helado para catering, hoteles',
           'home.choice.b2b.todo': 'TODO: definire categorie',
-          'home.choice.b2b.aria': 'Vai alla pagina B2B',
+          'home.choice.b2b.aria': 'Ir a la página B2B',
           'home.choice.magazine.desc': 'Recopilación de prensa con artículos sobre Badiani',
           'home.choice.magazine.note': 'Explora las vistas previas de los medios',
           'home.choice.magazine.aria': 'Ir a la página Magazine',
-          'home.choice.cta': 'Scopri',
+          'home.choice.cta': 'Descubrir',
           'home.contact.label': 'Contactos',
           'home.contact.title': 'Contactos',
           'home.contact.subtitle': 'Escríbenos para información sobre eventos, B2B y retail.',
@@ -890,7 +899,7 @@
           'home.card.cta': 'Entrar',
           'home.card.eventi.aria': 'Ir a la página de Eventos',
           'home.card.b2b.aria': 'Ir a la página B2B',
-          'story.title': 'BADIANI LA STORIA',
+          'story.title': 'BADIANI LA HISTORIA',
           'story.lead': 'En los años 60, en Florencia, Badiani dedicó un sabor especial a <span class="highlight-pink">Bernardo Buontalenti</span>, el arquitecto renacentista al que la tradición atribuye el nacimiento del <span class="highlight-pink">helado</span> en el siglo XVI.',
           'story.tl.title.origin': 'El Origen',
           'story.tl.desc.origin': 'Bernardo Buontalenti inventa el helado en la <span class="highlight-pink">Florencia Renacentista</span>, creando un manjar helado para la corte de los Médici.',
@@ -899,7 +908,7 @@
           'story.tl.year.today': 'HOY',
           'story.tl.title.legacy': 'El Legado',
           'story.tl.desc.legacy': 'Il Barattolo Gelato lleva este icónico sabor florentino a la <span class="highlight-pink">distribución premium</span> en todo el mundo.',
-          'heritage.title': 'BADIANI NEL MONDO',
+          'heritage.title': 'BADIANI EN EL MUNDO',
           'heritage.intro': 'Nacida en <span class="highlight-pink">Florencia en 1932</span>, Badiani es uno de los productores de helado más prestigiosos del mundo. Desde la cuna del helado, hemos construido una presencia internacional en cinco países en tres continentes.',
           'heritage.stat.founded': 'Fundada en Florencia',
           'heritage.stat.stores': 'Tiendas en el Mundo',
@@ -980,7 +989,7 @@
 
 
 
-    /* Hero: click toggles active state on mobile (hover works on desktop) */
+    /* Hero: click toggles overlay on/off */
     (function(){
       var hero = document.getElementById('hero');
       if (!hero) return;

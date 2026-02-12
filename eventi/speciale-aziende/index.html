@@ -8,6 +8,10 @@
   <style>
     /* Page-specific styles for Speciale Aziende */
 
+    body{
+      background: url('../../assets/images/branding/sfondo.webp') no-repeat top center / cover fixed;
+    }
+
     .hero{
       background:linear-gradient(135deg, var(--badiani-blue), #2a4ab0);
       padding:80px 20px;
@@ -201,86 +205,229 @@
   </style>
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="../../" class="topbar__logo">
       <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" />
     </a>
     <nav class="topbar__nav">
-      <a href="../../">Home</a>
-      <a href="../">Eventi</a>
-      <a href="../../b2b/">B2B</a>
+      <a href="../../" data-i18n="nav.home">Home</a>
+      <a href="../" data-i18n="nav.eventi">Eventi</a>
+      <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
     </nav>
+    <select class="topbar__lang" data-i18n-attr="aria-label:lang.label" onchange="setLang(this.value)">
+      <option value="it" data-i18n="lang.it">IT</option>
+      <option value="en" data-i18n="lang.en">EN</option>
+      <option value="fr" data-i18n="lang.fr">FR</option>
+      <option value="es" data-i18n="lang.es">ES</option>
+    </select>
   </header>
 
   <section class="hero">
-    <h1>Crea il tuo evento aziendale su misura</h1>
-    <p class="subtitle">Crea un evento unico, pensato intorno al tuo brand</p>
-    <p>Ogni azienda ha un'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</p>
+    <h1 data-i18n="az.hero.title">Crea il tuo evento aziendale su misura</h1>
+    <p class="subtitle" data-i18n="az.hero.subtitle">Crea un evento unico, pensato intorno al tuo brand</p>
+    <p data-i18n="az.hero.desc">Ogni azienda ha un'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</p>
   </section>
 
   <section class="section">
-    <h2 class="section-title">Cosa possiamo personalizzare</h2>
+    <h2 class="section-title" data-i18n="az.customize.title">Cosa possiamo personalizzare</h2>
 
     <div class="features-grid">
       <div class="feature-card">
-        <h3 class="feature-title">Tipologia di servizio gelato</h3>
-        <p class="feature-desc">Scegli tra cool box, carretto, vetrina o soluzioni custom per il tuo evento.</p>
+        <h3 class="feature-title" data-i18n="az.feat1.title">Tipologia di servizio gelato</h3>
+        <p class="feature-desc" data-i18n="az.feat1.desc">Scegli tra cool box, carretto, vetrina o soluzioni custom per il tuo evento.</p>
       </div>
 
       <div class="feature-card">
-        <h3 class="feature-title">Selezione dei gusti</h3>
-        <p class="feature-desc">Possibilità di avere gusti personalizzati e/o su richiesta, creati appositamente per il tuo brand.</p>
+        <h3 class="feature-title" data-i18n="az.feat2.title">Selezione dei gusti</h3>
+        <p class="feature-desc" data-i18n="az.feat2.desc">Possibilità di avere gusti personalizzati e/o su richiesta, creati appositamente per il tuo brand.</p>
       </div>
 
       <div class="feature-card">
-        <h3 class="feature-title">Allestimento dell'evento</h3>
-        <p class="feature-desc">Allestimenti personalizzati che riflettono l'identità e i valori della tua azienda.</p>
+        <h3 class="feature-title" data-i18n="az.feat3.title">Allestimento dell'evento</h3>
+        <p class="feature-desc" data-i18n="az.feat3.desc">Allestimenti personalizzati che riflettono l'identità e i valori della tua azienda.</p>
       </div>
 
       <div class="feature-card">
-        <h3 class="feature-title">Branding personalizzato</h3>
-        <p class="feature-desc">Integrazione del tuo logo e brand identity su packaging, postazioni e materiali.</p>
+        <h3 class="feature-title" data-i18n="az.feat4.title">Branding personalizzato</h3>
+        <p class="feature-desc" data-i18n="az.feat4.desc">Integrazione del tuo logo e brand identity su packaging, postazioni e materiali.</p>
       </div>
 
       <div class="feature-card">
-        <h3 class="feature-title">Concept creativo</h3>
-        <p class="feature-desc">Sviluppiamo concept creativi in linea con il tuo brand e gli obiettivi dell'evento.</p>
+        <h3 class="feature-title" data-i18n="az.feat5.title">Concept creativo</h3>
+        <p class="feature-desc" data-i18n="az.feat5.desc">Sviluppiamo concept creativi in linea con il tuo brand e gli obiettivi dell'evento.</p>
       </div>
     </div>
 
     <div class="use-cases">
-      <h3>Ideale per</h3>
+      <h3 data-i18n="az.ideal.title">Ideale per</h3>
       <ul class="use-cases-list">
-        <li>Eventi aziendali</li>
-        <li>Inaugurazioni</li>
-        <li>Attivazioni in store</li>
-        <li>Conferenze e press day</li>
-        <li>Eventi corporate e team building</li>
+        <li data-i18n="az.ideal.item1">Eventi aziendali</li>
+        <li data-i18n="az.ideal.item2">Inaugurazioni</li>
+        <li data-i18n="az.ideal.item3">Attivazioni in store</li>
+        <li data-i18n="az.ideal.item4">Conferenze e press day</li>
+        <li data-i18n="az.ideal.item5">Eventi corporate e team building</li>
       </ul>
-    </div>
-
-    <div class="gallery-note">
-      📸 Allegare foto esempio di eventi passati (es: Steve Madden e Menarini)
     </div>
   </section>
 
   <footer class="contact-footer">
-    <h3>Parliamo del tuo progetto</h3>
-    <p>Contattaci per creare insieme un'esperienza unica per la tua azienda</p>
+    <h3 data-i18n="az.cta.title">Parliamo del tuo progetto</h3>
+    <p data-i18n="az.cta.desc">Contattaci per creare insieme un'esperienza unica per la tua azienda</p>
     <a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a>
   </footer>
 
   <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
+    (function(){
+      const SUPPORTED = ['it','en','fr','es'];
+      const DEFAULT_LANG = 'it';
+      const STORAGE_KEY = 'badianiLang';
+
+      const STRINGS = {
+        it: {
+          'meta.title': 'Speciale Aziende — Eventi Badiani',
+          'topbar.label': 'Barra brand',
+          'lang.label': 'Selettore lingua',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B',
+          'az.hero.title': 'Crea il tuo evento aziendale su misura',
+          'az.hero.subtitle': 'Crea un evento unico, pensato intorno al tuo brand',
+          'az.hero.desc': 'Ogni azienda ha un\'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.',
+          'az.customize.title': 'Cosa possiamo personalizzare',
+          'az.feat1.title': 'Tipologia di servizio gelato',
+          'az.feat1.desc': 'Scegli tra cool box, carretto, vetrina o soluzioni custom per il tuo evento.',
+          'az.feat2.title': 'Selezione dei gusti',
+          'az.feat2.desc': 'Possibilità di avere gusti personalizzati e/o su richiesta, creati appositamente per il tuo brand.',
+          'az.feat3.title': 'Allestimento dell\'evento',
+          'az.feat3.desc': 'Allestimenti personalizzati che riflettono l\'identità e i valori della tua azienda.',
+          'az.feat4.title': 'Branding personalizzato',
+          'az.feat4.desc': 'Integrazione del tuo logo e brand identity su packaging, postazioni e materiali.',
+          'az.feat5.title': 'Concept creativo',
+          'az.feat5.desc': 'Sviluppiamo concept creativi in linea con il tuo brand e gli obiettivi dell\'evento.',
+          'az.ideal.title': 'Ideale per',
+          'az.ideal.item1': 'Eventi aziendali',
+          'az.ideal.item2': 'Inaugurazioni',
+          'az.ideal.item3': 'Attivazioni in store',
+          'az.ideal.item4': 'Conferenze e press day',
+          'az.ideal.item5': 'Eventi corporate e team building',
+          'az.cta.title': 'Parliamo del tuo progetto',
+          'az.cta.desc': 'Contattaci per creare insieme un\'esperienza unica per la tua azienda'
+        },
+        en: {
+          'meta.title': 'Corporate Events — Badiani Events',
+          'topbar.label': 'Brand bar',
+          'lang.label': 'Language selector',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B',
+          'az.hero.title': 'Create your bespoke corporate event',
+          'az.hero.subtitle': 'Create a unique event, designed around your brand',
+          'az.hero.desc': 'Every company has a different identity. That\'s why we create personalised events, tailored to your needs, context and audience.',
+          'az.customize.title': 'What we can customise',
+          'az.feat1.title': 'Type of gelato service',
+          'az.feat1.desc': 'Choose from cool box, cart, display cabinet or custom solutions for your event.',
+          'az.feat2.title': 'Flavour selection',
+          'az.feat2.desc': 'Option to have custom and/or bespoke flavours, created specifically for your brand.',
+          'az.feat3.title': 'Event set-up',
+          'az.feat3.desc': 'Custom set-ups that reflect your company\'s identity and values.',
+          'az.feat4.title': 'Custom branding',
+          'az.feat4.desc': 'Integration of your logo and brand identity on packaging, stations and materials.',
+          'az.feat5.title': 'Creative concept',
+          'az.feat5.desc': 'We develop creative concepts aligned with your brand and event objectives.',
+          'az.ideal.title': 'Ideal for',
+          'az.ideal.item1': 'Corporate events',
+          'az.ideal.item2': 'Grand openings',
+          'az.ideal.item3': 'In-store activations',
+          'az.ideal.item4': 'Conferences and press days',
+          'az.ideal.item5': 'Corporate events and team building',
+          'az.cta.title': 'Let\'s talk about your project',
+          'az.cta.desc': 'Contact us to create a unique experience for your company together'
+        },
+        fr: {
+          'meta.title': 'Spécial Entreprises — Événements Badiani',
+          'topbar.label': 'Barre de marque',
+          'lang.label': 'Sélecteur de langue',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Accueil', 'nav.eventi': 'Événements', 'nav.b2b': 'B2B',
+          'az.hero.title': 'Créez votre événement d\'entreprise sur mesure',
+          'az.hero.subtitle': 'Créez un événement unique, pensé autour de votre marque',
+          'az.hero.desc': 'Chaque entreprise a une identité différente. C\'est pourquoi nous réalisons des événements personnalisés, étudiés sur mesure selon vos besoins, le contexte et le type de public.',
+          'az.customize.title': 'Ce que nous pouvons personnaliser',
+          'az.feat1.title': 'Type de service gelato',
+          'az.feat1.desc': 'Choisissez parmi cool box, chariot, vitrine ou solutions personnalisées pour votre événement.',
+          'az.feat2.title': 'Sélection des parfums',
+          'az.feat2.desc': 'Possibilité d\'avoir des parfums personnalisés et/ou sur demande, créés spécialement pour votre marque.',
+          'az.feat3.title': 'Aménagement de l\'événement',
+          'az.feat3.desc': 'Aménagements personnalisés qui reflètent l\'identité et les valeurs de votre entreprise.',
+          'az.feat4.title': 'Branding personnalisé',
+          'az.feat4.desc': 'Intégration de votre logo et identité de marque sur le packaging, les postes et les matériaux.',
+          'az.feat5.title': 'Concept créatif',
+          'az.feat5.desc': 'Nous développons des concepts créatifs en accord avec votre marque et les objectifs de l\'événement.',
+          'az.ideal.title': 'Idéal pour',
+          'az.ideal.item1': 'Événements d\'entreprise',
+          'az.ideal.item2': 'Inaugurations',
+          'az.ideal.item3': 'Activations en magasin',
+          'az.ideal.item4': 'Conférences et journées presse',
+          'az.ideal.item5': 'Événements d\'entreprise et renforcement d\'équipe',
+          'az.cta.title': 'Parlons de votre projet',
+          'az.cta.desc': 'Contactez-nous pour créer ensemble une expérience unique pour votre entreprise'
+        },
+        es: {
+          'meta.title': 'Especial Empresas — Eventos Badiani',
+          'topbar.label': 'Barra de marca',
+          'lang.label': 'Selector de idioma',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B',
+          'az.hero.title': 'Crea tu evento corporativo a medida',
+          'az.hero.subtitle': 'Crea un evento único, diseñado en torno a tu marca',
+          'az.hero.desc': 'Cada empresa tiene una identidad diferente. Por eso creamos eventos personalizados, diseñados a medida según tus necesidades, el contexto y el tipo de público.',
+          'az.customize.title': 'Qué podemos personalizar',
+          'az.feat1.title': 'Tipo de servicio de helado',
+          'az.feat1.desc': 'Elige entre cool box, carrito, vitrina o soluciones a medida para tu evento.',
+          'az.feat2.title': 'Selección de sabores',
+          'az.feat2.desc': 'Posibilidad de tener sabores personalizados y/o bajo pedido, creados especialmente para tu marca.',
+          'az.feat3.title': 'Montaje del evento',
+          'az.feat3.desc': 'Montajes personalizados que reflejan la identidad y los valores de tu empresa.',
+          'az.feat4.title': 'Branding personalizado',
+          'az.feat4.desc': 'Integración de tu logo e identidad de marca en packaging, estaciones y materiales.',
+          'az.feat5.title': 'Concepto creativo',
+          'az.feat5.desc': 'Desarrollamos conceptos creativos alineados con tu marca y los objetivos del evento.',
+          'az.ideal.title': 'Ideal para',
+          'az.ideal.item1': 'Eventos corporativos',
+          'az.ideal.item2': 'Inauguraciones',
+          'az.ideal.item3': 'Activaciones en tienda',
+          'az.ideal.item4': 'Conferencias y días de prensa',
+          'az.ideal.item5': 'Eventos corporativos y trabajo en equipo',
+          'az.cta.title': 'Hablemos de tu proyecto',
+          'az.cta.desc': 'Contáctanos para crear juntos una experiencia única para tu empresa'
         }
-      });
-    });
+      };
+
+      function normalizeLang(l){ if(!l) return DEFAULT_LANG; const b = String(l).toLowerCase().split('-')[0]; return SUPPORTED.includes(b) ? b : DEFAULT_LANG; }
+      function getInitialLang(){ try{ const s = localStorage.getItem(STORAGE_KEY); if(s && SUPPORTED.includes(s)) return s; } catch(e){} return normalizeLang(navigator.language); }
+
+      let currentLang = getInitialLang();
+
+      function t(key){ return (STRINGS[currentLang] || STRINGS[DEFAULT_LANG])[key] || (STRINGS[DEFAULT_LANG])[key] || key; }
+
+      function applyLang(lang){
+        currentLang = normalizeLang(lang);
+        try{ localStorage.setItem(STORAGE_KEY, currentLang); } catch(e){}
+        document.documentElement.lang = currentLang;
+        document.title = t('meta.title');
+        document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.getAttribute('data-i18n')); });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = t(el.getAttribute('data-i18n-html')); });
+        document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+          el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
+            const [attr, key] = pair.split(':');
+            if(attr && key) el.setAttribute(attr.trim(), t(key.trim()));
+          });
+        });
+        const sel = document.querySelector('.topbar__lang');
+        if(sel) sel.value = currentLang;
+      }
+
+      window.setLang = function(l){ applyLang(l); };
+      applyLang(currentLang);
+    })();
   </script>
 </body>
 </html>

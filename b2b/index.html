@@ -53,7 +53,7 @@
     .category-card.b2b-card--contenitori,
     .category-card.b2b-card--accessori{
       position:relative;
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/vasche.png');
+      background-image:url('../assets/images/categories/vasche.png');
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -62,28 +62,28 @@
       overflow:hidden;
     }
     .category-card.b2b-card--torte{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/torte.png');
+      background-image:url('../assets/images/categories/torte.png');
     }
     .category-card.b2b-card--vasche{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/vasche.png');
+      background-image:url('../assets/images/categories/vasche.png');
     }
     .category-card.b2b-card--pezziduri{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/pezzi-duri.png');
+      background-image:url('../assets/images/categories/pezzi-duri.png');
     }
     .category-card.b2b-card--coppette{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/coni-coppette.png');
+      background-image:url('../assets/images/categories/coni-coppette.png');
     }
     .category-card.b2b-card--cono{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/gelati-tenda.png');
+      background-image:url('../assets/images/categories/gelati-tenda.png');
     }
     .category-card.b2b-card--cialde{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/wafer-pulsante.png');
+      background-image:url('../assets/images/categories/wafer-pulsante.png');
     }
     .category-card.b2b-card--contenitori{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/contenitori.png');
+      background-image:url('../assets/images/categories/contenitori.png');
     }
     .category-card.b2b-card--accessori{
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url('../assets/images/categories/wafer-pulsante.png');
+      background-image:url('../assets/images/categories/wafer-pulsante.png');
     }
     .category-card.b2b-card--gelato::before,
     .category-card.b2b-card--torte::before,
@@ -94,11 +94,7 @@
     .category-card.b2b-card--cialde::before,
     .category-card.b2b-card--contenitori::before,
     .category-card.b2b-card--accessori::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.55));
-      pointer-events:none;
+      content:none;
     }
     .category-card.b2b-card--gelato > *,
     .category-card.b2b-card--torte > *,
@@ -345,6 +341,104 @@
       cursor:pointer;
       color:var(--badiani-blue);
     }
+    .modal__header-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .modal__info-btn{
+      border:none;
+      background:transparent;
+      font-size:18px;
+      cursor:pointer;
+      color:var(--badiani-blue);
+      width:32px;
+      height:32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      transition:background .2s;
+      position:relative;
+    }
+    .modal__info-btn:hover{
+      background:rgba(30,57,141,0.08);
+    }
+    .modal__info-btn svg{
+      width:20px;
+      height:20px;
+    }
+    /* Shipping info popup */
+    .shipping-popup-overlay{
+      display:none;
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,0.45);
+      z-index:10010;
+      align-items:center;
+      justify-content:center;
+    }
+    .shipping-popup-overlay.is-open{
+      display:flex;
+    }
+    .shipping-popup{
+      background:#fff;
+      border-radius:16px;
+      max-width:480px;
+      width:90%;
+      padding:28px 28px 24px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.18);
+      position:relative;
+      animation:shippingFadeIn .25s ease;
+    }
+    @keyframes shippingFadeIn{
+      from{opacity:0;transform:scale(0.95)}
+      to{opacity:1;transform:scale(1)}
+    }
+    .shipping-popup__header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:16px;
+    }
+    .shipping-popup__title{
+      font-size:16px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:var(--badiani-blue);
+      font-weight:700;
+    }
+    .shipping-popup__close{
+      border:none;
+      background:transparent;
+      font-size:18px;
+      cursor:pointer;
+      color:var(--badiani-blue);
+      width:32px;
+      height:32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      transition:background .2s;
+    }
+    .shipping-popup__close:hover{
+      background:rgba(30,57,141,0.08);
+    }
+    .shipping-popup__list{
+      list-style:disc;
+      padding-left:20px;
+      margin:0;
+    }
+    .shipping-popup__list li{
+      font-size:13px;
+      line-height:1.55;
+      color:#333;
+      margin-bottom:8px;
+    }
+    .shipping-popup__list li:last-child{
+      margin-bottom:0;
+    }
     .modal__body{ padding:0; overflow:hidden; display:grid; grid-template-columns:220px 1fr; min-height:0; }
     .modal__sidebar{
       border-right:1px solid rgba(30,57,141,0.08);
@@ -430,6 +524,10 @@
       min-width:180px;
       flex:1;
     }
+    .gelato-control--category{
+      flex:0 1 260px;
+      min-width:200px;
+    }
     .gelato-control--search{
       flex:0 1 260px;
       min-width:200px;
@@ -470,6 +568,7 @@
       grid-template-columns:repeat(4, minmax(0, 1fr));
       gap:16px;
       align-content:start;
+      align-items:start;
       grid-auto-flow:dense;
     }
     .gelato-card{
@@ -514,6 +613,26 @@
     .gelato-card.is-expanded{
       grid-column:span 2;
       grid-row:span 2;
+      align-self:stretch;
+      outline:2px solid var(--badiani-blue);
+      outline-offset:2px;
+      box-shadow:0 12px 28px rgba(30,57,141,0.15);
+      overflow:hidden;
+    }
+    .gelato-card.is-expanded .gelato-card__media{
+      flex:1 1 0;
+      min-height:0;
+    }
+    .gelato-card.is-expanded .gelato-card__media img{
+      width:100%;
+      height:100%;
+      min-height:0;
+      object-fit:cover;
+    }
+    .gelato-card--tub.is-expanded .gelato-card__media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
     .gelato-card__content{
       display:grid;
@@ -563,16 +682,14 @@
     .gelato-card--tub .gelato-card__media img{
       aspect-ratio:3081 / 4393;
     }
-    .gelato-card.is-expanded .gelato-card__media img{
-      aspect-ratio:4 / 3;
-    }
-    .gelato-card--tub.is-expanded .gelato-card__media img{
-      aspect-ratio:1 / 1;
-    }
     .gelato-card__details{
       display:grid;
-      gap:10px;
-      padding:12px;
+      gap:6px;
+      padding:8px 12px 10px;
+      overflow-y:auto;
+      flex:0 0 auto;
+      min-height:0;
+      font-size:12px;
       opacity:0;
       transform:translateY(6px);
       transition:opacity 0.18s ease, transform 0.18s ease;
@@ -581,10 +698,10 @@
       opacity:1;
       transform:translateY(0);
     }
-    .gelato-card__details .gelato-section-title{ margin-bottom:4px; }
-    .gelato-card__details .gelato-list{ font-size:12px; color:#5b5f66; }
-    .gelato-card__details .gelato-flags{ gap:6px; }
-    .gelato-card__details .gelato-flag{ padding:6px 8px; }
+    .gelato-card__details .gelato-section-title{ margin-bottom:2px; }
+    .gelato-card__details .gelato-list{ font-size:11px; color:#5b5f66; }
+    .gelato-card__details .gelato-flags{ gap:4px; }
+    .gelato-card__details .gelato-flag{ padding:4px 8px; font-size:11px; }
     .gelato-detail{
       background:#fff;
       border-radius:16px;
@@ -671,6 +788,7 @@
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
       gap:16px;
+      align-items:start;
     }
     .tipologia-card{
       background:#fff;
@@ -680,13 +798,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,0.06);
       display:flex;
       flex-direction:column;
-      min-height:100%;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .tipologia-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
     .tipologia-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .tipologia-card.is-expanded{ grid-column:span 2; }
+    .tipologia-card.is-expanded{ border-color:var(--badiani-blue); box-shadow:0 12px 28px rgba(30,57,141,0.15); }
     .tipologia-media{
       width:100%;
       aspect-ratio:1 / 1;
@@ -721,15 +838,7 @@
       text-transform:uppercase;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    @media(max-width:768px){
-      .tipologia-card.is-expanded{
-        grid-column:span 1;
-        transform:scale(1.06);
-        box-shadow:0 20px 40px rgba(0,0,0,0.16);
-        z-index:2;
-        position:relative;
-      }
-    }
+
 
     /* ── Coni & Coppette gallery ── */
     .coni-header-img{
@@ -742,6 +851,7 @@
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
       gap:16px;
+      align-items:start;
     }
     .coni-card{
       background:#fff;
@@ -751,13 +861,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,0.06);
       display:flex;
       flex-direction:column;
-      min-height:100%;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .coni-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
     .coni-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .coni-card.is-expanded{ grid-column:span 2; }
+    .coni-card.is-expanded{ border-color:var(--badiani-blue); box-shadow:0 12px 28px rgba(30,57,141,0.15); }
     .coni-media{
       width:100%;
       aspect-ratio:1 / 1;
@@ -786,10 +895,14 @@
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .coni-meta{
-      display:grid;
+      display:none;
       gap:6px;
       font-size:12px;
       color:#5b5f66;
+    }
+    .coni-card.is-expanded .coni-meta{
+      display:grid;
+      animation:cardDetailsFadeIn 0.25s ease;
     }
     .coni-meta span{
       display:flex;
@@ -800,7 +913,7 @@
       border-radius:10px;
     }
     .coni-gf-btn{
-      display:inline-flex;
+      display:none;
       align-items:center;
       gap:6px;
       margin-top:6px;
@@ -823,6 +936,10 @@
       transition:transform 0.25s ease;
       font-size:10px;
     }
+    .coni-card.is-expanded .coni-gf-btn{
+      display:inline-flex;
+      animation:cardDetailsFadeIn 0.25s ease;
+    }
     .coni-gf-btn.is-open .gf-chevron{ transform:rotate(180deg); }
     .coni-gf-details{
       display:none;
@@ -840,21 +957,14 @@
       letter-spacing:0.4px;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    @media(max-width:768px){
-      .coni-card.is-expanded{
-        grid-column:span 1;
-        transform:scale(1.06);
-        box-shadow:0 20px 40px rgba(0,0,0,0.16);
-        z-index:2;
-        position:relative;
-      }
-    }
+
 
     /* ── Accessori gallery ── */
     .accessori-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
       gap:16px;
+      align-items:start;
     }
     .accessori-card{
       background:#fff;
@@ -864,13 +974,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,0.06);
       display:flex;
       flex-direction:column;
-      min-height:100%;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .accessori-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
     .accessori-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .accessori-card.is-expanded{ grid-column:span 2; }
+    .accessori-card.is-expanded{ border-color:var(--badiani-blue); box-shadow:0 12px 28px rgba(30,57,141,0.15); }
     .accessori-media{
       width:100%;
       aspect-ratio:1 / 1;
@@ -905,10 +1014,14 @@
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .accessori-meta{
-      display:grid;
+      display:none;
       gap:6px;
       font-size:12px;
       color:#5b5f66;
+    }
+    .accessori-card.is-expanded .accessori-meta{
+      display:grid;
+      animation:cardDetailsFadeIn 0.25s ease;
     }
     .accessori-meta span{
       display:flex;
@@ -918,15 +1031,7 @@
       padding:6px 8px;
       border-radius:10px;
     }
-    @media(max-width:768px){
-      .accessori-card.is-expanded{
-        grid-column:span 1;
-        transform:scale(1.06);
-        box-shadow:0 20px 40px rgba(0,0,0,0.16);
-        z-index:2;
-        position:relative;
-      }
-    }
+
 
     .vasche-flavor-grid{
       display:grid;
@@ -1006,6 +1111,7 @@
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
       gap:16px;
+      align-items:start;
     }
     .pezziduri-card{
       background:#fff;
@@ -1015,13 +1121,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,0.06);
       display:flex;
       flex-direction:column;
-      min-height:100%;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .pezziduri-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
     .pezziduri-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .pezziduri-card.is-expanded{ grid-column:span 2; }
+    .pezziduri-card.is-expanded{ border-color:var(--badiani-blue); box-shadow:0 12px 28px rgba(30,57,141,0.15); }
     .pezziduri-media{
       width:100%;
       aspect-ratio:3 / 4;
@@ -1035,12 +1140,13 @@
       object-fit:cover;
       display:block;
     }
-    .pezziduri-card.is-expanded .pezziduri-media{
-      aspect-ratio:1 / 1;
+    .pezziduri-media .card-zoom{
+      display:none;
     }
-    .pezziduri-card.is-expanded .pezziduri-media img{
-      object-fit:cover;
+    .pezziduri-card.is-expanded .pezziduri-media .card-zoom{
+      display:flex;
     }
+
     .pezziduri-body{
       padding:12px 14px 14px;
       display:grid;
@@ -1056,10 +1162,14 @@
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .pezziduri-meta{
-      display:grid;
+      display:none;
       gap:6px;
       font-size:12px;
       color:#5b5f66;
+    }
+    .pezziduri-card.is-expanded .pezziduri-meta{
+      display:grid;
+      animation:cardDetailsFadeIn 0.25s ease;
     }
     .pezziduri-meta span{
       display:flex;
@@ -1159,11 +1269,7 @@
       text-transform:uppercase;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .torte-set-price{
-      font-size:12px;
-      color:#6a6b6e;
-      margin-top:4px;
-    }
+
     @media(max-width:600px){
       .torte-grid{
         grid-template-columns:1fr;
@@ -1171,15 +1277,12 @@
       }
     }
 
-    @media(max-width:768px){
-      .pezziduri-card.is-expanded{
-        grid-column:span 1;
-        transform:scale(1.06);
-        box-shadow:0 20px 40px rgba(0,0,0,0.16);
-        z-index:2;
-        position:relative;
-      }
-      .pezziduri-card.is-expanded .pezziduri-media{ aspect-ratio:1 / 1; }
+
+
+    /* ── Card details fade-in animation ── */
+    @keyframes cardDetailsFadeIn{
+      from{ opacity:0; transform:translateY(-6px); }
+      to{ opacity:1; transform:translateY(0); }
     }
 
     /* ── Contenitori gallery ── */
@@ -1187,6 +1290,7 @@
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
       gap:16px;
+      align-items:start;
     }
     .contenitori-card{
       background:#fff;
@@ -1196,13 +1300,12 @@
       box-shadow:0 10px 22px rgba(0,0,0,0.06);
       display:flex;
       flex-direction:column;
-      min-height:100%;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .contenitori-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
     .contenitori-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .contenitori-card.is-expanded{ grid-column:span 2; }
+    .contenitori-card.is-expanded{ border-color:var(--badiani-blue); box-shadow:0 12px 28px rgba(30,57,141,0.15); }
     .contenitori-media{
       width:100%;
       aspect-ratio:1 / 1;
@@ -1231,10 +1334,14 @@
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .contenitori-meta{
-      display:grid;
+      display:none;
       gap:6px;
       font-size:12px;
       color:#5b5f66;
+    }
+    .contenitori-card.is-expanded .contenitori-meta{
+      display:grid;
+      animation:cardDetailsFadeIn 0.25s ease;
     }
     .contenitori-meta span{
       display:flex;
@@ -1243,15 +1350,6 @@
       background:#f5f6f8;
       padding:6px 8px;
       border-radius:10px;
-    }
-    @media(max-width:768px){
-      .contenitori-card.is-expanded{
-        grid-column:span 1;
-        transform:scale(1.06);
-        box-shadow:0 20px 40px rgba(0,0,0,0.16);
-        z-index:2;
-        position:relative;
-      }
     }
 
     @media(max-width:840px){
@@ -1265,7 +1363,7 @@
         border-radius:18px;
         margin-top:12px;
       }
-      .gelato-card.is-expanded{ grid-column:span 2; grid-row:span 2; }
+      .gelato-card.is-expanded{ grid-column:span 2; grid-row:span 2; outline:2px solid var(--badiani-blue); outline-offset:2px; }
       .modal__body{ grid-template-columns:1fr; }
       .modal__sidebar{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); }
       .modal__nav{ display:none; }
@@ -1277,6 +1375,7 @@
       .modal__header{ padding:16px 18px; }
       .modal__title{ font-size:clamp(16px, 5.6vw, 22px); letter-spacing:0.8px; }
       .modal__close{ font-size:22px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(30,57,141,0.08); }
+      .modal__info-btn{ width:36px; height:36px; border-radius:50%; background:rgba(30,57,141,0.08); }
       .modal__body{ padding:0; }
       .modal__sidebar{ padding:12px 14px; }
       .modal__select{ display:block; }
@@ -1637,7 +1736,7 @@
   <!-- B2B REQUEST FORM MODAL -->
   <div class="b2b-form-overlay" id="b2bFormModal" onclick="closeB2BForm(event)">
     <div class="b2b-form" onclick="event.stopPropagation()">
-      <button class="b2b-form__close" onclick="closeB2BForm()" aria-label="Chiudi">&times;</button>
+      <button class="b2b-form__close" onclick="closeB2BForm()" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.form.close">&times;</button>
       <div class="b2b-form__header">
         <h2 data-i18n="b2b.form.title"></h2>
         <p data-i18n="b2b.form.subtitle"></p>
@@ -1651,7 +1750,7 @@
 
             <!-- Email / Telefono -->
             <div class="fm-field"><label data-i18n="b2b.form.email"></label><input name="email" type="email" data-i18n-attr="placeholder:b2b.form.email_ph" required /></div>
-            <div class="fm-field"><label data-i18n="b2b.form.telefono"></label><input name="telefono" type="tel" placeholder="+39 ..." required /></div>
+            <div class="fm-field"><label data-i18n="b2b.form.telefono"></label><input name="telefono" type="tel" placeholder="+39 ..." data-i18n-attr="placeholder:b2b.form.telefono_ph" required /></div>
 
             <!-- Nome Azienda (required) -->
             <div class="fm-field"><label data-i18n="b2b.form.azienda"></label><input name="azienda" type="text" data-i18n-attr="placeholder:b2b.form.azienda_ph" required /></div>
@@ -1706,7 +1805,12 @@
     <div class="modal">
       <div class="modal__header">
         <h3 class="modal__title" id="categoryModalTitle" data-i18n="b2b.modal.titleDefault"></h3>
-        <button class="modal__close" type="button" data-i18n-attr="aria-label:b2b.modal.close">✕</button>
+        <div class="modal__header-actions">
+          <button class="modal__info-btn" id="info" type="button" aria-label="Informazioni spedizione" title="Spedizione" data-i18n-attr="aria-label:b2b.modal.shipping.label;title:b2b.modal.shipping.title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </button>
+          <button class="modal__close" type="button" data-i18n-attr="aria-label:b2b.modal.close">✕</button>
+        </div>
       </div>
       <div class="modal__body">
         <aside class="modal__sidebar">
@@ -1728,9 +1832,19 @@
               <p data-gelato-i18n="vetrinaGelato.subtitle"></p>
             </div>
             <div class="gelato-controls">
+              <div class="gelato-control gelato-control--category">
+                <label for="gelatoCategory" data-i18n="gelato.filters.category.label"></label>
+                <select id="gelatoCategory">
+                  <option value="tutti" data-i18n="gelato.filters.category.all"></option>
+                  <option value="iconici" data-i18n="gelato.filters.category.iconici"></option>
+                  <option value="classici" data-i18n="gelato.filters.category.classici"></option>
+                  <option value="sorbetti" data-i18n="gelato.filters.category.sorbetti"></option>
+                  <option value="limited" data-i18n="gelato.filters.category.limited"></option>
+                </select>
+              </div>
               <div class="gelato-control gelato-control--search">
-                <label for="gelatoSearch" data-gelato-i18n="common.search"></label>
-                <input id="gelatoSearch" type="search" data-gelato-i18n-attr="placeholder:vetrinaGelato.searchPlaceholder" />
+                <label for="gelatoSearch" data-i18n="gelato.filters.search.label"></label>
+                <input id="gelatoSearch" type="search" data-i18n-attr="placeholder:gelato.filters.search.placeholder" />
               </div>
             </div>
             <div class="gelato-body">
@@ -1799,9 +1913,9 @@
     </div>
   </div>
 
-  <div class="fullscreen-overlay" id="gelatoFullscreen" role="dialog" aria-modal="true" aria-label="Immagine gelato">
+  <div class="fullscreen-overlay" id="gelatoFullscreen" role="dialog" aria-modal="true" aria-label="Immagine gelato" data-i18n-attr="aria-label:b2b.fullscreen.label">
     <div class="fullscreen-content">
-      <button class="fullscreen-close" type="button" aria-label="Chiudi">✕</button>
+      <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">✕</button>
       <img id="gelatoFullscreenImage" alt="" />
     </div>
   </div>
@@ -1910,8 +2024,15 @@
           'b2b.form.messaggio_ph': 'Descrivi le tue esigenze o richieste...',
           'b2b.form.privacy': 'Ho letto e accetto la <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.',
           'b2b.form.submit': 'Invia Richiesta',
+          'b2b.form.close': 'Chiudi',
+          'b2b.form.telefono_ph': '+39 ...',
+          'b2b.fullscreen.label': 'Immagine gelato',
+          'b2b.fullscreen.close': 'Chiudi',
+          'b2b.zoom': 'Ingrandisci',
           'b2b.modal.titleDefault': 'Categoria',
           'b2b.modal.close': 'Chiudi',
+          'b2b.modal.shipping.label': 'Informazioni spedizione',
+          'b2b.modal.shipping.title': 'Spedizione',
           'b2b.modal.select': 'Seleziona categoria',
           'b2b.modal.nav': 'Categorie B2B',
           'b2b.modal.overview.title': 'Panoramica',
@@ -1946,6 +2067,13 @@
           'gelato.filters.season.winter': 'Inverno',
           'gelato.filters.search.label': 'Cerca gusto',
           'gelato.filters.search.placeholder': 'Cerca per nome...',
+          'gelato.filters.category.label': 'Categoria',
+          'gelato.filters.category.all': 'Tutte le categorie',
+          'gelato.filters.category.iconici': 'Iconici di Paolo Pomposi',
+          'gelato.filters.category.classici': 'I Classici',
+          'gelato.filters.category.sorbetti': 'I Sorbetti',
+          'gelato.filters.category.limited': 'Badiani Limited Edition',
+          'gelato.filters.noResults': 'Nessun risultato trovato.',
           'b2b.gelato.vascheButton': 'Vasche: mostra listino',
           'b2b.gelato.tipologiaButton': 'Tipologia vasca',
           'b2b.coni.gfVariant': 'Variante Gluten Free',
@@ -2092,11 +2220,11 @@
           'b2b.target.item6': 'Private locations and event spaces',
           'b2b.areas.label': 'B2B areas',
           'b2b.areas.title': 'B2B areas',
-          'b2b.categories.GELATO': 'GUSTI',
+          'b2b.categories.GELATO': 'FLAVOURS',
           'b2b.categories.VASCHE': 'TUBS',
           'b2b.categories.PEZZI_DURI': 'HARD ITEMS',
           'b2b.categories.TORTE': 'CAKES',
-          'b2b.categories.SEMIFREDDI': 'SEMIFREDDI',
+          'b2b.categories.SEMIFREDDI': 'SEMIFREDDOS',
           'b2b.categories.BARATTOLI': 'JARS',
           'b2b.categories.CONI_COPPETTE': 'CONES & CUPS',
           'b2b.categories.ACCESSORI': 'ACCESSORIES',
@@ -2150,7 +2278,7 @@
           'b2b.form.int_vasche': 'Tubs',
           'b2b.form.int_pezzi': 'Ice Cream Bars',
           'b2b.form.int_torte': 'Cakes',
-          'b2b.form.int_semifreddi': 'Semifreddi',
+          'b2b.form.int_semifreddi': 'Semifreddos',
           'b2b.form.int_barattoli': 'Jars',
           'b2b.form.int_coni': 'Cones & Cups',
           'b2b.form.int_accessori': 'Accessories',
@@ -2159,8 +2287,15 @@
           'b2b.form.messaggio_ph': 'Describe your needs or requests...',
           'b2b.form.privacy': 'I have read and accept the <a href="#" style="color:var(--badiani-blue);">privacy policy</a>.',
           'b2b.form.submit': 'Send Request',
+          'b2b.form.close': 'Close',
+          'b2b.form.telefono_ph': '+44 ...',
+          'b2b.fullscreen.label': 'Gelato image',
+          'b2b.fullscreen.close': 'Close',
+          'b2b.zoom': 'Enlarge',
           'b2b.modal.titleDefault': 'Category',
           'b2b.modal.close': 'Close',
+          'b2b.modal.shipping.label': 'Shipping information',
+          'b2b.modal.shipping.title': 'Shipping',
           'b2b.modal.select': 'Select category',
           'b2b.modal.nav': 'B2B categories',
           'b2b.modal.overview.title': 'Overview',
@@ -2195,6 +2330,13 @@
           'gelato.filters.season.winter': 'Winter',
           'gelato.filters.search.label': 'Search flavour',
           'gelato.filters.search.placeholder': 'Search by name...',
+          'gelato.filters.category.label': 'Category',
+          'gelato.filters.category.all': 'All categories',
+          'gelato.filters.category.iconici': 'Paolo Pomposi Iconic Flavours',
+          'gelato.filters.category.classici': 'The Classics',
+          'gelato.filters.category.sorbetti': 'Sorbets',
+          'gelato.filters.category.limited': 'Badiani Limited Edition',
+          'gelato.filters.noResults': 'No results found.',
           'b2b.gelato.vascheButton': 'Tubs: show price list',
           'b2b.gelato.tipologiaButton': 'Tub types',
           'b2b.coni.gfVariant': 'Gluten Free Variant',
@@ -2341,11 +2483,11 @@
           'b2b.target.item6': 'Lieux privés et espaces événementiels',
           'b2b.areas.label': 'Zones B2B',
           'b2b.areas.title': 'Zones B2B',
-          'b2b.categories.GELATO': 'GUSTI',
+          'b2b.categories.GELATO': 'PARFUMS',
           'b2b.categories.VASCHE': 'BACS',
           'b2b.categories.PEZZI_DURI': 'PIÈCES DURES',
           'b2b.categories.TORTE': 'GÂTEAUX',
-          'b2b.categories.SEMIFREDDI': 'SEMIFREDDI',
+          'b2b.categories.SEMIFREDDI': 'SEMIFREDDOS',
           'b2b.categories.BARATTOLI': 'BOCAUX',
           'b2b.categories.CONI_COPPETTE': 'CORNÉTS & COUPES',
           'b2b.categories.ACCESSORI': 'ACCESSOIRES',
@@ -2399,7 +2541,7 @@
           'b2b.form.int_vasche': 'Bacs',
           'b2b.form.int_pezzi': 'Glaces en bâtonnet',
           'b2b.form.int_torte': 'Gâteaux',
-          'b2b.form.int_semifreddi': 'Semifreddi',
+          'b2b.form.int_semifreddi': 'Semifreddos',
           'b2b.form.int_barattoli': 'Pots',
           'b2b.form.int_coni': 'Cônes & Coupes',
           'b2b.form.int_accessori': 'Accessoires',
@@ -2408,8 +2550,15 @@
           'b2b.form.messaggio_ph': 'Décrivez vos besoins ou demandes...',
           'b2b.form.privacy': 'J’ai lu et j’accepte la <a href="#" style="color:var(--badiani-blue);">politique de confidentialité</a>.',
           'b2b.form.submit': 'Envoyer la demande',
+          'b2b.form.close': 'Fermer',
+          'b2b.form.telefono_ph': '+33 ...',
+          'b2b.fullscreen.label': 'Image gelato',
+          'b2b.fullscreen.close': 'Fermer',
+          'b2b.zoom': 'Agrandir',
           'b2b.modal.titleDefault': 'Catégorie',
           'b2b.modal.close': 'Fermer',
+          'b2b.modal.shipping.label': 'Informations livraison',
+          'b2b.modal.shipping.title': 'Livraison',
           'b2b.modal.select': 'Sélectionner une catégorie',
           'b2b.modal.nav': 'Catégories B2B',
           'b2b.modal.overview.title': 'Aperçu',
@@ -2444,6 +2593,13 @@
           'gelato.filters.season.winter': 'Hiver',
           'gelato.filters.search.label': 'Rechercher un parfum',
           'gelato.filters.search.placeholder': 'Rechercher par nom...',
+          'gelato.filters.category.label': 'Cat\u00e9gorie',
+          'gelato.filters.category.all': 'Toutes les cat\u00e9gories',
+          'gelato.filters.category.iconici': 'Iconiques de Paolo Pomposi',
+          'gelato.filters.category.classici': 'Les Classiques',
+          'gelato.filters.category.sorbetti': 'Les Sorbets',
+          'gelato.filters.category.limited': 'Badiani Limited Edition',
+          'gelato.filters.noResults': 'Aucun r\u00e9sultat trouv\u00e9.',
           'b2b.gelato.vascheButton': 'Bacs : afficher la liste',
           'b2b.gelato.tipologiaButton': 'Types de bacs',
           'b2b.coni.gfVariant': 'Variante Sans Gluten',
@@ -2590,11 +2746,11 @@
           'b2b.target.item6': 'Ubicaciones privadas y espacios para eventos',
           'b2b.areas.label': 'Áreas B2B',
           'b2b.areas.title': 'Áreas B2B',
-          'b2b.categories.GELATO': 'GUSTI',
+          'b2b.categories.GELATO': 'SABORES',
           'b2b.categories.VASCHE': 'CUBAS',
           'b2b.categories.PEZZI_DURI': 'PIEZAS DURAS',
           'b2b.categories.TORTE': 'TARTAS',
-          'b2b.categories.SEMIFREDDI': 'SEMIFREDDI',
+          'b2b.categories.SEMIFREDDI': 'SEMIFRÍOS',
           'b2b.categories.BARATTOLI': 'TARROS',
           'b2b.categories.CONI_COPPETTE': 'CONOS & COPAS',
           'b2b.categories.ACCESSORI': 'ACCESORIOS',
@@ -2657,8 +2813,15 @@
           'b2b.form.messaggio_ph': 'Describe tus necesidades o solicitudes...',
           'b2b.form.privacy': 'He leído y acepto la <a href="#" style="color:var(--badiani-blue);">política de privacidad</a>.',
           'b2b.form.submit': 'Enviar solicitud',
+          'b2b.form.close': 'Cerrar',
+          'b2b.form.telefono_ph': '+34 ...',
+          'b2b.fullscreen.label': 'Imagen de helado',
+          'b2b.fullscreen.close': 'Cerrar',
+          'b2b.zoom': 'Ampliar',
           'b2b.modal.titleDefault': 'Categoría',
           'b2b.modal.close': 'Cerrar',
+          'b2b.modal.shipping.label': 'Información de envío',
+          'b2b.modal.shipping.title': 'Envío',
           'b2b.modal.select': 'Seleccionar categoría',
           'b2b.modal.nav': 'Categorías B2B',
           'b2b.modal.overview.title': 'Panorámica',
@@ -2693,6 +2856,13 @@
           'gelato.filters.season.winter': 'Invierno',
           'gelato.filters.search.label': 'Buscar sabor',
           'gelato.filters.search.placeholder': 'Buscar por nombre...',
+          'gelato.filters.category.label': 'Categor\u00eda',
+          'gelato.filters.category.all': 'Todas las categor\u00edas',
+          'gelato.filters.category.iconici': 'Ic\u00f3nicos de Paolo Pomposi',
+          'gelato.filters.category.classici': 'Los Cl\u00e1sicos',
+          'gelato.filters.category.sorbetti': 'Los Sorbetes',
+          'gelato.filters.category.limited': 'Badiani Limited Edition',
+          'gelato.filters.noResults': 'Ning\u00fan resultado encontrado.',
           'b2b.gelato.vascheButton': 'Cubas: ver lista',
           'b2b.gelato.tipologiaButton': 'Tipos de cubas',
           'b2b.coni.gfVariant': 'Variante Sin Gluten',
@@ -2925,9 +3095,64 @@
         }
       };
 
-      const CATEGORY_NOTES = {
-        'PEZZI DURI': '*ordine minimo o multipli'
+      const CATEGORY_NOTES_I18N = {
+        it: { 'PEZZI DURI': '*ordine minimo o multipli' },
+        en: { 'PEZZI DURI': '*minimum order or multiples' },
+        fr: { 'PEZZI DURI': '*commande minimum ou multiples' },
+        es: { 'PEZZI DURI': '*pedido mínimo o múltiplos' }
       };
+
+      const CATEGORY_TITLES_I18N = {
+        it: { 'VASCHE': 'Vaschette', 'PEZZI DURI': 'Pezzi duri', 'TORTE': 'Torte', 'CONI_COPPETTE': 'Coni & Coppette', 'ACCESSORI': 'Accessori', 'CONTENITORI': 'Contenitori' },
+        en: { 'VASCHE': 'Tubs', 'PEZZI DURI': 'Hard Items', 'TORTE': 'Cakes', 'CONI_COPPETTE': 'Cones & Cups', 'ACCESSORI': 'Accessories', 'CONTENITORI': 'Containers' },
+        fr: { 'VASCHE': 'Bacs', 'PEZZI DURI': 'Pièces dures', 'TORTE': 'Gâteaux', 'CONI_COPPETTE': 'Cornets & Coupes', 'ACCESSORI': 'Accessoires', 'CONTENITORI': 'Contenants' },
+        es: { 'VASCHE': 'Cubas', 'PEZZI DURI': 'Piezas duras', 'TORTE': 'Tartas', 'CONI_COPPETTE': 'Conos & Copas', 'ACCESSORI': 'Accesorios', 'CONTENITORI': 'Contenedores' }
+      };
+
+      const CATEGORY_COLUMNS_I18N = {
+        it: { 'Gusto': 'Gusto', 'Prezzo per kg': 'Prezzo per kg', 'Prezzo unità': 'Prezzo unità', 'Peso medio unità': 'Peso medio unità', 'Ordine minimo*': 'Ordine minimo*', 'Prodotto': 'Prodotto', 'Descrizione': 'Descrizione', 'Quantità': 'Quantità', 'Prezzo': 'Prezzo' },
+        en: { 'Gusto': 'Flavour', 'Prezzo per kg': 'Price per kg', 'Prezzo unità': 'Unit Price', 'Peso medio unità': 'Avg Unit Weight', 'Ordine minimo*': 'Min Order*', 'Prodotto': 'Product', 'Descrizione': 'Description', 'Quantità': 'Quantity', 'Prezzo': 'Price' },
+        fr: { 'Gusto': 'Parfum', 'Prezzo per kg': 'Prix au kg', 'Prezzo unità': 'Prix unitaire', 'Peso medio unità': 'Poids moyen unité', 'Ordine minimo*': 'Commande min.*', 'Prodotto': 'Produit', 'Descrizione': 'Description', 'Quantità': 'Quantité', 'Prezzo': 'Prix' },
+        es: { 'Gusto': 'Sabor', 'Prezzo per kg': 'Precio por kg', 'Prezzo unità': 'Precio unidad', 'Peso medio unità': 'Peso medio unidad', 'Ordine minimo*': 'Pedido mín.*', 'Prodotto': 'Producto', 'Descrizione': 'Descripción', 'Quantità': 'Cantidad', 'Prezzo': 'Precio' }
+      };
+
+      const CONTENITORI_DESCS_I18N = {
+        it: {
+          'RE-MAXIGEL 350': 'Vaschetta asporto gelato piccola (ottenuta dal riciclo della plastica)',
+          'RE-MAGIGEL 500': 'Vaschetta asporto gelato media (ottenuta dal riciclo della plastica)',
+          'RE-MAXIGEL 750': 'Vaschetta asporto gelato grande (ottenuta dal riciclo della plastica)',
+          'RE-MAXIGEL 1000': 'Vaschetta asporto gelato XL (ottenuta dal riciclo della plastica)',
+          'Contenitore polistirolo T2': 'Contenitore rettangolare in polistirolo 140x110x100'
+        },
+        en: {
+          'RE-MAXIGEL 350': 'Small gelato take-away tub (made from recycled plastic)',
+          'RE-MAGIGEL 500': 'Medium gelato take-away tub (made from recycled plastic)',
+          'RE-MAXIGEL 750': 'Large gelato take-away tub (made from recycled plastic)',
+          'RE-MAXIGEL 1000': 'XL gelato take-away tub (made from recycled plastic)',
+          'Contenitore polistirolo T2': 'Rectangular polystyrene container 140x110x100'
+        },
+        fr: {
+          'RE-MAXIGEL 350': 'Barquette gelato petit format (plastique recyclé)',
+          'RE-MAGIGEL 500': 'Barquette gelato moyen format (plastique recyclé)',
+          'RE-MAXIGEL 750': 'Barquette gelato grand format (plastique recyclé)',
+          'RE-MAXIGEL 1000': 'Barquette gelato XL (plastique recyclé)',
+          'Contenitore polistirolo T2': 'Conteneur rectangulaire en polystyrène 140x110x100'
+        },
+        es: {
+          'RE-MAXIGEL 350': 'Tarrina de helado pequeña para llevar (plástico reciclado)',
+          'RE-MAGIGEL 500': 'Tarrina de helado mediana para llevar (plástico reciclado)',
+          'RE-MAXIGEL 750': 'Tarrina de helado grande para llevar (plástico reciclado)',
+          'RE-MAXIGEL 1000': 'Tarrina de helado XL para llevar (plástico reciclado)',
+          'Contenitore polistirolo T2': 'Contenedor rectangular de poliestireno 140x110x100'
+        }
+      };
+
+      function getCatTitle(cat){ return (CATEGORY_TITLES_I18N[currentLang] || CATEGORY_TITLES_I18N.it)[cat] || CATEGORY_DATA[cat]?.title || cat; }
+      function getColLabel(col){ return (CATEGORY_COLUMNS_I18N[currentLang] || CATEGORY_COLUMNS_I18N.it)[col] || col; }
+      function getPricingNote(){ return (PRICING_NOTE_I18N[currentLang] || PRICING_NOTE_I18N.it); }
+      function getShippingInfo(){ return (SHIPPING_INFO_I18N[currentLang] || SHIPPING_INFO_I18N.it); }
+      function getCatNotes(cat){ return (CATEGORY_NOTES_I18N[currentLang] || CATEGORY_NOTES_I18N.it)[cat]; }
+      function getConiGfVariants(){ return (CONI_GF_VARIANTS_I18N[currentLang] || CONI_GF_VARIANTS_I18N.it); }
 
       const PEZZI_DURI_IMAGES = {
         'Classico Buontalenti': '../assets/images/pezziduri/pinguino1 bianco.png',
@@ -2986,16 +3211,22 @@
         'Bicchierini 4CA':  '../assets/images/coni-coppette/Bicchierini 4CA.png'
       };
 
-      const CONI_GF_VARIANTS = {
-        'Sottozero': {
-          gfName: 'Coni Gluten Free (083)',
-          gfDesc: '1\u00aa misura',
-          gfQty:  '240 pz'
+      const CONI_GF_VARIANTS_I18N = {
+        it: {
+          'Sottozero': { gfName: 'Coni Gluten Free (083)', gfDesc: '1\u00aa misura', gfQty: '240 pz' },
+          'Maxi 1': { gfName: 'Coni Gluten Free (084)', gfDesc: '2\u00aa misura', gfQty: '212 pz' }
         },
-        'Maxi 1': {
-          gfName: 'Coni Gluten Free (084)',
-          gfDesc: '2\u00aa misura',
-          gfQty:  '212 pz'
+        en: {
+          'Sottozero': { gfName: 'Gluten Free Cones (083)', gfDesc: '1st size', gfQty: '240 pcs' },
+          'Maxi 1': { gfName: 'Gluten Free Cones (084)', gfDesc: '2nd size', gfQty: '212 pcs' }
+        },
+        fr: {
+          'Sottozero': { gfName: 'Cônes Sans Gluten (083)', gfDesc: '1\u00e8re taille', gfQty: '240 pcs' },
+          'Maxi 1': { gfName: 'Cônes Sans Gluten (084)', gfDesc: '2\u00e8me taille', gfQty: '212 pcs' }
+        },
+        es: {
+          'Sottozero': { gfName: 'Conos Sin Gluten (083)', gfDesc: '1\u00aa medida', gfQty: '240 uds' },
+          'Maxi 1': { gfName: 'Conos Sin Gluten (084)', gfDesc: '2\u00aa medida', gfQty: '212 uds' }
         }
       };
 
@@ -3007,13 +3238,38 @@
         'Tovagliolini stampati': '../assets/images/accessori/tovagliolini.png'
       };
 
-      const PRICING_NOTE = 'Prezzi IVA esclusa.';
-      const SHIPPING_INFO = [
-        "All'interno del comune di Firenze: costo di spedizione gratuita, il listino è valido per minimo 250 EUR per ordine (IVA esclusa);",
-        'gli ordini devono essere inviati con almeno 48 ore di preavviso;',
-        'nelle zone a traffico limitato, le consegne saranno effettuate in accordanza con i limiti orari di entrata e uscita.',
-        'Per spedizioni al di fuori del comune di Firenze: quotazione su richiesta, modalità e tempi di consegna da stabilire.'
-      ];
+      const PRICING_NOTE_I18N = {
+        it: 'Prezzi IVA esclusa.',
+        en: 'Prices exclude VAT.',
+        fr: 'Prix hors TVA.',
+        es: 'Precios IVA no incluido.'
+      };
+      const SHIPPING_INFO_I18N = {
+        it: [
+          "All'interno del comune di Firenze: costo di spedizione gratuita, il listino è valido per minimo 250 EUR per ordine (IVA esclusa);",
+          'gli ordini devono essere inviati con almeno 48 ore di preavviso;',
+          'nelle zone a traffico limitato, le consegne saranno effettuate in accordanza con i limiti orari di entrata e uscita.',
+          'Per spedizioni al di fuori del comune di Firenze: quotazione su richiesta, modalità e tempi di consegna da stabilire.'
+        ],
+        en: [
+          'Within the municipality of Florence: free shipping, the price list is valid for a minimum of EUR 250 per order (VAT excluded);',
+          'orders must be placed at least 48 hours in advance;',
+          'in restricted traffic zones, deliveries will be made in accordance with entry and exit time limits.',
+          'For shipments outside the municipality of Florence: quotation on request, delivery methods and times to be agreed.'
+        ],
+        fr: [
+          'Dans la commune de Florence : livraison gratuite, le tarif est valable pour un minimum de 250 EUR par commande (TVA exclue) ;',
+          'les commandes doivent être envoyées au moins 48 heures à l\'avance ;',
+          'dans les zones à trafic limité, les livraisons seront effectuées selon les horaires autorisés.',
+          'Pour les expéditions en dehors de la commune de Florence : devis sur demande, modalités et délais de livraison à définir.'
+        ],
+        es: [
+          'Dentro del municipio de Florencia: envío gratuito, la lista de precios es válida para un mínimo de 250 EUR por pedido (IVA excluido);',
+          'los pedidos deben enviarse con al menos 48 horas de antelación;',
+          'en las zonas de tráfico restringido, las entregas se realizarán de acuerdo con los horarios permitidos.',
+          'Para envíos fuera del municipio de Florencia: presupuesto bajo solicitud, modalidades y plazos de entrega a definir.'
+        ]
+      };
 
       function normalizeLang(lang){
         if(!lang) return DEFAULT_LANG;
@@ -3051,6 +3307,7 @@
       const gelatoGrid = document.getElementById('gelatoGrid');
       const gelatoDetail = document.getElementById('gelatoDetail');
       const gelatoSearch = document.getElementById('gelatoSearch');
+      const gelatoCategory = document.getElementById('gelatoCategory');
       const vascheToggle = document.getElementById('vascheToggle');
       const vascheContent = document.getElementById('vascheContent');
       const tipologiaToggle = document.getElementById('tipologiaToggle');
@@ -3071,6 +3328,13 @@
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
       const gelatoImageCache = new Set();
 
+      const GELATO_CATEGORIES = {
+        iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente'],
+        classici: ['cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt'],
+        sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango'],
+        limited: ['buontalenti-amarena', 'cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
+      };
+
       const categories = Array.from(cards).map((card) => card.getAttribute('data-category'));
       let activeCategory = categories[0] || '';
 
@@ -3090,11 +3354,12 @@
         return false;
       }
 
-      function renderTableSection({ title, columns, rows }){
+      function renderTableSection({ title, columns, rows }, category){
         if(!columns || !columns.length || !rows || !rows.length) return '';
+        const localTitle = getCatTitle(category) || title;
         const head = `
           <thead>
-            <tr>${columns.map((col) => `<th>${col}</th>`).join('')}</tr>
+            <tr>${columns.map((col) => `<th>${getColLabel(col)}</th>`).join('')}</tr>
           </thead>
         `;
         const body = `
@@ -3104,7 +3369,7 @@
         `;
         return `
           <div class="modal__section">
-            <h4>${title}</h4>
+            <h4>${localTitle}</h4>
             <div class="modal__table-wrap">
               <table class="modal__table">
                 ${head}
@@ -3134,7 +3399,7 @@
         const items = names.map(n => `<span class="vasche-flavor">${n}</span>`).join('');
         return `
           <div class="modal__section">
-            <h4>${data.title}</h4>
+            <h4>${getCatTitle('VASCHE')}</h4>
             <div class="vasche-flavor-grid">${items}</div>
           </div>
         `;
@@ -3159,12 +3424,11 @@
               <article class="pezziduri-card${isExpanded ? ' is-expanded' : ''}" data-pezziduri-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
                 <div class="pezziduri-media">
                   <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
-                  <button class="card-zoom" type="button" aria-label="Ingrandisci" data-zoom-src="${imageSrc}" data-zoom-alt="${name}">${zoomIcon}</button>
+                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${imageSrc}" data-zoom-alt="${name}">${zoomIcon}</button>
                 </div>
                 <div class="pezziduri-body">
                   <div class="pezziduri-title">${name}</div>
                   <div class="pezziduri-meta">
-                    <span><strong>Prezzo</strong><em>${price}</em></span>
                     <span><strong>Peso medio</strong><em>${weight}</em></span>
                     <span><strong>Ordine minimo</strong><em>${min}</em></span>
                   </div>
@@ -3177,7 +3441,7 @@
 
         return `
           <div class="modal__section">
-            <h4>${CATEGORY_DATA['PEZZI DURI'].title}</h4>
+            <h4>${getCatTitle('PEZZI DURI')}</h4>
             <div class="pezziduri-grid">${cards}</div>
           </div>
         `;
@@ -3258,7 +3522,7 @@
 
         return `
           <div class="modal__section">
-            <h4>${CATEGORY_DATA['CONTENITORI'].title}</h4>
+            <h4>${getCatTitle('CONTENITORI')}</h4>
             <div class="contenitori-grid">${cards}</div>
           </div>
         `;
@@ -3280,19 +3544,18 @@
             const smallSrc = encodeURI(images.small);
             const largeSrc = encodeURI(images.large);
             return `
-              <div class="torte-img-wrap" data-zoom-src="${smallSrc}" data-zoom-alt="${name} S">
+              <div class="torte-img-wrap" data-zoom-src="${images.small}" data-zoom-alt="${name} S">
                 <img src="${smallSrc}" alt="${name} S" loading="lazy" decoding="async" />
                 <span class="torte-size-badge">S</span>
-                <button class="torte-zoom-btn" type="button" aria-label="Ingrandisci">${zoomIcon}</button>
+                <button class="torte-zoom-btn" type="button" aria-label="${t('b2b.zoom')}">${zoomIcon}</button>
               </div>
-              <div class="torte-img-wrap" data-zoom-src="${largeSrc}" data-zoom-alt="${name} L">
+              <div class="torte-img-wrap" data-zoom-src="${images.large}" data-zoom-alt="${name} L">
                 <img src="${largeSrc}" alt="${name} L" loading="lazy" decoding="async" />
                 <span class="torte-size-badge">L</span>
-                <button class="torte-zoom-btn" type="button" aria-label="Ingrandisci">${zoomIcon}</button>
+                <button class="torte-zoom-btn" type="button" aria-label="${t('b2b.zoom')}">${zoomIcon}</button>
               </div>
               <div class="torte-set-info">
                 <div class="torte-set-name">${name}</div>
-                <div class="torte-set-price">${price}</div>
               </div>
             `;
           })
@@ -3301,7 +3564,7 @@
 
         return `
           <div class="modal__section">
-            <h4>${CATEGORY_DATA['TORTE'].title}</h4>
+            <h4>${getCatTitle('TORTE')}</h4>
             <div class="torte-grid">${sets}</div>
           </div>
         `;
@@ -3372,7 +3635,7 @@
             if(!src) return '';
             const imageSrc = encodeURI(src);
             const isExpanded = expandedConiId === name;
-            const gf = CONI_GF_VARIANTS[name];
+            const gf = getConiGfVariants()[name];
             const zoomIcon = `
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -3410,7 +3673,7 @@
 
         return `
           <div class="modal__section">
-            <h4>${CATEGORY_DATA['CONI_COPPETTE'].title}</h4>
+            <h4>${getCatTitle('CONI_COPPETTE')}</h4>
             <img class="coni-header-img" src="${headerSrc}" alt="Coni &amp; Coppette" loading="lazy" decoding="async" />
             <div class="coni-grid">${cards}</div>
           </div>
@@ -3448,7 +3711,7 @@
 
         return `
           <div class="modal__section">
-            <h4>${CATEGORY_DATA['ACCESSORI'].title}</h4>
+            <h4>${getCatTitle('ACCESSORI')}</h4>
             <div class="accessori-grid">${cards}</div>
           </div>
         `;
@@ -3525,9 +3788,9 @@
           defaultContent.innerHTML = '';
           return;
         }
-        const note = CATEGORY_NOTES[category];
+        const note = getCatNotes(category);
         const sections = [
-          `<div class="modal__section"><p class="modal__note">${PRICING_NOTE}</p></div>`
+          `<div class="modal__section"><p class="modal__note">${getPricingNote()}</p></div>`
         ];
 
         if(category === 'PEZZI DURI'){
@@ -3541,7 +3804,7 @@
         }else if(category === 'ACCESSORI'){
           sections.push(renderAccessoriGallery(data.rows));
         }else{
-          sections.push(renderTableSection(data));
+          sections.push(renderTableSection(data, category));
         }
 
         if(note){
@@ -3566,7 +3829,6 @@
 
         requestAnimationFrame(setupZoomButtons);
 
-        sections.push(renderListSection('Spedizione', SHIPPING_INFO));
         defaultContent.innerHTML = sections.join('');
       }
 
@@ -3761,6 +4023,19 @@
         card.classList.toggle('is-expanded', isExpanded);
         card.classList.toggle('is-selected', isExpanded);
         card.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+        /* Ensure the expanded card always has the correct height
+           (2 × normal-card row height + grid gap), regardless of
+           its position in the grid. */
+        if(isExpanded){
+          const refCard = gelatoGrid.querySelector('.gelato-card:not(.is-expanded)');
+          if(refCard){
+            card.style.minHeight = (refCard.offsetHeight * 2 + 16) + 'px';
+          }
+        }else{
+          card.style.minHeight = '';
+        }
+
         const img = card.querySelector('img');
         const baseSrc = getBaseImageSrc(flavor);
         updateGelatoCardImage(img, baseSrc, getDetailImageSrc(flavor), isExpanded);
@@ -3779,15 +4054,18 @@
         if(!gelatoGrid) return;
         const season = 'tutti';
         const query = gelatoSearch ? gelatoSearch.value.trim().toLowerCase() : '';
+        const category = gelatoCategory ? gelatoCategory.value : 'tutti';
+        const categoryIds = (category !== 'tutti' && GELATO_CATEGORIES[category]) ? GELATO_CATEGORIES[category] : null;
         const filtered = gelatoFlavors.filter((flavor) => {
           const name = (tGelato(flavor.nameKey) || flavor.label || flavor.id).toLowerCase();
           const matchSeason = matchesSeason(flavor, season);
           const matchQuery = !query || name.includes(query);
-          return matchSeason && matchQuery;
+          const matchCategory = !categoryIds || categoryIds.includes(flavor.id);
+          return matchSeason && matchQuery && matchCategory;
         });
 
         if(!filtered.length){
-          gelatoGrid.innerHTML = `<div class=\"gelato-empty\">${tGelato('common.noResults')}</div>`;
+          gelatoGrid.innerHTML = `<div class=\"gelato-empty\">${t('gelato.filters.noResults') || 'Nessun risultato'}</div>`;
           expandedFlavorId = '';
           return;
         }
@@ -3933,6 +4211,40 @@
         if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
       });
 
+      /* ── Shipping info popup ── */
+      (function initShippingPopup(){
+        const infoBtn = document.getElementById('info');
+        const shippingOverlay = document.createElement('div');
+        shippingOverlay.className = 'shipping-popup-overlay';
+        shippingOverlay.innerHTML = `
+          <div class="shipping-popup">
+            <div class="shipping-popup__header">
+              <span class="shipping-popup__title">${t('b2b.modal.shipping.title')}</span>
+              <button class="shipping-popup__close" type="button" aria-label="${t('b2b.modal.close')}">✕</button>
+            </div>
+            <ul class="shipping-popup__list">
+              ${getShippingInfo().map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+        document.body.appendChild(shippingOverlay);
+
+        function openShippingPopup(){ shippingOverlay.classList.add('is-open'); }
+        function closeShippingPopup(){ shippingOverlay.classList.remove('is-open'); }
+
+        infoBtn.addEventListener('click', openShippingPopup);
+        shippingOverlay.querySelector('.shipping-popup__close').addEventListener('click', closeShippingPopup);
+        shippingOverlay.addEventListener('click', (e) => {
+          if(e.target === shippingOverlay) closeShippingPopup();
+        });
+        document.addEventListener('keydown', (e) => {
+          if(e.key === 'Escape' && shippingOverlay.classList.contains('is-open')){
+            e.stopImmediatePropagation();
+            closeShippingPopup();
+          }
+        });
+      })();
+
       function applyGelatoTranslations(){
         document.querySelectorAll('[data-gelato-i18n]').forEach((el) => {
           const key = el.getAttribute('data-gelato-i18n');
@@ -3996,6 +4308,9 @@
 
       if(gelatoSearch){
         gelatoSearch.addEventListener('input', renderGelatoGrid);
+      }
+      if(gelatoCategory){
+        gelatoCategory.addEventListener('change', renderGelatoGrid);
       }
 
       if(vascheToggle && vascheContent){
