@@ -390,21 +390,18 @@
       text-align:center;
     }
     .custom-event__list li{
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      gap:8px;
       font-size:clamp(13px, 1.1vw, 16px);
       color:#58595b;
       line-height:1.5;
     }
     .custom-event__list li::before{
       content:"";
-      flex-shrink:0;
+      display:inline-block;
       width:6px;
       height:6px;
       border-radius:50%;
-      margin-top:7px;
+      margin-right:8px;
+      vertical-align:middle;
     }
     .custom-event__col--customize .custom-event__list li::before{
       background:var(--badiani-blue);
