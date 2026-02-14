@@ -568,7 +568,7 @@
       grid-template-columns:repeat(4, minmax(0, 1fr));
       gap:16px;
       align-content:start;
-      align-items:start;
+      align-items:stretch;
       grid-auto-flow:dense;
     }
     .gelato-card{
@@ -603,6 +603,10 @@
       text-align:center;
       text-transform:uppercase;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     .gelato-card:focus-visible{
       outline:2px solid rgba(30,57,141,0.6);
@@ -959,6 +963,186 @@
     }
 
 
+    /* ── Coppette interactive image map ── */
+    .coppette-section-title{
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:1px;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      margin:28px 0 12px;
+    }
+    .coppette-map-wrapper{
+      position:relative;
+      width:100%;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      cursor:pointer;
+    }
+    .coppette-map-wrapper img{
+      width:100%;
+      display:block;
+    }
+    .coppette-zones{
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      display:flex;
+    }
+    .coppette-zone{
+      flex:1;
+      position:relative;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .coppette-zone.is-active .coppette-zone-label{
+      background:var(--badiani-blue);
+      color:#fff;
+      transform:translateX(-50%) scale(1.08);
+      box-shadow:0 4px 14px rgba(30,57,141,0.35);
+    }
+    .coppette-zone-label{
+      position:absolute;
+      bottom:8px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(255,255,255,0.92);
+      color:var(--badiani-blue);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      padding:4px 10px 4px 8px;
+      border-radius:20px;
+      white-space:nowrap;
+      pointer-events:none;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:4px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+      transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      animation:coppetteLabelPulse 2.2s ease-in-out 0.5s 2;
+    }
+    .coppette-zone-label .coppette-tap-icon{
+      width:14px;
+      height:14px;
+      flex-shrink:0;
+      opacity:0.7;
+    }
+    .coppette-zone.is-active .coppette-zone-label .coppette-tap-icon{
+      opacity:1;
+    }
+    /* Shift last 3 zone labels 30px left to align with cups */
+    .coppette-zone:nth-child(2) .coppette-zone-label,
+    .coppette-zone:nth-child(3) .coppette-zone-label,
+    .coppette-zone:nth-child(4) .coppette-zone-label{
+      left:calc(50% - 30px);
+    }
+    .coppette-zone:nth-child(2).is-active .coppette-zone-label,
+    .coppette-zone:nth-child(3).is-active .coppette-zone-label,
+    .coppette-zone:nth-child(4).is-active .coppette-zone-label{
+      transform:translateX(-50%) scale(1.08);
+    }
+    @keyframes coppetteLabelPulse{
+      0%, 100%{ transform:translateX(-50%) scale(1); }
+      50%{ transform:translateX(-50%) scale(1.1); box-shadow:0 4px 16px rgba(30,57,141,0.3); }
+    }
+    .coppette-hint{
+      text-align:center;
+      font-size:12px;
+      color:#8a8e96;
+      margin-top:10px;
+      font-style:italic;
+      letter-spacing:0.3px;
+    }
+    .coppette-detail-panel{
+      display:flex;
+      gap:24px;
+      margin-top:20px;
+      background:#fff;
+      border-radius:16px;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      overflow:hidden;
+      animation:cardDetailsFadeIn 0.3s ease;
+    }
+    .coppette-detail-img{
+      flex:0 0 45%;
+      max-width:45%;
+      background:#f0f1f3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:220px;
+    }
+    .coppette-detail-img img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      padding:16px;
+    }
+    .coppette-detail-info{
+      flex:1;
+      padding:24px 24px 24px 0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:12px;
+    }
+    .coppette-detail-name{
+      font-size:18px;
+      font-weight:700;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:0.8px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .coppette-detail-meta{
+      display:grid;
+      gap:8px;
+      font-size:13px;
+      color:#5b5f66;
+    }
+    .coppette-detail-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:#f5f6f8;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    .coppette-detail-meta strong{
+      color:var(--badiani-blue);
+      font-weight:600;
+    }
+    @media(max-width:600px){
+      .coppette-detail-panel{
+        flex-direction:column;
+      }
+      .coppette-detail-img{
+        flex:none;
+        max-width:100%;
+        min-height:180px;
+      }
+      .coppette-detail-info{
+        padding:16px;
+      }
+      .coppette-zone-label{
+        font-size:8px;
+        padding:2px 6px 2px 5px;
+        bottom:4px;
+        gap:2px;
+      }
+      .coppette-zone-label .coppette-tap-icon{
+        width:11px;
+        height:11px;
+      }
+    }
+
+
     /* ── Accessori gallery ── */
     .accessori-grid{
       display:grid;
@@ -1109,9 +1293,11 @@
 
     .pezziduri-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns:repeat(4, minmax(0, 1fr));
       gap:16px;
-      align-items:start;
+      align-content:start;
+      align-items:stretch;
+      grid-auto-flow:dense;
     }
     .pezziduri-card{
       background:#fff;
@@ -1126,13 +1312,28 @@
     }
     .pezziduri-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
     .pezziduri-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .pezziduri-card.is-expanded{ border-color:var(--badiani-blue); box-shadow:0 12px 28px rgba(30,57,141,0.15); }
+    .pezziduri-card.is-expanded{
+      grid-column:span 2;
+      grid-row:span 2;
+      flex-direction:column;
+      align-self:stretch;
+      border-color:var(--badiani-blue);
+      box-shadow:0 12px 28px rgba(30,57,141,0.15);
+      outline:2px solid var(--badiani-blue);
+      outline-offset:2px;
+    }
     .pezziduri-media{
       width:100%;
       aspect-ratio:3 / 4;
       background:#f0f1f3;
       overflow:hidden;
       position:relative;
+    }
+    .pezziduri-card.is-expanded .pezziduri-media{
+      flex:1 1 0;
+      min-height:0;
+      aspect-ratio:auto;
+      width:100%;
     }
     .pezziduri-media img{
       width:100%;
@@ -1149,7 +1350,19 @@
 
     .pezziduri-body{
       padding:12px 14px 14px;
-      display:grid;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      flex:1;
+      gap:8px;
+    }
+    .pezziduri-card.is-expanded .pezziduri-body{
+      flex:0 0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:14px 18px 16px;
       gap:8px;
     }
     .pezziduri-title{
@@ -1160,6 +1373,14 @@
       text-align:center;
       text-transform:uppercase;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .pezziduri-card.is-expanded .pezziduri-title{
+      font-size:16px;
+      text-align:center;
+      letter-spacing:0.8px;
     }
     .pezziduri-meta{
       display:none;
@@ -1169,15 +1390,48 @@
     }
     .pezziduri-card.is-expanded .pezziduri-meta{
       display:grid;
+      width:100%;
       animation:cardDetailsFadeIn 0.25s ease;
+      gap:8px;
+      font-size:13px;
     }
     .pezziduri-meta span{
       display:flex;
       justify-content:space-between;
       gap:8px;
       background:#f5f6f8;
-      padding:6px 8px;
+      padding:8px 12px;
       border-radius:10px;
+    }
+    .pezziduri-meta strong{
+      color:var(--badiani-blue);
+      font-weight:600;
+    }
+    @media(max-width:900px){
+      .pezziduri-grid{
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media(max-width:600px){
+      .pezziduri-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+      .pezziduri-card.is-expanded{
+        grid-column:1 / -1;
+        grid-row:span 1;
+      }
+      .pezziduri-card.is-expanded .pezziduri-media{
+        flex:none;
+        aspect-ratio:1 / 1;
+        max-height:280px;
+      }
+      .pezziduri-card.is-expanded .pezziduri-body{
+        padding:14px 16px 16px;
+      }
+      .pezziduri-card.is-expanded .pezziduri-title{
+        text-align:center;
+        font-size:15px;
+      }
     }
     .pezziduri-note{
       font-size:12px;
@@ -1277,6 +1531,183 @@
       }
     }
 
+    /* ── Torte interactive image map ── */
+    .torte-map-wrapper{
+      position:relative;
+      width:100%;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      cursor:pointer;
+    }
+    .torte-map-wrapper img{
+      width:100%;
+      display:block;
+    }
+    .torte-zones{
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      display:flex;
+    }
+    .torte-zone{
+      flex:1;
+      position:relative;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .torte-zone.is-active .torte-zone-label{
+      background:var(--badiani-blue);
+      color:#fff;
+      transform:translateX(-50%) scale(1.08);
+      box-shadow:0 4px 14px rgba(30,57,141,0.35);
+    }
+    .torte-zone-label{
+      position:absolute;
+      bottom:8px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(255,255,255,0.92);
+      color:var(--badiani-blue);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      padding:4px 10px 4px 8px;
+      border-radius:20px;
+      white-space:nowrap;
+      pointer-events:none;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:4px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+      transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      animation:torteLabelPulse 2.2s ease-in-out 0.5s 2;
+    }
+    .torte-zone-label .torte-tap-icon{
+      width:14px;
+      height:14px;
+      flex-shrink:0;
+      opacity:0.7;
+    }
+    .torte-zone.is-active .torte-zone-label .torte-tap-icon{
+      opacity:1;
+    }
+    @keyframes torteLabelPulse{
+      0%, 100%{ transform:translateX(-50%) scale(1); }
+      50%{ transform:translateX(-50%) scale(1.1); box-shadow:0 4px 16px rgba(30,57,141,0.3); }
+    }
+    .torte-hint{
+      text-align:center;
+      font-size:12px;
+      color:#8a8e96;
+      margin-top:10px;
+      font-style:italic;
+      letter-spacing:0.3px;
+    }
+    .torte-detail-panel{
+      display:flex;
+      gap:24px;
+      margin-top:20px;
+      background:#fff;
+      border-radius:16px;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      overflow:hidden;
+      animation:cardDetailsFadeIn 0.3s ease;
+    }
+    .torte-detail-img{
+      flex:0 0 50%;
+      max-width:50%;
+      background:#f0f1f3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:240px;
+    }
+    .torte-detail-img img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      padding:16px;
+    }
+    .torte-detail-info{
+      flex:1;
+      padding:24px 24px 24px 0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:14px;
+    }
+    .torte-detail-name{
+      font-size:18px;
+      font-weight:700;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:0.8px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .torte-detail-meta{
+      display:grid;
+      gap:8px;
+      font-size:13px;
+      color:#5b5f66;
+    }
+    .torte-detail-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:#f5f6f8;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    .torte-detail-meta strong{
+      color:var(--badiani-blue);
+      font-weight:600;
+    }
+    .torte-detail-sizes{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .torte-size-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:rgba(30,57,141,0.08);
+      color:var(--badiani-blue);
+      font-size:12px;
+      font-weight:600;
+      padding:6px 14px;
+      border-radius:20px;
+      letter-spacing:0.4px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    @media(max-width:600px){
+      .torte-detail-panel{
+        flex-direction:column;
+      }
+      .torte-detail-img{
+        flex:none;
+        max-width:100%;
+        min-height:180px;
+      }
+      .torte-detail-info{
+        padding:16px;
+      }
+      .torte-zone-label{
+        font-size:8px;
+        padding:2px 6px 2px 5px;
+        bottom:4px;
+        gap:2px;
+      }
+      .torte-zone-label .torte-tap-icon{
+        width:11px;
+        height:11px;
+      }
+    }
+
 
 
     /* ── Card details fade-in animation ── */
@@ -1285,71 +1716,176 @@
       to{ opacity:1; transform:translateY(0); }
     }
 
-    /* ── Contenitori gallery ── */
-    .contenitori-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:16px;
-      align-items:start;
-    }
-    .contenitori-card{
-      background:#fff;
+    /* ── Contenitori interactive image map ── */
+    .contenitori-map-wrapper{
+      position:relative;
+      width:100%;
       border-radius:16px;
       overflow:hidden;
-      border:1px solid rgba(30,57,141,0.12);
-      box-shadow:0 10px 22px rgba(0,0,0,0.06);
-      display:flex;
-      flex-direction:column;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .contenitori-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.1); }
-    .contenitori-card:focus-visible{ outline:2px solid rgba(30,57,141,0.6); outline-offset:3px; }
-    .contenitori-card.is-expanded{ border-color:var(--badiani-blue); box-shadow:0 12px 28px rgba(30,57,141,0.15); }
-    .contenitori-media{
+    .contenitori-map-wrapper img{
       width:100%;
-      aspect-ratio:1 / 1;
-      background:#f0f1f3;
-      overflow:hidden;
-      position:relative;
-    }
-    .contenitori-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
       display:block;
     }
-    .contenitori-body{
-      padding:12px 14px 14px;
-      display:grid;
-      gap:8px;
+    .contenitori-zones{
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      display:flex;
     }
-    .contenitori-title{
-      font-size:13px;
-      font-weight:600;
-      letter-spacing:0.6px;
+    .contenitori-zone{
+      flex:1;
+      position:relative;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .contenitori-zone.is-active .contenitori-zone-label{
+      background:var(--badiani-blue);
+      color:#fff;
+      transform:translateX(-50%) scale(1.08);
+      box-shadow:0 4px 14px rgba(30,57,141,0.35);
+    }
+    .contenitori-zone-label{
+      position:absolute;
+      bottom:8px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      text-align:center;
+      font-size:9px;
+      font-weight:700;
+      letter-spacing:0.4px;
+      padding:4px 8px 4px 6px;
+      border-radius:20px;
+      white-space:nowrap;
+      pointer-events:none;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:3px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+      transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      animation:contenitoriLabelPulse 2.2s ease-in-out 0.5s 2;
+    }
+    /* Shift last 4 zone labels 40px left to align with containers */
+    .contenitori-zone:nth-child(2) .contenitori-zone-label,
+    .contenitori-zone:nth-child(3) .contenitori-zone-label,
+    .contenitori-zone:nth-child(4) .contenitori-zone-label,
+    .contenitori-zone:nth-child(5) .contenitori-zone-label{
+      left:calc(50% - 40px);
+    }
+    .contenitori-zone:nth-child(2).is-active .contenitori-zone-label,
+    .contenitori-zone:nth-child(3).is-active .contenitori-zone-label,
+    .contenitori-zone:nth-child(4).is-active .contenitori-zone-label,
+    .contenitori-zone:nth-child(5).is-active .contenitori-zone-label{
+      transform:translateX(-50%) scale(1.08);
+    }
+    .contenitori-zone-label .contenitori-tap-icon{
+      width:12px;
+      height:12px;
+      flex-shrink:0;
+      opacity:0.7;
+    }
+    .contenitori-zone.is-active .contenitori-zone-label .contenitori-tap-icon{
+      opacity:1;
+    }
+    @keyframes contenitoriLabelPulse{
+      0%, 100%{ transform:translateX(-50%) scale(1); }
+      50%{ transform:translateX(-50%) scale(1.1); box-shadow:0 4px 16px rgba(30,57,141,0.3); }
+    }
+    .contenitori-hint{
+      text-align:center;
+      font-size:12px;
+      color:#8a8e96;
+      margin-top:10px;
+      font-style:italic;
+      letter-spacing:0.3px;
+    }
+    .contenitori-detail-panel{
+      display:flex;
+      gap:24px;
+      margin-top:20px;
+      background:#fff;
+      border-radius:16px;
+      border:1px solid rgba(30,57,141,0.12);
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      overflow:hidden;
+      animation:cardDetailsFadeIn 0.3s ease;
+    }
+    .contenitori-detail-img{
+      flex:0 0 45%;
+      max-width:45%;
+      background:#f0f1f3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:220px;
+    }
+    .contenitori-detail-img img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      padding:16px;
+    }
+    .contenitori-detail-info{
+      flex:1;
+      padding:24px 24px 24px 0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:12px;
+    }
+    .contenitori-detail-name{
+      font-size:18px;
+      font-weight:700;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:0.8px;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .contenitori-meta{
-      display:none;
-      gap:6px;
-      font-size:12px;
+    .contenitori-detail-meta{
+      display:grid;
+      gap:8px;
+      font-size:13px;
       color:#5b5f66;
     }
-    .contenitori-card.is-expanded .contenitori-meta{
-      display:grid;
-      animation:cardDetailsFadeIn 0.25s ease;
-    }
-    .contenitori-meta span{
+    .contenitori-detail-meta span{
       display:flex;
       justify-content:space-between;
       gap:8px;
       background:#f5f6f8;
-      padding:6px 8px;
+      padding:8px 12px;
       border-radius:10px;
+    }
+    .contenitori-detail-meta strong{
+      color:var(--badiani-blue);
+      font-weight:600;
+    }
+    @media(max-width:600px){
+      .contenitori-detail-panel{
+        flex-direction:column;
+      }
+      .contenitori-detail-img{
+        flex:none;
+        max-width:100%;
+        min-height:180px;
+      }
+      .contenitori-detail-info{
+        padding:16px;
+      }
+      .contenitori-zone-label{
+        font-size:7px;
+        padding:2px 5px 2px 4px;
+        bottom:4px;
+        gap:2px;
+      }
+      .contenitori-zone-label .contenitori-tap-icon{
+        width:10px;
+        height:10px;
+      }
     }
 
     @media(max-width:840px){
@@ -2091,6 +2627,12 @@
           'b2b.coni.gfVariant': 'Variante Gluten Free',
           'b2b.coni.description': 'Descrizione',
           'b2b.coni.quantity': 'Quantit\u00e0',
+          'b2b.coppette.hint': 'Tocca una coppetta per vederne i dettagli',
+          'b2b.torte.hint': 'Tocca una torta per vederne i dettagli',
+          'b2b.torte.price': 'Prezzo',
+          'b2b.torte.sizeS': '6 persone',
+          'b2b.torte.sizeL': '12 persone',
+          'b2b.contenitori.hint': 'Tocca un contenitore per vederne i dettagli',
           'b2b.accessori.description': 'Descrizione',
           'b2b.accessori.quantity': 'Quantit\u00e0',
           'gelato.detail.empty': 'Seleziona un gusto per vedere i dettagli.',
@@ -2357,6 +2899,12 @@
           'b2b.coni.gfVariant': 'Gluten Free Variant',
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantity',
+          'b2b.coppette.hint': 'Tap a cup to see its details',
+          'b2b.torte.hint': 'Tap a cake to see its details',
+          'b2b.torte.price': 'Price',
+          'b2b.torte.sizeS': '6 people',
+          'b2b.torte.sizeL': '12 people',
+          'b2b.contenitori.hint': 'Tap a container to see its details',
           'b2b.accessori.description': 'Description',
           'b2b.accessori.quantity': 'Quantity',
           'gelato.detail.empty': 'Select a flavour to see details.',
@@ -2623,6 +3171,12 @@
           'b2b.coni.gfVariant': 'Variante Sans Gluten',
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantité',
+          'b2b.coppette.hint': 'Appuyez sur une coupe pour en voir les détails',
+          'b2b.torte.hint': 'Appuyez sur un gâteau pour en voir les détails',
+          'b2b.torte.price': 'Prix',
+          'b2b.torte.sizeS': '6 personnes',
+          'b2b.torte.sizeL': '12 personnes',
+          'b2b.contenitori.hint': 'Appuyez sur un contenant pour en voir les détails',
           'b2b.accessori.description': 'Description',
           'b2b.accessori.quantity': 'Quantité',
           'gelato.detail.empty': 'Sélectionnez un parfum pour voir les détails.',
@@ -2889,6 +3443,12 @@
           'b2b.coni.gfVariant': 'Variante Sin Gluten',
           'b2b.coni.description': 'Descripci\u00f3n',
           'b2b.coni.quantity': 'Cantidad',
+          'b2b.coppette.hint': 'Toca una copa para ver sus detalles',
+          'b2b.torte.hint': 'Toca una tarta para ver sus detalles',
+          'b2b.torte.price': 'Precio',
+          'b2b.torte.sizeS': '6 personas',
+          'b2b.torte.sizeL': '12 personas',
+          'b2b.contenitori.hint': 'Toca un contenedor para ver sus detalles',
           'b2b.accessori.description': 'Descripci\u00f3n',
           'b2b.accessori.quantity': 'Cantidad',
           'gelato.detail.empty': 'Selecciona un sabor para ver los detalles.',
@@ -3191,10 +3751,12 @@
         'Zampa': '../assets/images/pezziduri/zampetta.png'
       };
 
+      const CONTENITORI_GROUP_IMAGE = '../assets/images/contenitori/gruppo contenitori.jpeg';
+
       const CONTENITORI_IMAGES = {
         'RE-MAXIGEL 350': '../assets/images/contenitori/350.jpeg',
-        'RE-MAGIGEL 500': '../assets/images/contenitori/750.jpeg',
-        'RE-MAXIGEL 750': '../assets/images/contenitori/500.jpeg',
+        'RE-MAGIGEL 500': '../assets/images/contenitori/500.jpeg',
+        'RE-MAXIGEL 750': '../assets/images/contenitori/750.jpeg',
         'RE-MAXIGEL 1000': '../assets/images/contenitori/1000.jpeg',
         'Contenitore polistirolo T2': '../assets/images/contenitori/T2.jpeg'
       };
@@ -3206,6 +3768,8 @@
         { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.jpeg' },
         { name: 'Vaschetta 8000cc', capacity: '8000 cc', image: '../assets/images/vasche/Vaschetta 8000cc.jpeg' }
       ];
+
+      const TORTE_GROUP_IMAGE = '../assets/images/torte/torte gruppo.jpeg';
 
       const TORTE_IMAGES = {
         'Millefoglie Buontalenti': {
@@ -3226,10 +3790,10 @@
         'Sottozero':        '../assets/images/coni-coppette/SOTTOZZERO.jpg',
         'Maxi 1':           '../assets/images/coni-coppette/MAXI 1.jpg',
         'Maxi 2':           '../assets/images/coni-coppette/MAXI 2.jpg',
-        'Bicchierini 16B':  '../assets/images/coni-coppette/Bicchierini 16B.png',
+        'Bicchierini 16B':  '../assets/images/coni-coppette/Bicchierini 16B.jpeg',
         'Bicchierini 108':  '../assets/images/coni-coppette/Bicchierini 108.jpeg',
-        'Bicchierini 4C':   '../assets/images/coni-coppette/Bicchierini 4C.png',
-        'Bicchierini 4CA':  '../assets/images/coni-coppette/Bicchierini 4CA.png'
+        'Bicchierini 4C':   '../assets/images/coni-coppette/Bicchierini 4C.jpeg',
+        'Bicchierini 4CA':  '../assets/images/coni-coppette/Bicchierini 4CA.jpeg'
       };
 
       const CONI_GF_VARIANTS_I18N = {
@@ -3251,7 +3815,7 @@
         }
       };
 
-      const CONI_GROUP_IMAGE = '../assets/images/coni-coppette/GROUP COPPETTE.png';
+      const CONI_GROUP_IMAGE = '../assets/images/coni-coppette/GROUP COPPETTE.jpeg';
 
       const ACCESSORI_IMAGES = {
         'Palettine':            '../assets/images/accessori/palettine.png',
@@ -3339,11 +3903,14 @@
       const fullscreenClose = fullscreenOverlay ? fullscreenOverlay.querySelector('.fullscreen-close') : null;
       let expandedFlavorId = '';
       let expandedTorteId = '';
+      let selectedTorteMapId = '';
       let expandedPezziDuriId = '';
       let expandedContenitoriId = '';
+      let selectedContenitoriMapId = '';
       let expandedTipologiaId = '';
       let expandedConiId = '';
       let expandedAccessoriId = '';
+      let selectedCoppetteId = '';
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const ASSET_VERSION = '20260207';
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
@@ -3428,10 +3995,33 @@
 
       function renderPezziDuriGallery(rows){
         if(!rows || !rows.length) return '';
-        const cards = rows
+
+        /* Build card objects, keeping only items that have an image */
+        let items = rows
           .map(([name, price, weight, min]) => {
             const src = PEZZI_DURI_IMAGES[name];
-            if(!src) return '';
+            if(!src) return null;
+            return { name, price, weight, min, src };
+          })
+          .filter(Boolean);
+
+        /* If an item is expanded and would land in the last column
+           (where grid-column:span 2 overflows), swap it one position
+           earlier so it starts in col N-1 and spans into col N. */
+        if(expandedPezziDuriId){
+          const idx = items.findIndex(it => it.name === expandedPezziDuriId);
+          if(idx > 0){
+            const numCols = 4; /* matches grid-template-columns:repeat(4,…) */
+            const col = (idx % numCols) + 1;
+            if(col > numCols - 1){
+              /* swap with previous item */
+              [items[idx - 1], items[idx]] = [items[idx], items[idx - 1]];
+            }
+          }
+        }
+
+        const cards = items
+          .map(({ name, price, weight, min, src }) => {
             const imageSrc = encodeURI(src);
             const isExpanded = expandedPezziDuriId === name;
             const zoomIcon = `
@@ -3450,6 +4040,7 @@
                 <div class="pezziduri-body">
                   <div class="pezziduri-title">${name}</div>
                   <div class="pezziduri-meta">
+                    <span><strong>Prezzo</strong><em>${price}</em></span>
                     <span><strong>Peso medio</strong><em>${weight}</em></span>
                     <span><strong>Ordine minimo</strong><em>${min}</em></span>
                   </div>
@@ -3457,7 +4048,6 @@
               </article>
             `;
           })
-          .filter(Boolean)
           .join('');
 
         return `
@@ -3515,118 +4105,214 @@
         });
       }
 
+      /* Contenitori zone order: left-to-right by size in the group image */
+      const CONTENITORI_ZONE_ORDER = ['RE-MAXIGEL 350', 'RE-MAGIGEL 500', 'RE-MAXIGEL 750', 'RE-MAXIGEL 1000', 'Contenitore polistirolo T2'];
+      const CONTENITORI_SHORT_NAMES = {
+        'RE-MAXIGEL 350': '350',
+        'RE-MAGIGEL 500': '500',
+        'RE-MAXIGEL 750': '750',
+        'RE-MAXIGEL 1000': '1000',
+        'Contenitore polistirolo T2': 'T2'
+      };
+
       function renderContenitoriGallery(rows){
         if(!rows || !rows.length) return '';
-        const cards = rows
-          .map(([name, desc, qty, price]) => {
-            const src = CONTENITORI_IMAGES[name];
-            if(!src) return '';
-            const imageSrc = encodeURI(src);
-            const isExpanded = expandedContenitoriId === name;
-            return `
-              <article class="contenitori-card${isExpanded ? ' is-expanded' : ''}" data-contenitori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
-                <div class="contenitori-media">
-                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
+        const groupSrc = encodeURI(CONTENITORI_GROUP_IMAGE);
+        const tapIcon = `<svg class="contenitori-tap-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v7.4l-1.3-1.3a2.1 2.1 0 0 0-3 3L9.6 18a6 6 0 0 0 4.2 1.8H15a6 6 0 0 0 6-6v-4a2 2 0 0 0-4 0v1a2 2 0 0 0-4 0 2 2 0 0 0-4 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+        const contDataMap = {};
+        rows.forEach(([name, desc, qty, price]) => { contDataMap[name] = { desc, qty, price }; });
+
+        const zones = CONTENITORI_ZONE_ORDER.map((name) => {
+          const isActive = selectedContenitoriMapId === name;
+          const shortName = CONTENITORI_SHORT_NAMES[name] || name;
+          return `<div class="contenitori-zone${isActive ? ' is-active' : ''}" data-contenitori-zone="${name}" role="button" tabindex="0" aria-label="${name}">
+            <span class="contenitori-zone-label">${tapIcon}${shortName}</span>
+          </div>`;
+        }).join('');
+
+        let detailPanel = '';
+        if(selectedContenitoriMapId && contDataMap[selectedContenitoriMapId]){
+          const d = contDataMap[selectedContenitoriMapId];
+          const detailSrc = CONTENITORI_IMAGES[selectedContenitoriMapId];
+          const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
+          detailPanel = `
+            <div class="contenitori-detail-panel">
+              <div class="contenitori-detail-img">
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selectedContenitoriMapId}" loading="lazy" decoding="async" />` : ''}
+              </div>
+              <div class="contenitori-detail-info">
+                <div class="contenitori-detail-name">${selectedContenitoriMapId}</div>
+                <div class="contenitori-detail-meta">
+                  <span><strong>${t('b2b.coni.description')}</strong><em>${d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
                 </div>
-                <div class="contenitori-body">
-                  <div class="contenitori-title">${name}</div>
-                  <div class="contenitori-meta">
-                    <span><strong>Descrizione</strong><em>${desc}</em></span>
-                    <span><strong>Quantit\u00e0</strong><em>${qty}</em></span>
-                  </div>
-                </div>
-              </article>
-            `;
-          })
-          .filter(Boolean)
-          .join('');
+              </div>
+            </div>
+          `;
+        }
+
+        const hintText = selectedContenitoriMapId ? '' : `<p class="contenitori-hint">${t('b2b.contenitori.hint')}</p>`;
 
         return `
           <div class="modal__section">
             <h4>${getCatTitle('CONTENITORI')}</h4>
-            <div class="contenitori-grid">${cards}</div>
+            <div class="contenitori-map-wrapper">
+              <img src="${groupSrc}" alt="Contenitori" loading="lazy" decoding="async" />
+              <div class="contenitori-zones">${zones}</div>
+            </div>
+            ${hintText}
+            ${detailPanel}
           </div>
         `;
       }
 
-      function renderTorteGallery(rows){
-        if(!rows || !rows.length) return '';
-        const zoomIcon = `
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        `;
-        const sets = rows
-          .map(([name, price]) => {
-            const images = TORTE_IMAGES[name];
-            if(!images) return '';
-            const smallSrc = encodeURI(images.small);
-            const largeSrc = encodeURI(images.large);
-            return `
-              <div class="torte-img-wrap" data-zoom-src="${images.small}" data-zoom-alt="${name} S">
-                <img src="${smallSrc}" alt="${name} S" loading="lazy" decoding="async" />
-                <span class="torte-size-badge">S</span>
-                <button class="torte-zoom-btn" type="button" aria-label="${t('b2b.zoom')}">${zoomIcon}</button>
-              </div>
-              <div class="torte-img-wrap" data-zoom-src="${images.large}" data-zoom-alt="${name} L">
-                <img src="${largeSrc}" alt="${name} L" loading="lazy" decoding="async" />
-                <span class="torte-size-badge">L</span>
-                <button class="torte-zoom-btn" type="button" aria-label="${t('b2b.zoom')}">${zoomIcon}</button>
-              </div>
-              <div class="torte-set-info">
-                <div class="torte-set-name">${name}</div>
-              </div>
-            `;
-          })
-          .filter(Boolean)
-          .join('');
-
-        return `
-          <div class="modal__section">
-            <h4>${getCatTitle('TORTE')}</h4>
-            <div class="torte-grid">${sets}</div>
-          </div>
-        `;
-      }
-
-      function setupTorteZoom(){
-        const wraps = defaultContent ? defaultContent.querySelectorAll('.torte-img-wrap[data-zoom-src]') : [];
-        wraps.forEach((wrap) => {
-          const btn = wrap.querySelector('.torte-zoom-btn');
-          if(btn){
-            btn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              const src = wrap.getAttribute('data-zoom-src');
-              const alt = wrap.getAttribute('data-zoom-alt') || '';
-              openFullscreenImage(src, alt);
-            });
-          }
-        });
-      }
-
-      function setupContenitoriZoom(){
-        const cards = defaultContent ? defaultContent.querySelectorAll('.contenitori-card[data-contenitori-id]') : [];
-        cards.forEach((card) => {
-          const id = card.dataset.contenitoriId;
-          if(!id) return;
-          card.addEventListener('click', () => {
-            expandedContenitoriId = expandedContenitoriId === id ? '' : id;
+      function setupContenitoriInteraction(){
+        const zones = defaultContent ? defaultContent.querySelectorAll('[data-contenitori-zone]') : [];
+        zones.forEach((zone) => {
+          const name = zone.getAttribute('data-contenitori-zone');
+          if(!name) return;
+          zone.addEventListener('click', () => {
+            selectedContenitoriMapId = selectedContenitoriMapId === name ? '' : name;
             renderCategoryContent('CONTENITORI');
+            if(selectedContenitoriMapId){
+              requestAnimationFrame(() => {
+                const panel = defaultContent.querySelector('.contenitori-detail-panel');
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              });
+            }
           });
-          card.addEventListener('keydown', (event) => {
+          zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
-              expandedContenitoriId = expandedContenitoriId === id ? '' : id;
+              selectedContenitoriMapId = selectedContenitoriMapId === name ? '' : name;
               renderCategoryContent('CONTENITORI');
             }
           });
         });
       }
 
+      /* Torte zone order: left-to-right in the group image */
+      const TORTE_ZONE_ORDER = [
+        'Millefoglie Buontalenti',
+        'Millefoglie Buontalenti con salsa Dolcevita (Nocciole e cacao)',
+        'Millefoglie Buontalenti con salsa Pistacchio'
+      ];
+      const TORTE_SHORT_NAMES = {
+        'Millefoglie Buontalenti': 'Buontalenti',
+        'Millefoglie Buontalenti con salsa Dolcevita (Nocciole e cacao)': 'Dolcevita',
+        'Millefoglie Buontalenti con salsa Pistacchio': 'Pistacchio'
+      };
+
+      function renderTorteGallery(rows){
+        if(!rows || !rows.length) return '';
+        const groupSrc = encodeURI(TORTE_GROUP_IMAGE);
+        const tapIcon = `<svg class="torte-tap-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v7.4l-1.3-1.3a2.1 2.1 0 0 0-3 3L9.6 18a6 6 0 0 0 4.2 1.8H15a6 6 0 0 0 6-6v-4a2 2 0 0 0-4 0v1a2 2 0 0 0-4 0 2 2 0 0 0-4 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+        const torteDataMap = {};
+        rows.forEach(([name, price]) => { torteDataMap[name] = { price }; });
+
+        const zones = TORTE_ZONE_ORDER.map((name) => {
+          const isActive = selectedTorteMapId === name;
+          const shortName = TORTE_SHORT_NAMES[name] || name;
+          return `<div class="torte-zone${isActive ? ' is-active' : ''}" data-torte-zone="${name}" role="button" tabindex="0" aria-label="${name}">
+            <span class="torte-zone-label">${tapIcon}${shortName}</span>
+          </div>`;
+        }).join('');
+
+        let detailPanel = '';
+        if(selectedTorteMapId && torteDataMap[selectedTorteMapId]){
+          const d = torteDataMap[selectedTorteMapId];
+          const images = TORTE_IMAGES[selectedTorteMapId];
+          const detailImgSrc = images ? encodeURI(images.small) : '';
+          detailPanel = `
+            <div class="torte-detail-panel">
+              <div class="torte-detail-img">
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selectedTorteMapId}" loading="lazy" decoding="async" />` : ''}
+              </div>
+              <div class="torte-detail-info">
+                <div class="torte-detail-name">${selectedTorteMapId}</div>
+                <div class="torte-detail-meta">
+                  <span><strong>${t('b2b.torte.price')}</strong><em>${d.price}</em></span>
+                </div>
+                <div class="torte-detail-sizes">
+                  <span class="torte-size-pill">S &mdash; ${t('b2b.torte.sizeS')}</span>
+                  <span class="torte-size-pill">L &mdash; ${t('b2b.torte.sizeL')}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        const hintText = selectedTorteMapId ? '' : `<p class="torte-hint">${t('b2b.torte.hint')}</p>`;
+
+        return `
+          <div class="modal__section">
+            <h4>${getCatTitle('TORTE')}</h4>
+            <div class="torte-map-wrapper">
+              <img src="${groupSrc}" alt="Torte" loading="lazy" decoding="async" />
+              <div class="torte-zones">${zones}</div>
+            </div>
+            ${hintText}
+            ${detailPanel}
+          </div>
+        `;
+      }
+
+      function setupTorteInteraction(){
+        const zones = defaultContent ? defaultContent.querySelectorAll('[data-torte-zone]') : [];
+        zones.forEach((zone) => {
+          const name = zone.getAttribute('data-torte-zone');
+          if(!name) return;
+          zone.addEventListener('click', () => {
+            selectedTorteMapId = selectedTorteMapId === name ? '' : name;
+            renderCategoryContent('TORTE');
+            if(selectedTorteMapId){
+              requestAnimationFrame(() => {
+                const panel = defaultContent.querySelector('.torte-detail-panel');
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              });
+            }
+          });
+          zone.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              event.preventDefault();
+              selectedTorteMapId = selectedTorteMapId === name ? '' : name;
+              renderCategoryContent('TORTE');
+            }
+          });
+        });
+      }
+
+      function setupContenitoriZoom(){
+        setupContenitoriInteraction();
+      }
+
       function setupPezziDuriZoom(){
+        const grid = defaultContent ? defaultContent.querySelector('.pezziduri-grid') : null;
         const cards = defaultContent ? defaultContent.querySelectorAll('.pezziduri-card[data-pezziduri-id]') : [];
+
+        /* ── Set correct minHeight on the expanded card (same technique as gelato) ── */
+        if(grid){
+          const expandedCard = grid.querySelector('.pezziduri-card.is-expanded');
+          if(expandedCard){
+            const refCard = grid.querySelector('.pezziduri-card:not(.is-expanded)');
+            if(refCard){
+              expandedCard.style.minHeight = (refCard.offsetHeight * 2 + 16) + 'px';
+            }
+            /* Row fix: if span 2 rows would overflow the grid, pin one row up */
+            const allCards = Array.from(grid.querySelectorAll('.pezziduri-card'));
+            const idx = allCards.indexOf(expandedCard);
+            const numCols  = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+            const naturalRow = Math.floor(idx / numCols) + 1;
+            const totalRows  = Math.ceil(allCards.length / numCols);
+            if(naturalRow >= totalRows && totalRows > 1){
+              expandedCard.style.gridRowStart = (totalRows - 1) + '';
+              expandedCard.style.gridRowEnd   = 'span 2';
+            }
+          }
+        }
+
         cards.forEach((card) => {
           const id = card.dataset.pezziduriId;
           if(!id) return;
@@ -3634,6 +4320,12 @@
             if(event.target.closest('.card-zoom')) return;
             expandedPezziDuriId = expandedPezziDuriId === id ? '' : id;
             renderCategoryContent('PEZZI DURI');
+            if(expandedPezziDuriId){
+              requestAnimationFrame(() => {
+                const expanded = defaultContent ? defaultContent.querySelector('.pezziduri-card.is-expanded') : null;
+                if(expanded) expanded.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              });
+            }
           });
           card.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
@@ -3646,24 +4338,22 @@
         });
       }
 
+      /* Coppette zone order: left-to-right in the group image */
+      const COPPETTE_ZONE_ORDER = ['Bicchierini 16B', 'Bicchierini 108', 'Bicchierini 4C', 'Bicchierini 4CA'];
+
       function renderConiCoppetteGallery(rows){
         if(!rows || !rows.length) return '';
         const headerSrc = encodeURI(CONI_GROUP_IMAGE);
-        const cards = rows
-          .filter(([name]) => name.indexOf('Gluten free') === -1)
+
+        /* ── Coni cards (cone items only) ── */
+        const coniRows = rows.filter(([name]) => name.indexOf('Gluten free') === -1 && name.indexOf('Bicchierini') === -1);
+        const coniCards = coniRows
           .map(([name, desc, qty]) => {
             const src = CONI_COPPETTE_IMAGES[name];
             if(!src) return '';
             const imageSrc = encodeURI(src);
             const isExpanded = expandedConiId === name;
             const gf = getConiGfVariants()[name];
-            const zoomIcon = `
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
-                <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            `;
             const gfBlock = gf ? `
               <button class="coni-gf-btn" type="button" data-gf-toggle="${name}">
                 ${t('b2b.coni.gfVariant')} <span class="gf-chevron">▼</span>
@@ -3692,13 +4382,85 @@
           .filter(Boolean)
           .join('');
 
+        /* ── Coppette interactive image map (cups only) ── */
+        const coppetteRows = rows.filter(([name]) => COPPETTE_ZONE_ORDER.indexOf(name) !== -1);
+        const coppetteDataMap = {};
+        coppetteRows.forEach(([name, desc, qty]) => { coppetteDataMap[name] = { desc, qty }; });
+
+        const zones = COPPETTE_ZONE_ORDER.map((name) => {
+          const isActive = selectedCoppetteId === name;
+          const tapIcon = `<svg class="coppette-tap-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v7.4l-1.3-1.3a2.1 2.1 0 0 0-3 3L9.6 18a6 6 0 0 0 4.2 1.8H15a6 6 0 0 0 6-6v-4a2 2 0 0 0-4 0v1a2 2 0 0 0-4 0 2 2 0 0 0-4 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+          return `<div class="coppette-zone${isActive ? ' is-active' : ''}" data-coppette-zone="${name}" role="button" tabindex="0" aria-label="${name}">
+            <span class="coppette-zone-label">${tapIcon}${name.replace('Bicchierini ', '')}</span>
+          </div>`;
+        }).join('');
+
+        let detailPanel = '';
+        if(selectedCoppetteId && coppetteDataMap[selectedCoppetteId]){
+          const d = coppetteDataMap[selectedCoppetteId];
+          const detailSrc = CONI_COPPETTE_IMAGES[selectedCoppetteId];
+          const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
+          detailPanel = `
+            <div class="coppette-detail-panel">
+              <div class="coppette-detail-img">
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selectedCoppetteId}" loading="lazy" decoding="async" />` : ''}
+              </div>
+              <div class="coppette-detail-info">
+                <div class="coppette-detail-name">${selectedCoppetteId}</div>
+                <div class="coppette-detail-meta">
+                  <span><strong>${t('b2b.coni.description')}</strong><em>${d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        const hintText = selectedCoppetteId ? '' : `<p class="coppette-hint">${t('b2b.coppette.hint')}</p>`;
+
+        const coppetteSection = `
+          <div class="coppette-section-title">Coppette</div>
+          <div class="coppette-map-wrapper">
+            <img src="${headerSrc}" alt="Coppette" loading="lazy" decoding="async" />
+            <div class="coppette-zones">${zones}</div>
+          </div>
+          ${hintText}
+          ${detailPanel}
+        `;
+
         return `
           <div class="modal__section">
             <h4>${getCatTitle('CONI_COPPETTE')}</h4>
-            <img class="coni-header-img" src="${headerSrc}" alt="Coni &amp; Coppette" loading="lazy" decoding="async" />
-            <div class="coni-grid">${cards}</div>
+            ${coppetteSection}
+            <div class="coni-grid">${coniCards}</div>
           </div>
         `;
+      }
+
+      function setupCoppetteInteraction(){
+        const zones = defaultContent ? defaultContent.querySelectorAll('[data-coppette-zone]') : [];
+        zones.forEach((zone) => {
+          const name = zone.getAttribute('data-coppette-zone');
+          if(!name) return;
+          zone.addEventListener('click', () => {
+            selectedCoppetteId = selectedCoppetteId === name ? '' : name;
+            renderCategoryContent('CONI_COPPETTE');
+            /* Scroll to detail panel if opened */
+            if(selectedCoppetteId){
+              requestAnimationFrame(() => {
+                const panel = defaultContent.querySelector('.coppette-detail-panel');
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              });
+            }
+          });
+          zone.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              event.preventDefault();
+              selectedCoppetteId = selectedCoppetteId === name ? '' : name;
+              renderCategoryContent('CONI_COPPETTE');
+            }
+          });
+        });
       }
 
       function renderAccessoriGallery(rows){
@@ -3833,7 +4595,7 @@
         }
 
         if(category === 'TORTE'){
-          requestAnimationFrame(setupTorteZoom);
+          requestAnimationFrame(setupTorteInteraction);
         }
         if(category === 'PEZZI DURI'){
           requestAnimationFrame(setupPezziDuriZoom);
@@ -3843,6 +4605,7 @@
         }
         if(category === 'CONI_COPPETTE'){
           requestAnimationFrame(setupConiZoom);
+          requestAnimationFrame(setupCoppetteInteraction);
         }
         if(category === 'ACCESSORI'){
           requestAnimationFrame(setupAccessoriZoom);
@@ -4053,8 +4816,35 @@
           if(refCard){
             card.style.minHeight = (refCard.offsetHeight * 2 + 16) + 'px';
           }
+          /* Fix overflow: if the card sits in the last column where span 2
+             would overflow, swap it with the previous sibling in the DOM
+             so it naturally lands one column earlier. */
+          const allCards = Array.from(gelatoGrid.querySelectorAll('.gelato-card'));
+          const idx = allCards.indexOf(card);
+          const numCols  = getComputedStyle(gelatoGrid).gridTemplateColumns.split(' ').length;
+          const naturalCol = (idx % numCols) + 1;
+          const naturalRow = Math.floor(idx / numCols) + 1;
+          const totalRows  = Math.ceil(allCards.length / numCols);
+          if(naturalCol > numCols - 1 && card.previousElementSibling){
+            card._swappedWith = card.previousElementSibling;
+            card.previousElementSibling.before(card);
+          }
+          if(naturalRow >= totalRows && totalRows > 1){
+            card.style.gridRowStart = (totalRows - 1) + '';
+            card.style.gridRowEnd   = 'span 2';
+          } else {
+            card.style.gridRowStart = '';
+            card.style.gridRowEnd   = '';
+          }
         }else{
           card.style.minHeight = '';
+          card.style.gridRowStart = '';
+          card.style.gridRowEnd   = '';
+          /* Restore original DOM order if card was swapped */
+          if(card._swappedWith){
+            card._swappedWith.before(card);
+            delete card._swappedWith;
+          }
         }
 
         const img = card.querySelector('img');
