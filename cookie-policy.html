@@ -86,91 +86,108 @@
   </style>
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="./" class="topbar__logo">
-      <img src="assets/images/branding/logo.webp" alt="Badiani 1932" width="130" height="39" />
+      <img src="assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
     </a>
     <div class="topbar__right">
       <nav class="topbar__nav">
-        <a href="./">Home</a>
-        <a href="eventi/">Eventi</a>
-        <a href="b2b/">B2B</a>
-        <a href="magazine/">Magazine</a>
+        <a href="./" data-i18n="nav.home">Home</a>
+        <a href="eventi/" data-i18n="nav.eventi">Eventi</a>
+        <a href="b2b/" data-i18n="nav.b2b">B2B</a>
+        <a href="magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
       </nav>
+      <div class="topbar__lang">
+        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+          <option value="it" data-i18n="lang.it"></option>
+          <option value="en" data-i18n="lang.en"></option>
+          <option value="es" data-i18n="lang.es"></option>
+          <option value="fr" data-i18n="lang.fr"></option>
+        </select>
+      </div>
+      <button class="topbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span>
+      </button>
     </div>
   </header>
+  <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
+    <a href="./" data-i18n="nav.home">Home</a>
+    <a href="eventi/" data-i18n="nav.eventi">Eventi</a>
+    <a href="b2b/" data-i18n="nav.b2b">B2B</a>
+    <a href="magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
+  </nav>
 
   <main class="legal-page">
-    <h1>Cookie Policy</h1>
-    <span class="legal-updated">Ultimo aggiornamento: Febbraio 2026</span>
+    <h1 data-i18n="cookie.title">Cookie Policy</h1>
+    <span class="legal-updated" data-i18n="cookie.updated">Ultimo aggiornamento: Febbraio 2026</span>
 
-    <h2>1. Cosa Sono i Cookie</h2>
-    <p>I cookie sono piccoli file di testo che i siti web visitati inviano al browser dell'utente, dove vengono memorizzati, per poi essere ritrasmessi agli stessi siti alla visita successiva. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse e possono essere utilizzati sia dal titolare del sito che stai visitando, sia da terze parti.</p>
+    <h2 data-i18n="cookie.s1.title">1. Cosa Sono i Cookie</h2>
+    <p data-i18n="cookie.s1.text">I cookie sono piccoli file di testo che i siti web visitati inviano al browser dell'utente, dove vengono memorizzati, per poi essere ritrasmessi agli stessi siti alla visita successiva. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse e possono essere utilizzati sia dal titolare del sito che stai visitando, sia da terze parti.</p>
 
-    <h2>2. Cookie Utilizzati da Questo Sito</h2>
-    <p>Il presente sito utilizza esclusivamente <strong>cookie tecnici</strong> strettamente necessari al funzionamento e alla navigazione. Non utilizziamo cookie di profilazione o di marketing.</p>
+    <h2 data-i18n="cookie.s2.title">2. Cookie Utilizzati da Questo Sito</h2>
+    <p data-i18n-html="cookie.s2.intro">Il presente sito utilizza esclusivamente <strong>cookie tecnici</strong> strettamente necessari al funzionamento e alla navigazione. Non utilizziamo cookie di profilazione o di marketing.</p>
 
-    <h3>2.1 Cookie Tecnici</h3>
+    <h3 data-i18n="cookie.s2.sub">2.1 Cookie Tecnici</h3>
     <table>
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Tipo</th>
-          <th>Finalità</th>
-          <th>Durata</th>
+          <th data-i18n="cookie.s2.th1">Nome</th>
+          <th data-i18n="cookie.s2.th2">Tipo</th>
+          <th data-i18n="cookie.s2.th3">Finalità</th>
+          <th data-i18n="cookie.s2.th4">Durata</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>badianiLang</td>
           <td>localStorage</td>
-          <td>Memorizza la lingua selezionata dall'utente per garantire un'esperienza di navigazione coerente nelle visite successive</td>
-          <td>Persistente (fino a cancellazione manuale da parte dell'utente)</td>
+          <td data-i18n="cookie.s2.r1c3">Memorizza la lingua selezionata dall'utente per garantire un'esperienza di navigazione coerente nelle visite successive</td>
+          <td data-i18n="cookie.s2.r1c4">Persistente (fino a cancellazione manuale da parte dell'utente)</td>
         </tr>
         <tr>
           <td>badianiCookieConsent</td>
           <td>localStorage</td>
-          <td>Memorizza la scelta dell'utente riguardo al banner cookie, per non riproporlo ad ogni visita</td>
-          <td>12 mesi</td>
+          <td data-i18n="cookie.s2.r2c3">Memorizza la scelta dell'utente riguardo al banner cookie, per non riproporlo ad ogni visita</td>
+          <td data-i18n="cookie.s2.r2c4">12 mesi</td>
         </tr>
       </tbody>
     </table>
 
-    <h3>2.2 Cookie di Terze Parti</h3>
-    <p>Questo sito <strong>non utilizza</strong> cookie di terze parti, cookie di profilazione, cookie analytics o cookie di marketing.</p>
+    <h3 data-i18n="cookie.s2.sub2">2.2 Cookie di Terze Parti</h3>
+    <p data-i18n-html="cookie.s2.thirdParty">Questo sito <strong>non utilizza</strong> cookie di terze parti, cookie di profilazione, cookie analytics o cookie di marketing.</p>
 
-    <h2>3. Base Giuridica</h2>
-    <p>I cookie tecnici utilizzati da questo sito rientrano nella categoria dei cookie la cui installazione <strong>non richiede il consenso preventivo</strong> dell'utente ai sensi dell'Art. 122 del D.Lgs. 196/2003 (come modificato dal D.Lgs. 101/2018) e delle <em>Linee Guida Cookie e altri strumenti di tracciamento</em> del Garante Privacy del 10 giugno 2021.</p>
-    <p>Ciononostante, informiamo l'utente mediante un banner informativo e la presente cookie policy.</p>
+    <h2 data-i18n="cookie.s3.title">3. Base Giuridica</h2>
+    <p data-i18n-html="cookie.s3.text1">I cookie tecnici utilizzati da questo sito rientrano nella categoria dei cookie la cui installazione <strong>non richiede il consenso preventivo</strong> dell'utente ai sensi dell'Art. 122 del D.Lgs. 196/2003 (come modificato dal D.Lgs. 101/2018) e delle <em>Linee Guida Cookie e altri strumenti di tracciamento</em> del Garante Privacy del 10 giugno 2021.</p>
+    <p data-i18n="cookie.s3.text2">Ciononostante, informiamo l'utente mediante un banner informativo e la presente cookie policy.</p>
 
-    <h2>4. Come Disabilitare i Cookie</h2>
-    <p>È possibile gestire le preferenze relative ai cookie direttamente nel proprio browser. Ecco i link alle guide ufficiali dei principali browser:</p>
+    <h2 data-i18n="cookie.s4.title">4. Come Disabilitare i Cookie</h2>
+    <p data-i18n="cookie.s4.intro">È possibile gestire le preferenze relative ai cookie direttamente nel proprio browser. Ecco i link alle guide ufficiali dei principali browser:</p>
     <ul>
       <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
       <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
       <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
       <li><a href="https://support.microsoft.com/it-it/windows/eliminare-e-gestire-i-cookie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
     </ul>
-    <p><strong>Attenzione:</strong> disabilitando i cookie tecnici, alcune funzionalità del sito (come la memorizzazione della lingua) potrebbero non funzionare correttamente.</p>
+    <p data-i18n-html="cookie.s4.warning"><strong>Attenzione:</strong> disabilitando i cookie tecnici, alcune funzionalità del sito (come la memorizzazione della lingua) potrebbero non funzionare correttamente.</p>
 
-    <h2>5. Aggiornamenti</h2>
-    <p>La presente Cookie Policy può essere soggetta ad aggiornamenti. L'utente è invitato a consultarla periodicamente. La data dell'ultimo aggiornamento è indicata in cima a questa pagina.</p>
+    <h2 data-i18n="cookie.s5.title">5. Aggiornamenti</h2>
+    <p data-i18n="cookie.s5.text">La presente Cookie Policy può essere soggetta ad aggiornamenti. L'utente è invitato a consultarla periodicamente. La data dell'ultimo aggiornamento è indicata in cima a questa pagina.</p>
 
-    <h2>6. Riferimenti Normativi</h2>
-    <ul>
+    <h2 data-i18n="cookie.s6.title">6. Riferimenti Normativi</h2>
+    <ul data-i18n-html="cookie.s6.list">
       <li>Regolamento UE 2016/679 (GDPR)</li>
       <li>D.Lgs. 196/2003 (Codice Privacy) come modificato dal D.Lgs. 101/2018</li>
       <li>Direttiva 2002/58/CE (ePrivacy)</li>
       <li>Linee Guida Cookie del Garante Privacy — Provvedimento del 10 giugno 2021 [doc. web n. 9677876]</li>
     </ul>
 
-    <h2>7. Contatti</h2>
-    <p>Per qualsiasi domanda relativa ai cookie, puoi contattarci all'indirizzo: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a></p>
-    <p>Per maggiori informazioni sul trattamento dei tuoi dati, consulta la nostra <a href="privacy.html">Privacy Policy</a>.</p>
+    <h2 data-i18n="cookie.s7.title">7. Contatti</h2>
+    <p data-i18n-html="cookie.s7.text1">Per qualsiasi domanda relativa ai cookie, puoi contattarci all'indirizzo: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a></p>
+    <p data-i18n-html="cookie.s7.text2">Per maggiori informazioni sul trattamento dei tuoi dati, consulta la nostra <a href="privacy.html">Privacy Policy</a>.</p>
 
     <hr style="margin:40px 0; border:none; border-top:1px solid #e0e0e0;" />
 
-    <p style="font-size:13px; color:#999; text-align:center;">
+    <p style="font-size:13px; color:#999; text-align:center;" data-i18n="cookie.disclaimer">
       Informativa resa ai sensi della normativa europea e italiana in materia di protezione dei dati personali e cookie.
     </p>
   </main>
@@ -180,21 +197,21 @@
     <div class="footer-inner">
       <div class="footer-col footer-brand">
         <a href="./" class="footer-logo-link">
-          <img src="assets/images/branding/logo.webp" alt="Badiani 1932" width="130" height="39" />
+          <img src="assets/images/branding/logo-white.png" alt="Badiani 1932" width="1665" height="643" />
         </a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigazione</h4>
+        <h4 data-i18n="footer.nav">Navigazione</h4>
         <ul>
-          <li><a href="./">Home</a></li>
-          <li><a href="eventi/">Eventi</a></li>
-          <li><a href="b2b/">B2B</a></li>
-          <li><a href="magazine/">Magazine</a></li>
+          <li><a href="./" data-i18n="footer.home">Home</a></li>
+          <li><a href="eventi/" data-i18n="footer.eventi">Eventi</a></li>
+          <li><a href="b2b/" data-i18n="footer.b2b">B2B</a></li>
+          <li><a href="magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contatti</h4>
+        <h4 data-i18n="footer.contatti">Contatti</h4>
         <ul>
           <li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li>
           <li><a href="mailto:b2b@badiani1932.com">b2b@badiani1932.com</a></li>
@@ -202,10 +219,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Legale</h4>
+        <h4 data-i18n="footer.legale">Legale</h4>
         <ul>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
@@ -213,5 +230,281 @@
       <p>&copy; 2026 Badiani 1932. Tutti i diritti riservati. P.IVA: <span class="placeholder-data">[P.IVA]</span></p>
     </div>
   </footer>
+
+  <!-- COOKIE CONSENT BANNER -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
+    <p class="cookie-banner__text">
+      Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Nessun cookie di profilazione.
+      <a href="cookie-policy.html">Maggiori informazioni</a>
+    </p>
+    <div class="cookie-banner__actions">
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
+      <a href="cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const SUPPORTED = ['it','en','fr','es'];
+      const DEFAULT_LANG = 'it';
+      const STORAGE_KEY = 'badianiLang';
+
+      const STRINGS = {
+        it: {
+          'meta.title': 'Cookie Policy — Badiani 1932',
+          'topbar.label': 'Barra brand',
+          'lang.label': 'Selettore lingua',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B', 'nav.magazine': 'Dicono di Noi',
+          'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi',
+          'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
+          'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
+          'cookie.title': 'Cookie Policy',
+          'cookie.updated': 'Ultimo aggiornamento: Febbraio 2026',
+          'cookie.s1.title': '1. Cosa Sono i Cookie',
+          'cookie.s1.text': 'I cookie sono piccoli file di testo che i siti web visitati inviano al browser dell\'utente, dove vengono memorizzati, per poi essere ritrasmessi agli stessi siti alla visita successiva. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse e possono essere utilizzati sia dal titolare del sito che stai visitando, sia da terze parti.',
+          'cookie.s2.title': '2. Cookie Utilizzati da Questo Sito',
+          'cookie.s2.intro': 'Il presente sito utilizza esclusivamente <strong>cookie tecnici</strong> strettamente necessari al funzionamento e alla navigazione. Non utilizziamo cookie di profilazione o di marketing.',
+          'cookie.s2.sub': '2.1 Cookie Tecnici',
+          'cookie.s2.th1': 'Nome', 'cookie.s2.th2': 'Tipo', 'cookie.s2.th3': 'Finalità', 'cookie.s2.th4': 'Durata',
+          'cookie.s2.r1c3': 'Memorizza la lingua selezionata dall\'utente per garantire un\'esperienza di navigazione coerente nelle visite successive',
+          'cookie.s2.r1c4': 'Persistente (fino a cancellazione manuale da parte dell\'utente)',
+          'cookie.s2.r2c3': 'Memorizza la scelta dell\'utente riguardo al banner cookie, per non riproporlo ad ogni visita',
+          'cookie.s2.r2c4': '12 mesi',
+          'cookie.s2.sub2': '2.2 Cookie di Terze Parti',
+          'cookie.s2.thirdParty': 'Questo sito <strong>non utilizza</strong> cookie di terze parti, cookie di profilazione, cookie analytics o cookie di marketing.',
+          'cookie.s3.title': '3. Base Giuridica',
+          'cookie.s3.text1': 'I cookie tecnici utilizzati da questo sito rientrano nella categoria dei cookie la cui installazione <strong>non richiede il consenso preventivo</strong> dell\'utente ai sensi dell\'Art. 122 del D.Lgs. 196/2003 (come modificato dal D.Lgs. 101/2018) e delle <em>Linee Guida Cookie e altri strumenti di tracciamento</em> del Garante Privacy del 10 giugno 2021.',
+          'cookie.s3.text2': 'Ciononostante, informiamo l\'utente mediante un banner informativo e la presente cookie policy.',
+          'cookie.s4.title': '4. Come Disabilitare i Cookie',
+          'cookie.s4.intro': 'È possibile gestire le preferenze relative ai cookie direttamente nel proprio browser. Ecco i link alle guide ufficiali dei principali browser:',
+          'cookie.s4.warning': '<strong>Attenzione:</strong> disabilitando i cookie tecnici, alcune funzionalità del sito (come la memorizzazione della lingua) potrebbero non funzionare correttamente.',
+          'cookie.s5.title': '5. Aggiornamenti',
+          'cookie.s5.text': 'La presente Cookie Policy può essere soggetta ad aggiornamenti. L\'utente è invitato a consultarla periodicamente. La data dell\'ultimo aggiornamento è indicata in cima a questa pagina.',
+          'cookie.s6.title': '6. Riferimenti Normativi',
+          'cookie.s6.list': '<li>Regolamento UE 2016/679 (GDPR)</li><li>D.Lgs. 196/2003 (Codice Privacy) come modificato dal D.Lgs. 101/2018</li><li>Direttiva 2002/58/CE (ePrivacy)</li><li>Linee Guida Cookie del Garante Privacy — Provvedimento del 10 giugno 2021 [doc. web n. 9677876]</li>',
+          'cookie.s7.title': '7. Contatti',
+          'cookie.s7.text1': 'Per qualsiasi domanda relativa ai cookie, puoi contattarci all\'indirizzo: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'cookie.s7.text2': 'Per maggiori informazioni sul trattamento dei tuoi dati, consulta la nostra <a href="privacy.html">Privacy Policy</a>.',
+          'cookie.disclaimer': 'Informativa resa ai sensi della normativa europea e italiana in materia di protezione dei dati personali e cookie.'
+        },
+        en: {
+          'meta.title': 'Cookie Policy — Badiani 1932',
+          'topbar.label': 'Brand bar',
+          'lang.label': 'Language selector',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.magazine': 'They Say About Us',
+          'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
+          'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
+          'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
+          'cookie.title': 'Cookie Policy',
+          'cookie.updated': 'Last updated: February 2026',
+          'cookie.s1.title': '1. What Are Cookies',
+          'cookie.s1.text': 'Cookies are small text files that websites send to the user\'s browser, where they are stored and then retransmitted to the same websites on subsequent visits. Cookies are used for various purposes, have different characteristics, and can be used by both the website operator and third parties.',
+          'cookie.s2.title': '2. Cookies Used by This Website',
+          'cookie.s2.intro': 'This website uses exclusively <strong>technical cookies</strong> strictly necessary for its operation and navigation. We do not use profiling or marketing cookies.',
+          'cookie.s2.sub': '2.1 Technical Cookies',
+          'cookie.s2.th1': 'Name', 'cookie.s2.th2': 'Type', 'cookie.s2.th3': 'Purpose', 'cookie.s2.th4': 'Duration',
+          'cookie.s2.r1c3': 'Stores the language selected by the user to ensure a consistent browsing experience on subsequent visits',
+          'cookie.s2.r1c4': 'Persistent (until manually deleted by the user)',
+          'cookie.s2.r2c3': 'Stores the user\'s choice regarding the cookie banner, so it is not shown again on each visit',
+          'cookie.s2.r2c4': '12 months',
+          'cookie.s2.sub2': '2.2 Third-Party Cookies',
+          'cookie.s2.thirdParty': 'This website <strong>does not use</strong> third-party cookies, profiling cookies, analytics cookies, or marketing cookies.',
+          'cookie.s3.title': '3. Legal Basis',
+          'cookie.s3.text1': 'The technical cookies used by this website fall into the category of cookies whose installation <strong>does not require prior consent</strong> from the user pursuant to Art. 122 of Italian Legislative Decree 196/2003 (as amended by Legislative Decree 101/2018) and the <em>Cookie Guidelines and other tracking tools</em> of the Italian Data Protection Authority of 10 June 2021.',
+          'cookie.s3.text2': 'Nevertheless, we inform the user through an information banner and this cookie policy.',
+          'cookie.s4.title': '4. How to Disable Cookies',
+          'cookie.s4.intro': 'You can manage cookie preferences directly in your browser. Here are links to the official guides of the main browsers:',
+          'cookie.s4.warning': '<strong>Warning:</strong> disabling technical cookies may cause some website features (such as language memory) to not work properly.',
+          'cookie.s5.title': '5. Updates',
+          'cookie.s5.text': 'This Cookie Policy may be subject to updates. Users are invited to consult it periodically. The date of the last update is indicated at the top of this page.',
+          'cookie.s6.title': '6. Regulatory References',
+          'cookie.s6.list': '<li>Regulation EU 2016/679 (GDPR)</li><li>Italian Legislative Decree 196/2003 (Privacy Code) as amended by Legislative Decree 101/2018</li><li>Directive 2002/58/EC (ePrivacy)</li><li>Cookie Guidelines of the Italian Data Protection Authority — Provision of 10 June 2021 [doc. web n. 9677876]</li>',
+          'cookie.s7.title': '7. Contacts',
+          'cookie.s7.text1': 'For any questions about cookies, you can contact us at: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'cookie.s7.text2': 'For more information about the processing of your data, please see our <a href="privacy.html">Privacy Policy</a>.',
+          'cookie.disclaimer': 'Policy issued pursuant to European and Italian regulations on personal data protection and cookies.'
+        },
+        fr: {
+          'meta.title': 'Politique des cookies — Badiani 1932',
+          'topbar.label': 'Barre de marque',
+          'lang.label': 'Sélecteur de langue',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Accueil', 'nav.eventi': 'Événements', 'nav.b2b': 'B2B', 'nav.magazine': 'Ils Parlent de Nous',
+          'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': 'Événements',
+          'footer.b2b': 'B2B', 'footer.magazine': 'Ils Parlent de Nous', 'footer.contatti': 'Contacts',
+          'footer.legale': 'Mentions légales', 'footer.privacy': 'Politique de confidentialité', 'footer.cookie': 'Politique des cookies',
+          'cookie.title': 'Politique des Cookies',
+          'cookie.updated': 'Dernière mise à jour : Février 2026',
+          'cookie.s1.title': '1. Que Sont les Cookies',
+          'cookie.s1.text': 'Les cookies sont de petits fichiers texte que les sites web visités envoient au navigateur de l\'utilisateur, où ils sont stockés, pour être retransmis aux mêmes sites lors de la visite suivante. Les cookies sont utilisés à des fins diverses, ont des caractéristiques différentes et peuvent être utilisés aussi bien par l\'opérateur du site que par des tiers.',
+          'cookie.s2.title': '2. Cookies Utilisés par ce Site',
+          'cookie.s2.intro': 'Ce site utilise exclusivement des <strong>cookies techniques</strong> strictement nécessaires au fonctionnement et à la navigation. Nous n\'utilisons pas de cookies de profilage ou de marketing.',
+          'cookie.s2.sub': '2.1 Cookies Techniques',
+          'cookie.s2.th1': 'Nom', 'cookie.s2.th2': 'Type', 'cookie.s2.th3': 'Finalité', 'cookie.s2.th4': 'Durée',
+          'cookie.s2.r1c3': 'Mémorise la langue sélectionnée par l\'utilisateur pour garantir une expérience de navigation cohérente lors des visites suivantes',
+          'cookie.s2.r1c4': 'Persistant (jusqu\'à suppression manuelle par l\'utilisateur)',
+          'cookie.s2.r2c3': 'Mémorise le choix de l\'utilisateur concernant le bandeau cookie, pour ne pas le reproposer à chaque visite',
+          'cookie.s2.r2c4': '12 mois',
+          'cookie.s2.sub2': '2.2 Cookies Tiers',
+          'cookie.s2.thirdParty': 'Ce site <strong>n\'utilise pas</strong> de cookies tiers, de cookies de profilage, de cookies analytics ou de cookies marketing.',
+          'cookie.s3.title': '3. Base Juridique',
+          'cookie.s3.text1': 'Les cookies techniques utilisés par ce site entrent dans la catégorie des cookies dont l\'installation <strong>ne nécessite pas le consentement préalable</strong> de l\'utilisateur conformément à l\'Art. 122 du Décret législatif 196/2003 (modifié par le Décret législatif 101/2018) et des <em>Lignes directrices sur les cookies et autres outils de traçage</em> du Garant de la vie privée du 10 juin 2021.',
+          'cookie.s3.text2': 'Néanmoins, nous informons l\'utilisateur par un bandeau informatif et la présente politique des cookies.',
+          'cookie.s4.title': '4. Comment Désactiver les Cookies',
+          'cookie.s4.intro': 'Vous pouvez gérer les préférences relatives aux cookies directement dans votre navigateur. Voici les liens vers les guides officiels des principaux navigateurs :',
+          'cookie.s4.warning': '<strong>Attention :</strong> la désactivation des cookies techniques peut entraîner le dysfonctionnement de certaines fonctionnalités du site (comme la mémorisation de la langue).',
+          'cookie.s5.title': '5. Mises à Jour',
+          'cookie.s5.text': 'La présente Politique des Cookies peut être sujette à des mises à jour. L\'utilisateur est invité à la consulter périodiquement. La date de la dernière mise à jour est indiquée en haut de cette page.',
+          'cookie.s6.title': '6. Références Réglementaires',
+          'cookie.s6.list': '<li>Règlement UE 2016/679 (RGPD)</li><li>Décret législatif 196/2003 (Code de la vie privée) modifié par le Décret législatif 101/2018</li><li>Directive 2002/58/CE (ePrivacy)</li><li>Lignes directrices Cookie du Garant de la vie privée — Provision du 10 juin 2021 [doc. web n. 9677876]</li>',
+          'cookie.s7.title': '7. Contacts',
+          'cookie.s7.text1': 'Pour toute question relative aux cookies, vous pouvez nous contacter à : <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'cookie.s7.text2': 'Pour plus d\'informations sur le traitement de vos données, consultez notre <a href="privacy.html">Politique de Confidentialité</a>.',
+          'cookie.disclaimer': 'Politique rédigée conformément à la réglementation européenne et italienne en matière de protection des données personnelles et de cookies.'
+        },
+        es: {
+          'meta.title': 'Política de cookies — Badiani 1932',
+          'topbar.label': 'Barra de marca',
+          'lang.label': 'Selector de idioma',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B', 'nav.magazine': 'Dicen de Nosotros',
+          'footer.nav': 'Navegación', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos',
+          'footer.b2b': 'B2B', 'footer.magazine': 'Dicen de Nosotros', 'footer.contatti': 'Contactos',
+          'footer.legale': 'Legal', 'footer.privacy': 'Política de privacidad', 'footer.cookie': 'Política de cookies',
+          'cookie.title': 'Política de Cookies',
+          'cookie.updated': 'Última actualización: Febrero 2026',
+          'cookie.s1.title': '1. Qué Son las Cookies',
+          'cookie.s1.text': 'Las cookies son pequeños archivos de texto que los sitios web visitados envían al navegador del usuario, donde se almacenan, para luego ser retransmitidos a los mismos sitios en la siguiente visita. Las cookies se utilizan para diversos fines, tienen diferentes características y pueden ser utilizadas tanto por el operador del sitio como por terceros.',
+          'cookie.s2.title': '2. Cookies Utilizadas por Este Sitio',
+          'cookie.s2.intro': 'Este sitio utiliza exclusivamente <strong>cookies técnicas</strong> estrictamente necesarias para el funcionamiento y la navegación. No utilizamos cookies de perfilado ni de marketing.',
+          'cookie.s2.sub': '2.1 Cookies Técnicas',
+          'cookie.s2.th1': 'Nombre', 'cookie.s2.th2': 'Tipo', 'cookie.s2.th3': 'Finalidad', 'cookie.s2.th4': 'Duración',
+          'cookie.s2.r1c3': 'Almacena el idioma seleccionado por el usuario para garantizar una experiencia de navegación coherente en visitas sucesivas',
+          'cookie.s2.r1c4': 'Persistente (hasta la eliminación manual por parte del usuario)',
+          'cookie.s2.r2c3': 'Almacena la elección del usuario respecto al banner de cookies, para no mostrarlo de nuevo en cada visita',
+          'cookie.s2.r2c4': '12 meses',
+          'cookie.s2.sub2': '2.2 Cookies de Terceros',
+          'cookie.s2.thirdParty': 'Este sitio <strong>no utiliza</strong> cookies de terceros, cookies de perfilado, cookies de analítica ni cookies de marketing.',
+          'cookie.s3.title': '3. Base Jurídica',
+          'cookie.s3.text1': 'Las cookies técnicas utilizadas por este sitio pertenecen a la categoría de cookies cuya instalación <strong>no requiere el consentimiento previo</strong> del usuario según el Art. 122 del Decreto Legislativo 196/2003 (modificado por el Decreto Legislativo 101/2018) y las <em>Directrices sobre cookies y otros instrumentos de seguimiento</em> del Garante de Privacidad del 10 de junio de 2021.',
+          'cookie.s3.text2': 'No obstante, informamos al usuario mediante un banner informativo y la presente política de cookies.',
+          'cookie.s4.title': '4. Cómo Desactivar las Cookies',
+          'cookie.s4.intro': 'Puede gestionar las preferencias relativas a las cookies directamente en su navegador. Aquí están los enlaces a las guías oficiales de los principales navegadores:',
+          'cookie.s4.warning': '<strong>Atención:</strong> la desactivación de las cookies técnicas puede provocar que algunas funcionalidades del sitio (como la memorización del idioma) no funcionen correctamente.',
+          'cookie.s5.title': '5. Actualizaciones',
+          'cookie.s5.text': 'La presente Política de Cookies puede estar sujeta a actualizaciones. Se invita al usuario a consultarla periódicamente. La fecha de la última actualización se indica en la parte superior de esta página.',
+          'cookie.s6.title': '6. Referencias Normativas',
+          'cookie.s6.list': '<li>Reglamento UE 2016/679 (RGPD)</li><li>Decreto Legislativo 196/2003 (Código de Privacidad) modificado por el Decreto Legislativo 101/2018</li><li>Directiva 2002/58/CE (ePrivacy)</li><li>Directrices de Cookies del Garante de Privacidad — Disposición del 10 de junio de 2021 [doc. web n. 9677876]</li>',
+          'cookie.s7.title': '7. Contactos',
+          'cookie.s7.text1': 'Para cualquier pregunta relativa a las cookies, puede contactarnos en: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'cookie.s7.text2': 'Para más información sobre el tratamiento de sus datos, consulte nuestra <a href="privacy.html">Política de Privacidad</a>.',
+          'cookie.disclaimer': 'Política redactada de conformidad con la normativa europea e italiana en materia de protección de datos personales y cookies.'
+        }
+      };
+
+      function normalizeLang(lang){
+        if(!lang) return DEFAULT_LANG;
+        const base = String(lang).toLowerCase().split('-')[0];
+        return SUPPORTED.includes(base) ? base : DEFAULT_LANG;
+      }
+
+      function getInitialLang(){
+        try{
+          const params = new URLSearchParams(window.location.search || '');
+          const q = params.get('lang');
+          if(q) return normalizeLang(q);
+        }catch{}
+        try{
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if(saved) return normalizeLang(saved);
+        }catch{}
+        return normalizeLang(navigator.language || DEFAULT_LANG);
+      }
+
+      let currentLang = getInitialLang();
+
+      function t(key){
+        const dict = STRINGS[currentLang] || STRINGS[DEFAULT_LANG];
+        return dict && dict[key] ? dict[key] : '';
+      }
+
+      function applyTranslations(){
+        document.documentElement.setAttribute('lang', currentLang);
+        document.title = t('meta.title');
+        document.querySelectorAll('[data-i18n]').forEach(function(el){
+          const key = el.getAttribute('data-i18n');
+          if(key) el.textContent = t(key);
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+          const key = el.getAttribute('data-i18n-html');
+          if(key) el.innerHTML = t(key);
+        });
+        document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+          const raw = el.getAttribute('data-i18n-attr') || '';
+          raw.split(',').forEach(function(pair){
+            const parts = pair.split(':').map(function(s){ return s.trim(); });
+            if(parts[0] && parts[1]) el.setAttribute(parts[0], t(parts[1]));
+          });
+        });
+      }
+
+      function setLang(lang){
+        const next = normalizeLang(lang);
+        if(next === currentLang) return;
+        currentLang = next;
+        try{ localStorage.setItem(STORAGE_KEY, currentLang); }catch{}
+        applyTranslations();
+      }
+
+      const select = document.getElementById('langSelect');
+      if(select){
+        select.value = currentLang;
+        select.addEventListener('change', function(e){ setLang(e.target.value); });
+      }
+
+      applyTranslations();
+    })();
+
+    /* Cookie consent banner */
+    (function(){
+      var COOKIE_KEY = 'badianiCookieConsent';
+      var banner = document.getElementById('cookieBanner');
+      var btn = document.getElementById('cookieAccept');
+      if(!banner || !btn) return;
+      try {
+        if(localStorage.getItem(COOKIE_KEY) === 'accepted'){
+          banner.style.display = 'none';
+          return;
+        }
+      } catch(e){}
+      btn.addEventListener('click', function(){
+        try { localStorage.setItem(COOKIE_KEY, 'accepted'); } catch(e){}
+        banner.classList.add('is-hidden');
+        setTimeout(function(){ banner.style.display = 'none'; }, 500);
+      });
+    })();
+
+    /* Hamburger mobile menu toggle */
+    (function(){
+      var btn = document.getElementById('hamburgerBtn');
+      var nav = document.getElementById('mobileNav');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        nav.classList.toggle('is-open');
+        document.body.style.overflow = open ? '' : 'hidden';
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          btn.setAttribute('aria-expanded','false');
+          nav.classList.remove('is-open');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

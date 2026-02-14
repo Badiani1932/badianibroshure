@@ -86,27 +86,44 @@
   </style>
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="./" class="topbar__logo">
-      <img src="assets/images/branding/logo.webp" alt="Badiani 1932" width="130" height="39" />
+      <img src="assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
     </a>
     <div class="topbar__right">
       <nav class="topbar__nav">
-        <a href="./">Home</a>
-        <a href="eventi/">Eventi</a>
-        <a href="b2b/">B2B</a>
-        <a href="magazine/">Magazine</a>
+        <a href="./" data-i18n="nav.home">Home</a>
+        <a href="eventi/" data-i18n="nav.eventi">Eventi</a>
+        <a href="b2b/" data-i18n="nav.b2b">B2B</a>
+        <a href="magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
       </nav>
+      <div class="topbar__lang">
+        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+          <option value="it" data-i18n="lang.it"></option>
+          <option value="en" data-i18n="lang.en"></option>
+          <option value="es" data-i18n="lang.es"></option>
+          <option value="fr" data-i18n="lang.fr"></option>
+        </select>
+      </div>
+      <button class="topbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span>
+      </button>
     </div>
   </header>
+  <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
+    <a href="./" data-i18n="nav.home">Home</a>
+    <a href="eventi/" data-i18n="nav.eventi">Eventi</a>
+    <a href="b2b/" data-i18n="nav.b2b">B2B</a>
+    <a href="magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
+  </nav>
 
   <main class="legal-page">
-    <h1>Informativa sulla Privacy</h1>
-    <span class="legal-updated">Ultimo aggiornamento: Febbraio 2026</span>
+    <h1 data-i18n="privacy.title">Informativa sulla Privacy</h1>
+    <span class="legal-updated" data-i18n="privacy.updated">Ultimo aggiornamento: Febbraio 2026</span>
 
-    <h2>1. Titolare del Trattamento</h2>
-    <p>Il Titolare del trattamento dei dati personali è:</p>
-    <p>
+    <h2 data-i18n="privacy.s1.title">1. Titolare del Trattamento</h2>
+    <p data-i18n="privacy.s1.intro">Il Titolare del trattamento dei dati personali è:</p>
+    <p data-i18n-html="privacy.s1.details">
       <strong><span class="placeholder-data">[RAGIONE SOCIALE]</span></strong><br>
       Sede legale: <span class="placeholder-data">[INDIRIZZO SEDE LEGALE]</span><br>
       P.IVA: <span class="placeholder-data">[PARTITA IVA]</span><br>
@@ -114,9 +131,9 @@
       PEC: <span class="placeholder-data">[INDIRIZZO PEC]</span>
     </p>
 
-    <h2>2. Tipologie di Dati Raccolti</h2>
-    <p>Fra i dati personali raccolti da questo sito, in modo autonomo o tramite terze parti, ci sono:</p>
-    <ul>
+    <h2 data-i18n="privacy.s2.title">2. Tipologie di Dati Raccolti</h2>
+    <p data-i18n="privacy.s2.intro">Fra i dati personali raccolti da questo sito, in modo autonomo o tramite terze parti, ci sono:</p>
+    <ul data-i18n-html="privacy.s2.list">
       <li><strong>Dati di contatto:</strong> nome, cognome, indirizzo email, numero di telefono</li>
       <li><strong>Dati aziendali:</strong> ragione sociale, P.IVA, tipologia azienda (solo per richieste B2B)</li>
       <li><strong>Dati di navigazione:</strong> dati tecnici acquisiti automaticamente (indirizzo IP, tipo di browser, sistema operativo, pagine visitate, tempi di permanenza)</li>
@@ -124,59 +141,59 @@
       <li><strong>Preferenze:</strong> lingua selezionata, preferenze di contatto</li>
     </ul>
 
-    <h2>3. Finalità del Trattamento</h2>
-    <p>I dati personali sono trattati per le seguenti finalità:</p>
+    <h2 data-i18n="privacy.s3.title">3. Finalità del Trattamento</h2>
+    <p data-i18n="privacy.s3.intro">I dati personali sono trattati per le seguenti finalità:</p>
 
     <table>
       <thead>
         <tr>
-          <th>Finalità</th>
-          <th>Base Giuridica</th>
-          <th>Durata Conservazione</th>
+          <th data-i18n="privacy.s3.th1">Finalità</th>
+          <th data-i18n="privacy.s3.th2">Base Giuridica</th>
+          <th data-i18n="privacy.s3.th3">Durata Conservazione</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Rispondere alle richieste di informazioni inviate tramite i form di contatto</td>
-          <td>Consenso dell'interessato (Art. 6.1.a GDPR)</td>
-          <td>24 mesi dalla richiesta</td>
+          <td data-i18n="privacy.s3.r1c1">Rispondere alle richieste di informazioni inviate tramite i form di contatto</td>
+          <td data-i18n="privacy.s3.r1c2">Consenso dell'interessato (Art. 6.1.a GDPR)</td>
+          <td data-i18n="privacy.s3.r1c3">24 mesi dalla richiesta</td>
         </tr>
         <tr>
-          <td>Gestione delle richieste di preventivo per eventi</td>
-          <td>Esecuzione di misure precontrattuali (Art. 6.1.b GDPR)</td>
-          <td>24 mesi o durata del rapporto contrattuale</td>
+          <td data-i18n="privacy.s3.r2c1">Gestione delle richieste di preventivo per eventi</td>
+          <td data-i18n="privacy.s3.r2c2">Esecuzione di misure precontrattuali (Art. 6.1.b GDPR)</td>
+          <td data-i18n="privacy.s3.r2c3">24 mesi o durata del rapporto contrattuale</td>
         </tr>
         <tr>
-          <td>Gestione delle richieste B2B e partnership commerciali</td>
-          <td>Esecuzione di misure precontrattuali (Art. 6.1.b GDPR)</td>
-          <td>24 mesi o durata del rapporto contrattuale</td>
+          <td data-i18n="privacy.s3.r3c1">Gestione delle richieste B2B e partnership commerciali</td>
+          <td data-i18n="privacy.s3.r3c2">Esecuzione di misure precontrattuali (Art. 6.1.b GDPR)</td>
+          <td data-i18n="privacy.s3.r3c3">24 mesi o durata del rapporto contrattuale</td>
         </tr>
         <tr>
-          <td>Funzionamento tecnico del sito (preferenze lingua, navigazione)</td>
-          <td>Legittimo interesse (Art. 6.1.f GDPR)</td>
-          <td>Durata della sessione o fino a cancellazione da parte dell'utente</td>
+          <td data-i18n="privacy.s3.r4c1">Funzionamento tecnico del sito (preferenze lingua, navigazione)</td>
+          <td data-i18n="privacy.s3.r4c2">Legittimo interesse (Art. 6.1.f GDPR)</td>
+          <td data-i18n="privacy.s3.r4c3">Durata della sessione o fino a cancellazione da parte dell'utente</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>4. Modalità di Trattamento</h2>
-    <p>I dati personali sono trattati con strumenti informatici e/o telematici, con modalità organizzative e logiche strettamente correlate alle finalità sopra indicate. I dati sono protetti con misure di sicurezza adeguate per prevenire accessi non autorizzati, perdita o distruzione.</p>
+    <h2 data-i18n="privacy.s4.title">4. Modalità di Trattamento</h2>
+    <p data-i18n="privacy.s4.text">I dati personali sono trattati con strumenti informatici e/o telematici, con modalità organizzative e logiche strettamente correlate alle finalità sopra indicate. I dati sono protetti con misure di sicurezza adeguate per prevenire accessi non autorizzati, perdita o distruzione.</p>
 
-    <h2>5. Comunicazione e Diffusione dei Dati</h2>
-    <p>I dati personali <strong>non verranno diffusi</strong> al pubblico. Potranno essere comunicati a:</p>
-    <ul>
+    <h2 data-i18n="privacy.s5.title">5. Comunicazione e Diffusione dei Dati</h2>
+    <p data-i18n-html="privacy.s5.intro">I dati personali <strong>non verranno diffusi</strong> al pubblico. Potranno essere comunicati a:</p>
+    <ul data-i18n-html="privacy.s5.list">
       <li>Personale autorizzato del Titolare (amministrazione, commerciale, marketing)</li>
       <li>Fornitori di servizi tecnici (hosting, manutenzione sito) che agiscono come Responsabili del trattamento</li>
       <li>Autorità competenti, nei casi previsti dalla legge</li>
     </ul>
-    <p>I dati <strong>non vengono trasferiti</strong> al di fuori dello Spazio Economico Europeo (SEE).</p>
+    <p data-i18n-html="privacy.s5.noTransfer">I dati <strong>non vengono trasferiti</strong> al di fuori dello Spazio Economico Europeo (SEE).</p>
 
-    <h2>6. Cookie</h2>
-    <p>Questo sito utilizza cookie tecnici strettamente necessari al funzionamento. Per informazioni dettagliate sui cookie utilizzati, consulta la nostra <a href="cookie-policy.html">Cookie Policy</a>.</p>
+    <h2 data-i18n="privacy.s6.title">6. Cookie</h2>
+    <p data-i18n-html="privacy.s6.text">Questo sito utilizza cookie tecnici strettamente necessari al funzionamento. Per informazioni dettagliate sui cookie utilizzati, consulta la nostra <a href="cookie-policy.html">Cookie Policy</a>.</p>
 
-    <h2>7. Diritti dell'Interessato</h2>
-    <p>Ai sensi degli articoli 15-22 del Regolamento UE 2016/679 (GDPR), hai il diritto di:</p>
-    <ul>
+    <h2 data-i18n="privacy.s7.title">7. Diritti dell'Interessato</h2>
+    <p data-i18n="privacy.s7.intro">Ai sensi degli articoli 15-22 del Regolamento UE 2016/679 (GDPR), hai il diritto di:</p>
+    <ul data-i18n-html="privacy.s7.list">
       <li><strong>Accesso:</strong> ottenere conferma dell'esistenza di un trattamento e accedere ai tuoi dati</li>
       <li><strong>Rettifica:</strong> ottenere la correzione di dati inesatti o incompleti</li>
       <li><strong>Cancellazione:</strong> ottenere la cancellazione dei dati (diritto all'oblio)</li>
@@ -185,23 +202,23 @@
       <li><strong>Opposizione:</strong> opporsi al trattamento per motivi legittimi</li>
       <li><strong>Revoca del consenso:</strong> revocare in qualsiasi momento il consenso prestato</li>
     </ul>
-    <p>Per esercitare i tuoi diritti, puoi inviare una richiesta a: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a></p>
+    <p data-i18n-html="privacy.s7.contact">Per esercitare i tuoi diritti, puoi inviare una richiesta a: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a></p>
 
-    <h2>8. Reclamo all'Autorità di Controllo</h2>
-    <p>Hai il diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali:</p>
-    <p>
+    <h2 data-i18n="privacy.s8.title">8. Reclamo all'Autorità di Controllo</h2>
+    <p data-i18n="privacy.s8.intro">Hai il diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali:</p>
+    <p data-i18n-html="privacy.s8.details">
       <strong>Garante per la protezione dei dati personali</strong><br>
       Piazza Venezia, 11 — 00187 Roma<br>
       <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>
       Email: <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>
     </p>
 
-    <h2>9. Modifiche alla Privacy Policy</h2>
-    <p>Il Titolare si riserva il diritto di apportare modifiche alla presente informativa in qualunque momento. Si consiglia di consultare regolarmente questa pagina. In caso di modifiche sostanziali, ne daremo comunicazione tramite il sito.</p>
+    <h2 data-i18n="privacy.s9.title">9. Modifiche alla Privacy Policy</h2>
+    <p data-i18n="privacy.s9.text">Il Titolare si riserva il diritto di apportare modifiche alla presente informativa in qualunque momento. Si consiglia di consultare regolarmente questa pagina. In caso di modifiche sostanziali, ne daremo comunicazione tramite il sito.</p>
 
     <hr style="margin:40px 0; border:none; border-top:1px solid #e0e0e0;" />
 
-    <p style="font-size:13px; color:#999; text-align:center;">
+    <p style="font-size:13px; color:#999; text-align:center;" data-i18n="privacy.disclaimer">
       Informativa resa ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy) come modificato dal D.Lgs. 101/2018.
     </p>
   </main>
@@ -211,21 +228,21 @@
     <div class="footer-inner">
       <div class="footer-col footer-brand">
         <a href="./" class="footer-logo-link">
-          <img src="assets/images/branding/logo.webp" alt="Badiani 1932" width="130" height="39" />
+          <img src="assets/images/branding/logo-white.png" alt="Badiani 1932" width="1665" height="643" />
         </a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigazione</h4>
+        <h4 data-i18n="footer.nav">Navigazione</h4>
         <ul>
-          <li><a href="./">Home</a></li>
-          <li><a href="eventi/">Eventi</a></li>
-          <li><a href="b2b/">B2B</a></li>
-          <li><a href="magazine/">Magazine</a></li>
+          <li><a href="./" data-i18n="footer.home">Home</a></li>
+          <li><a href="eventi/" data-i18n="footer.eventi">Eventi</a></li>
+          <li><a href="b2b/" data-i18n="footer.b2b">B2B</a></li>
+          <li><a href="magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contatti</h4>
+        <h4 data-i18n="footer.contatti">Contatti</h4>
         <ul>
           <li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li>
           <li><a href="mailto:b2b@badiani1932.com">b2b@badiani1932.com</a></li>
@@ -233,10 +250,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Legale</h4>
+        <h4 data-i18n="footer.legale">Legale</h4>
         <ul>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
@@ -244,5 +261,317 @@
       <p>&copy; 2026 Badiani 1932. Tutti i diritti riservati. P.IVA: <span class="placeholder-data">[P.IVA]</span></p>
     </div>
   </footer>
+
+  <!-- COOKIE CONSENT BANNER -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
+    <p class="cookie-banner__text">
+      Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Nessun cookie di profilazione.
+      <a href="cookie-policy.html">Maggiori informazioni</a>
+    </p>
+    <div class="cookie-banner__actions">
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
+      <a href="cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const SUPPORTED = ['it','en','fr','es'];
+      const DEFAULT_LANG = 'it';
+      const STORAGE_KEY = 'badianiLang';
+
+      const STRINGS = {
+        it: {
+          'meta.title': 'Privacy Policy — Badiani 1932',
+          'topbar.label': 'Barra brand',
+          'lang.label': 'Selettore lingua',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B', 'nav.magazine': 'Dicono di Noi',
+          'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi',
+          'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
+          'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
+          'privacy.title': 'Informativa sulla Privacy',
+          'privacy.updated': 'Ultimo aggiornamento: Febbraio 2026',
+          'privacy.s1.title': '1. Titolare del Trattamento',
+          'privacy.s1.intro': 'Il Titolare del trattamento dei dati personali è:',
+          'privacy.s1.details': '<strong><span class="placeholder-data">[RAGIONE SOCIALE]</span></strong><br>Sede legale: <span class="placeholder-data">[INDIRIZZO SEDE LEGALE]</span><br>P.IVA: <span class="placeholder-data">[PARTITA IVA]</span><br>Email: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a><br>PEC: <span class="placeholder-data">[INDIRIZZO PEC]</span>',
+          'privacy.s2.title': '2. Tipologie di Dati Raccolti',
+          'privacy.s2.intro': 'Fra i dati personali raccolti da questo sito, in modo autonomo o tramite terze parti, ci sono:',
+          'privacy.s2.list': '<li><strong>Dati di contatto:</strong> nome, cognome, indirizzo email, numero di telefono</li><li><strong>Dati aziendali:</strong> ragione sociale, P.IVA, tipologia azienda (solo per richieste B2B)</li><li><strong>Dati di navigazione:</strong> dati tecnici acquisiti automaticamente (indirizzo IP, tipo di browser, sistema operativo, pagine visitate, tempi di permanenza)</li><li><strong>Dati relativi agli eventi:</strong> data evento, numero partecipanti, preferenze di servizio</li><li><strong>Preferenze:</strong> lingua selezionata, preferenze di contatto</li>',
+          'privacy.s3.title': '3. Finalità del Trattamento',
+          'privacy.s3.intro': 'I dati personali sono trattati per le seguenti finalità:',
+          'privacy.s3.th1': 'Finalità', 'privacy.s3.th2': 'Base Giuridica', 'privacy.s3.th3': 'Durata Conservazione',
+          'privacy.s3.r1c1': 'Rispondere alle richieste di informazioni inviate tramite i form di contatto',
+          'privacy.s3.r1c2': 'Consenso dell\'interessato (Art. 6.1.a GDPR)', 'privacy.s3.r1c3': '24 mesi dalla richiesta',
+          'privacy.s3.r2c1': 'Gestione delle richieste di preventivo per eventi',
+          'privacy.s3.r2c2': 'Esecuzione di misure precontrattuali (Art. 6.1.b GDPR)', 'privacy.s3.r2c3': '24 mesi o durata del rapporto contrattuale',
+          'privacy.s3.r3c1': 'Gestione delle richieste B2B e partnership commerciali',
+          'privacy.s3.r3c2': 'Esecuzione di misure precontrattuali (Art. 6.1.b GDPR)', 'privacy.s3.r3c3': '24 mesi o durata del rapporto contrattuale',
+          'privacy.s3.r4c1': 'Funzionamento tecnico del sito (preferenze lingua, navigazione)',
+          'privacy.s3.r4c2': 'Legittimo interesse (Art. 6.1.f GDPR)', 'privacy.s3.r4c3': 'Durata della sessione o fino a cancellazione da parte dell\'utente',
+          'privacy.s4.title': '4. Modalità di Trattamento',
+          'privacy.s4.text': 'I dati personali sono trattati con strumenti informatici e/o telematici, con modalità organizzative e logiche strettamente correlate alle finalità sopra indicate. I dati sono protetti con misure di sicurezza adeguate per prevenire accessi non autorizzati, perdita o distruzione.',
+          'privacy.s5.title': '5. Comunicazione e Diffusione dei Dati',
+          'privacy.s5.intro': 'I dati personali <strong>non verranno diffusi</strong> al pubblico. Potranno essere comunicati a:',
+          'privacy.s5.list': '<li>Personale autorizzato del Titolare (amministrazione, commerciale, marketing)</li><li>Fornitori di servizi tecnici (hosting, manutenzione sito) che agiscono come Responsabili del trattamento</li><li>Autorità competenti, nei casi previsti dalla legge</li>',
+          'privacy.s5.noTransfer': 'I dati <strong>non vengono trasferiti</strong> al di fuori dello Spazio Economico Europeo (SEE).',
+          'privacy.s6.title': '6. Cookie',
+          'privacy.s6.text': 'Questo sito utilizza cookie tecnici strettamente necessari al funzionamento. Per informazioni dettagliate sui cookie utilizzati, consulta la nostra <a href="cookie-policy.html">Cookie Policy</a>.',
+          'privacy.s7.title': '7. Diritti dell\'Interessato',
+          'privacy.s7.intro': 'Ai sensi degli articoli 15-22 del Regolamento UE 2016/679 (GDPR), hai il diritto di:',
+          'privacy.s7.list': '<li><strong>Accesso:</strong> ottenere conferma dell\'esistenza di un trattamento e accedere ai tuoi dati</li><li><strong>Rettifica:</strong> ottenere la correzione di dati inesatti o incompleti</li><li><strong>Cancellazione:</strong> ottenere la cancellazione dei dati (diritto all\'oblio)</li><li><strong>Limitazione:</strong> ottenere la limitazione del trattamento</li><li><strong>Portabilità:</strong> ricevere i dati in formato strutturato e trasferirli ad altro titolare</li><li><strong>Opposizione:</strong> opporsi al trattamento per motivi legittimi</li><li><strong>Revoca del consenso:</strong> revocare in qualsiasi momento il consenso prestato</li>',
+          'privacy.s7.contact': 'Per esercitare i tuoi diritti, puoi inviare una richiesta a: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'privacy.s8.title': '8. Reclamo all\'Autorità di Controllo',
+          'privacy.s8.intro': 'Hai il diritto di proporre reclamo all\'Autorità Garante per la Protezione dei Dati Personali:',
+          'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email: <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
+          'privacy.s9.title': '9. Modifiche alla Privacy Policy',
+          'privacy.s9.text': 'Il Titolare si riserva il diritto di apportare modifiche alla presente informativa in qualunque momento. Si consiglia di consultare regolarmente questa pagina. In caso di modifiche sostanziali, ne daremo comunicazione tramite il sito.',
+          'privacy.disclaimer': 'Informativa resa ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy) come modificato dal D.Lgs. 101/2018.'
+        },
+        en: {
+          'meta.title': 'Privacy Policy — Badiani 1932',
+          'topbar.label': 'Brand bar',
+          'lang.label': 'Language selector',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.magazine': 'They Say About Us',
+          'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
+          'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
+          'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
+          'privacy.title': 'Privacy Policy',
+          'privacy.updated': 'Last updated: February 2026',
+          'privacy.s1.title': '1. Data Controller',
+          'privacy.s1.intro': 'The Data Controller for personal data processing is:',
+          'privacy.s1.details': '<strong><span class="placeholder-data">[COMPANY NAME]</span></strong><br>Registered office: <span class="placeholder-data">[REGISTERED OFFICE ADDRESS]</span><br>VAT No.: <span class="placeholder-data">[VAT NUMBER]</span><br>Email: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a><br>PEC: <span class="placeholder-data">[PEC ADDRESS]</span>',
+          'privacy.s2.title': '2. Types of Data Collected',
+          'privacy.s2.intro': 'Among the personal data collected by this website, either independently or through third parties, are:',
+          'privacy.s2.list': '<li><strong>Contact data:</strong> first name, last name, email address, phone number</li><li><strong>Business data:</strong> company name, VAT number, company type (B2B requests only)</li><li><strong>Browsing data:</strong> technical data automatically acquired (IP address, browser type, operating system, pages visited, time spent)</li><li><strong>Event data:</strong> event date, number of participants, service preferences</li><li><strong>Preferences:</strong> selected language, contact preferences</li>',
+          'privacy.s3.title': '3. Purposes of Processing',
+          'privacy.s3.intro': 'Personal data is processed for the following purposes:',
+          'privacy.s3.th1': 'Purpose', 'privacy.s3.th2': 'Legal Basis', 'privacy.s3.th3': 'Retention Period',
+          'privacy.s3.r1c1': 'Responding to information requests sent through the contact forms',
+          'privacy.s3.r1c2': 'Consent of the data subject (Art. 6.1.a GDPR)', 'privacy.s3.r1c3': '24 months from the request',
+          'privacy.s3.r2c1': 'Managing event quote requests',
+          'privacy.s3.r2c2': 'Performance of pre-contractual measures (Art. 6.1.b GDPR)', 'privacy.s3.r2c3': '24 months or duration of the contractual relationship',
+          'privacy.s3.r3c1': 'Managing B2B requests and business partnerships',
+          'privacy.s3.r3c2': 'Performance of pre-contractual measures (Art. 6.1.b GDPR)', 'privacy.s3.r3c3': '24 months or duration of the contractual relationship',
+          'privacy.s3.r4c1': 'Technical website operation (language preferences, navigation)',
+          'privacy.s3.r4c2': 'Legitimate interest (Art. 6.1.f GDPR)', 'privacy.s3.r4c3': 'Session duration or until deleted by the user',
+          'privacy.s4.title': '4. Processing Methods',
+          'privacy.s4.text': 'Personal data is processed using electronic and/or automated tools, with organisational and logical methods strictly related to the purposes indicated above. Data is protected with adequate security measures to prevent unauthorised access, loss, or destruction.',
+          'privacy.s5.title': '5. Data Disclosure and Dissemination',
+          'privacy.s5.intro': 'Personal data <strong>will not be disseminated</strong> to the public. It may be communicated to:',
+          'privacy.s5.list': '<li>Authorised personnel of the Data Controller (administration, sales, marketing)</li><li>Technical service providers (hosting, site maintenance) acting as Data Processors</li><li>Competent authorities, in cases provided by law</li>',
+          'privacy.s5.noTransfer': 'Data is <strong>not transferred</strong> outside the European Economic Area (EEA).',
+          'privacy.s6.title': '6. Cookies',
+          'privacy.s6.text': 'This website uses strictly necessary technical cookies. For detailed information about the cookies used, please see our <a href="cookie-policy.html">Cookie Policy</a>.',
+          'privacy.s7.title': '7. Data Subject Rights',
+          'privacy.s7.intro': 'Under Articles 15-22 of Regulation EU 2016/679 (GDPR), you have the right to:',
+          'privacy.s7.list': '<li><strong>Access:</strong> obtain confirmation of the existence of processing and access your data</li><li><strong>Rectification:</strong> obtain correction of inaccurate or incomplete data</li><li><strong>Erasure:</strong> obtain erasure of data (right to be forgotten)</li><li><strong>Restriction:</strong> obtain restriction of processing</li><li><strong>Portability:</strong> receive data in a structured format and transfer it to another controller</li><li><strong>Objection:</strong> object to processing on legitimate grounds</li><li><strong>Withdrawal of consent:</strong> withdraw consent at any time</li>',
+          'privacy.s7.contact': 'To exercise your rights, you may send a request to: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'privacy.s8.title': '8. Complaint to the Supervisory Authority',
+          'privacy.s8.intro': 'You have the right to lodge a complaint with the Italian Data Protection Authority:',
+          'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email: <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
+          'privacy.s9.title': '9. Changes to the Privacy Policy',
+          'privacy.s9.text': 'The Data Controller reserves the right to make changes to this policy at any time. We recommend consulting this page regularly. In case of substantial changes, we will notify users through the website.',
+          'privacy.disclaimer': 'Policy issued pursuant to Regulation EU 2016/679 (GDPR) and Italian Legislative Decree 196/2003 (Privacy Code) as amended by Legislative Decree 101/2018.'
+        },
+        fr: {
+          'meta.title': 'Politique de confidentialité — Badiani 1932',
+          'topbar.label': 'Barre de marque',
+          'lang.label': 'Sélecteur de langue',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Accueil', 'nav.eventi': 'Événements', 'nav.b2b': 'B2B', 'nav.magazine': 'Ils Parlent de Nous',
+          'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': 'Événements',
+          'footer.b2b': 'B2B', 'footer.magazine': 'Ils Parlent de Nous', 'footer.contatti': 'Contacts',
+          'footer.legale': 'Mentions légales', 'footer.privacy': 'Politique de confidentialité', 'footer.cookie': 'Politique des cookies',
+          'privacy.title': 'Politique de Confidentialité',
+          'privacy.updated': 'Dernière mise à jour : Février 2026',
+          'privacy.s1.title': '1. Responsable du Traitement',
+          'privacy.s1.intro': 'Le Responsable du traitement des données personnelles est :',
+          'privacy.s1.details': '<strong><span class="placeholder-data">[RAISON SOCIALE]</span></strong><br>Siège social : <span class="placeholder-data">[ADRESSE SIÈGE SOCIAL]</span><br>N° TVA : <span class="placeholder-data">[NUMÉRO TVA]</span><br>Email : <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a><br>PEC : <span class="placeholder-data">[ADRESSE PEC]</span>',
+          'privacy.s2.title': '2. Types de Données Collectées',
+          'privacy.s2.intro': 'Parmi les données personnelles collectées par ce site, de manière autonome ou via des tiers, on trouve :',
+          'privacy.s2.list': '<li><strong>Données de contact :</strong> prénom, nom, adresse email, numéro de téléphone</li><li><strong>Données professionnelles :</strong> raison sociale, numéro TVA, type d\'entreprise (uniquement pour les demandes B2B)</li><li><strong>Données de navigation :</strong> données techniques acquises automatiquement (adresse IP, type de navigateur, système d\'exploitation, pages visitées, durée de visite)</li><li><strong>Données événementielles :</strong> date de l\'événement, nombre de participants, préférences de service</li><li><strong>Préférences :</strong> langue sélectionnée, préférences de contact</li>',
+          'privacy.s3.title': '3. Finalités du Traitement',
+          'privacy.s3.intro': 'Les données personnelles sont traitées pour les finalités suivantes :',
+          'privacy.s3.th1': 'Finalité', 'privacy.s3.th2': 'Base Juridique', 'privacy.s3.th3': 'Durée de Conservation',
+          'privacy.s3.r1c1': 'Répondre aux demandes d\'informations envoyées via les formulaires de contact',
+          'privacy.s3.r1c2': 'Consentement de la personne concernée (Art. 6.1.a RGPD)', 'privacy.s3.r1c3': '24 mois à compter de la demande',
+          'privacy.s3.r2c1': 'Gestion des demandes de devis pour événements',
+          'privacy.s3.r2c2': 'Exécution de mesures précontractuelles (Art. 6.1.b RGPD)', 'privacy.s3.r2c3': '24 mois ou durée de la relation contractuelle',
+          'privacy.s3.r3c1': 'Gestion des demandes B2B et partenariats commerciaux',
+          'privacy.s3.r3c2': 'Exécution de mesures précontractuelles (Art. 6.1.b RGPD)', 'privacy.s3.r3c3': '24 mois ou durée de la relation contractuelle',
+          'privacy.s3.r4c1': 'Fonctionnement technique du site (préférences de langue, navigation)',
+          'privacy.s3.r4c2': 'Intérêt légitime (Art. 6.1.f RGPD)', 'privacy.s3.r4c3': 'Durée de la session ou jusqu\'à suppression par l\'utilisateur',
+          'privacy.s4.title': '4. Modalités de Traitement',
+          'privacy.s4.text': 'Les données personnelles sont traitées à l\'aide d\'outils informatiques et/ou télématiques, selon des méthodes organisationnelles et logiques strictement liées aux finalités indiquées ci-dessus. Les données sont protégées par des mesures de sécurité adéquates pour prévenir les accès non autorisés, la perte ou la destruction.',
+          'privacy.s5.title': '5. Communication et Diffusion des Données',
+          'privacy.s5.intro': 'Les données personnelles <strong>ne seront pas diffusées</strong> au public. Elles pourront être communiquées à :',
+          'privacy.s5.list': '<li>Le personnel autorisé du Responsable (administration, commerce, marketing)</li><li>Les prestataires de services techniques (hébergement, maintenance du site) agissant en tant que Sous-traitants</li><li>Les autorités compétentes, dans les cas prévus par la loi</li>',
+          'privacy.s5.noTransfer': 'Les données <strong>ne sont pas transférées</strong> en dehors de l\'Espace Économique Européen (EEE).',
+          'privacy.s6.title': '6. Cookies',
+          'privacy.s6.text': 'Ce site utilise des cookies techniques strictement nécessaires au fonctionnement. Pour des informations détaillées sur les cookies utilisés, consultez notre <a href="cookie-policy.html">Politique des Cookies</a>.',
+          'privacy.s7.title': '7. Droits de la Personne Concernée',
+          'privacy.s7.intro': 'En vertu des articles 15 à 22 du Règlement UE 2016/679 (RGPD), vous avez le droit de :',
+          'privacy.s7.list': '<li><strong>Accès :</strong> obtenir la confirmation de l\'existence d\'un traitement et accéder à vos données</li><li><strong>Rectification :</strong> obtenir la correction de données inexactes ou incomplètes</li><li><strong>Effacement :</strong> obtenir l\'effacement des données (droit à l\'oubli)</li><li><strong>Limitation :</strong> obtenir la limitation du traitement</li><li><strong>Portabilité :</strong> recevoir les données dans un format structuré et les transférer à un autre responsable</li><li><strong>Opposition :</strong> s\'opposer au traitement pour des motifs légitimes</li><li><strong>Retrait du consentement :</strong> retirer le consentement à tout moment</li>',
+          'privacy.s7.contact': 'Pour exercer vos droits, vous pouvez envoyer une demande à : <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'privacy.s8.title': '8. Réclamation auprès de l\'Autorité de Contrôle',
+          'privacy.s8.intro': 'Vous avez le droit de déposer une réclamation auprès de l\'Autorité italienne de protection des données :',
+          'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email : <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
+          'privacy.s9.title': '9. Modifications de la Politique de Confidentialité',
+          'privacy.s9.text': 'Le Responsable se réserve le droit d\'apporter des modifications à la présente politique à tout moment. Il est conseillé de consulter régulièrement cette page. En cas de modifications substantielles, nous en informerons les utilisateurs via le site.',
+          'privacy.disclaimer': 'Politique rédigée conformément au Règlement UE 2016/679 (RGPD) et au Décret législatif italien 196/2003 (Code de la vie privée) tel que modifié par le Décret législatif 101/2018.'
+        },
+        es: {
+          'meta.title': 'Política de privacidad — Badiani 1932',
+          'topbar.label': 'Barra de marca',
+          'lang.label': 'Selector de idioma',
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B', 'nav.magazine': 'Dicen de Nosotros',
+          'footer.nav': 'Navegación', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos',
+          'footer.b2b': 'B2B', 'footer.magazine': 'Dicen de Nosotros', 'footer.contatti': 'Contactos',
+          'footer.legale': 'Legal', 'footer.privacy': 'Política de privacidad', 'footer.cookie': 'Política de cookies',
+          'privacy.title': 'Política de Privacidad',
+          'privacy.updated': 'Última actualización: Febrero 2026',
+          'privacy.s1.title': '1. Responsable del Tratamiento',
+          'privacy.s1.intro': 'El Responsable del tratamiento de los datos personales es:',
+          'privacy.s1.details': '<strong><span class="placeholder-data">[RAZÓN SOCIAL]</span></strong><br>Sede legal: <span class="placeholder-data">[DIRECCIÓN SEDE LEGAL]</span><br>NIF/CIF: <span class="placeholder-data">[NIF/CIF]</span><br>Email: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a><br>PEC: <span class="placeholder-data">[DIRECCIÓN PEC]</span>',
+          'privacy.s2.title': '2. Tipos de Datos Recogidos',
+          'privacy.s2.intro': 'Entre los datos personales recogidos por este sitio web, de forma autónoma o a través de terceros, se encuentran:',
+          'privacy.s2.list': '<li><strong>Datos de contacto:</strong> nombre, apellidos, dirección de correo electrónico, número de teléfono</li><li><strong>Datos empresariales:</strong> razón social, NIF/CIF, tipo de empresa (solo para solicitudes B2B)</li><li><strong>Datos de navegación:</strong> datos técnicos adquiridos automáticamente (dirección IP, tipo de navegador, sistema operativo, páginas visitadas, tiempo de permanencia)</li><li><strong>Datos de eventos:</strong> fecha del evento, número de participantes, preferencias de servicio</li><li><strong>Preferencias:</strong> idioma seleccionado, preferencias de contacto</li>',
+          'privacy.s3.title': '3. Finalidades del Tratamiento',
+          'privacy.s3.intro': 'Los datos personales se tratan para las siguientes finalidades:',
+          'privacy.s3.th1': 'Finalidad', 'privacy.s3.th2': 'Base Jurídica', 'privacy.s3.th3': 'Duración de Conservación',
+          'privacy.s3.r1c1': 'Responder a las solicitudes de información enviadas a través de los formularios de contacto',
+          'privacy.s3.r1c2': 'Consentimiento del interesado (Art. 6.1.a RGPD)', 'privacy.s3.r1c3': '24 meses desde la solicitud',
+          'privacy.s3.r2c1': 'Gestión de solicitudes de presupuesto para eventos',
+          'privacy.s3.r2c2': 'Ejecución de medidas precontractuales (Art. 6.1.b RGPD)', 'privacy.s3.r2c3': '24 meses o duración de la relación contractual',
+          'privacy.s3.r3c1': 'Gestión de solicitudes B2B y asociaciones comerciales',
+          'privacy.s3.r3c2': 'Ejecución de medidas precontractuales (Art. 6.1.b RGPD)', 'privacy.s3.r3c3': '24 meses o duración de la relación contractual',
+          'privacy.s3.r4c1': 'Funcionamiento técnico del sitio (preferencias de idioma, navegación)',
+          'privacy.s3.r4c2': 'Interés legítimo (Art. 6.1.f RGPD)', 'privacy.s3.r4c3': 'Duración de la sesión o hasta la eliminación por parte del usuario',
+          'privacy.s4.title': '4. Modalidades de Tratamiento',
+          'privacy.s4.text': 'Los datos personales se tratan con herramientas informáticas y/o telemáticas, con métodos organizativos y lógicos estrictamente relacionados con las finalidades indicadas anteriormente. Los datos están protegidos con medidas de seguridad adecuadas para prevenir accesos no autorizados, pérdida o destrucción.',
+          'privacy.s5.title': '5. Comunicación y Difusión de los Datos',
+          'privacy.s5.intro': 'Los datos personales <strong>no serán difundidos</strong> al público. Podrán ser comunicados a:',
+          'privacy.s5.list': '<li>Personal autorizado del Responsable (administración, comercial, marketing)</li><li>Proveedores de servicios técnicos (alojamiento, mantenimiento del sitio) que actúan como Encargados del tratamiento</li><li>Autoridades competentes, en los casos previstos por la ley</li>',
+          'privacy.s5.noTransfer': 'Los datos <strong>no se transfieren</strong> fuera del Espacio Económico Europeo (EEE).',
+          'privacy.s6.title': '6. Cookies',
+          'privacy.s6.text': 'Este sitio web utiliza cookies técnicas estrictamente necesarias para su funcionamiento. Para información detallada sobre las cookies utilizadas, consulte nuestra <a href="cookie-policy.html">Política de Cookies</a>.',
+          'privacy.s7.title': '7. Derechos del Interesado',
+          'privacy.s7.intro': 'De acuerdo con los artículos 15 a 22 del Reglamento UE 2016/679 (RGPD), usted tiene derecho a:',
+          'privacy.s7.list': '<li><strong>Acceso:</strong> obtener confirmación de la existencia de un tratamiento y acceder a sus datos</li><li><strong>Rectificación:</strong> obtener la corrección de datos inexactos o incompletos</li><li><strong>Supresión:</strong> obtener la supresión de los datos (derecho al olvido)</li><li><strong>Limitación:</strong> obtener la limitación del tratamiento</li><li><strong>Portabilidad:</strong> recibir los datos en formato estructurado y transferirlos a otro responsable</li><li><strong>Oposición:</strong> oponerse al tratamiento por motivos legítimos</li><li><strong>Revocación del consentimiento:</strong> revocar el consentimiento en cualquier momento</li>',
+          'privacy.s7.contact': 'Para ejercer sus derechos, puede enviar una solicitud a: <a href="mailto:privacy@badiani1932.com">privacy@badiani1932.com</a>',
+          'privacy.s8.title': '8. Reclamación ante la Autoridad de Control',
+          'privacy.s8.intro': 'Tiene derecho a presentar una reclamación ante la Autoridad Italiana de Protección de Datos:',
+          'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email: <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
+          'privacy.s9.title': '9. Cambios en la Política de Privacidad',
+          'privacy.s9.text': 'El Responsable se reserva el derecho de realizar cambios en la presente política en cualquier momento. Se recomienda consultar regularmente esta página. En caso de cambios sustanciales, lo comunicaremos a través del sitio web.',
+          'privacy.disclaimer': 'Política redactada de conformidad con el Reglamento UE 2016/679 (RGPD) y el Decreto Legislativo italiano 196/2003 (Código de Privacidad) modificado por el Decreto Legislativo 101/2018.'
+        }
+      };
+
+      function normalizeLang(lang){
+        if(!lang) return DEFAULT_LANG;
+        const base = String(lang).toLowerCase().split('-')[0];
+        return SUPPORTED.includes(base) ? base : DEFAULT_LANG;
+      }
+
+      function getInitialLang(){
+        try{
+          const params = new URLSearchParams(window.location.search || '');
+          const q = params.get('lang');
+          if(q) return normalizeLang(q);
+        }catch{}
+        try{
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if(saved) return normalizeLang(saved);
+        }catch{}
+        return normalizeLang(navigator.language || DEFAULT_LANG);
+      }
+
+      let currentLang = getInitialLang();
+
+      function t(key){
+        const dict = STRINGS[currentLang] || STRINGS[DEFAULT_LANG];
+        return dict && dict[key] ? dict[key] : '';
+      }
+
+      function applyTranslations(){
+        document.documentElement.setAttribute('lang', currentLang);
+        document.title = t('meta.title');
+        document.querySelectorAll('[data-i18n]').forEach(function(el){
+          const key = el.getAttribute('data-i18n');
+          if(key) el.textContent = t(key);
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+          const key = el.getAttribute('data-i18n-html');
+          if(key) el.innerHTML = t(key);
+        });
+        document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+          const raw = el.getAttribute('data-i18n-attr') || '';
+          raw.split(',').forEach(function(pair){
+            const parts = pair.split(':').map(function(s){ return s.trim(); });
+            if(parts[0] && parts[1]) el.setAttribute(parts[0], t(parts[1]));
+          });
+        });
+      }
+
+      function setLang(lang){
+        const next = normalizeLang(lang);
+        if(next === currentLang) return;
+        currentLang = next;
+        try{ localStorage.setItem(STORAGE_KEY, currentLang); }catch{}
+        applyTranslations();
+      }
+
+      const select = document.getElementById('langSelect');
+      if(select){
+        select.value = currentLang;
+        select.addEventListener('change', function(e){ setLang(e.target.value); });
+      }
+
+      applyTranslations();
+    })();
+
+    /* Cookie consent banner */
+    (function(){
+      var COOKIE_KEY = 'badianiCookieConsent';
+      var banner = document.getElementById('cookieBanner');
+      var btn = document.getElementById('cookieAccept');
+      if(!banner || !btn) return;
+      try {
+        if(localStorage.getItem(COOKIE_KEY) === 'accepted'){
+          banner.style.display = 'none';
+          return;
+        }
+      } catch(e){}
+      btn.addEventListener('click', function(){
+        try { localStorage.setItem(COOKIE_KEY, 'accepted'); } catch(e){}
+        banner.classList.add('is-hidden');
+        setTimeout(function(){ banner.style.display = 'none'; }, 500);
+      });
+    })();
+
+    /* Hamburger mobile menu toggle */
+    (function(){
+      var btn = document.getElementById('hamburgerBtn');
+      var nav = document.getElementById('mobileNav');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        nav.classList.toggle('is-open');
+        document.body.style.overflow = open ? '' : 'hidden';
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          btn.setAttribute('aria-expanded','false');
+          nav.classList.remove('is-open');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
