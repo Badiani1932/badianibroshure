@@ -79,6 +79,7 @@ body, html {
   color: var(--badiani-gray);
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 body > * {
@@ -364,6 +365,34 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .topbar__nav { display: none; }
   .topbar__hamburger { display: flex; }
+  .topbar {
+    height: 70px;
+    height: calc(70px + env(safe-area-inset-top));
+  }
+  .topbar__logo img {
+    height: 50px;
+  }
+  .topbar__mobile-nav {
+    top: 70px;
+  }
+}
+
+@media (max-width: 400px) {
+  .topbar {
+    height: 60px;
+    padding: 0 12px;
+  }
+  .topbar__logo img {
+    height: 40px;
+  }
+  .topbar__mobile-nav {
+    top: 60px;
+  }
+  .topbar__select {
+    font-size: 11px;
+    padding: 4px 24px 4px 10px;
+    min-height: 38px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
