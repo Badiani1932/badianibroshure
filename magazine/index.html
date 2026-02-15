@@ -14,128 +14,278 @@
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <meta property="og:url" content="https://www.badiani1932.com/magazine/" />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
+  <link rel="preload" as="image" href="../assets/images/branding/heroparlanodinoi.jpg" />
   <style>
-    body{
-      background-color:#f5f6f8;
-      background-image:url('../assets/images/branding/sfondo.webp');
-      background-repeat:no-repeat;
-      background-position:top center;
-      background-size:cover;
-      filter:none;
-    }
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:rgba(245,246,248,0.82);
-      pointer-events:none;
-      z-index:0;
-    }
-    body > *{ position:relative; z-index:1; }
-    .page-shell{ padding:48px clamp(16px, 4vw, 80px) 80px; }
-    .top-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:32px; }
-    .back-link{ text-decoration:none; color:var(--badiani-blue); font-weight:600; letter-spacing:1px; text-transform:uppercase; font-size:12px; }
+    body{ background:#000; }
 
-    .page-title-centered{
-      text-align:center;
-      font-size:clamp(32px, 5vw, 56px);
-      color:var(--badiani-blue);
-      text-transform:uppercase;
-      letter-spacing:3px;
-      margin-bottom:12px;
-    }
-    .page-subtitle{
-      text-align:center;
-      font-size:clamp(14px, 1.5vw, 18px);
-      color:#6a6b6e;
-      max-width:600px;
-      margin:0 auto 40px;
-      line-height:1.6;
-    }
-
-    .magazine-wrap{ background:#f7f7fb; border-radius:28px; padding:28px; box-shadow:0 14px 30px rgba(0,0,0,0.08); }
-    .magazine-header{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; }
-    .magazine-title{ font-size:clamp(20px, 2.2vw, 30px); text-transform:uppercase; letter-spacing:2px; color:var(--badiani-blue); }
-    .magazine-controls{ display:none; }
-    .magazine-btn{ border:none; background:#fff; color:var(--badiani-blue); padding:8px 14px; border-radius:999px; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.08); font-size:12px; letter-spacing:1px; text-transform:uppercase; }
-    .magazine-btn:focus-visible{ outline:2px solid var(--badiani-pink); outline-offset:3px; }
-
-    .magazine-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
-      gap:24px;
-    }
-    .magazine-grid .article-card:first-child{
-      grid-column:span 2;
-    }
-    .magazine-grid .article-card:first-child .article-media{
-      aspect-ratio:16 / 9;
-    }
-
-    .article-card{
-      background:#fff;
-      border-radius:18px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      min-height:360px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.07);
-      border:1px solid rgba(30,57,141,0.06);
-      text-decoration:none;
-      color:inherit;
-      transition:transform 0.28s ease, box-shadow 0.28s ease;
-    }
-    .article-card:hover, .article-card:focus-visible{
-      transform:translateY(-6px);
-      box-shadow:0 18px 40px rgba(0,0,0,0.13);
-    }
-    .article-card:focus-visible{
-      outline:2px solid var(--badiani-pink);
-      outline-offset:3px;
-    }
-    .article-media{
+    /* ===== HERO — full-bleed image (like eventi/b2b) ===== */
+    .mag-hero{
       position:relative;
-      aspect-ratio:4 / 3;
-      background:linear-gradient(135deg, rgba(30,57,141,0.85), rgba(240,103,166,0.75));
+      overflow:hidden;
+      min-height:60vh;
       display:flex;
       align-items:flex-end;
-      justify-content:flex-start;
-      padding:14px;
-      color:#fff;
-      font-size:11px;
-      letter-spacing:1px;
-      text-transform:uppercase;
+      background:#000;
     }
-    .article-media img{
+    .mag-hero__img{
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
-      display:block;
-      filter:saturate(1.1) contrast(1.02);
+      filter:brightness(0.58);
     }
-    .article-media span{ position:relative; z-index:1; background:rgba(0,0,0,0.5); padding:6px 10px; border-radius:999px; }
+    .mag-hero__content{
+      position:relative;
+      z-index:2;
+      width:100%;
+      padding:48px 52px;
+      display:flex;
+      flex-direction:row;
+      align-items:flex-end;
+      gap:24px;
+    }
+    .mag-hero__heading{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      flex-shrink:0;
+    }
+    .mag-hero__label{
+      display:block;
+      font-size:clamp(13px, 1.2vw, 16px);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-weight:400;
+      color:rgba(255,255,255,0.75);
+      line-height:1;
+      margin-bottom:20px;
+    }
+    .mag-hero__title{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(72px, 9vw, 140px);
+      font-weight:700;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      line-height:0.9;
+      color:#fff;
+      text-shadow:0 2px 20px rgba(0,0,0,0.4);
+    }
+    .mag-hero__desc{
+      font-size:clamp(14px, 1.2vw, 17px);
+      color:rgba(255,255,255,0.85);
+      line-height:1.5;
+      max-width:320px;
+      padding-bottom:8px;
+      font-weight:300;
+    }
 
-    .article-body{ padding:16px 18px 20px; display:grid; gap:10px; }
-    .article-title{ font-size:16px; font-weight:600; color:var(--badiani-blue); line-height:1.35; }
-    .article-meta{ font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#9aa0a6; }
-    .article-excerpt{ font-size:13px; color:#6a6b6e; line-height:1.55; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-    .article-cta{ margin-top:auto; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:var(--badiani-pink); transition:color 0.2s ease; }
-    .article-card:hover .article-cta{ color:var(--badiani-blue); }
+    /* ===== ARTICLE GRID — immersive full-bleed cards ===== */
+    .mag-section{
+      padding:0;
+      background:#000;
+    }
+    .mag-section__header{
+      padding:clamp(32px, 4vw, 56px) 52px clamp(16px, 2vw, 28px);
+    }
+    .mag-section__title{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(36px, 4.5vw, 72px);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#fff;
+      margin:0;
+      text-shadow:none;
+    }
 
-    .news-columns{ margin-top:28px; text-align:center; }
-    .news-columns p{ font-size:14px; color:#6a6b6e; margin-bottom:18px; line-height:1.6; max-width:600px; margin-left:auto; margin-right:auto; }
+    .magazine-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:0;
+      line-height:0;
+    }
+    /* first card spans 2 columns for emphasis */
+    .magazine-grid .article-card:first-child{
+      grid-column:span 2;
+    }
 
+    .article-card{
+      position:relative;
+      overflow:hidden;
+      text-decoration:none;
+      color:#fff;
+      display:flex;
+      align-items:flex-end;
+      min-height:55vh;
+      cursor:pointer;
+      background:#111;
+    }
+    .article-card:hover{ transform:none; box-shadow:none; }
+    .article-card:focus-visible{
+      outline:2px solid var(--badiani-pink);
+      outline-offset:-2px;
+    }
+
+    /* Background image layer */
+    .article-card__img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s ease;
+      filter:brightness(0.6);
+    }
+    .article-card:hover .article-card__img{
+      transform:scale(1.06);
+      filter:brightness(0.45);
+    }
+
+    /* Gradient overlay */
+    .article-card::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 100%);
+      transition:background 0.5s ease;
+      z-index:1;
+    }
+    .article-card:hover::after{
+      background:linear-gradient(180deg, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.65) 100%);
+    }
+
+    /* Content overlay at bottom */
+    .article-card__overlay{
+      position:relative;
+      z-index:2;
+      padding:40px 36px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .article-card__source{
+      display:inline-block;
+      font-size:11px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      font-weight:500;
+      color:rgba(255,255,255,0.7);
+      background:rgba(0,0,0,0.4);
+      padding:5px 12px;
+      border-radius:999px;
+      width:fit-content;
+      backdrop-filter:blur(6px);
+    }
+    .article-title{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(22px, 2.5vw, 36px);
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      line-height:0.95;
+      color:#fff;
+      text-shadow:0 2px 16px rgba(0,0,0,0.4);
+    }
+    .article-meta{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:rgba(255,255,255,0.55);
+    }
+    .article-excerpt{
+      font-size:clamp(13px, 1.1vw, 16px);
+      color:rgba(255,255,255,0.75);
+      line-height:1.55;
+      max-width:380px;
+      font-weight:300;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+    .article-cta{
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-weight:600;
+      color:var(--badiani-pink);
+      transition:color 0.3s ease, letter-spacing 0.3s ease;
+      margin-top:4px;
+    }
+    .article-card:hover .article-cta{
+      color:#fff;
+      letter-spacing:3px;
+    }
+
+    /* Subtle dividers between cards */
+    .article-card + .article-card{
+      box-shadow:-1px 0 0 0 rgba(255,255,255,0.08);
+    }
+
+    /* ===== LEAD TEXT SECTION ===== */
+    .mag-lead{
+      background:#000;
+      padding:clamp(40px, 5vw, 72px) 52px;
+      text-align:center;
+    }
+    .mag-lead p{
+      font-size:clamp(15px, 1.4vw, 19px);
+      color:rgba(255,255,255,0.55);
+      line-height:1.7;
+      max-width:640px;
+      margin:0 auto;
+      font-weight:300;
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media(max-width:1024px){
-      .news-columns{ column-count:2; }
-      .magazine-grid .article-card:first-child{ grid-column:span 1; }
+      .magazine-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+      .magazine-grid .article-card:first-child{
+        grid-column:span 2;
+      }
+      .article-card{ min-height:45vh; }
+    }
+    @media(max-width:900px){
+      .mag-hero__content{
+        padding:32px 28px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .mag-hero__title{
+        font-size:clamp(48px, 9vw, 72px);
+        letter-spacing:2px;
+      }
+      .mag-hero__desc{ max-width:none; }
+      .mag-section__header{ padding-left:28px; padding-right:28px; }
+      .article-card__overlay{ padding:28px 24px; }
+      .mag-lead{ padding-left:28px; padding-right:28px; }
     }
     @media(max-width:720px){
-      .news-columns{ column-count:1; }
-      .magazine-controls{ display:none; }
-      .magazine-grid{ grid-template-columns:1fr; }
-      .magazine-grid .article-card:first-child{ grid-column:span 1; }
+      .magazine-grid{
+        grid-template-columns:1fr;
+      }
+      .magazine-grid .article-card:first-child{
+        grid-column:span 1;
+      }
+      .article-card{
+        min-height:50vh;
+      }
+      .article-title{
+        font-size:clamp(20px, 5vw, 30px);
+      }
+    }
+    @media(max-width:600px){
+      .mag-hero{ min-height:45vh; }
+      .mag-hero__content{ padding:24px 20px; }
+      .mag-hero__title{ font-size:clamp(40px, 12vw, 72px); }
+      .article-card{ min-height:40vh; }
+      .article-card__overlay{ padding:20px 18px; }
+      .mag-section__header{ padding-left:20px; padding-right:20px; }
+      .mag-lead{ padding-left:20px; padding-right:20px; }
     }
   </style>
 </head>
@@ -169,27 +319,33 @@
     <a href="./" data-i18n="nav.magazine">Dicono di Noi</a>
   </nav>
 
-  <main class="page-shell">
+  <main>
 
-    <h1 class="page-title-centered title-accent" data-i18n="magazine.hero.title">Dicono di Noi</h1>
-    <p class="page-subtitle" data-i18n="magazine.hero.subtitle">Una rassegna stampa con gli articoli che parlano di Badiani, sfogliabile come un giornale.</p>
-
-    <section class="magazine-wrap" data-i18n-attr="aria-label:magazine.list.label">
-      <div class="magazine-header">
-        <h2 class="magazine-title title-accent" data-i18n="magazine.list.title">Rassegna stampa</h2>
-        <div class="magazine-controls">
-          <button class="magazine-btn" type="button" id="magazinePrev" data-i18n="magazine.controls.prev">Indietro</button>
-          <button class="magazine-btn" type="button" id="magazineNext" data-i18n="magazine.controls.next">Avanti</button>
+    <!-- HERO -->
+    <section class="mag-hero">
+      <img class="mag-hero__img" src="../assets/images/branding/heroparlanodinoi.jpg" alt="Dicono di Noi — Badiani 1932" width="1920" height="1080" fetchpriority="high" />
+      <div class="mag-hero__content">
+        <div class="mag-hero__heading">
+          <span class="mag-hero__label" data-i18n="magazine.tag">Dicono di Noi</span>
+          <h1 class="mag-hero__title title-accent title-accent--light" data-i18n="magazine.hero.title">Dicono di Noi</h1>
         </div>
+        <p class="mag-hero__desc" data-i18n="magazine.hero.subtitle">Una rassegna stampa con gli articoli che parlano di Badiani, sfogliabile come un giornale.</p>
+      </div>
+    </section>
+
+    <!-- ARTICLE GRID — immersive full-bleed cards -->
+    <section class="mag-section" data-i18n-attr="aria-label:magazine.list.label">
+      <div class="mag-section__header">
+        <h2 class="mag-section__title" data-i18n="magazine.list.title">Rassegna stampa</h2>
       </div>
       <div class="magazine-grid" id="magazineTrack" aria-live="polite"></div>
     </section>
 
-    <section class="news-columns" data-i18n-attr="aria-label:magazine.columns.label">
-
+    <!-- LEAD TEXT -->
+    <section class="mag-lead" data-i18n-attr="aria-label:magazine.columns.label">
       <p data-i18n="magazine.columns.lead">Abbiamo raccolto link, articoli e segnalazioni dai media italiani e internazionali. Ogni card porta all’articolo originale.</p>
-
     </section>
+
   </main>
 
   <script>
@@ -538,22 +694,24 @@
             });
           }
 
-          const media = document.createElement('div');
-          media.className = 'article-media';
+          /* Background image */
           if(article.image){
             const img = document.createElement('img');
+            img.className = 'article-card__img';
             img.src = article.image;
             img.alt = article.title;
-            img.loading = 'lazy';
+            img.loading = idx < 3 ? 'eager' : 'lazy';
             img.decoding = 'async';
-            media.appendChild(img);
+            card.appendChild(img);
           }
-          const sourceTag = document.createElement('span');
-          sourceTag.textContent = article.source;
-          media.appendChild(sourceTag);
 
-          const body = document.createElement('div');
-          body.className = 'article-body';
+          /* Content overlay */
+          const overlay = document.createElement('div');
+          overlay.className = 'article-card__overlay';
+
+          const sourceTag = document.createElement('span');
+          sourceTag.className = 'article-card__source';
+          sourceTag.textContent = article.source;
 
           const title = document.createElement('div');
           title.className = 'article-title';
@@ -561,7 +719,7 @@
 
           const meta = document.createElement('div');
           meta.className = 'article-meta';
-          meta.textContent = [article.source, formatDate(article.dateISO)].filter(Boolean).join(' · ');
+          meta.textContent = [article.source, formatDate(article.dateISO)].filter(Boolean).join(' \u00b7 ');
 
           const excerpt = document.createElement('div');
           excerpt.className = 'article-excerpt';
@@ -572,13 +730,13 @@
           cta.className = 'article-cta';
           cta.textContent = t('magazine.card.cta');
 
-          body.appendChild(title);
-          body.appendChild(meta);
-          body.appendChild(excerpt);
-          body.appendChild(cta);
+          overlay.appendChild(sourceTag);
+          overlay.appendChild(title);
+          overlay.appendChild(meta);
+          overlay.appendChild(excerpt);
+          overlay.appendChild(cta);
 
-          card.appendChild(media);
-          card.appendChild(body);
+          card.appendChild(overlay);
           track.appendChild(card);
         });
       }
@@ -622,15 +780,6 @@
       if(select){
         select.value = currentLang;
         select.addEventListener('change', (e) => setLang(e.target.value));
-      }
-
-      const track = document.getElementById('magazineTrack');
-      const prevBtn = document.getElementById('magazinePrev');
-      const nextBtn = document.getElementById('magazineNext');
-      if(track && prevBtn && nextBtn){
-        const scrollBy = () => track.clientWidth * 0.8;
-        prevBtn.addEventListener('click', () => track.scrollBy({ left: -scrollBy(), behavior: 'smooth' }));
-        nextBtn.addEventListener('click', () => track.scrollBy({ left: scrollBy(), behavior: 'smooth' }));
       }
 
       applyTranslations();

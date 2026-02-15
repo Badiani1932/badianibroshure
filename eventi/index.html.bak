@@ -1,0 +1,1705 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eventi — Badiani 1932 | Feste Private e Su Misura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Organizza eventi esclusivi con il gelato artigianale Badiani. Saletta privata, eventi esterni, gelato van e soluzioni aziendali personalizzate a Firenze." />
+  <meta name="theme-color" content="#1e398d" />
+  <link rel="icon" href="../assets/images/branding/logo.webp" type="image/webp" />
+  <link rel="canonical" href="https://www.badiani1932.com/eventi/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Eventi — Badiani 1932" />
+  <meta property="og:description" content="Feste private e eventi su misura con gelato artigianale Badiani dal 1932." />
+  <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <meta property="og:url" content="https://www.badiani1932.com/eventi/" />
+  <link rel="stylesheet" href="../assets/badiani-common.css" />
+  <style>
+    /* Page-specific styles for Eventi landing page */
+
+    body{
+      background-color:#f5f6f8;
+      background-image:url('../assets/images/branding/sfondo.webp');
+      background-repeat:no-repeat;
+      background-position:top center;
+      background-size:cover;
+    }
+
+    .page-shell{ padding:0 clamp(16px, 4vw, 80px) 80px; }
+    .page-hero{
+      position:relative;
+      min-height:28vh;
+      display:flex;
+      align-items:flex-end;
+      padding:32px 52px;
+      gap:24px;
+      margin:0 calc(-1 * clamp(16px, 4vw, 80px));
+    }
+    .page-hero__heading-group{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-end;
+      flex-shrink:0;
+    }
+    .page-hero__label{
+      display:block;
+      font-size:clamp(13px, 1.2vw, 16px);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-weight:400;
+      color:rgba(255,255,255,0.75);
+      margin-bottom:8px;
+    }
+    .page-hero h1{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(96px, 12vw, 160px);
+      font-weight:700;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      line-height:0.9;
+      color:#fff;
+      text-shadow:0 2px 20px rgba(0,0,0,0.4);
+      flex-shrink:0;
+    }
+    .page-hero p{
+      font-size:clamp(14px, 1.2vw, 17px);
+      color:rgba(255,255,255,0.85);
+      line-height:1.5;
+      max-width:260px;
+      padding-bottom:8px;
+    }
+    .hero{ background:var(--surface); border-radius:28px; padding:40px; box-shadow:0 18px 40px rgba(0,0,0,0.08); margin-bottom:48px; }
+    .hero h1{ font-size:clamp(28px, 3.6vw, 46px); margin-bottom:12px; }
+    .hero p{ font-size:clamp(16px, 1.5vw, 20px); color:#6a6b6e; max-width:780px; }
+
+    .section-title{ font-size:clamp(20px, 2.4vw, 30px); margin:40px 0 18px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.3); }
+
+    .event-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px; }
+    .event-card{
+      position:relative;
+      border-radius:24px;
+      overflow:hidden;
+      min-height:260px;
+      box-shadow:0 16px 36px rgba(0,0,0,0.12);
+      text-decoration:none;
+      color:#fff;
+      display:flex;
+      align-items:flex-end;
+    }
+    .event-card img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+    .event-card__overlay{
+      position:relative;
+      z-index:1;
+      width:100%;
+      padding:24px;
+      background:linear-gradient(to top, rgba(30,57,141,0.9) 0%, rgba(30,57,141,0.4) 60%, transparent 100%);
+      display:grid;
+      gap:8px;
+    }
+    .event-card__title{ font-size:clamp(18px, 2vw, 24px); text-transform:uppercase; letter-spacing:1px; }
+    .event-card__desc{ font-size:14px; color:rgba(255,255,255,0.88); }
+
+    .van-lead{ font-size:clamp(15px, 1.3vw, 18px); color:#6a6b6e; margin-bottom:22px; }
+    .van-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:26px; }
+    .van-card{
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 16px 40px rgba(0,0,0,0.12);
+      display:flex;
+      flex-direction:column;
+      transition:transform 0.4s ease, box-shadow 0.4s ease;
+      text-decoration:none;
+      color:inherit;
+    }
+    .van-card:hover{ transform:translateY(-10px); box-shadow:0 24px 60px rgba(30,57,141,0.18); }
+    .van-card__media{
+      position:relative;
+      width:100%;
+      height:0;
+      padding-top:100%;
+      overflow:hidden;
+      background:linear-gradient(135deg, #f5f5f5, #fff);
+    }
+    .van-card__media img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      transition:transform 0.45s ease, filter 0.28s ease;
+      filter:brightness(1.03);
+    }
+    .van-card:hover .van-card__media img{ transform:scale(1.1); filter:brightness(1.06); }
+    .van-card__body{ padding:24px; text-align:center; display:grid; gap:10px; }
+    .van-card__title{ font-size:18px; letter-spacing:1px; text-transform:uppercase; color:var(--badiani-blue); }
+    .van-card__desc{ font-size:14px; color:#6a6b6e; line-height:1.6; }
+
+    .tag{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#fff; font-weight:600; text-shadow:0 1px 6px rgba(0,0,0,0.3); }
+    .pill{ background:#f5f6f8; border-radius:16px; padding:10px 14px; font-size:14px; }
+    .list{ padding-left:18px; display:grid; gap:8px; font-size:15px; color:#6a6b6e; }
+    .dual-list{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
+    .gallery-grid{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; }
+    .gallery-card{ background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,0.08); aspect-ratio:4 / 3; }
+    .gallery-card img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .gallery-card span{ display:block; padding:10px 12px; font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-blue); }
+
+    .coming-soon{ display:inline-flex; align-items:center; gap:10px; background:var(--badiani-pink); color:#fff; padding:10px 18px; border-radius:999px; text-transform:uppercase; letter-spacing:2px; font-size:12px; font-weight:600; }
+
+    /* ========== REQUEST INFO FORM ========== */
+    .request-form-section{
+      margin:0 0 60px;
+    }
+    .request-form-block{
+      background:#fff;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(30,57,141,0.10);
+    }
+    .request-form-header{
+      background:linear-gradient(135deg, var(--badiani-blue) 0%, #2a4faf 100%);
+      padding:clamp(28px, 4vw, 44px) clamp(24px, 4vw, 60px);
+      text-align:center;
+      color:#fff;
+    }
+    .request-form-header h2{
+      font-size:clamp(22px, 2.8vw, 34px);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#fff;
+      margin-bottom:8px;
+    }
+    .request-form-header p{
+      font-size:clamp(14px, 1.2vw, 17px);
+      color:rgba(255,255,255,0.75);
+    }
+    .request-form-body{
+      padding:clamp(28px, 4vw, 48px) clamp(24px, 4vw, 60px);
+    }
+    .request-form-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:20px;
+    }
+    .request-form-grid .form-field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .request-form-grid .form-field.full-width{
+      grid-column:1 / -1;
+    }
+    .request-form-grid label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:#6a6b6e;
+      font-weight:600;
+    }
+    .request-form-grid input,
+    .request-form-grid select{
+      width:100%;
+      border:1px solid rgba(30,57,141,0.15);
+      border-radius:12px;
+      padding:12px 14px;
+      font-family:inherit;
+      font-size:14px;
+      background:#f8f9fc;
+      color:#4a4f57;
+      transition:border-color 0.3s, box-shadow 0.3s;
+    }
+    .request-form-grid input:focus-visible,
+    .request-form-grid select:focus-visible{
+      outline:2px solid var(--badiani-blue);
+      outline-offset:2px;
+      border-color:var(--badiani-blue);
+      box-shadow:0 0 0 3px rgba(30,57,141,0.1);
+    }
+    .request-form-grid input::placeholder{
+      color:#b0b4ba;
+    }
+    .checkbox-group{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .checkbox-group label{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      font-weight:400;
+      text-transform:none;
+      letter-spacing:0;
+      color:#58595b;
+      cursor:pointer;
+      background:#f8f9fc;
+      padding:8px 14px;
+      border-radius:10px;
+      border:1px solid rgba(30,57,141,0.1);
+      transition:background 0.3s, border-color 0.3s;
+    }
+    .checkbox-group label:hover{
+      background:rgba(30,57,141,0.06);
+      border-color:rgba(30,57,141,0.2);
+    }
+    .checkbox-group input[type="checkbox"]{
+      width:16px;
+      height:16px;
+      accent-color:var(--badiani-blue);
+    }
+    .radio-group{
+      display:flex;
+      gap:16px;
+    }
+    .radio-group label{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:400;
+      text-transform:none;
+      letter-spacing:0;
+      color:#58595b;
+      cursor:pointer;
+    }
+    .radio-group input[type="radio"]{
+      width:16px;
+      height:16px;
+      accent-color:var(--badiani-blue);
+    }
+    .extras-panel{
+      display:none;
+      margin-top:12px;
+      padding:14px 16px;
+      background:#f0f2f8;
+      border-radius:12px;
+      border:1px solid rgba(30,57,141,0.1);
+      animation:extrasReveal 0.35s ease;
+    }
+    .extras-panel.visible{ display:block; }
+    @keyframes extrasReveal{
+      from{ opacity:0; transform:translateY(-8px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .request-form-actions{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top:28px;
+      padding-top:24px;
+      border-top:1px solid rgba(30,57,141,0.08);
+    }
+    .request-form-actions .privacy-row{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:13px;
+      color:#6a6b6e;
+    }
+    .request-form-actions .privacy-row input{
+      margin-top:2px;
+      width:16px;
+      height:16px;
+      accent-color:var(--badiani-blue);
+    }
+    .request-form-submit{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:none;
+      background:var(--badiani-blue);
+      color:#fff;
+      padding:14px 36px;
+      border-radius:999px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-family:inherit;
+      font-weight:600;
+      cursor:pointer;
+      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow:0 8px 24px rgba(30,57,141,0.2);
+    }
+    .request-form-submit:hover{
+      background:var(--badiani-pink);
+      transform:translateY(-2px);
+      box-shadow:0 12px 32px rgba(240,103,166,0.25);
+    }
+    .request-form-submit svg{
+      width:18px;
+      height:18px;
+      fill:currentColor;
+    }
+    @media(max-width:768px){
+      .request-form-grid{
+        grid-template-columns:1fr;
+      }
+      .request-form-actions{
+        flex-direction:column;
+        align-items:stretch;
+        text-align:center;
+      }
+      .request-form-submit{
+        justify-content:center;
+      }
+    }
+
+    /* ========== CUSTOM EVENT SECTION ========== */
+    .custom-event{
+      margin:40px auto 0;
+      background:#fff;
+      border-radius:28px;
+      box-shadow:0 20px 60px rgba(30,57,141,0.10);
+      overflow:hidden;
+      max-width:900px;
+    }
+    .custom-event--gallery-section{
+      max-width:1200px;
+      margin-top:40px;
+      margin-bottom:60px;
+    }
+    .custom-event__header{
+      background:linear-gradient(135deg, var(--badiani-blue) 0%, #2a4faf 100%);
+      color:#fff;
+      padding:clamp(32px, 5vw, 56px) clamp(24px, 4vw, 60px);
+      text-align:center;
+    }
+    .custom-event__tag{
+      display:inline-block;
+      font-size:11px;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.7);
+      border:1px solid rgba(255,255,255,0.25);
+      border-radius:999px;
+      padding:6px 18px;
+      margin-bottom:18px;
+    }
+    .custom-event__title{
+      font-size:clamp(22px, 3vw, 38px);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#fff;
+      margin-bottom:10px;
+      line-height:1.15;
+    }
+    .custom-event__subtitle{
+      font-size:clamp(16px, 1.6vw, 22px);
+      font-weight:400;
+      color:rgba(255,255,255,0.85);
+      font-style:italic;
+      margin-bottom:14px;
+    }
+    .custom-event__desc{
+      font-size:clamp(14px, 1.2vw, 17px);
+      color:rgba(255,255,255,0.72);
+      max-width:700px;
+      margin:0 auto;
+      line-height:1.7;
+    }
+
+    .custom-event__body{
+      padding:clamp(28px, 4vw, 56px) clamp(24px, 4vw, 60px);
+      display:grid;
+      gap:clamp(28px, 3vw, 48px);
+    }
+
+    /* Two-column list area */
+    .custom-event__columns{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:20px;
+      max-width:800px;
+      margin:0 auto;
+    }
+    .custom-event__col{
+      background:#f8f9fc;
+      border-radius:14px;
+      padding:22px 26px;
+      border:1px solid rgba(30,57,141,0.06);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .custom-event__col h3{
+      font-size:clamp(13px, 1.2vw, 16px);
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:var(--badiani-blue);
+      margin-bottom:14px;
+    }
+    .custom-event__list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:8px;
+      text-align:center;
+    }
+    .custom-event__list li{
+      font-size:clamp(13px, 1.1vw, 16px);
+      color:#58595b;
+      line-height:1.5;
+    }
+    .custom-event__list li::before{
+      content:"";
+      display:inline-block;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      margin-right:8px;
+      vertical-align:middle;
+    }
+    .custom-event__col--customize .custom-event__list li::before{
+      background:var(--badiani-blue);
+    }
+    .custom-event__col--ideal .custom-event__list li::before{
+      background:var(--badiani-pink);
+    }
+
+    /* Photo gallery */
+    .custom-event__gallery-label{
+      font-size:12px;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      color:#9aa0a6;
+      text-align:center;
+      margin-bottom:6px;
+    }
+    .custom-event__gallery-title{
+      font-size:clamp(18px, 2vw, 26px);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--badiani-blue);
+      text-align:center;
+      margin-bottom:24px;
+    }
+    .custom-event__gallery{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px;
+    }
+    .custom-event__photo{
+      border-radius:16px;
+      overflow:hidden;
+      cursor:pointer;
+      position:relative;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      transition:transform 0.4s ease, box-shadow 0.4s ease;
+      aspect-ratio:1 / 1;
+    }
+    .custom-event__photo:hover{
+      transform:translateY(-6px);
+      box-shadow:0 16px 40px rgba(30,57,141,0.16);
+    }
+    .custom-event__photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform 0.5s ease;
+    }
+    .custom-event__photo:hover img{
+      transform:scale(1.06);
+    }
+    .custom-event__photo-label{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:10px 14px;
+      background:linear-gradient(to top, rgba(30,57,141,0.85), transparent);
+      color:#fff;
+      font-size:11px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      font-weight:600;
+    }
+
+    /* CTA */
+    .custom-event__cta{
+      background:linear-gradient(135deg, #f8f9fc 0%, #eef1f8 100%);
+      border-radius:20px;
+      padding:clamp(24px, 2.5vw, 36px);
+      text-align:center;
+      border:1px solid rgba(30,57,141,0.08);
+    }
+    .custom-event__cta p{
+      font-size:clamp(14px, 1.2vw, 16px);
+      color:#58595b;
+      margin-bottom:18px;
+    }
+    .custom-event__cta-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--badiani-blue);
+      color:#fff;
+      text-decoration:none;
+      padding:14px 32px;
+      border-radius:999px;
+      font-size:13px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-family:inherit;
+      font-weight:600;
+      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow:0 8px 24px rgba(30,57,141,0.2);
+    }
+    .custom-event__cta-btn:hover{
+      background:var(--badiani-pink);
+      transform:translateY(-3px);
+      box-shadow:0 14px 36px rgba(240,103,166,0.25);
+    }
+    .custom-event__cta-btn svg{
+      width:18px;
+      height:18px;
+      fill:currentColor;
+    }
+
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.92);
+      z-index:10000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      animation:none !important;
+      transform:none !important;
+    }
+    .lightbox.active{
+      display:flex;
+      opacity:1;
+    }
+    .lightbox img{
+      max-width:90vw;
+      max-height:90vh;
+      object-fit:contain;
+      border-radius:12px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-close{
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:rgba(255,255,255,0.15);
+      border:none;
+      color:#fff;
+      font-size:36px;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      cursor:pointer;
+      transition:background 0.3s;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lightbox-close:hover{
+      background:var(--badiani-pink);
+    }
+    .lightbox-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,0.15);
+      border:none;
+      color:#fff;
+      font-size:32px;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      cursor:pointer;
+      transition:background 0.3s;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lightbox-nav:hover{
+      background:var(--badiani-pink);
+    }
+    .lightbox-prev{ left:20px; }
+    .lightbox-next{ right:20px; }
+
+    @media(max-width:768px){
+      .hero{ padding:30px; }
+      .hero h1{
+        font-size:clamp(22px, 6.2vw, 30px);
+        line-height:1.1;
+        letter-spacing:0.6px;
+        text-align:center;
+      }
+      .hero p{
+        font-size:clamp(14px, 4.2vw, 18px);
+        line-height:1.55;
+      }
+      .page-hero{
+        padding:24px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+        min-height:20vh;
+        margin:0 calc(-1 * 16px);
+      }
+      .page-hero h1{
+        font-size:clamp(48px, 12vw, 80px);
+        letter-spacing:2px;
+      }
+      .page-hero p{
+        max-width:none;
+      }
+      .section-title{
+        font-size:clamp(20px, 6vw, 26px);
+        line-height:1.1;
+        letter-spacing:0.6px;
+        text-align:center;
+      }
+      .event-card__title,
+      .van-card__title{
+        font-size:clamp(16px, 4.6vw, 20px);
+      }
+      .van-grid{ gap:10px; }
+      .van-card__body{ padding:16px; }
+      .van-card__desc{ font-size:12px; }
+
+      /* Mobile cards: swipeable like inspiration mobile */
+      .van-grid{
+        display:flex;
+        gap:10px;
+        overflow-x:auto;
+        padding:6px 10px 10px;
+        margin-left:-10px;
+        margin-right:-10px;
+        scroll-snap-type:x mandatory;
+        scroll-padding-left:10px;
+        -webkit-overflow-scrolling:touch;
+      }
+      .van-grid::-webkit-scrollbar{ display:none; }
+      .van-card{
+        flex:0 0 70vw;
+        max-width:280px;
+        min-width:200px;
+        scroll-snap-align:start;
+        border-radius:12px;
+      }
+      .van-card:hover{
+        transform:none;
+        box-shadow:0 16px 40px rgba(0,0,0,0.12);
+      }
+
+      /* Custom event section mobile */
+      .custom-event__header{
+        padding:28px 20px;
+      }
+      .custom-event__title{
+        font-size:clamp(18px, 5.5vw, 26px);
+        letter-spacing:1px;
+      }
+      .custom-event__subtitle{
+        font-size:clamp(14px, 4vw, 18px);
+      }
+      .custom-event__body{
+        padding:24px 18px;
+      }
+      .custom-event__columns{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+      .custom-event__gallery{
+        grid-template-columns:repeat(2, 1fr);
+        gap:10px;
+      }
+      .custom-event__photo-label{
+        font-size:10px;
+        padding:8px 10px;
+      }
+      .custom-event__cta-btn{
+        padding:12px 24px;
+        font-size:12px;
+      }
+      .gallery-grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:10px;
+      }
+    }
+
+    @media(max-width:600px){
+      .van-grid{ gap:8px; }
+      .van-card__body{ padding:12px; }
+      .van-card__title{ font-size:clamp(14px, 4.2vw, 18px); }
+      .van-card__desc{ font-size:11px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" data-i18n-attr="aria-label:topbar.label">
+    <a href="../" class="topbar__logo">
+      <img src="../assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
+    </a>
+    <div class="topbar__right">
+      <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
+        <a href="../" data-i18n="nav.home">Home</a>
+        <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+      </nav>
+      <div class="topbar__lang">
+        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+          <option value="it" data-i18n="lang.it"></option>
+          <option value="en" data-i18n="lang.en"></option>
+          <option value="es" data-i18n="lang.es"></option>
+          <option value="fr" data-i18n="lang.fr"></option>
+        </select>
+      </div>
+      <button class="topbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
+    <a href="../" data-i18n="nav.home">Home</a>
+    <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+  </nav>
+
+  <main class="page-shell">
+    <div class="page-hero">
+      <div class="page-hero__heading-group">
+        <span class="page-hero__label">Tipologie</span>
+        <h1 class="title-accent title-accent--light" data-i18n="eventi.page.title">EVENTI</h1>
+      </div>
+      <p data-i18n="eventi.hero.desc">Seleziona la tipologia di evento per scoprire i dettagli e richiedere un preventivo personalizzato.</p>
+    </div>
+    
+    <section data-i18n-attr="aria-label:eventi.types.label">
+      <div class="van-grid">
+        <a class="van-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
+          <div class="van-card__media">
+            <img src="./foto%20eventi/4.jpg" data-i18n-attr="alt:eventi.tosinghi.alt" loading="lazy" decoding="async" width="4000" height="2668" />
+          </div>
+          <div class="van-card__body">
+            <h3 class="van-card__title" data-i18n="eventi.tosinghi.title">Saletta privata Tosinghi</h3>
+            <p class="van-card__desc" data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata con pacchetti su misura.</p>
+          </div>
+        </a>
+        <a class="van-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
+          <div class="van-card__media">
+            <img src="./foto%20eventi/Steve%20Madden%20MICAM/DSC01280.JPG" data-i18n-attr="alt:eventi.external.alt" loading="lazy" decoding="async" width="6000" height="4000" />
+          </div>
+          <div class="van-card__body">
+            <h3 class="van-card__title" data-i18n="eventi.external.title">Evento esterno</h3>
+            <p class="van-card__desc" data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</p>
+          </div>
+        </a>
+        <a class="van-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
+          <div class="van-card__media">
+            <img src="../assets/images/eventi/gelatovan.png" alt="Gelato Van" data-i18n-attr="alt:eventi.van.card1.alt" loading="lazy" decoding="async" width="1759" height="1467" />
+          </div>
+          <div class="van-card__body">
+            <h3 class="van-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h3>
+            <p class="van-card__desc" data-i18n="eventi.van.card1.desc">Van brandizzato con servizio gelato completo e staff dedicato.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <!-- CREA IL TUO EVENTO AZIENDALE SU MISURA -->
+    <section class="custom-event" data-i18n-attr="aria-label:eventi.corporate.label">
+      <div class="custom-event__header">
+        <span class="custom-event__tag" data-i18n="eventi.corporate.label">Speciale aziende</span>
+        <h2 class="custom-event__title" data-i18n="eventi.corporate.title">CREA IL TUO EVENTO AZIENDALE SU MISURA</h2>
+        <p class="custom-event__subtitle" data-i18n="eventi.corporate.intro1">Crea un evento unico, pensato intorno al tuo brand</p>
+        <p class="custom-event__desc" data-i18n="eventi.corporate.intro2">Ogni azienda ha un'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</p>
+      </div>
+
+      <div class="custom-event__body">
+        <!-- Two columns: Personalizzare + Ideale per -->
+        <div class="custom-event__columns">
+          <div class="custom-event__col custom-event__col--customize">
+            <h3 data-i18n="eventi.corporate.custom.title">Cosa possiamo personalizzare</h3>
+            <ul class="custom-event__list">
+              <li data-i18n="eventi.corporate.custom.item1">Tipologia di servizio gelato</li>
+              <li data-i18n="eventi.corporate.custom.item2">Selezione dei gusti (possibilità di avere gusti personalizzati e/o su richiesta)</li>
+              <li data-i18n="eventi.corporate.custom.item3">Allestimento dell'evento</li>
+              <li data-i18n="eventi.corporate.custom.item4">Branding personalizzato</li>
+              <li data-i18n="eventi.corporate.custom.item5">Concept creativo in linea con il tuo brand</li>
+            </ul>
+          </div>
+          <div class="custom-event__col custom-event__col--ideal">
+            <h3 data-i18n="eventi.corporate.ideal.title">Ideale per</h3>
+            <ul class="custom-event__list">
+              <li data-i18n="eventi.corporate.ideal.item1">Eventi aziendali</li>
+              <li data-i18n="eventi.corporate.ideal.item2">Inaugurazioni</li>
+              <li data-i18n="eventi.corporate.ideal.item3">Attivazioni in store</li>
+              <li data-i18n="eventi.corporate.ideal.item4">Conferenze e press day</li>
+              <li data-i18n="eventi.corporate.ideal.item5">Eventi corporate e team building</li>
+            </ul>
+          </div>
+        </div>
+    </section>
+
+    <!-- FOTO DA EVENTI PASSATI -->
+    <section class="custom-event custom-event--gallery-section">
+      <div class="custom-event__body">
+        <!-- Photo Gallery -->
+        <div>
+          <p class="custom-event__gallery-label" data-i18n="eventi.gallery.label">Portfolio</p>
+          <h3 class="custom-event__gallery-title" data-i18n="eventi.gallery.title">Foto da eventi passati</h3>
+          <div class="custom-event__gallery">
+            <div class="custom-event__photo" onclick="openEventLightbox(0)">
+              <img src="./foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Steve Madden – Pitti" loading="lazy" decoding="async" width="4000" height="6000" />
+              <span class="custom-event__photo-label">Steve Madden — Pitti</span>
+            </div>
+            <div class="custom-event__photo" onclick="openEventLightbox(1)">
+              <img src="./foto%20eventi/Steve%20Madden%20MICAM/DSC01280.JPG" alt="Steve Madden – MICAM" loading="lazy" decoding="async" width="6000" height="4000" />
+              <span class="custom-event__photo-label">Steve Madden — MICAM</span>
+            </div>
+            <div class="custom-event__photo" onclick="openEventLightbox(2)">
+              <img src="./foto%20eventi/Steve%20Madden%20MICAM/STEVE1.JPG" alt="Steve Madden – Evento" loading="lazy" decoding="async" width="6000" height="4000" />
+              <span class="custom-event__photo-label">Steve Madden</span>
+            </div>
+            <div class="custom-event__photo" onclick="openEventLightbox(3)">
+              <img src="./foto%20eventi/Steve%20Madden%20Pitti/STEVE5.jpg" alt="Steve Madden – Setup" loading="lazy" decoding="async" width="3995" height="5992" />
+              <span class="custom-event__photo-label">Steve Madden</span>
+            </div>
+            <div class="custom-event__photo" onclick="openEventLightbox(4)">
+              <img src="./foto%20eventi/Steve%20Madden%20MICAM/STEVE2.JPG" alt="Steve Madden – Gelato" loading="lazy" decoding="async" width="6000" height="4000" />
+              <span class="custom-event__photo-label">Steve Madden</span>
+            </div>
+            <div class="custom-event__photo" onclick="openEventLightbox(5)">
+              <img src="./foto%20eventi/Steve%20Madden%20Pitti/STEVE4.jpg" alt="Steve Madden – Branding" loading="lazy" decoding="async" width="3966" height="5949" />
+              <span class="custom-event__photo-label">Steve Madden</span>
+            </div>
+            <div class="custom-event__photo" onclick="openEventLightbox(6)">
+              <img src="./foto%20eventi/Steve%20Madden%20MICAM/DSC01260.JPG" alt="Steve Madden – Dettaglio" loading="lazy" decoding="async" width="6000" height="4000" />
+              <span class="custom-event__photo-label">Steve Madden</span>
+            </div>
+            <div class="custom-event__photo" onclick="openEventLightbox(7)">
+              <img src="./foto%20eventi/Steve%20Madden%20Pitti/STEVE6.jpg" alt="Steve Madden – Servizio" loading="lazy" decoding="async" width="3865" height="5797" />
+              <span class="custom-event__photo-label">Steve Madden</span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section id="contatti" class="request-form-section" data-i18n-attr="aria-label:eventi.contact.label">
+      <div class="request-form-block">
+        <div class="request-form-header">
+          <h2 data-i18n="eventi.form.title">Richiedi Informazioni</h2>
+          <p data-i18n="eventi.form.subtitle">Compila il modulo e ti ricontatteremo per organizzare il tuo evento</p>
+        </div>
+        <div class="request-form-body">
+          <form action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain" id="requestForm">
+            <div class="request-form-grid">
+              <div class="form-field">
+                <label for="rf-nome" data-i18n="eventi.form.firstName">Nome *</label>
+                <input id="rf-nome" name="nome" type="text" placeholder="Il tuo nome" data-i18n-attr="placeholder:eventi.form.firstName.placeholder" autocomplete="given-name" required />
+              </div>
+              <div class="form-field">
+                <label for="rf-cognome" data-i18n="eventi.form.lastName">Cognome *</label>
+                <input id="rf-cognome" name="cognome" type="text" placeholder="Il tuo cognome" data-i18n-attr="placeholder:eventi.form.lastName.placeholder" autocomplete="family-name" required />
+              </div>
+              <div class="form-field">
+                <label for="rf-email" data-i18n="eventi.form.email">Email *</label>
+                <input id="rf-email" name="email" type="email" placeholder="email@esempio.com" data-i18n-attr="placeholder:eventi.form.email.placeholder" autocomplete="email" required />
+              </div>
+              <div class="form-field">
+                <label for="rf-tipo" data-i18n="eventi.form.clientType">Azienda o Privato *</label>
+                <select id="rf-tipo" name="tipo" required>
+                  <option value="" disabled selected data-i18n="eventi.form.clientType.placeholder">Seleziona...</option>
+                  <option value="azienda" data-i18n="eventi.form.clientType.company">Azienda</option>
+                  <option value="privato" data-i18n="eventi.form.clientType.private">Privato</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="rf-telefono" data-i18n="eventi.form.phone">Telefono *</label>
+                <input id="rf-telefono" name="telefono" type="tel" placeholder="+39 ..." data-i18n-attr="placeholder:eventi.form.phone.placeholder" autocomplete="tel" required />
+              </div>
+              <div class="form-field">
+                <label data-i18n="eventi.form.contactPref">Preferenza di contatto *</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="preferenza_contatto" value="telefono" checked /> <span data-i18n="eventi.form.contactPref.phone">Telefono</span></label>
+                  <label><input type="radio" name="preferenza_contatto" value="email" /> <span data-i18n="eventi.form.contactPref.email">Email</span></label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="rf-data" data-i18n="eventi.form.eventDate">Data dell'evento</label>
+                <input id="rf-data" name="data" type="date" />
+              </div>
+              <div class="form-field">
+                <label for="rf-orario" data-i18n="eventi.form.eventTime">Orario</label>
+                <input id="rf-orario" name="orario" type="time" />
+              </div>
+              <div class="form-field">
+                <label for="rf-persone" data-i18n="eventi.form.guests">Numero Persone</label>
+                <input id="rf-persone" name="persone" type="number" min="1" placeholder="Es. 50" data-i18n-attr="placeholder:eventi.form.guests.placeholder" />
+              </div>
+              <div class="form-field">
+                <label data-i18n="eventi.form.extras">Opzioni Extra?</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="opzioniExtra" value="si" onchange="document.getElementById('extrasMain').classList.add('visible')" /> <span data-i18n="eventi.form.extras.yes">Sì</span></label>
+                  <label><input type="radio" name="opzioniExtra" value="no" checked onchange="document.getElementById('extrasMain').classList.remove('visible')" /> <span data-i18n="eventi.form.extras.no">No</span></label>
+                </div>
+                <div class="extras-panel" id="extrasMain">
+                  <div class="checkbox-group">
+                    <label><input type="checkbox" name="extras[]" value="allestimento-tema" /> <span data-i18n="eventi.form.extras.themedDecor">Allestimento a tema</span></label>
+                    <label><input type="checkbox" name="extras[]" value="cake-designer" /> <span data-i18n="eventi.form.extras.cakeDesigner">Prodotti dolciari creati dal Cake Designer</span></label>
+                    <label><input type="checkbox" name="extras[]" value="gusto-personalizzato" /> <span data-i18n="eventi.form.extras.customFlavour">Gusto di gelato personalizzato o su richiesta</span></label>
+                    <label><input type="checkbox" name="extras[]" value="torta-ricorrenza" /> <span data-i18n="eventi.form.extras.celebrationCake">Torta di ricorrenza</span></label>
+                    <label><input type="checkbox" name="extras[]" value="dj-set" /> <span data-i18n="eventi.form.extras.djSet">Dj set</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-field full-width">
+                <label data-i18n="eventi.form.eventInterest">A quale evento sei interessato? *</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="evento[]" value="saletta-privata" /> <span data-i18n="eventi.form.eventInterest.privateRoom">Saletta Privata Tosinghi</span></label>
+                  <label><input type="checkbox" name="evento[]" value="evento-esterno" /> <span data-i18n="eventi.form.eventInterest.external">Evento Esterno</span></label>
+                  <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="eventi.form.eventInterest.van">Gelato Van</span></label>
+                  <label><input type="checkbox" name="evento[]" value="evento-su-misura" /> <span data-i18n="eventi.form.eventInterest.tailored">Evento Aziendale su Misura</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="request-form-actions">
+              <label class="privacy-row">
+                <input type="checkbox" required />
+                <span data-i18n-html="eventi.form.privacy">Ho letto e accetto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.</span>
+              </label>
+              <button type="submit" class="request-form-submit">
+                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                <span data-i18n="eventi.form.submit">Invia Richiesta</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="eventLightbox" onclick="closeEventLightbox(event)">
+    <button class="lightbox-close" onclick="closeEventLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevEventImage(event)">&#10094;</button>
+    <img id="eventLightbox-img" src="" alt="" loading="lazy" decoding="async" />
+    <button class="lightbox-nav lightbox-next" onclick="nextEventImage(event)">&#10095;</button>
+  </div>
+
+  <script>
+    // Lightbox functions for event gallery
+    const eventImages = [
+      './foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg',
+      './foto%20eventi/Steve%20Madden%20MICAM/DSC01280.JPG',
+      './foto%20eventi/Steve%20Madden%20MICAM/STEVE1.JPG',
+      './foto%20eventi/Steve%20Madden%20Pitti/STEVE5.jpg',
+      './foto%20eventi/Steve%20Madden%20MICAM/STEVE2.JPG',
+      './foto%20eventi/Steve%20Madden%20Pitti/STEVE4.jpg',
+      './foto%20eventi/Steve%20Madden%20MICAM/DSC01260.JPG',
+      './foto%20eventi/Steve%20Madden%20Pitti/STEVE6.jpg'
+    ];
+    let currentEventIndex = 0;
+
+    function openEventLightbox(index) {
+      currentEventIndex = index;
+      const lightbox = document.getElementById('eventLightbox');
+      const img = document.getElementById('eventLightbox-img');
+      img.src = eventImages[index];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEventLightbox(e) {
+      if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
+      const lightbox = document.getElementById('eventLightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function prevEventImage(e) {
+      e.stopPropagation();
+      currentEventIndex = (currentEventIndex - 1 + eventImages.length) % eventImages.length;
+      document.getElementById('eventLightbox-img').src = eventImages[currentEventIndex];
+    }
+
+    function nextEventImage(e) {
+      e.stopPropagation();
+      currentEventIndex = (currentEventIndex + 1) % eventImages.length;
+      document.getElementById('eventLightbox-img').src = eventImages[currentEventIndex];
+    }
+
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('eventLightbox');
+      if (lightbox && lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeEventLightbox();
+        if (e.key === 'ArrowLeft') prevEventImage(e);
+        if (e.key === 'ArrowRight') nextEventImage(e);
+      }
+    });
+
+    // i18n System
+    (function(){
+      const SUPPORTED = ['it','en','fr','es'];
+      const DEFAULT_LANG = 'it';
+      const STORAGE_KEY = 'badianiLang';
+
+      const STRINGS = {
+        it: {
+          'meta.title': 'Eventi — Badiani 1932',
+          'topbar.label': 'Barra brand',
+          'nav.label': 'Navigazione principale',
+          'lang.label': 'Selettore lingua',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Home',
+          'nav.b2b': 'B2B',
+          'footer.nav': 'Navigazione',
+          'footer.home': 'Home',
+          'footer.eventi': 'Eventi',
+          'footer.b2b': 'B2B',
+          'footer.magazine': 'Dicono di Noi',
+          'footer.contatti': 'Contatti',
+          'footer.legale': 'Legale',
+          'footer.privacy': 'Privacy Policy',
+          'footer.cookie': 'Cookie Policy',
+          'eventi.hero.label': 'Eventi Badiani',
+          'eventi.hero.title': 'Eventi Badiani',
+          'eventi.hero.desc': 'Seleziona la tipologia di evento per scoprire i dettagli e richiedere un preventivo personalizzato.',
+          'eventi.types.label': 'Tipologie eventi',
+          'eventi.types.tag': 'Tipologie',
+          'eventi.types.title': 'Eventi',
+          'eventi.tosinghi.aria': 'Vai alla pagina Saletta privata Tosinghi',
+          'eventi.tosinghi.alt': 'Saletta privata Tosinghi',
+          'eventi.tosinghi.title': 'Saletta privata Tosinghi',
+          'eventi.tosinghi.desc': 'Il tuo party nella nostra saletta privata con pacchetti su misura.',
+          'eventi.external.aria': 'Vai alla pagina Evento esterno',
+          'eventi.external.alt': 'Evento esterno',
+          'eventi.external.title': 'Evento esterno',
+          'eventi.external.desc': 'Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.',
+          'eventi.van.aria': 'Vai alla sezione Gelato Van',
+          'eventi.van.label': 'Gelato van',
+          'eventi.van.title': 'GELATO VAN',
+          'eventi.van.lead': 'Un gelato truck iconico per eventi, brand activation e team experience.',
+          'eventi.van.card1.title': 'Gelato Van',
+          'eventi.van.card1.desc': 'Van brandizzato con servizio gelato completo e staff dedicato.',
+          'eventi.van.card1.alt': 'Gelato Van',
+          'eventi.van.card2.title': 'Brand Activation',
+          'eventi.van.card2.desc': 'Personalizzazione grafica, menù e storytelling su misura.',
+          'eventi.van.card2.alt': 'Brand activation',
+          'eventi.van.card3.title': 'Catering Itinerante',
+          'eventi.van.card3.desc': 'Soluzione mobile per flussi elevati e location outdoor.',
+          'eventi.van.card3.alt': 'Catering itinerante',
+          'eventi.corporate.label': 'Speciale aziende',
+          'eventi.corporate.title': 'CREA IL TUO EVENTO AZIENDALE SU MISURA',
+          'eventi.corporate.intro1': 'Crea un evento unico, pensato intorno al tuo brand',
+          'eventi.corporate.intro2': 'Ogni azienda ha un\'identità diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.',
+          'eventi.corporate.custom.title': 'Cosa possiamo personalizzare',
+          'eventi.corporate.custom.item1': 'Tipologia di servizio gelato',
+          'eventi.corporate.custom.item2': 'Selezione dei gusti (possibilità di avere gusti personalizzati e/o su richiesta)',
+          'eventi.corporate.custom.item3': 'Allestimento dell\'evento',
+          'eventi.corporate.custom.item4': 'Branding personalizzato',
+          'eventi.corporate.custom.item5': 'Concept creativo in linea con il tuo brand',
+          'eventi.corporate.ideal.title': 'Ideale per',
+          'eventi.corporate.ideal.item1': 'Eventi aziendali',
+          'eventi.corporate.ideal.item2': 'Inaugurazioni',
+          'eventi.corporate.ideal.item3': 'Attivazioni in store',
+          'eventi.corporate.ideal.item4': 'Conferenze e press day',
+          'eventi.corporate.ideal.item5': 'Eventi corporate e team building',
+          'eventi.contact.label': 'Contatti eventi',
+          'eventi.contact.title': 'Contatti',
+          'eventi.contact.form.type': 'Tipo richiesta',
+          'eventi.contact.form.type.event': 'Evento',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Nome',
+          'eventi.contact.form.company': 'Azienda',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Telefono',
+          'eventi.contact.form.message': 'Messaggio',
+          'eventi.contact.form.privacy.aria': 'Accetta privacy',
+          'eventi.contact.form.privacy.text': 'Ho letto e accetto la privacy policy. TODO: integrare link privacy.',
+          'eventi.contact.form.submit.aria': 'Invia richiesta',
+          'eventi.contact.form.submit': 'Invia richiesta',
+          'eventi.contact.form.note': 'TODO: integrare backend per invio form. Email eventi: eventi@badiani1932.com',
+          'eventi.page.title': 'Eventi',
+          'eventi.form.title': 'Richiedi Informazioni',
+          'eventi.form.subtitle': 'Compila il modulo e ti ricontatteremo per organizzare il tuo evento',
+          'eventi.form.firstName': 'Nome *',
+          'eventi.form.firstName.placeholder': 'Il tuo nome',
+          'eventi.form.lastName': 'Cognome *',
+          'eventi.form.lastName.placeholder': 'Il tuo cognome',
+          'eventi.form.clientType': 'Azienda o Privato *',
+          'eventi.form.clientType.placeholder': 'Seleziona...',
+          'eventi.form.clientType.company': 'Azienda',
+          'eventi.form.clientType.private': 'Privato',
+          'eventi.form.email': 'Email *',
+          'eventi.form.email.placeholder': 'email@esempio.com',
+          'eventi.form.phone': 'Telefono *',
+          'eventi.form.phone.placeholder': '+39 ...',
+          'eventi.form.contactPref': 'Preferenza di contatto *',
+          'eventi.form.contactPref.phone': 'Telefono',
+          'eventi.form.contactPref.email': 'Email',
+          'eventi.form.eventDate': 'Data dell\'evento',
+          'eventi.form.eventTime': 'Orario',
+          'eventi.form.guests': 'Numero Persone',
+          'eventi.form.guests.placeholder': 'Es. 50',
+          'eventi.form.extras': 'Opzioni Extra?',
+          'eventi.form.extras.yes': 'Sì',
+          'eventi.form.extras.no': 'No',
+          'eventi.form.extras.themedDecor': 'Allestimento a tema',
+          'eventi.form.extras.cakeDesigner': 'Prodotti dolciari creati dal Cake Designer',
+          'eventi.form.extras.customFlavour': 'Gusto di gelato personalizzato o su richiesta',
+          'eventi.form.extras.celebrationCake': 'Torta di ricorrenza',
+          'eventi.form.extras.djSet': 'Dj set',
+          'eventi.form.eventInterest': 'A quale evento sei interessato? *',
+          'eventi.form.eventInterest.privateRoom': 'Saletta Privata Tosinghi',
+          'eventi.form.eventInterest.external': 'Evento Esterno',
+          'eventi.form.eventInterest.van': 'Gelato Van',
+          'eventi.form.eventInterest.tailored': 'Evento Aziendale su Misura',
+          'eventi.form.privacy': 'Ho letto e accetto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
+          'eventi.form.submit': 'Invia Richiesta',
+          'eventi.gallery.label': 'Portfolio',
+          'eventi.gallery.title': 'Foto da eventi passati'
+        },
+        en: {
+          'meta.title': 'Events — Badiani 1932',
+          'topbar.label': 'Brand bar',
+          'nav.label': 'Main navigation',
+          'lang.label': 'Language selector',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Home',
+          'nav.b2b': 'B2B',
+          'footer.nav': 'Navigation',
+          'footer.home': 'Home',
+          'footer.eventi': 'Events',
+          'footer.b2b': 'B2B',
+          'footer.magazine': 'They Say About Us',
+          'footer.contatti': 'Contacts',
+          'footer.legale': 'Legal',
+          'footer.privacy': 'Privacy Policy',
+          'footer.cookie': 'Cookie Policy',
+          'eventi.hero.label': 'Badiani Events',
+          'eventi.hero.title': 'Badiani Events',
+          'eventi.hero.desc': 'Select the event type to discover details and request a personalised quote.',
+          'eventi.types.label': 'Event types',
+          'eventi.types.tag': 'Types',
+          'eventi.types.title': 'Events',
+          'eventi.tosinghi.aria': 'Go to Tosinghi Private Room page',
+          'eventi.tosinghi.alt': 'Tosinghi Private Room',
+          'eventi.tosinghi.title': 'Tosinghi Private Room',
+          'eventi.tosinghi.desc': 'Your party in our private room with tailored packages.',
+          'eventi.external.aria': 'Go to External Event page',
+          'eventi.external.alt': 'External Event',
+          'eventi.external.title': 'External Event',
+          'eventi.external.desc': 'Mobile solutions to bring Badiani everywhere: cool box, cart, display.',
+          'eventi.van.aria': 'Go to Gelato Van section',
+          'eventi.van.label': 'Gelato van',
+          'eventi.van.title': 'GELATO VAN',
+          'eventi.van.lead': 'An iconic gelato truck for events, brand activations and team experiences.',
+          'eventi.van.card1.title': 'Gelato Van',
+          'eventi.van.card1.desc': 'Branded van with full gelato service and dedicated staff.',
+          'eventi.van.card1.alt': 'Gelato Van',
+          'eventi.van.card2.title': 'Brand Activation',
+          'eventi.van.card2.desc': 'Custom graphics, menu and storytelling tailored to your brand.',
+          'eventi.van.card2.alt': 'Brand activation',
+          'eventi.van.card3.title': 'Mobile Catering',
+          'eventi.van.card3.desc': 'A mobile solution for large crowds and outdoor venues.',
+          'eventi.van.card3.alt': 'Mobile catering',
+          'eventi.corporate.label': 'Corporate special',
+          'eventi.corporate.title': 'CREATE YOUR TAILORED CORPORATE EVENT',
+          'eventi.corporate.intro1': 'Create a unique event, designed around your brand',
+          'eventi.corporate.intro2': 'Every company has a different identity. That\'s why we create personalised events, tailored to your needs, context and type of audience.',
+          'eventi.corporate.custom.title': 'What we can customise',
+          'eventi.corporate.custom.item1': 'Gelato service type',
+          'eventi.corporate.custom.item2': 'Flavour selection (possibility of customised and/or on-demand flavours)',
+          'eventi.corporate.custom.item3': 'Event setup',
+          'eventi.corporate.custom.item4': 'Personalised branding',
+          'eventi.corporate.custom.item5': 'Creative concept aligned with your brand',
+          'eventi.corporate.ideal.title': 'Ideal for',
+          'eventi.corporate.ideal.item1': 'Corporate events',
+          'eventi.corporate.ideal.item2': 'Inaugurations',
+          'eventi.corporate.ideal.item3': 'In-store activations',
+          'eventi.corporate.ideal.item4': 'Conferences and press days',
+          'eventi.corporate.ideal.item5': 'Corporate events and team building',
+          'eventi.contact.label': 'Events contacts',
+          'eventi.contact.title': 'Contacts',
+          'eventi.contact.form.type': 'Request type',
+          'eventi.contact.form.type.event': 'Event',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Name',
+          'eventi.contact.form.company': 'Company',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Phone',
+          'eventi.contact.form.message': 'Message',
+          'eventi.contact.form.privacy.aria': 'Accept privacy',
+          'eventi.contact.form.privacy.text': 'I have read and accept the privacy policy. TODO: integrate privacy link.',
+          'eventi.contact.form.submit.aria': 'Send request',
+          'eventi.contact.form.submit': 'Send request',
+          'eventi.contact.form.note': 'TODO: integrate backend for form submission. Events email: eventi@badiani1932.com',
+          'eventi.page.title': 'Events',
+          'eventi.form.title': 'Request Information',
+          'eventi.form.subtitle': 'Fill in the form and we will get back to you to organise your event',
+          'eventi.form.firstName': 'First Name *',
+          'eventi.form.firstName.placeholder': 'Your first name',
+          'eventi.form.lastName': 'Surname *',
+          'eventi.form.lastName.placeholder': 'Your surname',
+          'eventi.form.clientType': 'Company or Private *',
+          'eventi.form.clientType.placeholder': 'Select...',
+          'eventi.form.clientType.company': 'Company',
+          'eventi.form.clientType.private': 'Private',
+          'eventi.form.email': 'Email *',
+          'eventi.form.email.placeholder': 'email@example.com',
+          'eventi.form.phone': 'Phone *',
+          'eventi.form.phone.placeholder': '+44 ...',
+          'eventi.form.contactPref': 'Preferred contact method *',
+          'eventi.form.contactPref.phone': 'Phone',
+          'eventi.form.contactPref.email': 'Email',
+          'eventi.form.eventDate': 'Event Date',
+          'eventi.form.eventTime': 'Time',
+          'eventi.form.guests': 'Number of Guests',
+          'eventi.form.guests.placeholder': 'E.g. 50',
+          'eventi.form.extras': 'Extra Options?',
+          'eventi.form.extras.yes': 'Yes',
+          'eventi.form.extras.no': 'No',
+          'eventi.form.extras.themedDecor': 'Themed décor',
+          'eventi.form.extras.cakeDesigner': 'Confectionery products by the Cake Designer',
+          'eventi.form.extras.customFlavour': 'Customised or on-demand gelato flavour',
+          'eventi.form.extras.celebrationCake': 'Celebration cake',
+          'eventi.form.extras.djSet': 'DJ set',
+          'eventi.form.eventInterest': 'Which event are you interested in? *',
+          'eventi.form.eventInterest.privateRoom': 'Tosinghi Private Room',
+          'eventi.form.eventInterest.external': 'External Event',
+          'eventi.form.eventInterest.van': 'Gelato Van',
+          'eventi.form.eventInterest.tailored': 'Tailored Corporate Event',
+          'eventi.form.privacy': 'I have read and accept the <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
+          'eventi.form.submit': 'Send Request',
+          'eventi.gallery.label': 'Portfolio',
+          'eventi.gallery.title': 'Photos from past events'
+        },
+        fr: {
+          'meta.title': 'Événements — Badiani 1932',
+          'topbar.label': 'Barre de marque',
+          'nav.label': 'Navigation principale',
+          'lang.label': 'Sélecteur de langue',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Accueil',
+          'nav.b2b': 'B2B',
+          'footer.nav': 'Navigation',
+          'footer.home': 'Accueil',
+          'footer.eventi': 'Événements',
+          'footer.b2b': 'B2B',
+          'footer.magazine': 'Ils Parlent de Nous',
+          'footer.contatti': 'Contacts',
+          'footer.legale': 'Mentions Légales',
+          'footer.privacy': 'Politique de Confidentialité',
+          'footer.cookie': 'Politique de Cookies',
+          'eventi.hero.label': 'Événements Badiani',
+          'eventi.hero.title': 'Événements Badiani',
+          'eventi.hero.desc': 'Sélectionnez le type d\'événement pour découvrir les détails et demander un devis personnalisé.',
+          'eventi.types.label': 'Types d\'événements',
+          'eventi.types.tag': 'Types',
+          'eventi.types.title': 'Événements',
+          'eventi.tosinghi.aria': 'Aller à la page Salle Privée Tosinghi',
+          'eventi.tosinghi.alt': 'Salle Privée Tosinghi',
+          'eventi.tosinghi.title': 'Salle Privée Tosinghi',
+          'eventi.tosinghi.desc': 'Votre fête dans notre salle privée avec des forfaits sur mesure.',
+          'eventi.external.aria': 'Aller à la page Événement Externe',
+          'eventi.external.alt': 'Événement Externe',
+          'eventi.external.title': 'Événement Externe',
+          'eventi.external.desc': 'Solutions mobiles pour amener Badiani partout : cool box, chariot, vitrine.',
+          'eventi.van.aria': 'Aller à la section Gelato Van',
+          'eventi.van.label': 'Van à gelato',
+          'eventi.van.title': 'VAN À GELATO',
+          'eventi.van.lead': 'Un gelato truck iconique pour événements, activations de marque et expériences d\'équipe.',
+          'eventi.van.card1.title': 'Gelato Van',
+          'eventi.van.card1.desc': 'Van aux couleurs de la marque avec service gelato complet et personnel dédié.',
+          'eventi.van.card1.alt': 'Gelato Van',
+          'eventi.van.card2.title': 'Brand Activation',
+          'eventi.van.card2.desc': 'Personnalisation graphique, menu et storytelling sur mesure.',
+          'eventi.van.card2.alt': 'Brand activation',
+          'eventi.van.card3.title': 'Catering Itinérant',
+          'eventi.van.card3.desc': 'Solution mobile pour grands flux et lieux en plein air.',
+          'eventi.van.card3.alt': 'Catering itinérant',
+          'eventi.corporate.label': 'Spécial entreprises',
+          'eventi.corporate.title': 'CRÉEZ VOTRE ÉVÉNEMENT D\'ENTREPRISE SUR MESURE',
+          'eventi.corporate.intro1': 'Créez un événement unique, pensé autour de votre marque',
+          'eventi.corporate.intro2': 'Chaque entreprise a une identité différente. C\'est pourquoi nous réalisons des événements personnalisés, conçus sur mesure selon vos besoins, le contexte et le type de public.',
+          'eventi.corporate.custom.title': 'Ce que nous pouvons personnaliser',
+          'eventi.corporate.custom.item1': 'Type de service gelato',
+          'eventi.corporate.custom.item2': 'Sélection des parfums (possibilité d\'avoir des parfums personnalisés et/ou sur demande)',
+          'eventi.corporate.custom.item3': 'Aménagement de l\'événement',
+          'eventi.corporate.custom.item4': 'Branding personnalisé',
+          'eventi.corporate.custom.item5': 'Concept créatif aligné avec votre marque',
+          'eventi.corporate.ideal.title': 'Idéal pour',
+          'eventi.corporate.ideal.item1': 'Événements d\'entreprise',
+          'eventi.corporate.ideal.item2': 'Inaugurations',
+          'eventi.corporate.ideal.item3': 'Activations en magasin',
+          'eventi.corporate.ideal.item4': 'Conférences et jours de presse',
+          'eventi.corporate.ideal.item5': 'Événements d\'entreprise et renforcement d\'équipe',
+          'eventi.contact.label': 'Contacts événements',
+          'eventi.contact.title': 'Contacts',
+          'eventi.contact.form.type': 'Type de demande',
+          'eventi.contact.form.type.event': 'Événement',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Nom',
+          'eventi.contact.form.company': 'Entreprise',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Téléphone',
+          'eventi.contact.form.message': 'Message',
+          'eventi.contact.form.privacy.aria': 'Accepter la confidentialité',
+          'eventi.contact.form.privacy.text': 'J\'ai lu et j\'accepte la politique de confidentialité. TODO: intégrer le lien de confidentialité.',
+          'eventi.contact.form.submit.aria': 'Envoyer la demande',
+          'eventi.contact.form.submit': 'Envoyer la demande',
+          'eventi.contact.form.note': 'TODO: intégrer le backend pour l\'envoi du formulaire. Email événements: eventi@badiani1932.com',
+          'eventi.page.title': 'Événements',
+          'eventi.form.title': 'Demander des Informations',
+          'eventi.form.subtitle': 'Remplissez le formulaire et nous vous recontacterons pour organiser votre événement',
+          'eventi.form.firstName': 'Prénom *',
+          'eventi.form.firstName.placeholder': 'Votre prénom',
+          'eventi.form.lastName': 'Nom *',
+          'eventi.form.lastName.placeholder': 'Votre nom',
+          'eventi.form.clientType': 'Entreprise ou Particulier *',
+          'eventi.form.clientType.placeholder': 'Sélectionner...',
+          'eventi.form.clientType.company': 'Entreprise',
+          'eventi.form.clientType.private': 'Particulier',
+          'eventi.form.email': 'Email *',
+          'eventi.form.email.placeholder': 'email@exemple.com',
+          'eventi.form.phone': 'Téléphone *',
+          'eventi.form.phone.placeholder': '+33 ...',
+          'eventi.form.contactPref': 'Méthode de contact préférée *',
+          'eventi.form.contactPref.phone': 'Téléphone',
+          'eventi.form.contactPref.email': 'Email',
+          'eventi.form.eventDate': 'Date de l\'événement',
+          'eventi.form.eventTime': 'Heure',
+          'eventi.form.guests': 'Nombre de personnes',
+          'eventi.form.guests.placeholder': 'Ex. 50',
+          'eventi.form.extras': 'Options supplémentaires ?',
+          'eventi.form.extras.yes': 'Oui',
+          'eventi.form.extras.no': 'Non',
+          'eventi.form.extras.themedDecor': 'Décoration thématique',
+          'eventi.form.extras.cakeDesigner': 'Créations pâtissières du Cake Designer',
+          'eventi.form.extras.customFlavour': 'Parfum de gelato personnalisé ou sur demande',
+          'eventi.form.extras.celebrationCake': 'Gâteau de fête',
+          'eventi.form.extras.djSet': 'DJ set',
+          'eventi.form.eventInterest': 'Quel événement vous intéresse ? *',
+          'eventi.form.eventInterest.privateRoom': 'Salle Privée Tosinghi',
+          'eventi.form.eventInterest.external': 'Événement Externe',
+          'eventi.form.eventInterest.van': 'Van à Gelato',
+          'eventi.form.eventInterest.tailored': 'Événement d\'Entreprise sur Mesure',
+          'eventi.form.privacy': 'J\'ai lu et j\'accepte la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">politique de confidentialité</a>.',
+          'eventi.form.submit': 'Envoyer la Demande',
+          'eventi.gallery.label': 'Portfolio',
+          'eventi.gallery.title': 'Photos d\'événements passés'
+        },
+        es: {
+          'meta.title': 'Eventos — Badiani 1932',
+          'topbar.label': 'Barra de marca',
+          'nav.label': 'Navegación principal',
+          'lang.label': 'Selector de idioma',
+          'lang.it': 'IT',
+          'lang.en': 'EN',
+          'lang.fr': 'FR',
+          'lang.es': 'ES',
+          'nav.home': 'Inicio',
+          'nav.b2b': 'B2B',
+          'footer.nav': 'Navegación',
+          'footer.home': 'Inicio',
+          'footer.eventi': 'Eventos',
+          'footer.b2b': 'B2B',
+          'footer.magazine': 'Dicen de Nosotros',
+          'footer.contatti': 'Contactos',
+          'footer.legale': 'Legal',
+          'footer.privacy': 'Política de Privacidad',
+          'footer.cookie': 'Política de Cookies',
+          'eventi.hero.label': 'Eventos Badiani',
+          'eventi.hero.title': 'Eventos Badiani',
+          'eventi.hero.desc': 'Selecciona el tipo de evento para descubrir los detalles y solicitar un presupuesto personalizado.',
+          'eventi.types.label': 'Tipos de eventos',
+          'eventi.types.tag': 'Tipos',
+          'eventi.types.title': 'Eventos',
+          'eventi.tosinghi.aria': 'Ir a la página Sala Privada Tosinghi',
+          'eventi.tosinghi.alt': 'Sala Privada Tosinghi',
+          'eventi.tosinghi.title': 'Sala Privada Tosinghi',
+          'eventi.tosinghi.desc': 'Tu fiesta en nuestra sala privada con paquetes a medida.',
+          'eventi.external.aria': 'Ir a la página Evento Externo',
+          'eventi.external.alt': 'Evento Externo',
+          'eventi.external.title': 'Evento Externo',
+          'eventi.external.desc': 'Soluciones móviles para llevar Badiani a cualquier lugar: cool box, carrito, vitrina.',
+          'eventi.van.aria': 'Ir a la sección Gelato Van',
+          'eventi.van.label': 'Furgoneta de helado',
+          'eventi.van.title': 'FURGONETA DE HELADO',
+          'eventi.van.lead': 'Un gelato truck icónico para eventos, activaciones de marca y experiencias de equipo.',
+          'eventi.van.card1.title': 'Gelato Van',
+          'eventi.van.card1.desc': 'Furgoneta con marca y servicio completo de gelato con personal dedicado.',
+          'eventi.van.card1.alt': 'Gelato Van',
+          'eventi.van.card2.title': 'Brand Activation',
+          'eventi.van.card2.desc': 'Personalización gráfica, menú y storytelling a medida.',
+          'eventi.van.card2.alt': 'Brand activation',
+          'eventi.van.card3.title': 'Catering Itinerante',
+          'eventi.van.card3.desc': 'Solución móvil para grandes flujos y ubicaciones al aire libre.',
+          'eventi.van.card3.alt': 'Catering itinerante',
+          'eventi.corporate.label': 'Especial empresas',
+          'eventi.corporate.title': 'CREA TU EVENTO CORPORATIVO A MEDIDA',
+          'eventi.corporate.intro1': 'Crea un evento único, pensado en torno a tu marca',
+          'eventi.corporate.intro2': 'Cada empresa tiene una identidad diferente. Por eso realizamos eventos personalizados, diseñados a medida según tus necesidades, contexto y tipo de público.',
+          'eventi.corporate.custom.title': 'Lo que podemos personalizar',
+          'eventi.corporate.custom.item1': 'Tipo de servicio de helado',
+          'eventi.corporate.custom.item2': 'Selección de sabores (posibilidad de tener sabores personalizados y/o bajo pedido)',
+          'eventi.corporate.custom.item3': 'Montaje del evento',
+          'eventi.corporate.custom.item4': 'Branding personalizado',
+          'eventi.corporate.custom.item5': 'Concepto creativo alineado con tu marca',
+          'eventi.corporate.ideal.title': 'Ideal para',
+          'eventi.corporate.ideal.item1': 'Eventos corporativos',
+          'eventi.corporate.ideal.item2': 'Inauguraciones',
+          'eventi.corporate.ideal.item3': 'Activaciones en tienda',
+          'eventi.corporate.ideal.item4': 'Conferencias y días de prensa',
+          'eventi.corporate.ideal.item5': 'Eventos corporativos y trabajo en equipo',
+          'eventi.contact.label': 'Contactos eventos',
+          'eventi.contact.title': 'Contactos',
+          'eventi.contact.form.type': 'Tipo de solicitud',
+          'eventi.contact.form.type.event': 'Evento',
+          'eventi.contact.form.type.b2b': 'B2B',
+          'eventi.contact.form.name': 'Nombre',
+          'eventi.contact.form.company': 'Empresa',
+          'eventi.contact.form.email': 'Email',
+          'eventi.contact.form.phone': 'Teléfono',
+          'eventi.contact.form.message': 'Mensaje',
+          'eventi.contact.form.privacy.aria': 'Aceptar privacidad',
+          'eventi.contact.form.privacy.text': 'He leído y acepto la política de privacidad. TODO: integrar enlace de privacidad.',
+          'eventi.contact.form.submit.aria': 'Enviar solicitud',
+          'eventi.contact.form.submit': 'Enviar solicitud',
+          'eventi.contact.form.note': 'TODO: integrar backend para envío de formulario. Email eventos: eventi@badiani1932.com',
+          'eventi.page.title': 'Eventos',
+          'eventi.form.title': 'Solicitar Información',
+          'eventi.form.subtitle': 'Rellena el formulario y te contactaremos para organizar tu evento',
+          'eventi.form.firstName': 'Nombre *',
+          'eventi.form.firstName.placeholder': 'Tu nombre',
+          'eventi.form.lastName': 'Apellido *',
+          'eventi.form.lastName.placeholder': 'Tu apellido',
+          'eventi.form.clientType': 'Empresa o Particular *',
+          'eventi.form.clientType.placeholder': 'Seleccionar...',
+          'eventi.form.clientType.company': 'Empresa',
+          'eventi.form.clientType.private': 'Particular',
+          'eventi.form.email': 'Email *',
+          'eventi.form.email.placeholder': 'email@ejemplo.com',
+          'eventi.form.phone': 'Teléfono *',
+          'eventi.form.phone.placeholder': '+34 ...',
+          'eventi.form.contactPref': 'Método de contacto preferido *',
+          'eventi.form.contactPref.phone': 'Teléfono',
+          'eventi.form.contactPref.email': 'Email',
+          'eventi.form.eventDate': 'Fecha del evento',
+          'eventi.form.eventTime': 'Hora',
+          'eventi.form.guests': 'Número de personas',
+          'eventi.form.guests.placeholder': 'Ej. 50',
+          'eventi.form.extras': '¿Opciones extra?',
+          'eventi.form.extras.yes': 'Sí',
+          'eventi.form.extras.no': 'No',
+          'eventi.form.extras.themedDecor': 'Decoración temática',
+          'eventi.form.extras.cakeDesigner': 'Productos de repostería del Cake Designer',
+          'eventi.form.extras.customFlavour': 'Sabor de helado personalizado o bajo pedido',
+          'eventi.form.extras.celebrationCake': 'Tarta de celebración',
+          'eventi.form.extras.djSet': 'DJ set',
+          'eventi.form.eventInterest': '¿Qué evento te interesa? *',
+          'eventi.form.eventInterest.privateRoom': 'Sala Privada Tosinghi',
+          'eventi.form.eventInterest.external': 'Evento Externo',
+          'eventi.form.eventInterest.van': 'Gelato Van',
+          'eventi.form.eventInterest.tailored': 'Evento Corporativo a Medida',
+          'eventi.form.privacy': 'He leído y acepto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">política de privacidad</a>.',
+          'eventi.form.submit': 'Enviar Solicitud',
+          'eventi.gallery.label': 'Portfolio',
+          'eventi.gallery.title': 'Fotos de eventos pasados'
+        }
+      };
+
+      function normalizeLang(lang){
+        if(!lang) return DEFAULT_LANG;
+        const base = String(lang).toLowerCase().split('-')[0];
+        return SUPPORTED.includes(base) ? base : DEFAULT_LANG;
+      }
+
+      function getInitialLang(){
+        try{
+          const params = new URLSearchParams(window.location.search || '');
+          const q = params.get('lang');
+          if(q) return normalizeLang(q);
+        }catch{}
+        try{
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if(saved) return normalizeLang(saved);
+        }catch{}
+        return normalizeLang(navigator.language || DEFAULT_LANG);
+      }
+
+      let currentLang = getInitialLang();
+
+      function t(key){
+        const dict = STRINGS[currentLang] || STRINGS[DEFAULT_LANG];
+        return dict && dict[key] ? dict[key] : '';
+      }
+
+      function applyTranslations(){
+        document.documentElement.setAttribute('lang', currentLang);
+        document.title = t('meta.title');
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if(!key) return;
+          el.textContent = t(key);
+        });
+
+        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-html');
+          if(!key) return;
+          el.innerHTML = t(key);
+        });
+
+        document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+          const raw = el.getAttribute('data-i18n-attr') || '';
+          raw.split(',').forEach((pair) => {
+            const [attr, key] = pair.split(':').map((s) => s.trim());
+            if(attr && key) el.setAttribute(attr, t(key));
+          });
+        });
+      }
+
+      function setLang(lang){
+        const next = normalizeLang(lang);
+        if(next === currentLang) return;
+        currentLang = next;
+        try{ localStorage.setItem(STORAGE_KEY, currentLang); }catch{}
+        applyTranslations();
+      }
+
+      const select = document.getElementById('langSelect');
+      if(select){
+        select.value = currentLang;
+        select.addEventListener('change', (e) => setLang(e.target.value));
+      }
+
+      applyTranslations();
+    })();
+  </script>
+
+  <script>
+    // Form submit handler - builds email summary
+    (function(){
+      const form = document.getElementById('requestForm');
+      if(!form) return;
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const labels = {
+          nome: 'Nome', cognome: 'Cognome', email: 'Email',
+          tipo: 'Azienda/Privato', telefono: 'Telefono',
+          preferenza_contatto: 'Preferenza di contatto',
+          data: 'Data evento', orario: 'Orario',
+          persone: 'Numero persone', opzioniExtra: 'Opzioni extra'
+        };
+
+        const lines = ['=== RICHIESTA INFORMAZIONI EVENTI ===', ''];
+        const fd = new FormData(form);
+        const seen = new Set();
+
+        for(const [key, val] of fd.entries()){
+          if(!val || key === 'extras[]' || key === 'evento[]') continue;
+          if(seen.has(key)) continue;
+          seen.add(key);
+          const label = labels[key] || key;
+          lines.push(label + ': ' + val);
+        }
+
+        // Extras
+        const extras = fd.getAll('extras[]');
+        if(extras.length){
+          lines.push('Opzioni extra: ' + extras.join(', '));
+        }
+
+        // Eventi di interesse
+        const eventi = fd.getAll('evento[]');
+        if(eventi.length){
+          lines.push('Eventi di interesse: ' + eventi.join(', '));
+        }
+
+        lines.push('', '--- Fine richiesta ---');
+
+        const subject = encodeURIComponent('Richiesta Informazioni Eventi - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || ''));
+        const body = encodeURIComponent(lines.join('\n'));
+        window.location.href = 'mailto:eventi@badiani1932.com?subject=' + subject + '&body=' + body;
+      });
+    })();
+  </script>
+
+  <script>
+    // Scroll reveal for custom-event section
+    (function(){
+      const section = document.querySelector('.custom-event');
+      if (!section) return;
+
+      const photos = section.querySelectorAll('.custom-event__photo');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            photos.forEach((photo, i) => {
+              setTimeout(() => {
+                photo.style.opacity = '1';
+                photo.style.transform = 'translateY(0)';
+              }, i * 80);
+            });
+          }
+        });
+      }, { threshold: 0.15 });
+
+      // Initial hidden state for photos
+      photos.forEach(photo => {
+        photo.style.opacity = '0';
+        photo.style.transform = 'translateY(20px)';
+        photo.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+
+      observer.observe(section);
+    })();
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <a href="../" class="footer-logo-link"><img src="../assets/images/branding/logo-white.png" alt="Badiani 1932" width="1665" height="643" /></a>
+        <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
+      </div>
+      <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../" data-i18n="footer.home">Home</a></li><li><a href="./" data-i18n="footer.eventi">Eventi</a></li><li><a href="../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
+      <div class="footer-col"><h4>Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="mailto:b2b@badiani1932.com">b2b@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+      <div class="footer-col"><h4>Legale</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../cookie-policy.html">Cookie Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
+  </footer>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
+    <p class="cookie-banner__text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../cookie-policy.html">Maggiori informazioni</a></p>
+    <div class="cookie-banner__actions">
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
+      <a href="../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+    </div>
+  </div>
+  <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
+  <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');document.body.style.overflow=o?'':'hidden';});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');document.body.style.overflow='';});});})();</script>
+</body>
+</html>
