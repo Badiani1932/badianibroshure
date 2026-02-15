@@ -350,9 +350,10 @@
       object-fit:contain;
       object-position:center bottom;
       filter:brightness(1);
+      will-change:transform;
+      transition:transform 0.1s linear;
     }
     .story-card--gelato:hover .story-card__img{
-      transform:none;
       filter:brightness(1);
     }
     .story-card--gelato .story-card__overlay{
@@ -662,12 +663,16 @@
       /* World split - stack vertically, keep internal layout identical to desktop */
       .world-grid{ grid-template-columns:1fr; }
       .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
-      .world-card__paolo{ height:95%; right:0; }
+      .world-card__paolo{ height:107%; right:-8%; max-width:72%; }
       /* Full width text when cards are stacked */
       .world-card--metrics .world-card__title{ max-width:100%; }
       .world-card__desc{ max-width:100%; }
       .stats{ max-width:100%; grid-template-columns:1fr; }
       .stat:nth-child(odd){ border-right:none; }
+      /* RIGHT card — Significa/Gelato: shorter, bigger text */
+      .world-card--timeline{ min-height:40vh; padding:clamp(24px, 4vw, 40px) 0 0 0; }
+      .world-card__gelato-big{ font-size:clamp(80px, 24vw, 430px); }
+      .world-card__gelato-wrap{ flex:0 1 auto; }
       .timeline{
         flex-direction:column;
         gap:0;
@@ -698,9 +703,14 @@
       .story-grid .story-card:first-child{ border-right:none; border-bottom:1px solid rgba(255,255,255,0.15); }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
       .story-card--gelato .story-card__img{
+        inset:0 0 0 auto;
+        margin-top:auto;
+        margin-bottom:auto;
         width:50%;
-        height:70%;
-        object-position:center bottom;
+        height:85%;
+        object-position:center center;
+        will-change:transform;
+        transition:transform 0.1s linear;
       }
 
     }
@@ -1730,6 +1740,79 @@
       s.textContent = JSON.stringify(ld);
       document.head.appendChild(s);
     })();
+  </script>
+
+  <!-- Parallax scroll -->
+  <script>
+  (function(){
+    /* --- GELATOSTORY parallax verticale --- */
+    var gelatoImg = document.querySelector('.story-card--gelato .story-card__img');
+    var gelatoCard = gelatoImg ? gelatoImg.closest('.story-card--gelato') : null;
+
+    /* --- PAOLO parallax orizzontale (dx → sx) --- */
+    var paolo = document.querySelector('.world-card__paolo');
+    var paoloCard = paolo ? paolo.closest('.world-card--metrics') : null;
+    if(paolo) paolo.style.transition = 'transform 0.1s linear';
+
+    /* --- WORLDWIDE MAP parallax dal basso --- */
+    var worldMap = document.querySelector('.world-card__map');
+    var worldCard = worldMap ? worldMap.closest('.world-card--timeline') : null;
+    if(worldMap){ worldMap.style.transition = 'transform 0.1s linear'; worldMap.style.willChange = 'transform'; }
+
+    /* --- GELATO big text parallax dall'alto --- */
+    var gelatoBig = document.querySelector('.world-card__gelato-big');
+    if(gelatoBig){ gelatoBig.style.transition = 'transform 0.1s linear'; gelatoBig.style.willChange = 'transform'; }
+
+    if(!gelatoImg && !paolo && !worldMap) return;
+
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(!ticking){
+        ticking = true;
+        requestAnimationFrame(function(){
+          var vh = window.innerHeight;
+
+          /* GELATOSTORY – leggero shake mentre scrolla */
+          if(gelatoImg && gelatoCard){
+            var gr = gelatoCard.getBoundingClientRect();
+            var gp = 1 - (gr.top + gr.height) / (vh + gr.height);
+            gp = Math.max(0, Math.min(1, gp));
+            var baseY = (gp - 0.5) * 30;
+            var shake = Math.sin(gp * 25) * 3;
+            var rot = Math.sin(gp * 20) * 1.2;
+            gelatoImg.style.transform = 'translateY(' + (baseY + shake) + 'px) rotate(' + rot + 'deg)';
+          }
+
+          /* PAOLO – entra da destra, scorre verso sinistra */
+          if(paolo && paoloCard){
+            var pr = paoloCard.getBoundingClientRect();
+            var pp = 1 - (pr.top + pr.height) / (vh + pr.height);
+            pp = Math.max(0, Math.min(1, pp));
+            /* pp=0 (card fuori in basso) → +150px (destra), pp=1 (card passata) → 0 */
+            var shiftX = (1 - pp) * 40;
+            paolo.style.transform = 'translateX(' + shiftX + 'px)';
+          }
+
+          /* WORLDWIDE – entra dal basso verso l'alto */
+          if(worldMap && worldCard){
+            var wr = worldCard.getBoundingClientRect();
+            var wp = 1 - (wr.top + wr.height) / (vh + wr.height);
+            wp = Math.max(0, Math.min(1, wp * 1.6));
+            var shiftMapY = (1 - wp) * 80;
+            worldMap.style.transform = 'translateY(' + shiftMapY + 'px)';
+
+            /* GELATO big text – scende dall'alto (opposto alla mappa) */
+            if(gelatoBig){
+              var shiftTextY = -(1 - wp) * 80;
+              gelatoBig.style.transform = 'translateY(' + shiftTextY + 'px)';
+            }
+          }
+
+          ticking = false;
+        });
+      }
+    }, {passive:true});
+  })();
   </script>
 </body>
 </html>
