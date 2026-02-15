@@ -698,6 +698,13 @@
       .story-grid .story-card:first-child{ border-right:none; border-bottom:1px solid rgba(255,255,255,0.15); }
       .highlight-pink{ white-space:normal; }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
+      /* Gelato card — sfondo per leggibilità testo su immagine */
+      .story-card--gelato .story-card__overlay{
+        background:linear-gradient(to right, rgba(255,255,255,0.92) 60%, rgba(255,255,255,0) 100%);
+      }
+      .story-card--gelato .story-card__img{
+        object-position:right center;
+      }
 
       /* Form */
       .home-form-grid{ grid-template-columns:1fr; }
