@@ -165,17 +165,14 @@
       gap:10px;
     }
     .article-card__source{
-      display:inline-block;
-      font-size:11px;
-      letter-spacing:1.5px;
+      display:block;
+      font-size:clamp(13px, 1.2vw, 16px);
+      letter-spacing:3px;
       text-transform:uppercase;
-      font-weight:500;
-      color:rgba(255,255,255,0.7);
-      background:rgba(0,0,0,0.4);
-      padding:5px 12px;
-      border-radius:999px;
-      width:fit-content;
-      backdrop-filter:blur(6px);
+      font-weight:400;
+      color:rgba(255,255,255,0.75);
+      line-height:1;
+      margin-bottom:10px;
     }
     .article-title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
@@ -326,7 +323,7 @@
       <img class="mag-hero__img" src="../assets/images/branding/heroparlanodinoi.jpg" alt="Dicono di Noi — Badiani 1932" width="1920" height="1080" fetchpriority="high" />
       <div class="mag-hero__content">
         <div class="mag-hero__heading">
-          <span class="mag-hero__label" data-i18n="magazine.tag">Dicono di Noi</span>
+          <span class="mag-hero__label" data-i18n="magazine.list.title">Rassegna stampa</span>
           <h1 class="mag-hero__title title-accent title-accent--light" data-i18n="magazine.hero.title">Dicono di Noi</h1>
         </div>
         <p class="mag-hero__desc" data-i18n="magazine.hero.subtitle">Una rassegna stampa con gli articoli che parlano di Badiani, sfogliabile come un giornale.</p>
@@ -335,9 +332,6 @@
 
     <!-- ARTICLE GRID — immersive full-bleed cards -->
     <section class="mag-section" data-i18n-attr="aria-label:magazine.list.label">
-      <div class="mag-section__header">
-        <h2 class="mag-section__title" data-i18n="magazine.list.title">Rassegna stampa</h2>
-      </div>
       <div class="magazine-grid" id="magazineTrack" aria-live="polite"></div>
     </section>
 
@@ -675,6 +669,73 @@
         ]
       };
 
+      const TITLE_I18N = {
+        it: [
+          'Il Buontalenti di Badiani sbarca al Carrousel du Louvre',
+          'Badiani in the World: Firenze val bene un Gelato',
+          'Un gelato italiano al Louvre',
+          'Paolo Pomposi della Gelateria Badiani \u00e8 il miglior gelatiere d\u2019Europa',
+          'Paolo Pomposi trionfa con \u201cDolce Vita\u201d e diventa Miglior gelatiere d\u2019Europa',
+          'Il gusto La Dolcevita di Badiani conquista il London Gelato Festival',
+          'Le migliori gelaterie artigianali di Firenze',
+          'Crystal Launches New Gelato Collection',
+          'Badiani su Food & Beverage',
+          'Badiani su Il Tirreno',
+          'Non solo arte, a Firenze si mangia pure un buon gelato',
+          'Badiani al Carrousel du Louvre \u2014 Instagram',
+          'Badiani fa novant\u2019anni. Una storia dolcissima',
+          '90 anni di Badiani, il gelato di Firenze che spopola a Londra'
+        ],
+        en: [
+          'Badiani\u2019s Buontalenti arrives at the Carrousel du Louvre',
+          'Badiani in the World: Florence is worth a Gelato',
+          'An Italian gelato at the Louvre',
+          'Paolo Pomposi of Gelateria Badiani is Europe\u2019s best gelato maker',
+          'Paolo Pomposi triumphs with \u201cDolce Vita\u201d and becomes Europe\u2019s best gelato maker',
+          'Badiani\u2019s La Dolcevita flavour conquers the London Gelato Festival',
+          'The best artisan gelaterias in Florence',
+          'Crystal Launches New Gelato Collection',
+          'Badiani in Food & Beverage',
+          'Badiani in Il Tirreno',
+          'Not just art \u2014 in Florence you can also eat great gelato',
+          'Badiani at the Carrousel du Louvre \u2014 Instagram',
+          'Badiani turns ninety. A very sweet story',
+          '90 years of Badiani, the Florentine gelato taking London by storm'
+        ],
+        fr: [
+          'Le Buontalenti de Badiani d\u00e9barque au Carrousel du Louvre',
+          'Badiani in the World : Florence vaut bien un Gelato',
+          'Un gelato italien au Louvre',
+          'Paolo Pomposi de la Gelateria Badiani est le meilleur glacier d\u2019Europe',
+          'Paolo Pomposi triomphe avec \u00ab Dolce Vita \u00bb et devient Meilleur glacier d\u2019Europe',
+          'Le parfum La Dolcevita de Badiani conquiert le London Gelato Festival',
+          'Les meilleures glaceries artisanales de Florence',
+          'Crystal lance une nouvelle collection de gelato',
+          'Badiani dans Food & Beverage',
+          'Badiani dans Il Tirreno',
+          'Pas seulement de l\u2019art \u2014 \u00e0 Florence on mange aussi un bon gelato',
+          'Badiani au Carrousel du Louvre \u2014 Instagram',
+          'Badiani f\u00eate ses 90 ans. Une histoire tr\u00e8s douce',
+          '90 ans de Badiani, le gelato florentin qui fait fureur \u00e0 Londres'
+        ],
+        es: [
+          'El Buontalenti de Badiani llega al Carrousel du Louvre',
+          'Badiani in the World: Florencia bien vale un Gelato',
+          'Un helado italiano en el Louvre',
+          'Paolo Pomposi de la Gelateria Badiani es el mejor heladero de Europa',
+          'Paolo Pomposi triunfa con \u201cDolce Vita\u201d y se convierte en el Mejor heladero de Europa',
+          'El sabor La Dolcevita de Badiani conquista el London Gelato Festival',
+          'Las mejores helader\u00edas artesanales de Florencia',
+          'Crystal lanza una nueva colecci\u00f3n de helados',
+          'Badiani en Food & Beverage',
+          'Badiani en Il Tirreno',
+          'No solo arte \u2014 en Florencia tambi\u00e9n se come un buen helado',
+          'Badiani en el Carrousel du Louvre \u2014 Instagram',
+          'Badiani cumple noventa a\u00f1os. Una historia dulc\u00edsima',
+          '90 a\u00f1os de Badiani, el helado de Florencia que arrasa en Londres'
+        ]
+      };
+
       function renderArticles(){
         const track = document.getElementById('magazineTrack');
         if(!track) return;
@@ -699,7 +760,8 @@
             const img = document.createElement('img');
             img.className = 'article-card__img';
             img.src = article.image;
-            img.alt = article.title;
+            const altTitles = TITLE_I18N[currentLang] || TITLE_I18N[DEFAULT_LANG];
+            img.alt = (altTitles && altTitles[idx]) || article.title;
             img.loading = idx < 3 ? 'eager' : 'lazy';
             img.decoding = 'async';
             card.appendChild(img);
@@ -713,9 +775,12 @@
           sourceTag.className = 'article-card__source';
           sourceTag.textContent = article.source;
 
+          const titles = TITLE_I18N[currentLang] || TITLE_I18N[DEFAULT_LANG];
+          const localTitle = (titles && titles[idx]) || article.title;
+
           const title = document.createElement('div');
           title.className = 'article-title';
-          title.textContent = article.title;
+          title.textContent = localTitle;
 
           const meta = document.createElement('div');
           meta.className = 'article-meta';

@@ -261,7 +261,6 @@
       position:relative;
       cursor:default;
     }
-    .ev-corp-list li:last-child{ border-bottom:none; }
     /* animated underline accent on hover */
     .ev-corp-list li::after{
       content:'';
@@ -640,7 +639,7 @@
       }
       .ev-corp-col--customize{
         border-right:none;
-        border-bottom:1px solid rgba(30,57,141,0.08);
+        border-bottom:none;
         padding-bottom:clamp(20px, 2.5vw, 32px);
       }
       .ev-corp-col--ideal{
@@ -731,11 +730,34 @@
         bottom:-20px;
       }
     }
+    /* mobile-only manogelato in "Ideale per" – hidden by default */
+    .ev-corporate__manogelato-mobile{
+      display:none;
+    }
+
     @media(max-width:600px){
+      /* hide desktop manogelato */
       .ev-corporate__manogelato{
-        height:clamp(129px, 21vh, 193px);
-        right:20px;
-        bottom:-10px;
+        display:none;
+      }
+      /* show mirrored manogelato at top-right of "Ideale per" */
+      .ev-corp-col--ideal{
+        position:relative;
+        overflow:visible;
+      }
+      .ev-corporate__manogelato-mobile{
+        display:block;
+        position:absolute;
+        top:-18px;
+        right:-100px;
+        height:clamp(172px, 28vh, 265px);
+        max-width:none;
+        object-fit:contain;
+        pointer-events:none;
+        z-index:10;
+        transform:scaleX(-1);
+        transition:transform 0.1s linear;
+        will-change:transform;
       }
     }
 
@@ -877,6 +899,7 @@
           </ul>
         </div>
         <div class="ev-corp-col ev-corp-col--ideal">
+          <img class="ev-corporate__manogelato-mobile" src="../assets/manogelato.png" alt="" loading="lazy" decoding="async" aria-hidden="true" />
           <h3 data-i18n="eventi.corporate.ideal.title">Ideale per</h3>
           <ul class="ev-corp-list">
             <li data-i18n="eventi.corporate.ideal.item1">Eventi aziendali</li>
@@ -1540,6 +1563,33 @@
             var rotate = -35 + p * -8;
             mano.style.transform = 'translateX(' + shiftX + 'px) translateY(' + shiftY + 'px) rotate(' + rotate + 'deg)';
             ticking = false;
+          });
+        }
+      }, {passive:true});
+    })();
+  </script>
+
+  <script>
+    // Mobile manogelato scroll parallax
+    (function(){
+      var manoM = document.querySelector('.ev-corporate__manogelato-mobile');
+      var idealCol = manoM ? manoM.closest('.ev-corp-col--ideal') : null;
+      if(!manoM || !idealCol) return;
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var ticking2 = false;
+      window.addEventListener('scroll', function(){
+        if(!ticking2){
+          ticking2 = true;
+          requestAnimationFrame(function(){
+            var vh = window.innerHeight;
+            var r = idealCol.getBoundingClientRect();
+            var p = 1 - (r.top + r.height) / (vh + r.height);
+            p = Math.max(0, Math.min(1, p));
+            var shiftY = -p * 80;
+            var shiftX = p * 8;
+            var rotate = -(p * 18 + Math.sin(p * Math.PI) * 10);
+            manoM.style.transform = 'scaleX(-1) translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
+            ticking2 = false;
           });
         }
       }, {passive:true});
