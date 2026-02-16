@@ -119,7 +119,7 @@
       text-transform:uppercase;
       line-height:0.9;
       color:#fff;
-      text-shadow:0 2px 20px rgba(0,0,0,0.4);
+      text-shadow:none;
       flex-shrink:0;
     }
     .hero-subtitle{
@@ -127,7 +127,7 @@
       font-weight:300;
       color:rgba(255,255,255,0.85);
       line-height:1.5;
-      text-shadow:1px 1px 8px rgba(0,0,0,0.5);
+      text-shadow:none;
       max-width:260px;
       padding-bottom:8px;
     }
@@ -209,7 +209,7 @@
       font-weight:700;
       line-height:0.9;
       flex-shrink:0;
-      text-shadow:0 2px 20px rgba(0,0,0,0.4);
+      text-shadow:none;
     }
     .choice-desc{
       font-size:clamp(14px, 1.2vw, 17px);
@@ -342,6 +342,13 @@
       transform:none;
       filter:brightness(0.45);
     }
+    /* LA STORIA – overlay centrato verticalmente */
+    .story-card--storia{
+      align-items:center;
+    }
+    .story-card--storia .story-card__desc{
+      margin-top:calc(15vh - 16px);
+    }
     /* LA STORIA – immagine riempie il riquadro, no zoom */
     .story-card--storia .story-card__img{
       object-fit:cover;
@@ -350,40 +357,51 @@
     .story-card--storia:hover .story-card__img{
       filter:brightness(0.55);
     }
-    /* GELATO – sfondo bianco, testo a sinistra, immagine a destra */
+    /* GELATO – sfondo immagine, titolo grande che riempie il riquadro */
     .story-card--gelato{
       background:#ffffff;
+      background-image:url('eventi/storiaBuontalenti.jpg');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
       align-items:stretch;
+      position:relative;
     }
-    .story-card--gelato .story-card__img{
-      position:absolute;
-      inset:auto 0 0 auto;
-      width:42%;
-      height:calc(85% + 100px);
-      object-fit:contain;
-      object-position:center bottom;
-      filter:brightness(1);
-      will-change:transform;
-      transition:transform 0.1s linear;
-    }
-    .story-card--gelato:hover .story-card__img{
-      filter:brightness(1);
+    .story-card--gelato::before{
+      display:none;
     }
     .story-card--gelato .story-card__overlay{
-      max-width:58%;
+      max-width:100%;
+      width:100%;
       display:flex;
       flex-direction:column;
-      justify-content:center;
+      justify-content:space-between;
+      height:100%;
+      padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px);
+      z-index:2;
     }
     .story-card--gelato .story-card__label{
-      color:var(--badiani-blue);
+      display:none;
     }
     .story-card--gelato .story-card__title{
       color:var(--badiani-blue);
       text-shadow:none;
+      font-size:clamp(67px, 12vw, 192px);
+      line-height:0.92;
+      flex:1;
+      display:flex;
+      align-items:flex-start;
+      margin-bottom:clamp(20px, 3vw, 40px);
+      word-break:break-word;
+      hyphens:auto;
     }
     .story-card--gelato .story-card__desc{
       color:var(--badiani-blue);
+      flex-shrink:0;
+      max-width:none;
+      display:block;
+      columns:1;
+      line-height:1.6;
     }
     .story-card__overlay{
       position:relative;
@@ -403,20 +421,20 @@
     }
     .story-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(72px, 9vw, 140px);
+      font-size:clamp(121px, 15.1vw, 235px);
       color:#fff;
       text-transform:uppercase;
       letter-spacing:4px;
       font-weight:700;
       line-height:0.9;
       margin-bottom:16px;
-      text-shadow:0 2px 20px rgba(0,0,0,0.4);
+      text-shadow:none;
     }
     .story-card__desc{
       font-size:clamp(14px, 1.2vw, 17px);
       color:rgba(255,255,255,0.85);
       line-height:1.7;
-      max-width:420px;
+      max-width:340px;
       font-weight:300;
     }
     /* Vertical divider between halves - using box-shadow to avoid affecting layout */
@@ -462,14 +480,15 @@
     }
     .world-card__paolo{
       position:absolute;
-      right:-15%;
+      right:calc(-15% + 100px);
       bottom:0;
-      height:83%;
-      max-width:60%;
+      height:101%;
+      max-width:73%;
       object-fit:contain;
       object-position:right bottom;
       pointer-events:none;
       z-index:2;
+      filter:drop-shadow(-12px 8px 24px rgba(0,0,0,0.35));
     }
     .world-card__label{
       display:block;
@@ -485,7 +504,7 @@
     }
     .world-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(72px, 9vw, 140px);
+      font-size:clamp(86px, 10.8vw, 168px);
       text-transform:uppercase;
       letter-spacing:4px;
       font-weight:700;
@@ -581,7 +600,7 @@
     }
     .world-card--timeline .world-card__title{
       color:#fff;
-      text-shadow:0 2px 20px rgba(0,0,0,0.25);
+      text-shadow:none;
       line-height:0.85;
       margin-bottom:0;
       padding-left:clamp(32px, 4vw, 56px);
@@ -609,7 +628,7 @@
       text-transform:uppercase;
       letter-spacing:clamp(2px, 0.4vw, 6px);
       color:var(--badiani-pink);
-      text-shadow:0 4px 30px rgba(0,0,0,0.3);
+      text-shadow:none;
       line-height:1;
       top:0;
       white-space:nowrap;
@@ -682,7 +701,7 @@
       /* World split - stack vertically, keep internal layout identical to desktop */
       .world-grid{ grid-template-columns:1fr; }
       .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
-      .world-card__paolo{ height:107%; right:-8%; max-width:72%; }
+      .world-card__paolo{ height:131%; right:calc(-8% + 100px); max-width:88%; }
       /* Full width text when cards are stacked */
       .world-card--metrics .world-card__title{ max-width:100%; }
       .world-card__desc{ max-width:100%; }
@@ -716,28 +735,20 @@
       .story-grid{ grid-template-columns:1fr; }
       .story-card{ min-height:50vh; }
       .story-card__overlay{ padding:32px 28px; }
-      .story-card__title{ font-size:clamp(56px, 14vw, 100px); }
+      .story-card__title{ font-size:clamp(94px, 23.5vw, 168px); }
       .story-card__desc{ font-size:clamp(13px, 3.8vw, 15px); line-height:1.5; max-width:none; }
       .story-card__label{ letter-spacing:2px; margin-bottom:8px; }
       .story-grid .story-card:first-child{ box-shadow:none; border-bottom:1px solid rgba(255,255,255,0.15); }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
-      .story-card--gelato .story-card__img{
-        inset:0 0 0 auto;
-        margin-top:auto;
-        margin-bottom:auto;
-        width:50%;
-        height:85%;
-        object-position:center center;
-        will-change:transform;
-        transition:transform 0.1s linear;
+      .story-card--gelato .story-card__title{
+        font-size:clamp(58px, 19vw, 128px);
       }
 
     }
 
     @media(max-width:600px){
-      .story-card--gelato .story-card__img{
-        width:45%;
-        height:60%;
+      .story-card--gelato .story-card__title{
+        font-size:clamp(51px, 16vw, 96px);
       }
     }
 
@@ -1028,7 +1039,7 @@
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
-        <img class="choice-card__img" src="assets/images/eventi/evento-esterno-2.png" alt="Eventi" loading="lazy" decoding="async" data-i18n-attr="alt:home.card.eventi.title" width="864" height="1184" />
+        <img class="choice-card__img" src="eventi/foto%20eventi/Steve%20Madden%20MICAM/DSC01280.JPG" alt="Eventi" loading="lazy" decoding="async" data-i18n-attr="alt:home.card.eventi.title" />
         <div class="choice-card__overlay">
           <div class="choice-card__heading-group">
             <span class="choice-card__label" data-i18n="home.choice.eventi.label">Tipologie</span>
@@ -1065,10 +1076,8 @@
         </div>
       </div>
       <div class="story-card story-card--gelato">
-        <img class="story-card__img" src="assets/images/branding/GELATOSTORY.png" alt="La storia del gelato" loading="lazy" decoding="async" />
         <div class="story-card__overlay">
-          <span class="story-card__label" data-i18n="gelato.subtitle">La cultura del Buontalenti</span>
-          <h2 class="story-card__title title-accent" data-i18n="gelato.title">GELATO</h2>
+          <h2 class="story-card__title title-accent" data-i18n="gelato.title">LA CULTURA DEL BUONTALENTI GELATO</h2>
           <p class="story-card__desc" data-i18n-html="gelato.text">
             A metà del <span class="highlight-pink">Cinquecento</span>, Cosimo I de' Medici incaricò <span class="highlight-pink">Bernardo Buontalenti</span> di stupire una delegazione spagnola con festeggiamenti mai visti. L'architetto e genio creativo ideò una crema ghiacciata arricchita con lo zucchero, preziosa spezia dalle Americhe appena scoperte. Fu poi <span class="highlight-pink">Caterina de' Medici</span>, reggente di Francia, a portare i pasticceri fiorentini a corte, diffondendo il gelato in tutta Europa.
           </p>
@@ -1306,8 +1315,8 @@
           'story.label': 'Badiani',
           'story.title': 'LA STORIA',
           'story.text': 'Nell\'estate del <span class="highlight-pink">1932</span>, il gelatiere Idilio Badiani apre la sua prima gelateria a Firenze. Nel 1993 il brand viene acquisito da <span class="highlight-pink">Orazio Pomposi</span> che, insieme ai figli Paolo e Patrizio, porta Badiani a nuovi traguardi attraverso innovazione e creatività. Il gusto più celebre, il <span class="highlight-pink">Buontalenti</span>, resta il simbolo della tradizione fiorentina. Dal 2015 Badiani è anche a Londra con negozi e laboratorio dedicato, guidata dal Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.subtitle': 'La cultura del Buontalenti',
-          'gelato.title': 'GELATO',
+          'gelato.subtitle': '',
+          'gelato.title': 'LA CULTURA DEL BUONTALENTI GELATO',
           'gelato.text': 'A metà del <span class="highlight-pink">Cinquecento</span>, Cosimo I de\' Medici incaricò <span class="highlight-pink">Bernardo Buontalenti</span> di stupire una delegazione spagnola con festeggiamenti mai visti. L\'architetto e genio creativo ideò una crema ghiacciata arricchita con lo zucchero, preziosa spezia dalle Americhe appena scoperte. Fu poi <span class="highlight-pink">Caterina de\' Medici</span>, reggente di Francia, a portare i pasticceri fiorentini a corte, diffondendo il gelato in tutta Europa.',
           'heritage.title': 'BADIANI NEL MONDO',
           'heritage.intro': 'Nata a <span class="highlight-pink">Firenze nel 1932</span>, Badiani è uno dei produttori di gelato più prestigiosi al mondo. Dalla culla del gelato, abbiamo costruito una presenza internazionale in cinque paesi su tre continenti.',
@@ -1410,8 +1419,8 @@
           'story.label': 'Badiani',
           'story.title': 'THE HISTORY',
           'story.text': 'In the summer of <span class="highlight-pink">1932</span>, gelato maker Idilio Badiani opened his first gelateria in Florence. In 1993 the brand was acquired by <span class="highlight-pink">Orazio Pomposi</span> who, together with his sons Paolo and Patrizio, took Badiani to new heights through innovation and creativity. The most celebrated flavour, <span class="highlight-pink">Buontalenti</span>, remains the symbol of Florentine tradition. Since 2015 Badiani has expanded to London with shops and a dedicated lab, led by Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.subtitle': 'The culture of Buontalenti',
-          'gelato.title': 'GELATO',
+          'gelato.subtitle': '',
+          'gelato.title': 'THE CULTURE OF BUONTALENTI GELATO',
           'gelato.text': 'In the mid-<span class="highlight-pink">16th century</span>, Cosimo I de\' Medici commissioned <span class="highlight-pink">Bernardo Buontalenti</span> to astonish a Spanish delegation with unprecedented festivities. The architect and creative genius devised an iced cream enriched with sugar, a precious spice from the newly discovered Americas. It was then <span class="highlight-pink">Catherine de\' Medici</span>, regent of France, who brought Florentine pastry chefs to court, spreading gelato across Europe.',
           'heritage.title': 'BADIANI WORLDWIDE',
           'heritage.intro': 'Born in <span class="highlight-pink">Florence in 1932</span>, Badiani is one of the world\'s most prestigious gelato producers. From the birthplace of gelato, we have built an international presence spanning five countries across three continents.',
@@ -1514,8 +1523,8 @@
           'story.label': 'Badiani',
           'story.title': 'L\'HISTOIRE',
           'story.text': 'Durant l\'été <span class="highlight-pink">1932</span>, le glacier Idilio Badiani ouvre sa première gelateria à Florence. En 1993, la marque est reprise par <span class="highlight-pink">Orazio Pomposi</span> qui, avec ses fils Paolo et Patrizio, propulse Badiani vers de nouveaux sommets grâce à l\'innovation et la créativité. Le parfum le plus célèbre, le <span class="highlight-pink">Buontalenti</span>, reste le symbole de la tradition florentine. Depuis 2015, Badiani est aussi à Londres avec des boutiques et un laboratoire dédié, dirigé par le Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.subtitle': 'La culture du Buontalenti',
-          'gelato.title': 'GELATO',
+          'gelato.subtitle': '',
+          'gelato.title': 'LA CULTURE DU BUONTALENTI GELATO',
           'gelato.text': 'Au milieu du <span class="highlight-pink">XVIe siècle</span>, Cosme Ier de Médicis chargea <span class="highlight-pink">Bernardo Buontalenti</span> d\'éblouir une délégation espagnole avec des festivités inédites. L\'architecte et génie créatif imagina une crème glacée enrichie de sucre, épice précieuse des Amériques tout juste découvertes. C\'est ensuite <span class="highlight-pink">Catherine de Médicis</span>, régente de France, qui fit venir les pâtissiers florentins à la cour, diffusant le gelato dans toute l\'Europe.',
           'heritage.title': 'BADIANI DANS LE MONDE',
           'heritage.intro': 'Née à <span class="highlight-pink">Florence en 1932</span>, Badiani est l\'un des producteurs de gelato les plus prestigieux au monde. Depuis le berceau du gelato, nous avons bâti une présence internationale dans cinq pays sur trois continents.',
@@ -1618,8 +1627,8 @@
           'story.label': 'Badiani',
           'story.title': 'LA HISTORIA',
           'story.text': 'En el verano de <span class="highlight-pink">1932</span>, el heladero Idilio Badiani abre su primera heladería en Florencia. En 1993, la marca es adquirida por <span class="highlight-pink">Orazio Pomposi</span> quien, junto a sus hijos Paolo y Patrizio, lleva a Badiani a nuevas metas a través de la innovación y la creatividad. El sabor más célebre, el <span class="highlight-pink">Buontalenti</span>, sigue siendo el símbolo de la tradición florentina. Desde 2015, Badiani está también en Londres con tiendas y laboratorio propio, liderada por el Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.subtitle': 'La cultura del Buontalenti',
-          'gelato.title': 'GELATO',
+          'gelato.subtitle': '',
+          'gelato.title': 'LA CULTURA DEL BUONTALENTI GELATO',
           'gelato.text': 'A mediados del <span class="highlight-pink">siglo XVI</span>, Cosimo I de\' Medici encargó a <span class="highlight-pink">Bernardo Buontalenti</span> sorprender a una delegación española con festejos nunca vistos. El arquitecto y genio creativo ideó una crema helada enriquecida con azúcar, preciada especia de las Américas recién descubiertas. Fue luego <span class="highlight-pink">Catalina de Médici</span>, regente de Francia, quien llevó a los pasteleros florentinos a la corte, difundiendo el helado por toda Europa.',
           'heritage.title': 'BADIANI EN EL MUNDO',
           'heritage.intro': 'Nacida en <span class="highlight-pink">Florencia en 1932</span>, Badiani es uno de los productores de helado más prestigiosos del mundo. Desde la cuna del helado, hemos construido una presencia internacional en cinco países en tres continentes.',
@@ -1852,9 +1861,9 @@
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(isMobile || prefersReducedMotion) return;
 
-    /* --- GELATOSTORY parallax verticale --- */
-    var gelatoImg = document.querySelector('.story-card--gelato .story-card__img');
-    var gelatoCard = gelatoImg ? gelatoImg.closest('.story-card--gelato') : null;
+    /* --- GELATOSTORY parallax rimosso (nessuna immagine) --- */
+    var gelatoImg = null;
+    var gelatoCard = null;
 
     /* --- PAOLO parallax orizzontale (dx → sx) --- */
     var paolo = document.querySelector('.world-card__paolo');

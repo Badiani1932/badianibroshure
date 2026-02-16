@@ -47,7 +47,7 @@ export const gelatoFlavors = [
     label: "Buontalenti Caramello",
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti Caramello/buontalenti_caramello.webp",
-    detailImage: "../assets/gelato/Buontalenti Caramello/buontalenti_caramello-2.webp",
+    detailImage: "../assets/gelato/Buontalenti Caramello/dettagli_caramello.webp",
     description: "Buontalenti con salsa al caramello",
     allergensText: "Latte, uova, soia, glutine",
     ingredients: [],
