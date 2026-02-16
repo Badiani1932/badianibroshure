@@ -79,6 +79,7 @@ body, html {
   color: var(--badiani-gray);
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 body > * {
