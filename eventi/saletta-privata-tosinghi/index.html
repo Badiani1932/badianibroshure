@@ -95,14 +95,29 @@
 
     /* ===== PACKAGE CARDS — 3-column full-bleed ===== */
     .sal-packages{
-      padding:0;
+      position:relative;
+      padding:clamp(40px, 5vw, 80px) clamp(32px, 4vw, 64px) clamp(60px, 7vw, 100px);
       background:#000;
+      overflow:hidden;
+    }
+    /* Shared background image for all packages */
+    .sal-packages::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url('../foto%20eventi/4.jpg') center center/cover no-repeat;
+      opacity:1;
+      z-index:0;
     }
     .sal-packages__grid{
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:repeat(3, 1fr);
-      gap:0;
+      gap:clamp(16px, 2vw, 28px);
       line-height:0;
+      max-width:1600px;
+      margin:0 auto;
     }
     .sal-card{
       position:relative;
@@ -111,44 +126,37 @@
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      min-height:auto;
-      border:none;
-      background:none;
+      min-height:clamp(480px, 58vh, 620px);
+      border:2px solid rgba(255,255,255,0.15);
+      background:rgba(0,0,0,0.20);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
       font-family:inherit;
       text-align:left;
       padding:0;
       width:100%;
+      border-radius:12px;
+      transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    .sal-card:hover{ transform:none; box-shadow:none; }
+    .sal-card:hover{ 
+      transform:translateY(-4px); 
+      box-shadow:0 12px 40px rgba(0,0,0,0.5);
+      border-color:rgba(255,255,255,0.25);
+    }
+    /* GOLD card gets pink border for emphasis */
+    .sal-card.gold{
+      border:3px solid var(--badiani-pink);
+      box-shadow:0 8px 30px rgba(240,103,166,0.4);
+    }
+    .sal-card.gold:hover{
+      border-color:var(--badiani-pink);
+      box-shadow:0 12px 50px rgba(240,103,166,0.6);
+    }
     .sal-card__img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:filter 0.7s ease;
-      filter:brightness(0.5);
-    }
-    .sal-card:hover .sal-card__img{
-      filter:brightness(0.4);
+      display:none;
     }
     .sal-card__label{
-      position:absolute;
-      top:-0.22em;
-      right:clamp(4px, 0.8vw, 12px);
-      left:auto;
-      z-index:3;
-      font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(288px, 33vw, 528px);
-      font-weight:500;
-      color:rgba(255,255,255,0.10);
-      line-height:0.7;
-      margin-top:0;
-      padding-top:0;
-      letter-spacing:-6px;
-      pointer-events:none;
-      user-select:none;
-      text-align:right;
+      display:none;
     }
     .sal-card__badge{
       position:absolute;
@@ -157,30 +165,21 @@
       transform:translateX(-50%);
       background:var(--badiani-pink);
       color:#fff;
-      font-size:12px;
+      font-size:15px;
       font-weight:700;
-      letter-spacing:1.5px;
+      letter-spacing:2px;
       text-transform:uppercase;
-      padding:6px 22px;
-      border-radius:30px;
+      padding:10px 32px;
+      border-radius:40px;
       white-space:nowrap;
       z-index:4;
-      box-shadow:0 4px 14px rgba(240,103,166,0.5);
+      box-shadow:0 6px 20px rgba(240,103,166,0.6);
     }
     .sal-card__overlay{
       position:relative;
       z-index:2;
       padding:clamp(32px, 4vw, 48px) clamp(28px, 3vw, 40px);
       width:100%;
-    }
-    .sal-card__subtitle{
-      display:block;
-      font-size:clamp(11px, 1vw, 13px);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      color:rgba(255,255,255,0.55);
-      margin-bottom:12px;
-      font-weight:400;
     }
     .sal-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
@@ -190,14 +189,23 @@
       letter-spacing:3px;
       font-weight:700;
       line-height:0.95;
-      margin-bottom:8px;
+      margin-bottom:clamp(12px, 1.5vw, 18px);
       text-shadow:none;
+    }
+    .sal-card__subtitle{
+      display:block;
+      font-size:clamp(11px, 1vw, 13px);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:rgba(255,255,255,0.55);
+      margin-bottom:clamp(20px, 2.5vw, 28px);
+      font-weight:400;
     }
     .sal-card__price{
       font-size:clamp(18px, 2vw, 26px);
       font-weight:700;
       color:var(--badiani-pink);
-      margin-bottom:12px;
+      margin-bottom:clamp(16px, 2vw, 22px);
       display:block;
       text-shadow:none;
     }
@@ -208,6 +216,7 @@
       max-width:none;
       font-weight:300;
       margin-bottom:clamp(16px, 2vw, 24px);
+      min-height:clamp(80px, 10vh, 100px);
     }
     /* Inline specs grid on each card */
     .sal-card__specs{
@@ -222,6 +231,9 @@
       padding:clamp(14px, 1.5vw, 22px) clamp(16px, 2vw, 28px);
       border-bottom:1px solid rgba(255,255,255,0.08);
       border-right:1px solid rgba(255,255,255,0.08);
+      min-height:clamp(90px, 11vh, 110px);
+      display:flex;
+      flex-direction:column;
     }
     .sal-card__spec:nth-child(even){ border-right:none; }
     .sal-card__spec:nth-last-child(-n+2){ border-bottom:none; }
@@ -241,46 +253,76 @@
       color:rgba(255,255,255,0.85);
       line-height:1.55;
     }
-    .sal-card__cta{
+    /* colour-coding for package headers in cards */
+    .sal-card.silver .sal-card__subtitle{ color:#a3b07a; }
+    .sal-card.gold .sal-card__subtitle{ color:var(--badiani-yellow, #d4a843); }
+    .sal-card.platinum .sal-card__subtitle{ color:var(--badiani-pink); }
+
+    /* ===== CTA BUTTON INSIDE PACKAGES ===== */
+    .sal-packages__cta{
       position:relative;
-      z-index:2;
-      display:block;
-      text-align:center;
-      padding:clamp(16px, 2vw, 24px);
-      border-top:1px solid rgba(255,255,255,0.1);
+      z-index:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:clamp(16px, 2vw, 24px);
+      flex-wrap:wrap;
+      margin-top:clamp(40px, 5vw, 60px);
     }
-    .sal-card__cta-btn{
+    .sal-packages__cta-btn{
       display:inline-flex;
       align-items:center;
-      gap:8px;
+      gap:12px;
       background:var(--badiani-pink);
       color:#fff;
       border:none;
-      padding:12px 32px;
+      padding:16px 48px;
       border-radius:999px;
-      font-size:12px;
+      font-size:14px;
       text-transform:uppercase;
       letter-spacing:2px;
       font-family:inherit;
       font-weight:600;
       cursor:pointer;
-      transition:background 0.3s, transform 0.3s;
-      box-shadow:0 6px 20px rgba(240,103,166,0.3);
+      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow:0 8px 30px rgba(240,103,166,0.4);
     }
-    .sal-card__cta-btn:hover{
+    .sal-packages__cta-btn:hover{
       background:#fff;
       color:var(--badiani-blue);
-      transform:translateY(-2px);
+      transform:translateY(-3px);
+      box-shadow:0 12px 40px rgba(240,103,166,0.6);
     }
-    .sal-card__cta-btn svg{ width:16px; height:16px; fill:currentColor; }
-    /* subtle dividers between cards */
-    .sal-card + .sal-card{
-      box-shadow:-1px 0 0 0 rgba(255,255,255,0.12);
+    .sal-packages__cta-btn svg{ width:20px; height:20px; fill:currentColor; }
+    /* List buttons (Food & Drink) */
+    .sal-packages__list-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:#fff;
+      border:2px solid rgba(255,255,255,0.25);
+      padding:16px 40px;
+      border-radius:999px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:2.5px;
+      font-family:inherit;
+      font-weight:600;
+      cursor:pointer;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      transition:background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      box-shadow:0 4px 16px rgba(0,0,0,0.15);
     }
-    /* colour-coding for package headers in cards */
-    .sal-card.silver .sal-card__subtitle{ color:#a3b07a; }
-    .sal-card.gold .sal-card__subtitle{ color:var(--badiani-yellow, #d4a843); }
-    .sal-card.platinum .sal-card__subtitle{ color:var(--badiani-pink); }
+    .sal-packages__list-btn:hover{
+      background:rgba(255,255,255,0.95);
+      border-color:rgba(255,255,255,0.95);
+      color:var(--badiani-blue);
+      transform:translateY(-3px);
+      box-shadow:0 10px 32px rgba(255,255,255,0.2);
+    }
+    .sal-packages__list-btn svg{ width:18px; height:18px; fill:currentColor; }
 
     /* ===== GALLERY — full-bleed section (badiani-blue like eventi) ===== */
     .sal-gallery{
@@ -1198,8 +1240,8 @@
         <img class="sal-card__img" src="../foto%20eventi/1.jpg" alt="Pacchetto Silver" loading="lazy" decoding="async" width="4000" height="2668" />
         <span class="sal-card__label" aria-hidden="true">1</span>
         <div class="sal-card__overlay">
-          <span class="sal-card__subtitle" data-i18n="tosinghi.silver.subtitle">Aperitivo classico</span>
           <h2 class="sal-card__title">Silver</h2>
+          <span class="sal-card__subtitle" data-i18n="tosinghi.silver.subtitle">Aperitivo classico</span>
           <span class="sal-card__price" data-i18n="tosinghi.silver.price">&euro;20,00/persona</span>
           <p class="sal-card__desc" data-i18n="tosinghi.silver.desc">Aperitivo con rustici, pizzette, panettone gastronomico, Coppetta Buontalenti e bevande selezionate.</p>
         </div>
@@ -1221,12 +1263,6 @@
             <span class="sal-card__spec-value" data-i18n-html="tosinghi.modal.silver.booking.value">Minimo 10 giorni prima<br>Minimo richiesto per saletta in esclusiva</span>
           </div>
         </div>
-        <div class="sal-card__cta">
-          <button type="button" class="sal-card__cta-btn" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span data-i18n="tosinghi.cta.request">Richiedi Informazioni</span>
-          </button>
-        </div>
       </div>
 
       <!-- GOLD -->
@@ -1235,8 +1271,8 @@
         <span class="sal-card__label" aria-hidden="true">2</span>
         <span class="sal-card__badge" data-i18n="tosinghi.gold.popular">Più Popolare</span>
         <div class="sal-card__overlay">
-          <span class="sal-card__subtitle" data-i18n="tosinghi.gold.subtitle">Esperienza premium</span>
           <h2 class="sal-card__title">Gold</h2>
+          <span class="sal-card__subtitle" data-i18n="tosinghi.gold.subtitle">Esperienza premium</span>
           <span class="sal-card__price" data-i18n="tosinghi.gold.price">&euro;30,00/persona</span>
           <p class="sal-card__desc" data-i18n="tosinghi.gold.desc">Pacchetto premium con panettone gastronomico, finger food dello Chef, monoporzioni dolci o Buontalenti e bevande selezionate.</p>
         </div>
@@ -1258,12 +1294,6 @@
             <span class="sal-card__spec-value" data-i18n-html="tosinghi.modal.gold.booking.value">Minimo 10 giorni prima<br>Minimo richiesto per saletta in esclusiva</span>
           </div>
         </div>
-        <div class="sal-card__cta">
-          <button type="button" class="sal-card__cta-btn" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span data-i18n="tosinghi.cta.request">Richiedi Informazioni</span>
-          </button>
-        </div>
       </div>
 
       <!-- PLATINUM -->
@@ -1271,8 +1301,8 @@
         <img class="sal-card__img" src="../foto%20eventi/4.jpg" alt="Pacchetto Platinum" loading="lazy" decoding="async" width="4000" height="2668" />
         <span class="sal-card__label" aria-hidden="true">3</span>
         <div class="sal-card__overlay">
-          <span class="sal-card__subtitle" data-i18n="tosinghi.platinum.subtitle">Esperienza di lusso</span>
           <h2 class="sal-card__title">Platinum</h2>
+          <span class="sal-card__subtitle" data-i18n="tosinghi.platinum.subtitle">Esperienza di lusso</span>
           <span class="sal-card__price" data-i18n="tosinghi.platinum.price">&euro;40,00/persona</span>
           <p class="sal-card__desc" data-i18n="tosinghi.platinum.desc">L&rsquo;esperienza esclusiva con finger food dello Chef, monoporzioni dolci, Champagne e servizio premium.</p>
         </div>
@@ -1294,26 +1324,24 @@
             <span class="sal-card__spec-value" data-i18n-html="tosinghi.modal.platinum.booking.value">Minimo 14 giorni prima<br>Minimo richiesto per saletta in esclusiva</span>
           </div>
         </div>
-        <div class="sal-card__cta">
-          <button type="button" class="sal-card__cta-btn" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span data-i18n="tosinghi.cta.request">Richiedi Informazioni</span>
-          </button>
-        </div>
       </div>
     </div>
-  </section>
-
-  <!-- FOOD/DRINK LIST BUTTONS + GALLERY — all inside dark section -->
-  <section class="sal-lists">
-    <button type="button" class="list-btn" onclick="openFoodListModal()">
-      <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
-      <span data-i18n="tosinghi.list.food.btn">Lista Food</span>
-    </button>
-    <button type="button" class="list-btn drink-btn" onclick="openDrinkListModal()">
-      <svg viewBox="0 0 24 24"><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/></svg>
-      <span data-i18n="tosinghi.list.drink.btn">Lista Drink</span>
-    </button>
+    
+    <!-- CTA BUTTONS INSIDE PACKAGES SECTION -->
+    <div class="sal-packages__cta">
+      <button type="button" class="sal-packages__list-btn" onclick="openFoodListModal()">
+        <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+        <span data-i18n="tosinghi.list.food.btn">Lista Food</span>
+      </button>
+      <button type="button" class="sal-packages__cta-btn" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span data-i18n="tosinghi.cta.request">Richiedi Informazioni</span>
+      </button>
+      <button type="button" class="sal-packages__list-btn" onclick="openDrinkListModal()">
+        <svg viewBox="0 0 24 24"><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/></svg>
+        <span data-i18n="tosinghi.list.drink.btn">Lista Drink</span>
+      </button>
+    </div>
   </section>
 
   <section class="sal-gallery">
@@ -1478,13 +1506,13 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
         <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true">&#9733;</span>
+          <span class="modal-hero__number" aria-hidden="true" style="display:none;">&#9733;</span>
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.food.subtitle">A cura del nostro Chef</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.food.title">Finger Food</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.food.desc">Selezione di finger food preparati dal nostro Chef per accompagnare il vostro evento.</p>
           </div>
-          <img class="modal-hero__img" src="../foto%20eventi/1.jpg" alt="Finger Food" loading="lazy" decoding="async" width="4000" height="2668" />
+          <img class="modal-hero__img" src="../foto%20eventi/CT%20FIRENZE/DSC07149.jpg" alt="Finger Food" loading="lazy" decoding="async" width="4000" height="2668" />
         </div>
         <div class="list-modal__body">
           <ul>
@@ -1519,13 +1547,13 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
         <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true">&#9733;</span>
+          <span class="modal-hero__number" aria-hidden="true" style="display:none;">&#9733;</span>
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.drink.subtitle">I nostri cocktail selezionati</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.drink.title">Cocktail</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.drink.desc">Cocktail classici e signature selezionati per i vostri eventi privati.</p>
           </div>
-          <img class="modal-hero__img" src="../foto%20eventi/2.jpg" alt="Cocktail" loading="lazy" decoding="async" width="4000" height="2668" />
+          <img class="modal-hero__img" src="../foto%20eventi/CT%20FIRENZE/DSC07211.jpg" alt="Cocktail" loading="lazy" decoding="async" width="4000" height="2668" />
         </div>
         <div class="list-modal__body">
           <ul>

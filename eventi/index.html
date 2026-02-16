@@ -30,6 +30,20 @@
       align-items:flex-end;
       background:#000;
     }
+    .ev-hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      filter:brightness(0.62);
+      transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ev-hero.is-active video{
+      filter:brightness(1) saturate(1.1);
+      transform:scale(1.05);
+    }
     .ev-hero__img{
       position:absolute;
       inset:0;
@@ -48,6 +62,11 @@
       flex-direction:row;
       align-items:flex-end;
       gap:24px;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ev-hero.is-active .ev-hero__content{
+      opacity:0;
+      pointer-events:none;
     }
     .ev-hero__heading{
       display:flex;
@@ -84,7 +103,40 @@
       font-weight:300;
     }
 
-    /* ===== EVENT TYPE CARDS — 3-column full-bleed grid ===== */
+    /* EVENT DIVIDER — SEPARATOR SECTION */
+    .ev-divider{
+      position:relative;
+      padding:clamp(60px, 8vw, 100px) clamp(16px, 4vw, 80px);
+      background:transparent;
+      text-align:center;
+    }
+    .ev-divider::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url('../assets/images/branding/sfondo.webp') top/cover no-repeat;
+      transform:scaleX(-1);
+      z-index:0;
+    }
+    .ev-divider-content{
+      position:relative;
+      z-index:1;
+      max-width:600px;
+      margin:0 auto;
+    }
+    .ev-divider h2{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(48px, 7vw, 80px);
+      font-weight:700;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      color:#fff !important;
+      margin:0;
+      line-height:1.1;
+      text-shadow:0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    /* EVENT TYPES — 3-column full-bleed grid ===== */
     .ev-types{
       padding:0;
       background:#000;
@@ -134,7 +186,7 @@
       font-family:'SuperGroteskA',sans-serif;
       font-size:clamp(288px, 33vw, 528px);
       font-weight:500;
-      color:rgba(255,255,255,0.12);
+      color:rgba(255,255,255,0.35);
       line-height:0.7;
       margin-top:0;
       padding-top:0;
@@ -837,8 +889,11 @@
   </nav>
 
   <!-- HERO -->
-  <section class="ev-hero">
-    <img class="ev-hero__img" src="./foto%20eventi/Artigianato%20a%20Palazzo/location_platinum2.JPG" alt="Eventi Badiani" fetchpriority="high" />
+  <section class="ev-hero" id="evHero">
+    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="../assets/video/Video%20Eventi.mp4" type="video/mp4">
+      <track kind="descriptions" srclang="it" label="Descrizione video" default>
+    </video>
     <div class="ev-hero__content">
       <div class="ev-hero__heading">
         <span class="ev-hero__label" data-i18n="eventi.types.tag">Tipologie</span>
@@ -848,20 +903,25 @@
     </div>
   </section>
 
+  <!-- EVENT DIVIDER — SEPARATOR -->
+  <section class="ev-divider">
+    <div class="ev-divider-content">
+      <h2 data-i18n="eventi.eventDivider.title">SCEGLI L'EVENTO A CUI SEI INTERESSATO</h2>
+    </div>
+  </section>
+
   <!-- EVENT TYPES — 3-column full-bleed -->
   <section class="ev-types" data-i18n-attr="aria-label:eventi.types.label">
     <div class="ev-types__grid">
       <a class="ev-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
         <img class="ev-card__img" src="./foto%20eventi/4.jpg" alt="Saletta privata Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
-        <span class="ev-card__label">1</span>
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.tosinghi.title">Saletta Privata Tosinghi</h2>
           <p class="ev-card__desc" data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata con pacchetti su misura.</p>
         </div>
       </a>
       <a class="ev-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
-        <img class="ev-card__img" src="./foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Evento esterno" loading="lazy" decoding="async" width="4000" height="6000" />
-        <span class="ev-card__label">2</span>
+        <img class="ev-card__img" src="./foto%20eventi/Steve%20Madden%20MICAM/DSC01246.JPG" alt="BADIANI DOVE VUOI" loading="lazy" decoding="async" width="4000" height="6000" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.external.title">Evento Esterno</h2>
           <p class="ev-card__desc" data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</p>
@@ -869,7 +929,6 @@
       </a>
       <a class="ev-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
         <img class="ev-card__img" src="../assets/images/eventi/gelatovan.png" alt="Gelato Van" loading="lazy" decoding="async" width="1759" height="1467" />
-        <span class="ev-card__label">3</span>
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h2>
           <p class="ev-card__desc" data-i18n="eventi.van.card1.desc">Van brandizzato con servizio gelato completo e staff dedicato.</p>
@@ -920,7 +979,7 @@
     <h2 class="ev-gallery__title title-accent title-accent--light" data-i18n="eventi.gallery.title">Foto Da Eventi Passati</h2>
     <div class="ev-gallery__grid">
       <div class="ev-gallery__photo" onclick="openEventLightbox(0)">
-        <img src="./foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Steve Madden &#8211; Pitti" loading="lazy" decoding="async" width="4000" height="6000" />
+        <img src="./foto%20eventi/Steve%20Madden%20MICAM/DSC01246.JPG" alt="Steve Madden &#8211; MICAM" loading="lazy" decoding="async" width="4000" height="6000" />
         <span class="ev-gallery__photo-label">Steve Madden &#8212; Pitti</span>
       </div>
       <div class="ev-gallery__photo" onclick="openEventLightbox(1)">
@@ -1084,7 +1143,7 @@
   <script>
     // Lightbox
     var eventImages = [
-      './foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg',
+      './foto%20eventi/Steve%20Madden%20MICAM/DSC01246.JPG',
       './foto%20eventi/Steve%20Madden%20MICAM/DSC01280.JPG',
       './foto%20eventi/Steve%20Madden%20MICAM/STEVE1.JPG',
       './foto%20eventi/Steve%20Madden%20Pitti/STEVE5.jpg',
@@ -1149,12 +1208,13 @@
           'eventi.page.title': 'Eventi',
           'eventi.types.tag': 'Tipologie',
           'eventi.types.label': 'Tipologie eventi',
+          'eventi.eventDivider.title': 'SCEGLI L\'EVENTO A CUI SEI INTERESSATO',
           'eventi.hero.desc': 'Seleziona la tipologia di evento per scoprire i dettagli e richiedere un preventivo personalizzato.',
           'eventi.tosinghi.aria': 'Vai alla pagina Saletta privata Tosinghi',
           'eventi.tosinghi.title': 'Saletta Privata Tosinghi',
           'eventi.tosinghi.desc': 'Il tuo party nella nostra saletta privata con pacchetti su misura.',
           'eventi.external.aria': 'Vai alla pagina Evento esterno',
-          'eventi.external.title': 'Evento Esterno',
+          'eventi.external.title': 'BADIANI DOVE VUOI',
           'eventi.external.desc': 'Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.',
           'eventi.van.aria': 'Vai alla sezione Gelato Van',
           'eventi.van.card1.title': 'Gelato Van',
@@ -1228,12 +1288,13 @@
           'eventi.page.title': 'Events',
           'eventi.types.tag': 'Types',
           'eventi.types.label': 'Event types',
+          'eventi.eventDivider.title': 'CHOOSE THE EVENT YOU\'RE INTERESTED IN',
           'eventi.hero.desc': 'Select the event type to discover details and request a personalised quote.',
           'eventi.tosinghi.aria': 'Go to Tosinghi Private Room page',
           'eventi.tosinghi.title': 'Tosinghi Private Room',
           'eventi.tosinghi.desc': 'Your party in our private room with tailored packages.',
           'eventi.external.aria': 'Go to External Event page',
-          'eventi.external.title': 'External Event',
+          'eventi.external.title': 'BADIANI ANYWHERE',
           'eventi.external.desc': 'Mobile solutions to bring Badiani everywhere: cool box, cart, display.',
           'eventi.van.aria': 'Go to Gelato Van section',
           'eventi.van.card1.title': 'Gelato Van',
@@ -1307,12 +1368,13 @@
           'eventi.page.title': '\u00c9v\u00e9nements',
           'eventi.types.tag': 'Types',
           'eventi.types.label': "Types d'\u00e9v\u00e9nements",
+          'eventi.eventDivider.title': "CHOISISSEZ L'\u00c9V\u00c9NEMENT QUI VOUS INT\u00c9RESSE",
           'eventi.hero.desc': "S\u00e9lectionnez le type d'\u00e9v\u00e9nement pour d\u00e9couvrir les d\u00e9tails et demander un devis personnalis\u00e9.",
           'eventi.tosinghi.aria': 'Aller \u00e0 la page Salle Priv\u00e9e Tosinghi',
           'eventi.tosinghi.title': 'Salle Priv\u00e9e Tosinghi',
           'eventi.tosinghi.desc': 'Votre f\u00eate dans notre salle priv\u00e9e avec des forfaits sur mesure.',
           'eventi.external.aria': "Aller \u00e0 la page \u00c9v\u00e9nement Externe",
-          'eventi.external.title': '\u00c9v\u00e9nement Externe',
+          'eventi.external.title': 'BADIANI O\u00d9 TU VEUX',
           'eventi.external.desc': 'Solutions mobiles pour amener Badiani partout : cool box, chariot, vitrine.',
           'eventi.van.aria': 'Aller \u00e0 la section Gelato Van',
           'eventi.van.card1.title': 'Gelato Van',
@@ -1386,12 +1448,13 @@
           'eventi.page.title': 'Eventos',
           'eventi.types.tag': 'Tipos',
           'eventi.types.label': 'Tipos de eventos',
+          'eventi.eventDivider.title': 'ELIGE EL EVENTO QUE TE INTERESA',
           'eventi.hero.desc': 'Selecciona el tipo de evento para descubrir los detalles y solicitar un presupuesto personalizado.',
           'eventi.tosinghi.aria': 'Ir a la p\u00e1gina Sala Privada Tosinghi',
           'eventi.tosinghi.title': 'Sala Privada Tosinghi',
           'eventi.tosinghi.desc': 'Tu fiesta en nuestra sala privada con paquetes a medida.',
           'eventi.external.aria': 'Ir a la p\u00e1gina Evento Externo',
-          'eventi.external.title': 'Evento Externo',
+          'eventi.external.title': 'BADIANI DONDE QUIERAS',
           'eventi.external.desc': 'Soluciones m\u00f3viles para llevar Badiani a cualquier lugar: cool box, carrito, vitrina.',
           'eventi.van.aria': 'Ir a la secci\u00f3n Gelato Van',
           'eventi.van.card1.title': 'Gelato Van',
@@ -1515,6 +1578,19 @@
         var subject = encodeURIComponent('Richiesta Informazioni Eventi - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || ''));
         var body = encodeURIComponent(lines.join('\n'));
         window.location.href = 'mailto:eventi@badiani1932.com?subject=' + subject + '&body=' + body;
+      });
+    })();
+  </script>
+
+  <script>
+    // Video hero - click to toggle visibility
+    (function(){
+      var hero = document.getElementById('evHero');
+      if(!hero) return;
+      var video = hero.querySelector('video');
+      if(!video) return;
+      video.addEventListener('click', function(){
+        hero.classList.toggle('is-active');
       });
     })();
   </script>

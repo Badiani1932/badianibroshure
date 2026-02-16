@@ -306,6 +306,7 @@
 
 
     /* CHI SIAMO — SEPARATOR SECTION */
+    /* CHI SIAMO — SEPARATOR SECTION */
     .chi-siamo-divider{
       position:relative;
       padding:clamp(60px, 8vw, 100px) clamp(16px, 4vw, 80px);
@@ -316,7 +317,7 @@
       content:'';
       position:absolute;
       inset:0;
-      background:url('assets/images/branding/sfondo.webp') center/cover no-repeat;
+      background:url('assets/images/branding/sfondo.webp') top/cover no-repeat;
       transform:scaleX(-1);
       z-index:0;
     }
@@ -327,6 +328,39 @@
       margin:0 auto;
     }
     .chi-siamo-divider h2{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(48px, 7vw, 80px);
+      font-weight:700;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      color:#fff !important;
+      margin:0;
+      line-height:1.1;
+      text-shadow:0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    /* CHOICE DIVIDER — SEPARATOR SECTION */
+    .choice-divider{
+      position:relative;
+      padding:clamp(60px, 8vw, 100px) clamp(16px, 4vw, 80px);
+      background:transparent;
+      text-align:center;
+    }
+    .choice-divider::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url('assets/images/branding/sfondo.webp') center/cover no-repeat;
+      transform:scaleX(-1);
+      z-index:0;
+    }
+    .choice-divider-content{
+      position:relative;
+      z-index:1;
+      max-width:600px;
+      margin:0 auto;
+    }
+    .choice-divider h2{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
       font-size:clamp(48px, 7vw, 80px);
       font-weight:700;
@@ -1092,6 +1126,13 @@
     </div>
   </section>
 
+  <!-- CHOICE DIVIDER — SEPARATOR -->
+  <section class="choice-divider">
+    <div class="choice-divider-content">
+      <h2 data-i18n="home.choiceDivider.title">SCEGLI QUELLO CHE FA PER TE</h2>
+    </div>
+  </section>
+
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
@@ -1357,6 +1398,7 @@
           'home.choice.magazine.note': 'Sfoglia le anteprime dei media',
           'home.choice.magazine.aria': 'Vai alla pagina Dicono di Noi',
           'home.choice.cta': 'Scopri',
+          'home.choiceDivider.title': 'SCEGLI LA TUA CATEGORIA',
           'home.chiSiamo.title': 'CHI SIAMO',
           'home.contact.label': 'Contatti',
           'home.contact.title': 'Contatti',
@@ -1463,6 +1505,7 @@
           'home.choice.magazine.note': 'Browse media previews',
           'home.choice.magazine.aria': 'Go to They Say About Us page',
           'home.choice.cta': 'Discover',
+          'home.choiceDivider.title': 'CHOOSE YOUR CATEGORY',
           'home.chiSiamo.title': 'ABOUT US',
           'home.contact.label': 'Contacts',
           'home.contact.title': 'Contacts',
@@ -1569,6 +1612,7 @@
           'home.choice.magazine.note': 'Parcourez les aperçus des médias',
           'home.choice.magazine.aria': 'Aller à la page Ils Parlent de Nous',
           'home.choice.cta': 'Découvrir',
+          'home.choiceDivider.title': 'CHOISISSEZ VOTRE CATÉGORIE',
           'home.chiSiamo.title': 'QUI SOMMES NOUS',
           'home.contact.label': 'Contacts',
           'home.contact.title': 'Contacts',
@@ -1675,6 +1719,7 @@
           'home.choice.magazine.note': 'Explora las vistas previas de los medios',
           'home.choice.magazine.aria': 'Ir a la página Dicen de Nosotros',
           'home.choice.cta': 'Descubrir',
+          'home.choiceDivider.title': 'ELIGE TU CATEGORÍA',
           'home.chiSiamo.title': 'QUIÉNES SOMOS',
           'home.contact.label': 'Contactos',
           'home.contact.title': 'Contactos',
