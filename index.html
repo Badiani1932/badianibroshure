@@ -366,6 +366,7 @@
       background-repeat:no-repeat;
       align-items:stretch;
       position:relative;
+      overflow:visible;
     }
     .story-card--gelato::before{
       display:none;
@@ -390,12 +391,13 @@
       text-shadow:none;
       font-size:clamp(67px, 12vw, 192px);
       line-height:0.92;
-      flex:1;
-      display:flex;
-      align-items:flex-start;
+      flex:1 0 auto;
+      display:block;
       margin-bottom:clamp(20px, 3vw, 40px);
-      word-break:break-word;
-      hyphens:auto;
+      overflow-wrap:anywhere;
+      word-break:normal;
+      hyphens:none;
+      white-space:normal;
     }
     .story-card--gelato .story-card__desc{
       color:var(--badiani-blue);
@@ -431,6 +433,10 @@
       line-height:0.9;
       margin-bottom:16px;
       text-shadow:none;
+      overflow-wrap:break-word;
+      word-break:break-word;
+      hyphens:none;
+      min-width:0;
     }
     .story-card__desc{
       font-size:clamp(14px, 1.2vw, 17px);
@@ -489,7 +495,7 @@
       object-fit:contain;
       object-position:right bottom;
       pointer-events:none;
-      z-index:2;
+      z-index:4;
       filter:drop-shadow(-12px 8px 24px rgba(0,0,0,0.35));
     }
     .world-card__label{
