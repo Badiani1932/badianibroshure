@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>B2B — Badiani 1932 | Gelato per Hotel, Catering e Ristorazione</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Soluzioni B2B di gelato artigianale Badiani 1932 per hotel, ristoranti, catering e gelaterie. Catalogo completo: vasche, pezzi duri, torte, coni e accessori." />
+  <meta name="description" content="Soluzioni B2B di gelato artigianale Badiani 1932 per hotel, ristoranti, catering e gelaterie. Catalogo completo: vasche, monoporzioni, torte, coni e accessori." />
   <meta name="theme-color" content="#1e398d" />
   <link rel="icon" href="../assets/images/branding/logo.webp" type="image/webp" />
   <link rel="canonical" href="https://www.badiani1932.com/b2b/" />
@@ -223,10 +223,12 @@
       z-index:2;
       padding:48px 52px;
       display:flex;
-      flex-direction:row;
-      align-items:flex-end;
-      gap:20px;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-end;
+      gap:16px;
       width:100%;
+      height:100%;
     }
     .category-card__heading-group{
       display:flex;
@@ -260,7 +262,7 @@
       font-size:clamp(17px, 1.4vw, 20px);
       color:rgba(255,255,255,0.85);
       line-height:1.5;
-      max-width:220px;
+      max-width:320px;
       padding-bottom:6px;
       font-weight:300;
     }
@@ -725,6 +727,7 @@
       flex:1;
     }
     .gelato-control--category{
+      display:none;
       flex:0 1 260px;
       min-width:200px;
     }
@@ -2792,13 +2795,13 @@
               <span class="category-label" data-i18n="b2b.cat.gelato.label">Gusti & Vasche</span>
               <h3 class="category-title" data-i18n="b2b.categories.GELATO"></h3>
             </div>
-            <p class="category-desc" data-i18n="b2b.cat.gelato.desc">Oltre 40 gusti artigianali, dal Buontalenti ai classici</p>
+            <p class="category-desc" data-i18n="b2b.cat.gelato.desc">Oltre 36 gusti artigianali, dal Buontalenti ai classici</p>
           </div>
         </article>
         <article class="category-card b2b-card--pezziduri" data-category="PEZZI DURI" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
-              <span class="category-label" data-i18n="b2b.cat.pezzi.label">Monoporzioni</span>
+              <span class="category-label" data-i18n="b2b.cat.pezzi.label">Stecchi e biscotti</span>
               <h3 class="category-title" data-i18n="b2b.categories.PEZZI_DURI"></h3>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.pezzi.desc">Stecchi, biscotti e monoporzioni pronti al servizio</p>
@@ -2910,7 +2913,7 @@
                 <div class="bf-checkbox-group">
                   <label><input type="checkbox" name="inline_interessi[]" value="gusti" /> <span data-i18n="b2b.form.int_gusti">Gusti Gelato</span></label>
                   <label><input type="checkbox" name="inline_interessi[]" value="vasche" /> <span data-i18n="b2b.form.int_vasche">Vasche</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="pezzi-duri" /> <span data-i18n="b2b.form.int_pezzi">Pezzi Duri</span></label>
+                  <label><input type="checkbox" name="inline_interessi[]" value="pezzi-duri" /> <span data-i18n="b2b.form.int_pezzi">Monoporzioni</span></label>
                   <label><input type="checkbox" name="inline_interessi[]" value="torte" /> <span data-i18n="b2b.form.int_torte">Torte</span></label>
                   <label><input type="checkbox" name="inline_interessi[]" value="semifreddi" /> <span data-i18n="b2b.form.int_semifreddi">Semifreddi</span></label>
                   <label><input type="checkbox" name="inline_interessi[]" value="barattoli" /> <span data-i18n="b2b.form.int_barattoli">Barattoli</span></label>
@@ -3222,18 +3225,18 @@
           'b2b.areas.title': 'Aree B2B',
           'b2b.categories.GELATO': 'GUSTI',
           'b2b.categories.VASCHE': 'VASCHE',
-          'b2b.categories.PEZZI_DURI': 'PEZZI DURI',
+          'b2b.categories.PEZZI_DURI': 'MONOPORZIONI',
           'b2b.categories.TORTE': 'TORTE',
           'b2b.categories.SEMIFREDDI': 'SEMIFREDDI',
           'b2b.categories.BARATTOLI': 'BARATTOLI',
-          'b2b.categories.CONI_COPPETTE': 'CONI & COPPETTE',
+          'b2b.categories.CONI_COPPETTE': 'CONI &<br>COPPETTE',
           'b2b.categories.ACCESSORI': 'ACCESSORI',
           'b2b.categories.CONTENITORI': 'CONTENITORI',
           'b2b.hero.label_text': 'Partnership',
           'b2b.cat.gelato.label': 'Gusti & Vasche',
-          'b2b.cat.gelato.desc': 'Oltre 40 gusti artigianali, dal Buontalenti ai classici',
-          'b2b.cat.pezzi.label': 'Monoporzioni',
-          'b2b.cat.pezzi.desc': 'Stecchi, biscotti e monoporzioni pronti al servizio',
+          'b2b.cat.gelato.desc': 'Oltre 36 gusti artigianali, dal Buontalenti ai classici',
+          'b2b.cat.pezzi.label': 'Stecchi e biscotti',
+          'b2b.cat.pezzi.desc': '20 monoporzioni artigianali, dagli stecchi ai lingotti',
           'b2b.cat.torte.label': 'Pasticceria Gelato',
           'b2b.cat.torte.desc': 'Torte gelato e semifreddi per ogni occasione',
           'b2b.cat.coni.label': 'Servizio',
@@ -3293,7 +3296,7 @@
           'b2b.form.interessi': 'Categorie di interesse',
           'b2b.form.int_gusti': 'Gusti Gelato',
           'b2b.form.int_vasche': 'Vasche',
-          'b2b.form.int_pezzi': 'Pezzi Duri',
+          'b2b.form.int_pezzi': 'Monoporzioni',
           'b2b.form.int_torte': 'Torte',
           'b2b.form.int_semifreddi': 'Semifreddi',
           'b2b.form.int_barattoli': 'Barattoli',
@@ -3523,14 +3526,14 @@
           'b2b.categories.TORTE': 'CAKES',
           'b2b.categories.SEMIFREDDI': 'SEMIFREDDOS',
           'b2b.categories.BARATTOLI': 'JARS',
-          'b2b.categories.CONI_COPPETTE': 'CONES & CUPS',
+          'b2b.categories.CONI_COPPETTE': 'CONES &<br>CUPS',
           'b2b.categories.ACCESSORI': 'ACCESSORIES',
           'b2b.categories.CONTENITORI': 'CONTAINERS',
           'b2b.hero.label_text': 'Partnership',
           'b2b.cat.gelato.label': 'Flavours & Tubs',
-          'b2b.cat.gelato.desc': 'Over 40 artisan flavours, from Buontalenti to the classics',
-          'b2b.cat.pezzi.label': 'Single Servings',
-          'b2b.cat.pezzi.desc': 'Sticks, biscuits and single-serve treats ready to serve',
+          'b2b.cat.gelato.desc': 'Over 36 artisan flavours, from Buontalenti to the classics',
+          'b2b.cat.pezzi.label': 'Sticks and Biscuits',
+          'b2b.cat.pezzi.desc': '20 artisan treats, from sticks to bars',
           'b2b.cat.torte.label': 'Gelato Pastry',
           'b2b.cat.torte.desc': 'Gelato cakes and semifreddos for every occasion',
           'b2b.cat.coni.label': 'Service',
@@ -3816,18 +3819,18 @@
           'b2b.areas.title': 'Zones B2B',
           'b2b.categories.GELATO': 'PARFUMS',
           'b2b.categories.VASCHE': 'BACS',
-          'b2b.categories.PEZZI_DURI': 'PIÈCES DURES',
+          'b2b.categories.PEZZI_DURI': 'PORTIONS INDIVIDUELLES',
           'b2b.categories.TORTE': 'GÂTEAUX',
           'b2b.categories.SEMIFREDDI': 'SEMIFREDDOS',
           'b2b.categories.BARATTOLI': 'BOCAUX',
-          'b2b.categories.CONI_COPPETTE': 'CORNÉTS & COUPES',
+          'b2b.categories.CONI_COPPETTE': 'CORNÉTS &<br>COUPES',
           'b2b.categories.ACCESSORI': 'ACCESSOIRES',
           'b2b.categories.CONTENITORI': 'CONTENANTS',
           'b2b.hero.label_text': 'Partenariat',
           'b2b.cat.gelato.label': 'Parfums & Bacs',
-          'b2b.cat.gelato.desc': 'Plus de 40 parfums artisanaux, du Buontalenti aux classiques',
-          'b2b.cat.pezzi.label': 'Portions individuelles',
-          'b2b.cat.pezzi.desc': 'Bâtonnets, biscuits et portions individuelles prêts à servir',
+          'b2b.cat.gelato.desc': 'Plus de 36 parfums artisanaux, du Buontalenti aux classiques',
+          'b2b.cat.pezzi.label': 'Bâtonnets et biscuits',
+          'b2b.cat.pezzi.desc': '20 portions individuelles artisanales, des bâtonnets aux lingots',
           'b2b.cat.torte.label': 'Pâtisserie Glacée',
           'b2b.cat.torte.desc': 'Gâteaux glacés et semifreddos pour toute occasion',
           'b2b.cat.coni.label': 'Service',
@@ -4113,18 +4116,18 @@
           'b2b.areas.title': 'Áreas B2B',
           'b2b.categories.GELATO': 'SABORES',
           'b2b.categories.VASCHE': 'CUBAS',
-          'b2b.categories.PEZZI_DURI': 'PIEZAS DURAS',
+          'b2b.categories.PEZZI_DURI': 'PORCIONES INDIVIDUALES',
           'b2b.categories.TORTE': 'TARTAS',
           'b2b.categories.SEMIFREDDI': 'SEMIFRÍOS',
           'b2b.categories.BARATTOLI': 'TARROS',
-          'b2b.categories.CONI_COPPETTE': 'CONOS & COPAS',
+          'b2b.categories.CONI_COPPETTE': 'CONOS &<br>COPAS',
           'b2b.categories.ACCESSORI': 'ACCESORIOS',
           'b2b.categories.CONTENITORI': 'CONTENEDORES',
           'b2b.hero.label_text': 'Colaboración',
           'b2b.cat.gelato.label': 'Sabores & Cubas',
-          'b2b.cat.gelato.desc': 'Más de 40 sabores artesanales, del Buontalenti a los clásicos',
-          'b2b.cat.pezzi.label': 'Porciones individuales',
-          'b2b.cat.pezzi.desc': 'Palitos, galletas y porciones individuales listos para servir',
+          'b2b.cat.gelato.desc': 'Más de 36 sabores artesanales, del Buontalenti a los clásicos',
+          'b2b.cat.pezzi.label': 'Palitos y galletas',
+          'b2b.cat.pezzi.desc': '20 productos artesanales, de palitos a lingotes',
           'b2b.cat.torte.label': 'Pastelería Helada',
           'b2b.cat.torte.desc': 'Tartas heladas y semifríos para toda ocasión',
           'b2b.cat.coni.label': 'Servicio',
@@ -4184,7 +4187,7 @@
           'b2b.form.interessi': 'Categorías de interés',
           'b2b.form.int_gusti': 'Sabores de helado',
           'b2b.form.int_vasche': 'Cubetas',
-          'b2b.form.int_pezzi': 'Helados en barra',
+          'b2b.form.int_pezzi': 'Porciones individuales',
           'b2b.form.int_torte': 'Tartas',
           'b2b.form.int_semifreddi': 'Semifríos',
           'b2b.form.int_barattoli': 'Tarros',
@@ -4414,7 +4417,7 @@
           ]
         },
         'PEZZI DURI': {
-          title: 'Pezzi duri',
+          title: 'Monoporzioni',
           columns: ['Gusto', 'Peso medio unità', 'Ordine minimo*'],
           rows: [
             ['Classico Buontalenti', '90 g', '24'],
@@ -4493,10 +4496,10 @@
       };
 
       const CATEGORY_TITLES_I18N = {
-        it: { 'VASCHE': 'Vaschette', 'PEZZI DURI': 'Pezzi duri', 'TORTE': 'Torte', 'CONI_COPPETTE': 'Coni & Coppette', 'ACCESSORI': 'Accessori', 'CONTENITORI': 'Contenitori' },
+        it: { 'VASCHE': 'Vaschette', 'PEZZI DURI': 'Monoporzioni', 'TORTE': 'Torte', 'CONI_COPPETTE': 'Coni & Coppette', 'ACCESSORI': 'Accessori', 'CONTENITORI': 'Contenitori' },
         en: { 'VASCHE': 'Tubs', 'PEZZI DURI': 'Treats', 'TORTE': 'Cakes', 'CONI_COPPETTE': 'Cones & Cups', 'ACCESSORI': 'Accessories', 'CONTENITORI': 'Containers' },
-        fr: { 'VASCHE': 'Bacs', 'PEZZI DURI': 'Pièces dures', 'TORTE': 'Gâteaux', 'CONI_COPPETTE': 'Cornets & Coupes', 'ACCESSORI': 'Accessoires', 'CONTENITORI': 'Contenants' },
-        es: { 'VASCHE': 'Cubas', 'PEZZI DURI': 'Piezas duras', 'TORTE': 'Tartas', 'CONI_COPPETTE': 'Conos & Copas', 'ACCESSORI': 'Accesorios', 'CONTENITORI': 'Contenedores' }
+        fr: { 'VASCHE': 'Bacs', 'PEZZI DURI': 'Portions individuelles', 'TORTE': 'Gâteaux', 'CONI_COPPETTE': 'Cornets & Coupes', 'ACCESSORI': 'Accessoires', 'CONTENITORI': 'Contenants' },
+        es: { 'VASCHE': 'Cubas', 'PEZZI DURI': 'Porciones individuales', 'TORTE': 'Tartas', 'CONI_COPPETTE': 'Conos & Copas', 'ACCESSORI': 'Accesorios', 'CONTENITORI': 'Contenedores' }
       };
 
       const CATEGORY_COLUMNS_I18N = {
@@ -4814,8 +4817,8 @@
         { name: 'Vaschetta 3500cc', capacity: '3500 cc', image: '../assets/images/vasche/Vaschetta 3500cc.png' },
         { name: 'Vaschetta 4800cc', capacity: '4800 cc', image: '../assets/images/vasche/Vaschetta 4800cc.jpeg' },
         { name: 'Vaschetta 5000cc', capacity: '5000 cc', image: '../assets/images/vasche/Vaschetta 5000cc.jpeg' },
-        { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.jpeg' },
-        { name: 'Vaschetta 8000cc', capacity: '8000 cc', image: '../assets/images/vasche/Vaschetta 8000cc.jpeg' }
+        { name: 'Vaschetta 8000cc', capacity: '8000 cc', image: '../assets/images/vasche/Vaschetta 8000cc.jpeg' },
+        { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.jpeg' }
       ];
 
       const TORTE_GROUP_IMAGE = '../assets/images/torte/torte gruppo.jpeg';
@@ -4961,7 +4964,7 @@
       const gelatoImageCache = new Set();
 
       const GELATO_CATEGORIES = {
-        iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente'],
+        iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato'],
         classici: ['cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt'],
         sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango'],
         limited: ['buontalenti-amarena', 'cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
@@ -4973,7 +4976,9 @@
       function categoryLabel(name){
         if(!name) return t('b2b.modal.titleDefault');
         const key = `b2b.categories.${name.replace(/\s+/g, '_')}`;
-        return t(key) || name;
+        const label = t(key) || name;
+        // Remove <br> tags for modal title (keep single line)
+        return label.replace(/<br\s*\/?>/gi, ' ');
       }
 
       function seasonLabel(season){
@@ -5666,7 +5671,6 @@
 
         const description = getGelatoDesc(flavor.id) || flavor.description || '';
         const allergensText = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
-        const seasons = flavor.seasons.map((season) => seasonLabel(season)).join(', ');
         const flags = [
           ['gelato.flags.vegan', flavor.flags.vegan],
           ['gelato.flags.glutenFree', flavor.flags.glutenFree],
@@ -5690,10 +5694,6 @@
           <div>
             <div class=\"gelato-section-title\">${t('gelato.detail.allergens')}</div>
             <div class="gelato-list">${allergensText}</div>
-          </div>
-          <div>
-            <div class=\"gelato-section-title\">${t('gelato.detail.seasons')}</div>
-            <div class="gelato-list">${seasons}</div>
           </div>
           ${flags.filter(([, value]) => value).length ? `<div>
             <div class=\"gelato-section-title\">${t('gelato.detail.flags')}</div>
@@ -5723,7 +5723,6 @@
       function buildGelatoDetailsHTML(flavor){
         const description = getGelatoDesc(flavor.id) || flavor.description || '';
         const allergensText = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
-        const seasons = flavor.seasons.map((season) => seasonLabel(season)).join(', ');
         const flags = [
           ['gelato.flags.vegan', flavor.flags.vegan],
           ['gelato.flags.glutenFree', flavor.flags.glutenFree],
@@ -5740,10 +5739,6 @@
           <div>
             <div class="gelato-section-title">${t('gelato.detail.allergens')}</div>
             <div class="gelato-list">${allergensText}</div>
-          </div>
-          <div>
-            <div class="gelato-section-title">${t('gelato.detail.seasons')}</div>
-            <div class="gelato-list">${seasons}</div>
           </div>
           ${flags.filter(([, value]) => value).length ? `<div>
             <div class="gelato-section-title">${t('gelato.detail.flags')}</div>
@@ -5902,90 +5897,114 @@
 
       function renderGelatoGrid(){
         if(!gelatoGrid) return;
-        const season = 'tutti';
         const query = gelatoSearch ? gelatoSearch.value.trim().toLowerCase() : '';
-        const category = gelatoCategory ? gelatoCategory.value : 'tutti';
-        const categoryIds = (category !== 'tutti' && GELATO_CATEGORIES[category]) ? GELATO_CATEGORIES[category] : null;
-        const filtered = gelatoFlavors.filter((flavor) => {
-          const name = (tGelato(flavor.nameKey) || flavor.label || flavor.id).toLowerCase();
-          const matchSeason = matchesSeason(flavor, season);
-          const matchQuery = !query || name.includes(query);
-          const matchCategory = !categoryIds || categoryIds.includes(flavor.id);
-          return matchSeason && matchQuery && matchCategory;
-        });
+        
+        gelatoGrid.innerHTML = '';
+        
+        // Define category order and titles
+        const categoriesOrder = [
+          { key: 'iconici', titleKey: 'gelato.filters.category.iconici' },
+          { key: 'classici', titleKey: 'gelato.filters.category.classici' },
+          { key: 'sorbetti', titleKey: 'gelato.filters.category.sorbetti' },
+          { key: 'limited', titleKey: 'gelato.filters.category.limited' }
+        ];
+        
+        let totalRendered = 0;
+        
+        // Render each category section
+        categoriesOrder.forEach(({ key, titleKey }) => {
+          const categoryIds = GELATO_CATEGORIES[key];
+          if(!categoryIds) return;
+          
+          const categoryFlavors = gelatoFlavors.filter((flavor) => {
+            const name = (tGelato(flavor.nameKey) || flavor.label || flavor.id).toLowerCase();
+            const matchQuery = !query || name.includes(query);
+            const matchCategory = categoryIds.includes(flavor.id);
+            return matchQuery && matchCategory;
+          });
+          
+          if(categoryFlavors.length === 0) return;
+          
+          // Create category title
+          const titleDiv = document.createElement('div');
+          titleDiv.className = 'gelato-category-title';
+          titleDiv.textContent = t(titleKey);
+          titleDiv.style.cssText = 'font-size: 1.5em; font-weight: 600; margin: 2em 0 1em; text-transform: uppercase; color: var(--badiani-blue); grid-column: 1 / -1;';
+          gelatoGrid.appendChild(titleDiv);
+          
+          // Render flavors in this category
+          categoryFlavors.forEach((flavor) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            const tubClass = flavor.isTub ? ' gelato-card--tub' : '';
+            btn.className = `gelato-card${tubClass}`;
+            btn.dataset.flavorId = flavor.id;
+            btn.setAttribute('aria-expanded', 'false');
+            const flavorName = tGelato(flavor.nameKey) || flavor.label || flavor.id;
+            const baseSrc = getBaseImageSrc(flavor);
+            const imageUrl = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
+            const zoomIcon = `
+              <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" focusable=\"false\">
+                <polyline points=\"15 3 21 3 21 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>
+                <polyline points=\"9 21 3 21 3 15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>
+                <line x1=\"21\" y1=\"3\" x2=\"14\" y2=\"10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>
+                <line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>
+              </svg>
+            `;
+            const mediaBlock = `
+              <div class=\"gelato-card__media\">
+                <img src=\"${imageUrl}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
+                <button class=\"gelato-card__zoom\" type=\"button\" aria-label=\"Ingrandisci\">${zoomIcon}</button>
+              </div>
+              <span>${flavorName}</span>
+            `;
+            btn.innerHTML = mediaBlock;
+            cacheImage(baseSrc);
 
-        if(!filtered.length){
+            const zoomBtn = btn.querySelector('.gelato-card__zoom');
+            if(zoomBtn){
+              zoomBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                openFullscreenImage(flavor.image || getDetailImageSrc(flavor) || baseSrc, flavorName);
+              });
+            }
+
+            btn.addEventListener('click', () => {
+              const nextId = expandedFlavorId === flavor.id ? '' : flavor.id;
+              if(expandedFlavorId){
+                const prev = gelatoGrid.querySelector(`[data-flavor-id=\"${expandedFlavorId}\"]`);
+                const prevFlavor = gelatoById.get(expandedFlavorId);
+                if(prev && prevFlavor){
+                  setGelatoCardExpanded(prev, prevFlavor, false);
+                }
+              }
+              expandedFlavorId = nextId;
+              if(nextId){
+                setGelatoCardExpanded(btn, flavor, true);
+                if(!prefersReducedMotion){
+                  btn.scrollIntoView({ block: 'nearest' });
+                }
+              }
+            });
+            btn.addEventListener('keydown', (event) => {
+              if(event.key === 'Enter' || event.key === ' '){
+                event.preventDefault();
+                btn.click();
+              }
+            });
+
+            gelatoGrid.appendChild(btn);
+            if(expandedFlavorId === flavor.id){
+              setGelatoCardExpanded(btn, flavor, true);
+            }
+            totalRendered++;
+          });
+        });
+        
+        if(totalRendered === 0){
           gelatoGrid.innerHTML = `<div class=\"gelato-empty\">${t('gelato.filters.noResults') || 'Nessun risultato'}</div>`;
           expandedFlavorId = '';
-          return;
         }
-
-        gelatoGrid.innerHTML = '';
-        filtered.forEach((flavor) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          const tubClass = flavor.isTub ? ' gelato-card--tub' : '';
-          btn.className = `gelato-card${tubClass}`;
-          btn.dataset.flavorId = flavor.id;
-          btn.setAttribute('aria-expanded', 'false');
-          const flavorName = tGelato(flavor.nameKey) || flavor.label || flavor.id;
-          const baseSrc = getBaseImageSrc(flavor);
-          const imageUrl = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
-          const zoomIcon = `
-            <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" focusable=\"false\">
-              <polyline points=\"15 3 21 3 21 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>
-              <polyline points=\"9 21 3 21 3 15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>
-              <line x1=\"21\" y1=\"3\" x2=\"14\" y2=\"10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>
-              <line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>
-            </svg>
-          `;
-          const mediaBlock = `
-            <div class=\"gelato-card__media\">
-              <img src=\"${imageUrl}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
-              <button class=\"gelato-card__zoom\" type=\"button\" aria-label=\"Ingrandisci\">${zoomIcon}</button>
-            </div>
-            <span>${flavorName}</span>
-          `;
-          btn.innerHTML = mediaBlock;
-          cacheImage(baseSrc);
-
-          const zoomBtn = btn.querySelector('.gelato-card__zoom');
-          if(zoomBtn){
-            zoomBtn.addEventListener('click', (event) => {
-              event.stopPropagation();
-              openFullscreenImage(flavor.image || getDetailImageSrc(flavor) || baseSrc, flavorName);
-            });
-          }
-
-          btn.addEventListener('click', () => {
-            const nextId = expandedFlavorId === flavor.id ? '' : flavor.id;
-            if(expandedFlavorId){
-              const prev = gelatoGrid.querySelector(`[data-flavor-id=\"${expandedFlavorId}\"]`);
-              const prevFlavor = gelatoById.get(expandedFlavorId);
-              if(prev && prevFlavor){
-                setGelatoCardExpanded(prev, prevFlavor, false);
-              }
-            }
-            expandedFlavorId = nextId;
-            if(nextId){
-              setGelatoCardExpanded(btn, flavor, true);
-              if(!prefersReducedMotion){
-                btn.scrollIntoView({ block: 'nearest' });
-              }
-            }
-          });
-          btn.addEventListener('keydown', (event) => {
-            if(event.key === 'Enter' || event.key === ' '){
-              event.preventDefault();
-              btn.click();
-            }
-          });
-
-          gelatoGrid.appendChild(btn);
-          if(expandedFlavorId === flavor.id){
-            setGelatoCardExpanded(btn, flavor, true);
-          }
-        });
       }
 
       function renderCategoryNav(){

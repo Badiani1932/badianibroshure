@@ -570,7 +570,7 @@
       transform:scaleX(-1);
       z-index:0;
     }
-    .sal-form-section > *{
+    .sal-form-section > *:not(.sal-form-section__mercury){
       position:relative;
       z-index:1;
     }
@@ -1034,8 +1034,8 @@
     /* ===== MERCURY CHARACTER ===== */
     .sal-form-section__mercury{
       position:absolute;
-      left:calc(50% - 1180px);
-      bottom:calc(-10% - 300px);
+      left:max(-400px, calc(50% - 1180px));
+      bottom:calc(-10% - 200px);
       height:clamp(800px, 110vh, 1400px);
       max-width:none;
       object-fit:contain;
@@ -1048,13 +1048,13 @@
     }
     @media(max-width:1200px){
       .sal-form-section__mercury{
-        left:calc(50% - 1150px);
+        left:max(-350px, calc(50% - 1150px));
         height:clamp(700px, 90vh, 1100px);
       }
     }
     @media(max-width:900px){
       .sal-form-section__mercury{
-        left:calc(50% - 1110px);
+        left:max(-300px, calc(50% - 1110px));
         height:clamp(560px, 77vh, 840px);
       }
     }
@@ -1417,7 +1417,7 @@
 
   <!-- FORM — sfondo.webp background with Mercury parallax -->
   <section id="contatti" class="sal-form-section" data-i18n-attr="aria-label:tosinghi.contact.title">
-    <img class="sal-form-section__mercury" src="../../assets/mercury.png" alt="" loading="lazy" decoding="async" aria-hidden="true" />
+    <img class="sal-form-section__mercury" src="../../assets/mercury.png?v=2" alt="" loading="lazy" decoding="async" aria-hidden="true" />
     <div class="sal-form-block">
       <div class="sal-form-header">
         <h2 data-i18n="tosinghi.form.title">Richiedi Informazioni</h2>
@@ -1512,7 +1512,7 @@
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.food.title">Finger Food</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.food.desc">Selezione di finger food preparati dal nostro Chef per accompagnare il vostro evento.</p>
           </div>
-          <img class="modal-hero__img" src="../foto%20eventi/CT%20FIRENZE/DSC07149.jpg" alt="Finger Food" loading="lazy" decoding="async" width="4000" height="2668" />
+          <img class="modal-hero__img" src="../CT%20FIRENZE/DSC07149.jpg" alt="Finger Food" loading="lazy" decoding="async" width="4000" height="2668" />
         </div>
         <div class="list-modal__body">
           <ul>
@@ -1553,7 +1553,7 @@
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.drink.title">Cocktail</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.drink.desc">Cocktail classici e signature selezionati per i vostri eventi privati.</p>
           </div>
-          <img class="modal-hero__img" src="../foto%20eventi/CT%20FIRENZE/DSC07211.jpg" alt="Cocktail" loading="lazy" decoding="async" width="4000" height="2668" />
+          <img class="modal-hero__img" src="../CT%20FIRENZE/DSC07211.jpg" alt="Cocktail" loading="lazy" decoding="async" width="4000" height="2668" />
         </div>
         <div class="list-modal__body">
           <ul>

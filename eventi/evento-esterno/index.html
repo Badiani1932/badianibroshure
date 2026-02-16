@@ -2,15 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Evento Esterno — Badiani 1932 | Cool Box, Carretto e Vetrina Gelato</title>
+  <title>Badiani dove vuoi — Badiani 1932 | Cool Box, Carretto e Vetrina Gelato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Organizza il tuo evento esterno con Badiani: Cool Box, Carretto e Bicicletta, Vetrina Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
+  <meta name="description" content="Organizza il tuo evento con Badiani dove vuoi: Cool Box, Carretto e Bicicletta, Vetrina Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
   <meta name="theme-color" content="#1e398d" />
   <link rel="icon" href="../../assets/images/branding/logo.webp" type="image/webp" />
   <link rel="canonical" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Evento Esterno — Badiani 1932" />
-  <meta property="og:description" content="Cool Box, Carretto e Vetrina Gelato per il tuo evento esterno." />
+  <meta property="og:title" content="Badiani dove vuoi — Badiani 1932" />
+  <meta property="og:description" content="Cool Box, Carretto e Vetrina Gelato dove vuoi." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../../assets/badiani-common.css" />
@@ -127,6 +127,7 @@
       filter:brightness(0.45);
     }
     .ext-card__label{
+      display:none;
       position:absolute;
       top:-0.22em;
       right:clamp(4px, 0.8vw, 12px);
@@ -842,11 +843,11 @@
 
   <!-- HERO -->
   <section class="ext-hero">
-    <img class="ext-hero__img" src="../foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Evento esterno Badiani" width="4000" height="6000" fetchpriority="high" />
+    <img class="ext-hero__img" src="../foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Badiani dove vuoi" width="4000" height="6000" fetchpriority="high" />
     <div class="ext-hero__content">
       <div class="ext-hero__heading">
         <span class="ext-hero__label" data-i18n="external.hero.label">Soluzioni mobili</span>
-        <h1 class="ext-hero__title title-accent title-accent--light" data-i18n="external.hero.title">Evento Esterno</h1>
+        <h1 class="ext-hero__title title-accent title-accent--light" data-i18n="external.hero.title">Badiani dove vuoi</h1>
       </div>
       <p class="ext-hero__desc" data-i18n="external.hero.desc">Porta Badiani al tuo evento con soluzioni mobili eleganti e versatili</p>
     </div>
@@ -857,7 +858,7 @@
     <div class="ext-solutions__grid">
       <!-- COOL BOX -->
       <button class="ext-card" onclick="openModal('coolbox')" aria-label="Cool Box — Pratico e versatile" data-i18n-attr="aria-label:external.coolbox.aria">
-        <img class="ext-card__img" src="../../assets/images/eventi/evento-esterno-1.png" alt="Cool box Badiani" loading="lazy" decoding="async" width="1024" height="1024" />
+        <img class="ext-card__img" src="../../assets/images/categories/coolbox.jpg" alt="Cool box Badiani" loading="lazy" decoding="async" width="1024" height="1024" />
         <span class="ext-card__label" aria-hidden="true">1</span>
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.coolbox.subtitle">Pratico e versatile</span>
@@ -868,7 +869,7 @@
 
       <!-- CARRETTO E BICICLETTA -->
       <button class="ext-card" onclick="openModal('carretto')" aria-label="Carretto e Bicicletta — Ideale per eventi casual" data-i18n-attr="aria-label:external.carretto.aria">
-        <img class="ext-card__img" src="../../assets/images/eventi/evento-esterno-2.png" alt="Carretto e bicicletta Badiani" loading="lazy" decoding="async" width="864" height="1184" />
+        <img class="ext-card__img" src="../foto%20eventi/Steve%20Madden%20MICAM/DSC01246.JPG" alt="Carretto e bicicletta Badiani" loading="lazy" decoding="async" width="864" height="1184" />
         <span class="ext-card__label" aria-hidden="true">2</span>
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
@@ -977,7 +978,7 @@
               <label data-i18n="external.form.eventInterest">Evento di interesse *</label>
               <div class="ef-checkbox-group">
                 <label><input type="checkbox" name="evento[]" value="saletta-privata" /> <span data-i18n="external.form.eventInterest.privateRoom">Saletta Privata</span></label>
-                <label><input type="checkbox" name="evento[]" value="evento-esterno" checked /> <span data-i18n="external.form.eventInterest.external">Evento Esterno</span></label>
+                <label><input type="checkbox" name="evento[]" value="evento-esterno" checked /> <span data-i18n="external.form.eventInterest.external">Badiani dove vuoi</span></label>
                 <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="external.form.eventInterest.van">Gelato Van</span></label>
                 <label><input type="checkbox" name="evento[]" value="su-misura" /> <span data-i18n="external.form.eventInterest.tailored">Evento su Misura</span></label>
               </div>
@@ -1005,13 +1006,13 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
         <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true">1</span>
+          <span class="modal-hero__number" aria-hidden="true" style="display:none;">1</span>
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="external.coolbox.subtitle">Pratico e versatile</span>
             <h2 class="modal-hero__title title-accent title-accent--light">Cool Box</h2>
             <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.</p>
           </div>
-          <img class="modal-hero__img" src="../../assets/images/eventi/evento-esterno-1.png" alt="Cool Box Badiani" loading="lazy" decoding="async" width="1024" height="1024" />
+          <img class="modal-hero__img" src="../../assets/images/categories/coolbox.jpg" alt="Cool Box Badiani" loading="lazy" decoding="async" width="1024" height="1024" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -1050,13 +1051,13 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
         <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true">2</span>
+          <span class="modal-hero__number" aria-hidden="true" style="display:none;">2</span>
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
             <h2 class="modal-hero__title title-accent title-accent--light">Carretto e Bicicletta</h2>
             <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.</p>
           </div>
-          <img class="modal-hero__img" src="../../assets/images/eventi/evento-esterno-2.png" alt="Carretto e Bicicletta Badiani" loading="lazy" decoding="async" width="864" height="1184" />
+          <img class="modal-hero__img" src="../foto%20eventi/Steve%20Madden%20MICAM/DSC01246.JPG" alt="Carretto e Bicicletta Badiani" loading="lazy" decoding="async" width="864" height="1184" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -1095,7 +1096,7 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
         <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true">3</span>
+          <span class="modal-hero__number" aria-hidden="true" style="display:none;">3</span>
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="external.vetrina.subtitle">Soluzione istituzionale ed elegante</span>
             <h2 class="modal-hero__title title-accent title-accent--light">Vetrina Gelato</h2>
@@ -1245,7 +1246,7 @@
 
       var STRINGS = {
         it: {
-          'meta.title': 'Evento Esterno — Eventi Badiani',
+          'meta.title': 'Badiani dove vuoi — Eventi Badiani',
           'lang.label': 'Selettore lingua',
           'lang.it': 'IT',
           'lang.en': 'EN',
@@ -1264,7 +1265,7 @@
           'footer.privacy': 'Privacy Policy',
           'footer.cookie': 'Cookie Policy',
           'external.hero.label': 'Soluzioni mobili',
-          'external.hero.title': 'Evento Esterno',
+          'external.hero.title': 'Badiani dove vuoi',
           'external.hero.desc': 'Porta Badiani al tuo evento con soluzioni mobili eleganti e versatili',
           'external.solutions.title': 'Soluzioni Disponibili',
           'external.coolbox.aria': 'Cool Box \u2014 Pratico e versatile',
@@ -1339,14 +1340,14 @@
           'external.form.extras.djSet': 'Dj set',
           'external.form.eventInterest': 'Evento di interesse *',
           'external.form.eventInterest.privateRoom': 'Saletta Privata',
-          'external.form.eventInterest.external': 'Evento Esterno',
+          'external.form.eventInterest.external': 'Badiani dove vuoi',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Evento su Misura',
           'external.form.privacy': 'Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
           'external.form.submit': 'Invia Richiesta'
         },
         en: {
-          'meta.title': 'External Event \u2014 Badiani Events',
+          'meta.title': 'Badiani Anywhere — Badiani Events',
           'lang.label': 'Language selector',
           'lang.it': 'IT',
           'lang.en': 'EN',
@@ -1365,7 +1366,7 @@
           'footer.privacy': 'Privacy Policy',
           'footer.cookie': 'Cookie Policy',
           'external.hero.label': 'Mobile solutions',
-          'external.hero.title': 'External Event',
+          'external.hero.title': 'Badiani Anywhere',
           'external.hero.desc': 'Bring Badiani to your event with elegant and versatile mobile solutions',
           'external.solutions.title': 'Available Solutions',
           'external.coolbox.aria': 'Cool Box \u2014 Practical and versatile',
@@ -1440,15 +1441,15 @@
           'external.form.extras.djSet': 'DJ set',
           'external.form.eventInterest': 'Event of interest *',
           'external.form.eventInterest.privateRoom': 'Private Room',
-          'external.form.eventInterest.external': 'External Event',
+          'external.form.eventInterest.external': 'Badiani Anywhere',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Tailored Event',
           'external.form.privacy': 'I have read and accept the <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
           'external.form.submit': 'Send Request'
         },
         fr: {
-          'meta.title': '\u00c9v\u00e9nement Externe \u2014 \u00c9v\u00e9nements Badiani',
-          'lang.label': 'S\u00e9lecteur de langue',
+          'meta.title': 'Badiani où vous voulez — Événements Badiani',
+          'lang.label': 'Sélecteur de langue',
           'lang.it': 'IT',
           'lang.en': 'EN',
           'lang.fr': 'FR',
@@ -1466,8 +1467,8 @@
           'footer.privacy': 'Politique de Confidentialit\u00e9',
           'footer.cookie': 'Politique de Cookies',
           'external.hero.label': 'Solutions mobiles',
-          'external.hero.title': '\u00c9v\u00e9nement Externe',
-          'external.hero.desc': 'Apportez Badiani \u00e0 votre \u00e9v\u00e9nement avec des solutions mobiles \u00e9l\u00e9gantes et polyvalentes',
+          'external.hero.title': 'Badiani où vous voulez',
+          'external.hero.desc': 'Apportez Badiani à votre événement avec des solutions mobiles élégantes et polyvalentes',
           'external.solutions.title': 'Solutions Disponibles',
           'external.coolbox.aria': 'Cool Box \u2014 Pratique et polyvalent',
           'external.coolbox.subtitle': 'Pratique et polyvalent',
@@ -1541,14 +1542,14 @@
           'external.form.extras.djSet': 'DJ set',
           'external.form.eventInterest': '\u00c9v\u00e9nement d\u2019int\u00e9r\u00eat *',
           'external.form.eventInterest.privateRoom': 'Salle Priv\u00e9e',
-          'external.form.eventInterest.external': '\u00c9v\u00e9nement Externe',
+          'external.form.eventInterest.external': 'Badiani où vous voulez',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': '\u00c9v\u00e9nement sur Mesure',
           'external.form.privacy': 'J\u2019ai lu et j\u2019accepte la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">politique de confidentialit\u00e9</a>.',
           'external.form.submit': 'Envoyer la Demande'
         },
         es: {
-          'meta.title': 'Evento Externo \u2014 Eventos Badiani',
+          'meta.title': 'Badiani donde quieras — Eventos Badiani',
           'lang.label': 'Selector de idioma',
           'lang.it': 'IT',
           'lang.en': 'EN',
@@ -1566,9 +1567,9 @@
           'footer.legale': 'Legal',
           'footer.privacy': 'Pol\u00edtica de Privacidad',
           'footer.cookie': 'Pol\u00edtica de Cookies',
-          'external.hero.label': 'Soluciones m\u00f3viles',
-          'external.hero.title': 'Evento Externo',
-          'external.hero.desc': 'Lleva Badiani a tu evento con soluciones m\u00f3viles elegantes y vers\u00e1tiles',
+          'external.hero.label': 'Soluciones móviles',
+          'external.hero.title': 'Badiani donde quieras',
+          'external.hero.desc': 'Lleva Badiani a tu evento con soluciones móviles elegantes y versátiles',
           'external.solutions.title': 'Soluciones Disponibles',
           'external.coolbox.aria': 'Cool Box \u2014 Pr\u00e1ctico y vers\u00e1til',
           'external.coolbox.subtitle': 'Pr\u00e1ctico y vers\u00e1til',
@@ -1642,7 +1643,7 @@
           'external.form.extras.djSet': 'DJ set',
           'external.form.eventInterest': 'Evento de inter\u00e9s *',
           'external.form.eventInterest.privateRoom': 'Sala Privada',
-          'external.form.eventInterest.external': 'Evento Externo',
+          'external.form.eventInterest.external': 'Badiani donde quieras',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Evento a Medida',
           'external.form.privacy': 'He le\u00eddo y acepto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',
