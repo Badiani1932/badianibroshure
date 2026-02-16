@@ -482,7 +482,7 @@
     .modal__header{
       display:flex;
       align-items:stretch;
-      padding:0;
+      padding:18px 0;
       background:#fff;
       border-bottom:1px solid rgba(0,0,0,0.08);
       flex-shrink:0;
@@ -536,8 +536,8 @@
       font-size:18px;
       cursor:pointer;
       color:var(--badiani-blue);
-      width:46px;
-      height:46px;
+      width:68px;
+      height:68px;
       border-radius:50%;
       display:flex;
       align-items:center;
@@ -553,8 +553,8 @@
       transform:scale(1.05);
     }
     .modal__info-btn svg{
-      width:18px;
-      height:18px;
+      width:28px;
+      height:28px;
     }
     /* Shipping info popup */
     .shipping-popup-overlay{
@@ -574,9 +574,9 @@
       background:var(--badiani-blue);
       border:1px solid rgba(255,255,255,0.08);
       border-radius:20px;
-      max-width:480px;
+      max-width:768px;
       width:90%;
-      padding:28px 28px 24px;
+      padding:45px 45px 38px;
       box-shadow:0 12px 48px rgba(0,0,0,0.45);
       position:relative;
       animation:shippingFadeIn .3s cubic-bezier(.22,.61,.36,1);
@@ -590,10 +590,10 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      margin-bottom:16px;
+      margin-bottom:26px;
     }
     .shipping-popup__title{
-      font-size:16px;
+      font-size:26px;
       letter-spacing:1px;
       text-transform:uppercase;
       color:#fff;
@@ -602,11 +602,11 @@
     .shipping-popup__close{
       border:none;
       background:rgba(255,255,255,0.06);
-      font-size:18px;
+      font-size:29px;
       cursor:pointer;
       color:rgba(255,255,255,0.8);
-      width:34px;
-      height:34px;
+      width:54px;
+      height:54px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -623,10 +623,10 @@
       margin:0;
     }
     .shipping-popup__list li{
-      font-size:13px;
+      font-size:21px;
       line-height:1.55;
       color:rgba(255,255,255,0.82);
-      margin-bottom:8px;
+      margin-bottom:13px;
     }
     .shipping-popup__list li::marker{
       color:var(--badiani-pink);
@@ -3066,7 +3066,7 @@
         <nav class="modal__nav" id="categoryNav" data-i18n-attr="aria-label:b2b.modal.nav"></nav>
         <div class="modal__header-actions">
           <button class="modal__info-btn" id="info" type="button" aria-label="Informazioni spedizione" title="Spedizione" data-i18n-attr="aria-label:b2b.modal.shipping.label;title:b2b.modal.shipping.title">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 15v-3H10V5H2v10h2m2 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M10 8h12v6H10"/></svg>
           </button>
         </div>
       </div>
@@ -3370,6 +3370,7 @@
           'b2b.accessori.description': 'Descrizione',
           'b2b.accessori.quantity': 'Quantit\u00e0',
           'b2b.pezziduri.avgWeight': 'Peso medio (1 pz.)',
+          'b2b.pezziduri.minOrder': 'Ordine minimo',
           'gelato.detail.none': 'Nessuno',
           'gelato.flags.vegan': 'Vegano',
           'gelato.flags.glutenFree': 'Senza glutine',
@@ -4875,24 +4876,9 @@
           'nelle zone a traffico limitato, le consegne saranno effettuate in accordanza con i limiti orari di entrata e uscita.',
           'Per spedizioni al di fuori del comune di Firenze: quotazione su richiesta, modalità e tempi di consegna da stabilire.'
         ],
-        en: [
-          'Within the municipality of Florence: free shipping;',
-          'orders must be placed at least 48 hours in advance;',
-          'in restricted traffic zones, deliveries will be made in accordance with entry and exit time limits.',
-          'For shipments outside the municipality of Florence: quotation on request, delivery methods and times to be agreed.'
-        ],
-        fr: [
-          'Dans la commune de Florence : livraison gratuite ;',
-          'les commandes doivent être envoyées au moins 48 heures à l\'avance ;',
-          'dans les zones à trafic limité, les livraisons seront effectuées selon les horaires autorisés.',
-          'Pour les expéditions en dehors de la commune de Florence : devis sur demande, modalités et délais de livraison à définir.'
-        ],
-        es: [
-          'Dentro del municipio de Florencia: envío gratuito;',
-          'los pedidos deben enviarse con al menos 48 horas de antelación;',
-          'en las zonas de tráfico restringido, las entregas se realizarán de acuerdo con los horarios permitidos.',
-          'Para envíos fuera del municipio de Florencia: presupuesto bajo solicitud, modalidades y plazos de entrega a definir.'
-        ]
+        en: ['Coming soon...'],
+        fr: ['Coming soon...'],
+        es: ['Coming soon...']
       };
 
       function normalizeLang(lang){
