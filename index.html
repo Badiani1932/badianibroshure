@@ -367,6 +367,7 @@
       align-items:stretch;
       position:relative;
       overflow:visible;
+      container-type:inline-size;
     }
     .story-card--gelato::before{
       display:none;
@@ -389,15 +390,16 @@
     .story-card--gelato .story-card__title{
       color:var(--badiani-blue);
       text-shadow:none;
-      font-size:clamp(67px, 12vw, 192px);
+      font-size:clamp(36px, 13cqw, 160px);
       line-height:0.92;
       flex:1 0 auto;
       display:block;
       margin-bottom:clamp(20px, 3vw, 40px);
-      overflow-wrap:anywhere;
+      overflow-wrap:normal;
       word-break:normal;
       hyphens:none;
       white-space:normal;
+      letter-spacing:0.02em;
     }
     .story-card--gelato .story-card__desc{
       color:var(--badiani-blue);
@@ -749,14 +751,14 @@
       .story-grid .story-card:first-child{ box-shadow:none; border-bottom:1px solid rgba(255,255,255,0.15); }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
       .story-card--gelato .story-card__title{
-        font-size:clamp(58px, 19vw, 128px);
+        font-size:clamp(36px, 13cqw, 120px);
       }
 
     }
 
     @media(max-width:600px){
       .story-card--gelato .story-card__title{
-        font-size:clamp(51px, 16vw, 96px);
+        font-size:clamp(32px, 13cqw, 96px);
       }
     }
 
