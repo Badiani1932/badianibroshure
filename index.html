@@ -381,7 +381,9 @@
       z-index:2;
     }
     .story-card--gelato .story-card__label{
-      display:none;
+      display:block;
+      color:var(--badiani-blue);
+      opacity:0.55;
     }
     .story-card--gelato .story-card__title{
       color:var(--badiani-blue);
@@ -434,7 +436,7 @@
       font-size:clamp(14px, 1.2vw, 17px);
       color:rgba(255,255,255,0.85);
       line-height:1.7;
-      max-width:340px;
+      max-width:280px;
       font-weight:300;
     }
     /* Vertical divider between halves - using box-shadow to avoid affecting layout */
@@ -1077,6 +1079,7 @@
       </div>
       <div class="story-card story-card--gelato">
         <div class="story-card__overlay">
+          <span class="story-card__label" data-i18n="gelato.label">Buontalenti</span>
           <h2 class="story-card__title title-accent" data-i18n="gelato.title">LA CULTURA DEL BUONTALENTI GELATO</h2>
           <p class="story-card__desc" data-i18n-html="gelato.text">
             A metà del <span class="highlight-pink">Cinquecento</span>, Cosimo I de' Medici incaricò <span class="highlight-pink">Bernardo Buontalenti</span> di stupire una delegazione spagnola con festeggiamenti mai visti. L'architetto e genio creativo ideò una crema ghiacciata arricchita con lo zucchero, preziosa spezia dalle Americhe appena scoperte. Fu poi <span class="highlight-pink">Caterina de' Medici</span>, reggente di Francia, a portare i pasticceri fiorentini a corte, diffondendo il gelato in tutta Europa.
@@ -1315,6 +1318,7 @@
           'story.label': 'Badiani',
           'story.title': 'LA STORIA',
           'story.text': 'Nell\'estate del <span class="highlight-pink">1932</span>, il gelatiere Idilio Badiani apre la sua prima gelateria a Firenze. Nel 1993 il brand viene acquisito da <span class="highlight-pink">Orazio Pomposi</span> che, insieme ai figli Paolo e Patrizio, porta Badiani a nuovi traguardi attraverso innovazione e creatività. Il gusto più celebre, il <span class="highlight-pink">Buontalenti</span>, resta il simbolo della tradizione fiorentina. Dal 2015 Badiani è anche a Londra con negozi e laboratorio dedicato, guidata dal Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
+          'gelato.label': 'Buontalenti',
           'gelato.subtitle': '',
           'gelato.title': 'LA CULTURA DEL BUONTALENTI GELATO',
           'gelato.text': 'A metà del <span class="highlight-pink">Cinquecento</span>, Cosimo I de\' Medici incaricò <span class="highlight-pink">Bernardo Buontalenti</span> di stupire una delegazione spagnola con festeggiamenti mai visti. L\'architetto e genio creativo ideò una crema ghiacciata arricchita con lo zucchero, preziosa spezia dalle Americhe appena scoperte. Fu poi <span class="highlight-pink">Caterina de\' Medici</span>, reggente di Francia, a portare i pasticceri fiorentini a corte, diffondendo il gelato in tutta Europa.',
@@ -1419,6 +1423,7 @@
           'story.label': 'Badiani',
           'story.title': 'THE HISTORY',
           'story.text': 'In the summer of <span class="highlight-pink">1932</span>, gelato maker Idilio Badiani opened his first gelateria in Florence. In 1993 the brand was acquired by <span class="highlight-pink">Orazio Pomposi</span> who, together with his sons Paolo and Patrizio, took Badiani to new heights through innovation and creativity. The most celebrated flavour, <span class="highlight-pink">Buontalenti</span>, remains the symbol of Florentine tradition. Since 2015 Badiani has expanded to London with shops and a dedicated lab, led by Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
+          'gelato.label': 'Buontalenti',
           'gelato.subtitle': '',
           'gelato.title': 'THE CULTURE OF BUONTALENTI GELATO',
           'gelato.text': 'In the mid-<span class="highlight-pink">16th century</span>, Cosimo I de\' Medici commissioned <span class="highlight-pink">Bernardo Buontalenti</span> to astonish a Spanish delegation with unprecedented festivities. The architect and creative genius devised an iced cream enriched with sugar, a precious spice from the newly discovered Americas. It was then <span class="highlight-pink">Catherine de\' Medici</span>, regent of France, who brought Florentine pastry chefs to court, spreading gelato across Europe.',
@@ -1523,6 +1528,7 @@
           'story.label': 'Badiani',
           'story.title': 'L\'HISTOIRE',
           'story.text': 'Durant l\'été <span class="highlight-pink">1932</span>, le glacier Idilio Badiani ouvre sa première gelateria à Florence. En 1993, la marque est reprise par <span class="highlight-pink">Orazio Pomposi</span> qui, avec ses fils Paolo et Patrizio, propulse Badiani vers de nouveaux sommets grâce à l\'innovation et la créativité. Le parfum le plus célèbre, le <span class="highlight-pink">Buontalenti</span>, reste le symbole de la tradition florentine. Depuis 2015, Badiani est aussi à Londres avec des boutiques et un laboratoire dédié, dirigé par le Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
+          'gelato.label': 'Buontalenti',
           'gelato.subtitle': '',
           'gelato.title': 'LA CULTURE DU BUONTALENTI GELATO',
           'gelato.text': 'Au milieu du <span class="highlight-pink">XVIe siècle</span>, Cosme Ier de Médicis chargea <span class="highlight-pink">Bernardo Buontalenti</span> d\'éblouir une délégation espagnole avec des festivités inédites. L\'architecte et génie créatif imagina une crème glacée enrichie de sucre, épice précieuse des Amériques tout juste découvertes. C\'est ensuite <span class="highlight-pink">Catherine de Médicis</span>, régente de France, qui fit venir les pâtissiers florentins à la cour, diffusant le gelato dans toute l\'Europe.',
@@ -1627,6 +1633,7 @@
           'story.label': 'Badiani',
           'story.title': 'LA HISTORIA',
           'story.text': 'En el verano de <span class="highlight-pink">1932</span>, el heladero Idilio Badiani abre su primera heladería en Florencia. En 1993, la marca es adquirida por <span class="highlight-pink">Orazio Pomposi</span> quien, junto a sus hijos Paolo y Patrizio, lleva a Badiani a nuevas metas a través de la innovación y la creatividad. El sabor más célebre, el <span class="highlight-pink">Buontalenti</span>, sigue siendo el símbolo de la tradición florentina. Desde 2015, Badiani está también en Londres con tiendas y laboratorio propio, liderada por el Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
+          'gelato.label': 'Buontalenti',
           'gelato.subtitle': '',
           'gelato.title': 'LA CULTURA DEL BUONTALENTI GELATO',
           'gelato.text': 'A mediados del <span class="highlight-pink">siglo XVI</span>, Cosimo I de\' Medici encargó a <span class="highlight-pink">Bernardo Buontalenti</span> sorprender a una delegación española con festejos nunca vistos. El arquitecto y genio creativo ideó una crema helada enriquecida con azúcar, preciada especia de las Américas recién descubiertas. Fue luego <span class="highlight-pink">Catalina de Médici</span>, regente de Francia, quien llevó a los pasteleros florentinos a la corte, difundiendo el helado por toda Europa.',

@@ -709,24 +709,24 @@
       position:absolute;
       right:clamp(-90px, -9vw, 30px);
       bottom:clamp(-140px, -14vw, -100px);
-      height:clamp(306px, 40vh, 564px);
+      height:clamp(398px, 52vh, 733px);
       max-width:none;
       object-fit:contain;
       pointer-events:none;
       z-index:10;
-      transform:translateY(40px) translateX(-20px) rotate(-35deg);
+      transform:translateY(170px) translateX(-70px) rotate(0deg);
       transition:transform 0.1s linear;
       will-change:transform;
     }
     @media(max-width:1200px){
       .ev-corporate__manogelato{
-        height:clamp(242px, 33vh, 443px);
+        height:clamp(315px, 43vh, 576px);
         right:clamp(-130px, -13vw, -30px);
       }
     }
     @media(max-width:900px){
       .ev-corporate__manogelato{
-        height:clamp(193px, 28vh, 322px);
+        height:clamp(251px, 36vh, 419px);
         right:-10px;
         bottom:-20px;
       }
@@ -1559,9 +1559,9 @@
             var p = 1 - (r.top + r.height) / (vh + r.height);
             p = Math.max(0, Math.min(1, p));
             // arc: move right and curve upward
-            var shiftX = p * 60 - 20;
-            var shiftY = 40 - p * 200 - Math.sin(p * Math.PI) * 70;
-            var rotate = -35 + p * -8;
+            var shiftX = p * 60 - 70;
+            var shiftY = 170 - p * 200 - Math.sin(p * Math.PI) * 70;
+            var rotate = p * -8;
             mano.style.transform = 'translateX(' + shiftX + 'px) translateY(' + shiftY + 'px) rotate(' + rotate + 'deg)';
             ticking = false;
           });
