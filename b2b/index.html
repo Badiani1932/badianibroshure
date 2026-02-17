@@ -497,6 +497,7 @@
       letter-spacing:0.6px;
       width:min(1520px, 97vw);
       max-height:95vh;
+      max-height:95dvh;
       border-radius:24px;
       box-shadow:0 30px 80px rgba(0,0,0,0.6);
       display:flex;
@@ -1353,7 +1354,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:220px;
+      min-height:180px;
     }
     .coppette-detail-img img{
       width:100%;
@@ -1398,14 +1399,16 @@
     @media(max-width:600px){
       .coppette-detail-panel{
         flex-direction:column;
+        gap:0;
       }
       .coppette-detail-img{
         flex:none;
         max-width:100%;
-        min-height:180px;
+        min-height:120px;
+        max-height:160px;
       }
       .coppette-detail-info{
-        padding:16px;
+        padding:12px 14px;
       }
       .coppette-zone-label{
         font-size:10px;
@@ -1935,7 +1938,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:240px;
+      min-height:200px;
     }
     .torte-detail-img img{
       width:100%;
@@ -1998,14 +2001,16 @@
     @media(max-width:600px){
       .torte-detail-panel{
         flex-direction:column;
+        gap:0;
       }
       .torte-detail-img{
         flex:none;
         max-width:100%;
-        min-height:180px;
+        min-height:120px;
+        max-height:160px;
       }
       .torte-detail-info{
-        padding:16px;
+        padding:12px 14px;
       }
       .torte-zone-label{
         font-size:8px;
@@ -2135,7 +2140,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:220px;
+      min-height:180px;
     }
     .contenitori-detail-img img{
       width:100%;
@@ -2180,14 +2185,26 @@
     @media(max-width:600px){
       .contenitori-detail-panel{
         flex-direction:column;
+        gap:0;
       }
       .contenitori-detail-img{
         flex:none;
         max-width:100%;
-        min-height:180px;
+        min-height:120px;
+        max-height:160px;
       }
       .contenitori-detail-info{
-        padding:16px;
+        padding:12px 14px;
+      }
+      .contenitori-detail-name{
+        font-size:14px;
+      }
+      .contenitori-detail-meta{
+        font-size:12px;
+        gap:4px;
+      }
+      .contenitori-detail-meta span{
+        padding:5px 8px;
       }
       .contenitori-zone-label{
         font-size:9px;
@@ -2222,7 +2239,8 @@
       .modal{
         width:100%;
         height:auto;
-        max-height:calc(100% - 72px);
+        max-height:calc(100vh - 90px);
+        max-height:calc(100dvh - 90px);
         border-radius:18px;
         margin-top:0;
       }
@@ -2231,7 +2249,7 @@
       .gelato-card__details{ transition:none; }
 
       /* Modal mobile: compatta */
-      .modal-overlay{ padding:68px 12px 22px; align-items:flex-start; }
+      .modal-overlay{ padding:68px 12px 12px; align-items:flex-start; }
       .modal__close{ width:44px; height:44px; top:14px; right:14px; }
       .modal__header{ flex-wrap:wrap; }
       .modal__nav{ padding:0 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow-x:auto; flex-wrap:nowrap; flex-shrink:0; box-sizing:border-box; -webkit-overflow-scrolling:touch; }
@@ -4894,6 +4912,234 @@
         }
       };
 
+      /* ── Vasche flavor name translations ── */
+      const VASCHE_NAMES_I18N = {
+        en: {
+          'Bacio': 'Bacio',
+          'Banana': 'Banana',
+          'Buontalenti': 'Buontalenti',
+          'Buontalenti Caramello': 'Buontalenti Caramel',
+          'Buontalenti Delattosato': 'Buontalenti Lactose-Free',
+          'Buontalenti Fondente': 'Buontalenti Dark Chocolate',
+          'Buontalenti Pistacchio': 'Buontalenti Pistachio',
+          'Caffè': 'Coffee',
+          'Caramello al Burro Salato': 'Salted Butter Caramel',
+          'Cassandra Delattosata': 'Cassandra Lactose-Free',
+          'Cheesecake': 'Cheesecake',
+          'Cioccolata': 'Chocolate',
+          'Cioccolata all Arancia': 'Chocolate & Orange',
+          'Cioccoriso': 'Choco-rice',
+          'Cocco': 'Coconut',
+          'Cremino': 'Cremino',
+          'La Dolcevita': 'La Dolcevita',
+          'Nocciola': 'Hazelnut',
+          'Pistacchio': 'Pistachio',
+          'Sorbetto: Albicocca': 'Sorbet: Apricot',
+          'Sorbetto: Cioccolato Monorigine Venezuela': 'Sorbet: Single-Origin Venezuela Chocolate',
+          'Sorbetto: Fragola': 'Sorbet: Strawberry',
+          'Sorbetto: Frutto della Passione': 'Sorbet: Passion Fruit',
+          'Sorbetto: Lampone': 'Sorbet: Raspberry',
+          'Sorbetto: Limone': 'Sorbet: Lemon',
+          'Sorbetto: Mango': 'Sorbet: Mango',
+          'Sorbetto: Pera': 'Sorbet: Pear',
+          'Sorbetto Tropical Summer': 'Tropical Summer Sorbet',
+          'Stracciatella': 'Stracciatella',
+          'Stracciatella alla menta': 'Mint Stracciatella',
+          'Vaniglia': 'Vanilla',
+          'Yogurt': 'Yoghurt'
+        },
+        fr: {
+          'Bacio': 'Bacio',
+          'Banana': 'Banane',
+          'Buontalenti': 'Buontalenti',
+          'Buontalenti Caramello': 'Buontalenti Caramel',
+          'Buontalenti Delattosato': 'Buontalenti Sans Lactose',
+          'Buontalenti Fondente': 'Buontalenti Chocolat Noir',
+          'Buontalenti Pistacchio': 'Buontalenti Pistache',
+          'Caffè': 'Café',
+          'Caramello al Burro Salato': 'Caramel au Beurre Salé',
+          'Cassandra Delattosata': 'Cassandra Sans Lactose',
+          'Cheesecake': 'Cheesecake',
+          'Cioccolata': 'Chocolat',
+          'Cioccolata all Arancia': 'Chocolat & Orange',
+          'Cioccoriso': 'Choco-riz',
+          'Cocco': 'Noix de Coco',
+          'Cremino': 'Cremino',
+          'La Dolcevita': 'La Dolcevita',
+          'Nocciola': 'Noisette',
+          'Pistacchio': 'Pistache',
+          'Sorbetto: Albicocca': 'Sorbet : Abricot',
+          'Sorbetto: Cioccolato Monorigine Venezuela': 'Sorbet : Chocolat Origine Venezuela',
+          'Sorbetto: Fragola': 'Sorbet : Fraise',
+          'Sorbetto: Frutto della Passione': 'Sorbet : Fruit de la Passion',
+          'Sorbetto: Lampone': 'Sorbet : Framboise',
+          'Sorbetto: Limone': 'Sorbet : Citron',
+          'Sorbetto: Mango': 'Sorbet : Mangue',
+          'Sorbetto: Pera': 'Sorbet : Poire',
+          'Sorbetto Tropical Summer': 'Sorbet Tropical Summer',
+          'Stracciatella': 'Stracciatella',
+          'Stracciatella alla menta': 'Stracciatella Menthe',
+          'Vaniglia': 'Vanille',
+          'Yogurt': 'Yaourt'
+        },
+        es: {
+          'Bacio': 'Bacio',
+          'Banana': 'Banana',
+          'Buontalenti': 'Buontalenti',
+          'Buontalenti Caramello': 'Buontalenti Caramelo',
+          'Buontalenti Delattosato': 'Buontalenti Sin Lactosa',
+          'Buontalenti Fondente': 'Buontalenti Chocolate Negro',
+          'Buontalenti Pistacchio': 'Buontalenti Pistacho',
+          'Caffè': 'Café',
+          'Caramello al Burro Salato': 'Caramelo con Mantequilla Salada',
+          'Cassandra Delattosata': 'Cassandra Sin Lactosa',
+          'Cheesecake': 'Cheesecake',
+          'Cioccolata': 'Chocolate',
+          'Cioccolata all Arancia': 'Chocolate y Naranja',
+          'Cioccoriso': 'Choco-arroz',
+          'Cocco': 'Coco',
+          'Cremino': 'Cremino',
+          'La Dolcevita': 'La Dolcevita',
+          'Nocciola': 'Avellana',
+          'Pistacchio': 'Pistacho',
+          'Sorbetto: Albicocca': 'Sorbete: Albaricoque',
+          'Sorbetto: Cioccolato Monorigine Venezuela': 'Sorbete: Chocolate Monoorigen Venezuela',
+          'Sorbetto: Fragola': 'Sorbete: Fresa',
+          'Sorbetto: Frutto della Passione': 'Sorbete: Maracuyá',
+          'Sorbetto: Lampone': 'Sorbete: Frambuesa',
+          'Sorbetto: Limone': 'Sorbete: Limón',
+          'Sorbetto: Mango': 'Sorbete: Mango',
+          'Sorbetto: Pera': 'Sorbete: Pera',
+          'Sorbetto Tropical Summer': 'Sorbete Tropical Summer',
+          'Stracciatella': 'Stracciatella',
+          'Stracciatella alla menta': 'Stracciatella de Menta',
+          'Vaniglia': 'Vainilla',
+          'Yogurt': 'Yogur'
+        }
+      };
+
+      /* ── Pezzi duri (monoporzioni) name translations ── */
+      const PEZZI_DURI_NAMES_I18N = {
+        en: {
+          'Classico Buontalenti': 'Classic Buontalenti',
+          'Classico Stracciatella': 'Classic Stracciatella',
+          'Classico Fondente': 'Classic Dark Chocolate',
+          'Cuore Buontalenti fondente': 'Buontalenti Dark Chocolate Heart',
+          'Cuore di Buontalenti alla fragola': 'Buontalenti Strawberry Heart',
+          'Biscotto Buontalenti': 'Buontalenti Biscuit',
+          'Biscotto Stracciatella': 'Stracciatella Biscuit',
+          'Donut cioccolato': 'Chocolate Donut',
+          'Donut cioccolato bianco': 'White Chocolate Donut',
+          'Donut cioccolato alla fragola': 'Strawberry Chocolate Donut',
+          'Donut cioccolato al pistacchio': 'Pistachio Chocolate Donut',
+          'Fruit Tube Limone': 'Fruit Tube Lemon',
+          'Fruit Tube Menta': 'Fruit Tube Mint',
+          'Fruit Tube Fragola': 'Fruit Tube Strawberry',
+          'Ghiacciolo di frutta alla fragola': 'Strawberry Fruit Lolly',
+          'Ghiacciolo di frutta al limone': 'Lemon Fruit Lolly',
+          'Ghiacciolo di frutta la mango': 'Mango Fruit Lolly',
+          'Ghiacciolo alla menta': 'Mint Lolly',
+          'Lingotto Buontalenti': 'Buontalenti Ingot',
+          'Zampa': 'Paw'
+        },
+        fr: {
+          'Classico Buontalenti': 'Classique Buontalenti',
+          'Classico Stracciatella': 'Classique Stracciatella',
+          'Classico Fondente': 'Classique Chocolat Noir',
+          'Cuore Buontalenti fondente': 'Cœur Buontalenti Chocolat Noir',
+          'Cuore di Buontalenti alla fragola': 'Cœur Buontalenti Fraise',
+          'Biscotto Buontalenti': 'Biscuit Buontalenti',
+          'Biscotto Stracciatella': 'Biscuit Stracciatella',
+          'Donut cioccolato': 'Donut Chocolat',
+          'Donut cioccolato bianco': 'Donut Chocolat Blanc',
+          'Donut cioccolato alla fragola': 'Donut Chocolat Fraise',
+          'Donut cioccolato al pistacchio': 'Donut Chocolat Pistache',
+          'Fruit Tube Limone': 'Fruit Tube Citron',
+          'Fruit Tube Menta': 'Fruit Tube Menthe',
+          'Fruit Tube Fragola': 'Fruit Tube Fraise',
+          'Ghiacciolo di frutta alla fragola': 'Glace à l\u2019eau Fraise',
+          'Ghiacciolo di frutta al limone': 'Glace à l\u2019eau Citron',
+          'Ghiacciolo di frutta la mango': 'Glace à l\u2019eau Mangue',
+          'Ghiacciolo alla menta': 'Glace à l\u2019eau Menthe',
+          'Lingotto Buontalenti': 'Lingot Buontalenti',
+          'Zampa': 'Patte'
+        },
+        es: {
+          'Classico Buontalenti': 'Clásico Buontalenti',
+          'Classico Stracciatella': 'Clásico Stracciatella',
+          'Classico Fondente': 'Clásico Chocolate Negro',
+          'Cuore Buontalenti fondente': 'Corazón Buontalenti Chocolate Negro',
+          'Cuore di Buontalenti alla fragola': 'Corazón Buontalenti Fresa',
+          'Biscotto Buontalenti': 'Galleta Buontalenti',
+          'Biscotto Stracciatella': 'Galleta Stracciatella',
+          'Donut cioccolato': 'Donut de Chocolate',
+          'Donut cioccolato bianco': 'Donut de Chocolate Blanco',
+          'Donut cioccolato alla fragola': 'Donut de Chocolate con Fresa',
+          'Donut cioccolato al pistacchio': 'Donut de Chocolate con Pistacho',
+          'Fruit Tube Limone': 'Fruit Tube Limón',
+          'Fruit Tube Menta': 'Fruit Tube Menta',
+          'Fruit Tube Fragola': 'Fruit Tube Fresa',
+          'Ghiacciolo di frutta alla fragola': 'Polo de Fruta de Fresa',
+          'Ghiacciolo di frutta al limone': 'Polo de Fruta de Limón',
+          'Ghiacciolo di frutta la mango': 'Polo de Fruta de Mango',
+          'Ghiacciolo alla menta': 'Polo de Menta',
+          'Lingotto Buontalenti': 'Lingote Buontalenti',
+          'Zampa': 'Patita'
+        }
+      };
+
+      /* ── Torte name translations ── */
+      const TORTE_NAMES_I18N = {
+        en: {
+          'Millefoglie Buontalenti': 'Buontalenti Millefeuille',
+          'Millefoglie Buontalenti con salsa Dolcevita (Nocciole e cacao)': 'Buontalenti Millefeuille with Dolcevita Sauce (Hazelnut & Cocoa)',
+          'Millefoglie Buontalenti con salsa Pistacchio': 'Buontalenti Millefeuille with Pistachio Sauce'
+        },
+        fr: {
+          'Millefoglie Buontalenti': 'Millefeuille Buontalenti',
+          'Millefoglie Buontalenti con salsa Dolcevita (Nocciole e cacao)': 'Millefeuille Buontalenti Sauce Dolcevita (Noisettes et Cacao)',
+          'Millefoglie Buontalenti con salsa Pistacchio': 'Millefeuille Buontalenti Sauce Pistache'
+        },
+        es: {
+          'Millefoglie Buontalenti': 'Milhojas Buontalenti',
+          'Millefoglie Buontalenti con salsa Dolcevita (Nocciole e cacao)': 'Milhojas Buontalenti con Salsa Dolcevita (Avellanas y Cacao)',
+          'Millefoglie Buontalenti con salsa Pistacchio': 'Milhojas Buontalenti con Salsa de Pistacho'
+        }
+      };
+
+      /* ── Accessori name & description translations ── */
+      const ACCESSORI_I18N = {
+        en: {
+          'Palettine': { name: 'Spatulas', desc: 'Gelato spatulas' },
+          'Cialdine': { name: 'Wafers', desc: 'Badiani branded wafers' },
+          'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17' }
+        },
+        fr: {
+          'Palettine': { name: 'Spatules', desc: 'Spatules à gelato' },
+          'Cialdine': { name: 'Gaufrettes', desc: 'Gaufrettes griffées Badiani' },
+          'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17' }
+        },
+        es: {
+          'Palettine': { name: 'Paletas', desc: 'Paletas de helado' },
+          'Cialdine': { name: 'Barquillos', desc: 'Barquillos con logo Badiani' },
+          'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17' }
+        }
+      };
+
+      /* ── Pezzi duri min-order text translation ── */
+      const PEZZI_DURI_MINORDER_I18N = {
+        en: { '96 (8 box da 12 pezzi)': '96 (8 boxes of 12 pieces)' },
+        fr: { '96 (8 box da 12 pezzi)': '96 (8 boîtes de 12 pièces)' },
+        es: { '96 (8 box da 12 pezzi)': '96 (8 cajas de 12 piezas)' }
+      };
+
+      function getVascheName(name){ return (VASCHE_NAMES_I18N[currentLang] || {})[name] || name; }
+      function getPezziDuriName(name){ return (PEZZI_DURI_NAMES_I18N[currentLang] || {})[name] || name; }
+      function getTorteName(name){ return (TORTE_NAMES_I18N[currentLang] || {})[name] || name; }
+      function getAccessoriName(name){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return a ? a.name : name; }
+      function getAccessoriDesc(name, fallback){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return a ? a.desc : fallback; }
+      function getPezziDuriMinOrder(val){ return ((PEZZI_DURI_MINORDER_I18N[currentLang] || {})[val]) || val; }
+
       function getCatTitle(cat){ return (CATEGORY_TITLES_I18N[currentLang] || CATEGORY_TITLES_I18N.it)[cat] || CATEGORY_DATA[cat]?.title || cat; }
       function getColLabel(col){ return (CATEGORY_COLUMNS_I18N[currentLang] || CATEGORY_COLUMNS_I18N.it)[col] || col; }
 
@@ -5100,6 +5346,20 @@
         return false;
       }
 
+      function translateTableCell(cell, colIndex, category, row){
+        if(colIndex === 0){
+          if(category === 'VASCHE') return getVascheName(cell);
+          if(category === 'PEZZI DURI') return getPezziDuriName(cell);
+          if(category === 'TORTE') return getTorteName(cell);
+          if(category === 'ACCESSORI') return getAccessoriName(cell);
+        }
+        if(category === 'PEZZI DURI' && colIndex === 2) return getPezziDuriMinOrder(cell);
+        if(category === 'ACCESSORI' && colIndex === 1) return getAccessoriDesc(row[0], cell);
+        if(category === 'CONTENITORI' && colIndex === 1) return getContenitoriDesc(row[0]) || cell;
+        if(category === 'CONI_COPPETTE' && colIndex === 1) return getConiCoppetteDesc(row[0]) || cell;
+        return cell;
+      }
+
       function renderTableSection({ title, columns, rows }, category){
         if(!columns || !columns.length || !rows || !rows.length) return '';
         const localTitle = getCatTitle(category) || title;
@@ -5110,7 +5370,7 @@
         `;
         const body = `
           <tbody>
-            ${rows.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join('')}</tr>`).join('')}
+            ${rows.map((row) => `<tr>${row.map((cell, ci) => `<td>${translateTableCell(cell, ci, category, row)}</td>`).join('')}</tr>`).join('')}
           </tbody>
         `;
         return `
@@ -5142,7 +5402,7 @@
         const data = CATEGORY_DATA['VASCHE'];
         if(!data || !data.rows || !data.rows.length) return '';
         const names = data.rows.map(r => r[0]).sort((a, b) => a.localeCompare(b, 'it'));
-        const items = names.map(n => `<span class="vasche-flavor">${n}</span>`).join('');
+        const items = names.map(n => `<span class="vasche-flavor">${getVascheName(n)}</span>`).join('');
         return `
           <div class="modal__section">
             <h4>${getCatTitle('VASCHE')}</h4>
@@ -5182,6 +5442,8 @@
           .map(({ name, weight, min, src }) => {
             const imageSrc = encodeURI(src);
             const isExpanded = expandedPezziDuriId === name;
+            const localName = getPezziDuriName(name);
+            const localMin = getPezziDuriMinOrder(min);
             const zoomIcon = `
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
                 <polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -5193,14 +5455,14 @@
             return `
               <article class="pezziduri-card${isExpanded ? ' is-expanded' : ''}" data-pezziduri-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
                 <div class="pezziduri-media">
-                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
-                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${src}" data-zoom-alt="${name}">${zoomIcon}</button>
+                  <img src="${imageSrc}" alt="${localName}" loading="lazy" decoding="async" />
+                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${src}" data-zoom-alt="${localName}">${zoomIcon}</button>
                 </div>
                 <div class="pezziduri-body">
-                  <div class="pezziduri-title">${name}</div>
+                  <div class="pezziduri-title">${localName}</div>
                   <div class="pezziduri-meta">
                     <span><strong>${t('b2b.pezziduri.avgWeight')}</strong><em>${weight}</em></span>
-                    <span><strong>${t('b2b.pezziduri.minOrder')}</strong><em>${min}</em></span>
+                    <span><strong>${t('b2b.pezziduri.minOrder')}</strong><em>${localMin}</em></span>
                   </div>
                 </div>
               </article>
@@ -5373,7 +5635,8 @@
         const zones = TORTE_ZONE_ORDER.map((name) => {
           const isActive = selectedTorteMapId === name;
           const shortName = TORTE_SHORT_NAMES[name] || name;
-          return `<div class="torte-zone${isActive ? ' is-active' : ''}" data-torte-zone="${name}" role="button" tabindex="0" aria-label="${name}">
+          const localAriaLabel = getTorteName(name);
+          return `<div class="torte-zone${isActive ? ' is-active' : ''}" data-torte-zone="${name}" role="button" tabindex="0" aria-label="${localAriaLabel}">
             <span class="torte-zone-label">${tapIcon}${shortName}</span>
           </div>`;
         }).join('');
@@ -5386,10 +5649,10 @@
           detailPanel = `
             <div class="torte-detail-panel">
               <div class="torte-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selectedTorteMapId}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${getTorteName(selectedTorteMapId)}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="torte-detail-info">
-                <div class="torte-detail-name">${selectedTorteMapId}</div>
+                <div class="torte-detail-name">${getTorteName(selectedTorteMapId)}</div>
                 <div class="torte-detail-sizes">
                   <span class="torte-size-pill">S &mdash; ${t('b2b.torte.sizeS')}</span>
                   <span class="torte-size-pill">L &mdash; ${t('b2b.torte.sizeL')}</span>
@@ -5526,7 +5789,7 @@
                 <div class="coni-body">
                   <div class="coni-title">${name}</div>
                   <div class="coni-meta">
-                    <span><strong>${t('b2b.coni.description')}</strong><em>${desc}</em></span>
+                    <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(name) || desc}</em></span>
                     <span><strong>${t('b2b.coni.quantity')}</strong><em>${qty}</em></span>
                   </div>
                   ${gfBlock}
@@ -5625,8 +5888,10 @@
             const hasImage = !!src;
             const imageSrc = hasImage ? encodeURI(src) : '';
             const isExpanded = expandedAccessoriId === name;
+            const localName = getAccessoriName(name);
+            const localDesc = getAccessoriDesc(name, desc);
             const mediaContent = hasImage
-              ? `<img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />`
+              ? `<img src="${imageSrc}" alt="${localName}" loading="lazy" decoding="async" />`
               : '';
             return `
               <article class="accessori-card${isExpanded ? ' is-expanded' : ''}" data-accessori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
@@ -5634,9 +5899,9 @@
                   ${mediaContent}
                 </div>
                 <div class="accessori-body">
-                  <div class="accessori-title">${name}</div>
+                  <div class="accessori-title">${localName}</div>
                   <div class="accessori-meta">
-                    <span><strong>${t('b2b.accessori.description')}</strong><em>${desc}</em></span>
+                    <span><strong>${t('b2b.accessori.description')}</strong><em>${localDesc}</em></span>
                     <span><strong>${t('b2b.accessori.quantity')}</strong><em>${qty}</em></span>
                   </div>
                 </div>
