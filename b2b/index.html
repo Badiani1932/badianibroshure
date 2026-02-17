@@ -43,7 +43,8 @@
       background:#000;
       overflow:hidden;
     }
-    .page-hero__img{
+    .page-hero__img,
+    .page-hero__video{
       position:absolute;
       inset:0;
       width:100%;
@@ -58,7 +59,7 @@
       background:linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.40) 100%);
       z-index:1;
     }
-    .page-hero > *:not(.page-hero__img){ position:relative; z-index:2; }
+    .page-hero > *:not(.page-hero__img):not(.page-hero__video){ position:relative; z-index:2; }
     .page-hero__heading-group{
       display:flex;
       flex-direction:column;
@@ -2853,7 +2854,9 @@
   <main class="page-shell">
 
     <section class="page-hero">
-      <img class="page-hero__img" src="../assets/images/branding/hero-bg.webp" alt="Badiani B2B" width="1920" height="1080" fetchpriority="high" />
+      <video class="page-hero__video" autoplay muted loop playsinline poster="../assets/images/branding/hero-bg.webp">
+        <source src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4" />
+      </video>
       <div class="page-hero__heading-group">
         <span class="page-hero__label" data-i18n="b2b.hero.label_text">Partnership</span>
         <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">B2B</h1>
