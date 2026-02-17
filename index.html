@@ -59,7 +59,8 @@
       text-align:left;
       color:#fff;
       background:#000;
-      min-height:70vh;
+      min-height:60vh;
+      max-height:80vh;
     }
     .hero video{
       display:block;
@@ -158,6 +159,26 @@
       margin:0;
       padding:0;
     }
+    .choice-card::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      z-index:10;
+      pointer-events:none;
+      border:4px solid rgba(232,88,130,0.6);
+      box-shadow:inset 0 0 20px rgba(232,88,130,0.3), 0 0 20px rgba(232,88,130,0.3);
+      animation:pulse-border 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-border{
+      0%, 100%{
+        border-color:rgba(232,88,130,0.2);
+        box-shadow:inset 0 0 10px rgba(232,88,130,0.1), 0 0 10px rgba(232,88,130,0.1);
+      }
+      50%{
+        border-color:rgba(232,88,130,1);
+        box-shadow:inset 0 0 30px rgba(232,88,130,0.4), 0 0 30px rgba(232,88,130,0.4);
+      }
+    }
     .choice-card:hover{ transform:none; box-shadow:none; }
     .choice-card__img{
       position:absolute;
@@ -202,7 +223,7 @@
     }
     .choice-title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(72px, 9vw, 140px);
+      font-size:clamp(108px, 13.5vw, 210px);
       color:#fff;
       text-transform:uppercase;
       letter-spacing:4px;
@@ -258,7 +279,7 @@
         padding:32px 28px;
       }
       .choice-title{
-        font-size:clamp(56px, 10vw, 100px);
+        font-size:clamp(84px, 15vw, 150px);
       }
       .choice-grid .choice-card:first-child{
         box-shadow:none;
@@ -286,7 +307,7 @@
         gap:8px;
       }
       .choice-title{
-        font-size:clamp(48px, 12vw, 80px);
+        font-size:clamp(72px, 18vw, 120px);
       }
       .choice-desc{ font-size:13px; max-width:none; }
     }
@@ -454,7 +475,7 @@
       background-repeat:no-repeat;
       align-items:stretch;
       position:relative;
-      overflow:visible;
+      overflow:hidden;
     }
     .story-card--gelato::before{
       display:none;
@@ -477,12 +498,12 @@
     .story-card--gelato .story-card__title{
       color:var(--badiani-blue);
       text-shadow:none;
-      font-size:clamp(67px, 12vw, 192px);
+      font-size:clamp(42px, 6vw, 192px);
       line-height:0.92;
       flex:1 0 auto;
       display:block;
       margin-bottom:clamp(20px, 3vw, 40px);
-      overflow-wrap:anywhere;
+      overflow-wrap:normal;
       word-break:normal;
       hyphens:none;
       white-space:normal;
@@ -513,7 +534,7 @@
     }
     .story-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(121px, 15.1vw, 235px);
+      font-size:clamp(40px, 7.5vw, 235px);
       color:#fff;
       text-transform:uppercase;
       letter-spacing:4px;
@@ -521,8 +542,8 @@
       line-height:0.9;
       margin-bottom:16px;
       text-shadow:none;
-      overflow-wrap:break-word;
-      word-break:break-word;
+      overflow-wrap:normal;
+      word-break:normal;
       hyphens:none;
       min-width:0;
     }
@@ -576,10 +597,10 @@
     }
     .world-card__paolo{
       position:absolute;
-      right:calc(-15% + 100px);
+      right:-2%;
       bottom:0;
-      height:101%;
-      max-width:73%;
+      height:95%;
+      max-width:60%;
       object-fit:contain;
       object-position:right bottom;
       pointer-events:none;
@@ -719,7 +740,7 @@
       position:absolute;
       z-index:2;
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(60px, 18vw, 330px);
+      font-size:clamp(50px, 10vw, 330px);
       font-weight:700;
       text-transform:uppercase;
       letter-spacing:clamp(2px, 0.4vw, 6px);
@@ -797,7 +818,7 @@
       /* World split - stack vertically, keep internal layout identical to desktop */
       .world-grid{ grid-template-columns:1fr; }
       .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
-      .world-card__paolo{ height:131%; right:calc(-8% + 100px); max-width:88%; }
+      .world-card__paolo{ height:140%; right:0; max-width:78%; }
       /* Full width text when cards are stacked */
       .world-card--metrics .world-card__title{ max-width:100%; }
       .world-card__desc{ max-width:100%; }
@@ -805,7 +826,7 @@
       .stat:nth-child(odd){ border-right:none; }
       /* RIGHT card — Significa/Gelato: shorter, bigger text */
       .world-card--timeline{ min-height:40vh; padding:clamp(24px, 4vw, 40px) 0 0 0; }
-      .world-card__gelato-big{ font-size:clamp(80px, 24vw, 430px); }
+      .world-card__gelato-big{ font-size:clamp(50px, 16vw, 430px); }
       .world-card__gelato-wrap{ flex:0 1 auto; }
       .timeline{
         flex-direction:column;
@@ -831,20 +852,22 @@
       .story-grid{ grid-template-columns:1fr; }
       .story-card{ min-height:50vh; }
       .story-card__overlay{ padding:32px 28px; }
-      .story-card__title{ font-size:clamp(94px, 23.5vw, 168px); }
+      .story-card__title{ font-size:clamp(36px, 12vw, 168px); overflow-wrap:normal; word-break:normal; }
       .story-card__desc{ font-size:clamp(13px, 3.8vw, 15px); line-height:1.5; max-width:none; }
       .story-card__label{ letter-spacing:2px; margin-bottom:8px; }
       .story-grid .story-card:first-child{ box-shadow:none; border-bottom:1px solid rgba(255,255,255,0.15); }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
       .story-card--gelato .story-card__title{
-        font-size:clamp(58px, 19vw, 128px);
+        font-size:clamp(30px, 11vw, 128px);
+        overflow-wrap:normal;
+        word-break:normal;
       }
 
     }
 
     @media(max-width:600px){
       .story-card--gelato .story-card__title{
-        font-size:clamp(51px, 16vw, 96px);
+        font-size:clamp(28px, 11vw, 96px);
       }
     }
 
@@ -1128,14 +1151,13 @@
         <span class="hero-content__label" data-i18n="home.hero.welcome">Benvenuti</span>
         <h1 class="title-accent title-accent--light" data-i18n="home.hero.title">Badiani Experience</h1>
       </div>
-      <p class="hero-subtitle" data-i18n-html="home.hero.subtitle">Gelato artigianale, bello da vedere e buonissimo da vivere.<br>Personalizziamo format, setup e servizio in base alla tua occasione.</p>
     </div>
   </section>
 
   <!-- CHOICE DIVIDER — SEPARATOR -->
   <section class="choice-divider">
     <div class="choice-divider-content">
-      <h2 data-i18n="home.choiceDivider.title">SCEGLI QUELLO CHE FA PER TE</h2>
+      <h2 data-i18n="home.choiceDivider.title">COSA OFFRIAMO</h2>
     </div>
   </section>
 
@@ -1203,7 +1225,7 @@
       <div class="world-card world-card--metrics">
         <img class="world-card__paolo" src="assets/paolo%20pomposi.png" alt="Paolo Pomposi" loading="lazy" decoding="async" />
         <span class="world-card__label" data-i18n="heritage.stat.quality">Qualità Italiana</span>
-        <h2 class="world-card__title title-accent" data-i18n="heritage.title">BADIANI NEL MONDO SIGNIFICA GELATO</h2>
+        <h2 class="world-card__title title-accent" data-i18n="heritage.title">BADIANI NEL MONDO VUOL DIRE GELATO</h2>
         <p class="world-card__desc" data-i18n-html="heritage.intro">
           Nata a <span class="highlight-pink">Firenze nel 1932</span>, Badiani è uno dei produttori di gelato più prestigiosi al mondo. Dalla culla del gelato, abbiamo costruito una presenza internazionale in cinque paesi su tre continenti.
         </p>
@@ -1230,7 +1252,7 @@
       <div id="locations" class="world-card world-card--timeline">
         <span class="world-card__label" data-i18n="global.top">Badiani Nel Mondo</span>
         <h2 class="world-card__title title-accent title-accent--light" data-i18n="global.mid">
-          Significa
+          Vuol Dire
         </h2>
         <div class="world-card__gelato-wrap">
           <span class="world-card__gelato-big">Gelato</span>
@@ -1404,7 +1426,7 @@
           'home.choice.magazine.note': 'Sfoglia le anteprime dei media',
           'home.choice.magazine.aria': 'Vai alla pagina Dicono di Noi',
           'home.choice.cta': 'Scopri',
-          'home.choiceDivider.title': 'SCEGLI LA TUA CATEGORIA',
+          'home.choiceDivider.title': 'COSA OFFRIAMO',
           'home.chiSiamo.title': 'CHI SIAMO',
           'home.contact.label': 'Contatti',
           'home.contact.title': 'Contatti',
@@ -1438,7 +1460,7 @@
           'heritage.stat.quality': 'Qualità Italiana',
           'heritage.stat.countries': 'Paesi',
           'global.top': 'Badiani Nel Mondo',
-          'global.mid': 'Significa',
+          'global.mid': 'Vuol Dire',
           'global.tl.florence': 'Firenze',
           'global.tl.england': 'Inghilterra',
           'global.tl.spain': 'Spagna',
@@ -1511,7 +1533,7 @@
           'home.choice.magazine.note': 'Browse media previews',
           'home.choice.magazine.aria': 'Go to They Say About Us page',
           'home.choice.cta': 'Discover',
-          'home.choiceDivider.title': 'CHOOSE YOUR CATEGORY',
+          'home.choiceDivider.title': 'WHAT WE OFFER',
           'home.chiSiamo.title': 'ABOUT US',
           'home.contact.label': 'Contacts',
           'home.contact.title': 'Contacts',
@@ -1618,7 +1640,7 @@
           'home.choice.magazine.note': 'Parcourez les aperçus des médias',
           'home.choice.magazine.aria': 'Aller à la page Ils Parlent de Nous',
           'home.choice.cta': 'Découvrir',
-          'home.choiceDivider.title': 'CHOISISSEZ VOTRE CATÉGORIE',
+          'home.choiceDivider.title': 'CE QUE NOUS OFFRONS',
           'home.chiSiamo.title': 'QUI SOMMES NOUS',
           'home.contact.label': 'Contacts',
           'home.contact.title': 'Contacts',
@@ -1725,7 +1747,7 @@
           'home.choice.magazine.note': 'Explora las vistas previas de los medios',
           'home.choice.magazine.aria': 'Ir a la página Dicen de Nosotros',
           'home.choice.cta': 'Descubrir',
-          'home.choiceDivider.title': 'ELIGE TU CATEGORÍA',
+          'home.choiceDivider.title': 'LO QUE OFRECEMOS',
           'home.chiSiamo.title': 'QUIÉNES SOMOS',
           'home.contact.label': 'Contactos',
           'home.contact.title': 'Contactos',
@@ -1759,7 +1781,7 @@
           'heritage.stat.quality': 'Calidad Italiana',
           'heritage.stat.countries': 'Países',
           'global.top': 'Badiani En El Mundo',
-          'global.mid': 'Significa',
+          'global.mid': 'Quiere Decir',
           'global.tl.florence': 'Florencia',
           'global.tl.england': 'Inglaterra',
           'global.tl.spain': 'España',
@@ -2044,9 +2066,10 @@
             var shiftMapY = (1 - wp) * 80;
             worldMap.style.transform = 'translateY(' + shiftMapY + 'px)';
 
-            /* GELATO big text – scende dall'alto (opposto alla mappa) */
+            /* GELATO big text – scende dall'alto (opposto alla mappa), comparsa anticipata */
             if(gelatoBig){
-              var shiftTextY = -(1 - wp) * 80;
+              var gpEarly = Math.min(1, wp * 2.2);
+              var shiftTextY = -(1 - gpEarly) * 50;
               gelatoBig.style.transform = 'translateY(' + shiftTextY + 'px)';
             }
           }
