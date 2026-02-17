@@ -29,7 +29,8 @@
       align-items:flex-end;
       background:#000;
     }
-    .ext-hero__img{
+    .ext-hero__img,
+    .ext-hero__video{
       position:absolute;
       inset:0;
       width:100%;
@@ -110,14 +111,7 @@
     }
     .ext-card:hover{ transform:none; box-shadow:none; }
     .ext-card::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      z-index:10;
-      pointer-events:none;
-      border:4px solid rgba(232,88,130,0.6);
-      box-shadow:inset 0 0 20px rgba(232,88,130,0.3), 0 0 20px rgba(232,88,130,0.3);
-      animation:pulse-border 2.5s ease-in-out infinite;
+      display:none;
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -863,7 +857,9 @@
 
   <!-- HERO -->
   <section class="ext-hero">
-    <img class="ext-hero__img" src="../foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg" alt="Badiani dove vuoi" width="4000" height="6000" fetchpriority="high" />
+    <video class="ext-hero__video" autoplay muted loop playsinline poster="../foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg">
+      <source src="../../assets/video/Video%20Badiani%20dove%20vuoi%20.mp4" type="video/mp4" />
+    </video>
     <div class="ext-hero__content">
       <div class="ext-hero__heading">
         <span class="ext-hero__label" data-i18n="external.hero.label">Soluzioni mobili</span>

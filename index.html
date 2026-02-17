@@ -34,10 +34,6 @@
 
   <link rel="stylesheet" href="./assets/badiani-common.css" />
   <style>
-    /* Hide scrollbar but keep scrolling */
-    html{ scrollbar-width:none; }
-    html::-webkit-scrollbar{ display:none; }
-
     /* Page-specific styles for homepage */
     @media(max-width:500px){
       .topbar__nav a{ padding:6px 10px; font-size:10px; letter-spacing:1px; }
@@ -164,14 +160,7 @@
       padding:0;
     }
     .choice-card::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      z-index:10;
-      pointer-events:none;
-      border:4px solid rgba(232,88,130,0.6);
-      box-shadow:inset 0 0 20px rgba(232,88,130,0.3), 0 0 20px rgba(232,88,130,0.3);
-      animation:pulse-border 2.5s ease-in-out infinite;
+      display:none;
     }
     @keyframes pulse-border{
       0%, 100%{

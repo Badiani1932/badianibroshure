@@ -67,8 +67,14 @@ html {
   text-size-adjust: 100%;
   scrollbar-width: none;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 html::-webkit-scrollbar { display: none; }
+
+html, body {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 body, html {
   font-family: 'SuperGroteskDigits', 'SuperGroteskA', 'SuperGroteskB', sans-serif;

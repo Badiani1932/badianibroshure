@@ -132,6 +132,7 @@
       padding:0;
       background:none;
       box-shadow:none;
+      container-type:inline-size;
     }
     .category-card.b2b-card--gelato,
     .category-card.b2b-card--torte,
@@ -150,21 +151,7 @@
     }
     /* Pulsing pink border overlay */
     .b2b-pulse{
-      display:block;
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      bottom:0;
-      width:100%;
-      height:100%;
-      z-index:10;
-      pointer-events:none;
-      border:4px solid rgba(232,88,130,0.6);
-      box-shadow:inset 0 0 20px rgba(232,88,130,0.3), 0 0 20px rgba(232,88,130,0.3);
-      animation:pulse-border-b2b 2.5s ease-in-out infinite;
-      flex-shrink:0;
-      align-self:stretch;
+      display:none;
     }
     @keyframes pulse-border-b2b{
       0%, 100%{
@@ -250,12 +237,12 @@
     .category-card__overlay{
       position:relative;
       z-index:2;
-      padding:48px 52px;
+      padding:clamp(20px, 8cqi, 52px) clamp(16px, 8cqi, 52px);
       display:flex;
       flex-direction:column;
       align-items:flex-start;
       justify-content:flex-end;
-      gap:16px;
+      gap:clamp(8px, 3cqi, 16px);
       width:100%;
       height:100%;
     }
@@ -268,31 +255,33 @@
     }
     .category-label{
       display:block;
-      font-size:clamp(16px, 1.4vw, 19px);
+      font-size:clamp(10px, 4cqi, 19px);
       text-transform:uppercase;
-      letter-spacing:3px;
+      letter-spacing:clamp(1px, 0.6cqi, 3px);
       font-weight:400;
       color:rgba(255,255,255,0.75);
       line-height:1;
-      margin-bottom:20px;
+      margin-bottom:clamp(8px, 4cqi, 20px);
     }
     .category-title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(48px, 6vw, 100px);
-      letter-spacing:4px;
+      font-size:clamp(17px, 11cqi, 100px);
+      letter-spacing:clamp(1px, 0.8cqi, 4px);
       text-transform:uppercase;
       font-weight:700;
       line-height:0.9;
       color:#fff;
       text-shadow:none;
       padding:0;
+      overflow-wrap:break-word;
+      word-break:break-word;
     }
     .category-desc{
-      font-size:clamp(17px, 1.4vw, 20px);
+      font-size:clamp(12px, 4cqi, 20px);
       color:rgba(255,255,255,0.85);
       line-height:1.5;
       max-width:320px;
-      padding-bottom:6px;
+      padding-bottom:clamp(2px, 1cqi, 6px);
       font-weight:300;
     }
     /* Override per-card title pills → full overlay titles */
@@ -798,9 +787,8 @@
     .gelato-body{
       display:grid;
       grid-template-columns:minmax(0, 1fr);
-      gap:24px;
+      gap:20px;
       min-height:0;
-      margin-top:-10px;
     }
     .gelato-grid{
       display:grid;
@@ -1073,9 +1061,9 @@
       display:block;
     }
     .tipologia-body{
-      padding:12px 14px 14px;
+      padding:10px 14px 12px;
       display:grid;
-      gap:4px;
+      gap:0;
       text-align:center;
     }
     .tipologia-title{
@@ -1087,11 +1075,7 @@
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .tipologia-capacity{
-      font-size:11px;
-      color:rgba(30,57,141,0.55);
-      letter-spacing:0.4px;
-      text-transform:uppercase;
-      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      display:none;
     }
     @media(max-width:720px){
       .tipologia-grid{
@@ -1347,12 +1331,14 @@
       display:flex;
       gap:24px;
       margin-top:20px;
+      margin-bottom:20px;
       background:#fff;
       border-radius:16px;
       border:1px solid rgba(30,57,141,0.08);
       box-shadow:0 10px 22px rgba(0,0,0,0.2);
       overflow:hidden;
       animation:cardDetailsFadeIn 0.3s ease;
+      scroll-margin-top:20px;
     }
     .coppette-detail-img{
       flex:0 0 45%;
@@ -1430,19 +1416,205 @@
         width:14px;
         height:14px;
       }
-      /* Evenly distribute labels across the image, 100px inset from edges */
+      /* Evenly distribute labels across the image, like desktop */
       .coppette-zone{ position:static; }
       .coppette-zone:nth-child(1) .coppette-zone-label{
-        left:15%;
+        left:12%;
       }
       .coppette-zone:nth-child(2) .coppette-zone-label{
-        left:38%;
+        left:37%;
       }
       .coppette-zone:nth-child(3) .coppette-zone-label{
-        left:62%;
+        left:63%;
       }
       .coppette-zone:nth-child(4) .coppette-zone-label{
-        left:85%;
+        left:88%;
+      }
+    }
+
+
+    /* ── Coni interactive image map (hero) ── */
+    .coni-hero-section{
+      margin-top:10px;
+    }
+    .coni-map-wrapper{
+      position:relative;
+      width:calc(100% + 56px);
+      margin-left:-28px;
+      margin-right:-28px;
+      border-radius:0;
+      overflow:visible;
+      box-shadow:none;
+      cursor:pointer;
+    }
+    .coni-map-wrapper img.coni-hero-img{
+      width:100%;
+      display:block;
+    }
+    .coni-zones{
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      display:flex;
+    }
+    .coni-zone{
+      flex:1;
+      position:relative;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .coni-zone.is-active .coni-zone-label{
+      background:var(--badiani-blue);
+      color:#fff;
+      transform:translateX(-50%) scale(1.08);
+      box-shadow:0 4px 14px rgba(30,57,141,0.35);
+    }
+    .coni-zone-label{
+      position:absolute;
+      bottom:23px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(255,255,255,0.92);
+      color:var(--badiani-blue);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      padding:6px 14px 6px 10px;
+      border-radius:24px;
+      white-space:nowrap;
+      pointer-events:none;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:5px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+      transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      animation:coniLabelPulse 2.2s ease-in-out 0.5s 2;
+    }
+    .coni-zone-label .coni-tap-icon{
+      width:18px;
+      height:18px;
+      flex-shrink:0;
+      opacity:0.7;
+    }
+    .coni-zone.is-active .coni-zone-label .coni-tap-icon{
+      opacity:1;
+    }
+    /* Concentrate labels toward center */
+    .coni-zone:nth-child(1) .coni-zone-label{
+      left:67%;
+    }
+    .coni-zone:nth-child(3) .coni-zone-label{
+      left:33%;
+    }
+    @keyframes coniLabelPulse{
+      0%, 100%{ transform:translateX(-50%) scale(1); }
+      50%{ transform:translateX(-50%) scale(1.1); box-shadow:0 4px 16px rgba(30,57,141,0.3); }
+    }
+    .coni-hint{
+      text-align:center;
+      font-size:12px;
+      color:rgba(30,57,141,0.45);
+      margin-top:10px;
+      font-style:italic;
+      letter-spacing:0.3px;
+    }
+    .coni-detail-panel{
+      display:flex;
+      gap:24px;
+      margin-top:20px;
+      background:#fff;
+      border-radius:16px;
+      border:1px solid rgba(30,57,141,0.08);
+      box-shadow:0 10px 22px rgba(0,0,0,0.2);
+      overflow:hidden;
+      animation:cardDetailsFadeIn 0.3s ease;
+    }
+    .coni-detail-img{
+      flex:0 0 45%;
+      max-width:45%;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:180px;
+    }
+    .coni-detail-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .coni-detail-info{
+      flex:1;
+      padding:24px 24px 24px 0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:12px;
+    }
+    .coni-detail-name{
+      font-size:18px;
+      font-weight:700;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:0.8px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .coni-detail-meta{
+      display:grid;
+      gap:8px;
+      font-size:13px;
+      color:rgba(30,57,141,0.65);
+    }
+    .coni-detail-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:transparent;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    .coni-detail-meta strong{
+      color:var(--badiani-pink);
+      font-weight:600;
+    }
+    @media(max-width:600px){
+      .coni-detail-panel{
+        flex-direction:column;
+        gap:0;
+      }
+      .coni-detail-img{
+        flex:none;
+        max-width:100%;
+        min-height:auto;
+        max-height:none;
+      }
+      .coni-detail-img img{
+        object-fit:contain;
+      }
+      .coni-detail-info{
+        padding:12px 14px;
+      }
+      .coni-zone-label{
+        font-size:10px;
+        padding:4px 8px 4px 6px;
+        bottom:4px;
+        gap:3px;
+      }
+      .coni-zone-label .coni-tap-icon{
+        width:14px;
+        height:14px;
+      }
+      .coni-zone{ position:static; }
+      .coni-zone:nth-child(1) .coni-zone-label{
+        left:22%;
+      }
+      .coni-zone:nth-child(2) .coni-zone-label{
+        left:50%;
+      }
+      .coni-zone:nth-child(3) .coni-zone-label{
+        left:78%;
       }
     }
 
@@ -1888,30 +2060,30 @@
     }
     .torte-zone-label{
       position:absolute;
-      bottom:8px;
+      bottom:23px;
       left:50%;
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:10px;
+      font-size:13px;
       font-weight:700;
       letter-spacing:0.5px;
-      padding:4px 10px 4px 8px;
-      border-radius:20px;
+      padding:6px 14px 6px 10px;
+      border-radius:24px;
       white-space:nowrap;
       pointer-events:none;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-transform:uppercase;
       display:flex;
       align-items:center;
-      gap:4px;
+      gap:5px;
       box-shadow:0 2px 8px rgba(0,0,0,0.15);
       transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
       animation:torteLabelPulse 2.2s ease-in-out 0.5s 2;
     }
     .torte-zone-label .torte-tap-icon{
-      width:14px;
-      height:14px;
+      width:18px;
+      height:18px;
       flex-shrink:0;
       opacity:0.7;
     }
@@ -1934,9 +2106,9 @@
       display:flex;
       gap:24px;
       margin-top:20px;
-      background:transparent;
+      background:#fff;
       border-radius:16px;
-      border:1px solid rgba(255,255,255,0.08);
+      border:1px solid rgba(30,57,141,0.08);
       box-shadow:0 10px 22px rgba(0,0,0,0.2);
       overflow:hidden;
       animation:cardDetailsFadeIn 0.3s ease;
@@ -1967,7 +2139,7 @@
     .torte-detail-name{
       font-size:18px;
       font-weight:700;
-      color:#fff;
+      color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:0.8px;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
@@ -1976,7 +2148,7 @@
       display:grid;
       gap:8px;
       font-size:13px;
-      color:rgba(255,255,255,0.55);
+      color:rgba(30,57,141,0.65);
     }
     .torte-detail-meta span{
       display:flex;
@@ -2000,7 +2172,7 @@
       align-items:center;
       gap:6px;
       background:transparent;
-      color:rgba(255,255,255,0.75);
+      color:rgba(30,57,141,0.65);
       font-size:12px;
       font-weight:600;
       padding:6px 14px;
@@ -2016,21 +2188,24 @@
       .torte-detail-img{
         flex:none;
         max-width:100%;
-        min-height:120px;
-        max-height:160px;
+        min-height:auto;
+        max-height:none;
+      }
+      .torte-detail-img img{
+        object-fit:contain;
       }
       .torte-detail-info{
         padding:12px 14px;
       }
       .torte-zone-label{
-        font-size:8px;
-        padding:2px 6px 2px 5px;
+        font-size:10px;
+        padding:4px 8px 4px 6px;
         bottom:4px;
-        gap:2px;
+        gap:3px;
       }
       .torte-zone-label .torte-tap-icon{
-        width:11px;
-        height:11px;
+        width:14px;
+        height:14px;
       }
     }
 
@@ -2053,10 +2228,13 @@
       overflow:visible;
       box-shadow:none;
       cursor:pointer;
+      background:#fff;
     }
     .contenitori-map-wrapper img{
       width:100%;
       display:block;
+      filter:none;
+      opacity:1;
     }
     .contenitori-zones{
       position:absolute;
@@ -2082,10 +2260,10 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:12px;
+      font-size:13px;
       font-weight:700;
       letter-spacing:0.5px;
-      padding:6px 12px 6px 9px;
+      padding:6px 14px 6px 10px;
       border-radius:24px;
       white-space:nowrap;
       pointer-events:none;
@@ -2098,12 +2276,12 @@
       transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
       animation:contenitoriLabelPulse 2.2s ease-in-out 0.5s 2;
     }
-    /* Shift last 4 zone labels 40px left to align with containers */
+    /* All zone labels centered */
     .contenitori-zone:nth-child(2) .contenitori-zone-label,
     .contenitori-zone:nth-child(3) .contenitori-zone-label,
     .contenitori-zone:nth-child(4) .contenitori-zone-label,
     .contenitori-zone:nth-child(5) .contenitori-zone-label{
-      left:calc(50% - 40px);
+      left:50%;
     }
     .contenitori-zone:nth-child(2).is-active .contenitori-zone-label,
     .contenitori-zone:nth-child(3).is-active .contenitori-zone-label,
@@ -2112,8 +2290,8 @@
       transform:translateX(-50%) scale(1.08);
     }
     .contenitori-zone-label .contenitori-tap-icon{
-      width:17px;
-      height:17px;
+      width:18px;
+      height:18px;
       flex-shrink:0;
       opacity:0.7;
     }
@@ -2220,14 +2398,14 @@
         padding:5px 8px;
       }
       .contenitori-zone-label{
-        font-size:9px;
-        padding:3px 7px 3px 5px;
+        font-size:10px;
+        padding:4px 8px 4px 6px;
         bottom:4px;
         gap:3px;
       }
       .contenitori-zone-label .contenitori-tap-icon{
-        width:13px;
-        height:13px;
+        width:14px;
+        height:14px;
       }
       /* Evenly distribute labels across the image, 100px inset from edges */
       .contenitori-zone{ position:static; }
@@ -2318,8 +2496,6 @@
         box-shadow:none;
         border-top:1px solid rgba(255,255,255,0.15);
       }
-      .category-card__overlay{ padding:32px 28px; }
-      .category-title{ font-size:clamp(56px, 10vw, 100px); }
       .page-hero{
         padding:32px 28px;
         flex-direction:column;
@@ -3233,7 +3409,7 @@
             </div>
             <!-- Formato Acquisto: tipologia vasca grid (always visible) -->
             <div id="tipologiaSection">
-              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0 0 1em;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
+              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
               <div class="tipologia-grid" id="tipologiaContent"></div>
             </div>
             <div class="gelato-header">
@@ -5218,9 +5394,9 @@
       };
 
       const CONI_COPPETTE_IMAGES = {
-        'Sottozero':        '../assets/images/coni-coppette/SOTTOZZERO.jpg',
-        'Maxi 1':           '../assets/images/coni-coppette/MAXI 1.jpg',
-        'Maxi 2':           '../assets/images/coni-coppette/MAXI 2.jpg',
+        'Sottozero':        '../assets/images/coni-coppette/sottozero.png',
+        'Maxi 1':           '../assets/images/coni-coppette/maxi1.png',
+        'Maxi 2':           '../assets/images/coni-coppette/maxi2.png',
         'Bicchierini 16B':  '../assets/images/coni-coppette/Bicchierini 16B.jpeg',
         'Bicchierini 108':  '../assets/images/coni-coppette/Bicchierini 108.jpeg',
         'Bicchierini 4C':   '../assets/images/coni-coppette/Bicchierini 4C.jpeg',
@@ -5313,14 +5489,15 @@
       const fullscreenClose = fullscreenOverlay ? fullscreenOverlay.querySelector('.fullscreen-close') : null;
       let expandedFlavorId = '';
       let expandedTorteId = '';
-      let selectedTorteMapId = '';
+      let selectedTorteMapId = new Set();
       let expandedPezziDuriId = '';
       let expandedContenitoriId = '';
-      let selectedContenitoriMapId = '';
+      let selectedContenitoriMapId = new Set();
       let expandedTipologiaId = '';
-      let expandedConiId = '';
+      let expandedConiId = new Set();
       let expandedAccessoriId = '';
-      let selectedCoppetteId = '';
+      let selectedCoppetteId = new Set();
+      let selectedConiHeroId = new Set();
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const ASSET_VERSION = '20260207';
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
@@ -5507,7 +5684,6 @@
                 </div>
                 <div class="tipologia-body">
                   <div class="tipologia-title">${name}</div>
-                  <div class="tipologia-capacity">${capacity}</div>
                 </div>
               </article>
             `;
@@ -5559,35 +5735,36 @@
         rows.forEach(([name, desc, qty]) => { contDataMap[name] = { desc, qty }; });
 
         const zones = CONTENITORI_ZONE_ORDER.map((name) => {
-          const isActive = selectedContenitoriMapId === name;
+          const isActive = selectedContenitoriMapId.has(name);
           const shortName = CONTENITORI_SHORT_NAMES[name] || name;
           return `<div class="contenitori-zone${isActive ? ' is-active' : ''}" data-contenitori-zone="${name}" role="button" tabindex="0" aria-label="${name}">
             <span class="contenitori-zone-label">${tapIcon}${shortName}</span>
           </div>`;
         }).join('');
 
-        let detailPanel = '';
-        if(selectedContenitoriMapId && contDataMap[selectedContenitoriMapId]){
-          const d = contDataMap[selectedContenitoriMapId];
-          const detailSrc = CONTENITORI_IMAGES[selectedContenitoriMapId];
+        let detailPanels = '';
+        selectedContenitoriMapId.forEach((selName) => {
+          if(!contDataMap[selName]) return;
+          const d = contDataMap[selName];
+          const detailSrc = CONTENITORI_IMAGES[selName];
           const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
-          detailPanel = `
-            <div class="contenitori-detail-panel">
+          detailPanels += `
+            <div class="contenitori-detail-panel" data-panel-name="${selName}">
               <div class="contenitori-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selectedContenitoriMapId}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="contenitori-detail-info">
-                <div class="contenitori-detail-name">${selectedContenitoriMapId}</div>
+                <div class="contenitori-detail-name">${selName}</div>
                 <div class="contenitori-detail-meta">
-                  <span><strong>${t('b2b.coni.description')}</strong><em>${getContenitoriDesc(selectedContenitoriMapId) || d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.description')}</strong><em>${getContenitoriDesc(selName) || d.desc}</em></span>
                   <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
                 </div>
               </div>
             </div>
           `;
-        }
+        });
 
-        const hintText = selectedContenitoriMapId ? '' : `<p class="contenitori-hint">${t('b2b.contenitori.hint')}</p>`;
+        const hintText = selectedContenitoriMapId.size ? '' : `<p class="contenitori-hint">${t('b2b.contenitori.hint')}</p>`;
 
         return `
           <div class="modal__section">
@@ -5597,7 +5774,7 @@
               <div class="contenitori-zones">${zones}</div>
             </div>
             ${hintText}
-            ${detailPanel}
+            ${detailPanels}
           </div>
         `;
       }
@@ -5608,20 +5785,38 @@
           const name = zone.getAttribute('data-contenitori-zone');
           if(!name) return;
           zone.addEventListener('click', () => {
-            selectedContenitoriMapId = selectedContenitoriMapId === name ? '' : name;
+            const wasAdded = !selectedContenitoriMapId.has(name);
+            if(wasAdded){ selectedContenitoriMapId.add(name); } else { selectedContenitoriMapId.delete(name); }
             renderCategoryContent('CONTENITORI');
-            if(selectedContenitoriMapId){
-              requestAnimationFrame(() => {
-                const panel = defaultContent.querySelector('.contenitori-detail-panel');
-                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-              });
+            if(wasAdded && selectedContenitoriMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const panel = Array.from(defaultContent.querySelectorAll('.contenitori-detail-panel')).find(p => p.dataset.panelName === name);
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            } else if(!selectedContenitoriMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const wrapper = defaultContent.querySelector('.contenitori-map-wrapper');
+                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
             }
           });
           zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
-              selectedContenitoriMapId = selectedContenitoriMapId === name ? '' : name;
+              const wasAdded = !selectedContenitoriMapId.has(name);
+              if(wasAdded){ selectedContenitoriMapId.add(name); } else { selectedContenitoriMapId.delete(name); }
               renderCategoryContent('CONTENITORI');
+              if(wasAdded && selectedContenitoriMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const panel = Array.from(defaultContent.querySelectorAll('.contenitori-detail-panel')).find(p => p.dataset.panelName === name);
+                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              } else if(!selectedContenitoriMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const wrapper = defaultContent.querySelector('.contenitori-map-wrapper');
+                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              }
             }
           });
         });
@@ -5648,7 +5843,7 @@
         rows.forEach(([name]) => { torteDataMap[name] = {}; });
 
         const zones = TORTE_ZONE_ORDER.map((name) => {
-          const isActive = selectedTorteMapId === name;
+          const isActive = selectedTorteMapId.has(name);
           const shortName = TORTE_SHORT_NAMES[name] || name;
           const localAriaLabel = getTorteName(name);
           return `<div class="torte-zone${isActive ? ' is-active' : ''}" data-torte-zone="${name}" role="button" tabindex="0" aria-label="${localAriaLabel}">
@@ -5656,18 +5851,18 @@
           </div>`;
         }).join('');
 
-        let detailPanel = '';
-        if(selectedTorteMapId && torteDataMap[selectedTorteMapId]){
-          const d = torteDataMap[selectedTorteMapId];
-          const images = TORTE_IMAGES[selectedTorteMapId];
+        let detailPanels = '';
+        selectedTorteMapId.forEach((selName) => {
+          if(!torteDataMap[selName]) return;
+          const images = TORTE_IMAGES[selName];
           const detailImgSrc = images ? encodeURI(images.small) : '';
-          detailPanel = `
-            <div class="torte-detail-panel">
+          detailPanels += `
+            <div class="torte-detail-panel" data-panel-name="${selName}">
               <div class="torte-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${getTorteName(selectedTorteMapId)}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${getTorteName(selName)}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="torte-detail-info">
-                <div class="torte-detail-name">${getTorteName(selectedTorteMapId)}</div>
+                <div class="torte-detail-name">${getTorteName(selName)}</div>
                 <div class="torte-detail-sizes">
                   <span class="torte-size-pill">S &mdash; ${t('b2b.torte.sizeS')}</span>
                   <span class="torte-size-pill">L &mdash; ${t('b2b.torte.sizeL')}</span>
@@ -5675,9 +5870,9 @@
               </div>
             </div>
           `;
-        }
+        });
 
-        const hintText = selectedTorteMapId ? '' : `<p class="torte-hint">${t('b2b.torte.hint')}</p>`;
+        const hintText = selectedTorteMapId.size ? '' : `<p class="torte-hint">${t('b2b.torte.hint')}</p>`;
 
         return `
           <div class="modal__section">
@@ -5687,7 +5882,7 @@
               <div class="torte-zones">${zones}</div>
             </div>
             ${hintText}
-            ${detailPanel}
+            ${detailPanels}
           </div>
         `;
       }
@@ -5698,20 +5893,38 @@
           const name = zone.getAttribute('data-torte-zone');
           if(!name) return;
           zone.addEventListener('click', () => {
-            selectedTorteMapId = selectedTorteMapId === name ? '' : name;
+            const wasAdded = !selectedTorteMapId.has(name);
+            if(wasAdded){ selectedTorteMapId.add(name); } else { selectedTorteMapId.delete(name); }
             renderCategoryContent('TORTE');
-            if(selectedTorteMapId){
-              requestAnimationFrame(() => {
-                const panel = defaultContent.querySelector('.torte-detail-panel');
-                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-              });
+            if(wasAdded && selectedTorteMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const panel = Array.from(defaultContent.querySelectorAll('.torte-detail-panel')).find(p => p.dataset.panelName === name);
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            } else if(!selectedTorteMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const wrapper = defaultContent.querySelector('.torte-map-wrapper');
+                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
             }
           });
           zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
-              selectedTorteMapId = selectedTorteMapId === name ? '' : name;
+              const wasAdded = !selectedTorteMapId.has(name);
+              if(wasAdded){ selectedTorteMapId.add(name); } else { selectedTorteMapId.delete(name); }
               renderCategoryContent('TORTE');
+              if(wasAdded && selectedTorteMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const panel = Array.from(defaultContent.querySelectorAll('.torte-detail-panel')).find(p => p.dataset.panelName === name);
+                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              } else if(!selectedTorteMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const wrapper = defaultContent.querySelector('.torte-map-wrapper');
+                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              }
             }
           });
         });
@@ -5773,6 +5986,7 @@
 
       /* Coppette zone order: left-to-right in the group image */
       const COPPETTE_ZONE_ORDER = ['Bicchierini 16B', 'Bicchierini 108', 'Bicchierini 4C', 'Bicchierini 4CA'];
+      const CONI_ZONE_ORDER = ['Sottozero', 'Maxi 1', 'Maxi 2'];
 
       function renderConiCoppetteGallery(rows){
         if(!rows || !rows.length) return '';
@@ -5785,7 +5999,7 @@
             const src = CONI_COPPETTE_IMAGES[name];
             if(!src) return '';
             const imageSrc = encodeURI(src);
-            const isExpanded = expandedConiId === name;
+            const isExpanded = expandedConiId.has(name);
             const gf = getConiGfVariants()[name];
             const gfBlock = gf ? `
               <button class="coni-gf-btn" type="button" data-gf-toggle="${name}">
@@ -5821,50 +6035,100 @@
         coppetteRows.forEach(([name, desc, qty]) => { coppetteDataMap[name] = { desc, qty }; });
 
         const zones = COPPETTE_ZONE_ORDER.map((name) => {
-          const isActive = selectedCoppetteId === name;
+          const isActive = selectedCoppetteId.has(name);
           const tapIcon = `<svg class="coppette-tap-icon" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`;
           return `<div class="coppette-zone${isActive ? ' is-active' : ''}" data-coppette-zone="${name}" role="button" tabindex="0" aria-label="${name}">
             <span class="coppette-zone-label">${tapIcon}${name.replace('Bicchierini ', '')}</span>
           </div>`;
         }).join('');
 
-        let detailPanel = '';
-        if(selectedCoppetteId && coppetteDataMap[selectedCoppetteId]){
-          const d = coppetteDataMap[selectedCoppetteId];
-          const detailSrc = CONI_COPPETTE_IMAGES[selectedCoppetteId];
+        let detailPanels = '';
+        selectedCoppetteId.forEach((selName) => {
+          if(!coppetteDataMap[selName]) return;
+          const d = coppetteDataMap[selName];
+          const detailSrc = CONI_COPPETTE_IMAGES[selName];
           const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
-          detailPanel = `
-            <div class="coppette-detail-panel">
+          detailPanels += `
+            <div class="coppette-detail-panel" data-panel-name="${selName}">
               <div class="coppette-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selectedCoppetteId}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="coppette-detail-info">
-                <div class="coppette-detail-name">${selectedCoppetteId}</div>
+                <div class="coppette-detail-name">${selName}</div>
                 <div class="coppette-detail-meta">
-                  <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(selectedCoppetteId) || d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
                   <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
                 </div>
               </div>
             </div>
           `;
-        }
+        });
 
-        const hintText = selectedCoppetteId ? '' : `<p class="coppette-hint">${t('b2b.coppette.hint')}</p>`;
+        const hintText = selectedCoppetteId.size ? '' : `<p class="coppette-hint">${t('b2b.coppette.hint')}</p>`;
 
         const coppetteSection = `
           <div class="coppette-map-wrapper">
-            <h4 class="map-overlay-title">${getCatTitle('CONI_COPPETTE')}</h4>
+            <h4 class="map-overlay-title">Coppette</h4>
             <img src="${headerSrc}" alt="Coppette" loading="lazy" decoding="async" />
             <div class="coppette-zones">${zones}</div>
           </div>
           ${hintText}
-          ${detailPanel}
+          ${detailPanels}
+        `;
+
+        /* ── Coni interactive image map (cones hero) ── */
+        const coniHeroSrc = encodeURI('../assets/images/coni-coppette/conigroup.jpeg');
+        const coniDataMap = {};
+        coniRows.forEach(([name, desc, qty]) => { coniDataMap[name] = { desc, qty }; });
+
+        const coniZones = CONI_ZONE_ORDER.map((name) => {
+          const isActive = selectedConiHeroId.has(name);
+          const tapIcon = `<svg class="coni-tap-icon" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`;
+          return `<div class="coni-zone${isActive ? ' is-active' : ''}" data-coni-hero-zone="${name}" role="button" tabindex="0" aria-label="${name}">
+            <span class="coni-zone-label">${tapIcon}${name}</span>
+          </div>`;
+        }).join('');
+
+        let coniDetailPanels = '';
+        selectedConiHeroId.forEach((selName) => {
+          if(!coniDataMap[selName]) return;
+          const d = coniDataMap[selName];
+          const detailSrc = CONI_COPPETTE_IMAGES[selName];
+          const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
+          coniDetailPanels += `
+            <div class="coni-detail-panel" data-panel-name="${selName}">
+              <div class="coni-detail-img">
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
+              </div>
+              <div class="coni-detail-info">
+                <div class="coni-detail-name">${selName}</div>
+                <div class="coni-detail-meta">
+                  <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        const coniHintText = selectedConiHeroId.size ? '' : `<p class="coni-hint">${t('b2b.coppette.hint')}</p>`;
+
+        const coniHeroSection = `
+          <div class="coni-hero-section">
+            <div class="coni-map-wrapper">
+              <h4 class="map-overlay-title">Coni</h4>
+              <img class="coni-hero-img" src="${coniHeroSrc}" alt="Coni" loading="lazy" decoding="async" />
+              <div class="coni-zones">${coniZones}</div>
+            </div>
+            ${coniHintText}
+            ${coniDetailPanels}
+          </div>
         `;
 
         return `
           <div class="modal__section">
             ${coppetteSection}
-            <div class="coni-grid">${coniCards}</div>
+            ${coniHeroSection}
           </div>
         `;
       }
@@ -5875,21 +6139,81 @@
           const name = zone.getAttribute('data-coppette-zone');
           if(!name) return;
           zone.addEventListener('click', () => {
-            selectedCoppetteId = selectedCoppetteId === name ? '' : name;
+            const wasAdded = !selectedCoppetteId.has(name);
+            if(wasAdded){ selectedCoppetteId.add(name); } else { selectedCoppetteId.delete(name); }
             renderCategoryContent('CONI_COPPETTE');
-            /* Scroll to detail panel if opened */
-            if(selectedCoppetteId){
-              requestAnimationFrame(() => {
-                const panel = defaultContent.querySelector('.coppette-detail-panel');
-                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-              });
+            if(wasAdded && selectedCoppetteId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const panel = Array.from(defaultContent.querySelectorAll('.coppette-detail-panel')).find(p => p.dataset.panelName === name);
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            } else if(!selectedCoppetteId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const wrapper = defaultContent.querySelector('.coppette-map-wrapper');
+                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
             }
           });
           zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
-              selectedCoppetteId = selectedCoppetteId === name ? '' : name;
+              const wasAdded = !selectedCoppetteId.has(name);
+              if(wasAdded){ selectedCoppetteId.add(name); } else { selectedCoppetteId.delete(name); }
               renderCategoryContent('CONI_COPPETTE');
+              if(wasAdded && selectedCoppetteId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const panel = Array.from(defaultContent.querySelectorAll('.coppette-detail-panel')).find(p => p.dataset.panelName === name);
+                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              } else if(!selectedCoppetteId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const wrapper = defaultContent.querySelector('.coppette-map-wrapper');
+                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              }
+            }
+          });
+        });
+      }
+
+      function setupConiHeroInteraction(){
+        const zones = defaultContent ? defaultContent.querySelectorAll('[data-coni-hero-zone]') : [];
+        zones.forEach((zone) => {
+          const name = zone.getAttribute('data-coni-hero-zone');
+          if(!name) return;
+          zone.addEventListener('click', () => {
+            const wasAdded = !selectedConiHeroId.has(name);
+            if(wasAdded){ selectedConiHeroId.add(name); } else { selectedConiHeroId.delete(name); }
+            renderCategoryContent('CONI_COPPETTE');
+            if(wasAdded && selectedConiHeroId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const panel = Array.from(defaultContent.querySelectorAll('.coni-detail-panel')).find(p => p.dataset.panelName === name);
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            } else if(!selectedConiHeroId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const wrapper = defaultContent.querySelector('.coni-map-wrapper');
+                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            }
+          });
+          zone.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              event.preventDefault();
+              const wasAdded = !selectedConiHeroId.has(name);
+              if(wasAdded){ selectedConiHeroId.add(name); } else { selectedConiHeroId.delete(name); }
+              renderCategoryContent('CONI_COPPETTE');
+              if(wasAdded && selectedConiHeroId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const panel = Array.from(defaultContent.querySelectorAll('.coni-detail-panel')).find(p => p.dataset.panelName === name);
+                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              } else if(!selectedConiHeroId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const wrapper = defaultContent.querySelector('.coni-map-wrapper');
+                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              }
             }
           });
         });
@@ -5960,14 +6284,14 @@
           if(!id) return;
           card.addEventListener('click', (event) => {
             if(event.target.closest('.card-zoom') || event.target.closest('.coni-gf-btn')) return;
-            expandedConiId = expandedConiId === id ? '' : id;
+            if(expandedConiId.has(id)){ expandedConiId.delete(id); } else { expandedConiId.add(id); }
             renderCategoryContent('CONI_COPPETTE');
           });
           card.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               if(event.target.closest('.card-zoom') || event.target.closest('.coni-gf-btn')) return;
               event.preventDefault();
-              expandedConiId = expandedConiId === id ? '' : id;
+              if(expandedConiId.has(id)){ expandedConiId.delete(id); } else { expandedConiId.add(id); }
               renderCategoryContent('CONI_COPPETTE');
             }
           });
@@ -6038,6 +6362,7 @@
         if(category === 'CONI_COPPETTE'){
           requestAnimationFrame(setupConiZoom);
           requestAnimationFrame(setupCoppetteInteraction);
+          requestAnimationFrame(setupConiHeroInteraction);
         }
         if(category === 'ACCESSORI'){
           requestAnimationFrame(setupAccessoriZoom);
@@ -6125,6 +6450,14 @@
           gelatoImageCache.add(src);
           if(typeof onload === 'function') onload();
         };
+        img.onerror = () => {
+          /* If -light version fails, fall back to original -2 version */
+          const fallback = src.replace(/-2-light\.webp$/i, '-2.webp');
+          if(fallback !== src){
+            gelatoImageCache.add(fallback);
+            if(typeof onload === 'function') onload(fallback);
+          }
+        };
         img.src = `${encodeURI(src)}?v=${ASSET_VERSION}`;
       }
 
@@ -6140,12 +6473,13 @@
           img.src = `${encodeURI(detailSrc)}?v=${ASSET_VERSION}`;
           return;
         }
-        cacheImage(detailSrc, () => {
+        cacheImage(detailSrc, (fallbackSrc) => {
           if(!img.isConnected) return;
           const card = img.closest('.gelato-card');
           if(!card || !card.classList.contains('is-expanded')) return;
           if(img.dataset.detailSrc !== detailSrc) return;
-          img.src = `${encodeURI(detailSrc)}?v=${ASSET_VERSION}`;
+          const finalSrc = fallbackSrc || detailSrc;
+          img.src = `${encodeURI(finalSrc)}?v=${ASSET_VERSION}`;
         });
         img.src = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
       }
@@ -6289,7 +6623,7 @@
           const titleDiv = document.createElement('div');
           titleDiv.className = 'gelato-category-title';
           titleDiv.textContent = t(titleKey);
-          titleDiv.style.cssText = 'font-size: 1.5em; font-weight: 600; margin: 2em 0 1em; text-transform: uppercase; color: var(--badiani-blue); grid-column: 1 / -1;';
+          titleDiv.style.cssText = 'font-size: 1.5em; font-weight: 600; margin: 0; padding: 0; text-transform: uppercase; color: var(--badiani-blue); grid-column: 1 / -1;';
           gelatoGrid.appendChild(titleDiv);
           
           // Render flavors in this category

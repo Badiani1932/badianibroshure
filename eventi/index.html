@@ -158,14 +158,7 @@
       cursor:pointer;
     }
     .ev-card::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      z-index:10;
-      pointer-events:none;
-      border:4px solid rgba(232,88,130,0.6);
-      box-shadow:inset 0 0 20px rgba(232,88,130,0.3), 0 0 20px rgba(232,88,130,0.3);
-      animation:pulse-border 2.5s ease-in-out infinite;
+      display:none;
     }
     @keyframes pulse-border{
       0%, 100%{
