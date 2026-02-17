@@ -147,6 +147,34 @@
       overflow:hidden;
       min-height:60vh;
     }
+    /* Pulsing pink border overlay */
+    .b2b-pulse{
+      display:block;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      width:100%;
+      height:100%;
+      z-index:10;
+      pointer-events:none;
+      border:4px solid rgba(232,88,130,0.6);
+      box-shadow:inset 0 0 20px rgba(232,88,130,0.3), 0 0 20px rgba(232,88,130,0.3);
+      animation:pulse-border-b2b 2.5s ease-in-out infinite;
+      flex-shrink:0;
+      align-self:stretch;
+    }
+    @keyframes pulse-border-b2b{
+      0%, 100%{
+        border-color:rgba(232,88,130,0.2);
+        box-shadow:inset 0 0 10px rgba(232,88,130,0.1), 0 0 10px rgba(232,88,130,0.1);
+      }
+      50%{
+        border-color:rgba(232,88,130,1);
+        box-shadow:inset 0 0 30px rgba(232,88,130,0.4), 0 0 30px rgba(232,88,130,0.4);
+      }
+    }
     /* Dark overlay on each card */
     /* ::after = gradient overlay */
     .category-card.b2b-card--gelato::after,
@@ -2796,6 +2824,7 @@
     <section data-i18n-attr="aria-label:b2b.areas.label">
       <div class="category-grid">
         <article class="category-card b2b-card--gelato" data-category="GELATO" role="button" tabindex="0" aria-haspopup="dialog">
+          <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.gelato.label">Gusti & Vasche</span>
@@ -2805,6 +2834,7 @@
           </div>
         </article>
         <article class="category-card b2b-card--pezziduri" data-category="PEZZI DURI" role="button" tabindex="0" aria-haspopup="dialog">
+          <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.pezzi.label">Stecchi e biscotti</span>
@@ -2814,6 +2844,7 @@
           </div>
         </article>
         <article class="category-card b2b-card--torte" data-category="TORTE" role="button" tabindex="0" aria-haspopup="dialog">
+          <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.torte.label">Pasticceria Gelato</span>
@@ -2823,6 +2854,7 @@
           </div>
         </article>
         <article class="category-card b2b-card--coppette" data-category="CONI_COPPETTE" role="button" tabindex="0" aria-haspopup="dialog">
+          <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.coni.label">Servizio</span>
@@ -2832,6 +2864,7 @@
           </div>
         </article>
         <article class="category-card b2b-card--accessori" data-category="ACCESSORI" role="button" tabindex="0" aria-haspopup="dialog">
+          <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.accessori.label">Allestimento</span>
@@ -2841,6 +2874,7 @@
           </div>
         </article>
         <article class="category-card b2b-card--contenitori" data-category="CONTENITORI" role="button" tabindex="0" aria-haspopup="dialog">
+          <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.contenitori.label">Packaging</span>

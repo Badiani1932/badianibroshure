@@ -109,6 +109,26 @@
       width:100%;
     }
     .ext-card:hover{ transform:none; box-shadow:none; }
+    .ext-card::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      z-index:10;
+      pointer-events:none;
+      border:4px solid rgba(232,88,130,0.6);
+      box-shadow:inset 0 0 20px rgba(232,88,130,0.3), 0 0 20px rgba(232,88,130,0.3);
+      animation:pulse-border 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-border{
+      0%, 100%{
+        border-color:rgba(232,88,130,0.2);
+        box-shadow:inset 0 0 10px rgba(232,88,130,0.1), 0 0 10px rgba(232,88,130,0.1);
+      }
+      50%{
+        border-color:rgba(232,88,130,1);
+        box-shadow:inset 0 0 30px rgba(232,88,130,0.4), 0 0 30px rgba(232,88,130,0.4);
+      }
+    }
     .ext-card:focus-visible{
       outline:3px solid var(--badiani-pink);
       outline-offset:-3px;
