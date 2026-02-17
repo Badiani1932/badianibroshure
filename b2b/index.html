@@ -2551,13 +2551,8 @@
         height:clamp(700px, 90vh, 1100px);
       }
     }
-    @media(max-width:900px){
-      .b2b-form-section__mercury{
-        right:30px;
-        height:clamp(560px, 77vh, 840px);
-      }
-    }
-    @media(max-width:600px){
+    /* Hide Mercury when window is narrower than 16:9 */
+    @media(max-aspect-ratio:16/9){
       .b2b-form-section__mercury{
         display:none;
       }
