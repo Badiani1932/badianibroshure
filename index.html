@@ -448,7 +448,7 @@
       padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px);
     }
     .story-card--storia .story-card__label{
-      margin-bottom:auto;
+      margin-bottom:12px;
     }
     .story-card--storia .story-card__title{
       margin-bottom:clamp(20px, 3vw, 40px);
@@ -599,7 +599,8 @@
       position:absolute;
       right:-2%;
       bottom:0;
-      height:95%;
+      height:auto;
+      max-height:95%;
       max-width:60%;
       object-fit:contain;
       object-position:right bottom;
@@ -857,6 +858,10 @@
       .story-card__label{ letter-spacing:2px; margin-bottom:8px; }
       .story-grid .story-card:first-child{ box-shadow:none; border-bottom:1px solid rgba(255,255,255,0.15); }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
+      /* Storia: title+label top-left, desc stays at bottom */
+      .story-card--storia .story-card__label{ order:-2; margin-bottom:4px; }
+      .story-card--storia .story-card__title{ order:-1; }
+      .story-card--storia .story-card__desc{ margin-top:auto; }
       .story-card--gelato .story-card__title{
         font-size:clamp(30px, 11vw, 128px);
         overflow-wrap:normal;

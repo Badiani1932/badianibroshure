@@ -1229,10 +1229,11 @@
     .coppette-map-wrapper{
       position:relative;
       width:calc(100% + 56px);
+      margin-top:-24px;
       margin-left:-28px;
       margin-right:-28px;
       border-radius:0;
-      overflow:hidden;
+      overflow:visible;
       box-shadow:none;
       cursor:pointer;
     }
@@ -1252,10 +1253,11 @@
       font-size:14px;
       text-transform:uppercase;
       letter-spacing:1px;
-      color:#fff;
-      background:linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 100%);
+      color:var(--badiani-pink);
+      background:none;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
       font-weight:600;
+      text-shadow:none;
     }
     .coppette-zones{
       position:absolute;
@@ -1414,6 +1416,20 @@
       .coppette-zone-label .coppette-tap-icon{
         width:14px;
         height:14px;
+      }
+      /* Evenly distribute labels across the image, 100px inset from edges */
+      .coppette-zone{ position:static; }
+      .coppette-zone:nth-child(1) .coppette-zone-label{
+        left:15%;
+      }
+      .coppette-zone:nth-child(2) .coppette-zone-label{
+        left:38%;
+      }
+      .coppette-zone:nth-child(3) .coppette-zone-label{
+        left:62%;
+      }
+      .coppette-zone:nth-child(4) .coppette-zone-label{
+        left:85%;
       }
     }
 
@@ -1828,10 +1844,11 @@
     .torte-map-wrapper{
       position:relative;
       width:calc(100% + 56px);
+      margin-top:-24px;
       margin-left:-28px;
       margin-right:-28px;
       border-radius:0;
-      overflow:hidden;
+      overflow:visible;
       box-shadow:none;
       cursor:pointer;
     }
@@ -2014,10 +2031,11 @@
     .contenitori-map-wrapper{
       position:relative;
       width:calc(100% + 56px);
+      margin-top:-24px;
       margin-left:-28px;
       margin-right:-28px;
       border-radius:0;
-      overflow:hidden;
+      overflow:visible;
       box-shadow:none;
       cursor:pointer;
     }
@@ -2181,6 +2199,23 @@
         width:13px;
         height:13px;
       }
+      /* Evenly distribute labels across the image, 100px inset from edges */
+      .contenitori-zone{ position:static; }
+      .contenitori-zone:nth-child(1) .contenitori-zone-label{
+        left:10%;
+      }
+      .contenitori-zone:nth-child(2) .contenitori-zone-label{
+        left:30%;
+      }
+      .contenitori-zone:nth-child(3) .contenitori-zone-label{
+        left:50%;
+      }
+      .contenitori-zone:nth-child(4) .contenitori-zone-label{
+        left:70%;
+      }
+      .contenitori-zone:nth-child(5) .contenitori-zone-label{
+        left:90%;
+      }
     }
 
     @media(max-width:720px){
@@ -2199,14 +2234,14 @@
       .modal-overlay{ padding:68px 12px 22px; align-items:flex-start; }
       .modal__close{ width:44px; height:44px; top:14px; right:14px; }
       .modal__header{ flex-wrap:wrap; }
-      .modal__nav{ padding:0 4px; order:3; width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow-x:auto; flex-wrap:nowrap; flex-shrink:0; }
+      .modal__nav{ padding:0 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow-x:auto; flex-wrap:nowrap; flex-shrink:0; box-sizing:border-box; -webkit-overflow-scrolling:touch; }
       .modal__nav button{ padding:10px 12px; font-size:11px; white-space:nowrap; flex-shrink:0; }
       .modal__header-actions{ border-left:none; }
       .modal__info-btn{ width:40px; height:40px; }
       .modal__content{ padding:16px 18px 18px; gap:16px; }
       .coppette-map-wrapper,
       .contenitori-map-wrapper,
-      .torte-map-wrapper{ width:calc(100% + 36px); margin-left:-18px; margin-right:-18px; }
+      .torte-map-wrapper{ width:calc(100% + 36px); margin-top:-16px; margin-left:-18px; margin-right:-18px; }
       .modal__section h4{ font-size:12px; margin-bottom:4px; letter-spacing:0.6px; }
       .map-overlay-title{ padding:12px 18px 10px; font-size:12px; }
       .modal__section p,
@@ -2226,7 +2261,7 @@
       .modal__content{ padding:20px 22px 24px; }
       .coppette-map-wrapper,
       .contenitori-map-wrapper,
-      .torte-map-wrapper{ width:calc(100% + 44px); margin-left:-22px; margin-right:-22px; }
+      .torte-map-wrapper{ width:calc(100% + 44px); margin-top:-20px; margin-left:-22px; margin-right:-22px; }
     }
     @media(max-width:768px){
       .gelato-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
@@ -4904,7 +4939,7 @@
         { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.jpeg' }
       ];
 
-      const TORTE_GROUP_IMAGE = '../assets/images/torte/torte gruppo.jpeg';
+      const TORTE_GROUP_IMAGE = '../assets/images/torte/torte gruppono.jpeg';
 
       const TORTE_IMAGES = {
         'Millefoglie Buontalenti': {
@@ -5540,7 +5575,7 @@
 
         const coppetteSection = `
           <div class="coppette-map-wrapper">
-            <h4 class="map-overlay-title">${t('b2b.coppette.sectionTitle')}</h4>
+            <h4 class="map-overlay-title">${getCatTitle('CONI_COPPETTE')}</h4>
             <img src="${headerSrc}" alt="Coppette" loading="lazy" decoding="async" />
             <div class="coppette-zones">${zones}</div>
           </div>
@@ -5550,7 +5585,6 @@
 
         return `
           <div class="modal__section">
-            <h4>${getCatTitle('CONI_COPPETTE')}</h4>
             ${coppetteSection}
             <div class="coni-grid">${coniCards}</div>
           </div>
