@@ -226,15 +226,15 @@
     .category-card:hover::before{
       transform:scale(1.08);
     }
-    .category-card.b2b-card--gelato > *,
-    .category-card.b2b-card--torte > *,
-    .category-card.b2b-card--vasche > *,
-    .category-card.b2b-card--pezziduri > *,
-    .category-card.b2b-card--coppette > *,
-    .category-card.b2b-card--cono > *,
-    .category-card.b2b-card--cialde > *,
-    .category-card.b2b-card--contenitori > *,
-    .category-card.b2b-card--accessori > *{
+    .category-card.b2b-card--gelato > *:not(.b2b-pulse),
+    .category-card.b2b-card--torte > *:not(.b2b-pulse),
+    .category-card.b2b-card--vasche > *:not(.b2b-pulse),
+    .category-card.b2b-card--pezziduri > *:not(.b2b-pulse),
+    .category-card.b2b-card--coppette > *:not(.b2b-pulse),
+    .category-card.b2b-card--cono > *:not(.b2b-pulse),
+    .category-card.b2b-card--cialde > *:not(.b2b-pulse),
+    .category-card.b2b-card--contenitori > *:not(.b2b-pulse),
+    .category-card.b2b-card--accessori > *:not(.b2b-pulse){
       position:relative;
       z-index:2;
     }
@@ -743,10 +743,10 @@
 
     .gelato-showcase{ display:none; gap:20px; }
     .gelato-showcase.is-active{ display:grid; }
-    .gelato-header{ display:grid; gap:6px; }
+    .gelato-header{ display:none; }
     .gelato-header h4{ font-size:16px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-blue); }
     .gelato-header p{ font-size:14px; color:rgba(30,57,141,0.6); }
-    .gelato-controls{ display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end; }
+    .gelato-controls{ display:none; flex-wrap:wrap; gap:14px; align-items:flex-end; }
     .gelato-control{
       display:flex;
       flex-direction:column;
@@ -763,6 +763,14 @@
       flex:0 1 260px;
       min-width:200px;
     }
+    .gelato-control--search-inline{
+      flex:0 1 220px;
+      min-width:160px;
+      flex-direction:row;
+      align-items:center;
+      gap:0;
+    }
+    .gelato-control--search-inline label{ display:none; }
     .gelato-control--search input{
       width:100%;
       background:#fff;
@@ -793,6 +801,7 @@
       grid-template-columns:minmax(0, 1fr);
       gap:24px;
       min-height:0;
+      margin-top:-10px;
     }
     .gelato-grid{
       display:grid;
@@ -1218,15 +1227,34 @@
     }
     .coppette-map-wrapper{
       position:relative;
-      width:100%;
-      border-radius:16px;
+      width:calc(100% + 56px);
+      margin-left:-28px;
+      margin-right:-28px;
+      border-radius:0;
       overflow:hidden;
-      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      box-shadow:none;
       cursor:pointer;
     }
     .coppette-map-wrapper img{
       width:100%;
       display:block;
+    }
+    /* Overlay title on map wrappers */
+    .map-overlay-title{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      z-index:3;
+      margin:0;
+      padding:18px 28px 14px;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:#fff;
+      background:linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 100%);
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      font-weight:600;
     }
     .coppette-zones{
       position:absolute;
@@ -1477,7 +1505,8 @@
       letter-spacing:0.6px;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .gelato-section-title{ font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-pink); }
+    .gelato-section-title{ font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-pink); margin-bottom:8px; }
+    .gelato-grid > .gelato-category-title:first-child{ margin-top:0; }
     .gelato-list{ display:grid; gap:6px; font-size:13px; color:rgba(30,57,141,0.7); text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .gelato-flags{ display:grid; gap:8px; }
     .gelato-flag{
@@ -1797,10 +1826,12 @@
     /* ── Torte interactive image map ── */
     .torte-map-wrapper{
       position:relative;
-      width:100%;
-      border-radius:16px;
+      width:calc(100% + 56px);
+      margin-left:-28px;
+      margin-right:-28px;
+      border-radius:0;
       overflow:hidden;
-      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      box-shadow:none;
       cursor:pointer;
     }
     .torte-map-wrapper img{
@@ -1981,10 +2012,12 @@
     /* ── Contenitori interactive image map ── */
     .contenitori-map-wrapper{
       position:relative;
-      width:100%;
-      border-radius:16px;
+      width:calc(100% + 56px);
+      margin-left:-28px;
+      margin-right:-28px;
+      border-radius:0;
       overflow:hidden;
-      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      box-shadow:none;
       cursor:pointer;
     }
     .contenitori-map-wrapper img{
@@ -2170,7 +2203,11 @@
       .modal__header-actions{ border-left:none; }
       .modal__info-btn{ width:40px; height:40px; }
       .modal__content{ padding:16px 18px 18px; gap:16px; }
+      .coppette-map-wrapper,
+      .contenitori-map-wrapper,
+      .torte-map-wrapper{ width:calc(100% + 36px); margin-left:-18px; margin-right:-18px; }
       .modal__section h4{ font-size:12px; margin-bottom:4px; letter-spacing:0.6px; }
+      .map-overlay-title{ padding:12px 18px 10px; font-size:12px; }
       .modal__section p,
       .modal__section li{ font-size:12px; line-height:1.45; }
       .modal__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
@@ -2186,6 +2223,9 @@
     @media(max-width:1024px){
       .gelato-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .modal__content{ padding:20px 22px 24px; }
+      .coppette-map-wrapper,
+      .contenitori-map-wrapper,
+      .torte-map-wrapper{ width:calc(100% + 44px); margin-left:-22px; margin-right:-22px; }
     }
     @media(max-width:768px){
       .gelato-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
@@ -3119,10 +3159,16 @@
             <div class="gelato-vasche">
               <div class="gelato-vasche__buttons">
                 <button class="gelato-vasche__toggle" id="vascheToggle" type="button" data-i18n="b2b.gelato.vascheButton" aria-expanded="false"></button>
-                <button class="gelato-vasche__toggle" id="tipologiaToggle" type="button" data-i18n="b2b.gelato.tipologiaButton" aria-expanded="false"></button>
+                <div class="gelato-control gelato-control--search gelato-control--search-inline">
+                  <input id="gelatoSearch" type="search" data-i18n-attr="placeholder:gelato.filters.search.placeholder" />
+                </div>
               </div>
               <div class="gelato-vasche__content" id="vascheContent" hidden></div>
-              <div class="gelato-vasche__content" id="tipologiaContent" hidden></div>
+            </div>
+            <!-- Formato Acquisto: tipologia vasca grid (always visible) -->
+            <div id="tipologiaSection">
+              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0 0 1em;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
+              <div class="tipologia-grid" id="tipologiaContent"></div>
             </div>
             <div class="gelato-header">
               <h4 data-gelato-i18n="vetrinaGelato.title"></h4>
@@ -3138,10 +3184,6 @@
                   <option value="sorbetti" data-i18n="gelato.filters.category.sorbetti"></option>
                   <option value="limited" data-i18n="gelato.filters.category.limited"></option>
                 </select>
-              </div>
-              <div class="gelato-control gelato-control--search">
-                <label for="gelatoSearch" data-i18n="gelato.filters.search.label"></label>
-                <input id="gelatoSearch" type="search" data-i18n-attr="placeholder:gelato.filters.search.placeholder" />
               </div>
             </div>
             <div class="gelato-body">
@@ -3397,8 +3439,9 @@
           'gelato.filters.category.sorbetti': 'I Sorbetti',
           'gelato.filters.category.limited': 'Badiani Limited Edition',
           'gelato.filters.noResults': 'Nessun risultato trovato.',
-          'b2b.gelato.vascheButton': 'Vasche: lista gusti',
+          'b2b.gelato.vascheButton': 'Lista gusti',
           'b2b.gelato.tipologiaButton': 'Tipologia vasca',
+          'b2b.vasche.formatoAcquisto': 'Formato Acquisto',
           'b2b.coni.gfVariant': 'Variante Gluten Free',
           'b2b.coni.description': 'Descrizione',
           'b2b.coni.quantity': 'Quantit\u00e0',
@@ -3411,6 +3454,9 @@
           'b2b.accessori.quantity': 'Quantit\u00e0',
           'b2b.pezziduri.avgWeight': 'Peso medio (1 pz.)',
           'b2b.pezziduri.minOrder': 'Ordine minimo',
+          'gelato.detail.description': 'Descrizione',
+          'gelato.detail.allergens': 'Allergeni',
+          'gelato.detail.category': 'Categoria',
           'gelato.detail.none': 'Nessuno',
           'gelato.flags.vegan': 'Vegano',
           'gelato.flags.glutenFree': 'Senza glutine',
@@ -3687,8 +3733,9 @@
           'gelato.filters.category.sorbetti': 'Sorbets',
           'gelato.filters.category.limited': 'Badiani Limited Edition',
           'gelato.filters.noResults': 'No results found.',
-          'b2b.gelato.vascheButton': 'Tubs: flavour list',
+          'b2b.gelato.vascheButton': 'Flavour list',
           'b2b.gelato.tipologiaButton': 'Tub types',
+          'b2b.vasche.formatoAcquisto': 'Purchase Format',
           'b2b.coni.gfVariant': 'Gluten Free Variant',
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantity',
@@ -3706,6 +3753,7 @@
           'gelato.detail.description': 'Description',
           'gelato.detail.ingredients': 'Ingredients',
           'gelato.detail.allergens': 'Allergens',
+          'gelato.detail.category': 'Category',
           'gelato.detail.seasons': 'Availability',
           'gelato.detail.flags': 'Parameters',
           'gelato.detail.none': 'None',
@@ -3984,8 +4032,9 @@
           'gelato.filters.category.sorbetti': 'Les Sorbets',
           'gelato.filters.category.limited': 'Badiani Limited Edition',
           'gelato.filters.noResults': 'Aucun r\u00e9sultat trouv\u00e9.',
-          'b2b.gelato.vascheButton': 'Bacs : liste des parfums',
+          'b2b.gelato.vascheButton': 'Liste des parfums',
           'b2b.gelato.tipologiaButton': 'Types de bacs',
+          'b2b.vasche.formatoAcquisto': 'Format d\'achat',
           'b2b.coni.gfVariant': 'Variante Sans Gluten',
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantité',
@@ -4003,6 +4052,7 @@
           'gelato.detail.description': 'Description',
           'gelato.detail.ingredients': 'Ingrédients',
           'gelato.detail.allergens': 'Allergènes',
+          'gelato.detail.category': 'Catégorie',
           'gelato.detail.seasons': 'Disponibilité',
           'gelato.detail.flags': 'Paramètres',
           'gelato.detail.none': 'Aucun',
@@ -4281,8 +4331,9 @@
           'gelato.filters.category.sorbetti': 'Los Sorbetes',
           'gelato.filters.category.limited': 'Badiani Limited Edition',
           'gelato.filters.noResults': 'Ning\u00fan resultado encontrado.',
-          'b2b.gelato.vascheButton': 'Cubas: lista de sabores',
+          'b2b.gelato.vascheButton': 'Lista de sabores',
           'b2b.gelato.tipologiaButton': 'Tipos de cubas',
+          'b2b.vasche.formatoAcquisto': 'Formato de compra',
           'b2b.coni.gfVariant': 'Variante Sin Gluten',
           'b2b.coni.description': 'Descripci\u00f3n',
           'b2b.coni.quantity': 'Cantidad',
@@ -4300,6 +4351,7 @@
           'gelato.detail.description': 'Descripción',
           'gelato.detail.ingredients': 'Ingredientes',
           'gelato.detail.allergens': 'Alérgenos',
+          'gelato.detail.category': 'Categoría',
           'gelato.detail.seasons': 'Disponibilidad',
           'gelato.detail.flags': 'Parámetros',
           'gelato.detail.none': 'Ninguno',
@@ -4471,7 +4523,7 @@
             ['Ghiacciolo di frutta al limone', '100 g', '20'],
             ['Ghiacciolo di frutta la mango', '100 g', '20'],
             ['Ghiacciolo alla menta', '100 g', '20'],
-            ['Lingotto Buontalenti', '60 g', '96'],
+            ['Lingotto Buontalenti', '60 g', '96 (8 box da 12 pezzi)'],
             ['Zampa', '150 g', '16']
           ]
         },
@@ -4960,7 +5012,6 @@
       const gelatoCategory = document.getElementById('gelatoCategory');
       const vascheToggle = document.getElementById('vascheToggle');
       const vascheContent = document.getElementById('vascheContent');
-      const tipologiaToggle = document.getElementById('tipologiaToggle');
       const tipologiaContent = document.getElementById('tipologiaContent');
       const defaultContent = document.getElementById('b2bDefaultContent');
       const fullscreenOverlay = document.getElementById('gelatoFullscreen');
@@ -4987,6 +5038,13 @@
         sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango'],
         limited: ['buontalenti-amarena', 'cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
       };
+
+      function getFlavorCategory(flavorId){
+        for(const [key, ids] of Object.entries(GELATO_CATEGORIES)){
+          if(ids.includes(flavorId)) return t(`gelato.filters.category.${key}`) || key;
+        }
+        return '';
+      }
 
       const categories = Array.from(cards).map((card) => card.getAttribute('data-category'));
       let activeCategory = categories[0] || '';
@@ -5146,7 +5204,7 @@
           })
           .join('');
 
-        return `<div class="tipologia-grid">${cards}</div>`;
+        return cards;
       }
 
       function setupTipologiaZoom(){
@@ -5223,8 +5281,8 @@
 
         return `
           <div class="modal__section">
-            <h4>${getCatTitle('CONTENITORI')}</h4>
             <div class="contenitori-map-wrapper">
+              <h4 class="map-overlay-title">${getCatTitle('CONTENITORI')}</h4>
               <img src="${groupSrc}" alt="Contenitori" loading="lazy" decoding="async" />
               <div class="contenitori-zones">${zones}</div>
             </div>
@@ -5312,8 +5370,8 @@
 
         return `
           <div class="modal__section">
-            <h4>${getCatTitle('TORTE')}</h4>
             <div class="torte-map-wrapper">
+              <h4 class="map-overlay-title">${getCatTitle('TORTE')}</h4>
               <img src="${groupSrc}" alt="Torte" loading="lazy" decoding="async" />
               <div class="torte-zones">${zones}</div>
             </div>
@@ -5483,8 +5541,8 @@
         const hintText = selectedCoppetteId ? '' : `<p class="coppette-hint">${t('b2b.coppette.hint')}</p>`;
 
         const coppetteSection = `
-          <div class="coppette-section-title">${t('b2b.coppette.sectionTitle')}</div>
           <div class="coppette-map-wrapper">
+            <h4 class="map-overlay-title">${t('b2b.coppette.sectionTitle')}</h4>
             <img src="${headerSrc}" alt="Coppette" loading="lazy" decoding="async" />
             <div class="coppette-zones">${zones}</div>
           </div>
@@ -5689,14 +5747,7 @@
 
         const description = getGelatoDesc(flavor.id) || flavor.description || '';
         const allergensText = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
-        const flags = [
-          ['gelato.flags.vegan', flavor.flags.vegan],
-          ['gelato.flags.glutenFree', flavor.flags.glutenFree],
-          ['gelato.flags.lactoseFree', flavor.flags.lactoseFree],
-          ['gelato.flags.containsEggs', flavor.flags.containsEggs],
-          ['gelato.flags.containsNuts', flavor.flags.containsNuts],
-          ['gelato.flags.containsAlcohol', flavor.flags.containsAlcohol]
-        ];
+        const categoryName = getFlavorCategory(flavor.id);
 
         const flavorLabel = tGelato(flavor.nameKey) || flavor.label || flavor.id;
         gelatoDetail.innerHTML = `
@@ -5709,21 +5760,14 @@
             <div class=\"gelato-section-title\">${t('gelato.detail.description')}</div>
             <div class="gelato-list">${description}</div>
           </div>` : ''}
+          ${categoryName ? `<div>
+            <div class=\"gelato-section-title\">${t('gelato.detail.category')}</div>
+            <div class="gelato-list">${categoryName}</div>
+          </div>` : ''}
           <div>
             <div class=\"gelato-section-title\">${t('gelato.detail.allergens')}</div>
             <div class="gelato-list">${allergensText}</div>
           </div>
-          ${flags.filter(([, value]) => value).length ? `<div>
-            <div class=\"gelato-section-title\">${t('gelato.detail.flags')}</div>
-            <div class="gelato-flags">
-              ${flags.filter(([, value]) => value).map(([label]) => `
-                <div class="gelato-flag">
-                  <span>${t(label)}</span>
-                  <strong>✓</strong>
-                </div>
-              `).join('')}
-            </div>
-          </div>` : ''}
         `;
 
         gelatoDetail.classList.remove('is-collapsed');
@@ -5741,34 +5785,20 @@
       function buildGelatoDetailsHTML(flavor){
         const description = getGelatoDesc(flavor.id) || flavor.description || '';
         const allergensText = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
-        const flags = [
-          ['gelato.flags.vegan', flavor.flags.vegan],
-          ['gelato.flags.glutenFree', flavor.flags.glutenFree],
-          ['gelato.flags.lactoseFree', flavor.flags.lactoseFree],
-          ['gelato.flags.containsEggs', flavor.flags.containsEggs],
-          ['gelato.flags.containsNuts', flavor.flags.containsNuts],
-          ['gelato.flags.containsAlcohol', flavor.flags.containsAlcohol]
-        ];
+        const categoryName = getFlavorCategory(flavor.id);
         return `
           ${description ? `<div>
             <div class="gelato-section-title">${t('gelato.detail.description')}</div>
             <div class="gelato-list">${description}</div>
           </div>` : ''}
+          ${categoryName ? `<div>
+            <div class="gelato-section-title">${t('gelato.detail.category')}</div>
+            <div class="gelato-list">${categoryName}</div>
+          </div>` : ''}
           <div>
             <div class="gelato-section-title">${t('gelato.detail.allergens')}</div>
             <div class="gelato-list">${allergensText}</div>
           </div>
-          ${flags.filter(([, value]) => value).length ? `<div>
-            <div class="gelato-section-title">${t('gelato.detail.flags')}</div>
-            <div class="gelato-flags">
-              ${flags.filter(([, value]) => value).map(([label]) => `
-                <div class="gelato-flag">
-                  <span>${t(label)}</span>
-                  <strong>✓</strong>
-                </div>
-              `).join('')}
-            </div>
-          </div>` : ''}
         `;
       }
 
@@ -6062,6 +6092,13 @@
           if(vascheContent){
             vascheContent.innerHTML = renderVascheSection();
           }
+          if(tipologiaContent){
+            tipologiaContent.innerHTML = renderTipologiaGallery();
+            requestAnimationFrame(() => {
+              setupTipologiaZoom();
+              setupZoomButtons();
+            });
+          }
         }else{
           renderCategoryContent(activeCategory);
         }
@@ -6208,34 +6245,10 @@
             vascheContent.removeAttribute('hidden');
             vascheToggle.classList.add('is-open');
             vascheToggle.setAttribute('aria-expanded', 'true');
-            requestAnimationFrame(() => {
-              vascheContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
           }else{
             vascheContent.setAttribute('hidden', '');
             vascheToggle.classList.remove('is-open');
             vascheToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-
-      if(tipologiaToggle && tipologiaContent){
-        tipologiaToggle.addEventListener('click', () => {
-          const willOpen = tipologiaContent.hasAttribute('hidden');
-          if(willOpen){
-            tipologiaContent.innerHTML = renderTipologiaGallery();
-            tipologiaContent.removeAttribute('hidden');
-            tipologiaToggle.classList.add('is-open');
-            tipologiaToggle.setAttribute('aria-expanded', 'true');
-            requestAnimationFrame(() => {
-              setupTipologiaZoom();
-              setupZoomButtons();
-              tipologiaContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-          }else{
-            tipologiaContent.setAttribute('hidden', '');
-            tipologiaToggle.classList.remove('is-open');
-            tipologiaToggle.setAttribute('aria-expanded', 'false');
           }
         });
       }
