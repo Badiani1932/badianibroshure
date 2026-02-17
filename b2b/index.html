@@ -1096,9 +1096,9 @@
       text-transform:uppercase;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    @media(max-width:600px){
+    @media(max-width:720px){
       .tipologia-grid{
-        grid-template-columns:repeat(3, minmax(0, 1fr));
+        grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
         gap:8px;
       }
       .tipologia-media{ aspect-ratio:1 / 1; }
@@ -2262,8 +2262,8 @@
       .modal-overlay{ padding:68px 12px 12px; align-items:flex-start; }
       .modal__close{ width:44px; height:44px; top:14px; right:14px; }
       .modal__header{ flex-wrap:wrap; }
-      .modal__nav{ padding:2px 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow-x:visible; flex-wrap:wrap; flex-shrink:0; box-sizing:border-box; justify-content:center; gap:0; }
-      .modal__nav button{ padding:7px 9px; font-size:10px; white-space:nowrap; flex-shrink:0; letter-spacing:0.4px; }
+      .modal__nav{ padding:2px 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow:hidden !important; overflow-x:hidden !important; flex-wrap:wrap !important; flex-shrink:0; box-sizing:border-box; justify-content:center; gap:0; -webkit-overflow-scrolling:auto; }
+      .modal__nav button{ padding:7px 9px; font-size:10px; white-space:nowrap; flex-shrink:0; letter-spacing:0.4px; min-width:0; }
       .modal__header-actions{ border-left:none; }
       .modal__info-btn{ width:40px; height:40px; }
       .modal__content{ padding:16px 18px 18px; gap:16px; }
