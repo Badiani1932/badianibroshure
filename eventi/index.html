@@ -103,38 +103,6 @@
       font-weight:300;
     }
 
-    /* EVENT DIVIDER — SEPARATOR SECTION */
-    .ev-divider{
-      position:relative;
-      padding:clamp(60px, 8vw, 100px) clamp(16px, 4vw, 80px);
-      background:transparent;
-      text-align:center;
-    }
-    .ev-divider::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:url('../assets/images/branding/sfondo.webp') top/cover no-repeat;
-      transform:scaleX(-1);
-      z-index:0;
-    }
-    .ev-divider-content{
-      position:relative;
-      z-index:1;
-      margin:0 auto;
-    }
-    .ev-divider h2{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(28px, 5vw, 80px);
-      font-weight:700;
-      letter-spacing:4px;
-      text-transform:uppercase;
-      color:#fff !important;
-      margin:0;
-      line-height:1.1;
-      text-shadow:0 2px 8px rgba(0,0,0,0.35);
-      white-space:nowrap;
-    }
 
     /* EVENT TYPES — 3-column full-bleed grid ===== */
     .ev-types{
@@ -892,13 +860,6 @@
         <h1 class="ev-hero__title title-accent title-accent--light" data-i18n="eventi.page.title">Eventi</h1>
       </div>
       <p class="ev-hero__desc" data-i18n="eventi.hero.desc">Soluzioni per ristoranti, hotel, campeggi e molto altro.</p>
-    </div>
-  </section>
-
-  <!-- EVENT DIVIDER — SEPARATOR -->
-  <section class="ev-divider">
-    <div class="ev-divider-content">
-      <h2 data-i18n="eventi.eventDivider.title">IL TUO EVENTO SU MISURA</h2>
     </div>
   </section>
 

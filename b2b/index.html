@@ -5324,6 +5324,102 @@
         es: { '96 (8 box da 12 pezzi)': '96 (8 cajas de 12 piezas)' }
       };
 
+      /* ── Gelato flavor card name translations ── */
+      const GELATO_FLAVOR_NAMES_I18N = {
+        en: {
+          'Buontalenti': 'Buontalenti',
+          'La Dolcevita': 'La Dolcevita',
+          'Buontalenti al Pistacchio': 'Buontalenti Pistachio',
+          'Buontalenti Caramello': 'Buontalenti Caramel',
+          'Buontalenti all\'Amarena': 'Buontalenti Sour Cherry',
+          'Buontalenti Delattosato': 'Buontalenti Lactose-Free',
+          'Buontalenti Fondente': 'Buontalenti Dark Chocolate',
+          'Cremino alla Nocciola': 'Hazelnut Cremino',
+          'Cremino al Pistacchio': 'Pistachio Cremino',
+          'Stracciatella': 'Stracciatella',
+          'Caffè': 'Coffee',
+          'Cioccolato al latte': 'Milk Chocolate',
+          'Caramello Salato': 'Salted Caramel',
+          'Cheesecake Frutti Rossi': 'Red Berries Cheesecake',
+          'Cocco': 'Coconut',
+          'Malaga': 'Malaga',
+          'Nocciola': 'Hazelnut',
+          'Pistacchio': 'Pistachio',
+          'Tiramisù': 'Tiramisu',
+          'Yogurt': 'Yoghurt',
+          'Fondente': 'Dark Chocolate',
+          'Fragola': 'Strawberry',
+          'Limone': 'Lemon',
+          'Lampone': 'Raspberry',
+          'Mango': 'Mango',
+          'Cassandra': 'Cassandra',
+          'Cioccolato bianco all\'arancia': 'White Chocolate & Orange',
+          'Yogurt Mirtillo': 'Blueberry Yoghurt'
+        },
+        fr: {
+          'Buontalenti': 'Buontalenti',
+          'La Dolcevita': 'La Dolcevita',
+          'Buontalenti al Pistacchio': 'Buontalenti Pistache',
+          'Buontalenti Caramello': 'Buontalenti Caramel',
+          'Buontalenti all\'Amarena': 'Buontalenti Amarena',
+          'Buontalenti Delattosato': 'Buontalenti Sans Lactose',
+          'Buontalenti Fondente': 'Buontalenti Chocolat Noir',
+          'Cremino alla Nocciola': 'Cremino Noisette',
+          'Cremino al Pistacchio': 'Cremino Pistache',
+          'Stracciatella': 'Stracciatella',
+          'Caffè': 'Café',
+          'Cioccolato al latte': 'Chocolat au Lait',
+          'Caramello Salato': 'Caramel Salé',
+          'Cheesecake Frutti Rossi': 'Cheesecake Fruits Rouges',
+          'Cocco': 'Noix de Coco',
+          'Malaga': 'Malaga',
+          'Nocciola': 'Noisette',
+          'Pistacchio': 'Pistache',
+          'Tiramisù': 'Tiramisù',
+          'Yogurt': 'Yaourt',
+          'Fondente': 'Chocolat Noir',
+          'Fragola': 'Fraise',
+          'Limone': 'Citron',
+          'Lampone': 'Framboise',
+          'Mango': 'Mangue',
+          'Cassandra': 'Cassandra',
+          'Cioccolato bianco all\'arancia': 'Chocolat Blanc à l\'Orange',
+          'Yogurt Mirtillo': 'Yaourt Myrtille'
+        },
+        es: {
+          'Buontalenti': 'Buontalenti',
+          'La Dolcevita': 'La Dolcevita',
+          'Buontalenti al Pistacchio': 'Buontalenti Pistacho',
+          'Buontalenti Caramello': 'Buontalenti Caramelo',
+          'Buontalenti all\'Amarena': 'Buontalenti Amarena',
+          'Buontalenti Delattosato': 'Buontalenti Sin Lactosa',
+          'Buontalenti Fondente': 'Buontalenti Chocolate Negro',
+          'Cremino alla Nocciola': 'Cremino de Avellana',
+          'Cremino al Pistacchio': 'Cremino de Pistacho',
+          'Stracciatella': 'Stracciatella',
+          'Caffè': 'Café',
+          'Cioccolato al latte': 'Chocolate con Leche',
+          'Caramello Salato': 'Caramelo Salado',
+          'Cheesecake Frutti Rossi': 'Cheesecake de Frutos Rojos',
+          'Cocco': 'Coco',
+          'Malaga': 'Málaga',
+          'Nocciola': 'Avellana',
+          'Pistacchio': 'Pistacho',
+          'Tiramisù': 'Tiramisú',
+          'Yogurt': 'Yogur',
+          'Fondente': 'Chocolate Negro',
+          'Fragola': 'Fresa',
+          'Limone': 'Limón',
+          'Lampone': 'Frambuesa',
+          'Mango': 'Mango',
+          'Cassandra': 'Cassandra',
+          'Cioccolato bianco all\'arancia': 'Chocolate Blanco con Naranja',
+          'Yogurt Mirtillo': 'Yogur de Arándano'
+        }
+      };
+
+      function getFlavorLabel(flavor){ return (GELATO_FLAVOR_NAMES_I18N[currentLang] || {})[flavor.label] || flavor.label || flavor.id; }
+
       function getVascheName(name){ return (VASCHE_NAMES_I18N[currentLang] || {})[name] || name; }
       function getPezziDuriName(name){ return (PEZZI_DURI_NAMES_I18N[currentLang] || {})[name] || name; }
       function getTorteName(name){ return (TORTE_NAMES_I18N[currentLang] || {})[name] || name; }
@@ -6386,7 +6482,7 @@
         const allergensText = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
         const categoryName = getFlavorCategory(flavor.id);
 
-        const flavorLabel = tGelato(flavor.nameKey) || flavor.label || flavor.id;
+        const flavorLabel = getFlavorLabel(flavor);
         gelatoDetail.innerHTML = `
           <div class=\"gelato-detail__header\">
             <div class=\"gelato-section-title\">${flavorLabel}</div>
@@ -6611,7 +6707,7 @@
           if(!categoryIds) return;
           
           const categoryFlavors = gelatoFlavors.filter((flavor) => {
-            const name = (tGelato(flavor.nameKey) || flavor.label || flavor.id).toLowerCase();
+            const name = getFlavorLabel(flavor).toLowerCase();
             const matchQuery = !query || name.includes(query);
             const matchCategory = categoryIds.includes(flavor.id);
             return matchQuery && matchCategory;
@@ -6634,7 +6730,7 @@
             btn.className = `gelato-card${tubClass}`;
             btn.dataset.flavorId = flavor.id;
             btn.setAttribute('aria-expanded', 'false');
-            const flavorName = tGelato(flavor.nameKey) || flavor.label || flavor.id;
+            const flavorName = getFlavorLabel(flavor);
             const baseSrc = getBaseImageSrc(flavor);
             const imageUrl = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
             const zoomIcon = `

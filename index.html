@@ -325,72 +325,7 @@
 
 
 
-    /* CHI SIAMO — SEPARATOR SECTION */
-    /* CHI SIAMO — SEPARATOR SECTION */
-    .chi-siamo-divider{
-      position:relative;
-      padding:clamp(60px, 8vw, 100px) clamp(16px, 4vw, 80px);
-      background:transparent;
-      text-align:center;
-    }
-    .chi-siamo-divider::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:url('assets/images/branding/sfondo.webp') top/cover no-repeat;
-      transform:scaleX(-1);
-      z-index:0;
-    }
-    .chi-siamo-divider-content{
-      position:relative;
-      z-index:1;
-      max-width:600px;
-      margin:0 auto;
-    }
-    .chi-siamo-divider h2{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(48px, 7vw, 80px);
-      font-weight:700;
-      letter-spacing:4px;
-      text-transform:uppercase;
-      color:#fff !important;
-      margin:0;
-      line-height:1.1;
-      text-shadow:0 2px 8px rgba(0,0,0,0.35);
-    }
 
-    /* CHOICE DIVIDER — SEPARATOR SECTION */
-    .choice-divider{
-      position:relative;
-      padding:clamp(60px, 8vw, 100px) clamp(16px, 4vw, 80px);
-      background:transparent;
-      text-align:center;
-    }
-    .choice-divider::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:url('assets/images/branding/sfondo.webp') center/cover no-repeat;
-      transform:scaleX(-1);
-      z-index:0;
-    }
-    .choice-divider-content{
-      position:relative;
-      z-index:1;
-      max-width:600px;
-      margin:0 auto;
-    }
-    .choice-divider h2{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(48px, 7vw, 80px);
-      font-weight:700;
-      letter-spacing:4px;
-      text-transform:uppercase;
-      color:#fff !important;
-      margin:0;
-      line-height:1.1;
-      text-shadow:0 2px 8px rgba(0,0,0,0.35);
-    }
 
     /* SEZIONE STORIA + GELATO — SPLIT-SCREEN (stile choice-grid) */
     .story-section{
@@ -1152,13 +1087,6 @@
     </div>
   </section>
 
-  <!-- CHOICE DIVIDER — SEPARATOR -->
-  <section class="choice-divider">
-    <div class="choice-divider-content">
-      <h2 data-i18n="home.choiceDivider.title">COSA OFFRIAMO</h2>
-    </div>
-  </section>
-
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
@@ -1181,13 +1109,6 @@
           <p class="choice-desc" data-i18n="home.choice.b2b.desc">Soluzioni gelato per catering, hotel</p>
         </div>
       </a>
-    </div>
-  </section>
-
-  <!-- CHI SIAMO — SEPARATOR -->
-  <section class="chi-siamo-divider">
-    <div class="chi-siamo-divider-content">
-      <h2 data-i18n="home.chiSiamo.title">CHI SIAMO</h2>
     </div>
   </section>
 
