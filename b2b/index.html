@@ -712,7 +712,8 @@
       background:#fff;
       font-family:inherit;
     }
-    .modal__section h4{ font-size:14px; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; color:var(--badiani-pink); }
+    .modal__section h4{ font-size:27px; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; color:var(--badiani-pink); }
+    .modal__section h4.map-overlay-title{ font-size:27px; }
     .modal__section p,
     .modal__section li{ font-size:14px; color:rgba(30,57,141,0.65); text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .modal__grid{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
@@ -1242,7 +1243,7 @@
       z-index:3;
       margin:0;
       padding:18px 28px 14px;
-      font-size:14px;
+      font-size:27px;
       text-transform:uppercase;
       letter-spacing:1px;
       color:var(--badiani-pink);
@@ -1323,7 +1324,8 @@
       text-align:center;
       font-size:12px;
       color:rgba(30,57,141,0.45);
-      margin-top:10px;
+      margin:4px 0;
+      padding:0;
       font-style:italic;
       letter-spacing:0.3px;
     }
@@ -1435,7 +1437,7 @@
 
     /* ── Coni interactive image map (hero) ── */
     .coni-hero-section{
-      margin-top:10px;
+      margin-top:4px;
     }
     .coni-map-wrapper{
       position:relative;
@@ -1515,7 +1517,8 @@
       text-align:center;
       font-size:12px;
       color:rgba(30,57,141,0.45);
-      margin-top:10px;
+      margin:4px 0;
+      padding:0;
       font-style:italic;
       letter-spacing:0.3px;
     }
@@ -1619,77 +1622,395 @@
     }
 
 
-    /* ── Accessori gallery ── */
-    .accessori-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:16px;
-      align-items:start;
+    /* ── Coni Gluten Free interactive hero map ── */
+    .conigf-hero-section{
+      margin-top:4px;
     }
-    .accessori-card{
+    .conigf-map-wrapper{
+      position:relative;
+      width:calc(100% + 56px);
+      margin-left:-28px;
+      margin-right:-28px;
+      border-radius:0;
+      overflow:visible;
+      box-shadow:none;
+      cursor:pointer;
+    }
+    .conigf-map-wrapper img.conigf-hero-img{
+      width:100%;
+      display:block;
+    }
+    .conigf-zones{
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      display:flex;
+      justify-content:center;
+      touch-action:manipulation;
+    }
+    .conigf-zone{
+      flex:0 0 35%;
+      position:relative;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
+    }
+    .conigf-zone:hover .conigf-zone-label{
+      background:rgba(255,255,255,1);
+      transform:translateX(-50%) scale(1.05);
+      box-shadow:0 3px 12px rgba(30,57,141,0.25);
+    }
+    .conigf-zone:focus-visible{
+      outline:2px solid rgba(30,57,141,0.4);
+      outline-offset:-2px;
+      border-radius:4px;
+    }
+    .conigf-zone.is-active .conigf-zone-label{
+      background:var(--badiani-blue);
+      color:#fff;
+      transform:translateX(-50%) scale(1.08);
+      box-shadow:0 4px 14px rgba(30,57,141,0.35);
+    }
+    .conigf-zone-label{
+      position:absolute;
+      bottom:18px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(255,255,255,0.92);
+      color:var(--badiani-blue);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      padding:6px 14px 6px 10px;
+      border-radius:24px;
+      white-space:nowrap;
+      pointer-events:none;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:5px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+      transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      animation:conigfLabelPulse 2.2s ease-in-out 0.5s 2;
+    }
+    .conigf-zone-label .conigf-tap-icon{
+      width:18px;
+      height:18px;
+      flex-shrink:0;
+      opacity:0.7;
+    }
+    .conigf-zone.is-active .conigf-zone-label .conigf-tap-icon{
+      opacity:1;
+    }
+    @keyframes conigfLabelPulse{
+      0%, 100%{ transform:translateX(-50%) scale(1); }
+      50%{ transform:translateX(-50%) scale(1.1); box-shadow:0 4px 16px rgba(30,57,141,0.3); }
+    }
+    .conigf-hint{
+      text-align:center;
+      font-size:12px;
+      color:rgba(30,57,141,0.45);
+      margin:4px 0;
+      padding:0;
+      font-style:italic;
+      letter-spacing:0.3px;
+    }
+    .conigf-detail-panel{
+      display:flex;
+      gap:24px;
+      margin-top:20px;
       background:#fff;
       border-radius:16px;
-      overflow:hidden;
       border:1px solid rgba(30,57,141,0.08);
       box-shadow:0 10px 22px rgba(0,0,0,0.2);
-      display:flex;
-      flex-direction:column;
-      cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-    .accessori-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.3); }
-    .accessori-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
-    .accessori-card.is-expanded{ border-color:var(--badiani-pink); box-shadow:0 12px 28px rgba(240,103,166,0.2); }
-    .accessori-media{
-      width:100%;
-      aspect-ratio:1 / 1;
-      background:transparent;
       overflow:hidden;
-      position:relative;
+      animation:cardDetailsFadeIn 0.3s ease;
+    }
+    .conigf-detail-img{
+      flex:0 0 45%;
+      max-width:45%;
+      overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
+      min-height:180px;
     }
-    .accessori-media img{
+    .conigf-detail-img img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
     }
-    .accessori-media--placeholder{
-      background:transparent;
+    .conigf-detail-info{
+      flex:1;
+      padding:24px 24px 24px 0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:12px;
     }
-    .accessori-body{
-      padding:12px 14px 14px;
-      display:grid;
-      gap:8px;
-    }
-    .accessori-title{
-      font-size:13px;
-      font-weight:600;
-      letter-spacing:0.6px;
+    .conigf-detail-name{
+      font-size:18px;
+      font-weight:700;
       color:var(--badiani-blue);
-      text-align:center;
       text-transform:uppercase;
+      letter-spacing:0.8px;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .accessori-meta{
-      display:none;
-      gap:6px;
-      font-size:12px;
+    .conigf-detail-meta{
+      display:grid;
+      gap:8px;
+      font-size:13px;
       color:rgba(30,57,141,0.65);
     }
-    .accessori-card.is-expanded .accessori-meta{
-      display:grid;
-      animation:cardDetailsFadeIn 0.25s ease;
-    }
-    .accessori-meta span{
+    .conigf-detail-meta span{
       display:flex;
       justify-content:space-between;
       gap:8px;
       background:transparent;
-      padding:6px 8px;
+      padding:8px 12px;
       border-radius:10px;
+    }
+    .conigf-detail-meta strong{
+      color:var(--badiani-pink);
+      font-weight:600;
+    }
+    @media(max-width:600px){
+      .conigf-detail-panel{
+        flex-direction:column;
+        gap:0;
+      }
+      .conigf-detail-img{
+        flex:none;
+        max-width:100%;
+        min-height:auto;
+        max-height:none;
+      }
+      .conigf-detail-img img{
+        object-fit:contain;
+      }
+      .conigf-detail-info{
+        padding:12px 14px;
+      }
+      .conigf-detail-name{
+        font-size:14px;
+      }
+      .conigf-detail-meta{
+        font-size:12px;
+        gap:4px;
+      }
+      .conigf-detail-meta span{
+        padding:5px 8px;
+      }
+      .conigf-zone-label{
+        font-size:10px;
+        padding:4px 8px 4px 6px;
+        bottom:6px;
+        gap:3px;
+      }
+      .conigf-zone-label .conigf-tap-icon{
+        width:14px;
+        height:14px;
+      }
+    }
+    @media(max-width:1024px){
+      .conigf-map-wrapper{ width:calc(100% + 44px); margin-left:-22px; margin-right:-22px; }
+    }
+
+    /* ── Accessori interactive hero map ── */
+    .accessori-map-wrapper{
+      position:relative;
+      width:calc(100% + 56px);
+      margin-top:-24px;
+      margin-left:-28px;
+      margin-right:-28px;
+      border-radius:0;
+      overflow:visible;
+      box-shadow:none;
+      cursor:pointer;
+      background:#fff;
+    }
+    .accessori-map-wrapper img.accessori-hero-img{
+      width:100%;
+      display:block;
+      filter:none;
+      opacity:1;
+    }
+    .accessori-zones{
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      display:grid;
+      grid-template-columns:repeat(6, 1fr);
+      grid-template-rows:1fr;
+      touch-action:manipulation;
+    }
+    .accessori-zone{
+      position:relative;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
+    }
+    .accessori-zone:hover .accessori-zone-label{
+      background:rgba(255,255,255,1);
+      transform:translateX(-50%) scale(1.05);
+      box-shadow:0 3px 12px rgba(30,57,141,0.25);
+    }
+    .accessori-zone:focus-visible{
+      outline:2px solid rgba(30,57,141,0.4);
+      outline-offset:-2px;
+      border-radius:4px;
+    }
+    .accessori-zone.is-active .accessori-zone-label{
+      background:var(--badiani-blue);
+      color:#fff;
+      transform:translateX(-50%) scale(1.08);
+      box-shadow:0 4px 14px rgba(30,57,141,0.35);
+    }
+    .accessori-zone-label{
+      position:absolute;
+      bottom:14px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(255,255,255,0.92);
+      color:var(--badiani-blue);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      padding:5px 12px 5px 8px;
+      border-radius:24px;
+      white-space:nowrap;
+      pointer-events:none;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:4px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+      transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      animation:accessoriLabelPulse 2.2s ease-in-out 0.5s 2;
+    }
+    .accessori-zone-label .accessori-tap-icon{
+      width:16px;
+      height:16px;
+      flex-shrink:0;
+      opacity:0.7;
+    }
+    .accessori-zone.is-active .accessori-zone-label .accessori-tap-icon{
+      opacity:1;
+    }
+    @keyframes accessoriLabelPulse{
+      0%, 100%{ transform:translateX(-50%) scale(1); }
+      50%{ transform:translateX(-50%) scale(1.1); box-shadow:0 4px 16px rgba(30,57,141,0.3); }
+    }
+    .accessori-hint{
+      text-align:center;
+      font-size:12px;
+      color:rgba(30,57,141,0.45);
+      margin:4px 0;
+      padding:0;
+      font-style:italic;
+      letter-spacing:0.3px;
+    }
+    .accessori-detail-panel{
+      display:flex;
+      gap:24px;
+      margin-top:20px;
+      background:#fff;
+      border-radius:16px;
+      border:1px solid rgba(30,57,141,0.08);
+      box-shadow:0 10px 22px rgba(0,0,0,0.2);
+      overflow:hidden;
+      animation:cardDetailsFadeIn 0.3s ease;
+    }
+    .accessori-detail-img{
+      flex:0 0 45%;
+      max-width:45%;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:180px;
+    }
+    .accessori-detail-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .accessori-detail-info{
+      flex:1;
+      padding:24px 24px 24px 0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:12px;
+    }
+    .accessori-detail-name{
+      font-size:18px;
+      font-weight:700;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:0.8px;
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .accessori-detail-meta{
+      display:grid;
+      gap:8px;
+      font-size:13px;
+      color:rgba(30,57,141,0.65);
+    }
+    .accessori-detail-meta span{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      background:transparent;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    .accessori-detail-meta strong{
+      color:var(--badiani-pink);
+      font-weight:600;
+    }
+    @media(max-width:600px){
+      .accessori-detail-panel{
+        flex-direction:column;
+        gap:0;
+      }
+      .accessori-detail-img{
+        flex:none;
+        max-width:100%;
+        min-height:auto;
+        max-height:none;
+      }
+      .accessori-detail-img img{
+        object-fit:contain;
+      }
+      .accessori-detail-info{
+        padding:12px 14px;
+      }
+      .accessori-detail-name{
+        font-size:14px;
+      }
+      .accessori-detail-meta{
+        font-size:12px;
+        gap:4px;
+      }
+      .accessori-detail-meta span{
+        padding:5px 8px;
+      }
+      .accessori-zone-label{
+        font-size:8px;
+        padding:3px 6px 3px 4px;
+        bottom:4px;
+        gap:2px;
+      }
+      .accessori-zone-label .accessori-tap-icon{
+        width:10px;
+        height:10px;
+      }
+    }
+    @media(max-width:1024px){
+      .accessori-map-wrapper{ width:calc(100% + 44px); margin-top:-20px; margin-left:-22px; margin-right:-22px; }
     }
 
 
@@ -2453,8 +2774,9 @@
       .coppette-map-wrapper,
       .contenitori-map-wrapper,
       .torte-map-wrapper{ width:calc(100% + 36px); margin-top:-16px; margin-left:-18px; margin-right:-18px; }
-      .modal__section h4{ font-size:12px; margin-bottom:4px; letter-spacing:0.6px; }
-      .map-overlay-title{ padding:12px 18px 10px; font-size:12px; }
+      .modal__section h4{ font-size:24px; margin-bottom:4px; letter-spacing:0.6px; }
+      .map-overlay-title{ padding:12px 18px 10px; font-size:24px; }
+      .modal__section h4.map-overlay-title{ font-size:24px; }
       .modal__section p,
       .modal__section li{ font-size:12px; line-height:1.45; }
       .modal__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
@@ -3688,6 +4010,8 @@
           'b2b.coni.description': 'Descrizione',
           'b2b.coni.quantity': 'Quantit\u00e0',
           'b2b.coppette.hint': 'Tocca una coppetta per vederne i dettagli',
+          'b2b.coni.hint': 'Tocca un cono per vederne i dettagli',
+          'b2b.conigf.hint': 'Tocca un cono gluten free per vederne i dettagli',
           'b2b.torte.hint': 'Tocca una torta per vederne i dettagli',
           'b2b.torte.sizeS': '6 persone',
           'b2b.torte.sizeL': '12 persone',
@@ -3982,12 +4306,15 @@
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantity',
           'b2b.coppette.hint': 'Tap a cup to see its details',
+          'b2b.coni.hint': 'Tap a cone to see its details',
+          'b2b.conigf.hint': 'Tap a gluten free cone to see its details',
           'b2b.torte.hint': 'Tap a cake to see its details',
           'b2b.torte.sizeS': '6 people',
           'b2b.torte.sizeL': '12 people',
           'b2b.contenitori.hint': 'Tap a container to see its details',
           'b2b.accessori.description': 'Description',
           'b2b.accessori.quantity': 'Quantity',
+          'b2b.accessori.hint': 'Tap an accessory to see its details',
           'b2b.pezziduri.avgWeight': 'Avg weight (1 pc.)',
           'b2b.pezziduri.minOrder': 'Min. order',
           'b2b.coppette.sectionTitle': 'Cups',
@@ -4281,12 +4608,15 @@
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantité',
           'b2b.coppette.hint': 'Appuyez sur une coupe pour en voir les détails',
+          'b2b.coni.hint': 'Appuyez sur un cornet pour en voir les détails',
+          'b2b.conigf.hint': 'Appuyez sur un cornet sans gluten pour en voir les détails',
           'b2b.torte.hint': 'Appuyez sur un gâteau pour en voir les détails',
           'b2b.torte.sizeS': '6 personnes',
           'b2b.torte.sizeL': '12 personnes',
           'b2b.contenitori.hint': 'Appuyez sur un contenant pour en voir les détails',
           'b2b.accessori.description': 'Description',
           'b2b.accessori.quantity': 'Quantité',
+          'b2b.accessori.hint': 'Appuyez sur un accessoire pour en voir les détails',
           'b2b.pezziduri.avgWeight': 'Poids moyen (1 pce)',
           'b2b.pezziduri.minOrder': 'Commande min.',
           'b2b.coppette.sectionTitle': 'Coupes',
@@ -4580,6 +4910,8 @@
           'b2b.coni.description': 'Descripci\u00f3n',
           'b2b.coni.quantity': 'Cantidad',
           'b2b.coppette.hint': 'Toca una copa para ver sus detalles',
+          'b2b.coni.hint': 'Toca un cono para ver sus detalles',
+          'b2b.conigf.hint': 'Toca un cono sin gluten para ver sus detalles',
           'b2b.torte.hint': 'Toca una tarta para ver sus detalles',
           'b2b.torte.sizeS': '6 personas',
           'b2b.torte.sizeL': '12 personas',
@@ -4797,9 +5129,12 @@
           title: 'Accessori',
           columns: ['Prodotto', 'Descrizione', 'Quantità'],
           rows: [
+            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '40 pacchetti'],
             ['Palettine', 'Palettine gelato', '1 Kg'],
-            ['Cialdine', 'Cialdine logate Badiani', '1200pz'],
-            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '40 pacchetti']
+            ['Cialdine', 'Cialdine logate Badiani', '1200 pz'],
+            ['Paletta', 'Paletta per servizio gelato', 'su richiesta'],
+            ['Contenitore 1', 'Contenitore servizio piccolo', 'su richiesta'],
+            ['Contenitore 2', 'Contenitore servizio grande', 'su richiesta']
           ]
         },
         'CONTENITORI': {
@@ -5303,17 +5638,26 @@
         en: {
           'Palettine': { name: 'Spatulas', desc: 'Gelato spatulas' },
           'Cialdine': { name: 'Wafers', desc: 'Badiani branded wafers' },
-          'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17' }
+          'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17' },
+          'Paletta': { name: 'Scoop', desc: 'Gelato serving scoop' },
+          'Contenitore 1': { name: 'Container 1', desc: 'Small serving container' },
+          'Contenitore 2': { name: 'Container 2', desc: 'Large serving container' }
         },
         fr: {
           'Palettine': { name: 'Spatules', desc: 'Spatules à gelato' },
           'Cialdine': { name: 'Gaufrettes', desc: 'Gaufrettes griffées Badiani' },
-          'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17' }
+          'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17' },
+          'Paletta': { name: 'Pelle', desc: 'Pelle de service gelato' },
+          'Contenitore 1': { name: 'Contenant 1', desc: 'Petit contenant de service' },
+          'Contenitore 2': { name: 'Contenant 2', desc: 'Grand contenant de service' }
         },
         es: {
           'Palettine': { name: 'Paletas', desc: 'Paletas de helado' },
           'Cialdine': { name: 'Barquillos', desc: 'Barquillos con logo Badiani' },
-          'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17' }
+          'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17' },
+          'Paletta': { name: 'Cuchara', desc: 'Cuchara de servicio para helado' },
+          'Contenitore 1': { name: 'Contenedor 1', desc: 'Contenedor pequeño de servicio' },
+          'Contenitore 2': { name: 'Contenedor 2', desc: 'Contenedor grande de servicio' }
         }
       };
 
@@ -5519,11 +5863,38 @@
       };
 
       const CONI_GROUP_IMAGE = '../assets/images/coni-coppette/GROUP COPPETTE.jpeg';
+      const CONIGF_HERO_IMAGE = '../assets/images/coni-coppette/coniglutenfree.jpeg';
+
+      const CONIGF_ZONE_ORDER = ['Coni Gluten free (083)', 'Coni Gluten free (084)'];
+      const CONIGF_SHORT_NAMES = {
+        'Coni Gluten free (083)': 'Piccolo',
+        'Coni Gluten free (084)': 'Medio'
+      };
+      const CONIGF_IMAGES = {
+        'Coni Gluten free (083)': '../assets/images/coni-coppette/glutenfree piccolo.png',
+        'Coni Gluten free (084)': '../assets/images/coni-coppette/glutenfreemedio.png'
+      };
+
+      const ACCESSORI_HERO_IMAGE = '../assets/images/accessori/hero accessori.png';
+
+      const ACCESSORI_ZONE_ORDER = ['Tovagliolini stampati', 'Palettine', 'Cialdine', 'Paletta', 'Contenitore 1', 'Contenitore 2'];
+
+      const ACCESSORI_SHORT_NAMES = {
+        'Tovagliolini stampati': 'Fazzoletti',
+        'Palettine': 'Palettine',
+        'Cialdine': 'Waffers',
+        'Paletta': 'Paletta',
+        'Contenitore 1': 'Cont. 1',
+        'Contenitore 2': 'Cont. 2'
+      };
 
       const ACCESSORI_IMAGES = {
-        'Palettine':            '../assets/images/accessori/palettine.png',
-        'Cialdine':             '../assets/images/accessori/WAFFER.jpg',
-        'Tovagliolini stampati': '../assets/images/accessori/tovagliolini.png'
+        'Tovagliolini stampati': '../assets/images/accessori/tovagliolini.jpeg',
+        'Palettine':            '../assets/images/accessori/palettine.jpeg',
+        'Cialdine':             '../assets/images/accessori/cialde.jpeg',
+        'Paletta':              '../assets/images/accessori/paletta.jpeg',
+        'Contenitore 1':        '../assets/images/accessori/confezione 1.webp',
+        'Contenitore 2':        '../assets/images/accessori/confezione 2.webp'
       };
 
 
@@ -5592,8 +5963,10 @@
       let expandedTipologiaId = '';
       let expandedConiId = new Set();
       let expandedAccessoriId = '';
+      let selectedAccessoriMapId = new Set();
       let selectedCoppetteId = new Set();
       let selectedConiHeroId = new Set();
+      let selectedConiGfMapId = new Set();
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const ASSET_VERSION = '20260207';
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
@@ -6207,7 +6580,7 @@
           `;
         });
 
-        const coniHintText = selectedConiHeroId.size ? '' : `<p class="coni-hint">${t('b2b.coppette.hint')}</p>`;
+        const coniHintText = selectedConiHeroId.size ? '' : `<p class="coni-hint">${t('b2b.coni.hint')}</p>`;
 
         const coniHeroSection = `
           <div class="coni-hero-section">
@@ -6221,9 +6594,61 @@
           </div>
         `;
 
+        /* ── Coni Gluten Free interactive hero map ── */
+        const conigfHeroSrc = encodeURI(CONIGF_HERO_IMAGE);
+        const conigfRows = rows.filter(([name]) => name.indexOf('Gluten free') !== -1);
+        const conigfDataMap = {};
+        conigfRows.forEach(([name, desc, qty]) => { conigfDataMap[name] = { desc, qty }; });
+
+        const conigfZones = CONIGF_ZONE_ORDER.map((name) => {
+          const isActive = selectedConiGfMapId.has(name);
+          const shortName = CONIGF_SHORT_NAMES[name] || name;
+          const tapIcon = `<svg class="conigf-tap-icon" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`;
+          return `<div class="conigf-zone${isActive ? ' is-active' : ''}" data-conigf-zone="${name}" role="button" tabindex="0" aria-label="${name}">
+            <span class="conigf-zone-label">${tapIcon}${shortName}</span>
+          </div>`;
+        }).join('');
+
+        let conigfDetailPanels = '';
+        selectedConiGfMapId.forEach((selName) => {
+          if(!conigfDataMap[selName]) return;
+          const d = conigfDataMap[selName];
+          const detailSrc = CONIGF_IMAGES[selName];
+          const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
+          conigfDetailPanels += `
+            <div class="conigf-detail-panel" data-panel-name="${selName}">
+              <div class="conigf-detail-img">
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
+              </div>
+              <div class="conigf-detail-info">
+                <div class="conigf-detail-name">${selName}</div>
+                <div class="conigf-detail-meta">
+                  <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        const conigfHintText = selectedConiGfMapId.size ? '' : `<p class="conigf-hint">${t('b2b.conigf.hint')}</p>`;
+
+        const conigfHeroSection = `
+          <div class="conigf-hero-section">
+            <div class="conigf-map-wrapper">
+              <h4 class="map-overlay-title">Coni Gluten Free</h4>
+              <img class="conigf-hero-img" src="${conigfHeroSrc}" alt="Coni Gluten Free" loading="lazy" decoding="async" />
+              <div class="conigf-zones">${conigfZones}</div>
+            </div>
+            ${conigfHintText}
+            ${conigfDetailPanels}
+          </div>
+        `;
+
         return `
           <div class="modal__section">
             ${coppetteSection}
+            ${conigfHeroSection}
             ${coniHeroSection}
           </div>
         `;
@@ -6264,6 +6689,49 @@
               } else if(!selectedCoppetteId.size){
                 requestAnimationFrame(() => { requestAnimationFrame(() => {
                   const wrapper = defaultContent.querySelector('.coppette-map-wrapper');
+                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              }
+            }
+          });
+        });
+      }
+
+      function setupConiGfInteraction(){
+        const zones = defaultContent ? defaultContent.querySelectorAll('[data-conigf-zone]') : [];
+        zones.forEach((zone) => {
+          const name = zone.getAttribute('data-conigf-zone');
+          if(!name) return;
+          zone.addEventListener('click', () => {
+            const wasAdded = !selectedConiGfMapId.has(name);
+            if(wasAdded){ selectedConiGfMapId.add(name); } else { selectedConiGfMapId.delete(name); }
+            renderCategoryContent('CONI_COPPETTE');
+            if(wasAdded && selectedConiGfMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const panel = Array.from(defaultContent.querySelectorAll('.conigf-detail-panel')).find(p => p.dataset.panelName === name);
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            } else if(!selectedConiGfMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const wrapper = defaultContent.querySelector('.conigf-map-wrapper');
+                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            }
+          });
+          zone.addEventListener('keydown', (event) => {
+            if(event.key === 'Enter' || event.key === ' '){
+              event.preventDefault();
+              const wasAdded = !selectedConiGfMapId.has(name);
+              if(wasAdded){ selectedConiGfMapId.add(name); } else { selectedConiGfMapId.delete(name); }
+              renderCategoryContent('CONI_COPPETTE');
+              if(wasAdded && selectedConiGfMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const panel = Array.from(defaultContent.querySelectorAll('.conigf-detail-panel')).find(p => p.dataset.panelName === name);
+                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              } else if(!selectedConiGfMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const wrapper = defaultContent.querySelector('.conigf-map-wrapper');
                   if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }); });
               }
@@ -6317,57 +6785,97 @@
 
       function renderAccessoriGallery(rows){
         if(!rows || !rows.length) return '';
-        const cards = rows
-          .map(([name, desc, qty]) => {
-            const src = ACCESSORI_IMAGES[name];
-            const hasImage = !!src;
-            const imageSrc = hasImage ? encodeURI(src) : '';
-            const isExpanded = expandedAccessoriId === name;
-            const localName = getAccessoriName(name);
-            const localDesc = getAccessoriDesc(name, desc);
-            const mediaContent = hasImage
-              ? `<img src="${imageSrc}" alt="${localName}" loading="lazy" decoding="async" />`
-              : '';
-            return `
-              <article class="accessori-card${isExpanded ? ' is-expanded' : ''}" data-accessori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
-                <div class="accessori-media${hasImage ? '' : ' accessori-media--placeholder'}">
-                  ${mediaContent}
+        const heroSrc = encodeURI(ACCESSORI_HERO_IMAGE);
+        const tapIcon = `<svg class="accessori-tap-icon" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`;
+
+        const accDataMap = {};
+        rows.forEach(([name, desc, qty]) => { accDataMap[name] = { desc, qty }; });
+
+        const zones = ACCESSORI_ZONE_ORDER.map((name) => {
+          const isActive = selectedAccessoriMapId.has(name);
+          const shortName = ACCESSORI_SHORT_NAMES[name] || name;
+          return `<div class="accessori-zone${isActive ? ' is-active' : ''}" data-accessori-zone="${name}" role="button" tabindex="0" aria-label="${getAccessoriName(name)}">
+            <span class="accessori-zone-label">${tapIcon}${shortName}</span>
+          </div>`;
+        }).join('');
+
+        let detailPanels = '';
+        selectedAccessoriMapId.forEach((selName) => {
+          if(!accDataMap[selName]) return;
+          const d = accDataMap[selName];
+          const detailSrc = ACCESSORI_IMAGES[selName];
+          const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
+          const localName = getAccessoriName(selName);
+          const localDesc = getAccessoriDesc(selName, d.desc);
+          detailPanels += `
+            <div class="accessori-detail-panel" data-panel-name="${selName}">
+              <div class="accessori-detail-img">
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${localName}" loading="lazy" decoding="async" />` : ''}
+              </div>
+              <div class="accessori-detail-info">
+                <div class="accessori-detail-name">${localName}</div>
+                <div class="accessori-detail-meta">
+                  <span><strong>${t('b2b.accessori.description')}</strong><em>${localDesc}</em></span>
+                  <span><strong>${t('b2b.accessori.quantity')}</strong><em>${d.qty}</em></span>
                 </div>
-                <div class="accessori-body">
-                  <div class="accessori-title">${localName}</div>
-                  <div class="accessori-meta">
-                    <span><strong>${t('b2b.accessori.description')}</strong><em>${localDesc}</em></span>
-                    <span><strong>${t('b2b.accessori.quantity')}</strong><em>${qty}</em></span>
-                  </div>
-                </div>
-              </article>
-            `;
-          })
-          .filter(Boolean)
-          .join('');
+              </div>
+            </div>
+          `;
+        });
+
+        const hintText = selectedAccessoriMapId.size ? '' : `<p class="accessori-hint">${t('b2b.accessori.hint')}</p>`;
 
         return `
           <div class="modal__section">
-            <h4>${getCatTitle('ACCESSORI')}</h4>
-            <div class="accessori-grid">${cards}</div>
+            <div class="accessori-map-wrapper">
+              <h4 class="map-overlay-title">${getCatTitle('ACCESSORI')}</h4>
+              <img class="accessori-hero-img" src="${heroSrc}" alt="Accessori" loading="lazy" decoding="async" />
+              <div class="accessori-zones">${zones}</div>
+            </div>
+            ${hintText}
+            ${detailPanels}
           </div>
         `;
       }
 
-      function setupAccessoriZoom(){
-        const cards = defaultContent ? defaultContent.querySelectorAll('.accessori-card[data-accessori-id]') : [];
-        cards.forEach((card) => {
-          const id = card.dataset.accessoriId;
-          if(!id) return;
-          card.addEventListener('click', () => {
-            expandedAccessoriId = expandedAccessoriId === id ? '' : id;
+      function setupAccessoriInteraction(){
+        const zones = defaultContent ? defaultContent.querySelectorAll('[data-accessori-zone]') : [];
+        zones.forEach((zone) => {
+          const name = zone.getAttribute('data-accessori-zone');
+          if(!name) return;
+          zone.addEventListener('click', () => {
+            const wasAdded = !selectedAccessoriMapId.has(name);
+            if(wasAdded){ selectedAccessoriMapId.add(name); } else { selectedAccessoriMapId.delete(name); }
             renderCategoryContent('ACCESSORI');
+            if(wasAdded && selectedAccessoriMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const panel = Array.from(defaultContent.querySelectorAll('.accessori-detail-panel')).find(p => p.dataset.panelName === name);
+                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            } else if(!selectedAccessoriMapId.size){
+              requestAnimationFrame(() => { requestAnimationFrame(() => {
+                const wrapper = defaultContent.querySelector('.accessori-map-wrapper');
+                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }); });
+            }
           });
-          card.addEventListener('keydown', (event) => {
+          zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
-              expandedAccessoriId = expandedAccessoriId === id ? '' : id;
+              const wasAdded = !selectedAccessoriMapId.has(name);
+              if(wasAdded){ selectedAccessoriMapId.add(name); } else { selectedAccessoriMapId.delete(name); }
               renderCategoryContent('ACCESSORI');
+              if(wasAdded && selectedAccessoriMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const panel = Array.from(defaultContent.querySelectorAll('.accessori-detail-panel')).find(p => p.dataset.panelName === name);
+                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              } else if(!selectedAccessoriMapId.size){
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  const wrapper = defaultContent.querySelector('.accessori-map-wrapper');
+                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }); });
+              }
             }
           });
         });
@@ -6459,9 +6967,10 @@
           requestAnimationFrame(setupConiZoom);
           requestAnimationFrame(setupCoppetteInteraction);
           requestAnimationFrame(setupConiHeroInteraction);
+          requestAnimationFrame(setupConiGfInteraction);
         }
         if(category === 'ACCESSORI'){
-          requestAnimationFrame(setupAccessoriZoom);
+          requestAnimationFrame(setupAccessoriInteraction);
         }
 
         requestAnimationFrame(setupZoomButtons);
