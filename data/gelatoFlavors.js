@@ -390,6 +390,20 @@ export const gelatoFlavors = [
     allergens: [],
     flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: false, containsNuts: false, containsAlcohol: false },
     isTub: true
+  },
+  {
+    id: "dubai-chocolate",
+    nameKey: "flavor.dubaiChocolate",
+    label: "Dubai Chocolate",
+    seasons: ["tutti"],
+    image: "../assets/gelato/DUBAI CHOCOLATE/DUBAI CHOCOLATE GRANDE.jpeg",
+    detailImage: "../assets/gelato/DUBAI CHOCOLATE/DUBAI CHOCOLATE DETTAGLIO.jpeg",
+    description: "Gelato al cioccolato con crema di pistacchio e kadayif croccante, ispirato alla famosa tavoletta Dubai",
+    allergensText: "Latte, uova, frutta a guscio, glutine",
+    ingredients: [],
+    allergens: [],
+    flags: { vegan: false, glutenFree: false, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
+    isTub: true
   }
 ];
 
