@@ -2,15 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Badiani dove vuoi — Badiani 1932 | Cool Box, Carretto e Vetrina Gelato</title>
+  <title>Badiani dove vuoi — Badiani 1932 | Cool Box e Carretto Gelato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Organizza il tuo evento con Badiani dove vuoi: Cool Box, Carretto e Bicicletta, Vetrina Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
+  <meta name="description" content="Organizza il tuo evento con Badiani dove vuoi: Cool Box e Carretto Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
   <meta name="theme-color" content="#1e398d" />
   <link rel="icon" href="../../assets/images/branding/logo.webp" type="image/webp" />
   <link rel="canonical" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Badiani dove vuoi — Badiani 1932" />
-  <meta property="og:description" content="Cool Box, Carretto e Vetrina Gelato dove vuoi." />
+  <meta property="og:description" content="Cool Box e Carretto Gelato dove vuoi." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../../assets/badiani-common.css" />
@@ -90,7 +90,7 @@
     }
     .ext-solutions__grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(2, 1fr);
       gap:0;
       line-height:0;
     }
@@ -191,6 +191,13 @@
       line-height:1.6;
       max-width:300px;
       font-weight:300;
+    }
+    .ext-card__price{
+      font-size:clamp(14px, 1.2vw, 17px);
+      color:#fff;
+      font-weight:600;
+      margin-top:8px;
+      letter-spacing:0.02em;
     }
     /* subtle dividers between cards */
     .ext-card + .ext-card{
@@ -879,31 +886,24 @@
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.coolbox.subtitle">Pratico e versatile</span>
           <h2 class="ext-card__title">Cool Box</h2>
-          <p class="ext-card__desc" data-i18n="external.coolbox.desc">Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.</p>
+          <p class="ext-card__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
+          <p class="ext-card__price" data-i18n="external.coolbox.price">A partire da &euro;200+IVA*</p>
         </div>
       </button>
 
-      <!-- CARRETTO E BICICLETTA -->
-      <button class="ext-card" onclick="openModal('carretto')" aria-label="Carretto e Bicicletta — Ideale per eventi casual" data-i18n-attr="aria-label:external.carretto.aria">
-        <img class="ext-card__img" src="../../assets/images/carretto.jpeg" alt="Carretto e bicicletta Badiani" loading="lazy" decoding="async" />
+      <!-- CARRETTO GELATO -->
+      <button class="ext-card" onclick="openModal('carretto')" aria-label="Carretto Gelato — Ideale per eventi casual e all'aperto" data-i18n-attr="aria-label:external.carretto.aria">
+        <img class="ext-card__img" src="../../assets/images/carretto.jpeg" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" />
         <span class="ext-card__label" aria-hidden="true">2</span>
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
-          <h2 class="ext-card__title">Carretto e Bicicletta</h2>
-          <p class="ext-card__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.</p>
+          <h2 class="ext-card__title">Carretto Gelato</h2>
+          <p class="ext-card__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
+          <p class="ext-card__price" data-i18n="external.carretto.price">A partire da &euro;900+IVA*</p>
         </div>
       </button>
 
-      <!-- VETRINA GELATO -->
-      <button class="ext-card" onclick="openModal('vetrina')" aria-label="Vetrina Gelato — Soluzione elegante" data-i18n-attr="aria-label:external.vetrina.aria">
-        <img class="ext-card__img" src="../../assets/images/vetrina.jpeg" alt="Vetrina gelato Badiani" loading="lazy" decoding="async" />
-        <span class="ext-card__label" aria-hidden="true">3</span>
-        <div class="ext-card__overlay">
-          <span class="ext-card__subtitle" data-i18n="external.vetrina.subtitle">Soluzione istituzionale ed elegante</span>
-          <h2 class="ext-card__title">Vetrina Gelato</h2>
-          <p class="ext-card__desc" data-i18n="external.vetrina.desc">Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.</p>
-        </div>
-      </button>
+
     </div>
   </section>
 
@@ -1026,27 +1026,27 @@
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="external.coolbox.subtitle">Pratico e versatile</span>
             <h2 class="modal-hero__title title-accent title-accent--light">Cool Box</h2>
-            <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.</p>
+            <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
           </div>
           <img class="modal-hero__img" src="../../assets/images/categories/coolbox.jpg" alt="Cool Box Badiani" loading="lazy" decoding="async" width="1024" height="1024" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
             <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.coolbox.capacity.label">Capacit&#224;</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.capacity.value">40-90 pax (max 2 gusti)</span>
+              <span class="spec-label" data-i18n="external.modal.coolbox.included.label">Incluso*</span>
+              <span class="spec-value" data-i18n-html="external.modal.coolbox.included.value">&euro;200 comprensivo di: noleggio della cool box, gelato x 50 persone, 2 spatole, palettine monouso, tovagliolini e coppette</span>
             </div>
             <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.coolbox.service.label">Servizio</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.service.value">1 operatore<br>Durata da definire in base al tempo</span>
+              <span class="spec-label" data-i18n="external.modal.coolbox.capacity.label">Capacit&agrave; massima</span>
+              <span class="spec-value" data-i18n-html="external.modal.coolbox.capacity.value">120 persone</span>
             </div>
             <div class="spec-card">
               <span class="spec-label" data-i18n="external.modal.coolbox.transport.label">Trasporto</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.transport.value">Da definire in base alla distanza</span>
+              <span class="spec-value" data-i18n-html="external.modal.coolbox.transport.value">A partire da &euro;50+IVA</span>
             </div>
             <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.coolbox.custom.label">Personalizzazione</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.custom.value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
+              <span class="spec-label" data-i18n="external.modal.coolbox.services.label">Servizi su richiesta</span>
+              <span class="spec-value" data-i18n-html="external.modal.coolbox.services.value">1 operatore per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Cool Box (entro 14 giorni dalla data dall&rsquo;evento prezzo a partire da &euro;150+IVA)</span>
             </div>
           </div>
         </div>
@@ -1070,28 +1070,28 @@
           <span class="modal-hero__number" aria-hidden="true" style="display:none;">2</span>
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
-            <h2 class="modal-hero__title title-accent title-accent--light">Carretto e Bicicletta</h2>
-            <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.</p>
+            <h2 class="modal-hero__title title-accent title-accent--light">Carretto Gelato</h2>
+            <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
           </div>
-          <img class="modal-hero__img" src="../../assets/images/carretto.jpeg" alt="Carretto e Bicicletta Badiani" loading="lazy" decoding="async" />
+          <img class="modal-hero__img" src="../../assets/images/carretto.jpeg" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
             <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.carretto.service.label">Servizio</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.service.value">Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
+              <span class="spec-label" data-i18n="external.modal.carretto.included.label">Incluso*</span>
+              <span class="spec-value" data-i18n-html="external.modal.carretto.included.value">&euro;900 comprensivo di: noleggio del carretto gelato, gelato fino a 50 persone, 1 operatore per servizio somministrazione gelato per 2 ore</span>
             </div>
             <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.carretto.included.label">Incluso</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.included.value">2h di servizio con 1 operatore<br>Extra time disponibile su richiesta</span>
+              <span class="spec-label" data-i18n="external.modal.carretto.scalable.label">Scalabilit&agrave;</span>
+              <span class="spec-value" data-i18n-html="external.modal.carretto.scalable.value">Disponibile anche per eventi su larga scala con elevato numero di ospiti, grazie a un servizio modulabile e personalizzabile in base alle esigenze.</span>
             </div>
             <div class="spec-card">
               <span class="spec-label" data-i18n="external.modal.carretto.transport.label">Trasporto</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.transport.value">Per veicolo entro i 100 km</span>
+              <span class="spec-value" data-i18n-html="external.modal.carretto.transport.value">A partire da &euro;250+IVA</span>
             </div>
             <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.carretto.custom.label">Personalizzazione</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.custom.value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
+              <span class="spec-label" data-i18n="external.modal.carretto.services.label">Servizi su richiesta</span>
+              <span class="spec-value" data-i18n-html="external.modal.carretto.services.value">Operatore extra per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Carretto Gelato (entro 14 giorni dalla data dall&rsquo;evento prezzo a partire da &euro;150+IVA)</span>
             </div>
           </div>
         </div>
@@ -1105,50 +1105,7 @@
     </div>
   </div>
 
-  <!-- MODAL VETRINA -->
-  <div class="modal-overlay" id="modalVetrina" onclick="closeModal('vetrina')">
-    <div class="modal-bg"></div>
-    <button class="modal-close" onclick="closeModal('vetrina')" aria-label="Chiudi" data-i18n-attr="aria-label:external.modal.close"></button>
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="modal-panel">
-        <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true" style="display:none;">3</span>
-          <div class="modal-hero__text">
-            <span class="modal-hero__label" data-i18n="external.vetrina.subtitle">Soluzione istituzionale ed elegante</span>
-            <h2 class="modal-hero__title title-accent title-accent--light">Vetrina Gelato</h2>
-            <p class="modal-hero__desc" data-i18n="external.vetrina.desc">Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.</p>
-          </div>
-          <img class="modal-hero__img" src="../../assets/images/vetrina.jpeg" alt="Vetrina Gelato Badiani" loading="lazy" decoding="async" />
-        </div>
-        <div class="modal-body">
-          <div class="specs-grid">
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.vetrina.service.label">Servizio</span>
-              <span class="spec-value" data-i18n-html="external.modal.vetrina.service.value">Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.vetrina.included.label">Incluso</span>
-              <span class="spec-value" data-i18n-html="external.modal.vetrina.included.value">2h di servizio con 1 operatore<br>Extra time disponibile su richiesta</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.vetrina.transport.label">Trasporto</span>
-              <span class="spec-value" data-i18n-html="external.modal.vetrina.transport.value">Per veicolo entro i 100 km</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.vetrina.custom.label">Personalizzazione</span>
-              <span class="spec-value" data-i18n-html="external.modal.vetrina.custom.value">Minimo 14 giorni di preavviso<br>Costi da concordare</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-cta-wrap">
-          <button type="button" class="modal-request-btn" onclick="closeModal('vetrina'); document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -1286,13 +1243,12 @@
           'external.solutions.title': 'Soluzioni Disponibili',
           'external.coolbox.aria': 'Cool Box \u2014 Pratico e versatile',
           'external.coolbox.subtitle': 'Pratico e versatile',
-          'external.coolbox.desc': 'Ideale per eventi su piccola scala, da 40 a 90 persone (dipende dallo spazio per stoccare), max 2 gusti.',
-          'external.carretto.aria': 'Carretto e Bicicletta \u2014 Ideale per eventi casual',
+          'external.coolbox.desc': 'Ideale per piccoli eventi, da 40 a 90 persone',
+          'external.coolbox.price': 'A partire da \u20ac200+IVA*',
+          'external.carretto.aria': 'Carretto Gelato \u2014 Ideale per eventi casual e all\u2019aperto',
           'external.carretto.subtitle': 'Ideale per eventi casual e all\u2019aperto',
-          'external.carretto.desc': 'Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento outdoor.',
-          'external.vetrina.aria': 'Vetrina Gelato \u2014 Soluzione istituzionale ed elegante',
-          'external.vetrina.subtitle': 'Soluzione istituzionale ed elegante',
-          'external.vetrina.desc': 'Perfetta per eventi aziendali, conferenze e occasioni formali che richiedono un servizio professionale.',
+          'external.carretto.desc': 'Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.',
+          'external.carretto.price': 'A partire da \u20ac900+IVA*',
           'external.terms.label': 'Condizioni',
           'external.terms.title': 'Termini e Condizioni',
           'external.terms.deposit.label': 'Acconto',
@@ -1306,30 +1262,22 @@
           'external.contact.title': 'Richiedi Informazioni',
           'external.modal.close': 'Chiudi',
           'external.cta.requestInfo': 'Richiedi Informazioni',
-          'external.modal.coolbox.capacity.label': 'Capacit\u00e0',
-          'external.modal.coolbox.capacity.value': '40-90 pax (max 2 gusti)',
-          'external.modal.coolbox.service.label': 'Servizio',
-          'external.modal.coolbox.service.value': '1 operatore<br>Durata da definire in base al tempo',
+          'external.modal.coolbox.included.label': 'Incluso*',
+          'external.modal.coolbox.included.value': '\u20ac200 comprensivo di: noleggio della cool box, gelato x 50 persone, 2 spatole, palettine monouso, tovagliolini e coppette',
+          'external.modal.coolbox.capacity.label': 'Capacit\u00e0 massima',
+          'external.modal.coolbox.capacity.value': '120 persone',
           'external.modal.coolbox.transport.label': 'Trasporto',
-          'external.modal.coolbox.transport.value': 'Da definire in base alla distanza',
-          'external.modal.coolbox.custom.label': 'Personalizzazione',
-          'external.modal.coolbox.custom.value': 'Minimo 14 giorni di preavviso<br>Costi da concordare',
-          'external.modal.carretto.service.label': 'Servizio',
-          'external.modal.carretto.service.value': 'Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax',
-          'external.modal.carretto.included.label': 'Incluso',
-          'external.modal.carretto.included.value': '2h di servizio con 1 operatore<br>Extra time disponibile su richiesta',
+          'external.modal.coolbox.transport.value': 'A partire da \u20ac50+IVA',
+          'external.modal.coolbox.services.label': 'Servizi su richiesta',
+          'external.modal.coolbox.services.value': '1 operatore per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Cool Box (entro 14 giorni dalla data dall\u2019evento prezzo a partire da \u20ac150+IVA)',
+          'external.modal.carretto.included.label': 'Incluso*',
+          'external.modal.carretto.included.value': '\u20ac900 comprensivo di: noleggio del carretto gelato, gelato fino a 50 persone, 1 operatore per servizio somministrazione gelato per 2 ore',
+          'external.modal.carretto.scalable.label': 'Scalabilit\u00e0',
+          'external.modal.carretto.scalable.value': 'Disponibile anche per eventi su larga scala con elevato numero di ospiti, grazie a un servizio modulabile e personalizzabile in base alle esigenze.',
           'external.modal.carretto.transport.label': 'Trasporto',
-          'external.modal.carretto.transport.value': 'Per veicolo entro i 100 km',
-          'external.modal.carretto.custom.label': 'Personalizzazione',
-          'external.modal.carretto.custom.value': 'Minimo 14 giorni di preavviso<br>Costi da concordare',
-          'external.modal.vetrina.service.label': 'Servizio',
-          'external.modal.vetrina.service.value': 'Gelato servito in cono o coppetta<br>Fasce: 0-50 pax, 50-70 pax, 70-100 pax',
-          'external.modal.vetrina.included.label': 'Incluso',
-          'external.modal.vetrina.included.value': '2h di servizio con 1 operatore<br>Extra time disponibile su richiesta',
-          'external.modal.vetrina.transport.label': 'Trasporto',
-          'external.modal.vetrina.transport.value': 'Per veicolo entro i 100 km',
-          'external.modal.vetrina.custom.label': 'Personalizzazione',
-          'external.modal.vetrina.custom.value': 'Minimo 14 giorni di preavviso<br>Costi da concordare',
+          'external.modal.carretto.transport.value': 'A partire da \u20ac250+IVA',
+          'external.modal.carretto.services.label': 'Servizi su richiesta',
+          'external.modal.carretto.services.value': 'Operatore extra per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Carretto Gelato (entro 14 giorni dalla data dall\u2019evento prezzo a partire da \u20ac150+IVA)',
           'external.form.title': 'Richiedi Informazioni',
           'external.form.subtitle': 'Compila il modulo e ti ricontatteremo',
           'external.form.firstName': 'Nome *',
@@ -1387,13 +1335,12 @@
           'external.solutions.title': 'Available Solutions',
           'external.coolbox.aria': 'Cool Box \u2014 Practical and versatile',
           'external.coolbox.subtitle': 'Practical and versatile',
-          'external.coolbox.desc': 'Ideal for small-scale events, from 40 to 90 guests (depending on storage space), max 2 flavours.',
-          'external.carretto.aria': 'Cart and Bicycle \u2014 Ideal for casual events',
+          'external.coolbox.desc': 'Ideal for small events, from 40 to 90 guests',
+          'external.coolbox.price': 'Starting from \u20ac200+VAT*',
+          'external.carretto.aria': 'Gelato Cart \u2014 Ideal for casual and outdoor events',
           'external.carretto.subtitle': 'Ideal for casual and outdoor events',
-          'external.carretto.desc': 'Iconic and mobile solution to bring Badiani gelato directly to your outdoor event.',
-          'external.vetrina.aria': 'Gelato Display \u2014 Institutional and elegant solution',
-          'external.vetrina.subtitle': 'Institutional and elegant solution',
-          'external.vetrina.desc': 'Perfect for corporate events, conferences and formal occasions requiring professional service.',
+          'external.carretto.desc': 'Iconic and mobile solution to bring Badiani gelato directly to your event.',
+          'external.carretto.price': 'Starting from \u20ac900+VAT*',
           'external.terms.label': 'Conditions',
           'external.terms.title': 'Terms & Conditions',
           'external.terms.deposit.label': 'Deposit',
@@ -1407,30 +1354,22 @@
           'external.contact.title': 'Request Information',
           'external.modal.close': 'Close',
           'external.cta.requestInfo': 'Request Information',
-          'external.modal.coolbox.capacity.label': 'Capacity',
-          'external.modal.coolbox.capacity.value': '40-90 guests (max 2 flavours)',
-          'external.modal.coolbox.service.label': 'Service',
-          'external.modal.coolbox.service.value': '1 operator<br>Duration to be defined based on time',
+          'external.modal.coolbox.included.label': 'Included*',
+          'external.modal.coolbox.included.value': '\u20ac200 including: cool box rental, gelato for 50 guests, 2 spatulas, disposable spoons, napkins and cups',
+          'external.modal.coolbox.capacity.label': 'Maximum capacity',
+          'external.modal.coolbox.capacity.value': '120 guests',
           'external.modal.coolbox.transport.label': 'Transport',
-          'external.modal.coolbox.transport.value': 'To be defined based on distance',
-          'external.modal.coolbox.custom.label': 'Customisation',
-          'external.modal.coolbox.custom.value': 'Minimum 14 days\u2019 notice<br>Costs to be agreed',
-          'external.modal.carretto.service.label': 'Service',
-          'external.modal.carretto.service.value': 'Gelato served in cone or cup<br>Tiers: 0-50, 50-70, 70-100 guests',
-          'external.modal.carretto.included.label': 'Included',
-          'external.modal.carretto.included.value': '2h service with 1 operator<br>Extra time available on request',
+          'external.modal.coolbox.transport.value': 'Starting from \u20ac50+VAT',
+          'external.modal.coolbox.services.label': 'Services on request',
+          'external.modal.coolbox.services.value': '1 operator for gelato serving service<br>Branding and Cool Box customisation (within 14 days of the event date, price starting from \u20ac150+VAT)',
+          'external.modal.carretto.included.label': 'Included*',
+          'external.modal.carretto.included.value': '\u20ac900 including: gelato cart rental, gelato for up to 50 guests, 1 operator for gelato serving service for 2 hours',
+          'external.modal.carretto.scalable.label': 'Scalability',
+          'external.modal.carretto.scalable.value': 'Also available for large-scale events with a high number of guests, thanks to a modular and customisable service tailored to your needs.',
           'external.modal.carretto.transport.label': 'Transport',
-          'external.modal.carretto.transport.value': 'Per vehicle within 100 km',
-          'external.modal.carretto.custom.label': 'Customisation',
-          'external.modal.carretto.custom.value': 'Minimum 14 days\u2019 notice<br>Costs to be agreed',
-          'external.modal.vetrina.service.label': 'Service',
-          'external.modal.vetrina.service.value': 'Gelato served in cone or cup<br>Tiers: 0-50, 50-70, 70-100 guests',
-          'external.modal.vetrina.included.label': 'Included',
-          'external.modal.vetrina.included.value': '2h service with 1 operator<br>Extra time available on request',
-          'external.modal.vetrina.transport.label': 'Transport',
-          'external.modal.vetrina.transport.value': 'Per vehicle within 100 km',
-          'external.modal.vetrina.custom.label': 'Customisation',
-          'external.modal.vetrina.custom.value': 'Minimum 14 days\u2019 notice<br>Costs to be agreed',
+          'external.modal.carretto.transport.value': 'Starting from \u20ac250+VAT',
+          'external.modal.carretto.services.label': 'Services on request',
+          'external.modal.carretto.services.value': 'Extra operator for gelato serving service<br>Branding and Gelato Cart customisation (within 14 days of the event date, price starting from \u20ac150+VAT)',
           'external.form.title': 'Request Information',
           'external.form.subtitle': 'Fill in the form and we will get back to you',
           'external.form.firstName': 'First Name *',
@@ -1488,13 +1427,12 @@
           'external.solutions.title': 'Solutions Disponibles',
           'external.coolbox.aria': 'Cool Box \u2014 Pratique et polyvalent',
           'external.coolbox.subtitle': 'Pratique et polyvalent',
-          'external.coolbox.desc': 'Id\u00e9al pour les \u00e9v\u00e9nements \u00e0 petite \u00e9chelle, de 40 \u00e0 90 personnes (selon l\u2019espace de stockage), max 2 parfums.',
-          'external.carretto.aria': 'Chariot et V\u00e9lo \u2014 Id\u00e9al pour \u00e9v\u00e9nements d\u00e9contract\u00e9s',
+          'external.coolbox.desc': 'Id\u00e9al pour les petits \u00e9v\u00e9nements, de 40 \u00e0 90 personnes',
+          'external.coolbox.price': '\u00c0 partir de \u20ac200+TVA*',
+          'external.carretto.aria': 'Chariot Gelato \u2014 Id\u00e9al pour \u00e9v\u00e9nements d\u00e9contract\u00e9s et en plein air',
           'external.carretto.subtitle': 'Id\u00e9al pour \u00e9v\u00e9nements d\u00e9contract\u00e9s et en plein air',
-          'external.carretto.desc': 'Solution embl\u00e9matique et mobile pour apporter le gelato Badiani directement \u00e0 votre \u00e9v\u00e9nement en plein air.',
-          'external.vetrina.aria': 'Vitrine Gelato \u2014 Solution institutionnelle et \u00e9l\u00e9gante',
-          'external.vetrina.subtitle': 'Solution institutionnelle et \u00e9l\u00e9gante',
-          'external.vetrina.desc': 'Parfait pour \u00e9v\u00e9nements d\u2019entreprise, conf\u00e9rences et occasions formelles n\u00e9cessitant un service professionnel.',
+          'external.carretto.desc': 'Solution embl\u00e9matique et mobile pour apporter le gelato Badiani directement \u00e0 votre \u00e9v\u00e9nement.',
+          'external.carretto.price': '\u00c0 partir de \u20ac900+TVA*',
           'external.terms.label': 'Conditions',
           'external.terms.title': 'Termes et Conditions',
           'external.terms.deposit.label': 'Acompte',
@@ -1508,30 +1446,22 @@
           'external.contact.title': 'Demander des Informations',
           'external.modal.close': 'Fermer',
           'external.cta.requestInfo': 'Demander des Informations',
-          'external.modal.coolbox.capacity.label': 'Capacit\u00e9',
-          'external.modal.coolbox.capacity.value': '40-90 personnes (max 2 parfums)',
-          'external.modal.coolbox.service.label': 'Service',
-          'external.modal.coolbox.service.value': '1 op\u00e9rateur<br>Dur\u00e9e \u00e0 d\u00e9finir selon le temps',
+          'external.modal.coolbox.included.label': 'Inclus*',
+          'external.modal.coolbox.included.value': '\u20ac200 comprenant : location de la cool box, gelato pour 50 personnes, 2 spatules, cuill\u00e8res jetables, serviettes et coupes',
+          'external.modal.coolbox.capacity.label': 'Capacit\u00e9 maximale',
+          'external.modal.coolbox.capacity.value': '120 personnes',
           'external.modal.coolbox.transport.label': 'Transport',
-          'external.modal.coolbox.transport.value': '\u00c0 d\u00e9finir selon la distance',
-          'external.modal.coolbox.custom.label': 'Personnalisation',
-          'external.modal.coolbox.custom.value': 'Pr\u00e9avis minimum 14 jours<br>Co\u00fbts \u00e0 convenir',
-          'external.modal.carretto.service.label': 'Service',
-          'external.modal.carretto.service.value': 'Gelato servi en cornet ou coupe<br>Tranches : 0-50, 50-70, 70-100 personnes',
-          'external.modal.carretto.included.label': 'Inclus',
-          'external.modal.carretto.included.value': '2h de service avec 1 op\u00e9rateur<br>Temps suppl\u00e9mentaire disponible sur demande',
+          'external.modal.coolbox.transport.value': '\u00c0 partir de \u20ac50+TVA',
+          'external.modal.coolbox.services.label': 'Services sur demande',
+          'external.modal.coolbox.services.value': '1 op\u00e9rateur pour le service de distribution de gelato<br>Branding et personnalisation Cool Box (dans les 14 jours pr\u00e9c\u00e9dant l\u2019\u00e9v\u00e9nement, prix \u00e0 partir de \u20ac150+TVA)',
+          'external.modal.carretto.included.label': 'Inclus*',
+          'external.modal.carretto.included.value': '\u20ac900 comprenant : location du chariot gelato, gelato pour 50 personnes, 1 op\u00e9rateur pour le service de distribution de gelato pendant 2 heures',
+          'external.modal.carretto.scalable.label': '\u00c9volutivit\u00e9',
+          'external.modal.carretto.scalable.value': '\u00c9galement disponible pour les \u00e9v\u00e9nements \u00e0 grande \u00e9chelle avec un grand nombre d\u2019invit\u00e9s, gr\u00e2ce \u00e0 un service modulable et personnalisable selon vos besoins.',
           'external.modal.carretto.transport.label': 'Transport',
-          'external.modal.carretto.transport.value': 'Par v\u00e9hicule dans les 100 km',
-          'external.modal.carretto.custom.label': 'Personnalisation',
-          'external.modal.carretto.custom.value': 'Pr\u00e9avis minimum 14 jours<br>Co\u00fbts \u00e0 convenir',
-          'external.modal.vetrina.service.label': 'Service',
-          'external.modal.vetrina.service.value': 'Gelato servi en cornet ou coupe<br>Tranches : 0-50, 50-70, 70-100 personnes',
-          'external.modal.vetrina.included.label': 'Inclus',
-          'external.modal.vetrina.included.value': '2h de service avec 1 op\u00e9rateur<br>Temps suppl\u00e9mentaire disponible sur demande',
-          'external.modal.vetrina.transport.label': 'Transport',
-          'external.modal.vetrina.transport.value': 'Par v\u00e9hicule dans les 100 km',
-          'external.modal.vetrina.custom.label': 'Personnalisation',
-          'external.modal.vetrina.custom.value': 'Pr\u00e9avis minimum 14 jours<br>Co\u00fbts \u00e0 convenir',
+          'external.modal.carretto.transport.value': '\u00c0 partir de \u20ac250+TVA',
+          'external.modal.carretto.services.label': 'Services sur demande',
+          'external.modal.carretto.services.value': 'Op\u00e9rateur suppl\u00e9mentaire pour le service de distribution de gelato<br>Branding et personnalisation Chariot Gelato (dans les 14 jours pr\u00e9c\u00e9dant l\u2019\u00e9v\u00e9nement, prix \u00e0 partir de \u20ac150+TVA)',
           'external.form.title': 'Demander des Informations',
           'external.form.subtitle': 'Remplissez le formulaire et nous vous recontacterons',
           'external.form.firstName': 'Pr\u00e9nom *',
@@ -1589,13 +1519,12 @@
           'external.solutions.title': 'Soluciones Disponibles',
           'external.coolbox.aria': 'Cool Box \u2014 Pr\u00e1ctico y vers\u00e1til',
           'external.coolbox.subtitle': 'Pr\u00e1ctico y vers\u00e1til',
-          'external.coolbox.desc': 'Ideal para eventos a peque\u00f1a escala, de 40 a 90 personas (seg\u00fan el espacio de almacenamiento), m\u00e1x. 2 sabores.',
-          'external.carretto.aria': 'Carrito y Bicicleta \u2014 Ideal para eventos casuales',
+          'external.coolbox.desc': 'Ideal para peque\u00f1os eventos, de 40 a 90 personas',
+          'external.coolbox.price': 'A partir de \u20ac200+IVA*',
+          'external.carretto.aria': 'Carrito Gelato \u2014 Ideal para eventos casuales y al aire libre',
           'external.carretto.subtitle': 'Ideal para eventos casuales y al aire libre',
-          'external.carretto.desc': 'Soluci\u00f3n ic\u00f3nica y m\u00f3vil para llevar el gelato Badiani directamente a tu evento al aire libre.',
-          'external.vetrina.aria': 'Vitrina Gelato \u2014 Soluci\u00f3n institucional y elegante',
-          'external.vetrina.subtitle': 'Soluci\u00f3n institucional y elegante',
-          'external.vetrina.desc': 'Perfecta para eventos corporativos, conferencias y ocasiones formales que requieren servicio profesional.',
+          'external.carretto.desc': 'Soluci\u00f3n ic\u00f3nica y m\u00f3vil para llevar el gelato Badiani directamente a tu evento.',
+          'external.carretto.price': 'A partir de \u20ac900+IVA*',
           'external.terms.label': 'Condiciones',
           'external.terms.title': 'T\u00e9rminos y Condiciones',
           'external.terms.deposit.label': 'Dep\u00f3sito',
@@ -1609,30 +1538,22 @@
           'external.contact.title': 'Solicitar Informaci\u00f3n',
           'external.modal.close': 'Cerrar',
           'external.cta.requestInfo': 'Solicitar Informaci\u00f3n',
-          'external.modal.coolbox.capacity.label': 'Capacidad',
-          'external.modal.coolbox.capacity.value': '40-90 personas (m\u00e1x. 2 sabores)',
-          'external.modal.coolbox.service.label': 'Servicio',
-          'external.modal.coolbox.service.value': '1 operador<br>Duraci\u00f3n a definir seg\u00fan el tiempo',
+          'external.modal.coolbox.included.label': 'Incluido*',
+          'external.modal.coolbox.included.value': '\u20ac200 que incluye: alquiler de la cool box, gelato para 50 personas, 2 esp\u00e1tulas, cucharillas desechables, servilletas y copas',
+          'external.modal.coolbox.capacity.label': 'Capacidad m\u00e1xima',
+          'external.modal.coolbox.capacity.value': '120 personas',
           'external.modal.coolbox.transport.label': 'Transporte',
-          'external.modal.coolbox.transport.value': 'A definir seg\u00fan la distancia',
-          'external.modal.coolbox.custom.label': 'Personalizaci\u00f3n',
-          'external.modal.coolbox.custom.value': 'Aviso m\u00ednimo 14 d\u00edas<br>Costos a acordar',
-          'external.modal.carretto.service.label': 'Servicio',
-          'external.modal.carretto.service.value': 'Gelato servido en cono o copa<br>Franjas: 0-50, 50-70, 70-100 personas',
-          'external.modal.carretto.included.label': 'Incluido',
-          'external.modal.carretto.included.value': '2h de servicio con 1 operador<br>Tiempo extra disponible bajo petici\u00f3n',
+          'external.modal.coolbox.transport.value': 'A partir de \u20ac50+IVA',
+          'external.modal.coolbox.services.label': 'Servicios bajo petici\u00f3n',
+          'external.modal.coolbox.services.value': '1 operador para servicio de distribuci\u00f3n de gelato<br>Branding y personalizaci\u00f3n Cool Box (dentro de los 14 d\u00edas previos al evento, precio a partir de \u20ac150+IVA)',
+          'external.modal.carretto.included.label': 'Incluido*',
+          'external.modal.carretto.included.value': '\u20ac900 que incluye: alquiler del carrito gelato, gelato para hasta 50 personas, 1 operador para servicio de distribuci\u00f3n de gelato durante 2 horas',
+          'external.modal.carretto.scalable.label': 'Escalabilidad',
+          'external.modal.carretto.scalable.value': 'Tambi\u00e9n disponible para eventos a gran escala con un elevado n\u00famero de invitados, gracias a un servicio modular y personalizable seg\u00fan las necesidades.',
           'external.modal.carretto.transport.label': 'Transporte',
-          'external.modal.carretto.transport.value': 'Por veh\u00edculo dentro de 100 km',
-          'external.modal.carretto.custom.label': 'Personalizaci\u00f3n',
-          'external.modal.carretto.custom.value': 'Aviso m\u00ednimo 14 d\u00edas<br>Costos a acordar',
-          'external.modal.vetrina.service.label': 'Servicio',
-          'external.modal.vetrina.service.value': 'Gelato servido en cono o copa<br>Franjas: 0-50, 50-70, 70-100 personas',
-          'external.modal.vetrina.included.label': 'Incluido',
-          'external.modal.vetrina.included.value': '2h de servicio con 1 operador<br>Tiempo extra disponible bajo petici\u00f3n',
-          'external.modal.vetrina.transport.label': 'Transporte',
-          'external.modal.vetrina.transport.value': 'Por veh\u00edculo dentro de 100 km',
-          'external.modal.vetrina.custom.label': 'Personalizaci\u00f3n',
-          'external.modal.vetrina.custom.value': 'Aviso m\u00ednimo 14 d\u00edas<br>Costos a acordar',
+          'external.modal.carretto.transport.value': 'A partir de \u20ac250+IVA',
+          'external.modal.carretto.services.label': 'Servicios bajo petici\u00f3n',
+          'external.modal.carretto.services.value': 'Operador extra para servicio de distribuci\u00f3n de gelato<br>Branding y personalizaci\u00f3n Carrito Gelato (dentro de los 14 d\u00edas previos al evento, precio a partir de \u20ac150+IVA)',
           'external.form.title': 'Solicitar Informaci\u00f3n',
           'external.form.subtitle': 'Completa el formulario y nos pondremos en contacto contigo',
           'external.form.firstName': 'Nombre *',

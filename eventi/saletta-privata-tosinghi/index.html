@@ -989,6 +989,50 @@
     }
 
     /* ===== FOOD/DRINK LIST MODALS — same style as package modals ===== */
+
+    /* Banner hero variant — image as full-width background */
+    .modal-hero--banner{
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      min-height:clamp(220px, 30vw, 340px);
+      padding:clamp(32px, 4vw, 56px) clamp(36px, 4vw, 64px);
+    }
+    .modal-hero--banner .modal-hero__img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border-radius:0;
+      border:none;
+      box-shadow:none;
+      object-fit:cover;
+      z-index:0;
+      opacity:0.75;
+      filter:brightness(0.85);
+    }
+    .modal-hero--banner .modal-hero__text{
+      z-index:2;
+    }
+    .modal-hero--banner::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, var(--badiani-blue) 0%, rgba(15,31,92,0.45) 45%, rgba(10,20,64,0.2) 100%);
+      z-index:1;
+      pointer-events:none;
+    }
+
+    @media(max-width:768px){
+      .modal-hero--banner{
+        min-height:clamp(180px, 40vw, 260px);
+        padding:24px;
+      }
+      .modal-hero--banner .modal-hero__img{
+        order:0;
+      }
+    }
+
     .list-modal__body{
       padding:clamp(16px, 2vw, 32px) clamp(24px, 3vw, 48px);
       background:rgba(255,255,255,0.04);
@@ -1386,6 +1430,14 @@
     <h2 class="sal-terms__title title-accent title-accent--light" data-i18n="tosinghi.terms.title">Termini e Condizioni</h2>
     <div class="sal-terms__grid">
       <div class="sal-terms__item">
+        <span class="sal-terms__item-label" data-i18n="tosinghi.terms.capacity.label">Capienza</span>
+        <p class="sal-terms__item-value" data-i18n="tosinghi.terms.capacity">Max 40/50 persone</p>
+      </div>
+      <div class="sal-terms__item">
+        <span class="sal-terms__item-label" data-i18n="tosinghi.terms.exclusive.label">Saletta in esclusiva</span>
+        <p class="sal-terms__item-value" data-i18n="tosinghi.terms.exclusive">2 ore. Tempo extra disponibile su richiesta da concordare</p>
+      </div>
+      <div class="sal-terms__item">
         <span class="sal-terms__item-label" data-i18n="tosinghi.terms.deposit.label">Acconto</span>
         <p class="sal-terms__item-value" data-i18n="tosinghi.terms.deposit">50% al momento della conferma tramite bonifico</p>
       </div>
@@ -1490,14 +1542,13 @@
     <button class="modal-close" onclick="closeFoodListModal()" aria-label="Chiudi"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
-        <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true" style="display:none;">&#9733;</span>
+        <div class="modal-hero modal-hero--banner">
+          <img class="modal-hero__img" src="../CT%20FIRENZE/DSC07149.jpg" alt="Finger Food" loading="lazy" decoding="async" width="4000" height="2668" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.food.subtitle">A cura del nostro Chef</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.food.title">Finger Food</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.food.desc">Selezione di finger food preparati dal nostro Chef per accompagnare il vostro evento.</p>
           </div>
-          <img class="modal-hero__img" src="../CT%20FIRENZE/DSC07149.jpg" alt="Finger Food" loading="lazy" decoding="async" width="4000" height="2668" />
         </div>
         <div class="list-modal__body">
           <ul>
@@ -1531,14 +1582,13 @@
     <button class="modal-close" onclick="closeDrinkListModal()" aria-label="Chiudi"></button>
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
-        <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true" style="display:none;">&#9733;</span>
+        <div class="modal-hero modal-hero--banner">
+          <img class="modal-hero__img" src="../CT%20FIRENZE/DSC07211.jpg" alt="Cocktail" loading="lazy" decoding="async" width="4000" height="2668" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.drink.subtitle">I nostri cocktail selezionati</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.drink.title">Cocktail</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.drink.desc">Cocktail classici e signature selezionati per i vostri eventi privati.</p>
           </div>
-          <img class="modal-hero__img" src="../CT%20FIRENZE/DSC07211.jpg" alt="Cocktail" loading="lazy" decoding="async" width="4000" height="2668" />
         </div>
         <div class="list-modal__body">
           <ul>
@@ -1767,6 +1817,10 @@
           'tosinghi.gallery.title': 'Galleria',
           'tosinghi.terms.label': 'Condizioni',
           'tosinghi.terms.title': 'Termini e Condizioni',
+          'tosinghi.terms.capacity.label': 'Capienza',
+          'tosinghi.terms.capacity': 'Max 40/50 persone',
+          'tosinghi.terms.exclusive.label': 'Saletta in esclusiva',
+          'tosinghi.terms.exclusive': '2 ore. Tempo extra disponibile su richiesta da concordare',
           'tosinghi.terms.deposit.label': 'Acconto',
           'tosinghi.terms.deposit': '50% al momento della conferma tramite bonifico',
           'tosinghi.terms.balance.label': 'Saldo',
@@ -1895,6 +1949,10 @@
           'tosinghi.gallery.title': 'Gallery',
           'tosinghi.terms.label': 'Conditions',
           'tosinghi.terms.title': 'Terms & Conditions',
+          'tosinghi.terms.capacity.label': 'Capacity',
+          'tosinghi.terms.capacity': 'Max 40/50 guests',
+          'tosinghi.terms.exclusive.label': 'Exclusive room',
+          'tosinghi.terms.exclusive': '2 hours. Extra time available upon request',
           'tosinghi.terms.deposit.label': 'Deposit',
           'tosinghi.terms.deposit': '50% upon confirmation via bank transfer',
           'tosinghi.terms.balance.label': 'Balance',
@@ -2020,8 +2078,12 @@
           'tosinghi.gallery.title': 'Galerie',
           'tosinghi.terms.label': 'Conditions',
           'tosinghi.terms.title': 'Termes et Conditions',
+          'tosinghi.terms.capacity.label': 'Capacité',
+          'tosinghi.terms.capacity': 'Max 40/50 personnes',
+          'tosinghi.terms.exclusive.label': 'Salle privée exclusive',
+          'tosinghi.terms.exclusive': '2 heures. Temps supplémentaire disponible sur demande',
           'tosinghi.terms.deposit.label': 'Acompte',
-          'tosinghi.terms.deposit': '50% \u00e0 la confirmation par virement bancaire',
+          'tosinghi.terms.deposit': '50% à la confirmation par virement bancaire',
           'tosinghi.terms.balance.label': 'Solde',
           'tosinghi.terms.balance': '3 jours avant la date de l\'\u00e9v\u00e9nement par virement bancaire',
           'tosinghi.terms.extradrink.label': 'Commandes suppl\u00e9mentaires',
@@ -2144,9 +2206,13 @@
           'tosinghi.gallery.label': 'Nuestra sala privada',
           'tosinghi.gallery.title': 'Galer\u00eda',
           'tosinghi.terms.label': 'Condiciones',
-          'tosinghi.terms.title': 'T\u00e9rminos y Condiciones',
-          'tosinghi.terms.deposit.label': 'Dep\u00f3sito',
-          'tosinghi.terms.deposit': '50% en la confirmaci\u00f3n mediante transferencia bancaria',
+          'tosinghi.terms.title': 'Términos y Condiciones',
+          'tosinghi.terms.capacity.label': 'Capacidad',
+          'tosinghi.terms.capacity': 'Máx 40/50 personas',
+          'tosinghi.terms.exclusive.label': 'Sala privada exclusiva',
+          'tosinghi.terms.exclusive': '2 horas. Tiempo extra disponible bajo petición',
+          'tosinghi.terms.deposit.label': 'Depósito',
+          'tosinghi.terms.deposit': '50% en la confirmación mediante transferencia bancaria',
           'tosinghi.terms.balance.label': 'Saldo',
           'tosinghi.terms.balance': '3 d\u00edas desde la fecha del evento mediante transferencia bancaria',
           'tosinghi.terms.extradrink.label': 'Pedidos adicionales',
