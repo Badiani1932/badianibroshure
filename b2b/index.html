@@ -185,15 +185,15 @@
       background:linear-gradient(180deg, rgba(0,0,0,0.08) 20%, rgba(0,0,0,0.55) 100%);
     }
     /* Background images via CSS custom property for zoom effect */
-    .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/vasche.png'); }
-    .category-card.b2b-card--torte{ --card-bg:url('../assets/images/categories/torte.png'); }
-    .category-card.b2b-card--vasche{ --card-bg:url('../assets/images/categories/vasche.png'); }
-    .category-card.b2b-card--pezziduri{ --card-bg:url('../assets/images/categories/pezzi-duri.png'); }
-    .category-card.b2b-card--coppette{ --card-bg:url('../assets/images/categories/coni-coppette.png'); }
-    .category-card.b2b-card--cono{ --card-bg:url('../assets/images/categories/gelati-tenda.png'); }
-    .category-card.b2b-card--cialde{ --card-bg:url('../assets/images/categories/wafer-pulsante.png'); }
-    .category-card.b2b-card--contenitori{ --card-bg:url('../assets/images/categories/contenitori.png'); }
-    .category-card.b2b-card--accessori{ --card-bg:url('../assets/images/categories/wafer-pulsante.png'); }
+    .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/vasche.webp'); }
+    .category-card.b2b-card--torte{ --card-bg:url('../assets/images/categories/torte.webp'); }
+    .category-card.b2b-card--vasche{ --card-bg:url('../assets/images/categories/vasche.webp'); }
+    .category-card.b2b-card--pezziduri{ --card-bg:url('../assets/images/categories/pezzi-duri.webp'); }
+    .category-card.b2b-card--coppette{ --card-bg:url('../assets/images/categories/coni-coppette.webp'); }
+    .category-card.b2b-card--cono{ --card-bg:url('../assets/images/categories/coni-coppette.webp'); }
+    .category-card.b2b-card--cialde{ --card-bg:url('../assets/images/categories/wafer-pulsante.webp'); }
+    .category-card.b2b-card--contenitori{ --card-bg:url('../assets/images/categories/contenitori.webp'); }
+    .category-card.b2b-card--accessori{ --card-bg:url('../assets/images/categories/wafer-pulsante.webp'); }
     /* ::before = background image layer (zoomable on hover) */
     .category-card.b2b-card--gelato::before,
     .category-card.b2b-card--torte::before,
@@ -1242,7 +1242,7 @@
       text-align:center;
       font-size:12px;
       color:rgba(30,57,141,0.45);
-      margin:4px 0;
+      margin:6px 0 0;
       padding:0;
       font-style:italic;
       letter-spacing:0.3px;
@@ -1435,7 +1435,7 @@
       text-align:center;
       font-size:12px;
       color:rgba(30,57,141,0.45);
-      margin:4px 0;
+      margin:6px 0 0;
       padding:0;
       font-style:italic;
       letter-spacing:0.3px;
@@ -1826,7 +1826,7 @@
       text-align:center;
       font-size:12px;
       color:rgba(30,57,141,0.45);
-      margin:4px 0;
+      margin:6px 0 0;
       padding:0;
       font-style:italic;
       letter-spacing:0.3px;
@@ -2590,9 +2590,32 @@
       text-align:center;
       font-size:12px;
       color:rgba(30,57,141,0.45);
-      margin-top:10px;
+      margin:6px 0 0;
+      padding:0;
       font-style:italic;
       letter-spacing:0.3px;
+    }
+    .torte-hint{
+      text-align:center;
+      font-size:12px;
+      color:rgba(30,57,141,0.45);
+      margin:6px 0 0;
+      padding:0;
+      font-style:italic;
+      letter-spacing:0.3px;
+    }
+
+    /* Hint geometry/visibility unified for all interactive hero sections */
+    .coppette-hint,
+    .coni-hint,
+    .contenitori-hint,
+    .accessori-hint,
+    .torte-hint{
+      display:block;
+      width:100%;
+      line-height:1.35;
+      position:static;
+      z-index:auto;
     }
     .contenitori-detail-panel{
       display:flex;
@@ -2730,8 +2753,8 @@
       .modal__close{ width:38px; height:38px; }
       .modal__close::before, .modal__close::after{ width:16px; }
       .modal__header{ flex-wrap:wrap; }
-      .modal__nav{ padding:2px 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow:hidden !important; overflow-x:hidden !important; flex-wrap:wrap !important; flex-shrink:0; box-sizing:border-box; justify-content:center; gap:0; -webkit-overflow-scrolling:auto; }
-      .modal__nav button{ padding:7px 9px; font-size:10px; white-space:nowrap; flex-shrink:0; letter-spacing:0.4px; min-width:0; }
+      .modal__nav{ padding:2px 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow-x:auto !important; overflow-y:hidden !important; flex-wrap:nowrap !important; flex-shrink:0; box-sizing:border-box; justify-content:flex-start; gap:0; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
+      .modal__nav button{ padding:7px 9px; font-size:10px; white-space:nowrap; flex:0 0 auto; letter-spacing:0.4px; min-width:0; }
       .modal__header-actions{ border-left:none; }
 
       .modal__content{ padding:16px 18px 18px; gap:16px; }
@@ -2740,12 +2763,29 @@
       .torte-map-wrapper,
       .coni-map-wrapper,
       .conigf-map-wrapper,
-      .accessori-map-wrapper{ width:calc(100% + 36px); margin-top:-16px; margin-left:-18px; margin-right:-18px; }
+      .accessori-map-wrapper{ width:calc(100% + 36px); margin-top:0 !important; margin-left:-18px !important; margin-right:-18px !important; }
       .modal__section h4{ font-size:24px; margin-bottom:4px; letter-spacing:0.6px; }
       .map-overlay-title{ padding:12px 18px 10px; font-size:24px; }
       .modal__section h4.map-overlay-title{ font-size:24px; }
       .modal__section p,
       .modal__section li{ font-size:12px; line-height:1.45; }
+      .coppette-hint,
+      .coni-hint,
+      .contenitori-hint,
+      .accessori-hint,
+      .torte-hint{
+        width:100%;
+        margin:6px 0 10px;
+        padding:0;
+        background:transparent;
+        border-top:none;
+        font-size:12px;
+        display:block !important;
+        visibility:visible !important;
+        opacity:1 !important;
+        position:static !important;
+        z-index:auto !important;
+      }
       .modal__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
       .modal__card{ padding:10px; border-radius:12px; }
       .modal__table{ font-size:12px; }
@@ -3559,7 +3599,7 @@
 
     <!-- RICHIEDI INFORMAZIONI — inline form section with steps sidebar -->
     <section id="contatti" class="b2b-form-section" data-i18n-attr="aria-label:b2b.form.label">
-      <img class="b2b-form-section__mercury" src="../assets/mercury.png" alt="Mercury" loading="lazy" decoding="async" />
+      <img class="b2b-form-section__mercury" src="../assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" />
       <div class="b2b-form-section__grid">
       <div class="b2b-form-block">
         <div class="b2b-form-block__header">
@@ -4092,6 +4132,7 @@
           'b2b.contenitori.capacity': 'Capienza',
           'b2b.accessori.description': 'Descrizione',
           'b2b.accessori.quantity': 'Quantit\u00e0',
+          'b2b.accessori.hint': 'Tocca un accessorio per vederne i dettagli',
           'b2b.pezziduri.avgWeight': 'Peso medio (1 pz.)',
           'b2b.pezziduri.minOrder': 'Ordine minimo',
           'b2b.pezziduri.allergens': 'Allergeni',
@@ -6190,6 +6231,22 @@
       const categories = Array.from(cards).map((card) => card.getAttribute('data-category'));
       let activeCategory = categories[0] || '';
 
+      function resetInteractiveSelections(){
+        expandedFlavorId = '';
+        expandedTorteId = '';
+        expandedPezziDuriId = '';
+        expandedContenitoriId = '';
+        expandedTipologiaId = '';
+        expandedConiId = new Set();
+        expandedAccessoriId = '';
+        selectedTorteMapId = new Set();
+        selectedContenitoriMapId = new Set();
+        selectedAccessoriMapId = new Set();
+        selectedCoppetteId = new Set();
+        selectedConiHeroId = new Set();
+        selectedConiGfMapId = new Set();
+      }
+
       function categoryLabel(name){
         if(!name) return t('b2b.modal.titleDefault');
         const key = `b2b.categories.${name.replace(/\s+/g, '_')}`;
@@ -6867,8 +6924,8 @@
         return `
           <div class="modal__section">
             ${coppetteSection}
-            ${conigfHeroSection}
             ${coniHeroSection}
+            ${conigfHeroSection}
           </div>
         `;
       }
@@ -7582,6 +7639,7 @@
       }
 
       function openModal(name){
+        resetInteractiveSelections();
         setActiveCategory(name || categories[0]);
         modal.classList.add('is-open');
         document.body.style.overflow = 'hidden';
@@ -7589,6 +7647,7 @@
 
       function closeModal(){
         modal.classList.remove('is-open');
+        resetInteractiveSelections();
         document.body.style.overflow = '';
       }
 
@@ -7771,7 +7830,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col footer-brand">
-        <a href="../" class="footer-logo-link"><img src="../assets/images/branding/logo-white.png" alt="Badiani 1932" width="1665" height="643" /></a>
+        <a href="../" class="footer-logo-link"><img src="../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" /></a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
       <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../" data-i18n="footer.home">Home</a></li><li><a href="../eventi/" data-i18n="footer.eventi">Eventi</a></li><li><a href="./" data-i18n="footer.b2b">B2B</a></li><li><a href="../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
