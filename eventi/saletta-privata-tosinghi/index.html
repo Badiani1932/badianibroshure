@@ -1982,10 +1982,83 @@
       });
     })();
 
-    // Tosinghi form submit handler - structured mail summary
+    // Tosinghi form submit handler - send structured payload to Worker API
     (function(){
       var form = document.getElementById('tosinghiRequestForm');
       if(!form) return;
+      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
+
+      function getSubmitButton(){
+        return form.querySelector('button[type="submit"], input[type="submit"]');
+      }
+
+      function setSubmitting(submitting){
+        var btn = getSubmitButton();
+        if(!btn) return;
+        if(submitting){
+          if(!btn.dataset.originalText){
+            btn.dataset.originalText = (btn.textContent || '').trim();
+          }
+          btn.disabled = true;
+          btn.setAttribute('aria-busy', 'true');
+          btn.textContent = 'Invio in corso...';
+          return;
+        }
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        if(btn.dataset.originalText){
+          btn.textContent = btn.dataset.originalText;
+        }
+      }
+
+      function showFormFeedback(message, isError){
+        var feedback = form.querySelector('.form-feedback');
+        if(!feedback){
+          feedback = document.createElement('p');
+          feedback.className = 'form-feedback';
+          feedback.setAttribute('role', 'status');
+          feedback.setAttribute('aria-live', 'polite');
+          feedback.style.marginTop = '12px';
+          feedback.style.fontSize = '14px';
+          feedback.style.fontWeight = '600';
+          form.appendChild(feedback);
+        }
+        feedback.style.color = isError ? '#b42318' : '#127c56';
+        feedback.textContent = message;
+      }
+
+      function normalizeFormEntries(fd){
+        var out = {};
+        fd.forEach(function(value, key){
+          if(Object.prototype.hasOwnProperty.call(out, key)){
+            if(Array.isArray(out[key])) out[key].push(value);
+            else out[key] = [out[key], value];
+          } else {
+            out[key] = value;
+          }
+        });
+        return out;
+      }
+
+      async function postToContactApi(payload){
+        var response = await fetch(CONTACT_API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        var responseBody = null;
+        try { responseBody = await response.json(); } catch(e) {}
+
+        if(!response.ok){
+          var msg = (responseBody && (responseBody.error || responseBody.message)) || ('HTTP ' + response.status);
+          throw new Error(msg);
+        }
+        return responseBody;
+      }
 
       function addLine(lines, label, value){
         if(value === undefined || value === null) return;
@@ -2018,7 +2091,7 @@
           .filter(Boolean);
       }
 
-      form.addEventListener('submit', function(e){
+      form.addEventListener('submit', async function(e){
         e.preventDefault();
         var fd = new FormData(form);
 
@@ -2063,9 +2136,45 @@
 
         lines.push('', '--- Fine richiesta ---');
 
-        var subject = encodeURIComponent('Richiesta Informazioni Saletta Tosinghi - ' + (nome + ' ' + cognome).trim());
-        var body = encodeURIComponent(lines.join('\n'));
-        window.location.href = 'mailto:eventi@badiani1932.com?subject=' + subject + '&body=' + body;
+        var subject = 'Richiesta Informazioni Saletta Tosinghi - ' + (nome + ' ' + cognome).trim();
+        var body = lines.join('\n');
+
+        var payload = {
+          source: 'eventi-tosinghi',
+          formId: form.id,
+          subject: subject,
+          message: body,
+          body: body,
+          fields: normalizeFormEntries(fd),
+          structured: {
+            nome: nome,
+            cognome: cognome,
+            tipo: tipo,
+            telefono: telefono,
+            data: data,
+            orario: orario,
+            persone: persone,
+            extra: extra,
+            extras: extras,
+            eventi: eventi
+          }
+        };
+
+        setSubmitting(true);
+        showFormFeedback('Invio in corso...', false);
+
+        try {
+          await postToContactApi(payload);
+          showFormFeedback('Richiesta inviata con successo. Ti contatteremo presto.', false);
+          form.reset();
+          var extrasPanel = document.getElementById('extrasTosinghi');
+          if(extrasPanel) extrasPanel.classList.remove('visible');
+        } catch (error) {
+          console.error('Tosinghi submit error:', error);
+          showFormFeedback('Invio non riuscito. Riprova tra poco.', true);
+        } finally {
+          setSubmitting(false);
+        }
       });
     })();
 

@@ -7806,7 +7806,81 @@
         btn.addEventListener('click', function(e) { e.preventDefault(); openB2BForm(); });
       });
 
-      // Form submit handlers - builds structured email summary (both inline + modal)
+      // Form submit handlers - send structured payload to Worker API (both inline + modal)
+      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
+
+      function getSubmitButton(form){
+        return form.querySelector('button[type="submit"], input[type="submit"]');
+      }
+
+      function setSubmitting(form, submitting){
+        var btn = getSubmitButton(form);
+        if(!btn) return;
+        if(submitting){
+          if(!btn.dataset.originalText){
+            btn.dataset.originalText = (btn.textContent || '').trim();
+          }
+          btn.disabled = true;
+          btn.setAttribute('aria-busy', 'true');
+          btn.textContent = 'Invio in corso...';
+          return;
+        }
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        if(btn.dataset.originalText){
+          btn.textContent = btn.dataset.originalText;
+        }
+      }
+
+      function showFormFeedback(form, message, isError){
+        var feedback = form.querySelector('.form-feedback');
+        if(!feedback){
+          feedback = document.createElement('p');
+          feedback.className = 'form-feedback';
+          feedback.setAttribute('role', 'status');
+          feedback.setAttribute('aria-live', 'polite');
+          feedback.style.marginTop = '12px';
+          feedback.style.fontSize = '14px';
+          feedback.style.fontWeight = '600';
+          form.appendChild(feedback);
+        }
+        feedback.style.color = isError ? '#b42318' : '#127c56';
+        feedback.textContent = message;
+      }
+
+      function normalizeFormEntries(fd){
+        var out = {};
+        fd.forEach(function(value, key){
+          if(Object.prototype.hasOwnProperty.call(out, key)){
+            if(Array.isArray(out[key])) out[key].push(value);
+            else out[key] = [out[key], value];
+          } else {
+            out[key] = value;
+          }
+        });
+        return out;
+      }
+
+      async function postToContactApi(payload){
+        var response = await fetch(CONTACT_API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        var responseBody = null;
+        try { responseBody = await response.json(); } catch(e) {}
+
+        if(!response.ok){
+          var msg = (responseBody && (responseBody.error || responseBody.message)) || ('HTTP ' + response.status);
+          throw new Error(msg);
+        }
+        return responseBody;
+      }
+
       function getCheckedRadioLabel(form, radioName){
         var input = form.querySelector('input[name="' + radioName + '"]:checked');
         if(!input) return '';
@@ -7838,7 +7912,7 @@
         lines.push(label + ': ' + v);
       }
 
-      function handleB2BSubmit(form){
+      async function handleB2BSubmit(form){
         var fd = new FormData(form);
         var nome = (fd.get('nome') || '').toString().trim();
         var cognome = (fd.get('cognome') || '').toString().trim();
@@ -7875,17 +7949,54 @@
         addLine(lines, 'Messaggio', messaggio);
         lines.push('', '--- Fine richiesta ---');
 
-        var subject = encodeURIComponent('Richiesta Informazioni B2B - ' + (nome + ' ' + cognome).trim() + (azienda ? ' - ' + azienda : ''));
-        var body = encodeURIComponent(lines.join('\n'));
-        window.location.href = 'mailto:eventi@badiani1932.com?subject=' + subject + '&body=' + body;
+        var subject = 'Richiesta Informazioni B2B - ' + (nome + ' ' + cognome).trim() + (azienda ? ' - ' + azienda : '');
+        var body = lines.join('\n');
+
+        var payload = {
+          source: 'b2b',
+          formId: form.id,
+          subject: subject,
+          message: body,
+          body: body,
+          fields: normalizeFormEntries(fd),
+          structured: {
+            nome: nome,
+            cognome: cognome,
+            azienda: azienda,
+            email: email,
+            telefono: telefono,
+            tipoAzienda: tipoAzienda,
+            partitaIva: partitaIva,
+            messaggio: messaggio,
+            preferenza: preferenza,
+            interessi: interessi
+          }
+        };
+
+        setSubmitting(form, true);
+        showFormFeedback(form, 'Invio in corso...', false);
+
+        try {
+          await postToContactApi(payload);
+          showFormFeedback(form, 'Richiesta inviata con successo. Ti contatteremo presto.', false);
+          form.reset();
+          if(form.id === 'b2bRequestForm' && typeof closeB2BForm === 'function'){
+            closeB2BForm();
+          }
+        } catch (error) {
+          console.error('B2B submit error:', error);
+          showFormFeedback(form, 'Invio non riuscito. Riprova tra poco.', true);
+        } finally {
+          setSubmitting(form, false);
+        }
       }
 
       ['b2bRequestForm', 'b2bInlineForm'].forEach(function(formId){
         var form = document.getElementById(formId);
         if(!form) return;
-        form.addEventListener('submit', function(e){
+        form.addEventListener('submit', async function(e){
           e.preventDefault();
-          handleB2BSubmit(form);
+          await handleB2BSubmit(form);
         });
       });
     })();
