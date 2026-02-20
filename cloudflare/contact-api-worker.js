@@ -161,7 +161,7 @@ function buildCleanEmailBody(payload, fallbackMessage) {
 function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
   const source = sanitizeOneLine((payload && payload.source) || 'website');
   const formId = sanitizeOneLine((payload && payload.formId) || '');
-  const logoUrl = sanitizeOneLine((env && env.MAIL_LOGO_URL) || 'https://www.badiani1932.com/assets/images/branding/logo-white.webp');
+  const logoUrl = sanitizeOneLine((env && env.MAIL_LOGO_URL) || 'https://www.badiani1932.com/assets/images/branding/logo-white.png');
 
   const data = extractBestData(payload);
   const requestType = classifyRequestType(payload, data);
@@ -220,7 +220,8 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid ${theme.cardBorder};">
             <tr>
               <td style="background:${theme.headerBg};padding:22px 20px;text-align:center;">
-                <img src="${escapeHtml(logoUrl)}" alt="Badiani 1932" style="display:block;margin:0 auto;max-width:220px;height:auto;" />
+                <img src="${escapeHtml(logoUrl)}" alt="Badiani 1932" width="220" style="display:block;margin:0 auto;max-width:220px;height:auto;border:0;outline:none;text-decoration:none;" />
+                <div style="margin-top:8px;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#ffffff;opacity:.92;font-weight:700;">Badiani 1932</div>
               </td>
             </tr>
             <tr>
