@@ -404,6 +404,20 @@ export const gelatoFlavors = [
     allergens: [],
     flags: { vegan: false, glutenFree: false, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
     isTub: true
+  },
+  {
+    id: "bacio",
+    nameKey: "flavor.bacio",
+    label: "Bacio",
+    seasons: ["tutti"],
+    image: "../assets/gelato/Bacio/bacio.png",
+    detailImage: "../assets/gelato/Bacio/bacio-dettaglio.jpeg",
+    description: "Gelato al cioccolato fondente e nocciole tostate intere, ispirato al celebre cioccolatino italiano",
+    allergensText: "Latte, uova, frutta a guscio",
+    ingredients: [],
+    allergens: [],
+    flags: { vegan: false, glutenFree: true, lactoseFree: false, containsEggs: true, containsNuts: true, containsAlcohol: false },
+    isTub: true
   }
 ];
 

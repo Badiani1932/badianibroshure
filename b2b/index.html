@@ -476,6 +476,7 @@
       overscroll-behavior-y:contain;
       opacity:0;
       transition:opacity 0.4s ease;
+      min-height:100svh;
     }
     .modal-overlay.is-open{ display:flex; opacity:1; }
     .modal{
@@ -487,6 +488,7 @@
       width:min(1520px, 97vw);
       max-height:95vh;
       max-height:95dvh;
+      height:min(95vh, 95dvh);
       border-radius:24px;
       box-shadow:0 30px 80px rgba(0,0,0,0.6);
       display:flex;
@@ -548,108 +550,7 @@
       padding-right:8px;
       gap:4px;
     }
-    .modal__info-btn{
-      border:none;
-      background:rgba(30,57,141,0.08);
-      font-size:18px;
-      cursor:pointer;
-      color:var(--badiani-blue);
-      width:44px;
-      height:44px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:color 0.2s, background 0.2s, transform 0.2s;
-      position:relative;
-    }
-    .modal__info-btn:hover{
-      color:var(--badiani-blue);
-      background:rgba(30,57,141,0.15);
-      transform:scale(1.05);
-    }
-    .modal__info-btn svg{
-      width:22px;
-      height:22px;
-    }
-    /* Shipping info popup */
-    .shipping-popup-overlay{
-      display:none;
-      position:fixed;
-      top:0;left:0;right:0;bottom:0;
-      background:rgba(0,0,0,0.82);
-      backdrop-filter:blur(6px);
-      z-index:10010;
-      align-items:center;
-      justify-content:center;
-    }
-    .shipping-popup-overlay.is-open{
-      display:flex;
-    }
-    .shipping-popup{
-      background:var(--badiani-blue);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:20px;
-      max-width:768px;
-      width:90%;
-      padding:45px 45px 38px;
-      box-shadow:0 12px 48px rgba(0,0,0,0.45);
-      position:relative;
-      animation:shippingFadeIn .3s cubic-bezier(.22,.61,.36,1);
-      backdrop-filter:blur(16px);
-    }
-    @keyframes shippingFadeIn{
-      from{opacity:0;transform:scale(0.95)}
-      to{opacity:1;transform:scale(1)}
-    }
-    .shipping-popup__header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:26px;
-    }
-    .shipping-popup__title{
-      font-size:26px;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      color:#fff;
-      font-weight:700;
-    }
-    .shipping-popup__close{
-      border:none;
-      background:rgba(255,255,255,0.06);
-      font-size:29px;
-      cursor:pointer;
-      color:rgba(255,255,255,0.8);
-      width:54px;
-      height:54px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:50%;
-      transition:background .2s, color .2s;
-    }
-    .shipping-popup__close:hover{
-      background:rgba(255,255,255,0.12);
-      color:#fff;
-    }
-    .shipping-popup__list{
-      list-style:disc;
-      padding-left:20px;
-      margin:0;
-    }
-    .shipping-popup__list li{
-      font-size:21px;
-      line-height:1.55;
-      color:rgba(255,255,255,0.82);
-      margin-bottom:13px;
-    }
-    .shipping-popup__list li::marker{
-      color:var(--badiani-pink);
-    }
-    .shipping-popup__list li:last-child{
-      margin-bottom:0;
-    }
+
     .modal__body{ padding:0; overflow:hidden; display:flex; flex-direction:column; min-height:0; }
     .modal__sidebar{ display:none; }
     .modal__nav{
@@ -658,6 +559,8 @@
       gap:0;
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
+      overscroll-behavior-x:contain;
+      touch-action:pan-x;
       scrollbar-width:none;
       padding:0 8px;
       background:#fff;
@@ -690,13 +593,15 @@
     }
     .modal__content{
       padding:24px 28px 28px;
-      overflow:auto;
+      overflow-y:auto;
+      overflow-x:hidden;
       -webkit-overflow-scrolling:touch;
       display:grid;
       gap:24px;
       flex:1;
       min-height:0;
       background:transparent;
+      overscroll-behavior:contain;
     }
     .modal__select{
       display:none;
@@ -1089,6 +994,19 @@
       .tipologia-capacity{ font-size:9px; }
     }
 
+    /* ── Formato Acquisto scroll button ── */
+    .formato-acquisto-btn{
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--badiani-blue); color:#fff;
+      border:none; border-radius:8px;
+      padding:10px 22px; margin:12px 0 8px;
+      font-size:clamp(0.85rem,1.2vw,1rem); font-weight:600;
+      text-transform:uppercase; letter-spacing:0.5px;
+      cursor:pointer; transition:background 0.2s, transform 0.15s;
+    }
+    .formato-acquisto-btn:hover{ background:var(--badiani-pink); transform:translateY(-1px); }
+    .formato-acquisto-btn:active{ transform:translateY(0); }
+    .formato-acquisto-btn svg{ flex-shrink:0; }
 
     /* ── Coni & Coppette gallery ── */
     .coni-header-img{
@@ -1525,7 +1443,8 @@
     .coni-detail-panel{
       display:flex;
       gap:24px;
-      margin-top:20px;
+      margin-top:24px;
+      margin-bottom:20px;
       background:#fff;
       border-radius:16px;
       border:1px solid rgba(30,57,141,0.08);
@@ -1718,7 +1637,8 @@
     .conigf-detail-panel{
       display:flex;
       gap:24px;
-      margin-top:20px;
+      margin-top:24px;
+      margin-bottom:20px;
       background:#fff;
       border-radius:16px;
       border:1px solid rgba(30,57,141,0.08);
@@ -2097,6 +2017,40 @@
       align-items:stretch;
       grid-auto-flow:dense;
     }
+
+    /* Monoporzioni hero overlay */
+    .pezziduri-hero-overlay{
+      position:relative;
+      cursor:pointer;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:20px;
+      box-shadow:0 12px 32px rgba(0,0,0,0.25);
+      animation:pezziduri-fadeIn 0.4s ease;
+    }
+    .pezziduri-hero-overlay img{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+    .pezziduri-hero-overlay .pezziduri-hero-tap{
+      position:absolute;
+      bottom:16px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(30,57,141,0.85);
+      color:#fff;
+      font-size:clamp(0.75rem,1.6vw,0.95rem);
+      padding:8px 22px;
+      border-radius:24px;
+      backdrop-filter:blur(6px);
+      pointer-events:none;
+      white-space:nowrap;
+      animation:pezziduri-pulse 2s ease-in-out infinite;
+    }
+    @keyframes pezziduri-fadeIn{ from{opacity:0;transform:scale(1.02)} to{opacity:1;transform:scale(1)} }
+    @keyframes pezziduri-pulse{ 0%,100%{opacity:.85} 50%{opacity:1} }
     .pezziduri-card{
       background:#fff;
       border-radius:16px;
@@ -2204,6 +2158,15 @@
     .pezziduri-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
+    }
+    .pezziduri-allergens{
+      background:rgba(255,193,7,0.08) !important;
+      border:1px solid rgba(255,193,7,0.25);
+      border-radius:10px;
+    }
+    .pezziduri-allergens em{
+      font-style:normal;
+      text-transform:capitalize;
     }
     @media(max-width:900px){
       .pezziduri-grid{
@@ -2751,6 +2714,7 @@
       .modal{
         width:100%;
         height:100%;
+        height:100svh;
         max-height:100vh;
         max-height:100dvh;
         border-radius:0;
@@ -2761,19 +2725,22 @@
       .gelato-card__details{ transition:none; }
 
       /* Modal mobile: compatta */
-      .modal-overlay{ padding:0; align-items:center; justify-content:center; }
+      .modal-overlay{ padding:0; align-items:stretch; justify-content:stretch; }
+      .modal__body{ min-height:0; }
       .modal__close{ width:38px; height:38px; }
       .modal__close::before, .modal__close::after{ width:16px; }
       .modal__header{ flex-wrap:wrap; }
       .modal__nav{ padding:2px 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow:hidden !important; overflow-x:hidden !important; flex-wrap:wrap !important; flex-shrink:0; box-sizing:border-box; justify-content:center; gap:0; -webkit-overflow-scrolling:auto; }
       .modal__nav button{ padding:7px 9px; font-size:10px; white-space:nowrap; flex-shrink:0; letter-spacing:0.4px; min-width:0; }
       .modal__header-actions{ border-left:none; }
-      .modal__info-btn{ width:34px; height:34px; }
-      .modal__info-btn svg{ width:18px; height:18px; }
+
       .modal__content{ padding:16px 18px 18px; gap:16px; }
       .coppette-map-wrapper,
       .contenitori-map-wrapper,
-      .torte-map-wrapper{ width:calc(100% + 36px); margin-top:-16px; margin-left:-18px; margin-right:-18px; }
+      .torte-map-wrapper,
+      .coni-map-wrapper,
+      .conigf-map-wrapper,
+      .accessori-map-wrapper{ width:calc(100% + 36px); margin-top:-16px; margin-left:-18px; margin-right:-18px; }
       .modal__section h4{ font-size:24px; margin-bottom:4px; letter-spacing:0.6px; }
       .map-overlay-title{ padding:12px 18px 10px; font-size:24px; }
       .modal__section h4.map-overlay-title{ font-size:24px; }
@@ -2794,7 +2761,10 @@
       .modal__content{ padding:20px 22px 24px; }
       .coppette-map-wrapper,
       .contenitori-map-wrapper,
-      .torte-map-wrapper{ width:calc(100% + 44px); margin-top:-20px; margin-left:-22px; margin-right:-22px; }
+      .torte-map-wrapper,
+      .coni-map-wrapper,
+      .conigf-map-wrapper,
+      .accessori-map-wrapper{ width:calc(100% + 44px); margin-top:-20px; margin-left:-22px; margin-right:-22px; }
     }
     @media(max-width:768px){
       .gelato-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
@@ -3074,6 +3044,63 @@
       .b2b-form__header{ padding:22px 18px; }
       .b2b-form__actions{ flex-direction:column; align-items:stretch; text-align:center; }
       .b2b-form__submit{ justify-content:center; }
+    }
+
+    /* ===== TERMS & CONDITIONS — dark blue section ===== */
+    .b2b-terms{
+      background:var(--badiani-blue);
+      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+    }
+    .b2b-terms__label{
+      font-size:clamp(11px, 1vw, 14px);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.5);
+      margin-bottom:8px;
+    }
+    .b2b-terms__title{
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-size:clamp(36px, 4.5vw, 72px);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#fff;
+      margin-bottom:clamp(28px, 4vw, 48px);
+      font-weight:700;
+      line-height:0.95;
+      text-shadow:none;
+    }
+    .b2b-terms__grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:clamp(16px, 2vw, 28px);
+      max-width:1200px;
+    }
+    .b2b-terms__item{
+      padding:clamp(20px, 2vw, 32px) 0;
+      border-top:1px solid rgba(255,255,255,0.15);
+    }
+    .b2b-terms__item-label{
+      font-size:clamp(11px, 0.9vw, 13px);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:var(--badiani-pink);
+      font-weight:700;
+      margin-bottom:10px;
+      display:block;
+    }
+    .b2b-terms__item-value{
+      font-size:clamp(14px, 1.1vw, 16px);
+      color:rgba(255,255,255,0.85);
+      line-height:1.7;
+      font-weight:300;
+    }
+    @media(max-width:1024px){
+      .b2b-terms__grid{ grid-template-columns:repeat(2, 1fr); }
+    }
+    @media(max-width:600px){
+      .b2b-terms{ padding:32px 20px; }
+      .b2b-terms__title{ font-size:clamp(28px, 8vw, 44px); }
+      .b2b-terms__grid{ grid-template-columns:1fr; }
     }
 
     /* ===== INLINE FORM SECTION (matches home design) ===== */
@@ -3490,6 +3517,46 @@
       </div>
     </section>
 
+    <!-- TERMINI E CONDIZIONI — dark blue full-bleed -->
+    <section class="b2b-terms">
+      <p class="b2b-terms__label" data-i18n="b2b.terms.label">Condizioni</p>
+      <h2 class="b2b-terms__title title-accent title-accent--light" data-i18n="b2b.terms.title">Termini e Condizioni</h2>
+      <div class="b2b-terms__grid">
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.orderMin.label">Ordine minimo</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.orderMin">Gli ordini devono essere inviati con almeno 48 ore di preavviso</p>
+        </div>
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.shipping.label">Spedizioni</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.shipping">All&rsquo;interno del comune di Firenze: spedizione gratuita. Per zone fuori comune: quotazione su richiesta</p>
+        </div>
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.ztl.label">Zone ZTL</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.ztl">Nelle zone a traffico limitato, le consegne saranno effettuate in accordanza con i limiti orari di entrata e uscita</p>
+        </div>
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.payment.label">Pagamento</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.payment">Modalit&agrave; e tempistiche di pagamento da concordare in fase di accordo commerciale</p>
+        </div>
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.storage.label">Conservazione</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.storage">I prodotti devono essere conservati a &minus;18&thinsp;&deg;C. La catena del freddo non deve essere interrotta</p>
+        </div>
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.custom.label">Personalizzazioni</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.custom">Packaging personalizzato e gusti su misura disponibili su richiesta per ordini ricorrenti</p>
+        </div>
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.support.label">Assistenza</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.support">Il nostro team B2B &egrave; a disposizione per supporto dedicato: b2b@badiani1932.com</p>
+        </div>
+        <div class="b2b-terms__item">
+          <span class="b2b-terms__item-label" data-i18n="b2b.terms.returns.label">Resi e reclami</span>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.returns">Eventuali reclami devono essere comunicati entro 24 ore dalla consegna</p>
+        </div>
+      </div>
+    </section>
+
     <!-- RICHIEDI INFORMAZIONI — inline form section with steps sidebar -->
     <section id="contatti" class="b2b-form-section" data-i18n-attr="aria-label:b2b.form.label">
       <img class="b2b-form-section__mercury" src="../assets/mercury.png" alt="Mercury" loading="lazy" decoding="async" />
@@ -3708,9 +3775,6 @@
         <h3 class="modal__title" id="categoryModalTitle" data-i18n="b2b.modal.titleDefault"></h3>
         <nav class="modal__nav" id="categoryNav" data-i18n-attr="aria-label:b2b.modal.nav"></nav>
         <div class="modal__header-actions">
-          <button class="modal__info-btn" id="info" type="button" aria-label="Informazioni spedizione" title="Spedizione" data-i18n-attr="aria-label:b2b.modal.shipping.label;title:b2b.modal.shipping.title">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 15v-3H10V5H2v10h2m2 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M10 8h12v6H10"/></svg>
-          </button>
           <button class="modal__close" type="button" data-i18n-attr="aria-label:b2b.modal.close"></button>
         </div>
       </div>
@@ -3729,11 +3793,11 @@
               </div>
               <div class="gelato-vasche__content" id="vascheContent" hidden></div>
             </div>
-            <!-- Formato Acquisto: tipologia vasca grid (always visible) -->
-            <div id="tipologiaSection">
-              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
-              <div class="tipologia-grid" id="tipologiaContent"></div>
-            </div>
+            <!-- Pulsante scroll verso Formato Acquisto -->
+            <button type="button" class="formato-acquisto-btn" id="formatoAcquistoBtn" onclick="document.getElementById('tipologiaSection').scrollIntoView({behavior:'smooth',block:'start'})">
+              <span data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
             <div class="gelato-header">
               <h4 data-gelato-i18n="vetrinaGelato.title"></h4>
               <p data-gelato-i18n="vetrinaGelato.subtitle"></p>
@@ -3758,6 +3822,11 @@
               <div class="gelato-detail is-collapsed" id="gelatoDetail">
                 <div class="gelato-empty" data-gelato-i18n="vetrinaGelato.selectFlavorHint"></div>
               </div>
+            </div>
+            <!-- Formato Acquisto: tipologia vasca grid (moved to bottom) -->
+            <div id="tipologiaSection">
+              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
+              <div class="tipologia-grid" id="tipologiaContent"></div>
             </div>
           </div>
 
@@ -4009,17 +4078,42 @@
           'b2b.coni.gfVariant': 'Variante Gluten Free',
           'b2b.coni.description': 'Descrizione',
           'b2b.coni.quantity': 'Quantit\u00e0',
+          'b2b.coni.dimensions': 'Dimensioni',
           'b2b.coppette.hint': 'Tocca una coppetta per vederne i dettagli',
+          'b2b.coppette.code': 'Codice coppetta',
+          'b2b.coppette.capacity': 'Capienza',
+          'b2b.coppette.packaging': 'Confezione',
           'b2b.coni.hint': 'Tocca un cono per vederne i dettagli',
           'b2b.conigf.hint': 'Tocca un cono gluten free per vederne i dettagli',
           'b2b.torte.hint': 'Tocca una torta per vederne i dettagli',
           'b2b.torte.sizeS': '6 persone',
           'b2b.torte.sizeL': '12 persone',
           'b2b.contenitori.hint': 'Tocca un contenitore per vederne i dettagli',
+          'b2b.contenitori.capacity': 'Capienza',
           'b2b.accessori.description': 'Descrizione',
           'b2b.accessori.quantity': 'Quantit\u00e0',
           'b2b.pezziduri.avgWeight': 'Peso medio (1 pz.)',
           'b2b.pezziduri.minOrder': 'Ordine minimo',
+          'b2b.pezziduri.allergens': 'Allergeni',
+          'b2b.pezziduri.tapOverlay': 'Tocca per scoprire i prodotti',
+          'b2b.terms.label': 'Condizioni',
+          'b2b.terms.title': 'Termini e Condizioni',
+          'b2b.terms.orderMin.label': 'Ordine minimo',
+          'b2b.terms.orderMin': 'Gli ordini devono essere inviati con almeno 48 ore di preavviso',
+          'b2b.terms.shipping.label': 'Spedizioni',
+          'b2b.terms.shipping': 'All\u2019interno del comune di Firenze: spedizione gratuita. Per zone fuori comune: quotazione su richiesta',
+          'b2b.terms.ztl.label': 'Zone ZTL',
+          'b2b.terms.ztl': 'Nelle zone a traffico limitato, le consegne saranno effettuate in accordanza con i limiti orari di entrata e uscita',
+          'b2b.terms.payment.label': 'Pagamento',
+          'b2b.terms.payment': 'Modalit\u00e0 e tempistiche di pagamento da concordare in fase di accordo commerciale',
+          'b2b.terms.storage.label': 'Conservazione',
+          'b2b.terms.storage': 'I prodotti devono essere conservati a \u221218\u2009\u00b0C. La catena del freddo non deve essere interrotta',
+          'b2b.terms.custom.label': 'Personalizzazioni',
+          'b2b.terms.custom': 'Packaging personalizzato e gusti su misura disponibili su richiesta per ordini ricorrenti',
+          'b2b.terms.support.label': 'Assistenza',
+          'b2b.terms.support': 'Il nostro team B2B \u00e8 a disposizione per supporto dedicato: b2b@badiani1932.com',
+          'b2b.terms.returns.label': 'Resi e reclami',
+          'b2b.terms.returns': 'Eventuali reclami devono essere comunicati entro 24 ore dalla consegna',
           'gelato.detail.description': 'Descrizione',
           'gelato.detail.allergens': 'Allergeni',
           'gelato.detail.category': 'Categoria',
@@ -4305,18 +4399,43 @@
           'b2b.coni.gfVariant': 'Gluten Free Variant',
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantity',
+          'b2b.coni.dimensions': 'Dimensions',
           'b2b.coppette.hint': 'Tap a cup to see its details',
+          'b2b.coppette.code': 'Cup code',
+          'b2b.coppette.capacity': 'Capacity',
+          'b2b.coppette.packaging': 'Packaging',
           'b2b.coni.hint': 'Tap a cone to see its details',
           'b2b.conigf.hint': 'Tap a gluten free cone to see its details',
           'b2b.torte.hint': 'Tap a cake to see its details',
           'b2b.torte.sizeS': '6 people',
           'b2b.torte.sizeL': '12 people',
           'b2b.contenitori.hint': 'Tap a container to see its details',
+          'b2b.contenitori.capacity': 'Capacity',
           'b2b.accessori.description': 'Description',
           'b2b.accessori.quantity': 'Quantity',
           'b2b.accessori.hint': 'Tap an accessory to see its details',
           'b2b.pezziduri.avgWeight': 'Avg weight (1 pc.)',
           'b2b.pezziduri.minOrder': 'Min. order',
+          'b2b.pezziduri.allergens': 'Allergens',
+          'b2b.pezziduri.tapOverlay': 'Tap to discover the products',
+          'b2b.terms.label': 'Conditions',
+          'b2b.terms.title': 'Terms & Conditions',
+          'b2b.terms.orderMin.label': 'Minimum order',
+          'b2b.terms.orderMin': 'Orders must be placed at least 48 hours in advance',
+          'b2b.terms.shipping.label': 'Shipping',
+          'b2b.terms.shipping': 'Within the municipality of Florence: free shipping. Outside areas: quote on request',
+          'b2b.terms.ztl.label': 'Restricted zones',
+          'b2b.terms.ztl': 'In limited traffic zones, deliveries will be made in accordance with entry and exit time limits',
+          'b2b.terms.payment.label': 'Payment',
+          'b2b.terms.payment': 'Payment methods and terms to be agreed upon during the commercial agreement',
+          'b2b.terms.storage.label': 'Storage',
+          'b2b.terms.storage': 'Products must be stored at \u221218\u2009\u00b0C. The cold chain must not be broken',
+          'b2b.terms.custom.label': 'Customisation',
+          'b2b.terms.custom': 'Custom packaging and bespoke flavours available on request for recurring orders',
+          'b2b.terms.support.label': 'Support',
+          'b2b.terms.support': 'Our B2B team is available for dedicated support: b2b@badiani1932.com',
+          'b2b.terms.returns.label': 'Returns & claims',
+          'b2b.terms.returns': 'Any claims must be reported within 24 hours of delivery',
           'b2b.coppette.sectionTitle': 'Cups',
           'gelato.detail.empty': 'Select a flavour to see details.',
           'gelato.detail.description': 'Description',
@@ -4607,18 +4726,43 @@
           'b2b.coni.gfVariant': 'Variante Sans Gluten',
           'b2b.coni.description': 'Description',
           'b2b.coni.quantity': 'Quantité',
+          'b2b.coni.dimensions': 'Dimensions',
           'b2b.coppette.hint': 'Appuyez sur une coupe pour en voir les détails',
+          'b2b.coppette.code': 'Code coupe',
+          'b2b.coppette.capacity': 'Contenance',
+          'b2b.coppette.packaging': 'Conditionnement',
           'b2b.coni.hint': 'Appuyez sur un cornet pour en voir les détails',
           'b2b.conigf.hint': 'Appuyez sur un cornet sans gluten pour en voir les détails',
           'b2b.torte.hint': 'Appuyez sur un gâteau pour en voir les détails',
           'b2b.torte.sizeS': '6 personnes',
           'b2b.torte.sizeL': '12 personnes',
           'b2b.contenitori.hint': 'Appuyez sur un contenant pour en voir les détails',
+          'b2b.contenitori.capacity': 'Contenance',
           'b2b.accessori.description': 'Description',
           'b2b.accessori.quantity': 'Quantité',
           'b2b.accessori.hint': 'Appuyez sur un accessoire pour en voir les détails',
           'b2b.pezziduri.avgWeight': 'Poids moyen (1 pce)',
           'b2b.pezziduri.minOrder': 'Commande min.',
+          'b2b.pezziduri.allergens': 'Allergènes',
+          'b2b.pezziduri.tapOverlay': 'Appuyez pour découvrir les produits',
+          'b2b.terms.label': 'Conditions',
+          'b2b.terms.title': 'Termes et Conditions',
+          'b2b.terms.orderMin.label': 'Commande minimum',
+          'b2b.terms.orderMin': 'Les commandes doivent être envoyées au moins 48 heures à l\u2019avance',
+          'b2b.terms.shipping.label': 'Livraison',
+          'b2b.terms.shipping': 'Dans la commune de Florence : livraison gratuite. Hors commune : devis sur demande',
+          'b2b.terms.ztl.label': 'Zones ZTL',
+          'b2b.terms.ztl': 'Dans les zones à trafic limité, les livraisons seront effectuées conformément aux horaires d\u2019entrée et de sortie',
+          'b2b.terms.payment.label': 'Paiement',
+          'b2b.terms.payment': 'Modalités et délais de paiement à convenir lors de l\u2019accord commercial',
+          'b2b.terms.storage.label': 'Conservation',
+          'b2b.terms.storage': 'Les produits doivent être conservés à \u221218\u2009\u00b0C. La chaîne du froid ne doit pas être interrompue',
+          'b2b.terms.custom.label': 'Personnalisation',
+          'b2b.terms.custom': 'Packaging personnalisé et parfums sur mesure disponibles sur demande pour les commandes récurrentes',
+          'b2b.terms.support.label': 'Assistance',
+          'b2b.terms.support': 'Notre équipe B2B est à votre disposition pour un accompagnement dédié : b2b@badiani1932.com',
+          'b2b.terms.returns.label': 'Retours et réclamations',
+          'b2b.terms.returns': 'Toute réclamation doit être signalée dans les 24 heures suivant la livraison',
           'b2b.coppette.sectionTitle': 'Coupes',
           'gelato.detail.empty': 'Sélectionnez un parfum pour voir les détails.',
           'gelato.detail.description': 'Description',
@@ -4909,17 +5053,42 @@
           'b2b.coni.gfVariant': 'Variante Sin Gluten',
           'b2b.coni.description': 'Descripci\u00f3n',
           'b2b.coni.quantity': 'Cantidad',
+          'b2b.coni.dimensions': 'Dimensiones',
           'b2b.coppette.hint': 'Toca una copa para ver sus detalles',
+          'b2b.coppette.code': 'C\u00f3digo copa',
+          'b2b.coppette.capacity': 'Capacidad',
+          'b2b.coppette.packaging': 'Envase',
           'b2b.coni.hint': 'Toca un cono para ver sus detalles',
           'b2b.conigf.hint': 'Toca un cono sin gluten para ver sus detalles',
           'b2b.torte.hint': 'Toca una tarta para ver sus detalles',
           'b2b.torte.sizeS': '6 personas',
           'b2b.torte.sizeL': '12 personas',
           'b2b.contenitori.hint': 'Toca un contenedor para ver sus detalles',
+          'b2b.contenitori.capacity': 'Capacidad',
           'b2b.accessori.description': 'Descripci\u00f3n',
           'b2b.accessori.quantity': 'Cantidad',
           'b2b.pezziduri.avgWeight': 'Peso medio (1 pza.)',
           'b2b.pezziduri.minOrder': 'Pedido mín.',
+          'b2b.pezziduri.allergens': 'Alérgenos',
+          'b2b.pezziduri.tapOverlay': 'Toca para descubrir los productos',
+          'b2b.terms.label': 'Condiciones',
+          'b2b.terms.title': 'Términos y Condiciones',
+          'b2b.terms.orderMin.label': 'Pedido mínimo',
+          'b2b.terms.orderMin': 'Los pedidos deben enviarse con al menos 48 horas de antelación',
+          'b2b.terms.shipping.label': 'Envíos',
+          'b2b.terms.shipping': 'Dentro del municipio de Florencia: envío gratuito. Fuera del municipio: presupuesto bajo petición',
+          'b2b.terms.ztl.label': 'Zonas ZTL',
+          'b2b.terms.ztl': 'En las zonas de tráfico limitado, las entregas se realizarán conforme a los horarios de entrada y salida',
+          'b2b.terms.payment.label': 'Pago',
+          'b2b.terms.payment': 'Modalidades y plazos de pago a acordar durante el acuerdo comercial',
+          'b2b.terms.storage.label': 'Conservación',
+          'b2b.terms.storage': 'Los productos deben conservarse a \u221218\u2009\u00b0C. La cadena de frío no debe interrumpirse',
+          'b2b.terms.custom.label': 'Personalización',
+          'b2b.terms.custom': 'Packaging personalizado y sabores a medida disponibles bajo petición para pedidos recurrentes',
+          'b2b.terms.support.label': 'Asistencia',
+          'b2b.terms.support': 'Nuestro equipo B2B está a su disposición para soporte dedicado: b2b@badiani1932.com',
+          'b2b.terms.returns.label': 'Devoluciones y reclamaciones',
+          'b2b.terms.returns': 'Cualquier reclamación debe comunicarse en las 24 horas posteriores a la entrega',
           'b2b.coppette.sectionTitle': 'Copas',
           'gelato.detail.empty': 'Selecciona un sabor para ver los detalles.',
           'gelato.detail.description': 'Descripción',
@@ -5079,26 +5248,28 @@
           title: 'Monoporzioni',
           columns: ['Gusto', 'Peso medio (1 pz.)', 'Ordine minimo*'],
           rows: [
-            ['Classico Buontalenti', '90 g', '24'],
-            ['Classico Stracciatella', '100 g', '24'],
-            ['Classico Fondente', '100 g', '24'],
-            ['Cuore Buontalenti fondente', '110 g', '24'],
-            ['Buontalenti alla fragola', '110 g', '16'],
-            ['Biscotto Buontalenti', '110 g', '12'],
-            ['Biscotto Stracciatella', '110 g', '12'],
-            ['Donut cioccolato', '90 g', '16'],
-            ['Donut cioccolato bianco', '90 g', '16'],
-            ['Donut cioccolato alla fragola', '90 g', '16'],
-            ['Donut cioccolato al pistacchio', '90 g', '16'],
-            ['Fruit Tube Limone', '120 g', '16'],
-            ['Fruit Tube Menta', '120 g', '16'],
-            ['Fruit Tube Fragola', '120 g', '16'],
-            ['Ghiacciolo di frutta alla fragola', '100 g', '20'],
-            ['Ghiacciolo di frutta al limone', '100 g', '20'],
-            ['Ghiacciolo di frutta la mango', '100 g', '20'],
-            ['Ghiacciolo alla menta', '100 g', '20'],
-            ['Lingotto Buontalenti', '60 g', '96 (8 box da 12 pezzi)'],
-            ['Zampa', '150 g', '16']
+            ['Classico Buontalenti', '90 g', '24', 'uova, latte, soia'],
+            ['Classico Stracciatella', '100 g', '24', 'uova, latte, soia'],
+            ['Classico Fondente', '100 g', '24', 'soia'],
+            ['Cuore Buontalenti fondente', '110 g', '24', 'uova, latte, soia'],
+            ['Buontalenti alla fragola', '110 g', '16', 'uova, latte, soia'],
+            ['Biscotto Buontalenti', '110 g', '12', 'uova, latte, soia, glutine'],
+            ['Biscotto Stracciatella', '110 g', '12', 'uova, latte, soia, glutine'],
+            ['Donut cioccolato', '90 g', '16', 'uova, latte, soia'],
+            ['Donut cioccolato bianco', '90 g', '16', 'uova, latte, soia'],
+            ['Donut cioccolato alla fragola', '90 g', '16', 'uova, latte, soia'],
+            ['Donut cioccolato al pistacchio', '90 g', '16', 'uova, latte, soia'],
+            ['Fruit Tube Limone', '120 g', '16', ''],
+            ['Fruit Tube Menta', '120 g', '16', ''],
+            ['Fruit Tube Fragola', '120 g', '16', ''],
+            ['Ghiacciolo di frutta alla fragola', '100 g', '20', ''],
+            ['Ghiacciolo di frutta al limone', '100 g', '20', ''],
+            ['Ghiacciolo di frutta la mango', '100 g', '20', ''],
+            ['Ghiacciolo alla menta', '100 g', '20', ''],
+            ['Lingotto Buontalenti', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte'],
+            ['Lingotto Buontalenti Pistacchio', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia, frutta a guscio'],
+            ['Lingotto Dolcevita', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia'],
+            ['Zampa', '150 g', '16', 'uova, latte, soia']
           ]
         },
         'TORTE': {
@@ -5114,15 +5285,15 @@
           title: 'Coni & Coppette',
           columns: ['Prodotto', 'Descrizione', 'Quantità'],
           rows: [
-            ['Sottozero', 'Coni Piccoli', '264 pz'],
-            ['Maxi 1', 'Coni Medi', '220 pz'],
-            ['Maxi 2', 'Coni Grandi', '216 pz'],
-            ['Coni Gluten free (083)', '1^ misura', '240 pz'],
-            ['Coni Gluten free (084)', '2^ misura', '212 pz'],
-            ['Bicchierini 16B', 'Coppette piccole 80cc', '250 pz'],
-            ['Bicchierini 108', 'Coppette medie 120cc', '250 pz'],
-            ['Bicchierini 4C', 'Coppette grandi 160cc', '200 pz'],
-            ['Bicchierini 4CA', 'Coppette XL 200cc', '200 pz']
+            ['PICCOLO', '155mm × ⌀39mm', '264 pz'],
+            ['MEDIO', '162mm × ⌀43mm', '220 pz'],
+            ['GRANDE', '175mm × ⌀48mm', '216 pz'],
+            ['Coni Gluten free (083)', '155mm × ⌀42mm', '240 pz'],
+            ['Coni Gluten free (084)', '165mm × ⌀47mm', '212 pz'],
+            ['Piccola', '16B', '120cc', '250 pz'],
+            ['Media', '108', '120cc', '250 pz'],
+            ['Grande', '4C', '160cc', '200 pz'],
+            ['Maxi', '4CA', '200cc', '200 pz']
           ]
         },
         'ACCESSORI': {
@@ -5141,10 +5312,10 @@
           title: 'Contenitori',
           columns: ['Prodotto', 'Descrizione', 'Quantità'],
           rows: [
-            ['RE-MAXIGEL 350', 'Vaschetta asporto gelato piccola (ottenuta dal riciclo della plastica)', '60 pz'],
-            ['RE-MAGIGEL 500', 'Vaschetta asporto gelato media (ottenuta dal riciclo della plastica)', '60 pz'],
-            ['RE-MAXIGEL 750', 'Vaschetta asporto gelato grande (ottenuta dal riciclo della plastica)', '60 pz'],
-            ['RE-MAXIGEL 1000', 'Vaschetta asporto gelato XL (ottenuta dal riciclo della plastica)', '60 pz'],
+            ['S', 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)', '60 pz'],
+            ['M', 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)', '60 pz'],
+            ['L', 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)', '60 pz'],
+            ['XL', 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)', '60 pz'],
             ['Contenitore polistirolo T2', 'Contenitore rettangolare in polistirolo 140x110x100', '80 pz']
           ]
         }
@@ -5173,31 +5344,31 @@
 
       const CONTENITORI_DESCS_I18N = {
         it: {
-          'RE-MAXIGEL 350': 'Vaschetta asporto gelato piccola (ottenuta dal riciclo della plastica)',
-          'RE-MAGIGEL 500': 'Vaschetta asporto gelato media (ottenuta dal riciclo della plastica)',
-          'RE-MAXIGEL 750': 'Vaschetta asporto gelato grande (ottenuta dal riciclo della plastica)',
-          'RE-MAXIGEL 1000': 'Vaschetta asporto gelato XL (ottenuta dal riciclo della plastica)',
+          'S': 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)',
+          'M': 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)',
+          'L': 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)',
+          'XL': 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)',
           'Contenitore polistirolo T2': 'Contenitore rettangolare in polistirolo 140x110x100'
         },
         en: {
-          'RE-MAXIGEL 350': 'Small gelato take-away tub (made from recycled plastic)',
-          'RE-MAGIGEL 500': 'Medium gelato take-away tub (made from recycled plastic)',
-          'RE-MAXIGEL 750': 'Large gelato take-away tub (made from recycled plastic)',
-          'RE-MAXIGEL 1000': 'XL gelato take-away tub (made from recycled plastic)',
+          'S': 'Gelato take-away tub (made from recycled plastic)',
+          'M': 'Gelato take-away tub (made from recycled plastic)',
+          'L': 'Gelato take-away tub (made from recycled plastic)',
+          'XL': 'Gelato take-away tub (made from recycled plastic)',
           'Contenitore polistirolo T2': 'Rectangular polystyrene container 140x110x100'
         },
         fr: {
-          'RE-MAXIGEL 350': 'Barquette gelato petit format (plastique recyclé)',
-          'RE-MAGIGEL 500': 'Barquette gelato moyen format (plastique recyclé)',
-          'RE-MAXIGEL 750': 'Barquette gelato grand format (plastique recyclé)',
-          'RE-MAXIGEL 1000': 'Barquette gelato XL (plastique recyclé)',
+          'S': 'Barquette de glace à emporter (plastique recyclé)',
+          'M': 'Barquette de glace à emporter (plastique recyclé)',
+          'L': 'Barquette de glace à emporter (plastique recyclé)',
+          'XL': 'Barquette de glace à emporter (plastique recyclé)',
           'Contenitore polistirolo T2': 'Conteneur rectangulaire en polystyrène 140x110x100'
         },
         es: {
-          'RE-MAXIGEL 350': 'Tarrina de helado pequeña para llevar (plástico reciclado)',
-          'RE-MAGIGEL 500': 'Tarrina de helado mediana para llevar (plástico reciclado)',
-          'RE-MAXIGEL 750': 'Tarrina de helado grande para llevar (plástico reciclado)',
-          'RE-MAXIGEL 1000': 'Tarrina de helado XL para llevar (plástico reciclado)',
+          'S': 'Tarrina de helado para llevar (plástico reciclado)',
+          'M': 'Tarrina de helado para llevar (plástico reciclado)',
+          'L': 'Tarrina de helado para llevar (plástico reciclado)',
+          'XL': 'Tarrina de helado para llevar (plástico reciclado)',
           'Contenitore polistirolo T2': 'Contenedor rectangular de poliestireno 140x110x100'
         }
       };
@@ -5212,6 +5383,7 @@
           'buontalenti-amarena': 'Buontalenti with sour cherry ripple',
           'buontalenti-delattosato': 'Our iconic flavour made with just 4 ingredients: lactose-free cream and milk, sugar, eggs',
           'buontalenti-fondente': 'Buontalenti with dark chocolate sauce',
+          'bacio': 'Dark chocolate and whole roasted hazelnut gelato, inspired by the famous Italian chocolate kiss',
           'caffe': 'Arabica coffee gelato with an aromatic and velvety taste',
           'caramello-salato': 'Caramel gelato with a hint of salt for a sweet-salty balance',
           'cassandra': 'Buontalenti with caramel sauce and hazelnut and almond flakes',
@@ -5243,6 +5415,7 @@
           'buontalenti-amarena': 'Buontalenti avec coulis de griottes',
           'buontalenti-delattosato': 'Notre parfum embl\u00e9matique, \u00e9labor\u00e9 avec seulement 4 ingr\u00e9dients : cr\u00e8me et lait sans lactose, sucre, \u0153ufs',
           'buontalenti-fondente': 'Buontalenti avec sauce au chocolat noir',
+          'bacio': 'Gelato au chocolat noir et noisettes torr\u00e9fi\u00e9es enti\u00e8res, inspir\u00e9 du c\u00e9l\u00e8bre chocolat italien',
           'caffe': 'Gelato au caf\u00e9 arabica au go\u00fbt aromatique et velout\u00e9',
           'caramello-salato': 'Gelato au caramel avec une note de sel pour un \u00e9quilibre sucr\u00e9-sal\u00e9',
           'cassandra': 'Buontalenti avec sauce au caramel et \u00e9clats de noisettes et amandes',
@@ -5274,6 +5447,7 @@
           'buontalenti-amarena': 'Buontalenti con remolino de guindas',
           'buontalenti-delattosato': 'Nuestro sabor ic\u00f3nico elaborado con solo 4 ingredientes: nata y leche sin lactosa, az\u00facar, huevos',
           'buontalenti-fondente': 'Buontalenti con salsa de chocolate negro',
+          'bacio': 'Helado de chocolate negro y avellanas tostadas enteras, inspirado en el famoso bombón italiano',
           'caffe': 'Helado de caf\u00e9 ar\u00e1bica con un sabor arom\u00e1tico y aterciopelado',
           'caramello-salato': 'Helado de caramelo con un toque de sal para un equilibrio dulce-salado',
           'cassandra': 'Buontalenti con salsa de caramelo y escamas de avellanas y almendras',
@@ -5309,6 +5483,7 @@
           'buontalenti-amarena': 'Milk, eggs',
           'buontalenti-delattosato': 'Milk, eggs',
           'buontalenti-fondente': 'Milk, eggs, soy',
+          'bacio': 'Milk, eggs, tree nuts',
           'caffe': 'Milk, eggs',
           'caramello-salato': 'Milk, eggs, peanuts',
           'cassandra': 'Milk, eggs, tree nuts',
@@ -5340,6 +5515,7 @@
           'buontalenti-amarena': 'Lait, \u0153ufs',
           'buontalenti-delattosato': 'Lait, \u0153ufs',
           'buontalenti-fondente': 'Lait, \u0153ufs, soja',
+          'bacio': 'Lait, \u0153ufs, fruits \u00e0 coque',
           'caffe': 'Lait, \u0153ufs',
           'caramello-salato': 'Lait, \u0153ufs, arachides',
           'cassandra': 'Lait, \u0153ufs, fruits \u00e0 coque',
@@ -5371,6 +5547,7 @@
           'buontalenti-amarena': 'Leche, huevos',
           'buontalenti-delattosato': 'Leche, huevos',
           'buontalenti-fondente': 'Leche, huevos, soja',
+          'bacio': 'Leche, huevos, frutos secos',
           'caffe': 'Leche, huevos',
           'caramello-salato': 'Leche, huevos, cacahuetes',
           'cassandra': 'Leche, huevos, frutos secos',
@@ -5399,48 +5576,48 @@
       /* ── Coni & Coppette descriptions i18n ── */
       const CONI_COPPETTE_DESCS_I18N = {
         it: {
-          'Sottozero': 'Coni Piccoli',
-          'Maxi 1': 'Coni Medi',
-          'Maxi 2': 'Coni Grandi',
-          'Coni Gluten free (083)': '1^ misura',
-          'Coni Gluten free (084)': '2^ misura',
-          'Bicchierini 16B': 'Coppette piccole 80cc',
-          'Bicchierini 108': 'Coppette medie 120cc',
-          'Bicchierini 4C': 'Coppette grandi 160cc',
-          'Bicchierini 4CA': 'Coppette XL 200cc'
+          'PICCOLO': '155mm × ⌀39mm',
+          'MEDIO': '162mm × ⌀43mm',
+          'GRANDE': '175mm × ⌀48mm',
+          'Coni Gluten free (083)': '155mm × ⌀42mm',
+          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'Piccola': 'Piccola',
+          'Media': 'Media',
+          'Grande': 'Grande',
+          'Maxi': 'Maxi'
         },
         en: {
-          'Sottozero': 'Small Cones',
-          'Maxi 1': 'Medium Cones',
-          'Maxi 2': 'Large Cones',
-          'Coni Gluten free (083)': 'Size 1',
-          'Coni Gluten free (084)': 'Size 2',
-          'Bicchierini 16B': 'Small Cups 80cc',
-          'Bicchierini 108': 'Medium Cups 120cc',
-          'Bicchierini 4C': 'Large Cups 160cc',
-          'Bicchierini 4CA': 'XL Cups 200cc'
+          'PICCOLO': '155mm × ⌀39mm',
+          'MEDIO': '162mm × ⌀43mm',
+          'GRANDE': '175mm × ⌀48mm',
+          'Coni Gluten free (083)': '155mm × ⌀42mm',
+          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'Piccola': 'Small',
+          'Media': 'Medium',
+          'Grande': 'Large',
+          'Maxi': 'Maxi'
         },
         fr: {
-          'Sottozero': 'Petits Cornets',
-          'Maxi 1': 'Cornets Moyens',
-          'Maxi 2': 'Grands Cornets',
-          'Coni Gluten free (083)': '1\u00e8re taille',
-          'Coni Gluten free (084)': '2\u00e8me taille',
-          'Bicchierini 16B': 'Petites Coupes 80cc',
-          'Bicchierini 108': 'Coupes Moyennes 120cc',
-          'Bicchierini 4C': 'Grandes Coupes 160cc',
-          'Bicchierini 4CA': 'Coupes XL 200cc'
+          'PICCOLO': '155mm × ⌀39mm',
+          'MEDIO': '162mm × ⌀43mm',
+          'GRANDE': '175mm × ⌀48mm',
+          'Coni Gluten free (083)': '155mm × ⌀42mm',
+          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'Piccola': 'Petite',
+          'Media': 'Moyenne',
+          'Grande': 'Grande',
+          'Maxi': 'Maxi'
         },
         es: {
-          'Sottozero': 'Conos Peque\u00f1os',
-          'Maxi 1': 'Conos Medianos',
-          'Maxi 2': 'Conos Grandes',
-          'Coni Gluten free (083)': 'Talla 1',
-          'Coni Gluten free (084)': 'Talla 2',
-          'Bicchierini 16B': 'Copas Peque\u00f1as 80cc',
-          'Bicchierini 108': 'Copas Medianas 120cc',
-          'Bicchierini 4C': 'Copas Grandes 160cc',
-          'Bicchierini 4CA': 'Copas XL 200cc'
+          'PICCOLO': '155mm × ⌀39mm',
+          'MEDIO': '162mm × ⌀43mm',
+          'GRANDE': '175mm × ⌀48mm',
+          'Coni Gluten free (083)': '155mm × ⌀42mm',
+          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'Piccola': 'Pequeña',
+          'Media': 'Mediana',
+          'Grande': 'Grande',
+          'Maxi': 'Maxi'
         }
       };
 
@@ -5572,6 +5749,8 @@
           'Ghiacciolo di frutta la mango': 'Mango Fruit Lolly',
           'Ghiacciolo alla menta': 'Mint Lolly',
           'Lingotto Buontalenti': 'Buontalenti Ingot',
+          'Lingotto Buontalenti Pistacchio': 'Buontalenti Pistachio Ingot',
+          'Lingotto Dolcevita': 'Dolcevita Ingot',
           'Zampa': 'Paw'
         },
         fr: {
@@ -5594,6 +5773,8 @@
           'Ghiacciolo di frutta la mango': 'Glace à l\u2019eau Mangue',
           'Ghiacciolo alla menta': 'Glace à l\u2019eau Menthe',
           'Lingotto Buontalenti': 'Lingot Buontalenti',
+          'Lingotto Buontalenti Pistacchio': 'Lingot Buontalenti Pistache',
+          'Lingotto Dolcevita': 'Lingot Dolcevita',
           'Zampa': 'Patte'
         },
         es: {
@@ -5616,6 +5797,8 @@
           'Ghiacciolo di frutta la mango': 'Polo de Fruta de Mango',
           'Ghiacciolo alla menta': 'Polo de Menta',
           'Lingotto Buontalenti': 'Lingote Buontalenti',
+          'Lingotto Buontalenti Pistacchio': 'Lingote Buontalenti Pistacho',
+          'Lingotto Dolcevita': 'Lingote Dolcevita',
           'Zampa': 'Patita'
         }
       };
@@ -5780,10 +5963,21 @@
       function getAccessoriDesc(name, fallback){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return a ? a.desc : fallback; }
       function getPezziDuriMinOrder(val){ return ((PEZZI_DURI_MINORDER_I18N[currentLang] || {})[val]) || val; }
 
+      /* ── Pezzi duri allergen term translations ── */
+      const PEZZI_DURI_ALLERGEN_TERMS = {
+        en: { 'uova': 'eggs', 'latte': 'milk', 'soia': 'soy', 'glutine': 'gluten', 'frutta a guscio': 'tree nuts' },
+        fr: { 'uova': 'œufs', 'latte': 'lait', 'soia': 'soja', 'glutine': 'gluten', 'frutta a guscio': 'fruits à coque' },
+        es: { 'uova': 'huevos', 'latte': 'leche', 'soia': 'soja', 'glutine': 'gluten', 'frutta a guscio': 'frutos de cáscara' }
+      };
+      function getPezziDuriAllergens(str){
+        if(!str) return '';
+        const map = PEZZI_DURI_ALLERGEN_TERMS[currentLang] || {};
+        return str.split(', ').map(t => map[t] || t).join(', ');
+      }
+
       function getCatTitle(cat){ return (CATEGORY_TITLES_I18N[currentLang] || CATEGORY_TITLES_I18N.it)[cat] || CATEGORY_DATA[cat]?.title || cat; }
       function getColLabel(col){ return (CATEGORY_COLUMNS_I18N[currentLang] || CATEGORY_COLUMNS_I18N.it)[col] || col; }
 
-      function getShippingInfo(){ return (SHIPPING_INFO_I18N[currentLang] || SHIPPING_INFO_I18N.it); }
       function getCatNotes(cat){ return (CATEGORY_NOTES_I18N[currentLang] || CATEGORY_NOTES_I18N.it)[cat]; }
       function getConiGfVariants(){ return (CONI_GF_VARIANTS_I18N[currentLang] || CONI_GF_VARIANTS_I18N.it); }
       function getGelatoDesc(id){ return (GELATO_DESC_I18N[currentLang] || {})[id]; }
@@ -5791,41 +5985,52 @@
       function getContenitoriDesc(name){ return (CONTENITORI_DESCS_I18N[currentLang] || CONTENITORI_DESCS_I18N.it)[name]; }
       function getConiCoppetteDesc(name){ return (CONI_COPPETTE_DESCS_I18N[currentLang] || CONI_COPPETTE_DESCS_I18N.it)[name]; }
 
+      /* ── Contenitori capacity + gusti i18n ── */
+      const CONTENITORI_CAPACITY_I18N = {
+        it: { 'S': '350cc — fino a 2 gusti', 'M': '500cc — fino a 3 gusti', 'L': '750cc — fino a 4 gusti', 'XL': '1000cc — fino a 5 gusti' },
+        en: { 'S': '350cc — up to 2 flavors', 'M': '500cc — up to 3 flavors', 'L': '750cc — up to 4 flavors', 'XL': '1000cc — up to 5 flavors' },
+        fr: { 'S': '350cc — jusqu\'à 2 parfums', 'M': '500cc — jusqu\'à 3 parfums', 'L': '750cc — jusqu\'à 4 parfums', 'XL': '1000cc — jusqu\'à 5 parfums' },
+        es: { 'S': '350cc — hasta 2 sabores', 'M': '500cc — hasta 3 sabores', 'L': '750cc — hasta 4 sabores', 'XL': '1000cc — hasta 5 sabores' }
+      };
+      function getContenitoriCapacity(name){ return (CONTENITORI_CAPACITY_I18N[currentLang] || CONTENITORI_CAPACITY_I18N.it)[name]; }
+
       const PEZZI_DURI_IMAGES = {
-        'Classico Buontalenti': '../assets/images/pezziduri/pinguino1 bianco.png',
-        'Classico Stracciatella': '../assets/images/pezziduri/stracciatella.png',
-        'Classico Fondente': '../assets/images/pezziduri/pinguino fondente.jpeg',
-        'Cuore Buontalenti fondente': '../assets/images/pezziduri/cuore dolcevita.jpeg',
-        'Biscotto Buontalenti': '../assets/images/pezziduri/biscotto.png',
-        'Biscotto Stracciatella': '../assets/images/pezziduri/biscotto stracciatella.png',
-        'Buontalenti alla fragola': '../assets/images/pezziduri/cuore.png',
-        'Donut cioccolato': '../assets/images/pezziduri/pinguino tondo.png',
-        'Donut cioccolato bianco': '../assets/images/pezziduri/bianco.png',
-        'Donut cioccolato alla fragola': '../assets/images/pezziduri/rosa.png',
-        'Donut cioccolato al pistacchio': '../assets/images/pezziduri/pistacchio .png',
-        'Lingotto Buontalenti': '../assets/images/pezziduri/Lingotto Buontalenti.png',
-        'Zampa': '../assets/images/pezziduri/zampetta.png'
+        'Classico Buontalenti': '../assets/images/pezziduri/pinguino1 bianco.webp',
+        'Classico Stracciatella': '../assets/images/pezziduri/stracciatella.webp',
+        'Classico Fondente': '../assets/images/pezziduri/pinguino fondente.webp',
+        'Cuore Buontalenti fondente': '../assets/images/pezziduri/cuore dolcevita.webp',
+        'Biscotto Buontalenti': '../assets/images/pezziduri/biscotto.webp',
+        'Biscotto Stracciatella': '../assets/images/pezziduri/biscotto stracciatella.webp',
+        'Buontalenti alla fragola': '../assets/images/pezziduri/cuore.webp',
+        'Donut cioccolato': '../assets/images/pezziduri/pinguino tondo.webp',
+        'Donut cioccolato bianco': '../assets/images/pezziduri/bianco.webp',
+        'Donut cioccolato alla fragola': '../assets/images/pezziduri/rosa.webp',
+        'Donut cioccolato al pistacchio': '../assets/images/pezziduri/pistacchio .webp',
+        'Lingotto Buontalenti': '../assets/images/pezziduri/LINGOTTO BUONTALENTI.webp',
+        'Lingotto Buontalenti Pistacchio': '../assets/images/pezziduri/LINGOTTO BUONTALENTI PISTACCHIO.webp',
+        'Lingotto Dolcevita': '../assets/images/pezziduri/LINGOTTO DOLCEVITA.webp',
+        'Zampa': '../assets/images/pezziduri/zampetta.webp'
       };
 
-      const CONTENITORI_GROUP_IMAGE = '../assets/images/contenitori/gruppo contenitori.jpeg';
+      const CONTENITORI_GROUP_IMAGE = '../assets/images/contenitori/gruppo contenitori.webp';
 
       const CONTENITORI_IMAGES = {
-        'RE-MAXIGEL 350': '../assets/images/contenitori/350.jpeg',
-        'RE-MAGIGEL 500': '../assets/images/contenitori/500.jpeg',
-        'RE-MAXIGEL 750': '../assets/images/contenitori/750.jpeg',
-        'RE-MAXIGEL 1000': '../assets/images/contenitori/1000.jpeg',
-        'Contenitore polistirolo T2': '../assets/images/contenitori/T2.jpeg'
+        'S': '../assets/images/contenitori/350.webp',
+        'M': '../assets/images/contenitori/500.webp',
+        'L': '../assets/images/contenitori/750.webp',
+        'XL': '../assets/images/contenitori/1000.webp',
+        'Contenitore polistirolo T2': '../assets/images/contenitori/T2.webp'
       };
 
       const TIPOLOGIA_VASCA = [
-        { name: 'Vaschetta 3500cc', capacity: '3500 cc', image: '../assets/images/vasche/Vaschetta 3500cc.png' },
-        { name: 'Vaschetta 4800cc', capacity: '4800 cc', image: '../assets/images/vasche/Vaschetta 4800cc.jpeg' },
-        { name: 'Vaschetta 5000cc', capacity: '5000 cc', image: '../assets/images/vasche/Vaschetta 5000cc.jpeg' },
-        { name: 'Vaschetta 8000cc', capacity: '8000 cc', image: '../assets/images/vasche/Vaschetta 8000cc.jpeg' },
-        { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.jpeg' }
+        { name: 'Vaschetta 3500cc', capacity: '3500 cc', image: '../assets/images/vasche/Vaschetta 3500cc.webp' },
+        { name: 'Vaschetta 4800cc', capacity: '4800 cc', image: '../assets/images/vasche/Vaschetta 4800cc.webp' },
+        { name: 'Vaschetta 5000cc', capacity: '5000 cc', image: '../assets/images/vasche/Vaschetta 5000cc.webp' },
+        { name: 'Vaschetta 8000cc', capacity: '8000 cc', image: '../assets/images/vasche/Vaschetta 8000cc.webp' },
+        { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.webp' }
       ];
 
-      const TORTE_GROUP_IMAGE = '../assets/images/torte/torte gruppono.jpeg';
+      const TORTE_GROUP_IMAGE = '../assets/images/torte/torte gruppono.webp';
 
       const TORTE_IMAGES = {
         'Millefoglie Buontalenti': {
@@ -5843,48 +6048,48 @@
       };
 
       const CONI_COPPETTE_IMAGES = {
-        'Sottozero':        '../assets/images/coni-coppette/sottozero.png',
-        'Maxi 1':           '../assets/images/coni-coppette/maxi1.png',
-        'Maxi 2':           '../assets/images/coni-coppette/maxi2.png',
-        'Bicchierini 16B':  '../assets/images/coni-coppette/Bicchierini 16B.jpeg',
-        'Bicchierini 108':  '../assets/images/coni-coppette/Bicchierini 108.jpeg',
-        'Bicchierini 4C':   '../assets/images/coni-coppette/Bicchierini 4C.jpeg',
-        'Bicchierini 4CA':  '../assets/images/coni-coppette/Bicchierini 4CA.jpeg'
+        'PICCOLO':          '../assets/images/coni-coppette/sottozero.webp',
+        'MEDIO':            '../assets/images/coni-coppette/maxi1.webp',
+        'GRANDE':           '../assets/images/coni-coppette/maxi2.webp',
+        'Piccola':  '../assets/images/coni-coppette/Bicchierini 16B.webp',
+        'Media':    '../assets/images/coni-coppette/Bicchierini 108.webp',
+        'Grande':   '../assets/images/coni-coppette/Bicchierini 4C.webp',
+        'Maxi':     '../assets/images/coni-coppette/Bicchierini 4CA.webp'
       };
 
       const CONI_GF_VARIANTS_I18N = {
         it: {
-          'Sottozero': { gfName: 'Coni Gluten Free (083)', gfDesc: '1\u00aa misura', gfQty: '240 pz' },
-          'Maxi 1': { gfName: 'Coni Gluten Free (084)', gfDesc: '2\u00aa misura', gfQty: '212 pz' }
+          'PICCOLO': { gfName: 'Coni Gluten Free (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 pz' },
+          'MEDIO': { gfName: 'Coni Gluten Free (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 pz' }
         },
         en: {
-          'Sottozero': { gfName: 'Gluten Free Cones (083)', gfDesc: '1st size', gfQty: '240 pcs' },
-          'Maxi 1': { gfName: 'Gluten Free Cones (084)', gfDesc: '2nd size', gfQty: '212 pcs' }
+          'PICCOLO': { gfName: 'Gluten Free Cones (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 pcs' },
+          'MEDIO': { gfName: 'Gluten Free Cones (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 pcs' }
         },
         fr: {
-          'Sottozero': { gfName: 'Cônes Sans Gluten (083)', gfDesc: '1\u00e8re taille', gfQty: '240 pcs' },
-          'Maxi 1': { gfName: 'Cônes Sans Gluten (084)', gfDesc: '2\u00e8me taille', gfQty: '212 pcs' }
+          'PICCOLO': { gfName: 'Cônes Sans Gluten (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 pcs' },
+          'MEDIO': { gfName: 'Cônes Sans Gluten (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 pcs' }
         },
         es: {
-          'Sottozero': { gfName: 'Conos Sin Gluten (083)', gfDesc: '1\u00aa medida', gfQty: '240 uds' },
-          'Maxi 1': { gfName: 'Conos Sin Gluten (084)', gfDesc: '2\u00aa medida', gfQty: '212 uds' }
+          'PICCOLO': { gfName: 'Conos Sin Gluten (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 uds' },
+          'MEDIO': { gfName: 'Conos Sin Gluten (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 uds' }
         }
       };
 
-      const CONI_GROUP_IMAGE = '../assets/images/coni-coppette/GROUP COPPETTE.jpeg';
-      const CONIGF_HERO_IMAGE = '../assets/images/coni-coppette/coniglutenfree.jpeg';
+      const CONI_GROUP_IMAGE = '../assets/images/coni-coppette/GROUP COPPETTE.webp';
+      const CONIGF_HERO_IMAGE = '../assets/images/coni-coppette/coniglutenfree.webp';
 
       const CONIGF_ZONE_ORDER = ['Coni Gluten free (083)', 'Coni Gluten free (084)'];
       const CONIGF_SHORT_NAMES = {
-        'Coni Gluten free (083)': 'Piccolo',
-        'Coni Gluten free (084)': 'Medio'
+        'Coni Gluten free (083)': 'PICCOLO',
+        'Coni Gluten free (084)': 'MEDIO'
       };
       const CONIGF_IMAGES = {
-        'Coni Gluten free (083)': '../assets/images/coni-coppette/glutenfree piccolo.png',
-        'Coni Gluten free (084)': '../assets/images/coni-coppette/glutenfreemedio.png'
+        'Coni Gluten free (083)': '../assets/images/coni-coppette/glutenfree piccolo.webp',
+        'Coni Gluten free (084)': '../assets/images/coni-coppette/glutenfreemedio.webp'
       };
 
-      const ACCESSORI_HERO_IMAGE = '../assets/images/accessori/hero accessori.png';
+      const ACCESSORI_HERO_IMAGE = '../assets/images/accessori/hero accessori.webp';
 
       const ACCESSORI_ZONE_ORDER = ['Tovagliolini stampati', 'Palettine', 'Cialdine', 'Paletta', 'Contenitore 1', 'Contenitore 2'];
 
@@ -5898,25 +6103,12 @@
       };
 
       const ACCESSORI_IMAGES = {
-        'Tovagliolini stampati': '../assets/images/accessori/tovagliolini.jpeg',
-        'Palettine':            '../assets/images/accessori/palettine.jpeg',
-        'Cialdine':             '../assets/images/accessori/cialde.jpeg',
-        'Paletta':              '../assets/images/accessori/paletta.jpeg',
+        'Tovagliolini stampati': '../assets/images/accessori/tovagliolini.webp',
+        'Palettine':            '../assets/images/accessori/palettine.webp',
+        'Cialdine':             '../assets/images/accessori/cialde.webp',
+        'Paletta':              '../assets/images/accessori/paletta.webp',
         'Contenitore 1':        '../assets/images/accessori/confezione 1.webp',
         'Contenitore 2':        '../assets/images/accessori/confezione 2.webp'
-      };
-
-
-      const SHIPPING_INFO_I18N = {
-        it: [
-          "All'interno del comune di Firenze: costo di spedizione gratuita;",
-          'gli ordini devono essere inviati con almeno 48 ore di preavviso;',
-          'nelle zone a traffico limitato, le consegne saranno effettuate in accordanza con i limiti orari di entrata e uscita.',
-          'Per spedizioni al di fuori del comune di Firenze: quotazione su richiesta, modalità e tempi di consegna da stabilire.'
-        ],
-        en: ['Coming soon...'],
-        fr: ['Coming soon...'],
-        es: ['Coming soon...']
       };
 
       function normalizeLang(lang){
@@ -5977,13 +6169,13 @@
       let selectedConiHeroId = new Set();
       let selectedConiGfMapId = new Set();
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const ASSET_VERSION = '20260207';
+      const ASSET_VERSION = '20260220';
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
       const gelatoImageCache = new Set();
 
       const GELATO_CATEGORIES = {
         iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato'],
-        classici: ['cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt', 'dubai-chocolate'],
+        classici: ['bacio', 'cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt', 'dubai-chocolate'],
         sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango'],
         limited: ['buontalenti-amarena', 'cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
       };
@@ -6086,10 +6278,10 @@
 
         /* Build card objects, keeping only items that have an image */
         let items = rows
-          .map(([name, weight, min]) => {
+          .map(([name, weight, min, allergens]) => {
             const src = PEZZI_DURI_IMAGES[name];
             if(!src) return null;
-            return { name, weight, min, src };
+            return { name, weight, min, allergens: allergens || '', src };
           })
           .filter(Boolean);
 
@@ -6109,11 +6301,12 @@
         }
 
         const cards = items
-          .map(({ name, weight, min, src }) => {
+          .map(({ name, weight, min, allergens, src }) => {
             const imageSrc = encodeURI(src);
             const isExpanded = expandedPezziDuriId === name;
             const localName = getPezziDuriName(name);
             const localMin = getPezziDuriMinOrder(min);
+            const localAllergens = getPezziDuriAllergens(allergens);
             const zoomIcon = `
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
                 <polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -6133,6 +6326,7 @@
                   <div class="pezziduri-meta">
                     <span><strong>${t('b2b.pezziduri.avgWeight')}</strong><em>${weight}</em></span>
                     <span><strong>${t('b2b.pezziduri.minOrder')}</strong><em>${localMin}</em></span>
+                    ${localAllergens ? `<span class="pezziduri-allergens"><strong>${t('b2b.pezziduri.allergens')}</strong><em>${localAllergens}</em></span>` : ''}
                   </div>
                 </div>
               </article>
@@ -6195,12 +6389,12 @@
       }
 
       /* Contenitori zone order: left-to-right by size in the group image */
-      const CONTENITORI_ZONE_ORDER = ['RE-MAXIGEL 350', 'RE-MAGIGEL 500', 'RE-MAXIGEL 750', 'RE-MAXIGEL 1000', 'Contenitore polistirolo T2'];
+      const CONTENITORI_ZONE_ORDER = ['S', 'M', 'L', 'XL', 'Contenitore polistirolo T2'];
       const CONTENITORI_SHORT_NAMES = {
-        'RE-MAXIGEL 350': '350',
-        'RE-MAGIGEL 500': '500',
-        'RE-MAXIGEL 750': '750',
-        'RE-MAXIGEL 1000': '1000',
+        'S': 'S',
+        'M': 'M',
+        'L': 'L',
+        'XL': 'XL',
         'Contenitore polistirolo T2': 'T2'
       };
 
@@ -6235,6 +6429,7 @@
                 <div class="contenitori-detail-name">${selName}</div>
                 <div class="contenitori-detail-meta">
                   <span><strong>${t('b2b.coni.description')}</strong><em>${getContenitoriDesc(selName) || d.desc}</em></span>
+                  ${getContenitoriCapacity(selName) ? `<span><strong>${t('b2b.contenitori.capacity')}</strong><em>${getContenitoriCapacity(selName)}</em></span>` : ''}
                   <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
                 </div>
               </div>
@@ -6412,6 +6607,18 @@
         setupContenitoriInteraction();
       }
 
+      function setupPezziDuriOverlay(){
+        const overlay = document.getElementById('pezziduri-hero-overlay');
+        if(!overlay) return;
+        const dismiss = () => {
+          overlay.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+          overlay.style.opacity = '0';
+          overlay.style.transform = 'scale(0.97)';
+          overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+        };
+        overlay.addEventListener('click', dismiss);
+      }
+
       function setupPezziDuriZoom(){
         const grid = defaultContent ? defaultContent.querySelector('.pezziduri-grid') : null;
         const cards = defaultContent ? defaultContent.querySelectorAll('.pezziduri-card[data-pezziduri-id]') : [];
@@ -6463,15 +6670,15 @@
       }
 
       /* Coppette zone order: left-to-right in the group image */
-      const COPPETTE_ZONE_ORDER = ['Bicchierini 16B', 'Bicchierini 108', 'Bicchierini 4C', 'Bicchierini 4CA'];
-      const CONI_ZONE_ORDER = ['Sottozero', 'Maxi 1', 'Maxi 2'];
+      const COPPETTE_ZONE_ORDER = ['Piccola', 'Media', 'Grande', 'Maxi'];
+      const CONI_ZONE_ORDER = ['PICCOLO', 'MEDIO', 'GRANDE'];
 
       function renderConiCoppetteGallery(rows){
         if(!rows || !rows.length) return '';
         const headerSrc = encodeURI(CONI_GROUP_IMAGE);
 
         /* ── Coni cards (cone items only) ── */
-        const coniRows = rows.filter(([name]) => name.indexOf('Gluten free') === -1 && name.indexOf('Bicchierini') === -1);
+        const coniRows = rows.filter(([name]) => name.indexOf('Gluten free') === -1 && COPPETTE_ZONE_ORDER.indexOf(name) === -1);
         const coniCards = coniRows
           .map(([name, desc, qty]) => {
             const src = CONI_COPPETTE_IMAGES[name];
@@ -6496,7 +6703,7 @@
                 <div class="coni-body">
                   <div class="coni-title">${name}</div>
                   <div class="coni-meta">
-                    <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(name) || desc}</em></span>
+                    <span><strong>${t('b2b.coni.dimensions')}</strong><em>${getConiCoppetteDesc(name) || desc}</em></span>
                     <span><strong>${t('b2b.coni.quantity')}</strong><em>${qty}</em></span>
                   </div>
                   ${gfBlock}
@@ -6510,13 +6717,14 @@
         /* ── Coppette interactive image map (cups only) ── */
         const coppetteRows = rows.filter(([name]) => COPPETTE_ZONE_ORDER.indexOf(name) !== -1);
         const coppetteDataMap = {};
-        coppetteRows.forEach(([name, desc, qty]) => { coppetteDataMap[name] = { desc, qty }; });
+        coppetteRows.forEach(([name, code, capacity, pack]) => { coppetteDataMap[name] = { code, capacity, pack }; });
 
         const zones = COPPETTE_ZONE_ORDER.map((name) => {
           const isActive = selectedCoppetteId.has(name);
           const tapIcon = `<svg class="coppette-tap-icon" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`;
-          return `<div class="coppette-zone${isActive ? ' is-active' : ''}" data-coppette-zone="${name}" role="button" tabindex="0" aria-label="${name}">
-            <span class="coppette-zone-label">${tapIcon}${name.replace('Bicchierini ', '')}</span>
+          const localName = getConiCoppetteDesc(name) || name;
+          return `<div class="coppette-zone${isActive ? ' is-active' : ''}" data-coppette-zone="${name}" role="button" tabindex="0" aria-label="${localName}">
+            <span class="coppette-zone-label">${tapIcon}${localName}</span>
           </div>`;
         }).join('');
 
@@ -6526,16 +6734,18 @@
           const d = coppetteDataMap[selName];
           const detailSrc = CONI_COPPETTE_IMAGES[selName];
           const detailImgSrc = detailSrc ? encodeURI(detailSrc) : '';
+          const localCopName = getConiCoppetteDesc(selName) || selName;
           detailPanels += `
             <div class="coppette-detail-panel" data-panel-name="${selName}">
               <div class="coppette-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${localCopName}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="coppette-detail-info">
-                <div class="coppette-detail-name">${selName}</div>
+                <div class="coppette-detail-name">${localCopName}</div>
                 <div class="coppette-detail-meta">
-                  <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
-                  <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
+                  <span><strong>${t('b2b.coppette.code')}</strong><em>${d.code}</em></span>
+                  <span><strong>${t('b2b.coppette.capacity')}</strong><em>${d.capacity}</em></span>
+                  <span><strong>${t('b2b.coppette.packaging')}</strong><em>${d.pack}</em></span>
                 </div>
               </div>
             </div>
@@ -6555,7 +6765,7 @@
         `;
 
         /* ── Coni interactive image map (cones hero) ── */
-        const coniHeroSrc = encodeURI('../assets/images/coni-coppette/conigroup.jpeg');
+        const coniHeroSrc = encodeURI('../assets/images/coni-coppette/conigroup.webp');
         const coniDataMap = {};
         coniRows.forEach(([name, desc, qty]) => { coniDataMap[name] = { desc, qty }; });
 
@@ -6581,7 +6791,7 @@
               <div class="coni-detail-info">
                 <div class="coni-detail-name">${selName}</div>
                 <div class="coni-detail-meta">
-                  <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.dimensions')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
                   <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
                 </div>
               </div>
@@ -6632,7 +6842,7 @@
               <div class="conigf-detail-info">
                 <div class="conigf-detail-name">${selName}</div>
                 <div class="conigf-detail-meta">
-                  <span><strong>${t('b2b.coni.description')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
+                  <span><strong>${t('b2b.coni.dimensions')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
                   <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
                 </div>
               </div>
@@ -6946,7 +7156,13 @@
         const sections = [];
 
         if(category === 'PEZZI DURI'){
-          sections.push(renderPezziDuriGallery(data.rows));
+          const overlayHtml = `
+            <div class="pezziduri-hero-overlay" id="pezziduri-hero-overlay">
+              <img src="../assets/images/pezziduri/monoporzionivetrina.webp" alt="Monoporzioni" loading="eager" decoding="async" />
+              <span class="pezziduri-hero-tap">${t('b2b.pezziduri.tapOverlay')}</span>
+            </div>
+          `;
+          sections.push(overlayHtml + renderPezziDuriGallery(data.rows));
         }else if(category === 'TORTE'){
           sections.push(renderTorteGallery(data.rows));
         }else if(category === 'CONTENITORI'){
@@ -6968,6 +7184,7 @@
         }
         if(category === 'PEZZI DURI'){
           requestAnimationFrame(setupPezziDuriZoom);
+          requestAnimationFrame(setupPezziDuriOverlay);
         }
         if(category === 'CONTENITORI'){
           requestAnimationFrame(setupContenitoriZoom);
@@ -7396,39 +7613,7 @@
         if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
       });
 
-      /* ── Shipping info popup ── */
-      (function initShippingPopup(){
-        const infoBtn = document.getElementById('info');
-        const shippingOverlay = document.createElement('div');
-        shippingOverlay.className = 'shipping-popup-overlay';
-        shippingOverlay.innerHTML = `
-          <div class="shipping-popup">
-            <div class="shipping-popup__header">
-              <span class="shipping-popup__title">${t('b2b.modal.shipping.title')}</span>
-              <button class="shipping-popup__close" type="button" aria-label="${t('b2b.modal.close')}">✕</button>
-            </div>
-            <ul class="shipping-popup__list">
-              ${getShippingInfo().map(item => `<li>${item}</li>`).join('')}
-            </ul>
-          </div>
-        `;
-        document.body.appendChild(shippingOverlay);
 
-        function openShippingPopup(){ shippingOverlay.classList.add('is-open'); }
-        function closeShippingPopup(){ shippingOverlay.classList.remove('is-open'); }
-
-        infoBtn.addEventListener('click', openShippingPopup);
-        shippingOverlay.querySelector('.shipping-popup__close').addEventListener('click', closeShippingPopup);
-        shippingOverlay.addEventListener('click', (e) => {
-          if(e.target === shippingOverlay) closeShippingPopup();
-        });
-        document.addEventListener('keydown', (e) => {
-          if(e.key === 'Escape' && shippingOverlay.classList.contains('is-open')){
-            e.stopImmediatePropagation();
-            closeShippingPopup();
-          }
-        });
-      })();
 
       function applyGelatoTranslations(){
         document.querySelectorAll('[data-gelato-i18n]').forEach((el) => {
