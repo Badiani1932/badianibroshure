@@ -626,3 +626,34 @@ h1, h2, h3 {
     transition: none;
   }
 }
+
+/* ========== FORM SUBMIT FEEDBACK ========== */
+.form-feedback {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 57, 141, 0.2);
+  background: #eef3ff;
+  color: var(--badiani-blue);
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.form-feedback.is-progress {
+  background: #eef3ff;
+  border-color: rgba(30, 57, 141, 0.3);
+  color: #1e398d;
+}
+
+.form-feedback.is-success {
+  background: #e9f8ef;
+  border-color: rgba(18, 124, 86, 0.35);
+  color: #127c56;
+}
+
+.form-feedback.is-error {
+  background: #fff1f1;
+  border-color: rgba(180, 35, 24, 0.35);
+  color: #b42318;
+}

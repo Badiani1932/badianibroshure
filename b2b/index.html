@@ -3629,7 +3629,7 @@
           <p data-i18n="b2b.form.subtitle">Compila il modulo e ti ricontatteremo</p>
         </div>
         <div class="b2b-form-block__body">
-          <form id="b2bInlineForm" action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain">
+          <form id="b2bInlineForm" action="" method="post" enctype="text/plain">
             <div class="b2b-inline-grid">
               <!-- Nome / Cognome -->
               <div class="bf-field">
@@ -3763,7 +3763,7 @@
         <p data-i18n="b2b.form.subtitle"></p>
       </div>
       <div class="b2b-form__body">
-        <form id="b2bRequestForm" action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain">
+        <form id="b2bRequestForm" action="" method="post" enctype="text/plain">
           <div class="b2b-form__grid">
             <!-- Nome / Cognome -->
             <div class="fm-field"><label for="b2b-nome" data-i18n="b2b.form.nome"></label><input id="b2b-nome" name="nome" type="text" data-i18n-attr="placeholder:b2b.form.nome_ph" autocomplete="given-name" required /></div>
@@ -7844,6 +7844,9 @@
           feedback.style.fontWeight = '600';
           form.appendChild(feedback);
         }
+        var isProgress = /in corso/i.test(message);
+        feedback.classList.remove('is-progress', 'is-success', 'is-error');
+        feedback.classList.add(isProgress ? 'is-progress' : (isError ? 'is-error' : 'is-success'));
         feedback.style.color = isError ? '#b42318' : '#127c56';
         feedback.textContent = message;
       }
@@ -7974,18 +7977,18 @@
         };
 
         setSubmitting(form, true);
-        showFormFeedback(form, 'Invio in corso...', false);
+        showFormFeedback(form, '⏳ Invio in corso...', false);
 
         try {
           await postToContactApi(payload);
-          showFormFeedback(form, 'Richiesta inviata con successo. Ti contatteremo presto.', false);
+          showFormFeedback(form, '✅ Richiesta inviata con successo. Ti contatteremo presto.', false);
           form.reset();
           if(form.id === 'b2bRequestForm' && typeof closeB2BForm === 'function'){
             closeB2BForm();
           }
         } catch (error) {
           console.error('B2B submit error:', error);
-          showFormFeedback(form, 'Invio non riuscito. Riprova tra poco.', true);
+          showFormFeedback(form, '⚠️ Invio non riuscito. Riprova tra poco.', true);
         } finally {
           setSubmitting(form, false);
         }

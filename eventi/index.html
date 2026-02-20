@@ -991,7 +991,7 @@
         <p data-i18n="eventi.form.subtitle">Compila il modulo e ti ricontatteremo per organizzare il tuo evento</p>
       </div>
       <div class="ev-form-body">
-        <form action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain" id="requestForm">
+        <form action="" method="post" enctype="text/plain" id="requestForm">
           <div class="ev-form-grid">
             <div class="ef-field">
               <label for="rf-nome" data-i18n="eventi.form.firstName">Nome *</label>
@@ -1522,31 +1522,167 @@
   </script>
 
   <script>
-    // Form submit builds mailto link
+    // Eventi form submit handler - send structured payload to Worker API
     (function(){
       var form = document.getElementById('requestForm');
       if(!form) return;
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        var labels = { nome:'Nome', cognome:'Cognome', email:'Email', tipo:'Azienda/Privato', telefono:'Telefono', preferenza_contatto:'Preferenza di contatto', data:'Data evento', orario:'Orario', persone:'Numero persone', opzioniExtra:'Opzioni extra' };
-        var lines = ['=== RICHIESTA INFORMAZIONI EVENTI ===',''];
-        var fd = new FormData(form);
-        var seen = {};
-        for(var pair of fd.entries()){
-          var key = pair[0], val = pair[1];
-          if(!val || key === 'extras[]' || key === 'evento[]') continue;
-          if(seen[key]) continue;
-          seen[key] = true;
-          lines.push((labels[key] || key) + ': ' + val);
+      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
+
+      function getSubmitButton(){
+        return form.querySelector('button[type="submit"], input[type="submit"]');
+      }
+
+      function setSubmitting(submitting){
+        var btn = getSubmitButton();
+        if(!btn) return;
+        if(submitting){
+          if(!btn.dataset.originalText){
+            btn.dataset.originalText = (btn.textContent || '').trim();
+          }
+          btn.disabled = true;
+          btn.setAttribute('aria-busy', 'true');
+          btn.textContent = 'Invio in corso...';
+          return;
         }
-        var extras = fd.getAll('extras[]');
-        if(extras.length) lines.push('Opzioni extra: ' + extras.join(', '));
-        var eventi = fd.getAll('evento[]');
-        if(eventi.length) lines.push('Eventi di interesse: ' + eventi.join(', '));
-        lines.push('','--- Fine richiesta ---');
-        var subject = encodeURIComponent('Richiesta Informazioni Eventi - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || ''));
-        var body = encodeURIComponent(lines.join('\n'));
-        window.location.href = 'mailto:eventi@badiani1932.com?subject=' + subject + '&body=' + body;
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        if(btn.dataset.originalText){
+          btn.textContent = btn.dataset.originalText;
+        }
+      }
+
+      function showFormFeedback(message, isError){
+        var feedback = form.querySelector('.form-feedback');
+        if(!feedback){
+          feedback = document.createElement('p');
+          feedback.className = 'form-feedback';
+          feedback.setAttribute('role', 'status');
+          feedback.setAttribute('aria-live', 'polite');
+          feedback.style.marginTop = '12px';
+          feedback.style.fontSize = '14px';
+          feedback.style.fontWeight = '600';
+          form.appendChild(feedback);
+        }
+        var isProgress = /in corso/i.test(message);
+        feedback.classList.remove('is-progress', 'is-success', 'is-error');
+        feedback.classList.add(isProgress ? 'is-progress' : (isError ? 'is-error' : 'is-success'));
+        feedback.style.color = isError ? '#b42318' : '#127c56';
+        feedback.textContent = message;
+      }
+
+      function normalizeFormEntries(fd){
+        var out = {};
+        fd.forEach(function(value, key){
+          if(Object.prototype.hasOwnProperty.call(out, key)){
+            if(Array.isArray(out[key])) out[key].push(value);
+            else out[key] = [out[key], value];
+          } else {
+            out[key] = value;
+          }
+        });
+        return out;
+      }
+
+      async function postToContactApi(payload){
+        var response = await fetch(CONTACT_API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        var responseBody = null;
+        try { responseBody = await response.json(); } catch(e) {}
+
+        if(!response.ok){
+          var msg = (responseBody && (responseBody.error || responseBody.message)) || ('HTTP ' + response.status);
+          throw new Error(msg);
+        }
+        return responseBody;
+      }
+
+      function addLine(lines, label, value){
+        if(value === undefined || value === null) return;
+        var v = String(value).trim();
+        if(!v) return;
+        lines.push(label + ': ' + v);
+      }
+
+      function getSelectText(name){
+        var select = form.querySelector('select[name="' + name + '"]');
+        if(!select) return '';
+        var idx = select.selectedIndex;
+        if(idx < 0) return '';
+        return (select.options[idx].textContent || '').trim();
+      }
+
+      function getCheckedRadioLabel(name){
+        var input = form.querySelector('input[name="' + name + '"]:checked');
+        if(!input) return '';
+        var label = input.closest('label');
+        return label ? label.textContent.trim().replace(/\s+/g, ' ') : (input.value || '');
+      }
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        setSubmitting(true);
+        showFormFeedback('Invio in corso... ti risponderemo a breve.', false);
+
+        var fd = new FormData(form);
+        var firstName = (fd.get('nome') || '').toString().trim();
+        var lastName = (fd.get('cognome') || '').toString().trim();
+        var fullName = (firstName + ' ' + lastName).trim();
+
+        var lines = [
+          '=== RICHIESTA INFORMAZIONI EVENTI ===',
+          ''
+        ];
+
+        addLine(lines, 'Nome', firstName);
+        addLine(lines, 'Cognome', lastName);
+        addLine(lines, 'Email', fd.get('email'));
+        addLine(lines, 'Telefono', fd.get('telefono'));
+        addLine(lines, 'Azienda o Privato', getSelectText('tipo') || fd.get('tipo'));
+        addLine(lines, 'Preferenza di contatto', getCheckedRadioLabel('preferenza_contatto') || fd.get('preferenza_contatto'));
+        addLine(lines, 'Data evento', fd.get('data'));
+        addLine(lines, 'Orario', fd.get('orario'));
+        addLine(lines, 'Numero persone', fd.get('persone'));
+        addLine(lines, 'Opzioni extra?', getCheckedRadioLabel('opzioniExtra') || fd.get('opzioniExtra'));
+
+        var extras = fd.getAll('extras[]').filter(function(v){ return String(v || '').trim(); });
+        if(extras.length) addLine(lines, 'Opzioni extra selezionate', extras.join(', '));
+
+        var eventi = fd.getAll('evento[]').filter(function(v){ return String(v || '').trim(); });
+        if(eventi.length) addLine(lines, 'Eventi di interesse', eventi.join(', '));
+
+        lines.push('', '--- Fine richiesta ---');
+
+        var payload = {
+          to: 'eventi@badiani1932.com',
+          replyTo: (fd.get('email') || '').toString().trim() || undefined,
+          subject: 'Richiesta Informazioni Eventi - ' + (fullName || 'Contatto sito'),
+          text: lines.join('\n'),
+          meta: {
+            sourcePage: window.location.href,
+            formId: 'requestForm',
+            channel: 'eventi'
+          },
+          fields: normalizeFormEntries(fd)
+        };
+
+        try{
+          await postToContactApi(payload);
+          showFormFeedback('Richiesta inviata con successo! Ti risponderemo al più presto.', false);
+          form.reset();
+          var extrasPanel = document.getElementById('extrasMain');
+          if(extrasPanel) extrasPanel.classList.remove('visible');
+        } catch(error){
+          showFormFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
+        } finally {
+          setSubmitting(false);
+        }
       });
     })();
   </script>
