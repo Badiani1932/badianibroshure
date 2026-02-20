@@ -41,30 +41,7 @@ export default {
     }
 
     const requestId = crypto.randomUUID();
-
-    const sections = [];
-    sections.push('=== BADIANI CONTACT API ===');
-    sections.push(`Request ID: ${requestId}`);
-    sections.push(`Source: ${(payload && payload.source) || 'website'}`);
-    sections.push(`Form ID: ${(payload && payload.formId) || ''}`);
-    sections.push('');
-
-    if (payload && payload.structured && typeof payload.structured === 'object') {
-      sections.push('--- Structured Data ---');
-      sections.push(safePretty(payload.structured));
-      sections.push('');
-    }
-
-    if (payload && payload.fields && typeof payload.fields === 'object') {
-      sections.push('--- Raw Fields ---');
-      sections.push(safePretty(payload.fields));
-      sections.push('');
-    }
-
-    sections.push('--- Message ---');
-    sections.push(message);
-
-    const finalTextBody = sections.join('\n');
+    const finalTextBody = buildCleanEmailBody(payload, message);
     const replyTo = inferReplyTo(payload);
 
     try {
@@ -88,6 +65,138 @@ export default {
 
 function sanitizeOneLine(input) {
   return String(input || '').replace(/[\r\n]+/g, ' ').trim().slice(0, 200) || 'Richiesta contatto sito Badiani';
+}
+
+function buildCleanEmailBody(payload, fallbackMessage) {
+  const lines = [];
+  lines.push('Nuova richiesta dal sito Badiani');
+  lines.push('');
+
+  const source = sanitizeOneLine((payload && payload.source) || 'website');
+  const formId = sanitizeOneLine((payload && payload.formId) || '');
+  if (source && source !== 'website') lines.push(`Canale: ${source}`);
+  if (formId) lines.push(`Form: ${formId}`);
+
+  const data = extractBestData(payload);
+  const entries = toDisplayEntries(data);
+  if (entries.length) {
+    if (lines[lines.length - 1] !== '') lines.push('');
+    lines.push('Dettagli richiesta:');
+    entries.forEach(({ label, value }) => {
+      if (Array.isArray(value)) {
+        if (!value.length) return;
+        lines.push(`${label}:`);
+        value.forEach((item) => lines.push(`- ${item}`));
+      } else {
+        lines.push(`${label}: ${value}`);
+      }
+    });
+  }
+
+  const extraMessage = sanitizeMessageForEmail(fallbackMessage);
+  if (extraMessage) {
+    if (lines[lines.length - 1] !== '') lines.push('');
+    lines.push('Messaggio:');
+    lines.push(extraMessage);
+  }
+
+  return lines.join('\n').trim();
+}
+
+function extractBestData(payload) {
+  if (payload && payload.structured && typeof payload.structured === 'object') {
+    return payload.structured;
+  }
+
+  if (payload && payload.fields && typeof payload.fields === 'object') {
+    const normalized = {};
+    Object.entries(payload.fields).forEach(([key, value]) => {
+      const cleanKey = String(key || '').replace(/\[\]$/g, '');
+      normalized[cleanKey] = value;
+    });
+    return normalized;
+  }
+
+  return {};
+}
+
+function toDisplayEntries(data) {
+  const labelMap = {
+    nome: 'Nome',
+    cognome: 'Cognome',
+    email: 'Email',
+    telefono: 'Telefono',
+    tipo: 'Azienda o Privato',
+    azienda: 'Azienda',
+    tipoAzienda: 'Tipo Attività',
+    partitaIva: 'Partita IVA',
+    preferenza: 'Preferenza di contatto',
+    preferenzaContatto: 'Preferenza di contatto',
+    data: 'Data evento',
+    orario: 'Orario',
+    persone: 'Numero persone',
+    interesse: 'Interesse',
+    extra: 'Opzioni extra',
+    extras: 'Dettaglio opzioni extra',
+    eventi: 'Evento di interesse',
+    messaggio: 'Messaggio'
+  };
+
+  const priorityOrder = [
+    'nome', 'cognome', 'email', 'telefono', 'tipo', 'azienda', 'tipoAzienda', 'partitaIva',
+    'preferenzaContatto', 'preferenza', 'data', 'orario', 'persone', 'interesse', 'extra',
+    'extras', 'eventi', 'messaggio'
+  ];
+
+  const used = new Set();
+  const entries = [];
+
+  priorityOrder.forEach((key) => {
+    if (!Object.prototype.hasOwnProperty.call(data, key)) return;
+    const value = normalizeDisplayValue(data[key]);
+    if (isEmptyValue(value)) return;
+    entries.push({ label: labelMap[key] || key, value });
+    used.add(key);
+  });
+
+  Object.entries(data).forEach(([key, rawValue]) => {
+    if (used.has(key)) return;
+    const value = normalizeDisplayValue(rawValue);
+    if (isEmptyValue(value)) return;
+    const fallbackLabel = labelMap[key] || key;
+    entries.push({ label: fallbackLabel, value });
+  });
+
+  return entries;
+}
+
+function normalizeDisplayValue(value) {
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => String(item || '').trim())
+      .filter(Boolean);
+  }
+
+  return String(value || '').trim();
+}
+
+function isEmptyValue(value) {
+  if (Array.isArray(value)) return value.length === 0;
+  return !String(value || '').trim();
+}
+
+function sanitizeMessageForEmail(message) {
+  const raw = String(message || '').trim();
+  if (!raw) return '';
+
+  const cleaned = raw
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !/^===/.test(line) && !/^---/.test(line))
+    .join('\n')
+    .trim();
+
+  return cleaned;
 }
 
 function inferReplyTo(payload) {
