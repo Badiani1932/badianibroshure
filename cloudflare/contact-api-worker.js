@@ -26,7 +26,7 @@ export default {
       return jsonResponse({ error: 'Invalid JSON body' }, 400, origin, env);
     }
 
-    const subject = sanitizeOneLine((payload && payload.subject) || 'Richiesta contatto sito Badiani');
+    const baseSubject = sanitizeOneLine((payload && payload.subject) || 'Richiesta contatto sito Badiani');
     const message = String((payload && (payload.message || payload.body)) || '').trim();
 
     if (!message) {
@@ -39,6 +39,10 @@ export default {
     if (!toEmail || !fromEmail) {
       return jsonResponse({ error: 'MAIL_TO or MAIL_FROM not configured' }, 500, origin, env);
     }
+
+    const data = extractBestData(payload);
+    const requestType = classifyRequestType(payload, data);
+    const subject = buildTaggedSubject(baseSubject, requestType, data);
 
     const requestId = crypto.randomUUID();
     const finalTextBody = buildCleanEmailBody(payload, message);
@@ -67,6 +71,55 @@ export default {
 
 function sanitizeOneLine(input) {
   return String(input || '').replace(/[\r\n]+/g, ' ').trim().slice(0, 200) || 'Richiesta contatto sito Badiani';
+}
+
+function buildTaggedSubject(baseSubject, requestType, data) {
+  const clean = sanitizeOneLine(baseSubject);
+  const tagMap = {
+    corporate: '[B2B]',
+    eventi: '[EVENTI]',
+    general: '[WEB]'
+  };
+
+  const tag = tagMap[requestType] || tagMap.general;
+  const urgent = isUrgentRequest(requestType, data) ? '[URGENTE]' : '';
+
+  const normalized = clean
+    .replace(/^\[(?:B2B|EVENTI|WEB)\]\s*/i, '')
+    .replace(/^\[URGENTE\]\s*/i, '')
+    .trim();
+
+  const prefix = `${tag}${urgent}`;
+  return `${prefix} ${normalized}`.trim();
+}
+
+function isUrgentRequest(requestType, data) {
+  if (requestType !== 'eventi' || !data || typeof data !== 'object') return false;
+
+  const eventDate = parseDateValue(data.data);
+  if (!eventDate) return false;
+
+  const now = new Date();
+  const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  const diffMs = eventDate.getTime() - today.getTime();
+  const diffDays = Math.floor(diffMs / 86400000);
+
+  return diffDays >= 0 && diffDays <= 7;
+}
+
+function parseDateValue(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return null;
+
+  const match = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return null;
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (!year || !month || !day) return null;
+
+  return new Date(Date.UTC(year, month - 1, day));
 }
 
 function buildCleanEmailBody(payload, fallbackMessage) {
@@ -111,6 +164,8 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
   const logoUrl = sanitizeOneLine((env && env.MAIL_LOGO_URL) || 'https://www.badiani1932.com/assets/images/branding/logo-white.webp');
 
   const data = extractBestData(payload);
+  const requestType = classifyRequestType(payload, data);
+  const theme = getEmailTheme(requestType);
   const entries = toDisplayEntries(data);
   const extraMessage = sanitizeMessageForEmail(fallbackMessage);
 
@@ -120,8 +175,8 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
       const list = value.map((item) => `<li style="margin:0 0 4px 0;">${escapeHtml(item)}</li>`).join('');
       return `
         <tr>
-          <td style="padding:10px 0;vertical-align:top;width:220px;font-weight:700;color:#1e398d;">${labelHtml}</td>
-          <td style="padding:10px 0;vertical-align:top;color:#1f2937;">
+          <td style="padding:10px 0;vertical-align:top;width:220px;font-weight:700;color:${theme.accent};text-transform:uppercase;letter-spacing:.5px;font-size:12px;">${labelHtml}</td>
+          <td style="padding:10px 0;vertical-align:top;color:${theme.text};font-size:14px;">
             <ul style="margin:0;padding-left:18px;">${list}</ul>
           </td>
         </tr>`;
@@ -129,8 +184,8 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
 
     return `
       <tr>
-        <td style="padding:10px 0;vertical-align:top;width:220px;font-weight:700;color:#1e398d;">${labelHtml}</td>
-        <td style="padding:10px 0;vertical-align:top;color:#1f2937;">${escapeHtml(value)}</td>
+        <td style="padding:10px 0;vertical-align:top;width:220px;font-weight:700;color:${theme.accent};text-transform:uppercase;letter-spacing:.5px;font-size:12px;">${labelHtml}</td>
+        <td style="padding:10px 0;vertical-align:top;color:${theme.text};font-size:14px;">${escapeHtml(value)}</td>
       </tr>`;
   }).join('');
 
@@ -139,34 +194,49 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
     formId ? `<span><strong>Form:</strong> ${escapeHtml(formId)}</span>` : ''
   ].filter(Boolean).join('');
 
+  const compactInfo = buildCompactInfo(requestType, data);
+  const compactInfoHtml = compactInfo.length
+    ? `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0 0 16px 0;">${compactInfo.map((item) => `
+      <div style="padding:12px;background:${theme.cardBg};border:1px solid ${theme.cardBorder};border-radius:10px;">
+        <div style="font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:${theme.muted};font-weight:700;">${escapeHtml(item.label)}</div>
+        <div style="margin-top:6px;font-size:14px;line-height:1.4;color:${theme.text};font-weight:600;">${escapeHtml(item.value)}</div>
+      </div>`).join('')}</div>`
+    : '';
+
   const messageBlock = extraMessage
     ? `
-      <div style="margin-top:24px;padding:16px 18px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;">
-        <div style="font-size:14px;font-weight:700;color:#1e398d;margin-bottom:8px;">Messaggio</div>
-        <div style="font-size:14px;line-height:1.7;color:#1f2937;white-space:pre-line;">${escapeHtml(extraMessage)}</div>
+      <div style="margin-top:24px;padding:16px 18px;background:${theme.cardBg};border:1px solid ${theme.cardBorder};border-radius:10px;">
+        <div style="font-size:14px;font-weight:700;color:${theme.accent};margin-bottom:8px;">Messaggio</div>
+        <div style="font-size:14px;line-height:1.7;color:${theme.text};white-space:pre-line;">${escapeHtml(extraMessage)}</div>
       </div>`
     : '';
 
   return `<!doctype html>
 <html lang="it">
-  <body style="margin:0;padding:0;background:#f3f5f8;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#1f2937;">
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f3f5f8;padding:24px 12px;">
+  <body style="margin:0;padding:0;background:${theme.pageBg};font-family:'SuperGroteskDigits','SuperGroteskA','SuperGroteskB',Arial,'Helvetica Neue',Helvetica,sans-serif;color:${theme.text};">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:${theme.pageBg};padding:24px 12px;">
       <tr>
         <td align="center">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid ${theme.cardBorder};">
             <tr>
-              <td style="background:#1e398d;padding:22px 20px;text-align:center;">
+              <td style="background:${theme.headerBg};padding:22px 20px;text-align:center;">
                 <img src="${escapeHtml(logoUrl)}" alt="Badiani 1932" style="display:block;margin:0 auto;max-width:220px;height:auto;" />
               </td>
             </tr>
             <tr>
               <td style="padding:24px 26px 12px 26px;">
-                <h1 style="margin:0;font-size:22px;line-height:1.3;color:#1e398d;">Nuova richiesta dal sito</h1>
-                ${sourceInfo ? `<p style="margin:10px 0 0 0;font-size:13px;line-height:1.6;color:#475569;">${sourceInfo}</p>` : ''}
+                <div style="display:flex;align-items:center;gap:10px;margin:0 0 8px 0;">
+                  <span style="display:inline-block;width:10px;height:10px;background:${theme.pink};"></span>
+                  <span style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:${theme.muted};font-weight:700;">Badiani 1932</span>
+                </div>
+                <h1 style="margin:0;font-size:22px;line-height:1.3;color:${theme.accent};text-transform:uppercase;letter-spacing:.8px;">${escapeHtml(theme.title)}</h1>
+                ${sourceInfo ? `<p style="margin:10px 0 0 0;font-size:13px;line-height:1.6;color:${theme.muted};">${sourceInfo}</p>` : ''}
               </td>
             </tr>
             <tr>
               <td style="padding:8px 26px 24px 26px;">
+                <div style="height:2px;background:linear-gradient(90deg, ${theme.pink} 0%, ${theme.accent} 45%, ${theme.cyan} 100%);margin:0 0 18px 0;"></div>
+                ${compactInfoHtml}
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
                   ${detailsRows || '<tr><td style="padding:10px 0;color:#64748b;">Nessun dettaglio disponibile.</td></tr>'}
                 </table>
@@ -174,8 +244,8 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
               </td>
             </tr>
             <tr>
-              <td style="padding:14px 26px 20px 26px;border-top:1px solid #e5e7eb;font-size:12px;line-height:1.6;color:#6b7280;">
-                Email generata automaticamente dal modulo contatti del sito Badiani.
+              <td style="padding:14px 26px 20px 26px;border-top:1px solid ${theme.cardBorder};font-size:12px;line-height:1.6;color:${theme.muted};">
+                Email generata automaticamente dal modulo contatti del sito Badiani — Gelato artigianale dal 1932.
               </td>
             </tr>
           </table>
@@ -184,6 +254,105 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
     </table>
   </body>
 </html>`;
+}
+
+function classifyRequestType(payload, data) {
+  const source = String((payload && payload.source) || '').toLowerCase();
+  const formId = String((payload && payload.formId) || '').toLowerCase();
+  const interest = String(data.interesse || '').toLowerCase();
+
+  if (source.includes('b2b') || formId.includes('b2b') || data.azienda || data.tipoAzienda || data.partitaIva) {
+    return 'corporate';
+  }
+
+  if (
+    source.includes('event') || source.includes('tosinghi') || source.includes('esterno') ||
+    formId.includes('tosinghi') || formId.includes('external') || formId.includes('event') ||
+    interest.includes('event')
+  ) {
+    return 'eventi';
+  }
+
+  return 'general';
+}
+
+function getEmailTheme(type) {
+  if (type === 'corporate') {
+    return {
+      title: 'Nuova richiesta Corporate B2B',
+      headerBg: '#0f274f',
+      accent: '#0f274f',
+      pageBg: '#eef2f7',
+      cardBg: '#f6f8fc',
+      cardBorder: '#d7deea',
+      pink: '#f067a6',
+      cyan: '#5B9AAD',
+      text: '#1f2937',
+      muted: '#5f6b7a'
+    };
+  }
+
+  if (type === 'eventi') {
+    return {
+      title: 'Nuova richiesta Eventi',
+      headerBg: '#1e398d',
+      accent: '#1e398d',
+      pageBg: '#f3f5f8',
+      cardBg: '#f8fafc',
+      cardBorder: '#e5e7eb',
+      pink: '#f067a6',
+      cyan: '#5B9AAD',
+      text: '#1f2937',
+      muted: '#64748b'
+    };
+  }
+
+  return {
+    title: 'Nuova richiesta dal sito',
+    headerBg: '#1e398d',
+    accent: '#1e398d',
+    pageBg: '#f3f5f8',
+    cardBg: '#f8fafc',
+    cardBorder: '#e5e7eb',
+    pink: '#f067a6',
+    cyan: '#5B9AAD',
+    text: '#1f2937',
+    muted: '#64748b'
+  };
+}
+
+function firstNotEmpty(...values) {
+  for (const value of values) {
+    const str = String(value || '').trim();
+    if (str) return str;
+  }
+  return '';
+}
+
+function buildCompactInfo(type, data) {
+  if (type === 'corporate') {
+    return [
+      { label: 'Azienda', value: firstNotEmpty(data.azienda) },
+      { label: 'Contatto', value: firstNotEmpty([data.nome, data.cognome].filter(Boolean).join(' ')) },
+      { label: 'Email', value: firstNotEmpty(data.email) },
+      { label: 'Telefono', value: firstNotEmpty(data.telefono) }
+    ].filter((item) => item.value);
+  }
+
+  if (type === 'eventi') {
+    return [
+      { label: 'Cliente', value: firstNotEmpty([data.nome, data.cognome].filter(Boolean).join(' ')) },
+      { label: 'Data evento', value: firstNotEmpty(data.data) },
+      { label: 'Numero persone', value: firstNotEmpty(data.persone) },
+      { label: 'Telefono', value: firstNotEmpty(data.telefono) }
+    ].filter((item) => item.value);
+  }
+
+  return [
+    { label: 'Contatto', value: firstNotEmpty([data.nome, data.cognome].filter(Boolean).join(' ')) },
+    { label: 'Email', value: firstNotEmpty(data.email) },
+    { label: 'Telefono', value: firstNotEmpty(data.telefono) }
+  ].filter((item) => item.value);
 }
 
 function extractBestData(payload) {
