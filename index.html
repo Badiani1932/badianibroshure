@@ -413,7 +413,7 @@
       width:100%;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
+      justify-content:flex-start;
       height:100%;
       padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px);
       z-index:2;
@@ -422,6 +422,20 @@
       display:block;
       color:var(--badiani-blue);
       opacity:0.55;
+    }
+    .story-card--gelato .story-card__title .story-card__reg{
+      font-family:'SuperGroteskC','SuperGroteskA','SuperGroteskB',sans-serif;
+      font-size:0.36em;
+      font-weight:400;
+      letter-spacing:0;
+      display:inline-block;
+      vertical-align:super;
+      position:relative;
+      top:-0.18em;
+      transform:translateY(-0.22em);
+      margin-left:0.08em;
+      line-height:1;
+      opacity:0.9;
     }
     .story-card--gelato .story-card__title{
       color:var(--badiani-blue);
@@ -438,6 +452,7 @@
     }
     .story-card--gelato .story-card__desc{
       color:var(--badiani-blue);
+      margin-top:auto;
       flex-shrink:0;
       max-width:none;
       display:block;
@@ -1127,10 +1142,10 @@
       </div>
       <div class="story-card story-card--gelato">
         <div class="story-card__overlay">
-          <span class="story-card__label" data-i18n="gelato.label">Buontalenti</span>
-          <h2 class="story-card__title title-accent" data-i18n="gelato.title">LA CULTURA DEL BUONTALENTI GELATO</h2>
+          <span class="story-card__label" data-i18n="gelato.label">L'INCONFONDIBILE FIRMA DI BADIANI</span>
+          <h2 class="story-card__title title-accent" data-i18n-html="gelato.titleHtml">IL BUONTALENTI<span class="story-card__reg">®</span></h2>
           <p class="story-card__desc" data-i18n-html="gelato.text">
-            A metà del <span class="highlight-pink">Cinquecento</span>, Cosimo I de' Medici incaricò <span class="highlight-pink">Bernardo Buontalenti</span> di stupire una delegazione spagnola con festeggiamenti mai visti. L'architetto e genio creativo ideò una crema ghiacciata arricchita con lo zucchero, preziosa spezia dalle Americhe appena scoperte. Fu poi <span class="highlight-pink">Caterina de' Medici</span>, reggente di Francia, a portare i pasticceri fiorentini a corte, diffondendo il gelato in tutta Europa.
+            C’è un motivo se il Buontalenti® non è solo il nostro gusto iconico, ma il gelato più famoso (e imitato) di tutta Firenze.<br><br>Tutto ha inizio negli anni ’70, quando Badiani decide di omaggiare l’architetto rinascimentale Bernardo Buontalenti, considerato l’inventore del gelato. Da quel momento, abbiamo portato questo capolavoro fiorentino in tutto il mondo, trasformandolo in un simbolo di eccellenza del Made in Italy.<br><br>Cosa lo rende speciale?<br>• <span class="highlight-pink">La perfezione della semplicità</span>: solo 4 ingredienti di altissima qualità (panna, latte, zucchero e uova), consistenza avvolgente e gusto inconfondibile.<br>• <span class="highlight-pink">Innovazione pluripremiata</span>: dalla base iconica nascono varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Il cuore della nostra offerta</span>: dal cono alle torte gelato e alle monoporzioni (stecchi, biscotti, lingotti).<br><br>Scegliere il Buontalenti® significa offrire una storia di successo, un gusto ineguagliabile e un prodotto capace di declinarsi in formati perfetti per ogni esigenza di business.
           </p>
         </div>
       </div>
@@ -1368,10 +1383,11 @@
           'story.label': 'Badiani',
           'story.title': 'LA STORIA',
           'story.text': 'Nell\'estate del <span class="highlight-pink">1932</span>, il gelatiere Idilio Badiani apre la sua prima gelateria a Firenze. Nel 1993 il brand viene acquisito da <span class="highlight-pink">Orazio Pomposi</span> che, insieme ai figli Paolo e Patrizio, porta Badiani a nuovi traguardi attraverso innovazione e creatività. Il gusto più celebre, il <span class="highlight-pink">Buontalenti</span>, resta il simbolo della tradizione fiorentina. Dal 2015 Badiani è anche a Londra con negozi e laboratorio dedicato, guidata dal Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.label': 'Buontalenti',
-          'gelato.subtitle': '',
-          'gelato.title': 'LA CULTURA DEL BUONTALENTI GELATO',
-          'gelato.text': 'A metà del <span class="highlight-pink">Cinquecento</span>, Cosimo I de\' Medici incaricò <span class="highlight-pink">Bernardo Buontalenti</span> di stupire una delegazione spagnola con festeggiamenti mai visti. L\'architetto e genio creativo ideò una crema ghiacciata arricchita con lo zucchero, preziosa spezia dalle Americhe appena scoperte. Fu poi <span class="highlight-pink">Caterina de\' Medici</span>, reggente di Francia, a portare i pasticceri fiorentini a corte, diffondendo il gelato in tutta Europa.',
+          'gelato.label': 'L\'INCONFONDIBILE FIRMA DI BADIANI',
+          'gelato.subtitle': 'L\'INCONFONDIBILE FIRMA DI BADIANI',
+          'gelato.title': 'IL BUONTALENTI®',
+          'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
+          'gelato.text': 'C’è un motivo se il Buontalenti® non è solo il nostro gusto iconico, ma il gelato più famoso (e imitato) di tutta Firenze.<br><br>Tutto ha inizio negli anni ’70, quando Badiani decide di omaggiare l’architetto rinascimentale Bernardo Buontalenti, considerato l’inventore del gelato. Da quel momento, abbiamo portato questo capolavoro fiorentino in tutto il mondo, trasformandolo in un simbolo di eccellenza del Made in Italy.<br><br>Cosa lo rende speciale?<br>• <span class="highlight-pink">La perfezione della semplicità</span>: solo 4 ingredienti di altissima qualità (panna, latte, zucchero e uova), consistenza avvolgente e gusto inconfondibile.<br>• <span class="highlight-pink">Innovazione pluripremiata</span>: dalla base iconica nascono varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Il cuore della nostra offerta</span>: dal cono alle torte gelato e alle monoporzioni (stecchi, biscotti, lingotti).<br><br>Scegliere il Buontalenti® significa offrire una storia di successo, un gusto ineguagliabile e un prodotto capace di declinarsi in formati perfetti per ogni esigenza di business.',
           'heritage.title': 'BADIANI NEL MONDO',
           'heritage.intro': 'Nata a <span class="highlight-pink">Firenze nel 1932</span>, Badiani è uno dei produttori di gelato più prestigiosi al mondo. Dalla culla del gelato, abbiamo costruito una presenza internazionale in cinque paesi su tre continenti.',
           'heritage.stat.founded': 'Fondata a Firenze',
@@ -1475,10 +1491,11 @@
           'story.label': 'Badiani',
           'story.title': 'THE HISTORY',
           'story.text': 'In the summer of <span class="highlight-pink">1932</span>, gelato maker Idilio Badiani opened his first gelateria in Florence. In 1993 the brand was acquired by <span class="highlight-pink">Orazio Pomposi</span> who, together with his sons Paolo and Patrizio, took Badiani to new heights through innovation and creativity. The most celebrated flavour, <span class="highlight-pink">Buontalenti</span>, remains the symbol of Florentine tradition. Since 2015 Badiani has expanded to London with shops and a dedicated lab, led by Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.label': 'Buontalenti',
-          'gelato.subtitle': '',
-          'gelato.title': 'THE CULTURE OF BUONTALENTI GELATO',
-          'gelato.text': 'In the mid-<span class="highlight-pink">16th century</span>, Cosimo I de\' Medici commissioned <span class="highlight-pink">Bernardo Buontalenti</span> to astonish a Spanish delegation with unprecedented festivities. The architect and creative genius devised an iced cream enriched with sugar, a precious spice from the newly discovered Americas. It was then <span class="highlight-pink">Catherine de\' Medici</span>, regent of France, who brought Florentine pastry chefs to court, spreading gelato across Europe.',
+          'gelato.label': 'BADIANI\'S UNMISTAKABLE SIGNATURE',
+          'gelato.subtitle': 'BADIANI\'S UNMISTAKABLE SIGNATURE',
+          'gelato.title': 'IL BUONTALENTI®',
+          'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
+          'gelato.text': 'There is a reason why Buontalenti® is not only our iconic flavour, but also Florence’s most famous (and imitated) gelato.<br><br>It all began in the 1970s, when Badiani chose to pay tribute to Renaissance architect Bernardo Buontalenti, widely regarded as the inventor of gelato. Since then, we have taken this Florentine masterpiece around the world, turning it into a true symbol of Made in Italy excellence.<br><br>What makes it so special?<br>• <span class="highlight-pink">The perfection of simplicity</span>: only 4 top-quality ingredients (cream, milk, sugar and eggs), with a velvety texture and unmistakable taste.<br>• <span class="highlight-pink">Award-winning innovation</span>: from the iconic base come celebrated creations like La Dolcevita and Buontalenti Pistachio.<br>• <span class="highlight-pink">The core of our offer</span>: from cone and cup to elegant gelato cakes and single portions (sticks, biscuits, ingots).<br><br>Choosing Buontalenti® means offering a success story, an unrivalled flavour, and a product available in formats perfect for every business need.',
           'heritage.title': 'BADIANI WORLDWIDE',
           'heritage.intro': 'Born in <span class="highlight-pink">Florence in 1932</span>, Badiani is one of the world\'s most prestigious gelato producers. From the birthplace of gelato, we have built an international presence spanning five countries across three continents.',
           'heritage.stat.founded': 'Founded in Florence',
@@ -1582,10 +1599,11 @@
           'story.label': 'Badiani',
           'story.title': 'L\'HISTOIRE',
           'story.text': 'Durant l\'été <span class="highlight-pink">1932</span>, le glacier Idilio Badiani ouvre sa première gelateria à Florence. En 1993, la marque est reprise par <span class="highlight-pink">Orazio Pomposi</span> qui, avec ses fils Paolo et Patrizio, propulse Badiani vers de nouveaux sommets grâce à l\'innovation et la créativité. Le parfum le plus célèbre, le <span class="highlight-pink">Buontalenti</span>, reste le symbole de la tradition florentine. Depuis 2015, Badiani est aussi à Londres avec des boutiques et un laboratoire dédié, dirigé par le Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.label': 'Buontalenti',
-          'gelato.subtitle': '',
-          'gelato.title': 'LA CULTURE DU BUONTALENTI GELATO',
-          'gelato.text': 'Au milieu du <span class="highlight-pink">XVIe siècle</span>, Cosme Ier de Médicis chargea <span class="highlight-pink">Bernardo Buontalenti</span> d\'éblouir une délégation espagnole avec des festivités inédites. L\'architecte et génie créatif imagina une crème glacée enrichie de sucre, épice précieuse des Amériques tout juste découvertes. C\'est ensuite <span class="highlight-pink">Catherine de Médicis</span>, régente de France, qui fit venir les pâtissiers florentins à la cour, diffusant le gelato dans toute l\'Europe.',
+          'gelato.label': 'LA SIGNATURE INCONFONDABLE DE BADIANI',
+          'gelato.subtitle': 'LA SIGNATURE INCONFONDABLE DE BADIANI',
+          'gelato.title': 'IL BUONTALENTI®',
+          'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
+          'gelato.text': 'Il y a une raison si le Buontalenti® n’est pas seulement notre parfum iconique, mais aussi le gelato le plus célèbre (et imité) de Florence.<br><br>Tout commence dans les années 1970, lorsque Badiani choisit de rendre hommage à l’architecte de la Renaissance Bernardo Buontalenti, considéré comme l’inventeur du gelato. Depuis, nous avons porté ce chef-d’œuvre florentin dans le monde entier, en le transformant en véritable symbole d’excellence du Made in Italy.<br><br>Pourquoi est-il si spécial ?<br>• <span class="highlight-pink">La perfection de la simplicité</span> : seulement 4 ingrédients de très haute qualité (crème, lait, sucre et œufs), une texture enveloppante et un goût inimitable.<br>• <span class="highlight-pink">Une innovation primée</span> : de cette base iconique naissent des variantes célèbres comme La Dolcevita et Buontalenti Pistache.<br>• <span class="highlight-pink">Le cœur de notre offre</span> : du cornet à la coupe, jusqu’aux élégants gâteaux glacés et portions individuelles (bâtonnets, biscuits, lingots).<br><br>Choisir le Buontalenti® signifie proposer une histoire à succès, une saveur incomparable et un produit décliné en formats parfaits pour chaque besoin business.',
           'heritage.title': 'BADIANI DANS LE MONDE',
           'heritage.intro': 'Née à <span class="highlight-pink">Florence en 1932</span>, Badiani est l\'un des producteurs de gelato les plus prestigieux au monde. Depuis le berceau du gelato, nous avons bâti une présence internationale dans cinq pays sur trois continents.',
           'heritage.stat.founded': 'Fondée à Florence',
@@ -1689,10 +1707,11 @@
           'story.label': 'Badiani',
           'story.title': 'LA HISTORIA',
           'story.text': 'En el verano de <span class="highlight-pink">1932</span>, el heladero Idilio Badiani abre su primera heladería en Florencia. En 1993, la marca es adquirida por <span class="highlight-pink">Orazio Pomposi</span> quien, junto a sus hijos Paolo y Patrizio, lleva a Badiani a nuevas metas a través de la innovación y la creatividad. El sabor más célebre, el <span class="highlight-pink">Buontalenti</span>, sigue siendo el símbolo de la tradición florentina. Desde 2015, Badiani está también en Londres con tiendas y laboratorio propio, liderada por el Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.',
-          'gelato.label': 'Buontalenti',
-          'gelato.subtitle': '',
-          'gelato.title': 'LA CULTURA DEL BUONTALENTI GELATO',
-          'gelato.text': 'A mediados del <span class="highlight-pink">siglo XVI</span>, Cosimo I de\' Medici encargó a <span class="highlight-pink">Bernardo Buontalenti</span> sorprender a una delegación española con festejos nunca vistos. El arquitecto y genio creativo ideó una crema helada enriquecida con azúcar, preciada especia de las Américas recién descubiertas. Fue luego <span class="highlight-pink">Catalina de Médici</span>, regente de Francia, quien llevó a los pasteleros florentinos a la corte, difundiendo el helado por toda Europa.',
+          'gelato.label': 'LA FIRMA INCONFUNDIBLE DE BADIANI',
+          'gelato.subtitle': 'LA FIRMA INCONFUNDIBLE DE BADIANI',
+          'gelato.title': 'IL BUONTALENTI®',
+          'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
+          'gelato.text': 'Hay una razón por la que Buontalenti® no es solo nuestro sabor icónico, sino también el helado más famoso (e imitado) de toda Florencia.<br><br>Todo comienza en los años 70, cuando Badiani decide rendir homenaje al arquitecto renacentista Bernardo Buontalenti, considerado el inventor del helado. Desde entonces, hemos llevado esta obra maestra florentina por todo el mundo, convirtiéndola en un símbolo de excelencia del Made in Italy.<br><br>¿Qué lo hace tan especial?<br>• <span class="highlight-pink">La perfección de la simplicidad</span>: solo 4 ingredientes de altísima calidad (nata, leche, azúcar y huevos), con textura envolvente y sabor inconfundible.<br>• <span class="highlight-pink">Innovación premiada</span>: de esta base icónica nacen variantes célebres como La Dolcevita y Buontalenti Pistacho.<br>• <span class="highlight-pink">El corazón de nuestra oferta</span>: del cono y la copa a las elegantes tartas heladas y porciones individuales (palitos, galletas, lingotes).<br><br>Elegir Buontalenti® significa ofrecer una historia de éxito, un sabor inigualable y un producto en formatos perfectos para cada necesidad de negocio.',
           'heritage.title': 'BADIANI EN EL MUNDO',
           'heritage.intro': 'Nacida en <span class="highlight-pink">Florencia en 1932</span>, Badiani es uno de los productores de helado más prestigiosos del mundo. Desde la cuna del helado, hemos construido una presencia internacional en cinco países en tres continentes.',
           'heritage.stat.founded': 'Fundada en Florencia',
