@@ -109,6 +109,28 @@
       text-shadow:none;
     }
 
+    /* ===== FLAT TEXT OVERRIDE (no decorative title effects/shadows) ===== */
+    .title-accent::before,
+    .title-accent::after{
+      content:none !important;
+      display:none !important;
+    }
+    .page-hero h1,
+    .section-title,
+    .category-title,
+    .category-label,
+    .category-desc,
+    .b2b-terms__title,
+    .modal__section h4,
+    .map-overlay-title{
+      text-shadow:none !important;
+      filter:none !important;
+    }
+    :where(.page-shell, .modal-overlay, .site-footer)
+    :is(h1, h2, h3, h4, h5, h6, p, span, small, strong, label, li, a, button){
+      text-shadow:none !important;
+    }
+
     /* ===== STEPS WRAPPER ===== */
     /* (steps section wrapper moved into form section sidebar) */
 
@@ -3588,7 +3610,7 @@
         </div>
         <div class="b2b-terms__item">
           <span class="b2b-terms__item-label" data-i18n="b2b.terms.support.label">Assistenza</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.support">Il nostro team B2B &egrave; a disposizione per supporto dedicato: b2b@badiani1932.com</p>
+          <p class="b2b-terms__item-value" data-i18n="b2b.terms.support">Il nostro team B2B &egrave; a disposizione per supporto dedicato: eventi@badiani1932.com</p>
         </div>
         <div class="b2b-terms__item">
           <span class="b2b-terms__item-label" data-i18n="b2b.terms.returns.label">Resi e reclami</span>
@@ -3607,7 +3629,7 @@
           <p data-i18n="b2b.form.subtitle">Compila il modulo e ti ricontatteremo</p>
         </div>
         <div class="b2b-form-block__body">
-          <form id="b2bInlineForm" action="mailto:b2b@badiani1932.com" method="post" enctype="text/plain">
+          <form id="b2bInlineForm" action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain">
             <div class="b2b-inline-grid">
               <!-- Nome / Cognome -->
               <div class="bf-field">
@@ -3741,7 +3763,7 @@
         <p data-i18n="b2b.form.subtitle"></p>
       </div>
       <div class="b2b-form__body">
-        <form id="b2bRequestForm" action="mailto:b2b@badiani1932.com" method="post" enctype="text/plain">
+        <form id="b2bRequestForm" action="mailto:eventi@badiani1932.com" method="post" enctype="text/plain">
           <div class="b2b-form__grid">
             <!-- Nome / Cognome -->
             <div class="fm-field"><label for="b2b-nome" data-i18n="b2b.form.nome"></label><input id="b2b-nome" name="nome" type="text" data-i18n-attr="placeholder:b2b.form.nome_ph" autocomplete="given-name" required /></div>
@@ -4152,7 +4174,7 @@
           'b2b.terms.custom.label': 'Personalizzazioni',
           'b2b.terms.custom': 'Packaging personalizzato e gusti su misura disponibili su richiesta per ordini ricorrenti',
           'b2b.terms.support.label': 'Assistenza',
-          'b2b.terms.support': 'Il nostro team B2B \u00e8 a disposizione per supporto dedicato: b2b@badiani1932.com',
+          'b2b.terms.support': 'Il nostro team B2B \u00e8 a disposizione per supporto dedicato: eventi@badiani1932.com',
           'b2b.terms.returns.label': 'Resi e reclami',
           'b2b.terms.returns': 'Eventuali reclami devono essere comunicati entro 24 ore dalla consegna',
           'gelato.detail.description': 'Descrizione',
@@ -4474,7 +4496,7 @@
           'b2b.terms.custom.label': 'Customisation',
           'b2b.terms.custom': 'Custom packaging and bespoke flavours available on request for recurring orders',
           'b2b.terms.support.label': 'Support',
-          'b2b.terms.support': 'Our B2B team is available for dedicated support: b2b@badiani1932.com',
+          'b2b.terms.support': 'Our B2B team is available for dedicated support: eventi@badiani1932.com',
           'b2b.terms.returns.label': 'Returns & claims',
           'b2b.terms.returns': 'Any claims must be reported within 24 hours of delivery',
           'b2b.coppette.sectionTitle': 'Cups',
@@ -4801,7 +4823,7 @@
           'b2b.terms.custom.label': 'Personnalisation',
           'b2b.terms.custom': 'Packaging personnalisé et parfums sur mesure disponibles sur demande pour les commandes récurrentes',
           'b2b.terms.support.label': 'Assistance',
-          'b2b.terms.support': 'Notre équipe B2B est à votre disposition pour un accompagnement dédié : b2b@badiani1932.com',
+          'b2b.terms.support': 'Notre équipe B2B est à votre disposition pour un accompagnement dédié : eventi@badiani1932.com',
           'b2b.terms.returns.label': 'Retours et réclamations',
           'b2b.terms.returns': 'Toute réclamation doit être signalée dans les 24 heures suivant la livraison',
           'b2b.coppette.sectionTitle': 'Coupes',
@@ -5127,7 +5149,7 @@
           'b2b.terms.custom.label': 'Personalización',
           'b2b.terms.custom': 'Packaging personalizado y sabores a medida disponibles bajo petición para pedidos recurrentes',
           'b2b.terms.support.label': 'Asistencia',
-          'b2b.terms.support': 'Nuestro equipo B2B está a su disposición para soporte dedicado: b2b@badiani1932.com',
+          'b2b.terms.support': 'Nuestro equipo B2B está a su disposición para soporte dedicado: eventi@badiani1932.com',
           'b2b.terms.returns.label': 'Devoluciones y reclamaciones',
           'b2b.terms.returns': 'Cualquier reclamación debe comunicarse en las 24 horas posteriores a la entrega',
           'b2b.coppette.sectionTitle': 'Copas',
@@ -7784,45 +7806,88 @@
         btn.addEventListener('click', function(e) { e.preventDefault(); openB2BForm(); });
       });
 
-      // Form submit handler - builds email summary
-      var b2bForm = document.getElementById('b2bRequestForm');
-      if(b2bForm){
-        b2bForm.addEventListener('submit', function(e){
-          e.preventDefault();
-
-          var labels = {
-            nome: 'Nome', cognome: 'Cognome', email: 'Email',
-            telefono: 'Telefono', preferenza_contatto: 'Preferenza di contatto',
-            azienda: 'Nome Azienda', tipo_azienda: 'Tipo Attività',
-            partita_iva: 'Partita IVA', messaggio: 'Messaggio'
-          };
-
-          var lines = ['=== RICHIESTA INFORMAZIONI B2B ===', ''];
-          var fd = new FormData(b2bForm);
-          var seen = {};
-
-          for(var pair of fd.entries()){
-            var key = pair[0], val = pair[1];
-            if(!val || key === 'interessi[]') continue;
-            if(seen[key]) continue;
-            seen[key] = true;
-            var label = labels[key] || key;
-            lines.push(label + ': ' + val);
-          }
-
-          // Interessi
-          var interessi = fd.getAll('interessi[]');
-          if(interessi.length){
-            lines.push('Categorie di interesse: ' + interessi.join(', '));
-          }
-
-          lines.push('', '--- Fine richiesta ---');
-
-          var subject = encodeURIComponent('Richiesta Informazioni B2B - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || '') + ' - ' + (fd.get('azienda') || ''));
-          var body = encodeURIComponent(lines.join('\n'));
-          window.location.href = 'mailto:b2b@badiani1932.com?subject=' + subject + '&body=' + body;
-        });
+      // Form submit handlers - builds structured email summary (both inline + modal)
+      function getCheckedRadioLabel(form, radioName){
+        var input = form.querySelector('input[name="' + radioName + '"]:checked');
+        if(!input) return '';
+        var label = input.closest('label');
+        return label ? label.textContent.trim().replace(/\s+/g, ' ') : (input.value || '');
       }
+
+      function getSelectText(form, selectName){
+        var select = form.querySelector('select[name="' + selectName + '"]');
+        if(!select) return '';
+        var idx = select.selectedIndex;
+        if(idx < 0) return '';
+        return (select.options[idx].textContent || '').trim();
+      }
+
+      function getCheckedLabels(form, name){
+        return Array.from(form.querySelectorAll('input[name="' + name + '"]:checked'))
+          .map(function(input){
+            var label = input.closest('label');
+            return label ? label.textContent.trim().replace(/\s+/g, ' ') : (input.value || '');
+          })
+          .filter(Boolean);
+      }
+
+      function addLine(lines, label, value){
+        if(value === undefined || value === null) return;
+        var v = String(value).trim();
+        if(!v) return;
+        lines.push(label + ': ' + v);
+      }
+
+      function handleB2BSubmit(form){
+        var fd = new FormData(form);
+        var nome = (fd.get('nome') || '').toString().trim();
+        var cognome = (fd.get('cognome') || '').toString().trim();
+        var azienda = (fd.get('azienda') || '').toString().trim();
+        var email = (fd.get('email') || '').toString().trim();
+        var telefono = (fd.get('telefono') || '').toString().trim();
+        var tipoAzienda = getSelectText(form, 'tipo_azienda');
+        var partitaIva = (fd.get('partita_iva') || '').toString().trim();
+        var messaggio = (fd.get('messaggio') || '').toString().trim();
+        var preferenza = getCheckedRadioLabel(form, 'preferenza_contatto') || getCheckedRadioLabel(form, 'inline_preferenza');
+        var interessi = getCheckedLabels(form, 'interessi[]').concat(getCheckedLabels(form, 'inline_interessi[]'));
+
+        var lines = [
+          '=== RICHIESTA INFORMAZIONI B2B ===',
+          ''
+        ];
+
+        addLine(lines, 'Nome', nome);
+        addLine(lines, 'Cognome', cognome);
+        addLine(lines, 'Email', email);
+        addLine(lines, 'Telefono', telefono);
+        addLine(lines, 'Preferenza di contatto', preferenza);
+        addLine(lines, 'Nome Azienda', azienda);
+        addLine(lines, 'Tipo Attività', tipoAzienda);
+        addLine(lines, 'Partita IVA / Dati Aziendali', partitaIva);
+
+        lines.push('Categorie di interesse:');
+        if(interessi.length){
+          interessi.forEach(function(item){ lines.push(' - ' + item); });
+        } else {
+          lines.push(' - Nessuna selezionata');
+        }
+
+        addLine(lines, 'Messaggio', messaggio);
+        lines.push('', '--- Fine richiesta ---');
+
+        var subject = encodeURIComponent('Richiesta Informazioni B2B - ' + (nome + ' ' + cognome).trim() + (azienda ? ' - ' + azienda : ''));
+        var body = encodeURIComponent(lines.join('\n'));
+        window.location.href = 'mailto:eventi@badiani1932.com?subject=' + subject + '&body=' + body;
+      }
+
+      ['b2bRequestForm', 'b2bInlineForm'].forEach(function(formId){
+        var form = document.getElementById(formId);
+        if(!form) return;
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          handleB2BSubmit(form);
+        });
+      });
     })();
   </script>
 
@@ -7834,7 +7899,7 @@
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
       <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../" data-i18n="footer.home">Home</a></li><li><a href="../eventi/" data-i18n="footer.eventi">Eventi</a></li><li><a href="./" data-i18n="footer.b2b">B2B</a></li><li><a href="../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
-      <div class="footer-col"><h4>Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="mailto:b2b@badiani1932.com">b2b@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+      <div class="footer-col"><h4>Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
       <div class="footer-col"><h4>Legale</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../cookie-policy.html">Cookie Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
