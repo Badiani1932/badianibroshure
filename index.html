@@ -1811,12 +1811,66 @@
       });
     })();
 
-    /* Home form submit handler - builds email summary */
+    /* Home form submit handler - sends payload to Worker API */
     (function(){
       var form = document.getElementById('homeRequestForm');
       if(!form) return;
 
-      form.addEventListener('submit', function(e){
+      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
+
+      function getSubmitButton(){
+        return form.querySelector('button[type="submit"], input[type="submit"]');
+      }
+
+      function setSubmitting(submitting){
+        var btn = getSubmitButton();
+        if(!btn) return;
+        if(submitting){
+          if(!btn.dataset.originalText){
+            btn.dataset.originalText = (btn.textContent || '').trim();
+          }
+          btn.disabled = true;
+          btn.setAttribute('aria-busy', 'true');
+          btn.textContent = 'Invio in corso...';
+          return;
+        }
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        if(btn.dataset.originalText){
+          btn.textContent = btn.dataset.originalText;
+        }
+      }
+
+      function showFormFeedback(message, isError){
+        var feedback = form.querySelector('.form-feedback');
+        if(!feedback){
+          feedback = document.createElement('p');
+          feedback.className = 'form-feedback';
+          feedback.setAttribute('role', 'status');
+          feedback.setAttribute('aria-live', 'polite');
+          feedback.style.marginTop = '12px';
+          feedback.style.fontSize = '14px';
+          feedback.style.fontWeight = '600';
+          form.appendChild(feedback);
+        }
+        feedback.style.color = isError ? '#b42318' : '#127c56';
+        feedback.textContent = message;
+      }
+
+      function normalizeFormEntries(fd){
+        var out = {};
+        fd.forEach(function(value, key){
+          if(Object.prototype.hasOwnProperty.call(out, key)){
+            if(Array.isArray(out[key])) out[key].push(value);
+            else out[key] = [out[key], value];
+          } else {
+            out[key] = value;
+          }
+        });
+        return out;
+      }
+
+      form.addEventListener('submit', async function(e){
         e.preventDefault();
 
         var labels = {
@@ -1840,11 +1894,58 @@
 
         lines.push('', '--- Fine richiesta ---');
 
-        var interesse = fd.get('interesse') || 'generale';
-        var mailto = interesse === 'b2b' ? 'b2b@badiani1932.com' : 'eventi@badiani1932.com';
-        var subject = encodeURIComponent('Richiesta Informazioni - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || ''));
-        var body = encodeURIComponent(lines.join('\n'));
-        window.location.href = 'mailto:' + mailto + '?subject=' + subject + '&body=' + body;
+        var interesse = (fd.get('interesse') || 'generale').toString();
+        var subject = 'Richiesta Informazioni - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || '');
+        var body = lines.join('\n');
+
+        var payload = {
+          source: 'home',
+          formId: 'homeRequestForm',
+          subject: subject.trim(),
+          message: body,
+          body: body,
+          fields: normalizeFormEntries(fd),
+          structured: {
+            nome: (fd.get('nome') || '').toString().trim(),
+            cognome: (fd.get('cognome') || '').toString().trim(),
+            email: (fd.get('email') || '').toString().trim(),
+            telefono: (fd.get('telefono') || '').toString().trim(),
+            preferenzaContatto: (fd.get('preferenza_contatto') || '').toString().trim(),
+            interesse: interesse,
+            messaggio: (fd.get('messaggio') || '').toString().trim()
+          }
+        };
+
+        setSubmitting(true);
+        showFormFeedback('Invio in corso...', false);
+
+        try {
+          var response = await fetch(CONTACT_API_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if(!response.ok){
+            var errorText = '';
+            try {
+              var errorJson = await response.json();
+              errorText = (errorJson && (errorJson.error || errorJson.message)) || '';
+            } catch(err) {}
+            throw new Error(errorText || ('HTTP ' + response.status));
+          }
+
+          showFormFeedback('Richiesta inviata con successo. Ti contatteremo presto.', false);
+          form.reset();
+        } catch (error) {
+          console.error('Home form submit error:', error);
+          showFormFeedback('Invio non riuscito, provare in seguito.', true);
+        } finally {
+          setSubmitting(false);
+        }
       });
     })();
 
