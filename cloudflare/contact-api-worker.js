@@ -42,6 +42,7 @@ export default {
 
     const requestId = crypto.randomUUID();
     const finalTextBody = buildCleanEmailBody(payload, message);
+    const finalHtmlBody = buildProfessionalEmailHtml(payload, message, env);
     const replyTo = inferReplyTo(payload);
 
     try {
@@ -52,6 +53,7 @@ export default {
         toEmail,
         subject,
         bodyText: finalTextBody,
+        bodyHtml: finalHtmlBody,
         replyTo
       });
 
@@ -101,6 +103,87 @@ function buildCleanEmailBody(payload, fallbackMessage) {
   }
 
   return lines.join('\n').trim();
+}
+
+function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
+  const source = sanitizeOneLine((payload && payload.source) || 'website');
+  const formId = sanitizeOneLine((payload && payload.formId) || '');
+  const logoUrl = sanitizeOneLine((env && env.MAIL_LOGO_URL) || 'https://www.badiani1932.com/assets/images/branding/logo-white.webp');
+
+  const data = extractBestData(payload);
+  const entries = toDisplayEntries(data);
+  const extraMessage = sanitizeMessageForEmail(fallbackMessage);
+
+  const detailsRows = entries.map(({ label, value }) => {
+    const labelHtml = escapeHtml(label);
+    if (Array.isArray(value)) {
+      const list = value.map((item) => `<li style="margin:0 0 4px 0;">${escapeHtml(item)}</li>`).join('');
+      return `
+        <tr>
+          <td style="padding:10px 0;vertical-align:top;width:220px;font-weight:700;color:#1e398d;">${labelHtml}</td>
+          <td style="padding:10px 0;vertical-align:top;color:#1f2937;">
+            <ul style="margin:0;padding-left:18px;">${list}</ul>
+          </td>
+        </tr>`;
+    }
+
+    return `
+      <tr>
+        <td style="padding:10px 0;vertical-align:top;width:220px;font-weight:700;color:#1e398d;">${labelHtml}</td>
+        <td style="padding:10px 0;vertical-align:top;color:#1f2937;">${escapeHtml(value)}</td>
+      </tr>`;
+  }).join('');
+
+  const sourceInfo = [
+    source && source !== 'website' ? `<span style="margin-right:14px;"><strong>Canale:</strong> ${escapeHtml(source)}</span>` : '',
+    formId ? `<span><strong>Form:</strong> ${escapeHtml(formId)}</span>` : ''
+  ].filter(Boolean).join('');
+
+  const messageBlock = extraMessage
+    ? `
+      <div style="margin-top:24px;padding:16px 18px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;">
+        <div style="font-size:14px;font-weight:700;color:#1e398d;margin-bottom:8px;">Messaggio</div>
+        <div style="font-size:14px;line-height:1.7;color:#1f2937;white-space:pre-line;">${escapeHtml(extraMessage)}</div>
+      </div>`
+    : '';
+
+  return `<!doctype html>
+<html lang="it">
+  <body style="margin:0;padding:0;background:#f3f5f8;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#1f2937;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f3f5f8;padding:24px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb;">
+            <tr>
+              <td style="background:#1e398d;padding:22px 20px;text-align:center;">
+                <img src="${escapeHtml(logoUrl)}" alt="Badiani 1932" style="display:block;margin:0 auto;max-width:220px;height:auto;" />
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:24px 26px 12px 26px;">
+                <h1 style="margin:0;font-size:22px;line-height:1.3;color:#1e398d;">Nuova richiesta dal sito</h1>
+                ${sourceInfo ? `<p style="margin:10px 0 0 0;font-size:13px;line-height:1.6;color:#475569;">${sourceInfo}</p>` : ''}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 26px 24px 26px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                  ${detailsRows || '<tr><td style="padding:10px 0;color:#64748b;">Nessun dettaglio disponibile.</td></tr>'}
+                </table>
+                ${messageBlock}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:14px 26px 20px 26px;border-top:1px solid #e5e7eb;font-size:12px;line-height:1.6;color:#6b7280;">
+                Email generata automaticamente dal modulo contatti del sito Badiani.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
 }
 
 function extractBestData(payload) {
@@ -248,8 +331,8 @@ async function getGoogleAccessToken(env) {
   return data.access_token;
 }
 
-async function sendGmail({ accessToken, fromEmail, toEmail, subject, bodyText, replyTo }) {
-  const mime = buildMime({ fromEmail, toEmail, subject, bodyText, replyTo });
+async function sendGmail({ accessToken, fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo }) {
+  const mime = buildMime({ fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo });
   const raw = toBase64Url(mime);
 
   const response = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
@@ -269,22 +352,46 @@ async function sendGmail({ accessToken, fromEmail, toEmail, subject, bodyText, r
   return data;
 }
 
-function buildMime({ fromEmail, toEmail, subject, bodyText, replyTo }) {
+function buildMime({ fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo }) {
+  const boundary = `badiani_${crypto.randomUUID()}`;
   const lines = [
     `From: Badiani Website <${fromEmail}>`,
     `To: ${toEmail}`,
     `Subject: ${subject}`,
     'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit'
+    `Content-Type: multipart/alternative; boundary="${boundary}"`
   ];
 
   if (replyTo) {
     lines.splice(2, 0, `Reply-To: ${replyTo}`);
   }
 
-  lines.push('', bodyText || '');
+  lines.push(
+    '',
+    `--${boundary}`,
+    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Transfer-Encoding: 8bit',
+    '',
+    bodyText || '',
+    '',
+    `--${boundary}`,
+    'Content-Type: text/html; charset=UTF-8',
+    'Content-Transfer-Encoding: 8bit',
+    '',
+    bodyHtml || '',
+    '',
+    `--${boundary}--`
+  );
   return lines.join('\r\n');
+}
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function toBase64Url(str) {

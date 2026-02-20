@@ -1,11 +1,11 @@
 name = "badiani-contact-api"
-main = "cloudflare/contact-api-worker.js"
+main = "contact-api-worker.js"
 compatibility_date = "2026-02-20"
 workers_dev = true
 
 [vars]
 # Comma-separated origins, e.g. "https://www.badiani1932.com,https://badiani1932.com"
-ALLOWED_ORIGIN = "https://www.badiani1932.com"
+ALLOWED_ORIGIN = "https://www.badiani1932.com,https://badiani1932.github.io"
 MAIL_TO = "eventi@badiani1932.com"
 MAIL_FROM = "eventi@badiani1932.com"
 
