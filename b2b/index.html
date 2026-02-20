@@ -7849,6 +7849,9 @@
         feedback.classList.add(isProgress ? 'is-progress' : (isError ? 'is-error' : 'is-success'));
         feedback.style.color = isError ? '#b42318' : '#127c56';
         feedback.textContent = message;
+        if(!isProgress){
+          feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       }
 
       function normalizeFormEntries(fd){
@@ -7977,18 +7980,15 @@
         };
 
         setSubmitting(form, true);
-        showFormFeedback(form, '⏳ Invio in corso...', false);
+        showFormFeedback(form, 'Invio in corso... ti risponderemo a breve.', false);
 
         try {
           await postToContactApi(payload);
-          showFormFeedback(form, '✅ Richiesta inviata con successo. Ti contatteremo presto.', false);
+          showFormFeedback(form, 'Invio riuscito! Ti risponderemo al più presto.', false);
           form.reset();
-          if(form.id === 'b2bRequestForm' && typeof closeB2BForm === 'function'){
-            closeB2BForm();
-          }
         } catch (error) {
           console.error('B2B submit error:', error);
-          showFormFeedback(form, '⚠️ Invio non riuscito. Riprova tra poco.', true);
+          showFormFeedback(form, 'Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
         } finally {
           setSubmitting(form, false);
         }
