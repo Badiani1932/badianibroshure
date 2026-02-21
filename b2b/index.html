@@ -495,10 +495,16 @@
       padding-left:calc(24px + constant(safe-area-inset-left));
       padding-right:calc(24px + constant(safe-area-inset-right));
       z-index:2000;
-      overscroll-behavior-y:contain;
+      overscroll-behavior:none;
+      overflow:hidden;
+      width:100vw;
+      min-height:100svh;
+      min-height:100dvh;
+      height:100svh;
+      height:100dvh;
+      touch-action:none;
       opacity:0;
       transition:opacity 0.4s ease;
-      min-height:100svh;
     }
     .modal-overlay.is-open{ display:flex; opacity:1; }
     .modal{
@@ -516,6 +522,8 @@
       display:flex;
       flex-direction:column;
       overflow:hidden;
+      min-height:0;
+      touch-action:pan-y;
       animation:modalReveal 0.6s cubic-bezier(0.34,1.56,0.64,1);
     }
     @keyframes modalReveal{
@@ -623,7 +631,8 @@
       flex:1;
       min-height:0;
       background:transparent;
-      overscroll-behavior:contain;
+      overscroll-behavior-y:contain;
+      touch-action:pan-y;
     }
     .pezziduri-grid-stage[hidden]{
       display:none !important;
@@ -2948,12 +2957,12 @@
 
     @media(max-width:720px){
       .modal{
-        width:100%;
-        height:100%;
-        height:100svh;
-        max-height:100vh;
-        max-height:100dvh;
-        border-radius:0;
+        width:min(100%, 760px);
+        height:auto;
+        max-height:calc(100svh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+        max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+        max-height:calc(100svh - 24px - constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
+        border-radius:18px;
         margin-top:0;
       }
       .gelato-card.is-expanded{ grid-column:span 2; grid-row:span 2; outline:2px solid var(--badiani-pink); outline-offset:2px; }
@@ -2961,7 +2970,19 @@
       .gelato-card__details{ transition:none; }
 
       /* Modal mobile: compatta */
-      .modal-overlay{ padding:0; align-items:stretch; justify-content:stretch; }
+      .modal-overlay{
+        align-items:center;
+        justify-content:center;
+        padding:12px;
+        padding-top:calc(12px + env(safe-area-inset-top));
+        padding-bottom:calc(12px + env(safe-area-inset-bottom));
+        padding-left:calc(12px + env(safe-area-inset-left));
+        padding-right:calc(12px + env(safe-area-inset-right));
+        padding-top:calc(12px + constant(safe-area-inset-top));
+        padding-bottom:calc(12px + constant(safe-area-inset-bottom));
+        padding-left:calc(12px + constant(safe-area-inset-left));
+        padding-right:calc(12px + constant(safe-area-inset-right));
+      }
       .modal__body{ min-height:0; }
       .modal__close{ width:38px; height:38px; }
       .modal__close::before, .modal__close::after{ width:16px; }
@@ -3401,7 +3422,7 @@
       object-fit:contain;
       object-position:right bottom;
       pointer-events:none;
-      z-index:3;
+      z-index:1;
       transform:translateY(-20px) translateX(-50px) scaleX(-1) rotate(0deg);
       transition:transform 0.1s linear;
       will-change:transform;
@@ -3412,10 +3433,13 @@
         height:clamp(700px, 90vh, 1100px);
       }
     }
-    /* Hide Mercury when window is narrower than 16:9 */
+    /* Keep Mercury visible on narrow viewports, but scaled down */
     @media(max-aspect-ratio:16/9){
       .b2b-form-section__mercury{
-        display:none;
+        right:clamp(10px, 3vw, 44px);
+        bottom:calc(-6% - 260px);
+        height:clamp(460px, 70vh, 760px);
+        opacity:0.62;
       }
     }
     /* 3-column grid: steps left, form center */
@@ -3426,11 +3450,19 @@
       max-width:1500px;
       margin:0 auto;
       align-items:start;
+      position:relative;
+      z-index:2;
     }
     @media(max-width:1080px){
       .b2b-form-section__grid{
         grid-template-columns:1fr;
         max-width:900px;
+      }
+      .b2b-form-section__mercury{
+        right:clamp(-12px, 2vw, 24px);
+        bottom:calc(-5% - 180px);
+        height:clamp(360px, 52vh, 560px);
+        opacity:0.55;
       }
     }
     .b2b-form-block{
@@ -3674,6 +3706,21 @@
       }
       .b2b-form-inline-submit{
         justify-content:center;
+      }
+      .b2b-form-section__mercury{
+        right:clamp(-18px, 1vw, 10px);
+        bottom:calc(-4% - 120px);
+        height:clamp(280px, 42vh, 420px);
+        opacity:0.48;
+      }
+    }
+
+    @media(max-width:560px){
+      .b2b-form-section__mercury{
+        right:-22px;
+        bottom:calc(-3% - 80px);
+        height:clamp(220px, 34vh, 320px);
+        opacity:0.42;
       }
     }
   </style>
@@ -6459,8 +6506,59 @@
       let selectedConiGfMapId = new Set();
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const ASSET_VERSION = '20260220';
+      const SCROLL_LOCK_KEYS = {
+        CATEGORY_MODAL: 'category-modal',
+        FULLSCREEN: 'fullscreen-image',
+        B2B_FORM: 'b2b-form',
+        MOBILE_NAV: 'mobile-nav'
+      };
+      const activeScrollLocks = new Set();
+      let lockedScrollY = 0;
       const gelatoById = new Map(gelatoFlavors.map((flavor) => [flavor.id, flavor]));
       const gelatoImageCache = new Set();
+
+      function lockPageScroll(lockKey){
+        if(!lockKey) return;
+        if(activeScrollLocks.has(lockKey)) return;
+        activeScrollLocks.add(lockKey);
+        if(activeScrollLocks.size > 1) return;
+
+        lockedScrollY = window.scrollY || window.pageYOffset || 0;
+        const body = document.body;
+        body.style.position = 'fixed';
+        body.style.top = `-${lockedScrollY}px`;
+        body.style.left = '0';
+        body.style.right = '0';
+        body.style.width = '100%';
+        body.style.overflow = 'hidden';
+        body.style.touchAction = 'none';
+        body.dataset.scrollLocked = 'true';
+        document.documentElement.style.overscrollBehavior = 'none';
+      }
+
+      function unlockPageScroll(lockKey){
+        if(!lockKey || !activeScrollLocks.has(lockKey)) return;
+        activeScrollLocks.delete(lockKey);
+        if(activeScrollLocks.size > 0) return;
+
+        const body = document.body;
+        body.style.position = '';
+        body.style.top = '';
+        body.style.left = '';
+        body.style.right = '';
+        body.style.width = '';
+        body.style.overflow = '';
+        body.style.touchAction = '';
+        delete body.dataset.scrollLocked;
+        document.documentElement.style.overscrollBehavior = '';
+        window.scrollTo(0, lockedScrollY);
+      }
+
+      window.BADIANI_MODAL_API = {
+        lockPageScroll,
+        unlockPageScroll,
+        scrollLockKeys: SCROLL_LOCK_KEYS
+      };
 
       const GELATO_CATEGORIES = {
         iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato'],
@@ -7602,14 +7700,14 @@
         fullscreenImage.src = `${encodeURI(src)}?v=${ASSET_VERSION}`;
         fullscreenImage.alt = alt || '';
         fullscreenOverlay.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
+        lockPageScroll(SCROLL_LOCK_KEYS.FULLSCREEN);
       }
 
       function closeFullscreenImage(){
         if(!fullscreenOverlay || !fullscreenImage) return;
         fullscreenOverlay.classList.remove('is-open');
         fullscreenImage.src = '';
-        document.body.style.overflow = '';
+        unlockPageScroll(SCROLL_LOCK_KEYS.FULLSCREEN);
       }
 
       if(fullscreenOverlay){
@@ -7849,13 +7947,25 @@
         resetInteractiveSelections();
         setActiveCategory(name || categories[0]);
         modal.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
+        lockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
       }
 
       function closeModal(){
         modal.classList.remove('is-open');
         resetInteractiveSelections();
-        document.body.style.overflow = '';
+        unlockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
+      }
+
+      if(modal){
+        modal.addEventListener('touchmove', (event) => {
+          if(!modal.classList.contains('is-open')) return;
+          const target = event.target;
+          if(!(target instanceof Element)) return;
+          const scrollable = target.closest('.modal__content, .modal__table-wrap, .modal__nav');
+          if(!scrollable){
+            event.preventDefault();
+          }
+        }, { passive: false });
       }
 
       select.addEventListener('change', (e) => setActiveCategory(e.target.value));
@@ -7975,12 +8085,18 @@
       // B2B Request Form – open / close
       window.openB2BForm = function() {
         const overlay = document.getElementById('b2bFormModal');
-        if (overlay) { overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        if (overlay) {
+          overlay.classList.add('active');
+          lockPageScroll(SCROLL_LOCK_KEYS.B2B_FORM);
+        }
       };
       window.closeB2BForm = function(e) {
         if (e && e.target !== e.currentTarget) return;
         const overlay = document.getElementById('b2bFormModal');
-        if (overlay) { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+        if (overlay) {
+          overlay.classList.remove('active');
+          unlockPageScroll(SCROLL_LOCK_KEYS.B2B_FORM);
+        }
       };
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeB2BForm();
@@ -8213,7 +8329,7 @@
     </div>
   </div>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
-  <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');document.body.style.overflow=o?'':'hidden';});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');document.body.style.overflow='';});});})();</script>
+  <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;var m=window.BADIANI_MODAL_API||{};var lk=(m.scrollLockKeys&&m.scrollLockKeys.MOBILE_NAV)||'mobile-nav';var lock=typeof m.lockPageScroll==='function'?m.lockPageScroll:function(){document.body.style.overflow='hidden';};var unlock=typeof m.unlockPageScroll==='function'?m.unlockPageScroll:function(){document.body.style.overflow='';};b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');if(o){unlock(lk);}else{lock(lk);}});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');unlock(lk);});});})();</script>
 
   <!-- Mercury parallax on scroll -->
   <script>
