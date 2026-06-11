@@ -66,6 +66,41 @@
       padding-top:clamp(56px, 8vw, 100px);
       position:relative;
       overflow:visible;
+      background:var(--badiani-blue) url('../assets/images/branding/sfondo.webp') center/cover no-repeat;
+    }
+    .ev-page-intro{
+      position:relative;
+      z-index:1;
+      max-width:980px;
+      margin:0 auto clamp(28px, 4vw, 52px);
+      padding:0 clamp(22px, 4vw, 56px);
+      text-align:center;
+      color:#fff;
+    }
+    .ev-page-intro__eyebrow{
+      display:block;
+      margin-bottom:12px;
+      font-size:clamp(14px, 1.3vw, 17px);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.65);
+    }
+    .ev-page-intro__title{
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:clamp(44px, 6vw, 92px);
+      line-height:.92;
+      letter-spacing:2.8px;
+      text-transform:uppercase;
+      margin:0 0 16px;
+      color:#fff;
+      text-wrap:balance;
+    }
+    .ev-page-intro__subtitle{
+      max-width:720px;
+      margin:0 auto;
+      font-size:clamp(18px, 1.7vw, 22px);
+      line-height:1.45;
+      color:rgba(255,255,255,.82);
     }
     .ev-types__grid{
       position:relative;
@@ -362,10 +397,11 @@
 
     /* ===== GALLERY — dark full-bleed section ===== */
     .ev-gallery-section{
-      background:transparent;
+      background:linear-gradient(180deg, rgba(19,35,92,.96), rgba(19,35,92,.90));
       padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
       position:relative;
       z-index:20;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(255,255,255,.08);
     }
     .ev-gallery__label{
       font-size:clamp(15px, 1.4vw, 18px);
@@ -396,6 +432,7 @@
       cursor:pointer;
       aspect-ratio:1 / 1;
       border-radius:0;
+      background:rgba(255,255,255,.08);
     }
     .ev-gallery__photo img{
       width:100%;
@@ -921,6 +958,11 @@
 
   <!-- EVENT TYPES — 3-column full-bleed -->
   <section class="ev-types" id="main-content" data-i18n-attr="aria-label:eventi.types.label">
+    <div class="ev-page-intro">
+      <span class="ev-page-intro__eyebrow" data-i18n="eventi.intro.eyebrow">Eventi Badiani 1932</span>
+      <h1 class="ev-page-intro__title" data-i18n="eventi.intro.title">Gelato per eventi privati e aziendali</h1>
+      <p class="ev-page-intro__subtitle" data-i18n="eventi.intro.subtitle">Dalla saletta privata al carretto gelato, portiamo l’esperienza Badiani nel formato più adatto alla tua occasione.</p>
+    </div>
     <div class="ev-types__grid">
       <a class="ev-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
         <img class="ev-card__img" src="../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta privata Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
@@ -993,49 +1035,49 @@
       <div class="ev-gallery__photo" data-index="0">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC01243.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/DSC01243.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/DSC01243.webp" alt="Evento Badiani" loading="eager" fetchpriority="high" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
       <div class="ev-gallery__photo" data-index="1">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC01296.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/DSC01296.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/DSC01296.webp" alt="Evento Badiani" loading="eager" fetchpriority="high" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
       <div class="ev-gallery__photo" data-index="2">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07193.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07193.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07193.webp" alt="Evento Badiani" loading="eager" fetchpriority="high" decoding="async" width="1066" height="1600" />
         </picture>
       </div>
       <div class="ev-gallery__photo" data-index="3">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07293.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07293.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07293.webp" alt="Evento Badiani" loading="eager" fetchpriority="high" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
       <div class="ev-gallery__photo" data-index="4">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07503.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07503.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07503.webp" alt="Evento Badiani" loading="eager" fetchpriority="low" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
       <div class="ev-gallery__photo" data-index="5">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07553.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07553.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/DSC07553.webp" alt="Evento Badiani" loading="eager" fetchpriority="low" decoding="async" width="1066" height="1600" />
         </picture>
       </div>
       <div class="ev-gallery__photo" data-index="6">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp" alt="Evento Badiani" loading="eager" fetchpriority="low" decoding="async" width="1066" height="1600" />
         </picture>
       </div>
       <div class="ev-gallery__photo" data-index="7">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" type="image/webp" />
-          <img src="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
+          <img src="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" alt="Evento Badiani" loading="eager" fetchpriority="low" decoding="async" width="1066" height="1600" />
         </picture>
       </div>
     </div>
@@ -1271,6 +1313,9 @@
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
           'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
           'eventi.page.title': 'Eventi',
+          'eventi.intro.eyebrow': 'Eventi Badiani 1932',
+          'eventi.intro.title': 'Gelato per eventi privati e aziendali',
+          'eventi.intro.subtitle': 'Dalla saletta privata al carretto gelato, portiamo l’esperienza Badiani nel formato più adatto alla tua occasione.',
           'eventi.types.tag': 'Tipologie',
           'eventi.types.label': 'Tipologie eventi',
           'eventi.eventDivider.title': 'IL TUO EVENTO SU MISURA',
@@ -1355,13 +1400,16 @@
           'nav.label': 'Main navigation',
           'lang.label': 'Language selector',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.magazine': 'They Say About Us',
+          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.magazine': 'Press & Reviews',
           'nav.eventi.saletta': 'Tosinghi Room', 'nav.eventi.esterno': 'Badiani where you want', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience',
           'nav.b2b.gusti': 'Flavors', 'nav.b2b.monoporzioni': 'Single Servings', 'nav.b2b.torte': 'Cakes', 'nav.b2b.coni': 'Cones & Cups', 'nav.b2b.accessori': 'Accessories', 'nav.b2b.contenitori': 'Containers',
           'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
-          'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
+          'footer.b2b': 'B2B', 'footer.magazine': 'Press & Reviews', 'footer.contatti': 'Contacts',
           'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
           'eventi.page.title': 'Events',
+          'eventi.intro.eyebrow': 'Badiani 1932 Events',
+          'eventi.intro.title': 'Gelato for private and corporate events',
+          'eventi.intro.subtitle': 'From the private room to the gelato cart, we bring the Badiani experience into the format that suits your occasion.',
           'eventi.types.tag': 'Types',
           'eventi.types.label': 'Event types',
           'eventi.eventDivider.title': 'YOUR TAILOR-MADE EVENT',
@@ -1453,6 +1501,9 @@
           'footer.b2b': 'B2B', 'footer.magazine': 'Ils Parlent de Nous', 'footer.contatti': 'Contacts',
           'footer.legale': 'Mentions L\u00e9gales', 'footer.privacy': 'Politique de Confidentialit\u00e9', 'footer.cookie': 'Politique de Cookies',
           'eventi.page.title': '\u00c9v\u00e9nements',
+          'eventi.intro.eyebrow': 'Événements Badiani 1932',
+          'eventi.intro.title': 'Gelato pour événements privés et corporate',
+          'eventi.intro.subtitle': 'De la salle privée au chariot gelato, nous adaptons l’expérience Badiani au format idéal pour votre occasion.',
           'eventi.types.tag': 'Types',
           'eventi.types.label': "Types d'\u00e9v\u00e9nements",
           'eventi.eventDivider.title': 'VOTRE ÉVÉNEMENT SUR MESURE',
@@ -1544,6 +1595,9 @@
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicen de Nosotros', 'footer.contatti': 'Contactos',
           'footer.legale': 'Legal', 'footer.privacy': 'Pol\u00edtica de Privacidad', 'footer.cookie': 'Pol\u00edtica de Cookies',
           'eventi.page.title': 'Eventos',
+          'eventi.intro.eyebrow': 'Eventos Badiani 1932',
+          'eventi.intro.title': 'Gelato para eventos privados y corporativos',
+          'eventi.intro.subtitle': 'Desde la sala privada hasta el carrito de gelato, llevamos la experiencia Badiani al formato ideal para tu ocasión.',
           'eventi.types.tag': 'Tipos',
           'eventi.types.label': 'Tipos de eventos',
           'eventi.eventDivider.title': 'TU EVENTO A MEDIDA',

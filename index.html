@@ -91,6 +91,40 @@
       background:url('assets/images/branding/sfondo.webp') center/cover no-repeat;
       z-index:0;
     }
+    .home-entry{
+      position:relative;
+      z-index:1;
+      max-width:980px;
+      margin:0 auto clamp(24px, 4vw, 44px);
+      padding:0 clamp(18px, 4vw, 40px);
+      text-align:center;
+      color:#fff;
+    }
+    .home-entry__eyebrow{
+      display:block;
+      margin-bottom:12px;
+      font-size:clamp(14px, 1.3vw, 17px);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.68);
+    }
+    .home-entry__title{
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:clamp(44px, 6vw, 92px);
+      line-height:.92;
+      letter-spacing:2.8px;
+      text-transform:uppercase;
+      margin:0 0 16px;
+      color:#fff;
+      text-wrap:balance;
+    }
+    .home-entry__subtitle{
+      max-width:680px;
+      margin:0 auto;
+      font-size:clamp(18px, 1.7vw, 22px);
+      line-height:1.45;
+      color:rgba(255,255,255,.82);
+    }
     .choice-grid{
       position:relative;
       z-index:1;
@@ -1168,6 +1202,11 @@
   </nav>
 
   <section class="choice-section" id="main-content" data-i18n-attr="aria-label:home.choice.label">
+    <div class="home-entry">
+      <span class="home-entry__eyebrow" data-i18n="home.entry.eyebrow">Firenze 1932 · Gelato artigianale</span>
+      <h1 class="home-entry__title" data-i18n="home.entry.title">Eventi e soluzioni B2B Badiani</h1>
+      <p class="home-entry__subtitle" data-i18n="home.entry.subtitle">Scegli il percorso più adatto: esperienze su misura per i tuoi eventi o catalogo gelato per hospitality, catering e ristorazione.</p>
+    </div>
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
         <img class="choice-card__img" src="assets/images/eventi/carretto_gelato/foto4.webp" alt="Eventi" loading="lazy" decoding="async" data-i18n-attr="alt:home.card.eventi.title" />
@@ -1421,6 +1460,9 @@
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.choice.label': 'Scelta esperienza',
+          'home.entry.eyebrow': 'Firenze 1932 · Gelato artigianale',
+          'home.entry.title': 'Eventi e soluzioni B2B Badiani',
+          'home.entry.subtitle': 'Scegli il percorso più adatto: esperienze su misura per i tuoi eventi o catalogo gelato per hospitality, catering e ristorazione.',
           'home.choice.title': 'Scegli l’esperienza che ti serve',
           'home.choice.tag': 'Percorso',
           'home.choice.eventi.label': 'Tipologie',
@@ -1524,12 +1566,12 @@
           'nav.b2b.coni': 'Cones & Cups',
           'nav.b2b.accessori': 'Accessories',
           'nav.b2b.contenitori': 'Containers',
-          'nav.magazine': 'They Say About Us',
+          'nav.magazine': 'Press & Reviews',
           'footer.nav': 'Navigation',
           'footer.home': 'Home',
           'footer.eventi': 'Events',
           'footer.b2b': 'B2B',
-          'footer.magazine': 'They Say About Us',
+          'footer.magazine': 'Press & Reviews',
           'footer.contatti': 'Contacts',
           'footer.legale': 'Legal',
           'footer.privacy': 'Privacy Policy',
@@ -1541,6 +1583,9 @@
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.choice.label': 'Experience selection',
+          'home.entry.eyebrow': 'Florence 1932 · Artisan gelato',
+          'home.entry.title': 'Badiani events and B2B solutions',
+          'home.entry.subtitle': 'Choose the right path: bespoke experiences for your events or gelato catalogue for hospitality, catering and food service.',
           'home.choice.title': 'Choose the experience you need',
           'home.choice.tag': 'Path',
           'home.choice.eventi.label': 'Types',
@@ -1551,7 +1596,7 @@
           'home.choice.b2b.aria': 'Go to B2B page',
           'home.choice.magazine.desc': 'Press review with articles about Badiani',
           'home.choice.magazine.note': 'Browse media previews',
-          'home.choice.magazine.aria': 'Go to They Say About Us page',
+          'home.choice.magazine.aria': 'Go to Press & Reviews page',
           'home.choice.cta': 'Discover',
           'home.choiceDivider.title': 'WHAT WE OFFER',
           'home.chiSiamo.title': 'ABOUT US',
@@ -1661,6 +1706,9 @@
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.choice.label': 'Choix de l\'expérience',
+          'home.entry.eyebrow': 'Florence 1932 · Gelato artisanal',
+          'home.entry.title': 'Événements et solutions B2B Badiani',
+          'home.entry.subtitle': 'Choisissez le parcours adapté : expériences sur mesure pour vos événements ou catalogue gelato pour hospitality, catering et restauration.',
           'home.choice.title': 'Choisissez l\'expérience qui vous convient',
           'home.choice.tag': 'Parcours',
           'home.choice.eventi.label': 'Typologies',
@@ -1806,6 +1854,9 @@
           'home.video.label': 'Video laboratorio',
           'home.video.caption': 'Paolo in laboratorio produzione del Buontalenti',
           'home.choice.label': 'Selección de experiencia',
+          'home.entry.eyebrow': 'Florencia 1932 · Gelato artesanal',
+          'home.entry.title': 'Eventos y soluciones B2B Badiani',
+          'home.entry.subtitle': 'Elige el recorrido adecuado: experiencias a medida para eventos o catálogo de gelato para hospitality, catering y restauración.',
           'home.choice.title': 'Elige la experiencia que necesitas',
           'home.choice.tag': 'Recorrido',
           'home.choice.eventi.label': 'Tipologías',
