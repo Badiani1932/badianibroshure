@@ -29,6 +29,7 @@
   <link rel="alternate" hreflang="x-default" href="https://brochure.badiani1932.com/b2b/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
+  <link rel="stylesheet" href="../assets/menu-polish.css" />
   <script defer src="../assets/badiani-common.js"></script>
   <script type="application/ld+json">
   {
@@ -9064,13 +9065,12 @@
             `;
             const mediaBlock = `
               <div class=\"gelato-card__media\">
-                <img src=\"${imageUrl}\" alt=\"${flavorName}\" decoding=\"async\" />
+                <img src=\"${imageUrl}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
                 <button class=\"gelato-card__zoom\" type=\"button\" aria-label=\"${t('b2b.zoom')}\">${zoomIcon}</button>
               </div>
               <span>${flavorName}</span>
             `;
             btn.innerHTML = mediaBlock;
-            cacheImage(baseSrc);
 
             const zoomBtn = btn.querySelector('.gelato-card__zoom');
             if(zoomBtn){
