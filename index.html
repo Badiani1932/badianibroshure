@@ -1105,6 +1105,47 @@
     }
 
 
+
+    /* ===== MARCO MINIMAL BROCHURE ROUTES ===== */
+    .choice-section{min-height:calc(100vh - 72px);padding:clamp(22px,4vw,54px) clamp(16px,4vw,72px);display:grid;align-content:center;gap:clamp(18px,3vw,34px);background:#f7f2e8;overflow:hidden;}
+    .choice-section::before{opacity:.18;filter:saturate(.9);}
+    .home-entry{max-width:1120px;margin:0 auto;padding:0;text-align:left;color:var(--badiani-blue,#1e398d);display:grid;grid-template-columns:minmax(0,1.2fr) auto;gap:18px;align-items:end;}
+    .home-entry__eyebrow{color:var(--badiani-pink,#f067a6);font-weight:700;}
+    .home-entry__title{color:var(--badiani-blue,#1e398d);font-size:clamp(42px,7vw,104px);letter-spacing:1px;max-width:880px;margin-bottom:0;}
+    .home-entry__subtitle{color:rgba(30,57,141,.72);margin:0;max-width:430px;font-size:clamp(16px,1.45vw,20px);}
+    .choice-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:14px;line-height:normal;width:100%;}
+    .choice-card{aspect-ratio:16/9;min-height:330px;overflow:hidden;background:#101f5b;box-shadow:0 18px 40px rgba(30,57,141,.18);}
+    .choice-card::after{inset:auto 18px 18px 18px;height:5px;background:var(--badiani-pink,#f067a6);translate:0 0;transition:height .32s ease,background .32s ease;z-index:3;}
+    .choice-card:hover::after,.choice-card:focus-visible::after{height:12px;translate:0 0;}
+    .choice-card__img{inset:0;width:100%;height:100%;top:0;left:0;object-fit:cover;opacity:.86;transition:transform .65s cubic-bezier(.22,1,.36,1),opacity .35s ease;}
+    .choice-card:hover .choice-card__img,.choice-card:focus-visible .choice-card__img{transform:scale(1.045);opacity:.72;}
+    .choice-card__overlay{padding:clamp(22px,3vw,38px);justify-content:space-between;background:linear-gradient(180deg,rgba(18,35,92,.25),rgba(18,35,92,.78));}
+    .choice-title{font-size:clamp(52px,8vw,112px);line-height:.86;margin:0;color:#fff;letter-spacing:1px;}
+    .choice-cta{margin-top:auto;align-self:flex-start;background:#fff;color:var(--badiani-blue,#1e398d);border:none;padding:12px 16px;box-shadow:0 10px 24px rgba(0,0,0,.16);}
+    .choice-card[href="b2b/"] .choice-cta{background:var(--badiani-blue,#1e398d);color:#fff;}
+    .home-proof-strip{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(30,57,141,.12);}
+    .home-proof{background:#fff;padding:16px 18px;color:var(--badiani-blue,#1e398d);min-height:92px;}
+    .home-proof strong{display:block;font-family:'SuperGroteskB',sans-serif;font-size:clamp(24px,3vw,42px);line-height:1;color:var(--badiani-pink,#f067a6);}
+    .home-proof span{display:block;margin-top:6px;font-size:14px;text-transform:uppercase;letter-spacing:1.2px;color:rgba(30,57,141,.68);}
+    .home-form-section{padding:clamp(26px,4vw,52px) clamp(16px,4vw,72px);background:#fff;}
+    .external-form-card{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:var(--badiani-blue,#1e398d);color:#fff;padding:clamp(22px,3vw,38px);box-shadow:0 16px 40px rgba(30,57,141,.18);}
+    .external-form-card h2{font-size:clamp(28px,4vw,58px);line-height:.95;margin:0;text-transform:uppercase;color:#fff;}
+    .external-form-card p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:18px;}
+    .external-form-card__btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--badiani-blue,#1e398d);text-decoration:none;padding:14px 18px;text-transform:uppercase;letter-spacing:1.3px;font-weight:700;transition:transform .25s ease,background .25s ease,color .25s ease;}
+    .external-form-card__btn:hover{transform:translateY(-2px);background:var(--badiani-pink,#f067a6);color:#fff;}
+    @media(max-width:760px){.choice-section{min-height:auto;padding-top:28px}.home-entry{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr}.choice-card{min-height:250px}.home-proof-strip{grid-template-columns:1fr 1fr}.external-form-card{grid-template-columns:1fr}.external-form-card__btn{justify-content:center}}
+
+
+    /* QA mobile polish */
+    @media(max-width:760px){
+      .choice-cta{max-width:calc(100% - 20px);white-space:normal;line-height:1.2;align-items:flex-start;padding:11px 13px;font-size:13px;}
+      .choice-cta svg{flex:0 0 18px;margin-top:1px;}
+      .home-proof-strip{grid-template-columns:1fr;}
+      .home-proof{min-height:auto;padding:14px 16px;}
+      .home-proof span{white-space:normal;}
+      .external-form-card{padding:24px 20px;}
+    }
+
   </style>
 </head>
 <body>
@@ -1203,217 +1244,45 @@
 
   <section class="choice-section" id="main-content" data-i18n-attr="aria-label:home.choice.label">
     <div class="home-entry">
-      <span class="home-entry__eyebrow" data-i18n="home.entry.eyebrow">Firenze 1932 · Gelato artigianale</span>
-      <h1 class="home-entry__title" data-i18n="home.entry.title">Eventi e soluzioni B2B Badiani</h1>
-      <p class="home-entry__subtitle" data-i18n="home.entry.subtitle">Scegli il percorso più adatto: esperienze su misura per i tuoi eventi o catalogo gelato per hospitality, catering e ristorazione.</p>
+      <div>
+        <span class="home-entry__eyebrow" data-i18n="home.entry.eyebrow">Firenze 1932 · Gelato artigianale</span>
+        <h1 class="home-entry__title" data-i18n="home.entry.title">Eventi e soluzioni B2B Badiani</h1>
+      </div>
+      <p class="home-entry__subtitle" data-i18n="home.entry.subtitle">Scegli subito il percorso: eventi, catering e occasioni speciali oppure catalogo B2B per hospitality e ristorazione.</p>
     </div>
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
-        <img class="choice-card__img" src="assets/images/eventi/carretto_gelato/foto4.webp" alt="Eventi" loading="lazy" decoding="async" data-i18n-attr="alt:home.card.eventi.title" />
+        <img class="choice-card__img" src="assets/images/eventi/carretto_gelato/foto4.webp" alt="Eventi" loading="eager" decoding="async" data-i18n-attr="alt:home.card.eventi.title" />
         <div class="choice-card__overlay">
-          <div class="choice-card__heading-group">
-            <h2 class="choice-title title-accent title-accent--light" data-i18n="home.card.eventi.title">EVENTI</h2>
-          </div>
-          <span class="choice-cta" aria-hidden="true">
-            <span data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</span>
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-          </span>
+          <h2 class="choice-title title-accent title-accent--light" data-i18n="home.card.eventi.title">EVENTI</h2>
+          <span class="choice-cta" aria-hidden="true"><span data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg></span>
         </div>
       </a>
       <a class="choice-card" href="b2b/" data-i18n-attr="aria-label:home.choice.b2b.aria">
-        <img class="choice-card__img" src="assets/images/categories/b2b-hero.webp" alt="B2B" loading="lazy" decoding="async" width="1200" height="1026" />
+        <img class="choice-card__img" src="assets/images/categories/b2b-hero.webp" alt="B2B" loading="eager" decoding="async" width="1200" height="1026" />
         <div class="choice-card__overlay">
-          <div class="choice-card__heading-group">
-            <h2 class="choice-title title-accent title-accent--light">B2B</h2>
-          </div>
-          <span class="choice-cta" aria-hidden="true">
-            <span data-i18n="home.choice.b2b.desc">Soluzioni gelato per catering, hotel</span>
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-          </span>
+          <h2 class="choice-title title-accent title-accent--light">B2B</h2>
+          <span class="choice-cta" aria-hidden="true"><span data-i18n="home.choice.b2b.desc">Catalogo B2B per hotel e catering</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg></span>
         </div>
       </a>
     </div>
-  </section>
-
-  <!-- BADIANI NEL MONDO — split-screen (metrics + timeline) -->
-  <section id="heritage" class="world-section">
-    <div class="world-grid">
-      <!-- LEFT: Metrics -->
-      <div class="world-card world-card--metrics">
-        <img class="world-card__paolo" src="assets/paolo%20pomposi.webp" alt="Paolo Pomposi" loading="lazy" decoding="async" width="1000" height="1405" />
-        <h2 class="world-card__title title-accent" data-i18n="heritage.title">BADIANI NEL MONDO VUOL DIRE GELATO</h2>
-        <p class="world-card__desc" data-i18n-html="heritage.intro">
-          Nata a <span class="highlight-pink">Firenze nel 1932</span>, Badiani è uno dei produttori di gelato più prestigiosi al mondo. Dalla culla del gelato, abbiamo costruito una presenza internazionale in cinque paesi su tre continenti.
-        </p>
-        <div class="stats">
-          <div class="stat" tabindex="0">
-            <div class="stat-num">1932</div>
-            <div class="stat-label" data-i18n="heritage.stat.founded">Fondata a Firenze</div>
-          </div>
-          <div class="stat" tabindex="0">
-            <div class="stat-num">30+</div>
-            <div class="stat-label" data-i18n="heritage.stat.stores">Negozi nel Mondo</div>
-          </div>
-          <div class="stat" tabindex="0">
-            <div class="stat-num">100%</div>
-            <div class="stat-label" data-i18n="heritage.stat.quality">Qualità Italiana</div>
-          </div>
-          <div class="stat" tabindex="0">
-            <div class="stat-num">5</div>
-            <div class="stat-label" data-i18n="heritage.stat.countries">Paesi</div>
-          </div>
-        </div>
-      </div>
-      <!-- RIGHT: Worldwide -->
-      <div id="locations" class="world-card world-card--timeline">
-        <h2 class="world-card__title title-accent title-accent--light" data-i18n="global.mid">
-          Vuol Dire
-        </h2>
-        <div class="world-card__gelato-wrap">
-          <span class="world-card__gelato-big">Gelato</span>
-        </div>
-      </div>
+    <div class="home-proof-strip" aria-label="Badiani in breve">
+      <div class="home-proof"><strong>1932</strong><span>Firenze</span></div>
+      <div class="home-proof"><strong>30+</strong><span>Negozi nel mondo</span></div>
+      <div class="home-proof"><strong>5</strong><span>Paesi</span></div>
+      <div class="home-proof"><strong>1</strong><span>Form unico richieste</span></div>
     </div>
   </section>
 
-  <!-- STORIA DI BADIANI + GELATO (split-screen) -->
-  <section id="story" class="story-section">
-    <div class="story-grid">
-      <div class="story-card story-card--storia">
-        <img class="story-card__img" src="assets/storia.webp" alt="Badiani 1932 Firenze" loading="lazy" decoding="async" width="1657" height="1195" />
-        <div class="story-card__overlay">
-          <h2 class="story-card__title title-accent title-accent--light" data-i18n="story.title">LA STORIA</h2>
-          <p class="story-card__desc" data-i18n-html="story.text">
-            Nell'estate del <span class="highlight-pink">1932</span>, il gelatiere Idilio Badiani apre la sua prima gelateria a Firenze. Nel 1993 il brand viene acquisito da <span class="highlight-pink">Orazio Pomposi</span> che, insieme ai figli Paolo e Patrizio, porta Badiani a nuovi traguardi attraverso innovazione e creatività. Il gusto più celebre, il <span class="highlight-pink">Buontalenti</span>, resta il simbolo della tradizione fiorentina. Dal 2015 Badiani è anche a Londra con negozi e laboratorio dedicato, guidata dal Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.
-          </p>
-        </div>
-      </div>
-      <div class="story-card story-card--gelato">
-        <div class="story-card__overlay">
-          <h2 class="story-card__title title-accent" data-i18n-html="gelato.titleHtml">IL <span style="white-space:nowrap">BUONTALENTI<span class="story-card__reg">®</span></span></h2>
-          <p class="story-card__desc" data-i18n-html="gelato.text">
-            Il Buontalenti® è un marchio registrato di Badiani e il gelato più famoso di Firenze: nato negli anni ‘70 come omaggio all’architetto Bernardo Buontalenti, inventore del gelato. Da allora lo abbiamo portato nel mondo come simbolo del Made in Italy.<br><br><strong>Cosa lo rende speciale?</strong><br>• <span class="highlight-pink">Semplicità perfetta</span> — solo 4 ingredienti: panna, latte, zucchero e uova.<br>• <span class="highlight-pink">Innovazione premiata</span> — varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Versatilità totale</span> — cono, coppa, torte gelato e monoporzioni.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RICHIEDI INFORMAZIONI -->
   <section id="contatti" class="home-form-section" data-i18n-attr="aria-label:home.form.label">
-    <div class="home-form-block">
-      <div class="home-form-header">
-        <h2 data-i18n="home.form.title">Richiedi Informazioni</h2>
-        <p data-i18n="home.form.subtitle">Compila il modulo e ti ricontatteremo</p>
+    <div class="external-form-card">
+      <div>
+        <h2>Richiedi informazioni</h2>
+        <p>Un solo modulo per eventi, aziende e richieste B2B. Più semplice, più pulito, più veloce.</p>
       </div>
-      <div class="home-form-body">
-        <form id="homeRequestForm" action="https://formsubmit.co/eventi@badiani1932.com" method="POST">
-          <input type="hidden" name="_next" value="">
-          <input type="hidden" name="_subject" value="Richiesta Informazioni dal sito Badiani">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="box">
-          <div class="home-form-grid">
-            <div class="hf-field">
-              <label for="hf-nome" data-i18n="home.form.nome">Nome *</label>
-              <input id="hf-nome" name="nome" type="text" placeholder="Il tuo nome" data-i18n-attr="placeholder:home.form.nome_ph" autocomplete="given-name" required />
-            </div>
-            <div class="hf-field">
-              <label for="hf-cognome" data-i18n="home.form.cognome">Cognome *</label>
-              <input id="hf-cognome" name="cognome" type="text" placeholder="Il tuo cognome" data-i18n-attr="placeholder:home.form.cognome_ph" autocomplete="family-name" required />
-            </div>
-            <div class="hf-field">
-              <label for="hf-email" data-i18n="home.form.email">Email *</label>
-              <input id="hf-email" name="email" type="email" placeholder="email@esempio.com" data-i18n-attr="placeholder:home.form.email_ph" autocomplete="email" required />
-            </div>
-            <div class="hf-field">
-              <label for="hf-telefono" data-i18n="home.form.telefono">Telefono *</label>
-              <input id="hf-telefono" name="telefono" type="tel" placeholder="+39 ..." data-i18n-attr="placeholder:home.form.telefono_ph" autocomplete="tel" required />
-            </div>
-            <div class="hf-field">
-              <label data-i18n="home.form.contactPref">Preferenza di contatto *</label>
-              <div class="hf-radio-group">
-                <label><input type="radio" name="preferenza_contatto" value="telefono" checked /> <span data-i18n="home.form.contactPref.phone">Telefono</span></label>
-                <label><input type="radio" name="preferenza_contatto" value="email" /> <span data-i18n="home.form.contactPref.email">Email</span></label>
-              </div>
-            </div>
-            <div class="hf-field">
-              <label for="hf-interesse" data-i18n="home.form.interesse">Interessato a *</label>
-              <select id="hf-interesse" name="interesse" required>
-                <option value="" disabled selected data-i18n="home.form.interesse_select">Seleziona...</option>
-                <option value="eventi" data-i18n="home.form.interesse_eventi">Eventi</option>
-                <option value="b2b" data-i18n="home.form.interesse_b2b">B2B</option>
-                <option value="altro" data-i18n="home.form.interesse_altro">Altro</option>
-              </select>
-            </div>
-            <div class="hf-field full-width">
-              <label for="hf-messaggio" data-i18n="home.form.messaggio">Messaggio</label>
-              <textarea id="hf-messaggio" name="messaggio" placeholder="Descrivi le tue esigenze o richieste..." data-i18n-attr="placeholder:home.form.messaggio_ph"></textarea>
-            </div>
-          </div>
-          <div class="home-form-actions">
-            <label class="hf-privacy">
-              <input type="checkbox" required />
-              <span data-i18n-html="home.form.privacy">Ho letto e accetto la <a href="privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.</span>
-            </label>
-            <button type="submit" class="home-form-submit">
-              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-              <span data-i18n="home.form.submit">Invia Richiesta</span>
-            </button>
-          </div>
-        </form>
-      </div>
+      <a class="external-form-card__btn" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Apri il modulo →</a>
     </div>
   </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-col footer-brand">
-        <a href="./" class="footer-logo-link">
-          <img src="assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" />
-        </a>
-        <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
-      </div>
-      <div class="footer-col">
-        <h3 data-i18n="footer.nav">Navigazione</h3>
-        <ul>
-          <li><a href="./" data-i18n="footer.home">Home</a></li>
-          <li><a href="eventi/" data-i18n="footer.eventi">Eventi</a></li>
-          <li><a href="b2b/" data-i18n="footer.b2b">B2B</a></li>
-          <li><a href="magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3 data-i18n="footer.contatti">Contatti</h3>
-        <ul>
-          <li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li>
-          <li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3 data-i18n="footer.legale">Legale</h3>
-        <ul>
-          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
-          <li><a href="cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p>
-    </div>
-  </footer>
-
-  <!-- COOKIE CONSENT BANNER -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
-    <p class="cookie-banner__text" data-i18n-html="cookie.text">
-      Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Nessun cookie di profilazione.
-      <a href="cookie-policy.html">Maggiori informazioni</a>
-    </p>
-    <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
-      <a href="cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
-    </div>
-  </div>
 
   <script>
     (function(){
@@ -1469,7 +1338,7 @@
           'home.choice.eventi.desc': 'Feste private ed eventi su misura',
           'home.choice.eventi.aria': 'Vai alla pagina Eventi',
           'home.choice.b2b.label': 'Partnership',
-          'home.choice.b2b.desc': 'Soluzioni gelato per catering, hotel',
+          'home.choice.b2b.desc': 'Catalogo B2B per hotel e catering',
           'home.choice.b2b.aria': 'Vai alla pagina B2B',
           'home.choice.magazine.desc': 'Rassegna stampa con articoli su Badiani',
           'home.choice.magazine.note': 'Sfoglia le anteprime dei media',
@@ -1592,7 +1461,7 @@
           'home.choice.eventi.desc': 'Private parties and bespoke events',
           'home.choice.eventi.aria': 'Go to Events page',
           'home.choice.b2b.label': 'Partnership',
-          'home.choice.b2b.desc': 'Gelato solutions for catering, hotels',
+          'home.choice.b2b.desc': 'B2B catalogue for hotels and catering',
           'home.choice.b2b.aria': 'Go to B2B page',
           'home.choice.magazine.desc': 'Press review with articles about Badiani',
           'home.choice.magazine.note': 'Browse media previews',
@@ -1715,7 +1584,7 @@
           'home.choice.eventi.desc': 'Fêtes privées et événements sur mesure',
           'home.choice.eventi.aria': 'Aller à la page Événements',
           'home.choice.b2b.label': 'Partenariat',
-          'home.choice.b2b.desc': 'Solutions gelato pour traiteurs, hôtels',
+          'home.choice.b2b.desc': 'Catalogue B2B hôtels et catering',
           'home.choice.b2b.aria': 'Aller à la page B2B',
           'home.choice.magazine.desc': 'Revue de presse avec des articles sur Badiani',
           'home.choice.magazine.note': 'Parcourez les aperçus des médias',
@@ -1863,7 +1732,7 @@
           'home.choice.eventi.desc': 'Fiestas privadas y eventos a medida',
           'home.choice.eventi.aria': 'Ir a la página de Eventos',
           'home.choice.b2b.label': 'Asociación',
-          'home.choice.b2b.desc': 'Soluciones de helado para catering, hoteles',
+          'home.choice.b2b.desc': 'Catálogo B2B para hoteles y cateringes',
           'home.choice.b2b.aria': 'Ir a la página B2B',
           'home.choice.magazine.desc': 'Recopilación de prensa con artículos sobre Badiani',
           'home.choice.magazine.note': 'Explora las vistas previas de los medios',
@@ -2039,154 +1908,6 @@
 
 
 
-
-    /* Home form submit handler - sends payload to Worker API */
-    (function(){
-      var form = document.getElementById('homeRequestForm');
-      if(!form) return;
-
-      /* Set _next to current page URL for FormSubmit redirect */
-      var nextField = form.querySelector('input[name="_next"]');
-      if(nextField) nextField.value = window.location.href.split('?')[0] + '?sent=1';
-
-      /* Show success if redirected back after FormSubmit activation */
-      if(/[?&]sent=1/.test(window.location.search)){
-        var fb = document.createElement('p');
-        fb.className = 'form-feedback is-success';
-        fb.style.cssText = 'margin-top:12px;font-size:18px;font-weight:600;color:#127c56;';
-        fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
-        form.appendChild(fb);
-        fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      var CONTACT_API_ENDPOINT = 'https://formsubmit.co/ajax/eventi@badiani1932.com';
-
-      function getSubmitButton(){
-        return form.querySelector('button[type="submit"], input[type="submit"]');
-      }
-
-      function setSubmitting(submitting){
-        var btn = getSubmitButton();
-        if(!btn) return;
-        if(submitting){
-          if(!btn.dataset.originalText){
-            btn.dataset.originalText = (btn.textContent || '').trim();
-          }
-          btn.disabled = true;
-          btn.setAttribute('aria-busy', 'true');
-          btn.textContent = 'Invio in corso...';
-          return;
-        }
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        if(btn.dataset.originalText){
-          btn.textContent = btn.dataset.originalText;
-        }
-      }
-
-      function showFormFeedback(message, isError){
-        var feedback = form.querySelector('.form-feedback');
-        if(!feedback){
-          feedback = document.createElement('p');
-          feedback.className = 'form-feedback';
-          feedback.setAttribute('role', 'status');
-          feedback.setAttribute('aria-live', 'polite');
-          feedback.style.marginTop = '12px';
-          feedback.style.fontSize = '14px';
-          feedback.style.fontWeight = '600';
-          form.appendChild(feedback);
-        }
-        var isProgress = /in corso/i.test(message);
-        feedback.classList.remove('is-progress', 'is-success', 'is-error');
-        feedback.classList.add(isProgress ? 'is-progress' : (isError ? 'is-error' : 'is-success'));
-        feedback.style.color = isError ? '#b42318' : '#127c56';
-        feedback.textContent = message;
-        if(!isProgress){
-          feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }
-
-      function normalizeFormEntries(fd){
-        var out = {};
-        fd.forEach(function(value, key){
-          if(Object.prototype.hasOwnProperty.call(out, key)){
-            if(Array.isArray(out[key])) out[key].push(value);
-            else out[key] = [out[key], value];
-          } else {
-            out[key] = value;
-          }
-        });
-        return out;
-      }
-
-      form.addEventListener('submit', async function(e){
-        e.preventDefault();
-
-        var labels = {
-          nome: 'Nome', cognome: 'Cognome', email: 'Email',
-          telefono: 'Telefono', preferenza_contatto: 'Preferenza di contatto',
-          interesse: 'Interessato a', messaggio: 'Messaggio'
-        };
-
-        var lines = ['=== RICHIESTA INFORMAZIONI ===', ''];
-        var fd = new FormData(form);
-        var seen = {};
-
-        for(var pair of fd.entries()){
-          var key = pair[0], val = pair[1];
-          if(!val) continue;
-          if(seen[key]) continue;
-          seen[key] = true;
-          var label = labels[key] || key;
-          lines.push(label + ': ' + val);
-        }
-
-        lines.push('', '--- Fine richiesta ---');
-
-        var interesse = (fd.get('interesse') || 'generale').toString();
-        var subject = 'Richiesta Informazioni - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || '');
-        var body = lines.join('\n');
-
-        var senderEmail = (fd.get('email') || '').toString().trim();
-        var fsData = new FormData();
-        fsData.append('name', ((fd.get('nome') || '') + ' ' + (fd.get('cognome') || '')).trim());
-        fsData.append('email', senderEmail);
-        fsData.append('message', body);
-        fsData.append('_subject', subject.trim());
-        fsData.append('_replyto', senderEmail);
-        fsData.append('_captcha', 'false');
-
-        setSubmitting(true);
-        showFormFeedback('Invio in corso... ti risponderemo a breve.', false);
-
-        try {
-          var response = await fetch(CONTACT_API_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: fsData
-          });
-
-          var result = {};
-          try { result = await response.json(); } catch(err) {}
-          if(result.message && /activation/i.test(result.message)){
-            form.submit();
-            return;
-          }
-          if(!result.success || result.success === 'false'){
-            throw new Error(result.message || 'Invio fallito');
-          }
-
-          showFormFeedback('Invio riuscito! Ti risponderemo al più presto.', false);
-          form.reset();
-        } catch (error) {
-          console.error('Home form submit error:', error);
-          form.submit();
-          return;
-        } finally {
-          setSubmitting(false);
-        }
-      });
-    })();
 
     /* Cookie consent banner */
     (function(){

@@ -1198,6 +1198,15 @@
       .modal-panel{ animation:none; }
       .modal-hero__img{ transition:none; }
     }
+
+    /* ===== UNIFIED EXTERNAL FORM CARD ===== */
+    .external-form-card{max-width:1100px;margin:0 auto;background:var(--badiani-blue,#1e398d);color:#fff;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;box-shadow:0 18px 46px rgba(30,57,141,.18);}
+    .external-form-card h2{margin:0;color:#fff;font-size:clamp(30px,5vw,72px);line-height:.9;text-transform:uppercase;letter-spacing:1px;}
+    .external-form-card p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:18px;line-height:1.4;max-width:620px;}
+    .external-form-card__btn{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--badiani-blue,#1e398d);text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;padding:14px 18px;transition:transform .25s ease,background .25s ease,color .25s ease;}
+    .external-form-card__btn:hover{transform:translateY(-2px);background:var(--badiani-pink,#f067a6);color:#fff;}
+    @media(max-width:760px){.external-form-card{grid-template-columns:1fr}.external-form-card__btn{width:100%;}}
+
   </style>
 </head>
 <body>
@@ -1362,90 +1371,13 @@
   </section>
 
   <!-- FORM — sfondo.webp background -->
-  <section id="contatti" class="ext-form-section" data-i18n-attr="aria-label:external.contact.title">
-    <div class="ext-form-block">
-      <div class="ext-form-header">
-        <h2 data-i18n="external.form.title">Richiedi Informazioni</h2>
-        <p data-i18n="external.form.subtitle">Compila il modulo e ti ricontatteremo</p>
+  <section id="contatti" class="ext-form-section" aria-label="Modulo unico Badiani">
+    <div class="external-form-card">
+      <div>
+        <h2>Richiedi evento</h2>
+        <p>Apri il modulo unico Badiani e indica location, data e soluzione desiderata.</p>
       </div>
-      <div class="ext-form-body">
-        <form id="externalRequestForm" action="https://formsubmit.co/eventi@badiani1932.com" method="POST">
-          <input type="hidden" name="_next" value="">
-          <input type="hidden" name="_subject" value="Richiesta Evento Esterno dal sito Badiani">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <div class="ext-form-grid">
-            <div class="ef-field">
-              <label for="ext-nome" data-i18n="external.form.firstName">Nome *</label>
-              <input id="ext-nome" name="nome" type="text" placeholder="Il tuo nome&#8230;" data-i18n-attr="placeholder:external.form.firstName.placeholder" autocomplete="given-name" required />
-            </div>
-            <div class="ef-field">
-              <label for="ext-cognome" data-i18n="external.form.lastName">Cognome *</label>
-              <input id="ext-cognome" name="cognome" type="text" placeholder="Il tuo cognome&#8230;" data-i18n-attr="placeholder:external.form.lastName.placeholder" autocomplete="family-name" required />
-            </div>
-            <div class="ef-field">
-              <label for="ext-tipo" data-i18n="external.form.clientType">Azienda o Privato *</label>
-              <select id="ext-tipo" name="tipo" required>
-                <option value="" disabled selected data-i18n="external.form.clientType.placeholder">Seleziona&#8230;</option>
-                <option value="azienda" data-i18n="external.form.clientType.company">Azienda</option>
-                <option value="privato" data-i18n="external.form.clientType.private">Privato</option>
-              </select>
-            </div>
-            <div class="ef-field">
-              <label for="ext-telefono" data-i18n="external.form.phone">Telefono *</label>
-              <input id="ext-telefono" name="telefono" type="tel" placeholder="+39 &#8230;" data-i18n-attr="placeholder:external.form.phone.placeholder" autocomplete="tel" required />
-            </div>
-            <div class="ef-field">
-              <label for="ext-data" data-i18n="external.form.eventDate">Data</label>
-              <input id="ext-data" name="data" type="date" />
-            </div>
-            <div class="ef-field">
-              <label for="ext-orario" data-i18n="external.form.eventTime">Orario</label>
-              <input id="ext-orario" name="orario" type="time" />
-            </div>
-            <div class="ef-field">
-              <label for="ext-persone" data-i18n="external.form.guests">Numero Persone</label>
-              <input id="ext-persone" name="persone" type="number" min="1" placeholder="Es. 50" data-i18n-attr="placeholder:external.form.guests.placeholder" />
-            </div>
-            <div class="ef-field">
-              <label data-i18n="external.form.extras">Opzioni Extra?</label>
-              <div class="ef-radio-group">
-                <label><input type="radio" name="extra" value="si" /> <span data-i18n="external.form.extras.yes">S&#236;</span></label>
-                <label><input type="radio" name="extra" value="no" checked /> <span data-i18n="external.form.extras.no">No</span></label>
-              </div>
-              <div class="ef-extras-panel" id="extrasEsterno">
-                <div class="ef-checkbox-group">
-                  <label><input type="checkbox" name="extras[]" value="allestimento-tema" /> <span data-i18n="external.form.extras.themedDecor">Allestimento a tema</span></label>
-                  <label><input type="checkbox" name="extras[]" value="cake-designer" /> <span data-i18n="external.form.extras.cakeDesigner">Prodotti dolciari creati dal Cake Designer</span></label>
-                  <label><input type="checkbox" name="extras[]" value="gusto-personalizzato" /> <span data-i18n="external.form.extras.customFlavour">Gusto di gelato personalizzato o su richiesta</span></label>
-                  <label><input type="checkbox" name="extras[]" value="torta-ricorrenza" /> <span data-i18n="external.form.extras.celebrationCake">Torta di ricorrenza</span></label>
-                  <label><input type="checkbox" name="extras[]" value="dj-set" /> <span data-i18n="external.form.extras.djSet">Dj set</span></label>
-                </div>
-              </div>
-            </div>
-            <div class="ef-field full-width">
-              <label data-i18n="external.form.eventInterest">Evento di interesse *</label>
-              <div class="ef-checkbox-group">
-                <label><input type="checkbox" name="evento[]" value="saletta-privata" /> <span data-i18n="external.form.eventInterest.privateRoom">Saletta Privata</span></label>
-                <label><input type="checkbox" name="evento[]" value="carretto-gelato" checked /> <span data-i18n="external.form.eventInterest.carretto">Carretto Gelato</span></label>
-                <label><input type="checkbox" name="evento[]" value="coolbox" checked /> <span data-i18n="external.form.eventInterest.coolbox">Coolbox</span></label>
-                <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="external.form.eventInterest.van">Gelato Van</span></label>
-                <label><input type="checkbox" name="evento[]" value="su-misura" /> <span data-i18n="external.form.eventInterest.tailored">Evento Aziendale su Misura</span></label>
-              </div>
-            </div>
-          </div>
-          <div class="ext-form-actions">
-            <label class="ef-privacy">
-              <input type="checkbox" required />
-              <span data-i18n-html="external.form.privacy">Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.</span>
-            </label>
-            <button type="submit" class="ext-form-submit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-              <span data-i18n="external.form.submit">Invia Richiesta</span>
-            </button>
-          </div>
-        </form>
-      </div>
+      <a class="external-form-card__btn" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Apri il modulo →</a>
     </div>
   </section>
 
@@ -1707,191 +1639,7 @@
       });
     })();
 
-    // Evento esterno form submit handler - send structured payload to Worker API
-    (function(){
-      var form = document.getElementById('externalRequestForm');
-      if(!form) return;
-      var CONTACT_API_ENDPOINT = 'https://formsubmit.co/ajax/eventi@badiani1932.com';
 
-      /* Set _next and show success on redirect back */
-      var nextField = form.querySelector('input[name="_next"]');
-      if(nextField) nextField.value = window.location.href.split('?')[0] + '?sent=1';
-      if(/[?&]sent=1/.test(window.location.search)){
-        var fb = document.createElement('p');
-        fb.className = 'form-feedback is-success';
-        fb.style.cssText = 'margin-top:12px;font-size:18px;font-weight:600;color:#127c56;';
-        fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
-        form.appendChild(fb);
-        fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      function getSubmitButton(){
-        return form.querySelector('button[type="submit"], input[type="submit"]');
-      }
-
-      function setSubmitting(submitting){
-        var btn = getSubmitButton();
-        if(!btn) return;
-        if(submitting){
-          if(!btn.dataset.originalText){
-            btn.dataset.originalText = (btn.textContent || '').trim();
-          }
-          btn.disabled = true;
-          btn.setAttribute('aria-busy', 'true');
-          btn.textContent = 'Invio in corso...';
-          return;
-        }
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        if(btn.dataset.originalText){
-          btn.textContent = btn.dataset.originalText;
-        }
-      }
-
-      function showFormFeedback(message, isError){
-        var feedback = form.querySelector('.form-feedback');
-        if(!feedback){
-          feedback = document.createElement('p');
-          feedback.className = 'form-feedback';
-          feedback.setAttribute('role', 'status');
-          feedback.setAttribute('aria-live', 'polite');
-          feedback.style.marginTop = '12px';
-          feedback.style.fontSize = '14px';
-          feedback.style.fontWeight = '600';
-          form.appendChild(feedback);
-        }
-        var isProgress = /in corso/i.test(message);
-        feedback.classList.remove('is-progress', 'is-success', 'is-error');
-        feedback.classList.add(isProgress ? 'is-progress' : (isError ? 'is-error' : 'is-success'));
-        feedback.style.color = isError ? '#b42318' : '#127c56';
-        feedback.textContent = message;
-        if(!isProgress){
-          feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }
-
-      function normalizeFormEntries(fd){
-        var out = {};
-        fd.forEach(function(value, key){
-          if(Object.prototype.hasOwnProperty.call(out, key)){
-            if(Array.isArray(out[key])) out[key].push(value);
-            else out[key] = [out[key], value];
-          } else {
-            out[key] = value;
-          }
-        });
-        return out;
-      }
-
-      async function postToContactApi(payload){
-        var msg = payload.message || payload.body || payload.text || '';
-        var sub = payload.subject || 'Richiesta dal sito Badiani';
-        var s = payload.structured || payload.fields || {};
-        var replyEmail = s.email || '';
-        var fsPayload = { message: msg, _subject: sub, _captcha: 'false', _template: 'table' };
-        var senderName = ((s.nome || '') + ' ' + (s.cognome || '')).trim();
-        if(senderName) fsPayload.name = senderName;
-        if(replyEmail){ fsPayload.email = replyEmail; fsPayload._replyto = replyEmail; }
-
-        var formData = new FormData();
-        Object.keys(fsPayload).forEach(function(k){ formData.append(k, fsPayload[k]); });
-        var response = await fetch(CONTACT_API_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        });
-
-        var result = {};
-        try { result = await response.json(); } catch(e) {}
-        if(!result.success || result.success === 'false'){
-          throw new Error(result.message || 'Invio fallito');
-        }
-        return result;
-      }
-
-      function addLine(lines, label, value){
-        if(value === undefined || value === null) return;
-        var v = String(value).trim();
-        if(!v) return;
-        lines.push(label + ': ' + v);
-      }
-
-      function getSelectText(name){
-        var select = form.querySelector('select[name="' + name + '"]');
-        if(!select) return '';
-        var idx = select.selectedIndex;
-        if(idx < 0) return '';
-        return (select.options[idx].textContent || '').trim();
-      }
-
-      function getCheckedRadioLabel(name){
-        var input = form.querySelector('input[name="' + name + '"]:checked');
-        if(!input) return '';
-        var label = input.closest('label');
-        return label ? label.textContent.trim().replace(/\s+/g, ' ') : (input.value || '');
-      }
-
-      form.addEventListener('submit', async function(e){
-        e.preventDefault();
-        setSubmitting(true);
-        showFormFeedback('Invio in corso... ti risponderemo a breve.', false);
-
-        var fd = new FormData(form);
-        var firstName = (fd.get('nome') || '').toString().trim();
-        var lastName = (fd.get('cognome') || '').toString().trim();
-        var fullName = (firstName + ' ' + lastName).trim();
-
-        var lines = [
-          '=== RICHIESTA INFORMAZIONI EVENTO ESTERNO ===',
-          ''
-        ];
-
-        addLine(lines, 'Nome', firstName);
-        addLine(lines, 'Cognome', lastName);
-        addLine(lines, 'Azienda o Privato', getSelectText('tipo') || fd.get('tipo'));
-        addLine(lines, 'Telefono', fd.get('telefono'));
-        addLine(lines, 'Data evento', (fd.get('data')||'').replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1'));
-        addLine(lines, 'Orario', fd.get('orario'));
-        addLine(lines, 'Numero persone', fd.get('persone'));
-        addLine(lines, 'Opzioni extra?', getCheckedRadioLabel('extra') || fd.get('extra'));
-
-        var extras = fd.getAll('extras[]').filter(function(v){ return String(v || '').trim(); });
-        if(extras.length) addLine(lines, 'Opzioni extra selezionate', extras.join(', '));
-
-        var eventi = fd.getAll('evento[]').filter(function(v){ return String(v || '').trim(); });
-        if(eventi.length) addLine(lines, 'Eventi di interesse', eventi.join(', '));
-
-        lines.push('', '--- Fine richiesta ---');
-
-        var payload = {
-          to: 'eventi@badiani1932.com',
-          subject: 'Richiesta Informazioni Evento Esterno - ' + (fullName || 'Contatto sito'),
-          text: lines.join('\n'),
-          meta: {
-            sourcePage: window.location.href,
-            formId: 'externalRequestForm',
-            channel: 'evento-esterno'
-          },
-          fields: normalizeFormEntries(fd)
-        };
-
-        try{
-          await postToContactApi(payload);
-          showFormFeedback('Invio riuscito! Ti risponderemo al più presto.', false);
-          form.reset();
-          var extrasPanel = document.getElementById('extrasEsterno');
-          if(extrasPanel) extrasPanel.classList.remove('visible');
-        } catch(error){
-          console.error('Evento esterno submit error:', error);
-          var di = form.querySelector('input[name="data"]');
-          if(di && di.value){ di.type = 'text'; di.value = di.value.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1'); }
-          form.submit();
-          return;
-        } finally {
-          setSubmitting(false);
-        }
-      });
-    })();
 
     // i18n System
     (function(){

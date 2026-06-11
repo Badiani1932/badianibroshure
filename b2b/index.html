@@ -3809,6 +3809,88 @@
     @media(prefers-reduced-motion:reduce){
       .listino-pw-input.is-error{ animation:none; }
     }
+
+    /* ===== MARCO MINIMAL B2B BROCHURE PAGE ===== */
+    .page-shell{padding:0;background:#f7f2e8;}
+    .b2b-landing{min-height:calc(100vh - 72px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:clamp(18px,3vw,42px);align-items:center;padding:clamp(24px,5vw,72px);background:#f7f2e8;}
+    .b2b-landing__eyebrow{color:var(--badiani-pink,#f067a6);font-size:14px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin:0 0 10px;}
+    .b2b-landing__title{font-family:'SuperGroteskB',sans-serif;font-size:clamp(48px,7.2vw,118px);line-height:.86;text-transform:uppercase;letter-spacing:1px;color:var(--badiani-blue,#1e398d);margin:0 0 14px;max-width:850px;}
+    .b2b-landing__text{font-size:clamp(17px,1.45vw,22px);line-height:1.45;color:rgba(30,57,141,.72);max-width:620px;margin:0 0 18px;}
+    .b2b-action-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+    .b2b-action-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 16px;background:var(--badiani-blue,#1e398d);color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;border:1px solid var(--badiani-blue,#1e398d);transition:transform .22s ease,background .22s ease,color .22s ease;}
+    .b2b-action-btn:hover,.b2b-action-btn:focus-visible{transform:translateY(-2px);background:var(--badiani-pink,#f067a6);border-color:var(--badiani-pink,#f067a6);}
+    .b2b-action-btn--ghost{background:#fff;color:var(--badiani-blue,#1e398d);}
+    .b2b-landing__media{position:relative;min-height:520px;overflow:hidden;background:var(--badiani-blue,#1e398d);box-shadow:0 22px 50px rgba(30,57,141,.18);}
+    .b2b-landing__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.88;transition:transform .8s cubic-bezier(.22,1,.36,1);}
+    .b2b-landing__media:hover img{transform:scale(1.04);}
+    .b2b-landing__badge{position:absolute;left:18px;right:18px;bottom:18px;background:#fff;color:var(--badiani-blue,#1e398d);padding:16px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;box-shadow:0 12px 28px rgba(0,0,0,.18);}
+    .b2b-landing__badge strong{display:block;color:var(--badiani-pink,#f067a6);font-size:24px;line-height:1;}
+    .b2b-landing__badge span{display:block;margin-top:4px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:rgba(30,57,141,.65);}
+    .b2b-quicknav{position:sticky;top:64px;z-index:10;display:flex;gap:8px;overflow-x:auto;padding:10px clamp(16px,4vw,72px);background:rgba(247,242,232,.92);backdrop-filter:blur(14px);border-block:1px solid rgba(30,57,141,.10);scrollbar-width:none;}
+    .b2b-quicknav::-webkit-scrollbar{display:none;}
+    .b2b-quicknav button,.b2b-quicknav a{flex:0 0 auto;border:1px solid rgba(30,57,141,.16);background:#fff;color:var(--badiani-blue,#1e398d);padding:10px 13px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease;}
+    .b2b-quicknav button:hover,.b2b-quicknav a:hover{background:var(--badiani-blue,#1e398d);color:#fff;transform:translateY(-1px);}
+    .b2b-catalog-min{padding:clamp(26px,4vw,60px) clamp(16px,4vw,72px);}
+    .b2b-section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;max-width:1180px;margin:0 auto 18px;}
+    .b2b-section-head h2{font-size:clamp(34px,5vw,74px);line-height:.9;color:var(--badiani-blue,#1e398d);text-transform:uppercase;margin:0;}
+    .b2b-section-head p{max-width:420px;margin:0;color:rgba(30,57,141,.68);font-size:17px;line-height:1.45;}
+    .b2b-route-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+    .b2b-route-card{position:relative;min-height:260px;overflow:hidden;border:0;background:#101f5b;color:#fff;cursor:pointer;text-align:left;padding:0;font:inherit;box-shadow:0 16px 34px rgba(30,57,141,.15);}
+    .b2b-route-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;transition:transform .65s cubic-bezier(.22,1,.36,1),opacity .25s ease;}
+    .b2b-route-card:hover img,.b2b-route-card:focus-visible img{transform:scale(1.06);opacity:.68;}
+    .b2b-route-card__body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:18px;background:linear-gradient(180deg,rgba(18,35,92,.12),rgba(18,35,92,.82));}
+    .b2b-route-card h3{font-size:clamp(26px,3vw,44px);line-height:.92;color:#fff;text-transform:uppercase;margin:0;letter-spacing:.5px;}
+    .b2b-route-card p{color:rgba(255,255,255,.82);font-size:15px;line-height:1.35;max-width:280px;margin:0;}
+    .b2b-route-card__cta{align-self:flex-start;background:#fff;color:var(--badiani-blue,#1e398d);padding:10px 12px;text-transform:uppercase;letter-spacing:1px;font-weight:700;font-size:13px;}
+    .b2b-route-card::after{content:'';position:absolute;left:18px;right:18px;bottom:18px;height:4px;background:var(--badiani-pink,#f067a6);transition:height .25s ease;}
+    .b2b-route-card:hover::after{height:9px;}
+    .b2b-terms-min{padding:0 clamp(16px,4vw,72px) clamp(28px,4vw,58px);}
+    .b2b-terms-min__grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(30,57,141,.12);}
+    .b2b-terms-min__item{background:#fff;padding:16px;color:var(--badiani-blue,#1e398d);}
+    .b2b-terms-min__item strong{display:block;color:var(--badiani-pink,#f067a6);text-transform:uppercase;letter-spacing:1px;font-size:13px;margin-bottom:6px;}
+    .b2b-terms-min__item span{font-size:15px;line-height:1.35;color:rgba(30,57,141,.72);}
+    .b2b-external-form{padding:0 clamp(16px,4vw,72px) clamp(34px,5vw,72px);}
+    .b2b-external-form__card{max-width:1180px;margin:0 auto;background:var(--badiani-blue,#1e398d);color:#fff;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;box-shadow:0 18px 46px rgba(30,57,141,.18);}
+    .b2b-external-form__card h2{margin:0;color:#fff;font-size:clamp(32px,5vw,70px);line-height:.9;text-transform:uppercase;}
+    .b2b-external-form__card p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:18px;line-height:1.4;}
+    .b2b-external-form__card a{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--badiani-blue,#1e398d);text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;padding:14px 18px;transition:transform .25s ease,background .25s ease,color .25s ease;}
+    .b2b-external-form__card a:hover{transform:translateY(-2px);background:var(--badiani-pink,#f067a6);color:#fff;}
+    @media(max-width:900px){.b2b-landing{grid-template-columns:1fr;min-height:auto}.b2b-landing__media{min-height:300px}.b2b-section-head{display:block}.b2b-section-head p{margin-top:10px}.b2b-route-grid{grid-template-columns:1fr 1fr}.b2b-terms-min__grid{grid-template-columns:1fr 1fr}.b2b-external-form__card{grid-template-columns:1fr}.b2b-external-form__card a{justify-content:center}}
+    @media(max-width:560px){.b2b-landing{padding:28px 16px}.b2b-route-grid{grid-template-columns:1fr}.b2b-landing__badge{grid-template-columns:1fr 1fr;position:relative;left:auto;right:auto;bottom:auto;margin:18px;background:#fff}.b2b-terms-min__grid{grid-template-columns:1fr}.b2b-quicknav{top:58px}}
+
+
+    /* QA mobile polish */
+    @media(max-width:560px){
+      .b2b-landing__title{font-size:clamp(40px,13vw,62px);overflow-wrap:normal;}
+      .b2b-landing__text{max-width:100%;overflow-wrap:break-word;}
+      .b2b-action-row{display:grid;grid-template-columns:1fr 1fr;}
+      .b2b-action-btn{justify-content:center;text-align:center;padding:12px 10px;font-size:13px;}
+      .b2b-route-card{min-height:230px;}
+      .b2b-section-head h2{font-size:clamp(34px,12vw,52px);}
+      .b2b-section-head p{overflow-wrap:break-word;}
+    }
+
+
+    /* QA mobile no-overflow pass */
+    @media(max-width:560px){
+      .b2b-landing{overflow:hidden;}
+      .b2b-landing__title{font-size:clamp(34px,11vw,46px);line-height:.92;white-space:normal;overflow-wrap:break-word;word-break:normal;}
+      .b2b-landing__text{font-size:16px;line-height:1.42;}
+      .b2b-action-row{gap:8px;}
+      .b2b-action-btn{font-size:12px;letter-spacing:.7px;white-space:normal;line-height:1.15;min-width:0;}
+      .b2b-section-head h2{font-size:clamp(32px,10vw,42px);line-height:.95;white-space:normal;overflow-wrap:break-word;}
+      .b2b-quicknav{padding-inline:16px;}
+      .b2b-quicknav button,.b2b-quicknav a{font-size:13px;padding:9px 11px;}
+      .cookie-banner{max-width:calc(100vw - 24px);left:12px;right:12px;}
+    }
+
+
+    /* Final mobile CTA fit */
+    @media(max-width:560px){
+      .b2b-action-row{grid-template-columns:1fr;}
+      .b2b-action-btn{width:100%;}
+    }
+
   </style>
 </head>
 <body>
@@ -3906,384 +3988,70 @@
   </nav>
   <main class="page-shell" id="main-content">
 
-    <section class="page-hero">
-      <video class="page-hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="../assets/images/branding/hero-bg.webp">
-        <source src="../assets/video/b2b-homepage-video.mp4" type="video/mp4">
-      </video>
-      <div class="page-hero__heading-group">
-        <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">Gelato Badiani per il B2B</h1>
+    <section class="b2b-landing">
+      <div>
+        <p class="b2b-landing__eyebrow">Catalogo B2B · Firenze 1932</p>
+        <h1 class="b2b-landing__title">Gelato Badiani per professionisti</h1>
+        <p class="b2b-landing__text">Una brochure più rapida: scegli una famiglia prodotto, apri il catalogo dettagliato e invia la richiesta dal modulo unico Badiani.</p>
+        <div class="b2b-action-row">
+          <a class="b2b-action-btn" href="#b2b-categories">Sfoglia categorie</a>
+          <a class="b2b-action-btn b2b-action-btn--ghost" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Richiedi listino</a>
+        </div>
       </div>
-      <p data-i18n="b2b.hero.subtitle">Catalogo B2B di gelato artigianale, monoporzioni, torte, coni e accessori per hotel, ristorazione ed eventi.</p>
-      <div class="page-hero__actions" aria-label="Azioni principali B2B">
-        <a class="page-hero__cta" href="#b2b-categories">Sfoglia catalogo</a>
-        <button class="page-hero__cta page-hero__cta--ghost" type="button" onclick="openB2BForm()">Richiedi listino</button>
-      </div>
-    </section>
-
-    <section class="b2b-practical-section" id="b2b-practical" aria-labelledby="b2bPracticalTitle">
-      <div class="b2b-practical__intro">
-        <p class="b2b-practical__eyebrow" data-i18n="b2b.practical.eyebrow">Percorso rapido</p>
-        <h2 class="b2b-practical__title title-accent" id="b2bPracticalTitle" data-i18n="b2b.practical.title">Scegli, controlla formato e richiedi listino</h2>
-        <p class="b2b-practical__text" data-i18n="b2b.practical.text">Da cellulare il catalogo deve funzionare come uno strumento operativo: apri una categoria, confronti prodotti e formati, poi invii la richiesta in pochi tocchi.</p>
-      </div>
-      <div class="b2b-practical__grid" aria-label="Guida rapida B2B">
-        <article class="b2b-practical-card">
-          <span class="b2b-practical-card__num">01</span>
-          <h3 data-i18n="b2b.practical.card1.title">Sfoglia per esigenza</h3>
-          <p data-i18n="b2b.practical.card1.text">Gelato, monoporzioni, torte, coni, accessori e packaging sono divisi in grandi schede touch.</p>
-        </article>
-        <article class="b2b-practical-card">
-          <span class="b2b-practical-card__num">02</span>
-          <h3 data-i18n="b2b.practical.card2.title">Apri il dettaglio</h3>
-          <p data-i18n="b2b.practical.card2.text">Nei modali trovi ricerca, formati, allergeni, quantità minime e immagini prodotto senza dover cambiare pagina.</p>
-        </article>
-        <article class="b2b-practical-card">
-          <span class="b2b-practical-card__num">03</span>
-          <h3 data-i18n="b2b.practical.card3.title">Invia la richiesta</h3>
-          <p data-i18n="b2b.practical.card3.text">Il pulsante listino resta sempre a portata di pollice: compili il modulo e il team B2B ti risponde.</p>
-        </article>
-      </div>
-      <div class="b2b-practical__actions">
-        <a class="b2b-practical__btn" href="#b2b-categories" data-i18n="b2b.practical.cta.catalog">Apri catalogo</a>
-        <button class="b2b-practical__btn b2b-practical__btn--ghost" type="button" onclick="openB2BForm()" data-i18n="b2b.practical.cta.quote">Richiedi listino</button>
-      </div>
-    </section>
-
-    <section class="b2b-categories-section" id="b2b-categories" data-i18n-attr="aria-label:b2b.areas.label">
-      <div class="category-grid">
-        <article class="category-card b2b-card--gelato" data-category="GELATO" role="button" tabindex="0" aria-haspopup="dialog">
-          <span class="b2b-pulse"></span>
-          <div class="category-card__overlay">
-            <div class="category-card__heading-group">
-              <h2 class="category-title" data-i18n="b2b.categories.GELATO"></h2>
-            </div>
-            <span class="category-cta" aria-hidden="true">
-              <span data-i18n="b2b.cat.gelato.desc">Oltre 36 gusti artigianali, dal Buontalenti® ai classici</span>
-              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-            </span>
-          </div>
-        </article>
-        <article class="category-card b2b-card--pezziduri" data-category="PEZZI DURI" role="button" tabindex="0" aria-haspopup="dialog">
-          <span class="b2b-pulse"></span>
-          <div class="category-card__overlay">
-            <div class="category-card__heading-group">
-              <h2 class="category-title" data-i18n="b2b.categories.PEZZI_DURI"></h2>
-            </div>
-            <span class="category-cta" aria-hidden="true">
-              <span data-i18n="b2b.cat.pezzi.desc">Stecchi, biscotti e monoporzioni pronti al servizio</span>
-              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-            </span>
-          </div>
-        </article>
-        <article class="category-card b2b-card--torte" data-category="TORTE" role="button" tabindex="0" aria-haspopup="dialog">
-          <span class="b2b-pulse"></span>
-          <div class="category-card__overlay">
-            <div class="category-card__heading-group">
-              <h2 class="category-title" data-i18n="b2b.categories.TORTE"></h2>
-            </div>
-            <span class="category-cta" aria-hidden="true">
-              <span data-i18n="b2b.cat.torte.desc">Torte gelato e semifreddi per ogni occasione</span>
-              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-            </span>
-          </div>
-        </article>
-        <article class="category-card b2b-card--coppette" data-category="CONI_COPPETTE" role="button" tabindex="0" aria-haspopup="dialog">
-          <span class="b2b-pulse"></span>
-          <div class="category-card__overlay">
-            <div class="category-card__heading-group">
-              <h2 class="category-title" data-i18n-html="b2b.categories.CONI_COPPETTE"></h2>
-            </div>
-            <span class="category-cta" aria-hidden="true">
-              <span data-i18n="b2b.cat.coni.desc">Coni artigianali e coppette per la degustazione</span>
-              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-            </span>
-          </div>
-        </article>
-        <article class="category-card b2b-card--accessori" data-category="ACCESSORI" role="button" tabindex="0" aria-haspopup="dialog">
-          <span class="b2b-pulse"></span>
-          <div class="category-card__overlay">
-            <div class="category-card__heading-group">
-              <h2 class="category-title" data-i18n="b2b.categories.ACCESSORI"></h2>
-            </div>
-            <span class="category-cta" aria-hidden="true">
-              <span data-i18n="b2b.cat.accessori.desc">Palette, cucchiaini e accessori brandizzati</span>
-              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-            </span>
-          </div>
-        </article>
-        <article class="category-card b2b-card--contenitori" data-category="CONTENITORI" role="button" tabindex="0" aria-haspopup="dialog">
-          <span class="b2b-pulse"></span>
-          <div class="category-card__overlay">
-            <div class="category-card__heading-group">
-              <h2 class="category-title" data-i18n="b2b.categories.CONTENITORI"></h2>
-            </div>
-            <span class="category-cta" aria-hidden="true">
-              <span data-i18n="b2b.cat.contenitori.desc">Vaschette, box termici e packaging d'asporto</span>
-              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
-            </span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- TERMINI E CONDIZIONI — dark blue full-bleed -->
-    <section class="b2b-terms">
-      <p class="b2b-terms__label" data-i18n="b2b.terms.label">Condizioni</p>
-      <h2 class="b2b-terms__title title-accent title-accent--light" data-i18n="b2b.terms.title">Termini e Condizioni</h2>
-      <div class="b2b-terms__grid">
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.orderMin.label">Ordine minimo</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.orderMin">Gli ordini devono essere inviati con almeno 48 ore di preavviso</p>
-        </div>
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.shipping.label">Spedizioni</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.shipping">All&rsquo;interno del comune di Firenze: spedizione gratuita. Per zone fuori comune: quotazione su richiesta</p>
-        </div>
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.ztl.label">Zone ZTL</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.ztl">Nella zona a traffico limitato consegne in base agli aggiornamenti degli orari d&rsquo;ingresso in vigore</p>
-        </div>
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.payment.label">Pagamento</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.payment">Modalit&agrave; e tempistiche di pagamento da concordare in fase di accordo commerciale</p>
-        </div>
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.storage.label">Conservazione</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.storage">I prodotti devono essere conservati a &minus;18&thinsp;&deg;C. La catena del freddo non deve essere interrotta</p>
-        </div>
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.custom.label">Personalizzazioni</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.custom">Packaging personalizzato e gusti su misura disponibili su richiesta per ordini ricorrenti</p>
-        </div>
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.support.label">Assistenza</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.support">Il nostro team B2B &egrave; a disposizione per supporto dedicato: eventi@badiani1932.com</p>
-        </div>
-        <div class="b2b-terms__item">
-          <span class="b2b-terms__item-label" data-i18n="b2b.terms.returns.label">Resi e reclami</span>
-          <p class="b2b-terms__item-value" data-i18n="b2b.terms.returns">Eventuali reclami devono essere comunicati entro 24 ore dalla consegna</p>
+      <div class="b2b-landing__media" aria-hidden="true">
+        <img src="../assets/images/categories/b2b-hero.webp" alt="" loading="eager" decoding="async" />
+        <div class="b2b-landing__badge">
+          <div><strong>48h</strong><span>preavviso</span></div>
+          <div><strong>−18°</strong><span>catena freddo</span></div>
+          <div><strong>1</strong><span>modulo unico</span></div>
         </div>
       </div>
     </section>
 
-    <!-- RICHIEDI INFORMAZIONI — inline form section with steps sidebar -->
-    <section id="contatti" class="b2b-form-section" data-i18n-attr="aria-label:b2b.form.label">
-      <div class="b2b-form-section__grid">
-      <div class="b2b-form-block">
-        <div class="b2b-form-block__header">
-          <h2 data-i18n="b2b.form.title">Richiedi Informazioni</h2>
-          <p data-i18n="b2b.form.subtitle">Compila il modulo e ti ricontatteremo</p>
-        </div>
-        <div class="b2b-form-block__body">
-          <form id="b2bInlineForm" action="https://formsubmit.co/eventi@badiani1932.com" method="POST">
-            <input type="hidden" name="_next" value="">
-            <input type="hidden" name="_subject" value="Richiesta B2B dal sito Badiani">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="box">
-            <div class="b2b-inline-grid">
-              <!-- Nome / Cognome -->
-              <div class="bf-field">
-                <label for="bf-nome" data-i18n="b2b.form.nome">Nome *</label>
-                <input id="bf-nome" name="nome" type="text" data-i18n-attr="placeholder:b2b.form.nome_ph" autocomplete="given-name" required />
-              </div>
-              <div class="bf-field">
-                <label for="bf-cognome" data-i18n="b2b.form.cognome">Cognome *</label>
-                <input id="bf-cognome" name="cognome" type="text" data-i18n-attr="placeholder:b2b.form.cognome_ph" autocomplete="family-name" required />
-              </div>
-              <!-- Email / Telefono -->
-              <div class="bf-field">
-                <label for="bf-email" data-i18n="b2b.form.email">Email *</label>
-                <input id="bf-email" name="email" type="email" data-i18n-attr="placeholder:b2b.form.email_ph" autocomplete="email" required />
-              </div>
-              <div class="bf-field">
-                <label for="bf-telefono" data-i18n="b2b.form.telefono">Telefono *</label>
-                <input id="bf-telefono" name="telefono" type="tel" placeholder="+39 ..." data-i18n-attr="placeholder:b2b.form.telefono_ph" autocomplete="tel" required />
-              </div>
-              <!-- Preferenza di contatto -->
-              <div class="bf-field full-width">
-                <label data-i18n="b2b.form.contactPref">Preferenza di contatto *</label>
-                <div class="bf-radio-group">
-                  <label><input type="radio" name="inline_preferenza" value="telefono" checked /> <span data-i18n="b2b.form.contactPref.phone">Telefono</span></label>
-                  <label><input type="radio" name="inline_preferenza" value="email" /> <span data-i18n="b2b.form.contactPref.email">Email</span></label>
-                </div>
-              </div>
-              <!-- Nome Azienda / Tipo Azienda -->
-              <div class="bf-field">
-                <label for="bf-azienda" data-i18n="b2b.form.azienda">Nome Azienda *</label>
-                <input id="bf-azienda" name="azienda" type="text" data-i18n-attr="placeholder:b2b.form.azienda_ph" autocomplete="organization" required />
-              </div>
-              <div class="bf-field">
-                <label for="bf-tipo" data-i18n="b2b.form.tipo">Tipo Attività *</label>
-                <select id="bf-tipo" name="tipo_azienda" required>
-                  <option value="" disabled selected data-i18n="b2b.form.tipo_select">Seleziona...</option>
-                  <option value="hotel" data-i18n="b2b.form.tipo_hotel">Hotel</option>
-                  <option value="ristorante" data-i18n="b2b.form.tipo_ristorante">Ristorante</option>
-                  <option value="bar-caffetteria" data-i18n="b2b.form.tipo_bar">Bar / Caffetteria</option>
-                  <option value="catering" data-i18n="b2b.form.tipo_catering">Catering</option>
-                  <option value="gelateria" data-i18n="b2b.form.tipo_gelateria">Gelateria</option>
-                  <option value="pasticceria" data-i18n="b2b.form.tipo_pasticceria">Pasticceria</option>
-                  <option value="altro" data-i18n="b2b.form.tipo_altro">Altro</option>
-                </select>
-              </div>
-              <!-- P.IVA -->
-              <div class="bf-field full-width">
-                <label for="bf-piva" data-i18n="b2b.form.piva">P.IVA / Dati Aziendali</label>
-                <input id="bf-piva" name="partita_iva" type="text" data-i18n-attr="placeholder:b2b.form.piva_ph" />
-              </div>
-              <!-- Categorie di interesse -->
-              <div class="bf-field full-width">
-                <label data-i18n="b2b.form.interessi">Categorie di interesse</label>
-                <div class="bf-checkbox-group">
-                  <label><input type="checkbox" name="inline_interessi[]" value="gusti" /> <span data-i18n="b2b.form.int_gusti">Gusti Gelato</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="vasche" /> <span data-i18n="b2b.form.int_vasche">Vasche</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="pezzi-duri" /> <span data-i18n="b2b.form.int_pezzi">Monoporzioni</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="torte" /> <span data-i18n="b2b.form.int_torte">Torte</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="semifreddi" /> <span data-i18n="b2b.form.int_semifreddi">Semifreddi</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="barattoli" /> <span data-i18n="b2b.form.int_barattoli">Barattoli</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="coni-coppette" /> <span data-i18n="b2b.form.int_coni">Coni / Coppette</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="accessori" /> <span data-i18n="b2b.form.int_accessori">Accessori</span></label>
-                  <label><input type="checkbox" name="inline_interessi[]" value="contenitori" /> <span data-i18n="b2b.form.int_contenitori">Contenitori</span></label>
-                </div>
-              </div>
-              <!-- Messaggio -->
-              <div class="bf-field full-width">
-                <label for="bf-messaggio" data-i18n="b2b.form.messaggio">Messaggio</label>
-                <textarea id="bf-messaggio" name="messaggio" data-i18n-attr="placeholder:b2b.form.messaggio_ph" placeholder="Descrivi le tue esigenze o richieste..."></textarea>
-              </div>
-            </div>
-            <div class="b2b-form-actions">
-              <label class="bf-privacy">
-                <input type="checkbox" required />
-                <span data-i18n-html="b2b.form.privacy">Ho letto e accetto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.</span>
-              </label>
-              <button type="submit" class="b2b-form-inline-submit">
-                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                <span data-i18n="b2b.form.submit">Invia Richiesta</span>
-              </button>
-            </div>
-          </form>
-        </div>
+    <nav class="b2b-quicknav" aria-label="Navigazione B2B rapida">
+      <button type="button" data-category="GELATO">Gusti</button>
+      <button type="button" data-category="PEZZI DURI">Monoporzioni</button>
+      <button type="button" data-category="TORTE">Torte</button>
+      <button type="button" data-category="CONI_COPPETTE">Coni</button>
+      <button type="button" data-category="ACCESSORI">Accessori</button>
+      <button type="button" data-category="CONTENITORI">Packaging</button>
+      <a href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Modulo</a>
+    </nav>
+
+    <section class="b2b-catalog-min" id="b2b-categories">
+      <div class="b2b-section-head">
+        <h2>Catalogo essenziale</h2>
+        <p>Le categorie diventano pulsanti fotografici: meno testo in pagina, più accesso diretto al dettaglio utile.</p>
       </div>
-      <!-- Steps sidebar (left column) -->
-      <div class="b2b-steps-sidebar">
-        <div class="b2b-steps-sidebar__header">
-          <h2 class="b2b-steps-sidebar__title" data-i18n="b2b.steps.title"></h2>
-        </div>
-        <div class="b2b-steps-sidebar__body">
-        <div class="b2b-steps">
-          <div class="b2b-step">
-            <div class="b2b-step__num">01</div>
-            <h3 class="b2b-step__title" data-i18n="b2b.steps.item1"></h3>
-            <p class="b2b-step__desc" data-i18n="b2b.steps.desc1"></p>
-          </div>
-          <div class="b2b-step">
-            <div class="b2b-step__num">02</div>
-            <h3 class="b2b-step__title" data-i18n="b2b.steps.item2"></h3>
-            <p class="b2b-step__desc" data-i18n="b2b.steps.desc2"></p>
-          </div>
-          <div class="b2b-step">
-            <div class="b2b-step__num">03</div>
-            <h3 class="b2b-step__title" data-i18n="b2b.steps.item3"></h3>
-            <p class="b2b-step__desc" data-i18n="b2b.steps.desc3"></p>
-          </div>
-          <div class="b2b-step">
-            <div class="b2b-step__num">04</div>
-            <h3 class="b2b-step__title" data-i18n="b2b.steps.item4"></h3>
-            <p class="b2b-step__desc" data-i18n="b2b.steps.desc4"></p>
-          </div>
-          <div class="b2b-step">
-            <div class="b2b-step__num">05</div>
-            <h3 class="b2b-step__title" data-i18n="b2b.steps.item5"></h3>
-            <p class="b2b-step__desc" data-i18n="b2b.steps.desc5"></p>
-          </div>
-        </div>
-        </div><!-- /.b2b-steps-sidebar__body -->
+      <div class="b2b-route-grid">
+        <button class="b2b-route-card" type="button" data-category="GELATO"><img src="../assets/images/categories/gusti.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Gusti</h3><p>Vasche e gusti artigianali.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
+        <button class="b2b-route-card" type="button" data-category="PEZZI DURI"><img src="../assets/images/categories/pezzi-duri.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Monoporzioni</h3><p>Stecchi, biscotti e dessert pronti.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
+        <button class="b2b-route-card" type="button" data-category="TORTE"><img src="../assets/images/categories/torte.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Torte</h3><p>Gelato cake e semifreddi.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
+        <button class="b2b-route-card" type="button" data-category="CONI_COPPETTE"><img src="../assets/images/categories/coni-coppette.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Coni & Coppette</h3><p>Servizio e degustazione.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
+        <button class="b2b-route-card" type="button" data-category="ACCESSORI"><img src="../assets/images/categories/accessori.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Accessori</h3><p>Allestimento e materiali.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
+        <button class="b2b-route-card" type="button" data-category="CONTENITORI"><img src="../assets/images/categories/contenitori.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Packaging</h3><p>Vaschette e box termici.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
       </div>
-      </div><!-- /.b2b-form-section__grid -->
     </section>
 
+    <section class="b2b-terms-min" aria-label="Condizioni B2B essenziali">
+      <div class="b2b-terms-min__grid">
+        <div class="b2b-terms-min__item"><strong>Ordini</strong><span>Almeno 48 ore di preavviso.</span></div>
+        <div class="b2b-terms-min__item"><strong>Consegna</strong><span>Firenze gratuita, fuori comune su richiesta.</span></div>
+        <div class="b2b-terms-min__item"><strong>Freddo</strong><span>Conservazione a −18°C.</span></div>
+        <div class="b2b-terms-min__item"><strong>Custom</strong><span>Packaging e gusti su richiesta.</span></div>
+      </div>
+    </section>
+
+    <section id="contatti" class="b2b-external-form" data-i18n-attr="aria-label:b2b.form.label">
+      <div class="b2b-external-form__card">
+        <div>
+          <h2>Richiedi listino</h2>
+          <p>Il modulo ora è unico e dedicato: raccoglie richieste eventi e B2B senza duplicare form nella brochure.</p>
+        </div>
+        <a href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Apri modulo →</a>
+      </div>
+    </section>
   </main>
-
-  <!-- B2B REQUEST FORM MODAL -->
-  <div class="b2b-form-overlay" id="b2bFormModal">
-    <div class="b2b-form">
-      <button class="b2b-form__close" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.form.close">&times;</button>
-      <div class="b2b-form__header">
-        <h2 data-i18n="b2b.form.title"></h2>
-        <p data-i18n="b2b.form.subtitle"></p>
-      </div>
-      <div class="b2b-form__body">
-        <form id="b2bRequestForm" action="https://formsubmit.co/eventi@badiani1932.com" method="POST">
-          <input type="hidden" name="_next" value="">
-          <input type="hidden" name="_subject" value="Richiesta B2B dal sito Badiani">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="box">
-          <div class="b2b-form__grid">
-            <!-- Nome / Cognome -->
-            <div class="fm-field"><label for="b2b-nome" data-i18n="b2b.form.nome"></label><input id="b2b-nome" name="nome" type="text" data-i18n-attr="placeholder:b2b.form.nome_ph" autocomplete="given-name" required /></div>
-            <div class="fm-field"><label for="b2b-cognome" data-i18n="b2b.form.cognome"></label><input id="b2b-cognome" name="cognome" type="text" data-i18n-attr="placeholder:b2b.form.cognome_ph" autocomplete="family-name" required /></div>
-
-            <!-- Email / Telefono -->
-            <div class="fm-field"><label for="b2b-email" data-i18n="b2b.form.email"></label><input id="b2b-email" name="email" type="email" data-i18n-attr="placeholder:b2b.form.email_ph" autocomplete="email" required /></div>
-            <div class="fm-field"><label for="b2b-telefono" data-i18n="b2b.form.telefono"></label><input id="b2b-telefono" name="telefono" type="tel" placeholder="+39 ..." data-i18n-attr="placeholder:b2b.form.telefono_ph" autocomplete="tel" required /></div>
-
-            <!-- Preferenza di contatto -->
-            <div class="fm-field full">
-              <label data-i18n="b2b.form.contactPref">Preferenza di contatto *</label>
-              <div class="fm-checkbox-group" style="gap:16px;">
-                <label style="cursor:pointer;"><input type="radio" name="preferenza_contatto" value="telefono" checked style="width:16px;height:16px;accent-color:var(--badiani-blue);" /> <span data-i18n="b2b.form.contactPref.phone">Telefono</span></label>
-                <label style="cursor:pointer;"><input type="radio" name="preferenza_contatto" value="email" style="width:16px;height:16px;accent-color:var(--badiani-blue);" /> <span data-i18n="b2b.form.contactPref.email">Email</span></label>
-              </div>
-            </div>
-
-            <!-- Nome Azienda (required) -->
-            <div class="fm-field"><label for="b2b-azienda" data-i18n="b2b.form.azienda"></label><input id="b2b-azienda" name="azienda" type="text" data-i18n-attr="placeholder:b2b.form.azienda_ph" autocomplete="organization" required /></div>
-
-            <!-- Tipo Azienda -->
-            <div class="fm-field"><label for="b2b-tipo" data-i18n="b2b.form.tipo"></label>
-              <select id="b2b-tipo" name="tipo_azienda" required>
-                <option value="" disabled selected data-i18n="b2b.form.tipo_select"></option>
-                <option value="hotel" data-i18n="b2b.form.tipo_hotel"></option>
-                <option value="ristorante" data-i18n="b2b.form.tipo_ristorante"></option>
-                <option value="bar-caffetteria" data-i18n="b2b.form.tipo_bar"></option>
-                <option value="catering" data-i18n="b2b.form.tipo_catering"></option>
-                <option value="gelateria" data-i18n="b2b.form.tipo_gelateria"></option>
-                <option value="pasticceria" data-i18n="b2b.form.tipo_pasticceria"></option>
-                <option value="altro" data-i18n="b2b.form.tipo_altro"></option>
-              </select>
-            </div>
-
-            <!-- P.IVA / Dati Aziendali -->
-            <div class="fm-field full"><label for="b2b-piva" data-i18n="b2b.form.piva"></label><input id="b2b-piva" name="partita_iva" type="text" data-i18n-attr="placeholder:b2b.form.piva_ph" /></div>
-
-            <!-- Categorie di interesse -->
-            <div class="fm-field full">
-              <p class="b2b-form__section-label" data-i18n="b2b.form.interessi"></p>
-              <div class="fm-checkbox-group">
-                <label><input type="checkbox" name="interessi[]" value="gusti" /> <span data-i18n="b2b.form.int_gusti"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="vasche" /> <span data-i18n="b2b.form.int_vasche"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="pezzi-duri" /> <span data-i18n="b2b.form.int_pezzi"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="torte" /> <span data-i18n="b2b.form.int_torte"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="semifreddi" /> <span data-i18n="b2b.form.int_semifreddi"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="barattoli" /> <span data-i18n="b2b.form.int_barattoli"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="coni-coppette" /> <span data-i18n="b2b.form.int_coni"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="accessori" /> <span data-i18n="b2b.form.int_accessori"></span></label>
-                <label><input type="checkbox" name="interessi[]" value="contenitori" /> <span data-i18n="b2b.form.int_contenitori"></span></label>
-              </div>
-            </div>
-
-            <!-- Messaggio -->
-            <div class="fm-field full"><label for="b2b-messaggio" data-i18n="b2b.form.messaggio"></label><textarea id="b2b-messaggio" name="messaggio" data-i18n-attr="placeholder:b2b.form.messaggio_ph"></textarea></div>
-          </div>
-
-          <div class="b2b-form__actions">
-            <label class="fm-privacy"><input type="checkbox" required /><span data-i18n-html="b2b.form.privacy"></span></label>
-            <button type="submit" class="b2b-form__submit"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg><span data-i18n="b2b.form.submit"></span></button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <div class="modal-overlay" id="categoryModal" role="dialog" aria-modal="true" aria-labelledby="categoryModalTitle">
     <div class="modal">
@@ -7695,7 +7463,7 @@
       const modal = document.getElementById('categoryModal');
       const title = document.getElementById('categoryModalTitle');
       const closeBtn = modal.querySelector('.modal__close');
-      const cards = document.querySelectorAll('.category-card[data-category]');
+      const cards = document.querySelectorAll('.category-card[data-category], .b2b-route-card[data-category], .b2b-quicknav button[data-category]');
       const nav = document.getElementById('categoryNav');
       const select = document.getElementById('categorySelect');
       const gelatoShowcase = document.getElementById('gelatoShowcase');
@@ -9510,280 +9278,12 @@
       });
       applyTranslations();
 
-      // B2B Request Form – open / close
+      // External unified request form
+      const BADIANI_EXTERNAL_FORM_URL = 'https://eventi.badiani1932.com/';
       window.openB2BForm = function() {
-        const overlay = document.getElementById('b2bFormModal');
-        if (overlay) {
-          overlay.classList.add('active');
-          document.body.classList.add('b2b-form-modal-open');
-          setCookieBannerSuppressed(true);
-          lockPageScroll(SCROLL_LOCK_KEYS.B2B_FORM);
-        }
+        window.open(BADIANI_EXTERNAL_FORM_URL, '_blank', 'noopener');
       };
-      window.closeB2BForm = function(e) {
-        if (e && e.target !== e.currentTarget) return;
-        const overlay = document.getElementById('b2bFormModal');
-        if (overlay) {
-          overlay.classList.remove('active');
-          document.body.classList.remove('b2b-form-modal-open');
-          if(!document.body.classList.contains('b2b-catalog-modal-open')) setCookieBannerSuppressed(false);
-          unlockPageScroll(SCROLL_LOCK_KEYS.B2B_FORM);
-        }
-      };
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeB2BForm();
-      });
-
-      // B2B form modal — addEventListener replacements
-      document.getElementById('b2bFormModal').addEventListener('click', function(e) {
-        closeB2BForm(e);
-      });
-      document.querySelector('#b2bFormModal .b2b-form').addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-      document.querySelector('#b2bFormModal .b2b-form__close').addEventListener('click', function() {
-        closeB2BForm();
-      });
-
-      // Formato acquisto scroll button
-      document.getElementById('formatoAcquistoBtn').addEventListener('click', function() {
-        document.getElementById('tipologiaSection').scrollIntoView({behavior:'smooth', block:'start'});
-      });
-
-      // wire any other CTA buttons inside modals
-      document.querySelectorAll('.cta-button[data-i18n="b2b.modal.cta"], [data-b2b-form-cta]').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          if(modal && modal.classList.contains('is-open')) closeModal();
-          openB2BForm();
-        });
-      });
-      document.querySelectorAll('[data-b2b-scroll-form]').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          closeModal();
-          document.getElementById('contatti')?.scrollIntoView({ behavior:'smooth', block:'start' });
-        });
-      });
-
-      // Form submit handlers - send structured payload to Worker API (both inline + modal)
-      var CONTACT_API_ENDPOINT = 'https://formsubmit.co/ajax/eventi@badiani1932.com';
-
-      /* Set _next fields and show success on redirect back */
-      document.querySelectorAll('#b2bInlineForm, #b2bRequestForm').forEach(function(f){
-        var nf = f.querySelector('input[name="_next"]');
-        if(nf) nf.value = window.location.href.split('?')[0] + '?sent=1';
-      });
-      if(/[?&]sent=1/.test(window.location.search)){
-        document.querySelectorAll('#b2bInlineForm, #b2bRequestForm').forEach(function(f){
-          var fb = document.createElement('p');
-          fb.className = 'form-feedback is-success';
-          fb.style.cssText = 'margin-top:12px;font-size:18px;font-weight:600;color:#127c56;';
-          fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
-          f.appendChild(fb);
-        });
-      }
-
-      function getSubmitButton(form){
-        return form.querySelector('button[type="submit"], input[type="submit"]');
-      }
-
-      function setSubmitting(form, submitting){
-        var btn = getSubmitButton(form);
-        if(!btn) return;
-        if(submitting){
-          if(!btn.dataset.originalText){
-            btn.dataset.originalText = (btn.textContent || '').trim();
-          }
-          btn.disabled = true;
-          btn.setAttribute('aria-busy', 'true');
-          btn.textContent = 'Invio in corso...';
-          return;
-        }
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        if(btn.dataset.originalText){
-          btn.textContent = btn.dataset.originalText;
-        }
-      }
-
-      function showFormFeedback(form, message, isError){
-        var feedback = form.querySelector('.form-feedback');
-        if(!feedback){
-          feedback = document.createElement('p');
-          feedback.className = 'form-feedback';
-          feedback.setAttribute('role', 'status');
-          feedback.setAttribute('aria-live', 'polite');
-          feedback.style.marginTop = '12px';
-          feedback.style.fontSize = '14px';
-          feedback.style.fontWeight = '600';
-          form.appendChild(feedback);
-        }
-        var isProgress = /in corso/i.test(message);
-        feedback.classList.remove('is-progress', 'is-success', 'is-error');
-        feedback.classList.add(isProgress ? 'is-progress' : (isError ? 'is-error' : 'is-success'));
-        feedback.style.color = isError ? '#b42318' : '#127c56';
-        feedback.textContent = message;
-        if(!isProgress){
-          feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }
-
-      function normalizeFormEntries(fd){
-        var out = {};
-        fd.forEach(function(value, key){
-          if(Object.prototype.hasOwnProperty.call(out, key)){
-            if(Array.isArray(out[key])) out[key].push(value);
-            else out[key] = [out[key], value];
-          } else {
-            out[key] = value;
-          }
-        });
-        return out;
-      }
-
-      async function postToContactApi(payload){
-        var msg = payload.message || payload.body || payload.text || '';
-        var sub = payload.subject || 'Richiesta dal sito Badiani';
-        var s = payload.structured || payload.fields || {};
-        var replyEmail = s.email || '';
-        var fsPayload = { message: msg, _subject: sub, _captcha: 'false' };
-        var senderName = ((s.nome || '') + ' ' + (s.cognome || '')).trim();
-        if(senderName) fsPayload.name = senderName;
-        if(replyEmail){ fsPayload.email = replyEmail; fsPayload._replyto = replyEmail; }
-
-        var formData = new FormData();
-        Object.keys(fsPayload).forEach(function(k){ formData.append(k, fsPayload[k]); });
-        var response = await fetch(CONTACT_API_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        });
-
-        var result = {};
-        try { result = await response.json(); } catch(e) {}
-        if(!result.success || result.success === 'false'){
-          throw new Error(result.message || 'Invio fallito');
-        }
-        return result;
-      }
-
-      function getCheckedRadioLabel(form, radioName){
-        var input = form.querySelector('input[name="' + radioName + '"]:checked');
-        if(!input) return '';
-        var label = input.closest('label');
-        return label ? label.textContent.trim().replace(/\s+/g, ' ') : (input.value || '');
-      }
-
-      function getSelectText(form, selectName){
-        var select = form.querySelector('select[name="' + selectName + '"]');
-        if(!select) return '';
-        var idx = select.selectedIndex;
-        if(idx < 0) return '';
-        return (select.options[idx].textContent || '').trim();
-      }
-
-      function getCheckedLabels(form, name){
-        return Array.from(form.querySelectorAll('input[name="' + name + '"]:checked'))
-          .map(function(input){
-            var label = input.closest('label');
-            return label ? label.textContent.trim().replace(/\s+/g, ' ') : (input.value || '');
-          })
-          .filter(Boolean);
-      }
-
-      function addLine(lines, label, value){
-        if(value === undefined || value === null) return;
-        var v = String(value).trim();
-        if(!v) return;
-        lines.push(label + ': ' + v);
-      }
-
-      async function handleB2BSubmit(form){
-        var fd = new FormData(form);
-        var nome = (fd.get('nome') || '').toString().trim();
-        var cognome = (fd.get('cognome') || '').toString().trim();
-        var azienda = (fd.get('azienda') || '').toString().trim();
-        var email = (fd.get('email') || '').toString().trim();
-        var telefono = (fd.get('telefono') || '').toString().trim();
-        var tipoAzienda = getSelectText(form, 'tipo_azienda');
-        var partitaIva = (fd.get('partita_iva') || '').toString().trim();
-        var messaggio = (fd.get('messaggio') || '').toString().trim();
-        var preferenza = getCheckedRadioLabel(form, 'preferenza_contatto') || getCheckedRadioLabel(form, 'inline_preferenza');
-        var interessi = getCheckedLabels(form, 'interessi[]').concat(getCheckedLabels(form, 'inline_interessi[]'));
-
-        var lines = [
-          '=== RICHIESTA INFORMAZIONI B2B ===',
-          ''
-        ];
-
-        addLine(lines, 'Nome', nome);
-        addLine(lines, 'Cognome', cognome);
-        addLine(lines, 'Email', email);
-        addLine(lines, 'Telefono', telefono);
-        addLine(lines, 'Preferenza di contatto', preferenza);
-        addLine(lines, 'Nome Azienda', azienda);
-        addLine(lines, 'Tipo Attività', tipoAzienda);
-        addLine(lines, 'Partita IVA / Dati Aziendali', partitaIva);
-
-        lines.push('Categorie di interesse:');
-        if(interessi.length){
-          interessi.forEach(function(item){ lines.push(' - ' + item); });
-        } else {
-          lines.push(' - Nessuna selezionata');
-        }
-
-        addLine(lines, 'Messaggio', messaggio);
-        lines.push('', '--- Fine richiesta ---');
-
-        var subject = 'Richiesta Informazioni B2B - ' + (nome + ' ' + cognome).trim() + (azienda ? ' - ' + azienda : '');
-        var body = lines.join('\n');
-
-        var payload = {
-          source: 'b2b',
-          formId: form.id,
-          subject: subject,
-          message: body,
-          body: body,
-          fields: normalizeFormEntries(fd),
-          structured: {
-            nome: nome,
-            cognome: cognome,
-            azienda: azienda,
-            email: email,
-            telefono: telefono,
-            tipoAzienda: tipoAzienda,
-            partitaIva: partitaIva,
-            messaggio: messaggio,
-            preferenza: preferenza,
-            interessi: interessi
-          }
-        };
-
-        setSubmitting(form, true);
-        showFormFeedback(form, 'Invio in corso... ti risponderemo a breve.', false);
-
-        try {
-          await postToContactApi(payload);
-          showFormFeedback(form, 'Invio riuscito! Ti risponderemo al più presto.', false);
-          form.reset();
-        } catch (error) {
-          console.error('B2B submit error:', error);
-          form.submit();
-          return;
-        } finally {
-          setSubmitting(form, false);
-        }
-      }
-
-      ['b2bRequestForm', 'b2bInlineForm'].forEach(function(formId){
-        var form = document.getElementById(formId);
-        if(!form) return;
-        form.addEventListener('submit', async function(e){
-          e.preventDefault();
-          await handleB2BSubmit(form);
-        });
-      });
+      window.closeB2BForm = function() {};
 
       /* -------------------------------------------------------
          Listino Prezzi – Password-protected tabbed modal
