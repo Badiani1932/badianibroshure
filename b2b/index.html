@@ -3819,6 +3819,7 @@
     .b2b-landing__title{font-family:'SuperGroteskB',sans-serif;font-size:clamp(48px,7.2vw,118px);line-height:.86;text-transform:uppercase;letter-spacing:1px;color:var(--badiani-blue,#1e398d);margin:0 0 14px;max-width:850px;}
     .b2b-landing__text{font-size:clamp(17px,1.45vw,22px);line-height:1.45;color:rgba(30,57,141,.72);max-width:620px;margin:0 0 18px;}
     .b2b-action-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+    .b2b-action-row--single{max-width:310px;}
     .b2b-action-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 16px;background:var(--badiani-blue,#1e398d);color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;border:1px solid var(--badiani-blue,#1e398d);transition:transform .22s ease,background .22s ease,color .22s ease;}
     .b2b-action-btn:hover,.b2b-action-btn:focus-visible{transform:translateY(-2px);background:var(--badiani-pink,#f067a6);border-color:var(--badiani-pink,#f067a6);}
     .b2b-action-btn--ghost{background:#fff;color:var(--badiani-blue,#1e398d);}
@@ -3865,7 +3866,7 @@
     @media(max-width:560px){
       .b2b-landing__title{font-size:clamp(40px,13vw,62px);overflow-wrap:normal;}
       .b2b-landing__text{max-width:100%;overflow-wrap:break-word;}
-      .b2b-action-row{display:grid;grid-template-columns:1fr 1fr;}
+      .b2b-action-row{display:grid;grid-template-columns:1fr;}
       .b2b-action-btn{justify-content:center;text-align:center;padding:12px 10px;font-size:13px;}
       .b2b-route-card{min-height:230px;}
       .b2b-section-head h2{font-size:clamp(34px,12vw,52px);}
@@ -3902,17 +3903,13 @@
     .b2b-route-card:hover .b2b-route-card__cta,.b2b-route-card:focus-visible .b2b-route-card__cta{background:var(--badiani-blue,#1e398d);color:#fff;}
     .b2b-inline-catalog{padding:0 clamp(16px,4vw,72px) clamp(34px,5vw,64px);background:#f7f2e8;}
     .b2b-inline-catalog__frame{max-width:1180px;margin:0 auto;background:#fff;border:1px solid rgba(30,57,141,.10);box-shadow:0 18px 46px rgba(30,57,141,.12);overflow:hidden;}
-    .b2b-inline-catalog__intro{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:clamp(20px,3vw,34px);background:#fff;}
-    .b2b-inline-catalog__intro h2{margin:0;color:var(--badiani-blue,#1e398d);font-size:clamp(34px,5vw,68px);line-height:.9;text-transform:uppercase;}
-    .b2b-inline-catalog__intro p{max-width:440px;margin:0;color:rgba(30,57,141,.68);font-size:17px;line-height:1.45;}
+    .b2b-inline-catalog__intro{display:none !important;}
     .b2b-inline-catalog .modal-overlay{position:static;display:block;visibility:visible;opacity:1;background:transparent;padding:0;z-index:auto;overflow:visible;width:100%;height:auto;min-height:0;touch-action:auto;overscroll-behavior:auto;}
     .b2b-inline-catalog .modal{width:100%;max-width:100%;height:auto;min-height:0;max-height:none;border-radius:0;box-shadow:none;background:#fff;overflow:visible;display:block;animation:none;touch-action:auto;}
     .b2b-inline-catalog .modal__body{display:block;overflow:visible;height:auto;min-height:0;}
-    .b2b-inline-catalog .modal__header{position:sticky;top:118px;z-index:8;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid rgba(30,57,141,.08);border-bottom:1px solid rgba(30,57,141,.10);padding:14px clamp(16px,3vw,28px);}
-    .b2b-inline-catalog .modal__title{font-size:clamp(26px,3.2vw,46px);line-height:.95;color:var(--badiani-blue,#1e398d);}
-    .b2b-inline-catalog .modal__close,.b2b-inline-catalog .modal__mobile-bar{display:none !important;}
+    .b2b-inline-catalog .modal__header{display:none !important;}
     .b2b-inline-catalog .modal__content{max-height:none;overflow:visible;padding:clamp(18px,3vw,34px);contain:none;}
-    .b2b-inline-catalog .modal__nav{background:#f7f2e8;border-radius:999px;padding:6px;}
+
     .b2b-inline-catalog .modal__nav button{border-radius:999px;}
     .b2b-inline-catalog .modal__section{box-shadow:none;border:1px solid rgba(30,57,141,.08);}
     @media(max-width:760px){
@@ -3996,8 +3993,9 @@
 
       .b2b-landing__badge strong{font-size:19px;}
       .b2b-landing__badge span{font-size:10px;letter-spacing:.6px;}
-      .b2b-quicknav{grid-template-columns:1fr !important;gap:8px;padding:10px 14px;}
-      .b2b-quicknav button,.b2b-quicknav a{min-height:56px;font-size:13px;padding:12px 10px;border-radius:18px;}
+      .b2b-quicknav{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px;padding:10px 14px;}
+      .b2b-quicknav button,.b2b-quicknav a{min-height:52px;font-size:12px;padding:10px 8px;border-radius:18px;}
+      .b2b-quicknav a{display:none !important;}
 
       .b2b-section-head{margin-bottom:12px;}
       .b2b-section-head h2{font-size:32px;}
@@ -4134,9 +4132,8 @@
         <p class="b2b-landing__eyebrow">Catalogo B2B · Firenze 1932</p>
         <h1 class="b2b-landing__title">Catalogo B2B</h1>
         <p class="b2b-landing__text">Scegli una categoria, consulta i prodotti e richiedi il listino.</p>
-        <div class="b2b-action-row">
-          <a class="b2b-action-btn" href="#catalogo-dettaglio">Vai al catalogo</a>
-          <a class="b2b-action-btn b2b-action-btn--ghost" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Richiedi listino</a>
+        <div class="b2b-action-row b2b-action-row--single">
+          <a class="b2b-action-btn" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Richiedi listino</a>
         </div>
       </div>
 
