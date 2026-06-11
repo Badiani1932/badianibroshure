@@ -316,6 +316,108 @@
     .category-card.b2b-card--cialde{ --card-bg:url('../assets/images/categories/wafer-pulsante.webp'); }
     .category-card.b2b-card--contenitori{ --card-bg:url('../assets/images/categories/contenitori.webp'); }
     .category-card.b2b-card--accessori{ --card-bg:url('../assets/images/categories/accessori.webp'); }
+
+    /* ===== PRACTICAL B2B GUIDE — mobile-first commercial path ===== */
+    .b2b-practical-section{
+      background:#fff8fb;
+      color:var(--badiani-blue);
+      padding:clamp(36px, 5vw, 72px) clamp(20px, 5vw, 72px);
+      border-bottom:1px solid rgba(30,57,141,0.08);
+      overflow-x:hidden;
+    }
+    .b2b-practical__intro{ max-width:980px; margin:0 auto clamp(22px, 4vw, 36px); text-align:center; }
+    .b2b-practical__eyebrow{
+      color:var(--badiani-pink);
+      font-size:15px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .b2b-practical__title{
+      color:var(--badiani-blue);
+      font-size:clamp(34px, 6vw, 72px);
+      line-height:0.95;
+      margin:0 auto 14px;
+      text-wrap:balance;
+    }
+    .b2b-practical__text{
+      max-width:760px;
+      margin:0 auto;
+      color:rgba(30,57,141,0.68);
+      font-size:clamp(18px, 2vw, 22px);
+      line-height:1.35;
+    }
+    .b2b-practical__grid{
+      max-width:1180px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+    .b2b-practical-card{
+      background:#fff;
+      border:1px solid rgba(30,57,141,0.10);
+      box-shadow:0 16px 40px rgba(30,57,141,0.08);
+      padding:clamp(20px, 2.4vw, 30px);
+      min-height:190px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .b2b-practical-card__num{
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      background:var(--badiani-blue);
+      color:#fff;
+      border-radius:999px;
+      font-size:14px;
+      letter-spacing:1px;
+      font-weight:700;
+    }
+    .b2b-practical-card h3{
+      margin:0;
+      color:var(--badiani-pink);
+      font-size:clamp(22px, 2vw, 30px);
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:0.8px;
+    }
+    .b2b-practical-card p{
+      margin:0;
+      color:rgba(30,57,141,0.72);
+      font-size:17px;
+      line-height:1.38;
+    }
+    .b2b-practical__actions{
+      max-width:1180px;
+      margin:22px auto 0;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .b2b-practical__btn{
+      min-height:48px;
+      padding:13px 22px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid var(--badiani-blue);
+      background:var(--badiani-blue);
+      color:#fff;
+      font-family:inherit;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:15px;
+      font-weight:700;
+      text-decoration:none;
+      cursor:pointer;
+    }
+    .b2b-practical__btn--ghost{ background:#fff; color:var(--badiani-blue); }
+
     /* ::before = background image layer (zoomable on hover) */
     .category-card.b2b-card--gelato::before,
     .category-card.b2b-card--torte::before,
@@ -721,6 +823,7 @@
       padding-right:8px;
       gap:4px;
     }
+    .modal__mobile-bar{ display:none; }
 
     .modal__body{ padding:0; overflow:hidden; display:flex; flex-direction:column; min-height:0; }
     .modal__sidebar{ display:none; }
@@ -859,6 +962,35 @@
     .modal__card{ background:#fff; border-radius:0; padding:12px; border:1px solid rgba(0,0,0,0.08); color:var(--badiani-blue); }
     .modal__cta{ display:flex; justify-content:flex-end; }
     .modal__cta .cta-button{ background:var(--badiani-blue); color:#fff; border:1px solid var(--badiani-blue); }
+    .modal__quick-actions{
+      flex-shrink:0;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+      padding-bottom:calc(10px + constant(safe-area-inset-bottom));
+      background:#fff;
+      border-top:1px solid rgba(0,0,0,0.08);
+      box-shadow:0 -10px 24px rgba(0,0,0,0.08);
+    }
+    .modal__quick-btn{
+      min-height:44px;
+      padding:11px 18px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid var(--badiani-blue);
+      background:#fff;
+      color:var(--badiani-blue);
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-family:inherit;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .modal__quick-btn--primary{ background:var(--badiani-blue); color:#fff; }
 
     .modal__table-wrap{ overflow:auto; border-radius:0; border:1px solid rgba(30,57,141,0.08); background:#fff; }
     .modal__table{ width:100%; border-collapse:collapse; font-size:16px; color:rgba(30,57,141,0.75); }
@@ -2261,8 +2393,35 @@
       .modal__close{ width:38px; height:38px; }
       .modal__close::before, .modal__close::after{ width:16px; }
       /* Mobile: header stays compact; nav goes on its own full-width row below */
-      .modal__header{ flex-wrap:wrap; padding:0; align-items:center; }
-      .modal__header-actions{ border-left:none; flex-shrink:0; margin-left:auto; order:1; }
+      .modal__header{ flex-wrap:wrap; padding:44px 0 0; align-items:center; position:relative; }
+      .modal__header-actions{ display:none !important; }
+      .modal__mobile-bar{
+        display:flex;
+        position:absolute;
+        inset:0 0 auto 0;
+        height:44px;
+        align-items:center;
+        justify-content:flex-start;
+        gap:8px;
+        padding:4px 10px;
+        background:#fff;
+        border-bottom:1px solid rgba(0,0,0,0.06);
+        z-index:6;
+      }
+      .modal__mobile-price,
+      .modal__mobile-close{
+        min-height:36px;
+        border:1px solid rgba(30,57,141,0.18);
+        background:#fff;
+        color:var(--badiani-blue);
+        font-family:inherit;
+        text-transform:uppercase;
+        letter-spacing:1px;
+        font-size:12px;
+        font-weight:700;
+        padding:8px 12px;
+      }
+      .modal__mobile-price{ background:var(--badiani-blue); color:#fff; border-color:var(--badiani-blue); }
       .modal__nav{
         order:2;
         flex:0 0 100%;
@@ -2302,6 +2461,11 @@
       .modal__table{ font-size:15px; }
       .modal__table th,
       .modal__table td{ padding:6px 8px; }
+      .modal{ width:100vw; height:100dvh; max-height:100dvh; box-shadow:none; }
+      .modal__content{ padding-bottom:calc(24px + env(safe-area-inset-bottom)); }
+      .modal__quick-actions{ justify-content:stretch; gap:8px; padding:8px 10px calc(8px + env(safe-area-inset-bottom)); }
+      .modal__quick-btn{ flex:1 1 0; min-height:48px; padding:11px 10px; font-size:13px; }
+      .modal__lock-btn{ min-width:44px; min-height:44px; }
     }
 
     @media(max-width:1200px){
@@ -2333,6 +2497,8 @@
 
     @media(max-width:1024px){
       .category-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .b2b-practical__grid{ grid-template-columns:1fr; }
+      .b2b-practical-card{ min-height:0; }
     }
     @media(max-width:900px){
       .category-grid{ grid-template-columns:1fr; }
@@ -2357,8 +2523,25 @@
         padding:24px 20px;
       }
       .page-hero h1{
-        font-size:clamp(40px, 12vw, 72px);
+        font-size:clamp(28px, 8.6vw, 34px);
+        line-height:0.94;
+        max-width:320px;
+        letter-spacing:1px;
+        overflow-wrap:normal;
       }
+      .page-hero p{ font-size:17px; line-height:1.38; max-width:100%; }
+      .page-hero__actions{ width:100%; align-items:stretch; }
+      .page-hero__cta{ flex:1 1 100%; min-height:48px; }
+      .b2b-practical-section{ padding:32px 18px; overflow:hidden; }
+      .b2b-practical__intro{ text-align:left; max-width:100%; }
+      .b2b-practical__title{ font-size:clamp(28px, 8vw, 34px); line-height:1; max-width:330px; letter-spacing:0.5px; }
+      .b2b-practical__text{ font-size:17px; line-height:1.42; max-width:100%; }
+      .b2b-practical__grid{ grid-template-columns:1fr; gap:10px; max-width:100%; }
+      .b2b-practical-card{ min-height:0; padding:18px; max-width:100%; }
+      .b2b-practical-card h3{ font-size:24px; line-height:1.02; }
+      .b2b-practical-card p{ font-size:16px; line-height:1.4; }
+      .b2b-practical__actions{ align-items:stretch; max-width:100%; }
+      .b2b-practical__btn{ flex:1 1 100%; }
       .category-card{ min-height:40vh; }
       .category-card__overlay{
         padding:24px 20px;
@@ -3579,6 +3762,35 @@
       </div>
     </section>
 
+    <section class="b2b-practical-section" id="b2b-practical" aria-labelledby="b2bPracticalTitle">
+      <div class="b2b-practical__intro">
+        <p class="b2b-practical__eyebrow" data-i18n="b2b.practical.eyebrow">Percorso rapido</p>
+        <h2 class="b2b-practical__title title-accent" id="b2bPracticalTitle" data-i18n="b2b.practical.title">Scegli, controlla formato e richiedi listino</h2>
+        <p class="b2b-practical__text" data-i18n="b2b.practical.text">Da cellulare il catalogo deve funzionare come uno strumento operativo: apri una categoria, confronti prodotti e formati, poi invii la richiesta in pochi tocchi.</p>
+      </div>
+      <div class="b2b-practical__grid" aria-label="Guida rapida B2B">
+        <article class="b2b-practical-card">
+          <span class="b2b-practical-card__num">01</span>
+          <h3 data-i18n="b2b.practical.card1.title">Sfoglia per esigenza</h3>
+          <p data-i18n="b2b.practical.card1.text">Gelato, monoporzioni, torte, coni, accessori e packaging sono divisi in grandi schede touch.</p>
+        </article>
+        <article class="b2b-practical-card">
+          <span class="b2b-practical-card__num">02</span>
+          <h3 data-i18n="b2b.practical.card2.title">Apri il dettaglio</h3>
+          <p data-i18n="b2b.practical.card2.text">Nei modali trovi ricerca, formati, allergeni, quantità minime e immagini prodotto senza dover cambiare pagina.</p>
+        </article>
+        <article class="b2b-practical-card">
+          <span class="b2b-practical-card__num">03</span>
+          <h3 data-i18n="b2b.practical.card3.title">Invia la richiesta</h3>
+          <p data-i18n="b2b.practical.card3.text">Il pulsante listino resta sempre a portata di pollice: compili il modulo e il team B2B ti risponde.</p>
+        </article>
+      </div>
+      <div class="b2b-practical__actions">
+        <a class="b2b-practical__btn" href="#b2b-categories" data-i18n="b2b.practical.cta.catalog">Apri catalogo</a>
+        <button class="b2b-practical__btn b2b-practical__btn--ghost" type="button" onclick="openB2BForm()" data-i18n="b2b.practical.cta.quote">Richiedi listino</button>
+      </div>
+    </section>
+
     <section class="b2b-categories-section" id="b2b-categories" data-i18n-attr="aria-label:b2b.areas.label">
       <div class="category-grid">
         <article class="category-card b2b-card--gelato" data-category="GELATO" role="button" tabindex="0" aria-haspopup="dialog">
@@ -3919,6 +4131,10 @@
     <div class="modal">
       <div class="modal__header">
         <h3 class="modal__title" id="categoryModalTitle" data-i18n="b2b.modal.titleDefault"></h3>
+        <div class="modal__mobile-bar" aria-label="Azioni modale B2B">
+          <button class="modal__mobile-price" type="button" data-modal-listino data-i18n="b2b.modal.mobile.price">Listino</button>
+          <button class="modal__mobile-close" type="button" data-modal-close data-i18n="b2b.modal.mobile.close">Chiudi</button>
+        </div>
         <nav class="modal__nav" id="categoryNav" data-i18n-attr="aria-label:b2b.modal.nav"></nav>
         <div class="modal__header-actions">
           <button class="modal__lock-btn" id="listinoLockBtn" type="button" aria-label="Listino Prezzi" data-i18n-attr="aria-label:b2b.listino.lockLabel">
@@ -4037,6 +4253,10 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="modal__quick-actions" aria-label="Azioni rapide catalogo B2B">
+        <button class="modal__quick-btn modal__quick-btn--primary" type="button" data-b2b-form-cta data-i18n="b2b.modal.quick.quote">Richiedi listino</button>
+        <a class="modal__quick-btn" href="#contatti" data-b2b-scroll-form data-i18n="b2b.modal.quick.form">Vai al modulo</a>
       </div>
     </div>
   </div>
@@ -4455,6 +4675,21 @@
           'b2b.hero.title': 'Gelato Badiani per il B2B',
           'b2b.hero.subtitle': 'Catalogo B2B di gelato artigianale, monoporzioni, torte, coni e accessori per hotel, ristorazione ed eventi.',
           'b2b.hero.note': 'Progetti personalizzabili · Collaborazioni su misura · Supporto dedicato',
+          'b2b.practical.eyebrow': 'Percorso rapido',
+          'b2b.practical.title': 'Scegli, controlla formato e richiedi listino',
+          'b2b.practical.text': 'Da cellulare il catalogo deve funzionare come uno strumento operativo: apri una categoria, confronti prodotti e formati, poi invii la richiesta in pochi tocchi.',
+          'b2b.practical.card1.title': 'Sfoglia per esigenza',
+          'b2b.practical.card1.text': 'Gelato, monoporzioni, torte, coni, accessori e packaging sono divisi in grandi schede touch.',
+          'b2b.practical.card2.title': 'Apri il dettaglio',
+          'b2b.practical.card2.text': 'Nei modali trovi ricerca, formati, allergeni, quantità minime e immagini prodotto senza dover cambiare pagina.',
+          'b2b.practical.card3.title': 'Invia la richiesta',
+          'b2b.practical.card3.text': 'Il pulsante listino resta sempre a portata di pollice: compili il modulo e il team B2B ti risponde.',
+          'b2b.practical.cta.catalog': 'Apri catalogo',
+          'b2b.practical.cta.quote': 'Richiedi listino',
+          'b2b.modal.quick.quote': 'Richiedi listino',
+          'b2b.modal.quick.form': 'Vai al modulo',
+          'b2b.modal.mobile.price': 'Listino',
+          'b2b.modal.mobile.close': 'Chiudi',
           'b2b.target.label': 'A chi è dedicato',
           'b2b.target.title': 'A chi è dedicato',
           'b2b.target.item1': 'Aziende e corporate',
@@ -4845,6 +5080,21 @@
           'b2b.hero.title': 'Tailor-made B2B experiences',
           'b2b.hero.subtitle': 'from corporate to hospitality, a single direction for events, travel and partnerships',
           'b2b.hero.note': 'Customisable projects · Tailor-made collaborations · Dedicated support',
+          'b2b.practical.eyebrow': 'Fast path',
+          'b2b.practical.title': 'Choose, check formats and request the price list',
+          'b2b.practical.text': 'On mobile the catalogue should work like an operational tool: open a category, compare products and formats, then send your request in a few taps.',
+          'b2b.practical.card1.title': 'Browse by need',
+          'b2b.practical.card1.text': 'Gelato, single portions, cakes, cones, accessories and packaging are split into large touch-friendly cards.',
+          'b2b.practical.card2.title': 'Open the detail',
+          'b2b.practical.card2.text': 'Inside the modals you find search, formats, allergens, minimum quantities and product images without changing page.',
+          'b2b.practical.card3.title': 'Send the request',
+          'b2b.practical.card3.text': 'The price-list button stays within thumb reach: fill in the form and the B2B team will reply.',
+          'b2b.practical.cta.catalog': 'Open catalogue',
+          'b2b.practical.cta.quote': 'Request price list',
+          'b2b.modal.quick.quote': 'Request price list',
+          'b2b.modal.quick.form': 'Go to form',
+          'b2b.modal.mobile.price': 'Price list',
+          'b2b.modal.mobile.close': 'Close',
           'b2b.target.label': 'Who it is for',
           'b2b.target.title': 'Who it is for',
           'b2b.target.item1': 'Companies and corporate',
@@ -5239,6 +5489,21 @@
           'b2b.hero.title': 'Expériences B2B sur mesure',
           'b2b.hero.subtitle': 'du corporate à l’hospitalité, une direction unique pour événements, voyages et partenariats',
           'b2b.hero.note': 'Projets personnalisables · Collaborations sur mesure · Support dédié',
+          'b2b.practical.eyebrow': 'Parcours rapide',
+          'b2b.practical.title': 'Choisir, vérifier les formats et demander le tarif',
+          'b2b.practical.text': 'Sur mobile, le catalogue doit fonctionner comme un outil opérationnel : ouvrir une catégorie, comparer produits et formats, puis envoyer la demande en quelques gestes.',
+          'b2b.practical.card1.title': 'Parcourir par besoin',
+          'b2b.practical.card1.text': 'Gelato, portions individuelles, gâteaux, cornets, accessoires et packaging sont organisés en grandes cartes tactiles.',
+          'b2b.practical.card2.title': 'Ouvrir le détail',
+          'b2b.practical.card2.text': 'Dans les modales, vous trouvez recherche, formats, allergènes, quantités minimales et images produit sans changer de page.',
+          'b2b.practical.card3.title': 'Envoyer la demande',
+          'b2b.practical.card3.text': 'Le bouton tarif reste toujours à portée du pouce : remplissez le formulaire et l’équipe B2B vous répond.',
+          'b2b.practical.cta.catalog': 'Ouvrir le catalogue',
+          'b2b.practical.cta.quote': 'Demander le tarif',
+          'b2b.modal.quick.quote': 'Demander le tarif',
+          'b2b.modal.quick.form': 'Aller au formulaire',
+          'b2b.modal.mobile.price': 'Tarif',
+          'b2b.modal.mobile.close': 'Fermer',
           'b2b.target.label': 'À qui c’est dédié',
           'b2b.target.title': 'À qui c’est dédié',
           'b2b.target.item1': 'Entreprises et corporate',
@@ -5633,6 +5898,21 @@
           'b2b.hero.title': 'Experiencias B2B a medida',
           'b2b.hero.subtitle': 'del corporate al hospitality, una única dirección para eventos, travel y partnerships',
           'b2b.hero.note': 'Proyectos personalizables · Colaboraciones a medida · Soporte dedicado',
+          'b2b.practical.eyebrow': 'Ruta rápida',
+          'b2b.practical.title': 'Elige, revisa formatos y solicita la lista de precios',
+          'b2b.practical.text': 'En móvil el catálogo debe funcionar como una herramienta operativa: abres una categoría, comparas productos y formatos, y envías la solicitud en pocos toques.',
+          'b2b.practical.card1.title': 'Explora por necesidad',
+          'b2b.practical.card1.text': 'Gelato, porciones individuales, tartas, conos, accesorios y packaging están divididos en grandes tarjetas táctiles.',
+          'b2b.practical.card2.title': 'Abre el detalle',
+          'b2b.practical.card2.text': 'En los modales encuentras búsqueda, formatos, alérgenos, cantidades mínimas e imágenes de producto sin cambiar de página.',
+          'b2b.practical.card3.title': 'Envía la solicitud',
+          'b2b.practical.card3.text': 'El botón de lista de precios queda siempre al alcance del pulgar: completas el formulario y el equipo B2B responde.',
+          'b2b.practical.cta.catalog': 'Abrir catálogo',
+          'b2b.practical.cta.quote': 'Solicitar lista',
+          'b2b.modal.quick.quote': 'Solicitar lista',
+          'b2b.modal.quick.form': 'Ir al formulario',
+          'b2b.modal.mobile.price': 'Lista',
+          'b2b.modal.mobile.close': 'Cerrar',
           'b2b.target.label': 'A quién va dirigido',
           'b2b.target.title': 'A quién va dirigido',
           'b2b.target.item1': 'Empresas y corporate',
@@ -8925,6 +9205,8 @@
       });
 
       closeBtn.addEventListener('click', closeModal);
+      document.querySelectorAll('[data-modal-close]').forEach((btn) => btn.addEventListener('click', closeModal));
+      document.querySelectorAll('[data-modal-listino]').forEach((btn) => btn.addEventListener('click', () => document.getElementById('listinoLockBtn')?.click()));
       modal.addEventListener('click', (e) => {
         if(e.target === modal) closeModal();
       });
@@ -9071,8 +9353,19 @@
       });
 
       // wire any other CTA buttons inside modals
-      document.querySelectorAll('.cta-button[data-i18n="b2b.modal.cta"]').forEach(function(btn) {
-        btn.addEventListener('click', function(e) { e.preventDefault(); openB2BForm(); });
+      document.querySelectorAll('.cta-button[data-i18n="b2b.modal.cta"], [data-b2b-form-cta]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          if(modal && modal.classList.contains('is-open')) closeModal();
+          openB2BForm();
+        });
+      });
+      document.querySelectorAll('[data-b2b-scroll-form]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeModal();
+          document.getElementById('contatti')?.scrollIntoView({ behavior:'smooth', block:'start' });
+        });
       });
 
       // Form submit handlers - send structured payload to Worker API (both inline + modal)
