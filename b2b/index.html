@@ -1135,11 +1135,14 @@
     }
     .gelato-grid{
       display:grid;
-      grid-template-columns:repeat(5, minmax(0, 1fr));
-      gap:16px;
+      grid-template-columns:1fr;
+      gap:24px;
       align-content:start;
       align-items:start;
     }
+    .gelato-category-block{display:grid;gap:12px;min-width:0;}
+    .gelato-category-title{margin:0;color:var(--badiani-blue);font-size:18px;line-height:1;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;}
+    .gelato-category-row{display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:16px;align-items:start;}
     .gelato-card{
       border:none;
       background:#fff;
@@ -2629,17 +2632,17 @@
     }
 
     @media(max-width:1200px){
-      .gelato-grid{ grid-template-columns:repeat(4, minmax(0, 1fr)); }
+      .gelato-category-row{ grid-template-columns:repeat(4, minmax(0, 1fr)); }
     }
     @media(max-width:1024px){
-      .gelato-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .gelato-category-row{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .modal__content{ padding:20px 22px 24px; }
       .accessori-map-wrapper{ width:calc(100% + 44px); margin-top:-20px; margin-left:-22px; margin-right:-22px; }
     }
     @media(min-width:721px){
     }
     @media(max-width:768px){
-      .gelato-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); align-items:stretch; }
+      .gelato-category-row{ grid-template-columns:repeat(2, minmax(0, 1fr)); align-items:stretch; }
       .gelato-card__exp-body{ padding:10px 12px 10px; gap:4px; max-height:80%; }
       .gelato-card__exp-name{ font-size:16px; letter-spacing:0.8px; }
       .gelato-card__exp-category{ font-size:8px; letter-spacing:1.8px; }
@@ -3905,10 +3908,10 @@
     .b2b-inline-catalog__frame{max-width:1180px;margin:0 auto;background:#fff;border:1px solid rgba(30,57,141,.10);box-shadow:0 18px 46px rgba(30,57,141,.12);overflow:hidden;}
     .b2b-inline-catalog__intro{display:none !important;}
     .b2b-inline-catalog .modal-overlay{position:static;display:block;visibility:visible;opacity:1;background:transparent;padding:0;z-index:auto;overflow:visible;width:100%;height:auto;min-height:0;touch-action:auto;overscroll-behavior:auto;}
-    .b2b-inline-catalog .modal{width:100%;max-width:100%;height:auto;min-height:0;max-height:none;border-radius:0;box-shadow:none;background:#fff;overflow:visible;display:block;animation:none;touch-action:auto;}
+    .b2b-inline-catalog .modal{width:100%;max-width:100%;height:auto;min-height:0;max-height:none;border-radius:0;box-shadow:none;background:#fff !important;background-image:none !important;overflow:visible;display:block;animation:none;touch-action:auto;}
     .b2b-inline-catalog .modal__body{display:block;overflow:visible;height:auto;min-height:0;}
     .b2b-inline-catalog .modal__header{display:none !important;}
-    .b2b-inline-catalog .modal__content{max-height:none;overflow:visible;padding:clamp(18px,3vw,34px);contain:none;}
+    .b2b-inline-catalog .modal__content{max-height:none;overflow:visible;padding:clamp(18px,3vw,34px);contain:none;background:#fff !important;background-image:none !important;}
 
     .b2b-inline-catalog .modal__nav button{border-radius:999px;}
     .b2b-inline-catalog .modal__section{box-shadow:none;border:1px solid rgba(30,57,141,.08);}
@@ -4025,28 +4028,34 @@
       .b2b-inline-catalog .gelato-header p{display:none !important;}
       .b2b-inline-catalog .gelato-header{display:none !important;}
       .b2b-inline-catalog .formato-acquisto-btn{min-height:42px;padding:10px 14px;font-size:12px;margin:0 0 10px;}
-      .b2b-inline-catalog .gelato-category-title{display:none !important;}
+      .b2b-inline-catalog .gelato-category-title{display:block !important;font-size:15px !important;line-height:1 !important;margin:0 !important;color:var(--badiani-blue) !important;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;}
       .b2b-inline-catalog .gelato-card__media{height:118px !important;min-height:118px !important;}
       .b2b-inline-catalog .gelato-card img{aspect-ratio:auto !important;height:118px !important;object-fit:cover;}
       .b2b-inline-catalog .gelato-card > span{font-size:13px !important;line-height:1.1 !important;padding:8px 6px !important;min-height:42px !important;display:flex !important;align-items:center !important;justify-content:center !important;}
       .b2b-inline-catalog .gelato-card__content{padding:8px !important;gap:6px !important;}
-      .b2b-inline-catalog .gelato-grid,
+      .b2b-inline-catalog .gelato-grid{display:grid !important;grid-template-columns:1fr !important;gap:20px !important;margin:0 !important;max-width:100% !important;overflow:visible !important;padding:0 !important;}
       .b2b-inline-catalog .pezziduri-grid,
       .b2b-inline-catalog .accessori-grid,
       .b2b-inline-catalog .torte-grid,
-      .b2b-inline-catalog .modal__grid{display:flex !important;gap:12px !important;overflow-x:auto !important;overflow-y:hidden !important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:2px 4px 14px;margin-left:-4px;margin-right:-4px;max-width:none !important;}
+      .b2b-inline-catalog .modal__grid{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important;overflow:visible !important;padding:0 !important;margin:0 !important;max-width:100% !important;}
+      .b2b-inline-catalog .gelato-category-block{display:grid !important;gap:10px !important;min-width:0;}
+      .b2b-inline-catalog .gelato-category-row{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important;overflow:visible !important;padding:0 !important;margin:0 !important;max-width:100% !important;}
       .b2b-inline-catalog .gelato-grid::-webkit-scrollbar,
       .b2b-inline-catalog .pezziduri-grid::-webkit-scrollbar,
       .b2b-inline-catalog .accessori-grid::-webkit-scrollbar,
       .b2b-inline-catalog .torte-grid::-webkit-scrollbar,
       .b2b-inline-catalog .modal__grid::-webkit-scrollbar{display:none;}
-      .b2b-inline-catalog .gelato-grid > *,
+      .b2b-inline-catalog .gelato-category-row > *,
       .b2b-inline-catalog .pezziduri-grid > *,
       .b2b-inline-catalog .accessori-grid > *,
       .b2b-inline-catalog .torte-grid > *,
-      .b2b-inline-catalog .modal__grid > *{flex:0 0 min(46vw,210px) !important;width:min(46vw,210px) !important;max-width:min(46vw,210px) !important;scroll-snap-align:start;}
-      .b2b-inline-catalog .torte-grid > *{flex-basis:min(58vw,250px) !important;width:min(58vw,250px) !important;max-width:min(58vw,250px) !important;}
-      .b2b-inline-catalog .gelato-category-title{flex:0 0 100% !important;width:100% !important;max-width:100% !important;}
+      .b2b-inline-catalog .modal__grid > *{width:auto !important;max-width:none !important;min-width:0 !important;scroll-snap-align:start;}
+      .b2b-inline-catalog .gelato-category-title{width:100% !important;max-width:100% !important;}
+      .b2b-inline-catalog__frame,
+      .b2b-inline-catalog .modal,
+      .b2b-inline-catalog .modal__body,
+      .b2b-inline-catalog .modal__content{background:#fff !important;background-image:none !important;}
+      .b2b-inline-catalog .modal__section{background:#fff !important;background-image:none !important;border-radius:24px !important;overflow:hidden !important;border:1px solid rgba(30,57,141,.08) !important;}
       .b2b-inline-catalog .modal__section{padding:14px !important;}
       .b2b-inline-catalog .modal__section h4{font-size:24px;margin-bottom:10px;}
       .b2b-terms-min{padding:18px 14px 10px;background:#f7f2e8;}
@@ -9146,12 +9155,20 @@
           
           if(categoryFlavors.length === 0) return;
           
-          // Create category title
-          const titleDiv = document.createElement('div');
+          // Create a real section per category, so mobile has one clean row/carousel per family.
+          const categoryBlock = document.createElement('section');
+          categoryBlock.className = 'gelato-category-block';
+          categoryBlock.dataset.gelatoCategory = key;
+
+          const titleDiv = document.createElement('h5');
           titleDiv.className = 'gelato-category-title';
           titleDiv.textContent = t(titleKey);
-          titleDiv.style.cssText = 'font-size: 1.5em; font-weight: 600; margin: 0; padding: 0; text-transform: uppercase; color: var(--badiani-blue); grid-column: 1 / -1;';
-          gelatoGrid.appendChild(titleDiv);
+          categoryBlock.appendChild(titleDiv);
+
+          const categoryRow = document.createElement('div');
+          categoryRow.className = 'gelato-category-row';
+          categoryBlock.appendChild(categoryRow);
+          gelatoGrid.appendChild(categoryBlock);
           
           // Render flavors in this category
           categoryFlavors.forEach((flavor) => {
@@ -9216,7 +9233,7 @@
               }
             });
 
-            gelatoGrid.appendChild(btn);
+            categoryRow.appendChild(btn);
             btn.style.setProperty('--stagger-i', totalRendered);
             if(expandedFlavorId === flavor.id){
               setGelatoCardExpanded(btn, flavor, true);
