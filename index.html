@@ -1146,6 +1146,30 @@
       .external-form-card{padding:24px 20px;}
     }
 
+
+    /* Premium CTA cleanup: no pink grid/stripe on photographic cards */
+    .choice-card::after{display:none !important;}
+    .choice-card__overlay{background:linear-gradient(180deg,rgba(18,35,92,.08),rgba(18,35,92,.62));}
+    .choice-cta{border-radius:999px;box-shadow:0 12px 26px rgba(0,0,0,.14);}
+    .choice-card:hover .choice-cta,.choice-card:focus-visible .choice-cta{transform:translateY(-2px);}
+    .choice-card[href="b2b/"] .choice-cta{background:#fff;color:var(--badiani-blue,#1e398d);}
+    .home-proof strong{color:var(--badiani-blue,#1e398d);}
+
+    /* calmer premium background */
+    .choice-section::before{opacity:.08 !important;}
+
+
+    .choice-card[href="b2b/"] .choice-card__img{object-position:center 68%;opacity:.95;}
+    .choice-card[href="b2b/"] .choice-card__overlay{background:linear-gradient(180deg,rgba(18,35,92,.06),rgba(18,35,92,.48));}
+
+
+    .choice-card[href="b2b/"]{background-image:linear-gradient(180deg,rgba(18,35,92,.08),rgba(18,35,92,.32)),url('assets/images/categories/gusti.webp') !important;background-size:cover;background-position:center 58%;}
+    .choice-card[href="b2b/"] .choice-card__img{opacity:0 !important;}
+
+
+    .choice-card[href="eventi/"]{background-image:linear-gradient(180deg,rgba(18,35,92,.05),rgba(18,35,92,.30)),url('assets/images/eventi/carretto_gelato/foto4.webp') !important;background-size:cover;background-position:center;}
+    .choice-card[href="eventi/"] .choice-card__img{opacity:0 !important;}
+
   </style>
 </head>
 <body>
@@ -1259,7 +1283,7 @@
         </div>
       </a>
       <a class="choice-card" href="b2b/" data-i18n-attr="aria-label:home.choice.b2b.aria">
-        <img class="choice-card__img" src="assets/images/categories/b2b-hero.webp" alt="B2B" loading="eager" decoding="async" width="1200" height="1026" />
+        <img class="choice-card__img" src="assets/images/categories/gusti.webp" alt="B2B" loading="eager" decoding="async" width="2048" height="2048" />
         <div class="choice-card__overlay">
           <h2 class="choice-title title-accent title-accent--light">B2B</h2>
           <span class="choice-cta" aria-hidden="true"><span data-i18n="home.choice.b2b.desc">Catalogo B2B per hotel e catering</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg></span>

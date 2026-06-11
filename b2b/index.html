@@ -3891,6 +3891,54 @@
       .b2b-action-btn{width:100%;}
     }
 
+
+    /* Premium cleanup + inline catalogue: no modal wall, no pink stripe */
+    .b2b-route-card::after{display:none !important;}
+    .b2b-route-card{box-shadow:0 14px 28px rgba(30,57,141,.12);}
+    .b2b-route-card__body{background:linear-gradient(180deg,rgba(18,35,92,.05),rgba(18,35,92,.58));}
+    .b2b-route-card__cta{border-radius:999px;box-shadow:0 10px 22px rgba(0,0,0,.14);}
+    .b2b-route-card:hover .b2b-route-card__cta,.b2b-route-card:focus-visible .b2b-route-card__cta{background:var(--badiani-blue,#1e398d);color:#fff;}
+    .b2b-inline-catalog{padding:0 clamp(16px,4vw,72px) clamp(34px,5vw,64px);background:#f7f2e8;}
+    .b2b-inline-catalog__frame{max-width:1180px;margin:0 auto;background:#fff;border:1px solid rgba(30,57,141,.10);box-shadow:0 18px 46px rgba(30,57,141,.12);overflow:hidden;}
+    .b2b-inline-catalog__intro{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:clamp(20px,3vw,34px);background:#fff;}
+    .b2b-inline-catalog__intro h2{margin:0;color:var(--badiani-blue,#1e398d);font-size:clamp(34px,5vw,68px);line-height:.9;text-transform:uppercase;}
+    .b2b-inline-catalog__intro p{max-width:440px;margin:0;color:rgba(30,57,141,.68);font-size:17px;line-height:1.45;}
+    .b2b-inline-catalog .modal-overlay{position:static;display:block;visibility:visible;opacity:1;background:transparent;padding:0;z-index:auto;overflow:visible;}
+    .b2b-inline-catalog .modal{width:100%;max-width:none;height:auto;max-height:none;border-radius:0;box-shadow:none;background:#fff;overflow:visible;}
+    .b2b-inline-catalog .modal__header{position:sticky;top:118px;z-index:8;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid rgba(30,57,141,.08);border-bottom:1px solid rgba(30,57,141,.10);padding:14px clamp(16px,3vw,28px);}
+    .b2b-inline-catalog .modal__title{font-size:clamp(26px,3.2vw,46px);line-height:.95;color:var(--badiani-blue,#1e398d);}
+    .b2b-inline-catalog .modal__close,.b2b-inline-catalog .modal__mobile-bar{display:none !important;}
+    .b2b-inline-catalog .modal__content{max-height:none;overflow:visible;padding:clamp(18px,3vw,34px);}
+    .b2b-inline-catalog .modal__nav{background:#f7f2e8;border-radius:999px;padding:6px;}
+    .b2b-inline-catalog .modal__nav button{border-radius:999px;}
+    .b2b-inline-catalog .modal__section{box-shadow:none;border:1px solid rgba(30,57,141,.08);}
+    @media(max-width:760px){.b2b-inline-catalog__intro{display:block}.b2b-inline-catalog__intro p{margin-top:10px}.b2b-inline-catalog .modal__header{top:58px}.b2b-inline-catalog .modal__nav{border-radius:0;overflow-x:auto}.b2b-inline-catalog .modal__content{padding:16px}.b2b-inline-catalog .modal__title{font-size:30px}}
+
+
+    /* Mobile header clearance */
+    @media(max-width:760px){
+      .b2b-landing{padding-top:96px;}
+    }
+
+
+    /* Inline catalogue mobile overflow guard */
+    .b2b-inline-catalog,.b2b-inline-catalog__frame,.b2b-inline-catalog .modal,.b2b-inline-catalog .modal__content{max-width:100%;box-sizing:border-box;}
+    .b2b-inline-catalog{overflow:hidden;}
+    .b2b-inline-catalog__intro p{overflow-wrap:break-word;}
+    @media(max-width:760px){
+      .b2b-inline-catalog__intro h2{font-size:clamp(30px,10vw,42px);}
+      .b2b-inline-catalog__intro p{max-width:100%;}
+      .b2b-inline-catalog .modal__nav{max-width:100%;}
+      .b2b-inline-catalog .gelato-toolbar{display:grid;grid-template-columns:1fr;gap:10px;}
+      .b2b-inline-catalog .gelato-search,.b2b-inline-catalog .gelato-category-select{width:100%;min-width:0;}
+    }
+
+
+    /* Strong mobile topbar clearance */
+    @media(max-width:760px){
+      .b2b-landing{padding-top:132px !important;align-items:start;align-content:start;}
+    }
+
   </style>
 </head>
 <body>
@@ -4030,6 +4078,18 @@
         <button class="b2b-route-card" type="button" data-category="CONI_COPPETTE"><img src="../assets/images/categories/coni-coppette.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Coni & Coppette</h3><p>Servizio e degustazione.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
         <button class="b2b-route-card" type="button" data-category="ACCESSORI"><img src="../assets/images/categories/accessori.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Accessori</h3><p>Allestimento e materiali.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
         <button class="b2b-route-card" type="button" data-category="CONTENITORI"><img src="../assets/images/categories/contenitori.webp" alt="" loading="lazy"><span class="b2b-route-card__body"><span><h3>Packaging</h3><p>Vaschette e box termici.</p></span><span class="b2b-route-card__cta">Apri</span></span></button>
+      </div>
+    </section>
+
+    <section class="b2b-inline-catalog" id="catalogo-dettaglio" aria-label="Catalogo B2B dettagliato">
+      <div class="b2b-inline-catalog__frame">
+        <div class="b2b-inline-catalog__intro">
+          <div>
+            <h2>Catalogo dettagliato</h2>
+          </div>
+          <p>Il dettaglio prodotto ora è direttamente in pagina: scegli categoria e consulta formati, immagini e informazioni senza aprire modali.</p>
+        </div>
+        <div id="inlineCatalogMount"></div>
       </div>
     </section>
 
@@ -7464,6 +7524,13 @@
       const title = document.getElementById('categoryModalTitle');
       const closeBtn = modal.querySelector('.modal__close');
       const cards = document.querySelectorAll('.category-card[data-category], .b2b-route-card[data-category], .b2b-quicknav button[data-category]');
+      const inlineCatalogMount = document.getElementById('inlineCatalogMount');
+      if(inlineCatalogMount && modal){
+        modal.classList.add('is-inline-catalog');
+        modal.removeAttribute('aria-modal');
+        modal.setAttribute('role','region');
+        inlineCatalogMount.appendChild(modal);
+      }
       const nav = document.getElementById('categoryNav');
       const select = document.getElementById('categorySelect');
       const gelatoShowcase = document.getElementById('gelatoShowcase');
@@ -7576,7 +7643,7 @@
         return '';
       }
 
-      const categories = Array.from(cards).map((card) => card.getAttribute('data-category'));
+      const categories = Array.from(new Set(Array.from(cards).map((card) => card.getAttribute('data-category')).filter(Boolean)));
       let activeCategory = categories[0] || '';
 
       function resetInteractiveSelections(){
@@ -9083,8 +9150,8 @@
         }else if(activeCategory !== 'PEZZI DURI'){
           expandedPezziDuriId = '';
         }
-        title.innerHTML = categoryLabel(activeCategory);
-        nav.querySelectorAll('button').forEach((btn) => {
+        if(title) title.innerHTML = categoryLabel(activeCategory);
+        if(nav) nav.querySelectorAll('button').forEach((btn) => {
           const isActive = btn.dataset.category === activeCategory;
           btn.classList.toggle('is-active', isActive);
           if(isActive){
@@ -9097,7 +9164,7 @@
             }
           }
         });
-        if(select.value !== activeCategory){
+        if(select && select.value !== activeCategory){
           select.value = activeCategory;
         }
 
@@ -9127,18 +9194,20 @@
       function openModal(name){
         resetInteractiveSelections();
         setActiveCategory(name || categories[0]);
-        modal.classList.add('is-open');
-        document.body.classList.add('b2b-catalog-modal-open');
-        setCookieBannerSuppressed(true);
-        lockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
+        const target = document.getElementById('catalogo-dettaglio') || inlineCatalogMount || modal;
+        if(target && typeof target.scrollIntoView === 'function'){
+          target.scrollIntoView({ behavior:'smooth', block:'start' });
+        }
       }
 
       function closeModal(){
-        modal.classList.remove('is-open');
-        document.body.classList.remove('b2b-catalog-modal-open');
-        if(!document.body.classList.contains('b2b-form-modal-open')) setCookieBannerSuppressed(false);
+        if(modal && modal.classList.contains('is-open')){
+          modal.classList.remove('is-open');
+          document.body.classList.remove('b2b-catalog-modal-open');
+          if(!document.body.classList.contains('b2b-form-modal-open')) setCookieBannerSuppressed(false);
+          unlockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
+        }
         resetInteractiveSelections();
-        unlockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
       }
 
       if(modal){
@@ -9170,7 +9239,7 @@
       document.querySelectorAll('[data-modal-close]').forEach((btn) => btn.addEventListener('click', closeModal));
       document.querySelectorAll('[data-modal-listino]').forEach((btn) => btn.addEventListener('click', () => document.getElementById('listinoLockBtn')?.click()));
       modal.addEventListener('click', (e) => {
-        if(e.target === modal) closeModal();
+        if(modal.classList.contains('is-open') && e.target === modal) closeModal();
       });
       document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
