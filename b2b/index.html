@@ -3993,8 +3993,8 @@
 
       .b2b-landing__badge strong{font-size:19px;}
       .b2b-landing__badge span{font-size:10px;letter-spacing:.6px;}
-      .b2b-quicknav{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px;padding:10px 14px;}
-      .b2b-quicknav button,.b2b-quicknav a{min-height:52px;font-size:12px;padding:10px 8px;border-radius:18px;}
+      .b2b-quicknav{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px;padding:10px 12px;width:100%;max-width:100%;overflow:hidden;}
+      .b2b-quicknav button,.b2b-quicknav a{min-width:0;width:100%;max-width:100%;min-height:52px;font-size:12px;padding:10px 6px;border-radius:18px;box-sizing:border-box;}
       .b2b-quicknav a{display:none !important;}
 
       .b2b-section-head{margin-bottom:12px;}
@@ -4015,6 +4015,26 @@
       .b2b-inline-catalog .modal__nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px;}
       .b2b-inline-catalog .modal__nav button{min-height:48px;font-size:12px;border-radius:16px;}
       .b2b-inline-catalog .modal__content{padding:12px;}
+      .b2b-inline-catalog .modal__guide{display:none !important;}
+      .b2b-inline-catalog .modal__content::before{content:'Scorri i prodotti →';display:block;margin:0 0 10px;color:rgba(30,57,141,.58);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+      .b2b-inline-catalog .gelato-grid,
+      .b2b-inline-catalog .pezziduri-grid,
+      .b2b-inline-catalog .accessori-grid,
+      .b2b-inline-catalog .torte-grid,
+      .b2b-inline-catalog .modal__grid{display:flex !important;gap:12px !important;overflow-x:auto !important;overflow-y:hidden !important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:2px 4px 14px;margin-left:-4px;margin-right:-4px;max-width:none !important;}
+      .b2b-inline-catalog .gelato-grid::-webkit-scrollbar,
+      .b2b-inline-catalog .pezziduri-grid::-webkit-scrollbar,
+      .b2b-inline-catalog .accessori-grid::-webkit-scrollbar,
+      .b2b-inline-catalog .torte-grid::-webkit-scrollbar,
+      .b2b-inline-catalog .modal__grid::-webkit-scrollbar{display:none;}
+      .b2b-inline-catalog .gelato-grid > *,
+      .b2b-inline-catalog .pezziduri-grid > *,
+      .b2b-inline-catalog .accessori-grid > *,
+      .b2b-inline-catalog .torte-grid > *,
+      .b2b-inline-catalog .modal__grid > *{flex:0 0 min(82vw,320px) !important;width:min(82vw,320px) !important;max-width:min(82vw,320px) !important;scroll-snap-align:start;}
+      .b2b-inline-catalog .gelato-category-title{flex:0 0 100% !important;width:100% !important;max-width:100% !important;}
+      .b2b-inline-catalog .modal__section{padding:14px !important;}
+      .b2b-inline-catalog .modal__section h4{font-size:24px;margin-bottom:10px;}
       .b2b-terms-min{padding:14px;}
       .b2b-terms-min__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
       .b2b-terms-min__item{padding:13px;border-radius:16px;}
