@@ -851,18 +851,32 @@ h1, h2, h3 {
 
 @media (max-width: 600px) {
   .cookie-banner {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     flex-direction: column;
     text-align: center;
-    padding: 16px 18px 20px;
-    gap: 12px;
+    padding: 10px 12px 12px;
+    gap: 8px;
+    max-width: calc(100vw - 20px);
   }
   .cookie-banner__text {
     flex: none;
     width: 100%;
+    font-size: 12px;
+    line-height: 1.25;
   }
   .cookie-banner__actions {
     width: 100%;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .cookie-banner__btn {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
   }
 }
 
