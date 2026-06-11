@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -10,23 +10,23 @@
   <link rel="icon" href="../assets/images/branding/favicon.ico" sizes="32x32" />
   <link rel="icon" href="../assets/images/branding/favicon.webp" type="image/webp" />
   <link rel="apple-touch-icon" href="../assets/images/branding/apple-touch-icon.png" />
-  <link rel="canonical" href="https://www.badiani1932.com/b2b/" />
+  <link rel="canonical" href="https://brochure.badiani1932.com/b2b/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="B2B — Badiani 1932" />
   <meta property="og:description" content="Gelato artigianale per hotel, ristoranti e catering. Catalogo B2B Badiani 1932." />
-  <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
-  <meta property="og:url" content="https://www.badiani1932.com/b2b/" />
+  <meta property="og:image" content="https://brochure.badiani1932.com/assets/images/branding/logo.webp" />
+  <meta property="og:url" content="https://brochure.badiani1932.com/b2b/" />
   <meta property="og:site_name" content="Badiani 1932" />
   <meta property="og:locale" content="it_IT" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="B2B — Badiani 1932" />
   <meta name="twitter:description" content="Gelato artigianale per hotel, ristoranti e catering. Catalogo B2B Badiani 1932." />
-  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
-  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/b2b/" />
-  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/b2b/" />
-  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/b2b/" />
-  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/b2b/" />
-  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/b2b/" />
+  <meta name="twitter:image" content="https://brochure.badiani1932.com/assets/images/branding/logo.webp" />
+  <link rel="alternate" hreflang="it" href="https://brochure.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="en" href="https://brochure.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="fr" href="https://brochure.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="es" href="https://brochure.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="x-default" href="https://brochure.badiani1932.com/b2b/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
   <script defer src="../assets/badiani-common.js"></script>
@@ -36,18 +36,18 @@
     "@type": "WebPage",
     "name": "B2B — Badiani 1932",
     "description": "Soluzioni B2B di gelato artigianale Badiani 1932 per hotel, ristoranti, catering e gelaterie.",
-    "url": "https://www.badiani1932.com/b2b/",
+    "url": "https://brochure.badiani1932.com/b2b/",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://brochure.badiani1932.com/"},
         {"@type": "ListItem", "position": 2, "name": "B2B"}
       ]
     },
     "isPartOf": {
       "@type": "WebSite",
       "name": "Badiani 1932",
-      "url": "https://www.badiani1932.com/"
+      "url": "https://brochure.badiani1932.com/"
     }
   }
   </script>
@@ -130,11 +130,50 @@
     }
     .page-hero p{
       font-size:clamp(18px, 1.6vw, 21px);
-      color:rgba(255,255,255,0.85);
+      color:rgba(255,255,255,0.88);
       line-height:1.5;
-      max-width:280px;
+      max-width:520px;
       padding-bottom:8px;
       font-weight:300;
+    }
+    .page-hero__actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:12px;
+      align-items:center;
+    }
+    .page-hero__cta{
+      appearance:none;
+      border:1px solid rgba(255,255,255,0.72);
+      background:rgba(255,255,255,0.94);
+      color:var(--badiani-blue);
+      min-height:46px;
+      padding:12px 22px;
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:15px;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      text-decoration:none;
+      cursor:pointer;
+      transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .page-hero__cta:hover,
+    .page-hero__cta:focus-visible{
+      transform:translateY(-1px);
+      background:#fff;
+      color:var(--badiani-blue);
+    }
+    .page-hero__cta--ghost{
+      background:rgba(0,0,0,.24);
+      color:#fff;
+      border-color:rgba(255,255,255,.56);
+    }
+    .page-hero__cta--ghost:hover,
+    .page-hero__cta--ghost:focus-visible{
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      border-color:#fff;
     }
 
     .hero{ display:none; }
@@ -2311,6 +2350,7 @@
         letter-spacing:2px;
       }
       .page-hero p{ max-width:none; }
+      .page-hero__actions{ gap:10px; }
     }
     @media(max-width:600px){
       .page-hero{
@@ -3530,12 +3570,16 @@
         <source src="../assets/video/b2b-homepage-video.mp4" type="video/mp4">
       </video>
       <div class="page-hero__heading-group">
-        <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">Esperienze B2B su misura</h1>
+        <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">Gelato Badiani per il B2B</h1>
       </div>
-      <p data-i18n="b2b.hero.subtitle">dal corporate all'hospitality, un'unica regia per eventi, travel e partnership</p>
+      <p data-i18n="b2b.hero.subtitle">Catalogo B2B di gelato artigianale, monoporzioni, torte, coni e accessori per hotel, ristorazione ed eventi.</p>
+      <div class="page-hero__actions" aria-label="Azioni principali B2B">
+        <a class="page-hero__cta" href="#b2b-categories">Sfoglia catalogo</a>
+        <button class="page-hero__cta page-hero__cta--ghost" type="button" onclick="openB2BForm()">Richiedi listino</button>
+      </div>
     </section>
 
-    <section class="b2b-categories-section" data-i18n-attr="aria-label:b2b.areas.label">
+    <section class="b2b-categories-section" id="b2b-categories" data-i18n-attr="aria-label:b2b.areas.label">
       <div class="category-grid">
         <article class="category-card b2b-card--gelato" data-category="GELATO" role="button" tabindex="0" aria-haspopup="dialog">
           <span class="b2b-pulse"></span>
@@ -3930,7 +3974,7 @@
               <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0 0 14px;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
               <div class="tipologia-detail-panel-wrap">
                 <div class="tipologia-detail-panel" id="tipologiaDetailPanel" aria-live="polite">
-                  <div class="tipologia-detail-panel__img" id="tipologiaDetailImg"><img id="tipologiaDetailImgEl" src="" alt="" /></div>
+                  <div class="tipologia-detail-panel__img" id="tipologiaDetailImg"><img id="tipologiaDetailImgEl" src="" alt="Formato di acquisto B2B" /></div>
                   <div class="tipologia-detail-panel__body">
                     <div class="tipologia-detail-panel__name" id="tipologiaDetailName"></div>
                     <div class="tipologia-detail-panel__capacity" id="tipologiaDetailCapacity"></div>
@@ -4348,7 +4392,7 @@
     <button class="fullscreen-nav fullscreen-nav--next" type="button" aria-label="Foto successiva">&#8250;</button>
     <div class="fullscreen-content">
       <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">&#x2715;</button>
-      <img id="gelatoFullscreenImage" alt="" />
+      <img id="gelatoFullscreenImage" alt="Immagine prodotto gelato" />
       <div class="fullscreen-dots" id="gelatoFullscreenDots"></div>
     </div>
   </div>
@@ -4359,7 +4403,7 @@
     <button class="lingotto-carousel__nav lingotto-carousel__nav--prev" type="button" aria-label="Precedente">&#8249;</button>
     <button class="lingotto-carousel__nav lingotto-carousel__nav--next" type="button" aria-label="Successivo">&#8250;</button>
     <div class="lingotto-carousel__inner">
-      <img class="lingotto-carousel__img" id="lingottoCarouselImg" alt="" />
+      <img class="lingotto-carousel__img" id="lingottoCarouselImg" alt="Lingotto gelato Badiani" />
       <div class="lingotto-carousel__dots" id="lingottoCarouselDots"></div>
     </div>
   </div>
@@ -4408,8 +4452,8 @@
           'footer.privacy': 'Privacy Policy',
           'footer.cookie': 'Cookie Policy',
           'b2b.hero.label': 'Hero B2B',
-          'b2b.hero.title': 'Esperienze B2B su misura',
-          'b2b.hero.subtitle': 'dal corporate all\'hospitality, un\'unica regia per eventi, travel e partnership',
+          'b2b.hero.title': 'Gelato Badiani per il B2B',
+          'b2b.hero.subtitle': 'Catalogo B2B di gelato artigianale, monoporzioni, torte, coni e accessori per hotel, ristorazione ed eventi.',
           'b2b.hero.note': 'Progetti personalizzabili · Collaborazioni su misura · Supporto dedicato',
           'b2b.target.label': 'A chi è dedicato',
           'b2b.target.title': 'A chi è dedicato',

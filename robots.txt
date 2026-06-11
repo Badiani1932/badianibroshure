@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.badiani1932.com/sitemap.xml
+Sitemap: https://brochure.badiani1932.com/sitemap.xml
 
 # Block access to source and script files
 Disallow: /_source/
