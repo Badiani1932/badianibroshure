@@ -908,6 +908,11 @@
     .pezziduri-grid-stage[hidden]{
       display:none !important;
     }
+    .pezziduri-grid-stage{
+      max-width:100%;
+      min-width:0;
+      overflow:hidden;
+    }
     .pezziduri-stage-header{
       display:flex;
       align-items:center;
@@ -991,6 +996,70 @@
       cursor:pointer;
     }
     .modal__quick-btn--primary{ background:var(--badiani-blue); color:#fff; }
+    body.b2b-catalog-modal-open .cookie-banner,
+    body.b2b-form-modal-open .cookie-banner{
+      display:none !important;
+      opacity:0 !important;
+      pointer-events:none !important;
+      transform:translateY(calc(100% + 24px)) !important;
+      animation:none !important;
+    }
+    .modal__guide{
+      background:#fff;
+      border:1px solid rgba(30,57,141,0.10);
+      box-shadow:0 14px 34px rgba(30,57,141,0.08);
+      padding:16px;
+      margin-bottom:14px;
+      max-width:100%;
+      min-width:0;
+      overflow:hidden;
+    }
+    .modal__guide-kicker{
+      color:var(--badiani-pink);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+    .modal__guide-title{
+      color:var(--badiani-blue);
+      font-size:clamp(24px, 3.2vw, 38px);
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+      margin:0 0 12px;
+    }
+    .modal__guide-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:10px;
+    }
+    .modal__guide-item{
+      border:1px solid rgba(30,57,141,0.08);
+      background:#fff8fb;
+      padding:12px;
+      min-height:86px;
+    }
+    .modal__guide-label{
+      display:block;
+      color:rgba(30,57,141,0.55);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1.1px;
+      font-weight:700;
+      margin-bottom:5px;
+    }
+    .modal__guide-value{
+      color:var(--badiani-blue);
+      font-size:16px;
+      line-height:1.28;
+      text-transform:none;
+      letter-spacing:0;
+      font-weight:600;
+      white-space:normal;
+      overflow-wrap:anywhere;
+    }
 
     .modal__table-wrap{ overflow:auto; border-radius:0; border:1px solid rgba(30,57,141,0.08); background:#fff; }
     .modal__table{ width:100%; border-collapse:collapse; font-size:16px; color:rgba(30,57,141,0.75); }
@@ -1929,6 +1998,7 @@
       position:relative;
       will-change:transform;
       contain:layout style;
+      min-width:0;
     }
     .pezziduri-card:hover{ transform:translateY(-2px) scale(1.01); }
     .pezziduri-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
@@ -2466,6 +2536,14 @@
       .modal__quick-actions{ justify-content:stretch; gap:8px; padding:8px 10px calc(8px + env(safe-area-inset-bottom)); }
       .modal__quick-btn{ flex:1 1 0; min-height:48px; padding:11px 10px; font-size:13px; }
       .modal__lock-btn{ min-width:44px; min-height:44px; }
+      .modal__guide{ padding:14px; margin-bottom:12px; }
+      .modal__guide-title{ font-size:25px; line-height:1.02; }
+      .modal__guide-grid{ grid-template-columns:1fr; gap:8px; }
+      .modal__guide-item{ min-height:0; padding:10px 12px; min-width:0; }
+      .modal__guide-value{ font-size:15px; line-height:1.32; }
+      .modal__quick-btn{ min-width:0; white-space:normal; line-height:1.1; }
+      .pezziduri-grid,
+      .accessori-grid{ grid-template-columns:1fr; gap:12px; max-width:280px; margin-left:auto; margin-right:auto; }
     }
 
     @media(max-width:1200px){
@@ -4687,7 +4765,7 @@
           'b2b.practical.cta.catalog': 'Apri catalogo',
           'b2b.practical.cta.quote': 'Richiedi listino',
           'b2b.modal.quick.quote': 'Richiedi listino',
-          'b2b.modal.quick.form': 'Vai al modulo',
+          'b2b.modal.quick.form': 'Modulo',
           'b2b.modal.mobile.price': 'Listino',
           'b2b.modal.mobile.close': 'Chiudi',
           'b2b.target.label': 'A chi è dedicato',
@@ -5092,7 +5170,7 @@
           'b2b.practical.cta.catalog': 'Open catalogue',
           'b2b.practical.cta.quote': 'Request price list',
           'b2b.modal.quick.quote': 'Request price list',
-          'b2b.modal.quick.form': 'Go to form',
+          'b2b.modal.quick.form': 'Form',
           'b2b.modal.mobile.price': 'Price list',
           'b2b.modal.mobile.close': 'Close',
           'b2b.target.label': 'Who it is for',
@@ -5501,7 +5579,7 @@
           'b2b.practical.cta.catalog': 'Ouvrir le catalogue',
           'b2b.practical.cta.quote': 'Demander le tarif',
           'b2b.modal.quick.quote': 'Demander le tarif',
-          'b2b.modal.quick.form': 'Aller au formulaire',
+          'b2b.modal.quick.form': 'Formulaire',
           'b2b.modal.mobile.price': 'Tarif',
           'b2b.modal.mobile.close': 'Fermer',
           'b2b.target.label': 'À qui c’est dédié',
@@ -5910,7 +5988,7 @@
           'b2b.practical.cta.catalog': 'Abrir catálogo',
           'b2b.practical.cta.quote': 'Solicitar lista',
           'b2b.modal.quick.quote': 'Solicitar lista',
-          'b2b.modal.quick.form': 'Ir al formulario',
+          'b2b.modal.quick.form': 'Formulario',
           'b2b.modal.mobile.price': 'Lista',
           'b2b.modal.mobile.close': 'Cerrar',
           'b2b.target.label': 'A quién va dirigido',
@@ -6402,6 +6480,41 @@
         en: { 'VASCHE': 'Tubs', 'PEZZI DURI': 'Treats', 'TORTE': 'Cakes', 'CONI_COPPETTE': 'Cones & Cups', 'ACCESSORI': 'Accessories', 'CONTENITORI': 'Containers' },
         fr: { 'VASCHE': 'Bacs', 'PEZZI DURI': 'Portions individuelles', 'TORTE': 'Gâteaux', 'CONI_COPPETTE': 'Cornets & Coupes', 'ACCESSORI': 'Accessoires', 'CONTENITORI': 'Contenants' },
         es: { 'VASCHE': 'Cubas', 'PEZZI DURI': 'Porciones individuales', 'TORTE': 'Tartas', 'CONI_COPPETTE': 'Conos & Copas', 'ACCESSORI': 'Accesorios', 'CONTENITORI': 'Contenedores' }
+      };
+
+      const CATEGORY_GUIDE_I18N = {
+        it: {
+          labels: { ideal: 'Ideale per', format: 'Formato', action: 'Prossimo passo', kicker: 'In sintesi' },
+          'PEZZI DURI': { ideal: 'Hotel, catering, eventi e servizio dessert già porzionato.', format: 'Peso medio e ordine minimo in ogni scheda.', action: 'Apri una scheda prodotto e controlla allergeni/quantità.' },
+          'TORTE': { ideal: 'Compleanni, ricorrenze, aziende e fine pasto premium.', format: 'Torte e semifreddi con diametro, porzioni e gusti principali.', action: 'Scegli la torta e chiedi disponibilità/listino.' },
+          'CONI_COPPETTE': { ideal: 'Degustazioni, eventi, gelato van e servizio da banco.', format: 'Coni, coppette e bicchierini in diverse misure.', action: 'Controlla capienza e abbina al formato gelato.' },
+          'ACCESSORI': { ideal: 'Servizio operativo, branding e mise en place completa.', format: 'Palette, cucchiaini, shopper e materiali di supporto.', action: 'Seleziona accessori utili e invia richiesta unica.' },
+          'CONTENITORI': { ideal: 'Delivery, asporto, conservazione e trasporto freddo.', format: 'Vaschette e contenitori termici con quantità per confezione.', action: 'Scegli misura/confezione e conferma esigenza nel modulo.' }
+        },
+        en: {
+          labels: { ideal: 'Best for', format: 'Format', action: 'Next step', kicker: 'At a glance' },
+          'PEZZI DURI': { ideal: 'Hotels, catering, events and ready-portioned dessert service.', format: 'Average weight and minimum order in each card.', action: 'Open a product card and check allergens/quantities.' },
+          'TORTE': { ideal: 'Birthdays, celebrations, companies and premium dessert service.', format: 'Gelato cakes and semifreddi with size, portions and main flavours.', action: 'Choose the cake and request availability/price list.' },
+          'CONI_COPPETTE': { ideal: 'Tastings, events, gelato van and counter service.', format: 'Cones, cups and tasting cups in different sizes.', action: 'Check capacity and match it with the gelato format.' },
+          'ACCESSORI': { ideal: 'Service operations, branding and complete mise en place.', format: 'Spades, spoons, shoppers and support materials.', action: 'Select useful accessories and send one request.' },
+          'CONTENITORI': { ideal: 'Delivery, takeaway, cold storage and transport.', format: 'Tubs and thermal containers with quantities per pack.', action: 'Choose size/pack and confirm your need in the form.' }
+        },
+        fr: {
+          labels: { ideal: 'Idéal pour', format: 'Format', action: 'Étape suivante', kicker: 'En bref' },
+          'PEZZI DURI': { ideal: 'Hôtels, catering, événements et dessert déjà portionné.', format: 'Poids moyen et minimum dans chaque fiche.', action: 'Ouvrez une fiche produit et vérifiez allergènes/quantités.' },
+          'TORTE': { ideal: 'Anniversaires, occasions, entreprises et dessert premium.', format: 'Gâteaux glacés et semifreddi avec taille, portions et parfums.', action: 'Choisissez le gâteau et demandez disponibilité/tarif.' },
+          'CONI_COPPETTE': { ideal: 'Dégustations, événements, gelato van et service comptoir.', format: 'Cornets, coupes et petits gobelets en plusieurs tailles.', action: 'Vérifiez la capacité et associez-la au format gelato.' },
+          'ACCESSORI': { ideal: 'Service opérationnel, branding et mise en place complète.', format: 'Spatules, cuillères, sacs et supports de service.', action: 'Sélectionnez les accessoires et envoyez une seule demande.' },
+          'CONTENITORI': { ideal: 'Livraison, vente à emporter, conservation et transport froid.', format: 'Bacs et contenants thermiques avec quantités par colis.', action: 'Choisissez format/colis et confirmez le besoin dans le formulaire.' }
+        },
+        es: {
+          labels: { ideal: 'Ideal para', format: 'Formato', action: 'Siguiente paso', kicker: 'En resumen' },
+          'PEZZI DURI': { ideal: 'Hoteles, catering, eventos y postre ya porcionado.', format: 'Peso medio y pedido mínimo en cada ficha.', action: 'Abre una ficha y revisa alérgenos/cantidades.' },
+          'TORTE': { ideal: 'Cumpleaños, celebraciones, empresas y postre premium.', format: 'Tartas heladas y semifreddi con tamaño, porciones y sabores.', action: 'Elige la tarta y solicita disponibilidad/lista.' },
+          'CONI_COPPETTE': { ideal: 'Degustaciones, eventos, gelato van y servicio de mostrador.', format: 'Conos, copas y vasitos en diferentes medidas.', action: 'Revisa capacidad y combínala con el formato de gelato.' },
+          'ACCESSORI': { ideal: 'Servicio operativo, branding y mise en place completa.', format: 'Paletas, cucharitas, bolsas y materiales de apoyo.', action: 'Selecciona accesorios útiles y envía una solicitud única.' },
+          'CONTENITORI': { ideal: 'Delivery, take away, conservación y transporte frío.', format: 'Tarrinas y contenedores térmicos con cantidades por pack.', action: 'Elige tamaño/pack y confirma necesidad en el formulario.' }
+        }
       };
 
       const CATEGORY_COLUMNS_I18N = {
@@ -7209,6 +7322,33 @@
       function getColLabel(col){ return (CATEGORY_COLUMNS_I18N[currentLang] || CATEGORY_COLUMNS_I18N.it)[col] || col; }
 
       function getCatNotes(cat){ return (CATEGORY_NOTES_I18N[currentLang] || CATEGORY_NOTES_I18N.it)[cat]; }
+      function getCategoryGuide(cat){
+        const dict = CATEGORY_GUIDE_I18N[currentLang] || CATEGORY_GUIDE_I18N.it;
+        return { labels: dict.labels || CATEGORY_GUIDE_I18N.it.labels, data: dict[cat] || null };
+      }
+      function renderCategoryGuide(category){
+        const guide = getCategoryGuide(category);
+        if(!guide.data) return '';
+        const labels = guide.labels;
+        const title = getCatTitle(category);
+        const items = [
+          [labels.ideal, guide.data.ideal],
+          [labels.format, guide.data.format],
+          [labels.action, guide.data.action]
+        ];
+        return `
+          <section class="modal__guide" aria-label="${labels.kicker} ${title}">
+            <div class="modal__guide-kicker">${labels.kicker}</div>
+            <h4 class="modal__guide-title">${title}</h4>
+            <div class="modal__guide-grid">
+              ${items.map(([label, value]) => `
+                <div class="modal__guide-item">
+                  <span class="modal__guide-label">${label}</span>
+                  <div class="modal__guide-value">${value}</div>
+                </div>`).join('')}
+            </div>
+          </section>`;
+      }
       function getConiGfVariants(){ return (CONI_GF_VARIANTS_I18N[currentLang] || CONI_GF_VARIANTS_I18N.it); }
       function getGelatoDesc(id){ return (GELATO_DESC_I18N[currentLang] || {})[id]; }
       function getGelatoAllergens(id){ return (GELATO_ALLERGENS_I18N[currentLang] || {})[id]; }
@@ -7567,6 +7707,12 @@
         unlockPageScroll,
         scrollLockKeys: SCROLL_LOCK_KEYS
       };
+
+      function setCookieBannerSuppressed(isSuppressed){
+        document.querySelectorAll('.cookie-banner').forEach((banner) => {
+          banner.classList.toggle('is-hidden', !!isSuppressed);
+        });
+      }
 
       const GELATO_CATEGORIES = {
         iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato', 'buontalenti-amarena'],
@@ -8586,6 +8732,8 @@
         }
         const note = getCatNotes(category);
         const sections = [];
+        const guideHtml = renderCategoryGuide(category);
+        if(guideHtml) sections.push(guideHtml);
 
         if(category === 'PEZZI DURI'){
           sections.push(renderPezziDuriGallery(data.rows));
@@ -9170,11 +9318,15 @@
         resetInteractiveSelections();
         setActiveCategory(name || categories[0]);
         modal.classList.add('is-open');
+        document.body.classList.add('b2b-catalog-modal-open');
+        setCookieBannerSuppressed(true);
         lockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
       }
 
       function closeModal(){
         modal.classList.remove('is-open');
+        document.body.classList.remove('b2b-catalog-modal-open');
+        if(!document.body.classList.contains('b2b-form-modal-open')) setCookieBannerSuppressed(false);
         resetInteractiveSelections();
         unlockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
       }
@@ -9321,6 +9473,8 @@
         const overlay = document.getElementById('b2bFormModal');
         if (overlay) {
           overlay.classList.add('active');
+          document.body.classList.add('b2b-form-modal-open');
+          setCookieBannerSuppressed(true);
           lockPageScroll(SCROLL_LOCK_KEYS.B2B_FORM);
         }
       };
@@ -9329,6 +9483,8 @@
         const overlay = document.getElementById('b2bFormModal');
         if (overlay) {
           overlay.classList.remove('active');
+          document.body.classList.remove('b2b-form-modal-open');
+          if(!document.body.classList.contains('b2b-catalog-modal-open')) setCookieBannerSuppressed(false);
           unlockPageScroll(SCROLL_LOCK_KEYS.B2B_FORM);
         }
       };
