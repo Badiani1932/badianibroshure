@@ -1438,6 +1438,26 @@
       .ext-card__img{top:8px !important;left:8px !important;width:calc(100% - 16px) !important;height:calc(100% - 16px) !important;object-fit:cover !important;}
     }
 
+    /* Keep CTAs anchored after square-photo crop. */
+    .ext-card__desc{
+      position:absolute !important;
+      left:10px !important;
+      right:10px !important;
+      bottom:10px !important;
+      top:auto !important;
+      width:auto !important;
+      max-width:none !important;
+      z-index:4 !important;
+      justify-content:center !important;
+      align-items:center !important;
+      text-align:center !important;
+      border-radius:18px !important;
+      white-space:normal !important;
+    }
+    @media(max-width:600px){
+      .ext-card__desc{padding:6px 7px !important;font-size:9.5px !important;line-height:1.05 !important;letter-spacing:.35px !important;gap:4px !important;}
+    }
+
   </style>
 </head>
 <body class="ext-page">
