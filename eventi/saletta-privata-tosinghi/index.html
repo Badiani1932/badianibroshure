@@ -1140,50 +1140,93 @@
       }
     }
 
+    .modal-panel--list{
+      display:flex;
+      flex-direction:column;
+      max-width:min(980px, 94vw);
+      height:min(92vh, 880px);
+      background:var(--badiani-blue);
+      overflow:hidden;
+    }
+    .modal-panel--list .modal-hero--banner{
+      min-height:clamp(190px, 28vh, 300px);
+      flex-shrink:0;
+    }
     .list-modal__body{
-      padding:clamp(16px, 2vw, 32px) clamp(24px, 3vw, 48px);
-      background:rgba(255,255,255,0.04);
+      flex:1;
+      overflow-y:auto;
+      padding:clamp(16px, 2.6vw, 34px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      display:grid;
+      gap:clamp(14px, 2vw, 24px);
+    }
+    .list-modal__section{
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.035);
+    }
+    .list-modal__section-title{
+      margin:0;
+      padding:13px 16px;
+      color:var(--badiani-pink);
+      text-transform:uppercase;
+      letter-spacing:1.8px;
+      font-size:clamp(14px, 1.25vw, 17px);
+      line-height:1.1;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
     .list-modal__body ul{
       list-style:none;
       padding:0;
       margin:0;
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:0;
     }
     .list-modal__body li{
-      font-size:clamp(17px, 1.5vw, 20px);
-      color:rgba(255,255,255,0.85);
-      line-height:1.5;
-      padding:clamp(12px, 1.5vw, 20px) clamp(14px, 2vw, 28px);
+      color:rgba(255,255,255,0.86);
+      line-height:1.35;
+      padding:clamp(12px, 1.35vw, 18px) clamp(14px, 1.8vw, 22px);
       border-bottom:1px solid rgba(255,255,255,0.06);
       border-right:1px solid rgba(255,255,255,0.06);
-      font-weight:300;
-      transition:background 0.3s ease;
       overflow:hidden;
-      word-wrap:break-word;
+      overflow-wrap:anywhere;
     }
     .list-modal__body li:nth-child(even){ border-right:none; }
     .list-modal__body li:nth-last-child(-n+2){ border-bottom:none; }
-    .list-modal__body li:hover{ background:rgba(255,255,255,0.03); }
     .list-modal__body li strong{
+      display:block;
       color:#fff;
-      font-weight:600;
+      font-weight:700;
+      font-size:clamp(17px, 1.35vw, 20px);
+      line-height:1.18;
     }
     .list-modal__body li small{
-      color:rgba(255,255,255,0.45);
-      font-size:15px;
-      line-height:1.4;
+      display:block;
+      margin-top:5px;
+      color:rgba(255,255,255,0.62);
+      font-size:clamp(14px, 1.05vw, 16px);
+      line-height:1.35;
+    }
+    .list-modal__note{
+      margin:0;
+      color:rgba(255,255,255,0.62);
+      font-size:14px;
+      line-height:1.35;
     }
     @media(max-width:768px){
+      .modal-panel--list{
+        width:100%;
+        height:100dvh;
+        max-height:none;
+        max-width:none;
+      }
+      .modal-panel--list .modal-hero--banner{ min-height:160px; }
+      .list-modal__body{ padding:12px; gap:12px; }
+      .list-modal__section-title{ padding:11px 12px; font-size:13px; letter-spacing:1.3px; }
       .list-modal__body ul{ grid-template-columns:1fr; }
-      .list-modal__body li{ border-right:none !important; }
-      .list-modal__body{ padding:14px 12px; }
       .list-modal__body li{
-        font-size:18px;
-        line-height:1.42;
-        padding:12px 10px;
+        border-right:none !important;
+        padding:12px;
       }
       .list-modal__body li:nth-last-child(-n+2){ border-bottom:1px solid rgba(255,255,255,0.06); }
       .list-modal__body li:last-child{ border-bottom:none; }
@@ -1784,34 +1827,43 @@
   </section>
 
   <!-- FOOD LIST MODAL — same structure as package modals -->
-  <div class="modal-overlay" id="foodListModal">
+  <div class="modal-overlay" id="foodListModal" role="dialog" aria-modal="true" aria-labelledby="foodListTitle">
     <div class="modal-bg"></div>
     <button class="modal-close" aria-label="Chiudi"></button>
     <div class="modal-content">
-      <div class="modal-panel">
+      <div class="modal-panel modal-panel--list">
         <div class="modal-hero modal-hero--banner">
           <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/food-list-modal.webp" alt="Finger Food" loading="eager" decoding="async" width="4000" height="2668" id="foodModalHeroImg" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.food.subtitle">A cura del nostro Chef</span>
-            <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.food.title">Finger Food</h2>
+            <h2 class="modal-hero__title title-accent title-accent--light" id="foodListTitle" data-i18n="tosinghi.list.food.title">Finger Food</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.food.desc">Selezione di finger food preparati dal nostro Chef per accompagnare il vostro evento.</p>
           </div>
         </div>
         <div class="list-modal__body">
-          <ul>
-            <li data-i18n-html="tosinghi.fingerfood.bresaola"><strong>Involtino di Bresaola</strong> <small>con rucola e grana</small></li>
-            <li data-i18n-html="tosinghi.fingerfood.zucchine"><strong>Roll di zucchine</strong> <small>stracchino e prosciutto cotto</small></li>
-            <li data-i18n-html="tosinghi.fingerfood.salsiccia"><strong>Tartina di sfoglia</strong> <small>con salsiccia e stracchino</small></li>
-            <li data-i18n-html="tosinghi.fingerfood.pinzimonio"><strong>Crudit&eacute; di Pinzimonio</strong></li>
-            <li data-i18n-html="tosinghi.fingerfood.pomodorini"><strong>Pomodorino confit</strong> <small>e stracciatella</small></li>
-            <li data-i18n-html="tosinghi.fingerfood.pappa"><strong>Pappa al pomodoro</strong></li>
-            <li data-i18n-html="tosinghi.fingerfood.ribollita"><strong>Ribollita</strong></li>
-            <li data-i18n-html="tosinghi.fingerfood.caprese"><strong>Spiedino di Caprese</strong></li>
-            <li data-i18n-html="tosinghi.fingerfood.crostino"><strong>Crostino Toscano</strong></li>
-            <li data-i18n-html="tosinghi.fingerfood.salmone"><strong>Fagottino Salmone</strong> <small>Philadelphia e Avocado</small></li>
-            <li data-i18n-html="tosinghi.fingerfood.parmigiana"><strong>Parmigiana</strong></li>
-            <li data-i18n-html="tosinghi.fingerfood.miniburger"><strong>Mini Burger</strong></li>
-          </ul>
+          <section class="list-modal__section">
+            <h3 class="list-modal__section-title" data-i18n="tosinghi.list.food.section.savoury">Finger food salati</h3>
+            <ul>
+              <li data-i18n-html="tosinghi.fingerfood.bresaola"><strong>Involtino di Bresaola</strong> <small>con rucola e grana</small></li>
+              <li data-i18n-html="tosinghi.fingerfood.zucchine"><strong>Roll di zucchine</strong> <small>stracchino e prosciutto cotto</small></li>
+              <li data-i18n-html="tosinghi.fingerfood.salsiccia"><strong>Tartina di sfoglia</strong> <small>con salsiccia e stracchino</small></li>
+              <li data-i18n-html="tosinghi.fingerfood.salmone"><strong>Fagottino Salmone</strong> <small>Philadelphia e Avocado</small></li>
+            </ul>
+          </section>
+          <section class="list-modal__section">
+            <h3 class="list-modal__section-title" data-i18n="tosinghi.list.food.section.tuscan">Specialità toscane e vegetariane</h3>
+            <ul>
+              <li data-i18n-html="tosinghi.fingerfood.pinzimonio"><strong>Crudit&eacute; di Pinzimonio</strong></li>
+              <li data-i18n-html="tosinghi.fingerfood.pomodorini"><strong>Pomodorino confit</strong> <small>e stracciatella</small></li>
+              <li data-i18n-html="tosinghi.fingerfood.pappa"><strong>Pappa al pomodoro</strong></li>
+              <li data-i18n-html="tosinghi.fingerfood.ribollita"><strong>Ribollita</strong></li>
+              <li data-i18n-html="tosinghi.fingerfood.caprese"><strong>Spiedino di Caprese</strong></li>
+              <li data-i18n-html="tosinghi.fingerfood.crostino"><strong>Crostino Toscano</strong></li>
+              <li data-i18n-html="tosinghi.fingerfood.parmigiana"><strong>Parmigiana</strong></li>
+              <li data-i18n-html="tosinghi.fingerfood.miniburger"><strong>Mini Burger</strong></li>
+            </ul>
+          </section>
+          <p class="list-modal__note" data-i18n="tosinghi.list.food.note">La selezione finale viene concordata in base a disponibilità, stagione e formato evento.</p>
         </div>
         <div class="modal-cta-wrap">
           <button type="button" class="modal-request-btn" id="foodModalCta">
@@ -1824,29 +1876,38 @@
   </div>
 
   <!-- DRINK LIST MODAL — same structure as package modals -->
-  <div class="modal-overlay" id="drinkListModal">
+  <div class="modal-overlay" id="drinkListModal" role="dialog" aria-modal="true" aria-labelledby="drinkListTitle">
     <div class="modal-bg"></div>
     <button class="modal-close" aria-label="Chiudi"></button>
     <div class="modal-content">
-      <div class="modal-panel">
+      <div class="modal-panel modal-panel--list">
         <div class="modal-hero modal-hero--banner">
           <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/drink-list-modal.webp" alt="Cocktail" loading="eager" decoding="async" width="4000" height="2668" id="drinkModalHeroImg" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.drink.subtitle">I nostri cocktail selezionati</span>
-            <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.drink.title">Cocktail</h2>
+            <h2 class="modal-hero__title title-accent title-accent--light" id="drinkListTitle" data-i18n="tosinghi.list.drink.title">Cocktail</h2>
             <p class="modal-hero__desc" data-i18n="tosinghi.list.drink.desc">Cocktail classici e signature selezionati per i vostri eventi privati.</p>
           </div>
         </div>
         <div class="list-modal__body">
-          <ul>
-            <li data-i18n-html="tosinghi.cocktail.spritz"><strong>Spritz</strong> <small>a scelta tra Campari, Aperol, Select, Salvia e Limone</small></li>
-            <li data-i18n-html="tosinghi.cocktail.americano"><strong>Americano</strong> <small>bitter, vermouth rosso</small></li>
-            <li data-i18n-html="tosinghi.cocktail.londonmule"><strong>London Mule</strong> <small>ginger beer, gin, lime</small></li>
-            <li data-i18n-html="tosinghi.cocktail.vodkaimperiale"><strong>Vodka Imperiale</strong> <small>succo pera, sorbetto sottobosco, vodka</small></li>
-            <li data-i18n-html="tosinghi.cocktail.paloma"><strong>Paloma Sorbetto</strong> <small>tequila, lime, sorbetto di frutta, soda</small></li>
-            <li data-i18n-html="tosinghi.cocktail.negroni"><strong>Negroni</strong> <small>gin, bitter, vermouth rosso</small></li>
-            <li data-i18n-html="tosinghi.cocktail.moscowmule"><strong>Moscow Mule</strong> <small>ginger beer, vodka, lime</small></li>
-          </ul>
+          <section class="list-modal__section">
+            <h3 class="list-modal__section-title" data-i18n="tosinghi.list.drink.section.signature">Spritz e signature</h3>
+            <ul>
+              <li data-i18n-html="tosinghi.cocktail.spritz"><strong>Spritz</strong> <small>a scelta tra Campari, Aperol, Select, Salvia e Limone</small></li>
+              <li data-i18n-html="tosinghi.cocktail.vodkaimperiale"><strong>Vodka Imperiale</strong> <small>succo pera, sorbetto sottobosco, vodka</small></li>
+              <li data-i18n-html="tosinghi.cocktail.paloma"><strong>Paloma Sorbetto</strong> <small>tequila, lime, sorbetto di frutta, soda</small></li>
+            </ul>
+          </section>
+          <section class="list-modal__section">
+            <h3 class="list-modal__section-title" data-i18n="tosinghi.list.drink.section.classics">Classici</h3>
+            <ul>
+              <li data-i18n-html="tosinghi.cocktail.americano"><strong>Americano</strong> <small>bitter, vermouth rosso</small></li>
+              <li data-i18n-html="tosinghi.cocktail.negroni"><strong>Negroni</strong> <small>gin, bitter, vermouth rosso</small></li>
+              <li data-i18n-html="tosinghi.cocktail.londonmule"><strong>London Mule</strong> <small>ginger beer, gin, lime</small></li>
+              <li data-i18n-html="tosinghi.cocktail.moscowmule"><strong>Moscow Mule</strong> <small>ginger beer, vodka, lime</small></li>
+            </ul>
+          </section>
+          <p class="list-modal__note" data-i18n="tosinghi.list.drink.note">Drink e quantità vengono finalizzati in base alla formula scelta e al numero ospiti.</p>
         </div>
         <div class="modal-cta-wrap">
           <button type="button" class="modal-request-btn" id="drinkModalCta">
@@ -2192,6 +2253,12 @@
           'tosinghi.list.food.subtitle': 'A cura del nostro Chef',
           'tosinghi.list.drink.title': 'Lista Cocktail',
           'tosinghi.list.drink.subtitle': 'I nostri cocktail selezionati',
+          'tosinghi.list.food.section.savoury': 'Finger food salati',
+          'tosinghi.list.food.section.tuscan': 'Specialità toscane e vegetariane',
+          'tosinghi.list.food.note': 'La selezione finale viene concordata in base a disponibilità, stagione e formato evento.',
+          'tosinghi.list.drink.section.signature': 'Spritz e signature',
+          'tosinghi.list.drink.section.classics': 'Classici',
+          'tosinghi.list.drink.note': 'Drink e quantità vengono finalizzati in base alla formula scelta e al numero ospiti.',
           'tosinghi.fingerfood.bresaola': '<strong>Involtino di Bresaola</strong> con rucola e grana',
           'tosinghi.fingerfood.zucchine': '<strong>Roll di zucchine</strong>, stracchino e prosciutto cotto',
           'tosinghi.fingerfood.salsiccia': '<strong>Tartina di sfoglia</strong> con salsiccia e stracchino',
@@ -2341,6 +2408,12 @@
           'tosinghi.list.food.subtitle': 'By our Chef',
           'tosinghi.list.drink.title': 'Cocktail List',
           'tosinghi.list.drink.subtitle': 'Our selected cocktails',
+          'tosinghi.list.food.section.savoury': 'Savoury finger food',
+          'tosinghi.list.food.section.tuscan': 'Tuscan and vegetarian specialties',
+          'tosinghi.list.food.note': 'The final selection is agreed according to availability, season and event format.',
+          'tosinghi.list.drink.section.signature': 'Spritz and signature',
+          'tosinghi.list.drink.section.classics': 'Classics',
+          'tosinghi.list.drink.note': 'Drinks and quantities are finalized according to the chosen format and guest count.',
           'tosinghi.fingerfood.bresaola': '<strong>Bresaola Roll</strong> with rocket & parmesan',
           'tosinghi.fingerfood.zucchine': '<strong>Courgette Roll</strong>, stracchino & cooked ham',
           'tosinghi.fingerfood.salsiccia': '<strong>Puff pastry tartine</strong> with sausage & stracchino',
@@ -2487,6 +2560,12 @@
           'tosinghi.list.food.subtitle': 'Par notre Chef',
           'tosinghi.list.drink.title': 'Liste Cocktails',
           'tosinghi.list.drink.subtitle': 'Nos cocktails s\u00e9lectionn\u00e9s',
+          'tosinghi.list.food.section.savoury': 'Finger food salé',
+          'tosinghi.list.food.section.tuscan': 'Spécialités toscanes et végétariennes',
+          'tosinghi.list.food.note': 'La sélection finale est convenue selon disponibilité, saison et format de l’événement.',
+          'tosinghi.list.drink.section.signature': 'Spritz et signatures',
+          'tosinghi.list.drink.section.classics': 'Classiques',
+          'tosinghi.list.drink.note': 'Les boissons et quantités sont finalisées selon la formule choisie et le nombre d’invités.',
           'tosinghi.fingerfood.bresaola': '<strong>Roul\u00e9 de Bresaola</strong> avec roquette et parmesan',
           'tosinghi.fingerfood.zucchine': '<strong>Roll de courgettes</strong>, stracchino et jambon cuit',
           'tosinghi.fingerfood.salsiccia': '<strong>Tartine feuillet\u00e9e</strong> avec saucisse et stracchino',
@@ -2633,6 +2712,12 @@
           'tosinghi.list.food.subtitle': 'A cargo de nuestro Chef',
           'tosinghi.list.drink.title': 'Lista de C\u00f3cteles',
           'tosinghi.list.drink.subtitle': 'Nuestros c\u00f3cteles seleccionados',
+          'tosinghi.list.food.section.savoury': 'Finger food salado',
+          'tosinghi.list.food.section.tuscan': 'Especialidades toscanas y vegetarianas',
+          'tosinghi.list.food.note': 'La selección final se acuerda según disponibilidad, temporada y formato del evento.',
+          'tosinghi.list.drink.section.signature': 'Spritz y signature',
+          'tosinghi.list.drink.section.classics': 'Clásicos',
+          'tosinghi.list.drink.note': 'Las bebidas y cantidades se finalizan según la fórmula elegida y el número de invitados.',
           'tosinghi.fingerfood.bresaola': '<strong>Rollito de Bresaola</strong> con r\u00facola y parmesano',
           'tosinghi.fingerfood.zucchine': '<strong>Roll de calabac\u00edn</strong>, stracchino y jam\u00f3n cocido',
           'tosinghi.fingerfood.salsiccia': '<strong>Tartina de hojaldre</strong> con salchicha y stracchino',
