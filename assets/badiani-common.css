@@ -539,8 +539,10 @@ h1, h2, h3 {
   opacity: 0;
   transition: opacity 0.15s ease;
   overflow-y: auto;
+  box-sizing: border-box;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
   max-height: calc(100vh - var(--topbar-h));
-  max-height: calc(100dvh - var(--topbar-h));
+  max-height: calc(100dvh - var(--topbar-h) - env(safe-area-inset-bottom));
   border-radius:0;
   box-shadow: -4px 8px 24px rgba(0,0,0,0.18);
 }

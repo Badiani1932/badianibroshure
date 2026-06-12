@@ -1137,6 +1137,8 @@
       grid-template-rows:auto auto auto !important;
       gap:10px !important;
       overflow:visible !important;
+      padding-bottom:8px !important;
+      box-sizing:border-box !important;
       background:transparent !important;
       border:none !important;
     }
@@ -1164,13 +1166,13 @@
       position:static !important;
       display:flex !important;
       align-items:flex-end !important;
-      height:2.95em !important;
-      min-height:2.95em !important;
+      height:auto !important;
+      min-height:3.15em !important;
       margin:0 !important;
       padding:0 !important;
       align-self:end !important;
       font-size:clamp(28px, 5vw, 58px) !important;
-      line-height:.9 !important;
+      line-height:.94 !important;
       overflow:visible !important;
     }
     .ev-card__desc{
@@ -1191,9 +1193,10 @@
     }
     .ev-card:hover .ev-card__desc{transform:none !important;}
     @media(max-width:600px){
-      .ev-card{gap:7px !important;}
-      .ev-card__title{font-size:clamp(24px, 8vw, 34px) !important;min-height:2.95em !important;}
-      .ev-card__desc{min-height:36px !important;padding:6px 7px !important;font-size:9.5px !important;line-height:1.05 !important;letter-spacing:.35px !important;gap:4px !important;}
+      .ev-types__grid{padding-bottom:18px !important;}
+      .ev-card{gap:7px !important;padding-bottom:8px !important;}
+      .ev-card__title{font-size:clamp(24px, 8vw, 34px) !important;min-height:3.1em !important;line-height:.94 !important;}
+      .ev-card__desc{min-height:38px !important;padding:7px 7px !important;font-size:9.5px !important;line-height:1.12 !important;letter-spacing:.35px !important;gap:4px !important;}
     }
   </style>
 </head>
