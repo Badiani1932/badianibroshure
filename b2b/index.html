@@ -4078,6 +4078,50 @@
       .b2b-action-row,.b2b-route-grid,.b2b-terms-min__grid{grid-template-columns:1fr !important;}
     }
 
+
+    /* ===== Marco plain B2B pass: grigio corporate + accenti blu, poco rosa ===== */
+    .page-shell,
+    .b2b-landing,
+    .b2b-quicknav,
+    .b2b-catalog-min,
+    .b2b-terms-min,
+    .b2b-external-form,
+    .b2b-inline-catalog{background:#f1f3f6 !important;}
+    .b2b-landing__eyebrow,
+    .b2b-landing__badge strong,
+    .b2b-terms-min__item strong{color:var(--badiani-blue,#1e398d) !important;}
+    .b2b-landing__text,
+    .b2b-section-head p,
+    .b2b-terms-min__item span{color:#58595b !important;}
+    .b2b-action-btn,
+    .b2b-external-form__card{background:var(--badiani-blue,#1e398d) !important;border-color:var(--badiani-blue,#1e398d) !important;}
+    .b2b-action-btn:hover,
+    .b2b-action-btn:focus-visible,
+    .b2b-external-form__card a:hover,
+    .b2b-quicknav button:hover,
+    .b2b-quicknav a:hover{transform:none !important;background:#2849a8 !important;border-color:#2849a8 !important;color:#fff !important;}
+    .b2b-action-btn--ghost{background:#fff !important;color:var(--badiani-blue,#1e398d) !important;}
+    .b2b-landing__media,
+    .b2b-landing__badge,
+    .b2b-quicknav button,
+    .b2b-quicknav a,
+    .b2b-terms-min__item,
+    .b2b-inline-catalog__frame,
+    .b2b-external-form__card{border-radius:0 !important;box-shadow:none !important;}
+    .b2b-landing__media img,
+    .b2b-landing__media:hover img,
+    .b2b-route-card img,
+    .b2b-route-card:hover img,
+    .b2b-route-card:focus-visible img{transition:none !important;transform:none !important;}
+    .b2b-route-card{border-radius:0 !important;box-shadow:none !important;}
+    .b2b-route-card__cta{border-radius:0 !important;box-shadow:none !important;}
+
+    @media(max-width:760px){
+      .b2b-landing{padding-top:82px !important;}
+      .b2b-quicknav{background:#f1f3f6 !important;}
+      .b2b-quicknav button,.b2b-quicknav a{border-radius:0 !important;}
+      .b2b-terms-min__item{border-radius:0 !important;background:#fff !important;}
+    }
   </style>
 </head>
 <body>
@@ -4177,32 +4221,32 @@
 
     <section class="b2b-landing">
       <div>
-        <p class="b2b-landing__eyebrow">Catalogo B2B · Firenze 1932</p>
-        <h1 class="b2b-landing__title">Catalogo B2B</h1>
-        <p class="b2b-landing__text">Scegli una categoria, consulta i prodotti e richiedi il listino.</p>
+        <p class="b2b-landing__eyebrow" data-i18n="b2b.landing.eyebrow">Catalogo B2B · Firenze 1932</p>
+        <h1 class="b2b-landing__title" data-i18n="b2b.landing.title">Catalogo B2B</h1>
+        <p class="b2b-landing__text" data-i18n="b2b.landing.text">Scegli una categoria, consulta i prodotti e richiedi il listino.</p>
         <div class="b2b-action-row b2b-action-row--single">
-          <a class="b2b-action-btn" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Richiedi listino</a>
+          <a class="b2b-action-btn" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener" data-i18n="b2b.landing.cta">Richiedi listino</a>
         </div>
       </div>
 
       <div class="b2b-landing__media" aria-hidden="true">
         <img src="../assets/images/categories/b2b-hero.webp" alt="" loading="eager" decoding="async" />
         <div class="b2b-landing__badge">
-          <div><strong>48h</strong><span>preavviso</span></div>
-          <div><strong>−18°</strong><span>catena freddo</span></div>
-          <div><strong>1</strong><span>modulo unico</span></div>
+          <div><strong>48h</strong><span data-i18n="b2b.badge.notice">preavviso</span></div>
+          <div><strong>−18°</strong><span data-i18n="b2b.badge.cold">catena freddo</span></div>
+          <div><strong>1</strong><span data-i18n="b2b.badge.form">modulo unico</span></div>
         </div>
       </div>
     </section>
 
     <nav class="b2b-quicknav" aria-label="Navigazione B2B rapida">
-      <button type="button" data-category="GELATO">Gusti</button>
-      <button type="button" data-category="PEZZI DURI">Monoporzioni</button>
-      <button type="button" data-category="TORTE">Torte</button>
-      <button type="button" data-category="CONI_COPPETTE">Coni</button>
-      <button type="button" data-category="ACCESSORI">Accessori</button>
-      <button type="button" data-category="CONTENITORI">Packaging</button>
-      <a href="https://eventi.badiani1932.com/" target="_blank" rel="noopener">Richiesta</a>
+      <button type="button" data-category="GELATO" data-i18n="nav.b2b.gusti">Gusti</button>
+      <button type="button" data-category="PEZZI DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</button>
+      <button type="button" data-category="TORTE" data-i18n="nav.b2b.torte">Torte</button>
+      <button type="button" data-category="CONI_COPPETTE" data-i18n="b2b.quick.coniShort">Coni</button>
+      <button type="button" data-category="ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</button>
+      <button type="button" data-category="CONTENITORI" data-i18n="b2b.quick.packaging">Packaging</button>
+      <a href="https://eventi.badiani1932.com/" target="_blank" rel="noopener" data-i18n="b2b.quick.request">Richiesta</a>
     </nav>
 
     <section class="b2b-inline-catalog" id="catalogo-dettaglio" aria-label="Catalogo B2B dettagliato">
@@ -4771,6 +4815,17 @@
           'nav.b2b.coni': 'Coni & Coppette',
           'nav.b2b.accessori': 'Accessori',
           'nav.b2b.contenitori': 'Contenitori',
+          'b2b.landing.eyebrow': 'Catalogo B2B · Firenze 1932',
+          'b2b.landing.title': 'Catalogo B2B',
+          'b2b.landing.text': 'Scegli una categoria, consulta i prodotti e richiedi il listino.',
+          'b2b.landing.cta': 'Richiedi listino',
+          'b2b.badge.notice': 'preavviso',
+          'b2b.badge.cold': 'catena freddo',
+          'b2b.badge.form': 'modulo unico',
+          'b2b.quick.coniShort': 'Coni',
+          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.request': 'Richiesta',
+          'b2b.form.label': 'Richiesta listino B2B',
           'nav.magazine': 'Dicono di Noi',
           'footer.nav': 'Navigazione',
           'footer.home': 'Home',
@@ -5176,6 +5231,17 @@
           'nav.b2b.coni': 'Cones & Cups',
           'nav.b2b.accessori': 'Accessories',
           'nav.b2b.contenitori': 'Containers',
+          'b2b.landing.eyebrow': 'B2B catalogue · Florence 1932',
+          'b2b.landing.title': 'B2B Catalogue',
+          'b2b.landing.text': 'Choose a category, review the products and request the price list.',
+          'b2b.landing.cta': 'Request price list',
+          'b2b.badge.notice': 'notice',
+          'b2b.badge.cold': 'cold chain',
+          'b2b.badge.form': 'single form',
+          'b2b.quick.coniShort': 'Cones',
+          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.request': 'Request',
+          'b2b.form.label': 'B2B price-list request',
           'nav.magazine': 'Press & Reviews',
           'footer.nav': 'Navigation',
           'footer.home': 'Home',
@@ -5585,6 +5651,17 @@
           'nav.b2b.coni': 'Cônes & Coupes',
           'nav.b2b.accessori': 'Accessoires',
           'nav.b2b.contenitori': 'Conteneurs',
+          'b2b.landing.eyebrow': 'Catalogue B2B · Florence 1932',
+          'b2b.landing.title': 'Catalogue B2B',
+          'b2b.landing.text': 'Choisissez une catégorie, consultez les produits et demandez le tarif.',
+          'b2b.landing.cta': 'Demander le tarif',
+          'b2b.badge.notice': 'préavis',
+          'b2b.badge.cold': 'chaîne du froid',
+          'b2b.badge.form': 'formulaire unique',
+          'b2b.quick.coniShort': 'Cônes',
+          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.request': 'Demande',
+          'b2b.form.label': 'Demande de tarif B2B',
           'nav.magazine': 'Ils Parlent de Nous',
           'footer.nav': 'Navigation',
           'footer.home': 'Accueil',
@@ -5994,6 +6071,17 @@
           'nav.b2b.coni': 'Conos y Copas',
           'nav.b2b.accessori': 'Accesorios',
           'nav.b2b.contenitori': 'Contenedores',
+          'b2b.landing.eyebrow': 'Catálogo B2B · Florencia 1932',
+          'b2b.landing.title': 'Catálogo B2B',
+          'b2b.landing.text': 'Elige una categoría, consulta los productos y solicita la lista de precios.',
+          'b2b.landing.cta': 'Solicitar lista',
+          'b2b.badge.notice': 'preaviso',
+          'b2b.badge.cold': 'cadena de frío',
+          'b2b.badge.form': 'formulario único',
+          'b2b.quick.coniShort': 'Conos',
+          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.request': 'Solicitud',
+          'b2b.form.label': 'Solicitud de lista B2B',
           'nav.magazine': 'Dicen de Nosotros',
           'footer.nav': 'Navegación',
           'footer.home': 'Inicio',
