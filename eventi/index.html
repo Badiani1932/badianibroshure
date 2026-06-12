@@ -880,6 +880,10 @@
     .ev-card:hover .ev-card__img,
     .ev-gallery__photo img,
     .ev-gallery__photo:hover img{transition:none !important;transform:none !important;filter:none !important;}
+    .ev-card__img{
+      object-fit:contain !important;
+      object-position:center center !important;
+    }
     .ev-card__desc,
     .ev-card:hover .ev-card__desc,
     .ev-card:nth-child(2) .ev-card__desc,
@@ -908,7 +912,7 @@
       .ev-types__grid{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;padding:0 12px !important;line-height:normal !important;}
       .ev-card{aspect-ratio:1/1.08 !important;min-height:0 !important;overflow:hidden !important;background:var(--badiani-blue,#1e398d) !important;border:1px solid rgba(255,255,255,.22);}
       .ev-card:nth-child(even){background:#2849a8 !important;}
-      .ev-card__img{left:8px !important;top:8px !important;width:calc(100% - 16px) !important;height:58% !important;object-fit:cover !important;}
+      .ev-card__img{left:8px !important;top:8px !important;width:calc(100% - 16px) !important;height:68% !important;object-fit:contain !important;object-position:center center !important;}
       .ev-card__overlay{display:grid !important;grid-template-columns:1fr !important;grid-template-rows:auto 1fr auto !important;inset:0 !important;padding:8px !important;}
       .ev-card__title{grid-column:1 !important;grid-row:1 !important;margin:0 !important;padding:0 !important;font-size:clamp(17px,5vw,23px) !important;line-height:.92 !important;letter-spacing:.8px !important;}
       .ev-card__desc{grid-column:1 !important;grid-row:3 !important;align-self:end !important;justify-self:start !important;padding:7px 8px !important;font-size:10.5px !important;letter-spacing:.55px !important;line-height:1.05 !important;max-width:100% !important;}
@@ -1034,7 +1038,7 @@
         </div>
       </a>
       <a class="ev-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
-        <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="lazy" decoding="async" width="1759" height="1467" style="object-position:center top" />
+        <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="lazy" decoding="async" width="1708" height="1709" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.van.card1.desc">Van brandizzato con servizio.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
