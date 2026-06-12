@@ -929,6 +929,21 @@
       outline:3px solid #fff;
       outline-offset:3px;
     }
+    .modal-overlay.active{
+      touch-action:none;
+      overscroll-behavior:contain;
+    }
+    html.modal-scroll-locked,
+    body.modal-scroll-locked{
+      overflow:hidden !important;
+      overscroll-behavior:none !important;
+    }
+    body.modal-scroll-locked{
+      position:fixed;
+      left:0;
+      right:0;
+      width:100%;
+    }
     .modal-panel{
       width:100%;
       max-width:1280px;
@@ -1155,6 +1170,9 @@
     .list-modal__body{
       flex:1;
       overflow-y:auto;
+      touch-action:pan-y;
+      -webkit-overflow-scrolling:touch;
+      overscroll-behavior:contain;
       padding:clamp(16px, 2.6vw, 34px);
       background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
       display:grid;
@@ -1392,7 +1410,7 @@
       .modal-request-btn svg{ width:16px; height:16px; }
 
       .sal-packages__cta{
-        --cta-v-space:14px;
+        --cta-v-space:18px;
         display:grid;
         grid-template-columns:repeat(2, minmax(0, 1fr));
         align-items:stretch;
@@ -1944,6 +1962,23 @@
 
   <!-- SCRIPTS -->
   <script>
+    // Robust scroll lock for fullscreen modals on mobile: keep scroll inside the modal, never the page behind it.
+    var modalScrollY = 0;
+    function lockPageScroll() {
+      if (document.body.classList.contains('modal-scroll-locked')) return;
+      modalScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      document.documentElement.classList.add('modal-scroll-locked');
+      document.body.classList.add('modal-scroll-locked');
+      document.body.style.top = '-' + modalScrollY + 'px';
+    }
+    function unlockPageScroll() {
+      if (document.querySelector('.modal-overlay.active') || document.getElementById('lightbox')?.classList.contains('active')) return;
+      document.documentElement.classList.remove('modal-scroll-locked');
+      document.body.classList.remove('modal-scroll-locked');
+      document.body.style.top = '';
+      window.scrollTo(0, modalScrollY || 0);
+    }
+
     // Lightbox
     var galleryImages = [
       '../../assets/images/migrated/eventi/foto%20eventi/1.webp',
@@ -1960,12 +1995,12 @@
       var img = document.getElementById('lightbox-img');
       img.src = galleryImages[index];
       lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      lockPageScroll();
     }
     function closeLightbox(e) {
       if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
       document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = '';
+      unlockPageScroll();
     }
     function prevImage(e) {
       e.stopPropagation();
@@ -1992,21 +2027,21 @@
     }
     function openFoodListModal() {
       var el = document.getElementById('foodListModal');
-      if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; revealLoadedImages(el); }
+      if (el) { el.classList.add('active'); lockPageScroll(); revealLoadedImages(el); }
     }
     function closeFoodListModal(e) {
       if (e && e.target && e.target.classList && !e.target.classList.contains('modal-overlay') && !e.target.classList.contains('modal-bg')) return;
       var el = document.getElementById('foodListModal');
-      if (el) { el.classList.remove('active'); document.body.style.overflow = ''; }
+      if (el) { el.classList.remove('active'); unlockPageScroll(); }
     }
     function openDrinkListModal() {
       var el = document.getElementById('drinkListModal');
-      if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; revealLoadedImages(el); }
+      if (el) { el.classList.add('active'); lockPageScroll(); revealLoadedImages(el); }
     }
     function closeDrinkListModal(e) {
       if (e && e.target && e.target.classList && !e.target.classList.contains('modal-overlay') && !e.target.classList.contains('modal-bg')) return;
       var el = document.getElementById('drinkListModal');
-      if (el) { el.classList.remove('active'); document.body.style.overflow = ''; }
+      if (el) { el.classList.remove('active'); unlockPageScroll(); }
     }
 
     // Close on Escape + arrow navigation
@@ -2014,10 +2049,8 @@
       var lightbox = document.getElementById('lightbox');
       if (e.key === 'Escape') {
         document.querySelectorAll('.modal-overlay.active').forEach(function(m) { m.classList.remove('active'); });
-        closeFoodListModal();
-        closeDrinkListModal();
         if (lightbox && lightbox.classList.contains('active')) lightbox.classList.remove('active');
-        document.body.style.overflow = '';
+        unlockPageScroll();
       }
       if (lightbox && lightbox.classList.contains('active')) {
         if (e.key === 'ArrowLeft') prevImage(e);
