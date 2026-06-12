@@ -1438,23 +1438,56 @@
       .ext-card__img{top:8px !important;left:8px !important;width:calc(100% - 16px) !important;height:calc(100% - 16px) !important;object-fit:cover !important;}
     }
 
-    /* Keep CTAs anchored after square-photo crop. */
-    .ext-card__desc{
-      position:absolute !important;
-      left:10px !important;
-      right:10px !important;
-      bottom:10px !important;
+    /* Final square-photo card layout: title / square photo / CTA, matching Eventi. */
+    .ext-card{
+      aspect-ratio:auto !important;
+      display:grid !important;
+      grid-template-rows:auto auto auto !important;
+      gap:10px !important;
+      overflow:visible !important;
+      background:transparent !important;
+      border:none !important;
+    }
+    .ext-card__img{
+      position:relative !important;
+      grid-row:2 !important;
       top:auto !important;
-      width:auto !important;
+      left:auto !important;
+      width:100% !important;
+      height:100cqw !important;
+      aspect-ratio:1/1 !important;
+      object-fit:cover !important;
+      object-position:center center !important;
+      display:block !important;
+    }
+    .ext-card__overlay{display:contents !important;position:static !important;}
+    .ext-card__title{
+      grid-row:1 !important;
+      grid-column:auto !important;
+      position:static !important;
+      margin:0 !important;
+      padding:0 !important;
+      align-self:end !important;
+      font-size:clamp(28px, 5vw, 58px) !important;
+      line-height:.9 !important;
+    }
+    .ext-card__desc{
+      grid-row:3 !important;
+      grid-column:auto !important;
+      position:static !important;
+      width:100% !important;
       max-width:none !important;
-      z-index:4 !important;
       justify-content:center !important;
       align-items:center !important;
       text-align:center !important;
-      border-radius:18px !important;
+      border-radius:999px !important;
       white-space:normal !important;
+      box-sizing:border-box !important;
+      z-index:4 !important;
     }
     @media(max-width:600px){
+      .ext-card{gap:7px !important;}
+      .ext-card__title{font-size:clamp(24px, 8vw, 34px) !important;}
       .ext-card__desc{padding:6px 7px !important;font-size:9.5px !important;line-height:1.05 !important;letter-spacing:.35px !important;gap:4px !important;}
     }
 
