@@ -1518,6 +1518,45 @@
     }
 
   </style>
+
+
+  <!-- UX polish: swipe galleries, counters, dots, mobile CTA -->
+  <style>
+    .lightbox, .img-lightbox{ touch-action:none; }
+    .lightbox-counter, .img-lightbox__counter{
+      position:absolute; left:50%; bottom:calc(22px + env(safe-area-inset-bottom)); transform:translateX(-50%);
+      z-index:20; color:#fff; background:rgba(18,35,92,.72); border:1px solid rgba(255,255,255,.2);
+      border-radius:999px; padding:7px 12px; font-weight:800; font-size:13px; letter-spacing:.9px;
+      box-shadow:0 10px 24px rgba(0,0,0,.24); pointer-events:none;
+    }
+    .lightbox-dots, .img-lightbox__dots{
+      position:absolute; left:50%; bottom:calc(58px + env(safe-area-inset-bottom)); transform:translateX(-50%);
+      z-index:20; display:flex; gap:7px; pointer-events:none;
+    }
+    .lightbox-dot, .img-lightbox__dot{ width:7px; height:7px; border-radius:999px; background:rgba(255,255,255,.45); }
+    .lightbox-dot.is-active, .img-lightbox__dot.is-active{ width:18px; background:#fff; }
+    .lightbox-swipe-hint, .img-lightbox__hint{
+      position:absolute; left:50%; top:calc(20px + env(safe-area-inset-top)); transform:translateX(-50%) translateY(-8px);
+      z-index:20; color:#fff; background:rgba(18,35,92,.78); border:1px solid rgba(255,255,255,.2);
+      border-radius:999px; padding:9px 14px; font-size:13px; font-weight:800; letter-spacing:.7px;
+      opacity:0; transition:opacity .25s ease, transform .25s ease; pointer-events:none; white-space:nowrap;
+    }
+    .lightbox-swipe-hint.is-visible, .img-lightbox__hint.is-visible{ opacity:1; transform:translateX(-50%) translateY(0); }
+    @media (hover:none){
+      :where(a,button,.ev-gallery__photo,.sal-gallery__photo,.exp-gallery__photo,.ext-card,.modal-hero__zoom){ -webkit-tap-highlight-color:rgba(240,103,166,.22); }
+      :where(a,button,.ev-gallery__photo,.sal-gallery__photo,.exp-gallery__photo,.ext-card,.modal-hero__zoom):active{ transform:scale(.985); }
+    }
+    .mobile-sticky-cta{
+      position:fixed; left:16px; right:16px; bottom:calc(14px + env(safe-area-inset-bottom)); z-index:850;
+      display:none; align-items:center; justify-content:center; min-height:50px; padding:13px 18px;
+      border-radius:999px; background:var(--badiani-pink,#f067a6); color:#fff; text-decoration:none;
+      font-weight:900; letter-spacing:1.2px; text-transform:uppercase; box-shadow:0 16px 34px rgba(30,57,141,.24);
+    }
+    @media(max-width:760px){ body{ padding-bottom:76px; } .mobile-sticky-cta{ display:flex; } }
+    .modal-overlay.active ~ .mobile-sticky-cta, .lightbox.active ~ .mobile-sticky-cta, .img-lightbox.is-open ~ .mobile-sticky-cta{ display:none; }
+    img[loading="lazy"]{ background:linear-gradient(110deg,rgba(30,57,141,.08) 8%,rgba(240,103,166,.10) 18%,rgba(30,57,141,.08) 33%); background-size:200% 100%; }
+  </style>
+
 </head>
 <body class="ext-page">
   <a href="#main-content" class="skip-link">Salta al contenuto</a>
@@ -2567,6 +2606,47 @@
     };
     var currentGallery = null;
     var currentIdx = 0;
+    var hintTimer = null;
+
+    function ensureLightboxUx(){
+      if(!lb.querySelector('.img-lightbox__counter')){
+        var counter = document.createElement('div');
+        counter.className = 'img-lightbox__counter';
+        lb.appendChild(counter);
+      }
+      if(!lb.querySelector('.img-lightbox__dots')){
+        var dots = document.createElement('div');
+        dots.className = 'img-lightbox__dots';
+        lb.appendChild(dots);
+      }
+      if(!lb.querySelector('.img-lightbox__hint')){
+        var hint = document.createElement('div');
+        hint.className = 'img-lightbox__hint';
+        hint.textContent = 'Scorri le foto';
+        lb.appendChild(hint);
+      }
+    }
+    function updateLightboxUx(showHint){
+      ensureLightboxUx();
+      var total = currentGallery ? currentGallery.length : 1;
+      var counter = lb.querySelector('.img-lightbox__counter');
+      var dots = lb.querySelector('.img-lightbox__dots');
+      counter.textContent = (currentIdx + 1) + ' / ' + total;
+      counter.style.display = total > 1 ? 'block' : 'none';
+      dots.style.display = total > 1 ? 'flex' : 'none';
+      dots.innerHTML = '';
+      for(var i=0;i<total;i++){
+        var dot = document.createElement('span');
+        dot.className = 'img-lightbox__dot' + (i === currentIdx ? ' is-active' : '');
+        dots.appendChild(dot);
+      }
+      if(showHint && total > 1){
+        var hint = lb.querySelector('.img-lightbox__hint');
+        hint.classList.add('is-visible');
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(function(){ hint.classList.remove('is-visible'); }, 1400);
+      }
+    }
 
     function openLightbox(src, alt, galleryName){
       lbImg.src = src;
@@ -2583,6 +2663,7 @@
       var hasNav = !!currentGallery && currentGallery.length > 1;
       lbPrev.style.display = hasNav ? 'flex' : 'none';
       lbNext.style.display = hasNav ? 'flex' : 'none';
+      updateLightboxUx(true);
     }
     function closeLightbox(){
       lb.classList.remove('is-open');
@@ -2597,6 +2678,7 @@
       currentIdx = (currentIdx + dir + currentGallery.length) % currentGallery.length;
       lbImg.src = currentGallery[currentIdx].src;
       lbImg.alt = currentGallery[currentIdx].alt;
+      updateLightboxUx(false);
     }
 
     lbPrev.addEventListener('click', function(e){ e.stopPropagation(); navLightbox(-1); });
@@ -2685,12 +2767,37 @@
       if(!swiping) return;
       swiping = false;
       var endX = e.changedTouches[0].clientX;
+      var endY = e.changedTouches[0].clientY;
       var diff = endX - swipeStartX;
-      if(Math.abs(diff) > 40){
+      var diffY = endY - swipeStartY;
+      if(Math.abs(diffY) > 70 && Math.abs(diffY) > Math.abs(diff) * 1.25){
+        closeLightbox();
+        return;
+      }
+      if(Math.abs(diff) > 40 && Math.abs(diff) > Math.abs(diffY) * 1.15){
         navLightbox(diff < 0 ? 1 : -1);
       }
     }, {passive:true});
   })();
   </script>
+
+  <script>
+  (function(){
+    if (document.querySelector('.mobile-sticky-cta')) return;
+    var target = document.getElementById('contatti') || document.querySelector('[id*="contatti"], .contact-section, form');
+    if (!target) return;
+    if (!target.id) target.id = 'contatti';
+    var cta = document.createElement('a');
+    cta.className = 'mobile-sticky-cta';
+    cta.href = '#' + target.id;
+    cta.textContent = 'Richiedi info';
+    cta.addEventListener('click', function(e){
+      e.preventDefault();
+      target.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    document.body.appendChild(cta);
+  })();
+  </script>
+
 </body>
 </html>
