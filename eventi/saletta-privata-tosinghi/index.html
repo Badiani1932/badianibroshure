@@ -2015,12 +2015,12 @@
       unlockPageScroll();
     }
     function prevImage(e) {
-      e.stopPropagation();
+      if (e && e.stopPropagation) e.stopPropagation();
       currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
       document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
     }
     function nextImage(e) {
-      e.stopPropagation();
+      if (e && e.stopPropagation) e.stopPropagation();
       currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
       document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
     }
@@ -2107,6 +2107,39 @@
     document.querySelector('#lightbox .lightbox-next').addEventListener('click', function(e) {
       nextImage(e);
     });
+
+    // Mobile swipe for fullscreen gallery
+    (function(){
+      var lb = document.getElementById('lightbox');
+      var startX = 0;
+      var startY = 0;
+      var tracking = false;
+      if (!lb) return;
+      lb.addEventListener('touchstart', function(e) {
+        if (!lb.classList.contains('active') || galleryImages.length < 2) return;
+        var t = e.changedTouches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        tracking = true;
+      }, { passive:true });
+      lb.addEventListener('touchmove', function(e) {
+        if (!tracking) return;
+        var t = e.changedTouches[0];
+        var dx = Math.abs(t.clientX - startX);
+        var dy = Math.abs(t.clientY - startY);
+        if (dx > dy && dx > 8) e.preventDefault();
+      }, { passive:false });
+      lb.addEventListener('touchend', function(e) {
+        if (!tracking) return;
+        tracking = false;
+        var t = e.changedTouches[0];
+        var dx = t.clientX - startX;
+        var dy = t.clientY - startY;
+        if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.25) {
+          dx < 0 ? nextImage() : prevImage();
+        }
+      }, { passive:true });
+    })();
 
     // Food modal controls
     document.getElementById('foodListModal').addEventListener('click', function(e) {

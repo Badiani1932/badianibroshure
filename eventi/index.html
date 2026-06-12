@@ -1498,12 +1498,12 @@
       document.body.style.overflow = '';
     }
     function prevEventImage(e) {
-      e.stopPropagation();
+      if (e && e.stopPropagation) e.stopPropagation();
       currentEventIndex = (currentEventIndex - 1 + eventImages.length) % eventImages.length;
       document.getElementById('eventLightbox-img').src = eventImages[currentEventIndex];
     }
     function nextEventImage(e) {
-      e.stopPropagation();
+      if (e && e.stopPropagation) e.stopPropagation();
       currentEventIndex = (currentEventIndex + 1) % eventImages.length;
       document.getElementById('eventLightbox-img').src = eventImages[currentEventIndex];
     }
@@ -1536,6 +1536,39 @@
     document.querySelector('#eventLightbox .lightbox-next').addEventListener('click', function(e) {
       nextEventImage(e);
     });
+
+    // Mobile swipe for fullscreen gallery
+    (function(){
+      var lb = document.getElementById('eventLightbox');
+      var startX = 0;
+      var startY = 0;
+      var tracking = false;
+      if (!lb) return;
+      lb.addEventListener('touchstart', function(e) {
+        if (!lb.classList.contains('active') || eventImages.length < 2) return;
+        var t = e.changedTouches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        tracking = true;
+      }, { passive:true });
+      lb.addEventListener('touchmove', function(e) {
+        if (!tracking) return;
+        var t = e.changedTouches[0];
+        var dx = Math.abs(t.clientX - startX);
+        var dy = Math.abs(t.clientY - startY);
+        if (dx > dy && dx > 8) e.preventDefault();
+      }, { passive:false });
+      lb.addEventListener('touchend', function(e) {
+        if (!tracking) return;
+        tracking = false;
+        var t = e.changedTouches[0];
+        var dx = t.clientX - startX;
+        var dy = t.clientY - startY;
+        if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.25) {
+          dx < 0 ? nextEventImage() : prevEventImage();
+        }
+      }, { passive:true });
+    })();
 
     // Radio buttons for extras panel
     document.querySelectorAll('input[name="opzioniExtra"]').forEach(function(radio) {
