@@ -1428,6 +1428,16 @@
       .external-form-card{ padding:20px; }
     }
 
+    /* Marco square-photo card pass: Badiani dove vuoi buttons match Eventi square proportions. */
+    .ext-card{aspect-ratio:1/1 !important;}
+    .ext-card__img{top:18% !important;left:18% !important;width:64% !important;height:64% !important;object-fit:cover !important;object-position:center center !important;}
+    .ext-card__overlay{grid-template-columns:18% 64% 18% !important;grid-template-rows:18% 64% 18% !important;}
+    @media(max-width:900px){.ext-card{aspect-ratio:1/1 !important;}}
+    @media(max-width:600px){
+      .ext-card{aspect-ratio:1/1 !important;}
+      .ext-card__img{top:8px !important;left:8px !important;width:calc(100% - 16px) !important;height:calc(100% - 16px) !important;object-fit:cover !important;}
+    }
+
   </style>
 </head>
 <body class="ext-page">

@@ -1118,6 +1118,17 @@
       .ev-card__desc{grid-column:1 !important;grid-row:3 !important;align-self:end !important;justify-self:start !important;padding:7px 8px !important;font-size:10.5px !important;letter-spacing:.55px !important;line-height:1.05 !important;max-width:100% !important;}
       .ev-card__desc svg{width:13px;height:13px;flex:0 0 13px;}
     }
+
+    /* Marco square-photo card pass: Eventi buttons keep consistent square proportions. */
+    .ev-card{aspect-ratio:1/1 !important;}
+    .ev-card::after,
+    .ev-card__img{top:18% !important;left:18% !important;width:64% !important;height:64% !important;}
+    .ev-card__img{object-fit:cover !important;object-position:center center !important;}
+    .ev-card__overlay{grid-template-columns:18% 64% 18% !important;grid-template-rows:18% 64% 18% !important;}
+    @media(max-width:600px){
+      .ev-card{aspect-ratio:1/1 !important;}
+      .ev-card__img{top:8px !important;left:8px !important;width:calc(100% - 16px) !important;height:calc(100% - 16px) !important;object-fit:cover !important;}
+    }
   </style>
 </head>
 <body>
