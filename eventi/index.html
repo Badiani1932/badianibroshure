@@ -908,7 +908,8 @@
     /* ===== Compact lower page redesign: readable, shorter mobile scroll ===== */
     .ev-corporate{
       background:var(--badiani-blue,#1e398d) !important;
-      padding:clamp(28px,5vw,56px) clamp(16px,4vw,56px);
+      padding:clamp(28px,5vw,56px) clamp(16px,4vw,56px) clamp(48px,7vw,84px);
+      overflow:visible;
     }
     .ev-corp-info{
       max-width:1100px;
@@ -970,11 +971,13 @@
       grid-template-columns:1fr 1fr;
       gap:12px;
       background:transparent !important;
+      overflow:visible;
     }
     .ev-corp-col{
-      padding:clamp(18px,3vw,28px);
+      padding:clamp(18px,3vw,28px) clamp(18px,3vw,28px) clamp(24px,4vw,40px);
       background:#fff;
       border:none;
+      overflow:visible;
     }
     .ev-corp-col--customize{border-right:none;}
     .ev-corp-col h3,
@@ -1064,18 +1067,19 @@
     }
     .external-form-card__btn:hover{background:var(--badiani-blue,#1e398d);color:#fff;}
     @media(max-width:700px){
-      .ev-corporate{padding:22px 12px;}
+      .ev-corporate{padding:22px 12px 44px;overflow:visible;}
       .ev-corp-info{padding:20px 18px;}
       .ev-corp-info__label{font-size:11px;letter-spacing:1.4px;}
       .ev-corp-info__title{font-size:clamp(28px,8.5vw,38px);letter-spacing:.6px;margin-bottom:10px;}
       .ev-corp-info__subtitle{font-size:17px;line-height:1.22;}
       .ev-corp-info__desc{font-size:15px;line-height:1.38;}
       .ev-corp-info__cta{width:100%;margin-top:14px;}
-      .ev-corp-details{grid-template-columns:1fr;gap:10px;margin-top:10px;}
-      .ev-corp-col{padding:16px;}
-      .ev-corp-col h3{font-size:22px;margin-bottom:10px;}
-      .ev-corp-list{gap:7px;}
-      .ev-corp-list li{font-size:14px;line-height:1.2;padding:7px 9px;}
+      .ev-corp-details{grid-template-columns:1fr;gap:14px;margin-top:12px;overflow:visible;}
+      .ev-corp-col{padding:18px 16px 24px;overflow:visible;}
+      .ev-corp-col--ideal{padding-bottom:36px;margin-bottom:10px;}
+      .ev-corp-col h3{font-size:22px;margin-bottom:12px;}
+      .ev-corp-list{gap:9px;overflow:visible;}
+      .ev-corp-list li{font-size:14px;line-height:1.2;padding:8px 10px;overflow:visible;}
       .ev-gallery-section{padding:24px 0 24px 12px;}
       .ev-gallery__label,
       .ev-gallery__title{padding-right:12px;}
