@@ -1176,6 +1176,24 @@
     .choice-card[href="eventi/"]{background-image:linear-gradient(180deg,rgba(18,35,92,.05),rgba(18,35,92,.30)),url('assets/images/eventi/carretto_gelato/foto4.webp') !important;background-size:cover;background-position:center;}
     .choice-card[href="eventi/"] .choice-card__img{opacity:0 !important;}
 
+    /* Final CTA clipping guard: keep home pills inside desktop/tablet cards. */
+    .choice-cta{
+      top:auto !important;
+      bottom:clamp(18px, 3vw, 32px) !important;
+      max-width:calc(100% - 32px) !important;
+      white-space:normal !important;
+      line-height:1.15 !important;
+      text-align:center !important;
+    }
+    @media(max-width:1120px){
+      .choice-grid{grid-template-columns:1fr !important;}
+      .choice-card{width:100% !important;min-height:250px !important;}
+    }
+    @media(max-width:900px){
+      .choice-grid{grid-template-columns:1fr !important;}
+      .choice-card{width:100% !important;min-height:250px !important;}
+    }
+
   </style>
 </head>
 <body>
