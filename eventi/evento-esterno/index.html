@@ -173,36 +173,7 @@
       container-type:inline-size;
     }
     .ext-card:hover{ transform:none; box-shadow:none; }
-    .ext-card::after{
-      content:'';
-      position:absolute;
-      inset:18%;
-      background:var(--badiani-pink);
-      translate:0 0;
-      transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
-      z-index:0;
-      pointer-events:none;
-    }
-    @media(hover:hover){
-      .ext-card:hover::after{
-        translate:40px 40px;
-      }
-    }
-    @media(hover:none){
-      .ext-card.in-view::after{
-        translate:40px 40px;
-      }
-    }
-    @keyframes pulse-border{
-      0%, 100%{
-        border-color:rgba(232,88,130,0.2);
-        box-shadow:inset 0 0 10px rgba(232,88,130,0.1), 0 0 10px rgba(232,88,130,0.1);
-      }
-      50%{
-        border-color:rgba(232,88,130,1);
-        box-shadow:inset 0 0 30px rgba(232,88,130,0.4), 0 0 30px rgba(232,88,130,0.4);
-      }
-    }
+    /* Static card photos: no animated pseudo-shadow block. */
     .ext-card:focus-visible{
       outline:3px solid var(--badiani-pink);
       outline-offset:-3px;
@@ -302,7 +273,7 @@
       max-width:none;
       pointer-events:none;
       z-index:2;
-      transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
     .ext-card__desc svg{
       width:16px;
@@ -543,13 +514,8 @@
       background:#f0f2f8;
       border-radius:0;
       border:1px solid rgba(30,57,141,0.1);
-      animation:efExtrasReveal 0.35s ease;
     }
     .ef-extras-panel.visible{ display:block; }
-    @keyframes efExtrasReveal{
-      from{ opacity:0; transform:translateY(-8px); }
-      to{ opacity:1; transform:translateY(0); }
-    }
     .ext-form-actions{
       display:flex;
       align-items:center;
@@ -588,13 +554,12 @@
       font-family:inherit;
       font-weight:600;
       cursor:pointer;
-      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow:0 8px 24px rgba(30,57,141,0.2);
+      transition:background 0.25s ease, color 0.25s ease;
+      box-shadow:none;
     }
     .ext-form-submit:hover{
       background:var(--badiani-pink);
-      transform:translateY(-2px);
-      box-shadow:0 12px 32px rgba(240,103,166,0.25);
+      box-shadow:none;
     }
     .ext-form-submit:focus-visible{
       outline:2px solid var(--badiani-pink);
@@ -651,9 +616,9 @@
       align-items:center;
       justify-content:center;
       z-index:10;
-      box-shadow:0 5px 20px rgba(240,103,166,0.5);
+      box-shadow:none;
       padding:0; line-height:0; font-size:0; color:transparent;
-      transition:transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      transition:background 0.25s ease;
     }
     .modal-close::before,
     .modal-close::after{
@@ -670,8 +635,7 @@
     .modal-close::after{ transform:translate(-50%,-50%) rotate(-45deg); }
     .modal-close:hover{
       background:linear-gradient(135deg, var(--badiani-blue), #2a4ab0);
-      transform:rotate(90deg) scale(1.1);
-      box-shadow:0 8px 28px rgba(30,57,141,0.6);
+      box-shadow:none;
     }
     .modal-close:focus-visible{
       outline:3px solid #fff;
@@ -688,13 +652,11 @@
       border-radius:0;
       padding:0;
       box-sizing:border-box;
-      box-shadow:0 30px 80px rgba(0,0,0,0.7);
-      animation:modalReveal 0.6s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow:none;
+      animation:none;
       display:grid;
       grid-template-columns:1fr 1fr;
     }
-    @keyframes modalReveal{ from{transform:translateY(50px) scale(0.97);opacity:0;} to{transform:translateY(0) scale(1);opacity:1;} }
-
     /* Modal 2-column layout */
     .modal-col--media{
       display:flex;
@@ -760,11 +722,11 @@
     }
     .modal-hero__img[data-zoomable]{
       cursor:zoom-in;
-      transition:transform 0.18s ease, box-shadow 0.18s ease;
+      transition:none;
     }
     .modal-hero__img[data-zoomable]:hover{
-      transform:scale(1.03);
-      box-shadow:0 22px 56px rgba(0,0,0,0.65);
+      transform:none;
+      box-shadow:0 16px 48px rgba(0,0,0,0.5);
     }
 
     /* Lightbox fullscreen */
@@ -829,14 +791,14 @@
       cursor:pointer;
       -webkit-backdrop-filter:blur(8px);
       backdrop-filter:blur(8px);
-      transition:transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      transition:background 0.18s ease, border-color 0.18s ease;
       touch-action:manipulation;
       z-index:5;
       pointer-events:auto;
-      box-shadow:0 2px 8px rgba(0,0,0,0.18);
+      box-shadow:none;
       padding:0;
     }
-    .modal-hero__zoom:hover{ transform:scale(1.1); background:rgba(0,0,0,0.48); border-color:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.28); }
+    .modal-hero__zoom:hover{ background:rgba(0,0,0,0.48); border-color:#fff; box-shadow:none; }
     .modal-hero__zoom svg{ width:20px; height:20px; }
 
     .modal-hero__img--coolbox{
@@ -932,14 +894,13 @@
       font-family:inherit;
       font-weight:600;
       cursor:pointer;
-      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow:0 10px 32px rgba(240,103,166,0.35);
+      transition:background 0.25s ease, color 0.25s ease;
+      box-shadow:none;
     }
     .modal-request-btn:hover{
       background:#fff;
       color:var(--badiani-blue);
-      transform:translateY(-3px);
-      box-shadow:0 14px 40px rgba(255,255,255,0.2);
+      box-shadow:none;
     }
     .modal-request-btn:focus-visible{
       outline:2px solid #fff;
@@ -1201,11 +1162,11 @@
     }
 
     /* ===== UNIFIED EXTERNAL FORM CARD ===== */
-    .external-form-card{max-width:1100px;margin:0 auto;background:var(--badiani-blue,#1e398d);color:#fff;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;box-shadow:0 18px 46px rgba(30,57,141,.18);}
+    .external-form-card{max-width:1100px;margin:0 auto;background:var(--badiani-blue,#1e398d);color:#fff;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;box-shadow:none;}
     .external-form-card h2{margin:0;color:#fff;font-size:clamp(30px,5vw,72px);line-height:.9;text-transform:uppercase;letter-spacing:1px;}
     .external-form-card p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:18px;line-height:1.4;max-width:620px;}
-    .external-form-card__btn{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--badiani-blue,#1e398d);text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;padding:14px 18px;transition:transform .25s ease,background .25s ease,color .25s ease;}
-    .external-form-card__btn:hover{transform:translateY(-2px);background:var(--badiani-pink,#f067a6);color:#fff;}
+    .external-form-card__btn{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--badiani-blue,#1e398d);text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;padding:14px 18px;border-radius:0;box-shadow:none;transition:background .25s ease,color .25s ease;}
+    .external-form-card__btn:hover{background:var(--badiani-pink,#f067a6);color:#fff;}
     @media(max-width:760px){.external-form-card{grid-template-columns:1fr}.external-form-card__btn{width:100%;}}
 
     /* ===== MARCO COMPACT PASS — Badiani dove vuoi =====
@@ -1264,14 +1225,8 @@
     .ext-card{
       aspect-ratio:3/4;
       min-height:0;
+      min-width:0;
       overflow:visible;
-    }
-    .ext-card::after{
-      inset:auto;
-      top:18%;
-      left:18%;
-      width:64%;
-      height:48%;
     }
     .ext-card__img{
       top:18%;
@@ -1310,6 +1265,43 @@
       color:#fff;
       font-size:clamp(13px, 1.15vw, 18px);
       line-height:1.1;
+    }
+    .ext-page > .ext-hero,
+    .ext-page > .ext-solutions,
+    .ext-page > .ext-terms,
+    .ext-page > .ext-form-section,
+    .ext-page > .modal-overlay,
+    .ext-page > .img-lightbox{
+      animation:none !important;
+      opacity:1 !important;
+      transform:none !important;
+    }
+    .ext-page .title-accent::before,
+    .ext-page .title-accent::after{
+      content:none !important;
+      display:none !important;
+    }
+    .ext-page .title-accent{
+      text-shadow:none !important;
+      filter:none !important;
+    }
+    .ext-card,
+    .ext-card:hover,
+    .ext-card.in-view{
+      transform:none !important;
+      box-shadow:none !important;
+    }
+    .ext-card::after{ content:none !important; }
+    .ext-card__desc,
+    .ext-card[data-modal="carretto"] .ext-card__desc{
+      border-radius:0 !important;
+      box-shadow:none !important;
+    }
+    .ext-card__img,
+    .ext-card:hover .ext-card__img{
+      transition:none !important;
+      transform:none !important;
+      filter:none !important;
     }
     .ext-card[data-modal="carretto"] .ext-card__price{ background:rgba(240,103,166,.9); }
     .ext-terms{
@@ -1350,14 +1342,15 @@
         gap:10px;
         padding:0 12px 10px;
       }
-      .ext-card{ aspect-ratio:3/4; }
-      .ext-card__title{ margin-left:-14px; font-size:clamp(28px, 8.8vw, 44px); }
+      .ext-card{ aspect-ratio:3/4; min-width:0; overflow:hidden; }
+      .ext-card__title{ margin-left:0; font-size:clamp(24px, 7.2vw, 36px); }
       .ext-card__desc{
-        font-size:clamp(11px, 2.8vw, 14px);
-        letter-spacing:.8px;
+        font-size:clamp(10px, 2.45vw, 13px);
+        letter-spacing:.45px;
         padding:8px 9px;
         gap:6px;
       }
+      .ext-card__desc span{ min-width:0; }
       .ext-card__desc svg{ width:14px; height:14px; }
       .ext-card__price{
         right:calc(18% + 6px);
@@ -1371,8 +1364,18 @@
       .ext-hero{ min-height:0; }
       .ext-hero__content{ padding:0; gap:8px; }
       .ext-hero__label{ font-size:12px; margin-bottom:6px; }
-      .ext-hero__title{ font-size:clamp(38px, 12vw, 54px); letter-spacing:1.2px; }
+      .ext-hero__title{ font-size:clamp(32px, 10vw, 44px); letter-spacing:.8px; max-width:100%; }
       .ext-hero__desc{ font-size:16px; line-height:1.28; max-width:340px; }
+      .ext-solutions__grid{
+        grid-template-columns:repeat(2, calc((min(100vw, 390px) - 34px) / 2)) !important;
+        padding-left:12px !important;
+        padding-right:12px !important;
+        gap:10px !important;
+        max-width:100vw;
+        overflow:hidden;
+        box-sizing:border-box;
+      }
+      .ext-card{ width:100% !important; max-width:100% !important; }
       .ext-card::after,
       .ext-card__img{
         top:17%;
@@ -1382,10 +1385,10 @@
       }
       .ext-card__overlay{
         grid-template-columns:14% 72% 14%;
-        grid-template-rows:17% 47% 36%;
+        grid-template-rows:20% 47% 33%;
       }
-      .ext-card__title{ line-height:.88; padding-bottom:4px; }
-      .ext-card__desc{ grid-column:2 / -1; }
+      .ext-card__title{ grid-column:1 / -1; line-height:.92; padding-bottom:4px; font-size:clamp(18px, 5vw, 22px); letter-spacing:.35px; }
+      .ext-card__desc{ grid-column:1 / -1; }
       .ext-card__price{ right:calc(14% + 5px); top:calc(17% + 5px); }
       .ext-terms{ padding:24px 12px; }
       .ext-terms__title{ font-size:clamp(30px, 8.2vw, 42px); }
@@ -1398,7 +1401,7 @@
 
   </style>
 </head>
-<body>
+<body class="ext-page">
   <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <!-- TOPBAR -->
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
@@ -1525,8 +1528,8 @@
         <span class="ext-card__label" aria-hidden="true">2</span>
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
-          <h2 class="ext-card__title">Carretto Gelato</h2>
-          <p class="ext-card__desc"><span data-i18n="external.carretto.desc">Carretto gelato per eventi all’aperto.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
+          <h2 class="ext-card__title">Carretto<br>Gelato</h2>
+          <p class="ext-card__desc"><span data-i18n="external.carretto.desc">Carretto gelato per eventi.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
           <p class="ext-card__price" data-i18n="external.carretto.price">A partire da &euro;1.000+IVA*</p>
         </div>
       </button>
@@ -1655,7 +1658,7 @@
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
             <h2 class="modal-hero__title title-accent title-accent--light">Carretto Gelato</h2>
-            <p class="modal-hero__desc" data-i18n="external.carretto.desc">Carretto gelato per eventi all’aperto.</p>
+            <p class="modal-hero__desc" data-i18n="external.carretto.desc">Carretto gelato per eventi.</p>
           </div>
           <div class="modal-body">
             <div class="specs-grid">
@@ -1877,7 +1880,7 @@
           'external.coolbox.price': 'A partire da \u20ac200+IVA*',
           'external.carretto.aria': 'Carretto Gelato \u2014 Ideale per eventi casual e all\u2019aperto',
           'external.carretto.subtitle': 'Ideale per eventi casual e all\u2019aperto',
-          'external.carretto.desc': 'Carretto gelato per eventi all’aperto.',
+          'external.carretto.desc': 'Carretto gelato per eventi.',
           'external.carretto.price': 'A partire da \u20ac1.000+IVA*',
           'external.terms.label': 'Condizioni',
           'external.terms.title': 'Termini e Condizioni',
@@ -1985,7 +1988,7 @@
           'external.coolbox.price': 'Starting from \u20ac200+VAT*',
           'external.carretto.aria': 'Gelato Cart \u2014 Ideal for casual and outdoor events',
           'external.carretto.subtitle': 'Ideal for casual and outdoor events',
-          'external.carretto.desc': 'Gelato cart for outdoor events.',
+          'external.carretto.desc': 'Gelato cart for events.',
           'external.carretto.price': 'Starting from \u20ac1,000+VAT*',
           'external.terms.label': 'Conditions',
           'external.terms.title': 'Terms & Conditions',
@@ -2093,7 +2096,7 @@
           'external.coolbox.price': '\u00c0 partir de \u20ac200+TVA*',
           'external.carretto.aria': 'Chariot Gelato \u2014 Id\u00e9al pour \u00e9v\u00e9nements d\u00e9contract\u00e9s et en plein air',
           'external.carretto.subtitle': 'Id\u00e9al pour \u00e9v\u00e9nements d\u00e9contract\u00e9s et en plein air',
-          'external.carretto.desc': 'Chariot gelato pour événements en plein air.',
+          'external.carretto.desc': 'Chariot gelato pour événements.',
           'external.carretto.price': '\u00c0 partir de \u20ac1.000+TVA*',
           'external.terms.label': 'Conditions',
           'external.terms.title': 'Termes et Conditions',
@@ -2201,7 +2204,7 @@
           'external.coolbox.price': 'A partir de \u20ac200+IVA*',
           'external.carretto.aria': 'Carrito Gelato \u2014 Ideal para eventos casuales y al aire libre',
           'external.carretto.subtitle': 'Ideal para eventos casuales y al aire libre',
-          'external.carretto.desc': 'Carrito gelato para eventos al aire libre.',
+          'external.carretto.desc': 'Carrito gelato para eventos.',
           'external.carretto.price': 'A partir de \u20ac1.000+IVA*',
           'external.terms.label': 'Condiciones',
           'external.terms.title': 'T\u00e9rminos y Condiciones',
@@ -2337,45 +2340,6 @@
       (function(){var dl=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!dl)return;var btns=document.querySelectorAll('.topbar__mobile-lang-btn');function sync(){btns.forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===dl.value);});}btns.forEach(function(b){b.addEventListener('click',function(){dl.value=b.dataset.lang;dl.dispatchEvent(new Event('change'));sync();});});dl.addEventListener('change',sync);setTimeout(sync,0);})();
       (function(){var sel=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!sel)return;var trigger=document.querySelector('.topbar__lang-trigger');var panel=document.querySelector('.topbar__lang-panel');var cur=document.querySelector('.topbar__lang-cur');if(!trigger||!panel||!cur)return;function syncDd(){var v=sel.value||'it';cur.textContent=v.toUpperCase();panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===v);});}trigger.addEventListener('click',function(e){e.stopPropagation();var open=panel.classList.toggle('is-open');trigger.setAttribute('aria-expanded',open?'true':'false');panel.setAttribute('aria-hidden',open?'false':'true');});panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.addEventListener('click',function(){sel.value=b.dataset.lang;sel.dispatchEvent(new Event('change'));panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');syncDd();});});document.addEventListener('click',function(e){if(!trigger.contains(e.target)&&!panel.contains(e.target)){panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});sel.addEventListener('change',syncDd);setTimeout(syncDd,0);})();
     })();
-  </script>
-
-  <!-- Scroll-triggered shadow animation on ext-cards (mobile/touch only, staggered) -->
-  <script>
-  (function(){
-    if(!('IntersectionObserver' in window)) return;
-    if(window.matchMedia('(hover:hover)').matches) return;
-    var cards = Array.prototype.slice.call(document.querySelectorAll('.ext-card'));
-    if(!cards.length) return;
-    var queue = [];
-    var draining = false;
-    var STAGGER = 400;
-    function drain(){
-      if(!queue.length){ draining = false; return; }
-      draining = true;
-      var card = queue.shift();
-      if(card._shadowQueued){
-        card.classList.add('in-view');
-        card._shadowQueued = false;
-      }
-      setTimeout(drain, STAGGER);
-    }
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          if(!entry.target.classList.contains('in-view')){
-            entry.target._shadowQueued = true;
-            queue.push(entry.target);
-            if(!draining) drain();
-          }
-        } else {
-          entry.target.classList.remove('in-view');
-          entry.target._shadowQueued = false;
-          queue = queue.filter(function(c){ return c !== entry.target; });
-        }
-      });
-    }, { threshold: 0.3 });
-    cards.forEach(function(card){ observer.observe(card); });
-  })();
   </script>
 
   <script>
