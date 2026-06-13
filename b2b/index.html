@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; base-uri 'self'" />
   <title>B2B — Badiani 1932 | Gelato per Hotel, Catering e Ristorazione</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Soluzioni B2B di gelato artigianale Badiani 1932 per hotel, ristoranti, catering e gelaterie. Catalogo completo: vasche, monoporzioni, torte, coni e accessori." />
@@ -1196,10 +1196,23 @@
       outline-offset:2px;
     }
     .gelato-card:hover{ transform:translateY(-2px) scale(1.01); }
-    .gelato-card.is-selected{ outline:2px solid rgba(30,57,141,0.3); outline-offset:2px; }
-    .gelato-card.is-expanded{
-      outline:2px solid var(--badiani-pink);
-      outline-offset:2px;
+    .b2b-inline-catalog .gelato-card.is-selected,
+    .b2b-inline-catalog .gelato-card.is-expanded{
+      outline:none !important;
+    }
+    .b2b-inline-catalog .gelato-card.is-selected::after,
+    .b2b-inline-catalog .gelato-card.is-expanded::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      pointer-events:none;
+      z-index:20;
+      border:2px solid rgba(30,57,141,0.3);
+      box-sizing:border-box;
+    }
+    .b2b-inline-catalog .gelato-card.is-expanded::after{
+      border-color:var(--badiani-pink);
     }
     .gelato-card__content{
       display:grid;
@@ -4129,6 +4142,18 @@
       .b2b-quicknav button,.b2b-quicknav a{border-radius:0 !important;}
       .b2b-terms-min__item{border-radius:0 !important;background:#fff !important;}
     }
+
+    .b2b-top-picks{max-width:1120px;margin:18px auto 0;padding:0 0 4px;}
+    .b2b-top-picks__head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:12px;}
+    .b2b-top-picks__eyebrow{margin:0;color:var(--badiani-pink);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;}
+    .b2b-top-picks__title{margin:3px 0 0;color:var(--badiani-blue);font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;font-size:clamp(28px,3.5vw,48px);line-height:.95;text-transform:uppercase;}
+    .b2b-top-picks__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+    .b2b-top-pick{background:#fff;border:1px solid rgba(30,57,141,.09);padding:16px;display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:center;text-decoration:none;color:var(--badiani-blue);box-shadow:0 10px 24px rgba(30,57,141,.06);}
+    .b2b-top-pick img{width:64px;height:64px;object-fit:contain;background:#f8f3ef;}
+    .b2b-top-pick strong{display:block;text-transform:uppercase;letter-spacing:1px;font-size:16px;line-height:1;}
+    .b2b-top-pick span{display:block;margin-top:5px;font-size:13px;line-height:1.25;color:rgba(30,57,141,.68);}
+    @media(max-width:760px){.b2b-top-picks{margin-top:14px}.b2b-top-picks__head{display:block;padding:0 2px}.b2b-top-picks__grid{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;padding-bottom:4px}.b2b-top-pick{min-width:78%;scroll-snap-align:start}}
+
   </style>
 </head>
 <body>
@@ -4255,6 +4280,21 @@
       <button type="button" data-category="CONTENITORI" data-i18n="b2b.quick.packaging">Packaging</button>
       <a href="https://eventi.badiani1932.com/" target="_blank" rel="noopener" data-i18n="b2b.quick.request">Richiesta</a>
     </nav>
+
+
+    <section class="b2b-top-picks" aria-label="Prodotti B2B più richiesti">
+      <div class="b2b-top-picks__head">
+        <div>
+          <p class="b2b-top-picks__eyebrow">Scelte rapide vendor</p>
+          <h2 class="b2b-top-picks__title">Top richiesti</h2>
+        </div>
+      </div>
+      <div class="b2b-top-picks__grid">
+        <a class="b2b-top-pick" href="?cat=GELATO"><img src="../assets/images/categories/gusti.webp" alt="Gusti gelato Badiani" loading="lazy"><span><strong>Gusti iconici</strong><span>Buontalenti, pistacchio, cioccolato e sorbetti per servizio al banco.</span></span></a>
+        <a class="b2b-top-pick" href="?cat=PEZZI%20DURI"><img src="../assets/images/pezziduri/lingotto-buontalenti.webp" alt="Lingotto Buontalenti" loading="lazy"><span><strong>Monoporzioni</strong><span>Soluzione pratica per hotel, catering e dessert già porzionati.</span></span></a>
+        <a class="b2b-top-pick" href="?cat=TORTE"><img src="../assets/images/torte/la_dolcevita.png" alt="Torta La Dolcevita" loading="lazy"><span><strong>Torte</strong><span>Formati premium per ricorrenze, banchetti e ristorazione.</span></span></a>
+      </div>
+    </section>
 
     <section class="b2b-inline-catalog" id="catalogo-dettaglio" aria-label="Catalogo B2B dettagliato">
       <div class="b2b-inline-catalog__frame">
@@ -8637,7 +8677,7 @@
                 <span><strong>${t('b2b.coni.dimensions')}</strong> ${desc}</span>
                 <span><strong>${t('b2b.coni.quantity')}</strong> ${qty}</span>
               </div>
-              `;  
+              `;
             card.appendChild(expBody);
             const closeBtn = expBody.querySelector('.pezziduri-card__exp-close');
             if(closeBtn){ closeBtn.addEventListener('click', (e) => { e.stopPropagation(); handleConiSelect(); }); }
@@ -9228,9 +9268,9 @@
       function renderGelatoGrid(){
         if(!gelatoGrid) return;
         const query = gelatoSearch ? gelatoSearch.value.trim().toLowerCase() : '';
-        
+
         gelatoGrid.innerHTML = '';
-        
+
         // Define category order and titles
         const categoriesOrder = [
           { key: 'iconici', titleKey: 'gelato.filters.category.iconici' },
@@ -9238,23 +9278,23 @@
           { key: 'sorbetti', titleKey: 'gelato.filters.category.sorbetti' },
           { key: 'limited', titleKey: 'gelato.filters.category.limited' }
         ];
-        
+
         let totalRendered = 0;
-        
+
         // Render each category section
         categoriesOrder.forEach(({ key, titleKey }) => {
           const categoryIds = GELATO_CATEGORIES[key];
           if(!categoryIds) return;
-          
+
           const categoryFlavors = gelatoFlavors.filter((flavor) => {
             const name = getFlavorLabel(flavor).toLowerCase();
             const matchQuery = !query || name.includes(query);
             const matchCategory = categoryIds.includes(flavor.id);
             return matchQuery && matchCategory;
           });
-          
+
           if(categoryFlavors.length === 0) return;
-          
+
           // Create a real section per category, so mobile has one clean row/carousel per family.
           const categoryBlock = document.createElement('section');
           categoryBlock.className = 'gelato-category-block';
@@ -9269,7 +9309,7 @@
           categoryRow.className = 'gelato-category-row';
           categoryBlock.appendChild(categoryRow);
           gelatoGrid.appendChild(categoryBlock);
-          
+
           // Render flavors in this category
           categoryFlavors.forEach((flavor) => {
             const btn = document.createElement('button');
@@ -9341,7 +9381,7 @@
             totalRendered++;
           });
         });
-        
+
         if(totalRendered === 0){
           gelatoGrid.innerHTML = `<div class=\"gelato-empty\">${t('gelato.filters.noResults') || 'Nessun risultato'}</div>`;
           expandedFlavorId = '';

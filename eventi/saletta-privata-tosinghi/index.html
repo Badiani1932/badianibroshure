@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; base-uri 'self'" />
   <title>Saletta Privata Tosinghi — Badiani 1932 | Feste Private a Firenze</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Prenota la saletta privata Badiani in Via de' Tosinghi a Firenze. Pacchetti Silver, Gold e Platinum per feste private con gelato artigianale e finger food." />
@@ -1594,7 +1594,7 @@
       font-weight:900; letter-spacing:1.2px; text-transform:uppercase; box-shadow:0 16px 34px rgba(30,57,141,.24);
     }
     @media(max-width:760px){ body{ padding-bottom:76px; } .mobile-sticky-cta{ display:flex; } }
-    .modal-overlay.active ~ .mobile-sticky-cta, .lightbox.active ~ .mobile-sticky-cta, .img-lightbox.is-open ~ .mobile-sticky-cta{ display:none; }
+    .cookie-banner:not(.is-hidden) ~ .mobile-sticky-cta, .modal-overlay.active ~ .mobile-sticky-cta, .lightbox.active ~ .mobile-sticky-cta, .img-lightbox.is-open ~ .mobile-sticky-cta{ display:none; }
     img[loading="lazy"]{ background:linear-gradient(110deg,rgba(30,57,141,.08) 8%,rgba(240,103,166,.10) 18%,rgba(30,57,141,.08) 33%); background-size:200% 100%; }
   </style>
 

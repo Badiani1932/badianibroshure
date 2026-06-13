@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; base-uri 'self'" />
   <title>Magazine — Badiani 1932 | Rassegna Stampa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Dicono di noi: rassegna stampa e articoli su Badiani 1932. Scopri cosa dicono i media del nostro gelato artigianale fiorentino." />
@@ -325,6 +325,19 @@
       .mag-section__header{ padding-left:20px; padding-right:20px; }
 
     }
+
+    .mag-proof{background:#fff;padding:clamp(28px,4vw,54px) clamp(18px,4vw,52px);color:var(--badiani-blue);}
+    .mag-proof__inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:clamp(20px,4vw,48px);align-items:center;}
+    .mag-proof__eyebrow{margin:0 0 8px;color:var(--badiani-pink);text-transform:uppercase;letter-spacing:1.6px;font-weight:800;font-size:13px;}
+    .mag-proof__title{margin:0;font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;font-size:clamp(34px,4vw,60px);line-height:.95;text-transform:uppercase;}
+    .mag-proof__copy{margin:10px 0 0;color:rgba(30,57,141,.72);font-size:17px;line-height:1.45;}
+    .mag-proof__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(30,57,141,.12);}
+    .mag-proof__item{background:#f8f3ef;padding:18px;min-height:112px;display:flex;flex-direction:column;justify-content:space-between;}
+    .mag-proof__item strong{font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;font-size:clamp(24px,3vw,40px);line-height:.95;color:var(--badiani-blue);}
+    .mag-proof__item span{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:rgba(30,57,141,.68);}
+    .mag-proof__cta{display:inline-flex;margin-top:18px;padding:13px 18px;background:var(--badiani-blue);color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:800;}
+    @media(max-width:760px){.mag-proof{padding:24px 16px}.mag-proof__inner{grid-template-columns:1fr}.mag-proof__grid{grid-template-columns:1fr}.mag-proof__item{min-height:82px}}
+
   </style>
 </head>
 <body>
@@ -433,6 +446,24 @@
         <p class="mag-hero__desc" data-i18n="magazine.hero.subtitle">Una rassegna stampa con gli articoli che parlano di Badiani, sfogliabile come un giornale.</p>
       </div>
     </section>
+
+
+    <section class="mag-proof" aria-label="Credibilità Badiani">
+      <div class="mag-proof__inner">
+        <div>
+          <p class="mag-proof__eyebrow">Proof commerciale</p>
+          <h2 class="mag-proof__title">La stampa rafforza la vendita</h2>
+          <p class="mag-proof__copy">Una raccolta di citazioni e articoli utile ai vendor per raccontare Badiani con autorevolezza durante eventi e trattative B2B.</p>
+          <a class="mag-proof__cta" href="../eventi/">Scopri gli eventi</a>
+        </div>
+        <div class="mag-proof__grid">
+          <div class="mag-proof__item"><strong>1932</strong><span>storia fiorentina</span></div>
+          <div class="mag-proof__item"><strong>Media</strong><span>rassegna selezionata</span></div>
+          <div class="mag-proof__item"><strong>B2B</strong><span>supporto vendita</span></div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ARTICLE GRID — immersive full-bleed cards -->
     <section class="mag-section" data-i18n-attr="aria-label:magazine.list.label">

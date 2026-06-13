@@ -35,7 +35,6 @@ Il sito è **completamente autocontenuto** — nessuna dipendenza esterna CDN, n
 | **Hub Eventi** | `eventi/index.html` | Catalogo tipologie evento |
 | **Saletta Privata** | `eventi/saletta-privata-tosinghi/` | Pacchetti Silver / Gold / Platinum |
 | **Evento Esterno** | `eventi/evento-esterno/` | Cool Box / Carretto / Vetrina |
-| **Speciale Aziende** | `eventi/speciale-aziende/` | Eventi corporate personalizzati |
 | **Experience** | `eventi/experience/` | Esperienza Badiani |
 | **Catalogo B2B** | `b2b/index.html` | Prodotti, gusti, formati, allergeni |
 | **Magazine** | `magazine/index.html` | Rassegna stampa |

@@ -4,8 +4,7 @@
 /* Font Declarations */
 @font-face {
   font-family: 'SuperGroteskB';
-  src: url('fonts/SuperGroteskB-CdMed.woff2') format('woff2'),
-       url('fonts/SuperGroteskB-CdMed.woff') format('woff');
+  src: url('fonts/SuperGroteskB-CdMed.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -13,8 +12,7 @@
 
 @font-face {
   font-family: 'SuperGroteskA';
-  src: url('fonts/SuperGroteskA-Rg%5B7511%5D.woff2') format('woff2'),
-       url('fonts/SuperGroteskA-Rg%5B7511%5D.woff') format('woff');
+  src: url('fonts/SuperGroteskA-Rg%5B7511%5D.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; base-uri 'self'" />
   <title>Badiani dove vuoi — Badiani 1932 | Cool Box e Carretto Gelato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Organizza il tuo evento con Badiani dove vuoi: Cool Box e Carretto Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
@@ -1517,6 +1517,18 @@
       .ext-card__desc{min-height:38px !important;padding:7px 7px !important;font-size:9.5px !important;line-height:1.12 !important;letter-spacing:.35px !important;gap:4px !important;}
     }
 
+
+    .ext-how{background:#fff;padding:clamp(34px,5vw,72px) clamp(18px,4vw,52px);}
+    .ext-how__inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(24px,4vw,52px);align-items:start;}
+    .ext-how__eyebrow{margin:0 0 8px;color:var(--badiani-pink);text-transform:uppercase;letter-spacing:1.8px;font-weight:800;font-size:14px;}
+    .ext-how__title{margin:0;color:var(--badiani-blue);font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;font-size:clamp(38px,5vw,72px);line-height:.9;text-transform:uppercase;}
+    .ext-how__steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+    .ext-how__step{background:#f8f3ef;border:1px solid rgba(30,57,141,.08);padding:18px;min-height:150px;display:flex;flex-direction:column;gap:10px;}
+    .ext-how__num{width:34px;height:34px;border-radius:999px;background:var(--badiani-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;}
+    .ext-how__step strong{color:var(--badiani-blue);text-transform:uppercase;letter-spacing:1px;font-size:18px;}
+    .ext-how__step span{color:rgba(30,57,141,.72);font-size:15px;line-height:1.35;}
+    @media(max-width:760px){.ext-how{padding:28px 16px}.ext-how__inner{grid-template-columns:1fr;gap:18px}.ext-how__steps{grid-template-columns:1fr}.ext-how__step{min-height:0;padding:16px}}
+
   </style>
 
 
@@ -1553,7 +1565,7 @@
       font-weight:900; letter-spacing:1.2px; text-transform:uppercase; box-shadow:0 16px 34px rgba(30,57,141,.24);
     }
     @media(max-width:760px){ body{ padding-bottom:76px; } .mobile-sticky-cta{ display:flex; } }
-    .modal-overlay.active ~ .mobile-sticky-cta, .lightbox.active ~ .mobile-sticky-cta, .img-lightbox.is-open ~ .mobile-sticky-cta{ display:none; }
+    .cookie-banner:not(.is-hidden) ~ .mobile-sticky-cta, .modal-overlay.active ~ .mobile-sticky-cta, .lightbox.active ~ .mobile-sticky-cta, .img-lightbox.is-open ~ .mobile-sticky-cta{ display:none; }
     img[loading="lazy"]{ background:linear-gradient(110deg,rgba(30,57,141,.08) 8%,rgba(240,103,166,.10) 18%,rgba(30,57,141,.08) 33%); background-size:200% 100%; }
   </style>
 
@@ -1692,6 +1704,21 @@
       </button>
 
 
+    </div>
+  </section>
+
+
+  <section class="ext-how" aria-label="Come funziona Badiani dove vuoi">
+    <div class="ext-how__inner">
+      <div>
+        <p class="ext-how__eyebrow">Come funziona</p>
+        <h2 class="ext-how__title">Dal brief<br>alla proposta</h2>
+      </div>
+      <div class="ext-how__steps">
+        <div class="ext-how__step"><span class="ext-how__num">1</span><strong>Scegli soluzione</strong><span>Cool Box per eventi snelli, Carretto per presenza scenografica e servizio completo.</span></div>
+        <div class="ext-how__step"><span class="ext-how__num">2</span><strong>Conferma dettagli</strong><span>Data, location, numero ospiti, gusti e necessità di trasporto o operatore.</span></div>
+        <div class="ext-how__step"><span class="ext-how__num">3</span><strong>Ricevi proposta</strong><span>Il team Badiani prepara preventivo e prossimi passi in modo chiaro per il cliente.</span></div>
+      </div>
     </div>
   </section>
 

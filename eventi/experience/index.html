@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8" />
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; base-uri 'self'" />
 
   <title>Experience — Badiani 1932 | Gli Iconici di Paolo Pomposi</title>
 
@@ -1868,7 +1868,7 @@
       font-weight:900; letter-spacing:1.2px; text-transform:uppercase; box-shadow:0 16px 34px rgba(30,57,141,.24);
     }
     @media(max-width:760px){ body{ padding-bottom:76px; } .mobile-sticky-cta{ display:flex; } }
-    .modal-overlay.active ~ .mobile-sticky-cta, .lightbox.active ~ .mobile-sticky-cta, .img-lightbox.is-open ~ .mobile-sticky-cta{ display:none; }
+    .cookie-banner:not(.is-hidden) ~ .mobile-sticky-cta, .modal-overlay.active ~ .mobile-sticky-cta, .lightbox.active ~ .mobile-sticky-cta, .img-lightbox.is-open ~ .mobile-sticky-cta{ display:none; }
     img[loading="lazy"]{ background:linear-gradient(110deg,rgba(30,57,141,.08) 8%,rgba(240,103,166,.10) 18%,rgba(30,57,141,.08) 33%); background-size:200% 100%; }
   </style>
 
@@ -2039,7 +2039,7 @@
 
       <div class="exp-hero__heading">
 
-        <h1 class="exp-hero__title title-accent title-accent--light" data-i18n-html="hero.title">Gli Iconici<br>di Paolo Pomposi</h1>
+        <h1 class="exp-hero__title title-accent title-accent--light" data-i18n-html="hero.title">Gli Iconici <br>di Paolo Pomposi</h1>
 
       </div>
 
@@ -2915,7 +2915,7 @@
           'skip.link': 'Salta al contenuto',
           'mobile.close': 'Chiudi menu',
           'mobile.expand': 'Espandi',
-          'hero.title': 'Gli Iconici<br>di Paolo Pomposi',
+          'hero.title': 'Gli Iconici <br>di Paolo Pomposi',
           'hero.desc': 'Un racconto esperienziale dei gusti iconici di Paolo Pomposi',
           'concept.aria': 'Il Concept dell\'Experience',
           'concept.label': 'Il Concept',
@@ -3028,7 +3028,7 @@
           'skip.link': 'Skip to content',
           'mobile.close': 'Close menu',
           'mobile.expand': 'Expand',
-          'hero.title': 'The Iconic Flavors<br>by Paolo Pomposi',
+          'hero.title': 'The Iconic Flavors <br>by Paolo Pomposi',
           'hero.desc': 'An experiential journey through the iconic flavors of Paolo Pomposi',
           'concept.aria': 'The Experience Concept',
           'concept.label': 'The Concept',
@@ -3141,7 +3141,7 @@
           'skip.link': 'Aller au contenu',
           'mobile.close': 'Fermer le menu',
           'mobile.expand': 'D\u00e9plier',
-          'hero.title': 'Les Iconiques<br>de Paolo Pomposi',
+          'hero.title': 'Les Iconiques <br>de Paolo Pomposi',
           'hero.desc': 'Un voyage exp\u00e9rientiel \u00e0 travers les parfums iconiques de Paolo Pomposi',
           'concept.aria': 'Le Concept de l\'Experience',
           'concept.label': 'Le Concept',
@@ -3254,7 +3254,7 @@
           'skip.link': 'Ir al contenido',
           'mobile.close': 'Cerrar men\u00fa',
           'mobile.expand': 'Expandir',
-          'hero.title': 'Los Ic\u00f3nicos<br>de Paolo Pomposi',
+          'hero.title': 'Los Ic\u00f3nicos <br>de Paolo Pomposi',
           'hero.desc': 'Un viaje experiencial a trav\u00e9s de los sabores ic\u00f3nicos de Paolo Pomposi',
           'concept.aria': 'El Concepto de la Experience',
           'concept.label': 'El Concepto',
