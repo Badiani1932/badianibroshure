@@ -26,6 +26,19 @@
   });
 })();
 
+/* ── Mobile menu close buttons use real buttons, not empty # links. */
+(function () {
+  document.addEventListener('click', function (e) {
+    var close = e.target.closest('.topbar__mobile-close');
+    if (!close) return;
+    e.preventDefault();
+    var nav = close.closest('.topbar__mobile-nav');
+    var btn = document.getElementById('hamburgerBtn');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (nav) nav.classList.remove('is-open');
+  });
+})();
+
 /* ── Global horizontal-lock hardening ──
    Prevents mobile Safari/Chrome side-panning from exposing white gutters. */
 (function () {

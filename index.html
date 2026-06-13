@@ -37,9 +37,9 @@
   <!-- Preload critical font -->
   <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
 
-  <link rel="stylesheet" href="./assets/badiani-common.css?v=site-lock-20260613" />
+  <link rel="stylesheet" href="./assets/badiani-common.css?v=final-polish-20260613" />
   <link rel="stylesheet" href="./assets/menu-polish.css?v=nav-blue-20260613" />
-  <script defer src="./assets/badiani-common.js?v=site-lock-20260613"></script>
+  <script defer src="./assets/badiani-common.js?v=final-polish-20260613"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1210,6 +1210,20 @@
       .choice-cta{left:16px !important;right:16px !important;bottom:8px !important;width:auto !important;max-width:none !important;}
     }
 
+    /* Final mobile premium pass: stronger photo/label contrast without changing layout. */
+    .choice-card__overlay{background:linear-gradient(180deg,rgba(18,35,92,.14),rgba(18,35,92,.78)) !important;}
+    .choice-card[href="b2b/"]{background-image:linear-gradient(180deg,rgba(18,35,92,.08),rgba(18,35,92,.52)),url('assets/images/categories/gusti.webp') !important;}
+    .choice-card[href="eventi/"]{background-image:linear-gradient(180deg,rgba(18,35,92,.08),rgba(18,35,92,.50)),url('assets/images/eventi/carretto_gelato/foto4.webp') !important;}
+    .choice-title{text-shadow:0 3px 18px rgba(0,0,0,.34);}
+    @media(max-width:760px){
+      .choice-section{gap:16px !important;padding-bottom:20px !important;}
+      .home-entry__subtitle{color:rgba(30,57,141,.82) !important;}
+      .choice-card{min-height:262px !important;}
+      .choice-card__overlay{padding:20px 18px 18px !important;}
+      .choice-title{font-size:clamp(42px,13vw,58px) !important;line-height:.88 !important;max-width:92%;}
+      .choice-cta{bottom:14px !important;background:#fff !important;color:var(--badiani-blue,#1e398d) !important;box-shadow:0 12px 28px rgba(0,0,0,.24) !important;}
+    }
+
   </style>
 </head>
 <body>
@@ -1269,7 +1283,7 @@
     </div>
   </header>
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
-    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
+    <button type="button" class="topbar__mobile-close" aria-label="Chiudi menu">×</button>
     <a href="./" data-i18n="nav.home">Home</a>
     <div class="topbar__mobile-group">
       <div class="topbar__mobile-group-header">

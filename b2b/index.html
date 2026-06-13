@@ -28,9 +28,9 @@
   <link rel="alternate" hreflang="es" href="https://brochure.badiani1932.com/b2b/" />
   <link rel="alternate" hreflang="x-default" href="https://brochure.badiani1932.com/b2b/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <link rel="stylesheet" href="../assets/badiani-common.css?v=site-lock-20260613" />
+  <link rel="stylesheet" href="../assets/badiani-common.css?v=final-polish-20260613" />
   <link rel="stylesheet" href="../assets/menu-polish.css?v=nav-blue-20260613" />
-  <script defer src="../assets/badiani-common.js?v=site-lock-20260613"></script>
+  <script defer src="../assets/badiani-common.js?v=final-polish-20260613"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1204,8 +1204,8 @@
     .b2b-inline-catalog .gelato-card.is-expanded::after{
       content:'';
       position:absolute;
-      inset:0;
-      border-radius:inherit;
+      inset:3px;
+      border-radius:calc(22px - 3px);
       pointer-events:none;
       z-index:20;
       border:2px solid rgba(30,57,141,0.3);
@@ -4067,7 +4067,7 @@
       .b2b-inline-catalog .gelato-card.is-selected,
       .b2b-inline-catalog .gelato-card.is-expanded{outline:none !important;}
       .b2b-inline-catalog .gelato-card.is-selected::after,
-      .b2b-inline-catalog .gelato-card.is-expanded::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:20;border:2px solid rgba(30,57,141,.3);box-sizing:border-box;}
+      .b2b-inline-catalog .gelato-card.is-expanded::after{content:'';position:absolute;inset:3px;border-radius:calc(22px - 3px);pointer-events:none;z-index:20;border:2px solid rgba(30,57,141,.3);box-sizing:border-box;}
       .b2b-inline-catalog .gelato-card.is-expanded::after{border-color:var(--badiani-pink);}
       .b2b-inline-catalog .gelato-card:hover{transform:none !important;}
       .b2b-inline-catalog .gelato-card__media{height:232px !important;min-height:232px !important;background:#fffdf8 !important;display:flex !important;align-items:center !important;justify-content:center !important;}
@@ -4231,7 +4231,7 @@
     </div>
   </header>
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
-    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
+    <button type="button" class="topbar__mobile-close" aria-label="Chiudi menu">×</button>
     <a href="../" data-i18n="nav.home">Home</a>
     <div class="topbar__mobile-group">
       <div class="topbar__mobile-group-header">
@@ -4448,7 +4448,7 @@
               </div>
             </div>
             <div class="modal__cta">
-              <a class="cta-button" href="#" data-i18n="b2b.modal.cta"></a>
+              <button class="cta-button" type="button" data-b2b-form-cta data-i18n="b2b.modal.cta"></button>
             </div>
           </div>
         </div>
@@ -9621,6 +9621,12 @@
         window.open(BADIANI_EXTERNAL_FORM_URL, '_blank', 'noopener');
       };
       window.closeB2BForm = function() {};
+      document.querySelectorAll('[data-b2b-form-cta]').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          window.openB2BForm();
+        });
+      });
 
       /* -------------------------------------------------------
          Listino Prezzi – Password-protected tabbed modal

@@ -28,9 +28,9 @@
   <link rel="alternate" hreflang="es" href="https://brochure.badiani1932.com/eventi/" />
   <link rel="alternate" hreflang="x-default" href="https://brochure.badiani1932.com/eventi/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <link rel="stylesheet" href="../assets/badiani-common.css?v=site-lock-20260613" />
+  <link rel="stylesheet" href="../assets/badiani-common.css?v=final-polish-20260613" />
   <link rel="stylesheet" href="../assets/menu-polish.css?v=nav-blue-20260613" />
-  <script defer src="../assets/badiani-common.js?v=site-lock-20260613"></script>
+  <script defer src="../assets/badiani-common.js?v=final-polish-20260613"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1318,6 +1318,16 @@
       .ev-card__title{font-size:clamp(24px, 8vw, 34px) !important;min-height:3.1em !important;line-height:.94 !important;}
       .ev-card__desc{min-height:42px !important;padding:8px 8px !important;font-size:9.5px !important;line-height:1.14 !important;letter-spacing:.35px !important;gap:4px !important;overflow:visible !important;background-clip:padding-box !important;}
     }
+
+    /* Final mobile vendor polish: prevent long Eventi titles from feeling cut/strangled. */
+    @media(max-width:600px){
+      .ev-types{padding-bottom:46px !important;}
+      .ev-types__grid{gap:14px !important;padding-inline:14px !important;}
+      .ev-card{gap:9px !important;padding-bottom:12px !important;}
+      .ev-card__title{font-size:clamp(20px,6.2vw,28px) !important;line-height:1 !important;letter-spacing:.45px !important;min-height:3.55em !important;align-items:flex-end !important;overflow:visible !important;}
+      .ev-card__img{box-shadow:0 12px 24px rgba(30,57,141,.14);}
+      .ev-card__desc{min-height:44px !important;padding:8px 7px !important;font-size:9.2px !important;line-height:1.15 !important;}
+    }
   </style>
 
 
@@ -1417,7 +1427,7 @@
     </div>
   </header>
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
-    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
+    <button type="button" class="topbar__mobile-close" aria-label="Chiudi menu">×</button>
     <a href="../" data-i18n="nav.home">Home</a>
     <div class="topbar__mobile-group">
       <div class="topbar__mobile-group-header">
