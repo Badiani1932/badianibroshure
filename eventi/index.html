@@ -29,7 +29,7 @@
   <link rel="alternate" hreflang="x-default" href="https://brochure.badiani1932.com/eventi/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
-  <link rel="stylesheet" href="../assets/menu-polish.css" />
+  <link rel="stylesheet" href="../assets/menu-polish.css?v=nav-blue-20260613" />
   <script defer src="../assets/badiani-common.js"></script>
   <script type="application/ld+json">
   {
@@ -286,6 +286,71 @@
       color:var(--badiani-blue);
     }
     /* no dividers needed — gap:2px provides visual separation */
+
+    @media (min-width: 769px){
+      .ev-types__grid{
+        align-items:start;
+      }
+      .ev-card{
+        aspect-ratio:auto !important;
+        display:grid !important;
+        grid-template-rows:minmax(2.75em, auto) auto auto !important;
+        gap:10px !important;
+        overflow:visible !important;
+        min-width:0;
+      }
+      .ev-card::after{
+        display:none !important;
+      }
+      .ev-card__img{
+        position:relative !important;
+        top:auto !important;
+        left:auto !important;
+        grid-row:2 !important;
+        width:100% !important;
+        height:auto !important;
+        aspect-ratio:1 / 1 !important;
+        object-fit:cover !important;
+        object-position:center center !important;
+        display:block !important;
+        background-size:cover !important;
+        background-position:center center !important;
+        background-color:rgba(255,255,255,.08) !important;
+      }
+      .ev-card:nth-child(1) .ev-card__img{background-image:url('../assets/images/migrated/eventi/foto%20eventi/4.webp') !important;}
+      .ev-card:nth-child(2) .ev-card__img{background-image:url('../assets/images/eventi/carretto_gelato/foto8.webp') !important;}
+      .ev-card:nth-child(3) .ev-card__img{background-image:url('../assets/images/eventi/gelatovan.webp') !important;}
+      .ev-card:nth-child(4) .ev-card__img{background-image:url('../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp') !important;}
+      .ev-card__overlay{
+        display:contents !important;
+        position:static !important;
+        inset:auto !important;
+      }
+      .ev-card__title{
+        grid-row:1 !important;
+        position:static !important;
+        align-self:end !important;
+        margin:0 !important;
+        padding:0 !important;
+        min-height:2.75em !important;
+        display:flex !important;
+        align-items:flex-end !important;
+        line-height:.94 !important;
+        overflow:visible !important;
+      }
+      .ev-card__desc{
+        grid-row:3 !important;
+        position:static !important;
+        width:100% !important;
+        max-width:none !important;
+        min-height:70px !important;
+        justify-content:center !important;
+        align-items:center !important;
+        text-align:center !important;
+        border-radius:999px !important;
+        box-sizing:border-box !important;
+      }
+    }
 
     /* ===== CORPORATE — full-width stacked layout ===== */
     .ev-corporate{
@@ -1248,7 +1313,7 @@
   <!-- TOPBAR -->
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="../" class="topbar__logo">
-      <img src="../assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
+      <img src="../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" />
     </a>
     <div class="topbar__right">
       <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
@@ -1347,28 +1412,28 @@
     </div>
     <div class="ev-types__grid">
       <a class="ev-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
-        <img class="ev-card__img" src="../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta privata Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
+        <img class="ev-card__img" src="../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta privata Tosinghi" loading="eager" decoding="async" width="4000" height="2668" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.tosinghi.title">Saletta Privata Tosinghi</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
-        <img class="ev-card__img" src="../assets/images/eventi/carretto_gelato/foto8.webp" alt="BADIANI DOVE VUOI" loading="lazy" decoding="async" />
+        <img class="ev-card__img" src="../assets/images/eventi/carretto_gelato/foto8.webp" alt="BADIANI DOVE VUOI" loading="eager" decoding="async" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.external.title">Badiani dove vuoi</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
-        <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="lazy" decoding="async" width="1708" height="1709" />
+        <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="eager" decoding="async" width="1708" height="1709" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.van.card1.desc">Van brandizzato con servizio.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card ev-card--experience" href="./experience/" data-i18n-attr="aria-label:eventi.experience.aria">
-        <img class="ev-card__img" src="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" alt="Experience" loading="lazy" decoding="async" />
+        <img class="ev-card__img" src="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" alt="Experience" loading="eager" decoding="async" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.experience.title">Experience</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.experience.desc">Tasting guidato dei gusti iconici di Paolo Pomposi.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
