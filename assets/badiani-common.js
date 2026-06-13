@@ -25,3 +25,25 @@
     }
   });
 })();
+
+/* ── Global horizontal-lock hardening ──
+   Prevents mobile Safari/Chrome side-panning from exposing white gutters. */
+(function () {
+  function currentY() {
+    return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+
+  function lockHorizontal() {
+    if (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft) {
+      window.scrollTo(0, currentY());
+      document.documentElement.scrollLeft = 0;
+      document.body.scrollLeft = 0;
+    }
+  }
+
+  window.addEventListener('scroll', lockHorizontal, { passive: true });
+  window.addEventListener('resize', lockHorizontal, { passive: true });
+  window.addEventListener('orientationchange', function () { setTimeout(lockHorizontal, 80); }, { passive: true });
+  window.addEventListener('touchend', lockHorizontal, { passive: true });
+  lockHorizontal();
+})();

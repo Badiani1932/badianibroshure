@@ -28,9 +28,9 @@
   <link rel="alternate" hreflang="es" href="https://brochure.badiani1932.com/eventi/" />
   <link rel="alternate" hreflang="x-default" href="https://brochure.badiani1932.com/eventi/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <link rel="stylesheet" href="../assets/badiani-common.css" />
+  <link rel="stylesheet" href="../assets/badiani-common.css?v=site-lock-20260613" />
   <link rel="stylesheet" href="../assets/menu-polish.css?v=nav-blue-20260613" />
-  <script defer src="../assets/badiani-common.js"></script>
+  <script defer src="../assets/badiani-common.js?v=site-lock-20260613"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2229,23 +2229,6 @@
       target.scrollIntoView({ behavior:'smooth', block:'start' });
     });
     document.body.appendChild(cta);
-  })();
-  </script>
-
-  <script>
-  (function(){
-    function lockHorizontal(){
-      if(window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft){
-        window.scrollTo(0, window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
-        document.documentElement.scrollLeft = 0;
-        document.body.scrollLeft = 0;
-      }
-    }
-    window.addEventListener('scroll', lockHorizontal, { passive:true });
-    window.addEventListener('resize', lockHorizontal, { passive:true });
-    window.addEventListener('orientationchange', function(){ setTimeout(lockHorizontal, 80); }, { passive:true });
-    window.addEventListener('touchend', lockHorizontal, { passive:true });
-    lockHorizontal();
   })();
   </script>
 

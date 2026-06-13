@@ -83,12 +83,15 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scrollbar-width: none;
   overflow-x: hidden;
   overflow-x: clip;
+  overscroll-behavior-x: none;
   scroll-padding-top: var(--topbar-h);
 }
 html::-webkit-scrollbar { display: none; }
@@ -99,6 +102,8 @@ html, body {
 html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 body, html {
+  width: 100%;
+  max-width: 100%;
   font-family: 'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -110,6 +115,7 @@ body, html {
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
   overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 body {
