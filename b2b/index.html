@@ -1425,17 +1425,35 @@
       overflow:hidden;
       position:relative;
       box-shadow:0 10px 22px rgba(0,0,0,0.2);
-      cursor:pointer;
+      cursor:default;
       text-align:left;
       padding:0;
       display:flex;
       flex-direction:column;
-      transition:transform 0.18s ease, outline-color 0.18s ease;
-      will-change:transform;
+      transition:none;
       contain:layout style;
     }
-    .tipologia-card:hover{ transform:translateY(-2px) scale(1.01); }
+    .tipologia-card:not(.tipologia-card--static){ cursor:pointer; transition:transform 0.18s ease, outline-color 0.18s ease; will-change:transform; }
+    .tipologia-card:not(.tipologia-card--static):hover{ transform:translateY(-2px) scale(1.01); }
     .tipologia-card:focus-visible{ outline:2px solid rgba(255,255,255,0.4); outline-offset:2px; }
+    .tipologia-card--static{ pointer-events:none; }
+    .packaging-formati{
+      margin-top:28px;
+      padding-top:24px;
+      border-top:1px solid rgba(30,57,141,0.10);
+    }
+    .packaging-formati__title{
+      margin:0 0 14px;
+      padding:0;
+      color:var(--badiani-blue);
+      font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      font-size:clamp(18px,2vw,26px);
+      font-weight:600;
+      letter-spacing:1.8px;
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .tipologia-grid--static{ margin-top:0; }
     .tipologia-card.is-expanded{ outline:2px solid var(--badiani-pink); outline-offset:2px; box-shadow:0 12px 28px rgba(240,103,166,0.35); }
     .tipologia-media{
       width:100%;
@@ -4359,11 +4377,6 @@
               </div>
               <div class="gelato-vasche__content" id="vascheContent" hidden></div>
             </div>
-            <!-- Pulsante scroll verso Formato Acquisto -->
-            <button type="button" class="formato-acquisto-btn" id="formatoAcquistoBtn">
-              <span data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
             <div class="gelato-header">
               <h4 data-gelato-i18n="vetrinaGelato.title"></h4>
               <p data-gelato-i18n="vetrinaGelato.subtitle"></p>
@@ -4385,21 +4398,6 @@
                 <div class="gelato-section-title" data-gelato-i18n="vetrinaGelato.gridTitle"></div>
                 <div class="gelato-grid" id="gelatoGrid"></div>
               </div>
-            </div>
-            <!-- Formato Acquisto: tipologia vasca grid (moved to bottom) -->
-            <div id="tipologiaSection">
-              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0 0 14px;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
-              <div class="tipologia-detail-panel-wrap">
-                <div class="tipologia-detail-panel" id="tipologiaDetailPanel" aria-live="polite">
-                  <div class="tipologia-detail-panel__img" id="tipologiaDetailImg"><img id="tipologiaDetailImgEl" src="" alt="Formato di acquisto B2B" /></div>
-                  <div class="tipologia-detail-panel__body">
-                    <div class="tipologia-detail-panel__name" id="tipologiaDetailName"></div>
-                    <div class="tipologia-detail-panel__capacity" id="tipologiaDetailCapacity"></div>
-                  </div>
-                  <button class="tipologia-detail-panel__close" id="tipologiaDetailClose" aria-label="Chiudi">&times;</button>
-                </div>
-              </div>
-              <div class="tipologia-grid" id="tipologiaContent"></div>
             </div>
           </div>
 
@@ -4861,7 +4859,7 @@
           'nav.b2b.torte': 'Torte',
           'nav.b2b.coni': 'Coni & Coppette',
           'nav.b2b.accessori': 'Accessori',
-          'nav.b2b.contenitori': 'Contenitori',
+          'nav.b2b.contenitori': 'Packaging & Formati',
           'b2b.landing.eyebrow': 'Catalogo B2B · Firenze 1932',
           'b2b.landing.title': 'Catalogo B2B',
           'b2b.landing.text': 'Scegli una categoria, consulta i prodotti e richiedi il listino.',
@@ -4870,7 +4868,7 @@
           'b2b.badge.cold': 'catena freddo',
           'b2b.badge.form': 'modulo unico',
           'b2b.quick.coniShort': 'Coni',
-          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.packaging': 'Packaging & Formati',
           'b2b.quick.request': 'Richiesta',
           'b2b.form.label': 'Richiesta listino B2B',
           'nav.magazine': 'Dicono di Noi',
@@ -4920,7 +4918,7 @@
           'b2b.categories.BARATTOLI': 'BARATTOLI',
           'b2b.categories.CONI_COPPETTE': 'CONI & COPPETTE',
           'b2b.categories.ACCESSORI': 'ACCESSORI',
-          'b2b.categories.CONTENITORI': 'CONTENITORI',
+          'b2b.categories.CONTENITORI': 'PACKAGING & FORMATI',
           'b2b.hero.label_text': 'Partnership',
           'b2b.cat.gelato.label': 'Gusti & Vasche',
           'b2b.cat.gelato.desc': 'Oltre 36 gusti artigianali, dal Buontalenti® ai classici',
@@ -4932,8 +4930,8 @@
           'b2b.cat.coni.desc': 'Coni artigianali e coppette per la degustazione',
           'b2b.cat.accessori.label': 'Allestimento',
           'b2b.cat.accessori.desc': 'Palette, cucchiaini e accessori brandizzati',
-          'b2b.cat.contenitori.label': 'Packaging',
-          'b2b.cat.contenitori.desc': 'Vaschette, box termici e packaging d\'asporto',
+          'b2b.cat.contenitori.label': 'Packaging & Formati',
+          'b2b.cat.contenitori.desc': 'Vaschette, box termici e formati di acquisto',
           'b2b.experiences.label': 'Esperienze B2B',
           'b2b.experiences.title': 'Esperienze B2B',
           'b2b.experiences.item1': 'Eventi B2B in saletta riservata (con o senza mantecatori)',
@@ -5277,7 +5275,7 @@
           'nav.b2b.torte': 'Cakes',
           'nav.b2b.coni': 'Cones & Cups',
           'nav.b2b.accessori': 'Accessories',
-          'nav.b2b.contenitori': 'Containers',
+          'nav.b2b.contenitori': 'Packaging & Formats',
           'b2b.landing.eyebrow': 'B2B catalogue · Florence 1932',
           'b2b.landing.title': 'B2B Catalogue',
           'b2b.landing.text': 'Choose a category, review the products and request the price list.',
@@ -5286,7 +5284,7 @@
           'b2b.badge.cold': 'cold chain',
           'b2b.badge.form': 'single form',
           'b2b.quick.coniShort': 'Cones',
-          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.packaging': 'Packaging & Formats',
           'b2b.quick.request': 'Request',
           'b2b.form.label': 'B2B price-list request',
           'nav.magazine': 'Press & Reviews',
@@ -5336,7 +5334,7 @@
           'b2b.categories.BARATTOLI': 'JARS',
           'b2b.categories.CONI_COPPETTE': 'CONES & CUPS',
           'b2b.categories.ACCESSORI': 'ACCESSORIES',
-          'b2b.categories.CONTENITORI': 'CONTAINERS',
+          'b2b.categories.CONTENITORI': 'PACKAGING & FORMATS',
           'b2b.hero.label_text': 'Partnership',
           'b2b.cat.gelato.label': 'Flavours & Tubs',
           'b2b.cat.gelato.desc': 'Over 36 artisan flavours, from Buontalenti® to the classics',
@@ -5348,8 +5346,8 @@
           'b2b.cat.coni.desc': 'Artisan cones and cups for tasting',
           'b2b.cat.accessori.label': 'Set-up',
           'b2b.cat.accessori.desc': 'Spatulas, spoons and branded accessories',
-          'b2b.cat.contenitori.label': 'Packaging',
-          'b2b.cat.contenitori.desc': 'Tubs, insulated boxes and take-away packaging',
+          'b2b.cat.contenitori.label': 'Packaging & Formats',
+          'b2b.cat.contenitori.desc': 'Tubs, insulated boxes and purchase formats',
           'b2b.experiences.label': 'B2B experiences',
           'b2b.experiences.title': 'B2B experiences',
           'b2b.experiences.item1': 'B2B events in a reserved lounge (with or without gelato batch freezers)',
@@ -5697,7 +5695,7 @@
           'nav.b2b.torte': 'Gâteaux',
           'nav.b2b.coni': 'Cônes & Coupes',
           'nav.b2b.accessori': 'Accessoires',
-          'nav.b2b.contenitori': 'Conteneurs',
+          'nav.b2b.contenitori': 'Emballage & Formats',
           'b2b.landing.eyebrow': 'Catalogue B2B · Florence 1932',
           'b2b.landing.title': 'Catalogue B2B',
           'b2b.landing.text': 'Choisissez une catégorie, consultez les produits et demandez le tarif.',
@@ -5706,7 +5704,7 @@
           'b2b.badge.cold': 'chaîne du froid',
           'b2b.badge.form': 'formulaire unique',
           'b2b.quick.coniShort': 'Cônes',
-          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.packaging': 'Emballage & Formats',
           'b2b.quick.request': 'Demande',
           'b2b.form.label': 'Demande de tarif B2B',
           'nav.magazine': 'Ils Parlent de Nous',
@@ -5756,7 +5754,7 @@
           'b2b.categories.BARATTOLI': 'BOCAUX',
           'b2b.categories.CONI_COPPETTE': 'CORNÉTS & COUPES',
           'b2b.categories.ACCESSORI': 'ACCESSOIRES',
-          'b2b.categories.CONTENITORI': 'CONTENANTS',
+          'b2b.categories.CONTENITORI': 'EMBALLAGE & FORMATS',
           'b2b.hero.label_text': 'Partenariat',
           'b2b.cat.gelato.label': 'Parfums & Bacs',
           'b2b.cat.gelato.desc': 'Plus de 36 parfums artisanaux, du Buontalenti® aux classiques',
@@ -5768,8 +5766,8 @@
           'b2b.cat.coni.desc': 'Cornets artisanaux et coupes pour la dégustation',
           'b2b.cat.accessori.label': 'Aménagement',
           'b2b.cat.accessori.desc': 'Spatules, cuillères et accessoires griffés',
-          'b2b.cat.contenitori.label': 'Emballage',
-          'b2b.cat.contenitori.desc': 'Bacs, boîtes isothermes et emballages à emporter',
+          'b2b.cat.contenitori.label': 'Emballage & Formats',
+          'b2b.cat.contenitori.desc': 'Bacs, boîtes isothermes et formats d’achat',
           'b2b.experiences.label': 'Expériences B2B',
           'b2b.experiences.title': 'Expériences B2B',
           'b2b.experiences.item1': 'Événements B2B en salle réservée (avec ou sans turbines)',
@@ -6117,7 +6115,7 @@
           'nav.b2b.torte': 'Tartas',
           'nav.b2b.coni': 'Conos y Copas',
           'nav.b2b.accessori': 'Accesorios',
-          'nav.b2b.contenitori': 'Contenedores',
+          'nav.b2b.contenitori': 'Packaging y formatos',
           'b2b.landing.eyebrow': 'Catálogo B2B · Florencia 1932',
           'b2b.landing.title': 'Catálogo B2B',
           'b2b.landing.text': 'Elige una categoría, consulta los productos y solicita la lista de precios.',
@@ -6126,7 +6124,7 @@
           'b2b.badge.cold': 'cadena de frío',
           'b2b.badge.form': 'formulario único',
           'b2b.quick.coniShort': 'Conos',
-          'b2b.quick.packaging': 'Packaging',
+          'b2b.quick.packaging': 'Packaging y formatos',
           'b2b.quick.request': 'Solicitud',
           'b2b.form.label': 'Solicitud de lista B2B',
           'nav.magazine': 'Dicen de Nosotros',
@@ -6176,7 +6174,7 @@
           'b2b.categories.BARATTOLI': 'TARROS',
           'b2b.categories.CONI_COPPETTE': 'CONOS & COPAS',
           'b2b.categories.ACCESSORI': 'ACCESORIOS',
-          'b2b.categories.CONTENITORI': 'CONTENEDORES',
+          'b2b.categories.CONTENITORI': 'PACKAGING Y FORMATOS',
           'b2b.hero.label_text': 'Colaboración',
           'b2b.cat.gelato.label': 'Sabores & Cubas',
           'b2b.cat.gelato.desc': 'Más de 36 sabores artesanales, del Buontalenti® a los clásicos',
@@ -6188,8 +6186,8 @@
           'b2b.cat.coni.desc': 'Conos artesanales y copas para la degustación',
           'b2b.cat.accessori.label': 'Montaje',
           'b2b.cat.accessori.desc': 'Paletas, cucharillas y accesorios de marca',
-          'b2b.cat.contenitori.label': 'Envases',
-          'b2b.cat.contenitori.desc': 'Cubetas, cajas térmicas y envases para llevar',
+          'b2b.cat.contenitori.label': 'Packaging y formatos',
+          'b2b.cat.contenitori.desc': 'Cubetas, cajas térmicas y formatos de compra',
           'b2b.experiences.label': 'Experiencias B2B',
           'b2b.experiences.title': 'Experiencias B2B',
           'b2b.experiences.item1': 'Eventos B2B en sala reservada (con o sin mantecadoras)',
@@ -6623,7 +6621,7 @@
           ]
         },
         'CONTENITORI': {
-          title: 'Contenitori',
+          title: 'Packaging & Formati',
           columns: ['Prodotto', 'Descrizione', 'Quantità'],
           rows: [
             ['S', 'Vaschetta da asporto per Gelato (ottenuta dal riciclo della plastica)', '60 pz'],
@@ -6656,7 +6654,7 @@
           'TORTE': { ideal: 'Compleanni, ricorrenze, aziende e fine pasto premium.', format: 'Torte e semifreddi con diametro, porzioni e gusti principali.', action: 'Scegli la torta e chiedi disponibilità/listino.' },
           'CONI_COPPETTE': { ideal: 'Degustazioni, eventi, gelato van e servizio da banco.', format: 'Coni, coppette e bicchierini in diverse misure.', action: 'Controlla capienza e abbina al formato gelato.' },
           'ACCESSORI': { ideal: 'Servizio operativo, branding e mise en place completa.', format: 'Palette, cucchiaini, shopper e materiali di supporto.', action: 'Seleziona accessori utili e invia richiesta unica.' },
-          'CONTENITORI': { ideal: 'Delivery, asporto, conservazione e trasporto freddo.', format: 'Vaschette e contenitori termici con quantità per confezione.', action: 'Scegli misura/confezione e conferma esigenza nel modulo.' }
+          'CONTENITORI': { ideal: 'Delivery, asporto, conservazione e trasporto freddo.', format: 'Packaging operativo e formati vasca per servizio B2B.', action: 'Scegli packaging/formato e conferma esigenza nel modulo.' }
         },
         en: {
           labels: { ideal: 'Best for', format: 'Format', action: 'Next step', kicker: 'At a glance' },
@@ -8082,16 +8080,13 @@
       function renderTipologiaGallery(){
         const items = TIPOLOGIA_VASCA;
         if(!items || !items.length) return '';
-        const zoomIcon = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
-        const cards = items
-          .map(({ name, capacity, image }) => {
+        return items
+          .map(({ name, image }) => {
             const imageSrc = encodeURI(image);
-            const isExpanded = expandedTipologiaId === name;
             return `
-              <article class="tipologia-card${isExpanded ? ' is-expanded' : ''}" data-tipologia-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
+              <article class="tipologia-card tipologia-card--static" data-tipologia-id="${name}">
                 <div class="tipologia-media">
                   <img src="${imageSrc}" alt="${getTipologiaName(name)}" loading="lazy" decoding="async" />
-                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}">${zoomIcon}</button>
                 </div>
                 <div class="tipologia-body">
                   <div class="tipologia-title">${getTipologiaName(name)}</div>
@@ -8100,8 +8095,6 @@
             `;
           })
           .join('');
-
-        return cards;
       }
 
       /* -- Tipologia detail — in-card overlay (like gelato) -- */
@@ -8220,11 +8213,17 @@
             </article>`;
         }).join('');
 
+        const formatiHtml = renderTipologiaGallery();
         return `
           <div class="modal__section">
-            <div class="pezziduri-grid-stage">
+            <div class="pezziduri-grid-stage pezziduri-grid-stage--packaging">
               <h4>${getCatTitle('CONTENITORI')}</h4>
               <div class="pezziduri-grid">${cards}</div>
+              ${formatiHtml ? `
+                <div class="packaging-formati" id="packagingFormati">
+                  <h5 class="packaging-formati__title">${t('b2b.vasche.formatoAcquisto')}</h5>
+                  <div class="tipologia-grid tipologia-grid--static">${formatiHtml}</div>
+                </div>` : ''}
             </div>
           </div>`;
       }
@@ -9453,13 +9452,6 @@
           renderGelatoGrid();
           if(vascheContent){
             vascheContent.innerHTML = renderVascheSection();
-          }
-          if(tipologiaContent){
-            tipologiaContent.innerHTML = renderTipologiaGallery();
-            requestAnimationFrame(() => {
-              setupTipologiaZoom();
-              setupZoomButtons();
-            });
           }
         }else{
           renderCategoryContent(activeCategory);
