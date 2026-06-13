@@ -57,8 +57,28 @@
        EVENTI PAGE — aligned with home design language
        Full-bleed sections, split grids, dark overlays, SuperGrotesk
        ============================================================ */
+    html,
     body{
-      background:url('../assets/images/branding/sfondo.webp') center/cover no-repeat fixed;
+      width:100%;
+      max-width:100%;
+      overflow-x:hidden !important;
+      overscroll-behavior-x:none;
+    }
+    body{
+      position:relative;
+      background:var(--badiani-blue) url('../assets/images/branding/sfondo.webp') center/cover no-repeat fixed;
+    }
+    .topbar,
+    .page-shell,
+    .ev-types,
+    .ev-types__grid,
+    .ev-corporate,
+    .ev-gallery-section,
+    .ev-form-section,
+    .footer{
+      max-width:100vw;
+      overflow-x:clip;
+      box-sizing:border-box;
     }
 
     /* EVENT TYPES — 3-column full-bleed grid ===== */
@@ -2209,6 +2229,23 @@
       target.scrollIntoView({ behavior:'smooth', block:'start' });
     });
     document.body.appendChild(cta);
+  })();
+  </script>
+
+  <script>
+  (function(){
+    function lockHorizontal(){
+      if(window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft){
+        window.scrollTo(0, window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+        document.documentElement.scrollLeft = 0;
+        document.body.scrollLeft = 0;
+      }
+    }
+    window.addEventListener('scroll', lockHorizontal, { passive:true });
+    window.addEventListener('resize', lockHorizontal, { passive:true });
+    window.addEventListener('orientationchange', function(){ setTimeout(lockHorizontal, 80); }, { passive:true });
+    window.addEventListener('touchend', lockHorizontal, { passive:true });
+    lockHorizontal();
   })();
   </script>
 
