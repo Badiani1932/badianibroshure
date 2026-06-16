@@ -1328,6 +1328,27 @@
       .ev-card__img{box-shadow:0 12px 24px rgba(30,57,141,.14);}
       .ev-card__desc{min-height:44px !important;padding:8px 7px !important;font-size:9.2px !important;line-height:1.15 !important;}
     }
+
+    /* Desktop Eventi service-card spacing: keep mobile overrides intact while giving
+       the 4-card grid, square images and CTA pills premium breathing room. */
+    @media(min-width:901px){
+      .ev-types__grid{
+        gap:clamp(28px, 2.7vw, 46px) !important;
+        padding-inline:clamp(32px, 4vw, 72px) !important;
+        line-height:normal !important;
+      }
+      .ev-card{
+        gap:clamp(14px, 1.25vw, 22px) !important;
+        padding-bottom:0 !important;
+      }
+      .ev-card__img{
+        box-shadow:0 18px 38px rgba(5, 18, 62, .18) !important;
+      }
+      .ev-card__desc{
+        min-height:58px !important;
+        padding:13px 18px !important;
+      }
+    }
   </style>
 
 
