@@ -3854,10 +3854,13 @@
     .b2b-landing__title{font-family:'SuperGroteskB',sans-serif;font-size:clamp(48px,7.2vw,118px);line-height:.86;text-transform:uppercase;letter-spacing:1px;color:var(--badiani-blue,#1e398d);margin:0 0 14px;max-width:850px;}
     .b2b-landing__text{font-size:clamp(17px,1.45vw,22px);line-height:1.45;color:rgba(30,57,141,.72);max-width:620px;margin:0 0 18px;}
     .b2b-action-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
-    .b2b-action-row--single{max-width:310px;}
+    .b2b-action-row--single{max-width:370px;align-items:center;}
     .b2b-action-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 16px;background:var(--badiani-blue,#1e398d);color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;border:1px solid var(--badiani-blue,#1e398d);transition:transform .22s ease,background .22s ease,color .22s ease;}
     .b2b-action-btn:hover,.b2b-action-btn:focus-visible{transform:translateY(-2px);background:var(--badiani-pink,#f067a6);border-color:var(--badiani-pink,#f067a6);}
     .b2b-action-btn--ghost{background:#fff;color:var(--badiani-blue,#1e398d);}
+    .b2b-vendor-listino-btn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(30,57,141,.18);background:rgba(255,255,255,.72);color:rgba(30,57,141,.48);cursor:pointer;padding:0;transition:transform .2s ease,background .2s ease,color .2s ease,border-color .2s ease;}
+    .b2b-vendor-listino-btn:hover,.b2b-vendor-listino-btn:focus-visible{transform:translateY(-2px);background:#fff;color:var(--badiani-blue,#1e398d);border-color:rgba(30,57,141,.35);outline:none;}
+    .b2b-vendor-listino-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
     .b2b-landing__media{position:relative;min-height:520px;overflow:hidden;background:var(--badiani-blue,#1e398d);box-shadow:0 22px 50px rgba(30,57,141,.18);}
     .b2b-landing__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.88;transition:transform .8s cubic-bezier(.22,1,.36,1);}
     .b2b-landing__media:hover img{transform:scale(1.04);}
@@ -4276,6 +4279,9 @@
         <p class="b2b-landing__text" data-i18n="b2b.landing.text">Scegli una categoria, consulta i prodotti e richiedi il listino.</p>
         <div class="b2b-action-row b2b-action-row--single">
           <a class="b2b-action-btn" href="https://eventi.badiani1932.com/" target="_blank" rel="noopener" data-i18n="b2b.landing.cta">Richiedi listino</a>
+          <button class="b2b-vendor-listino-btn" type="button" data-modal-listino aria-label="Accesso venditore al listino prezzi">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </button>
         </div>
       </div>
 
