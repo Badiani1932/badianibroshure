@@ -39,6 +39,8 @@
 
 /* CSS Variables */
 :root {
+  /* Canvas sempre chiaro: in dark mode il browser dipingeva nero dietro la pagina (visibile nell'overscroll) */
+  color-scheme: light;
   --badiani-blue: #1e398d;
   --badiani-pink: #f067a6;
   --badiani-yellow: #D8A200;
@@ -92,6 +94,8 @@ html {
   overflow-x: hidden;
   overflow-x: clip;
   overscroll-behavior-x: none;
+  /* No rimbalzo elastico: l'overscroll rivelava lo sfondo dietro la pagina */
+  overscroll-behavior-y: none;
   scroll-padding-top: var(--topbar-h);
 }
 html::-webkit-scrollbar { display: none; }
@@ -116,6 +120,7 @@ body, html {
   overflow-x: hidden;
   overflow-x: clip;
   overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
 }
 
 body {
