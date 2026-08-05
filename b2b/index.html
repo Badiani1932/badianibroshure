@@ -4278,7 +4278,7 @@
         <h1 class="b2b-landing__title" data-i18n="b2b.landing.title">Catalogo B2B</h1>
         <p class="b2b-landing__text" data-i18n="b2b.landing.text">Scegli una categoria, consulta i prodotti e richiedi il listino.</p>
         <div class="b2b-action-row b2b-action-row--single">
-          <a class="b2b-action-btn" href="https://badiani-eventi-form-production.up.railway.app/" target="_blank" rel="noopener" data-i18n="b2b.landing.cta">Richiedi listino</a>
+          <a class="b2b-action-btn" href="https://badiani-eventi-form-production.up.railway.app/" target="_blank" rel="noopener noreferrer" data-i18n="b2b.landing.cta">Richiedi listino</a>
           <button class="b2b-vendor-listino-btn" type="button" data-modal-listino aria-label="Accesso venditore al listino prezzi">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </button>
@@ -4302,7 +4302,7 @@
       <button type="button" data-category="CONI_COPPETTE" data-i18n="b2b.quick.coniShort">Coni</button>
       <button type="button" data-category="ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</button>
       <button type="button" data-category="CONTENITORI" data-i18n="b2b.quick.packaging">Packaging</button>
-      <a href="https://badiani-eventi-form-production.up.railway.app/" target="_blank" rel="noopener" data-i18n="b2b.quick.request">Richiesta</a>
+      <a href="https://badiani-eventi-form-production.up.railway.app/" target="_blank" rel="noopener noreferrer" data-i18n="b2b.quick.request">Richiesta</a>
     </nav>
 
 
@@ -4347,7 +4347,7 @@
           <h2>Richiedi listino</h2>
           <p>Il modulo ora è unico e dedicato: raccoglie richieste eventi e B2B senza duplicare form nella brochure.</p>
         </div>
-        <a href="https://badiani-eventi-form-production.up.railway.app/" target="_blank" rel="noopener">Apri modulo →</a>
+        <a href="https://badiani-eventi-form-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Apri modulo →</a>
       </div>
     </section>
   </main>
@@ -9624,7 +9624,7 @@
       // External unified request form
       const BADIANI_EXTERNAL_FORM_URL = 'https://badiani-eventi-form-production.up.railway.app/';
       window.openB2BForm = function() {
-        window.open(BADIANI_EXTERNAL_FORM_URL, '_blank', 'noopener');
+        window.open(BADIANI_EXTERNAL_FORM_URL, '_blank', 'noopener,noreferrer');
       };
       window.closeB2BForm = function() {};
       document.querySelectorAll('[data-b2b-form-cta]').forEach(function(btn){
