@@ -73,7 +73,9 @@
     body{
       position:relative;
     }
-    .topbar,
+    /* NB: niente .topbar qui — con will-change/contain la barra è il containing
+       block del pannello lingue (position:fixed): overflow-x:clip lo taglierebbe
+       rendendo EN/ES/FR non cliccabili. */
     .page-shell,
     .ev-types,
     .ev-types__grid,
