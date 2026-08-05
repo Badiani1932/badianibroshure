@@ -39,7 +39,7 @@
 
   <link rel="stylesheet" href="./assets/badiani-common.css?v=scrollfix-20260805b" />
   <link rel="stylesheet" href="./assets/menu-polish.css?v=nav-blue-20260613" />
-  <script defer src="./assets/badiani-common.js?v=final-polish-20260613"></script>
+  <script defer src="./assets/badiani-common.js?v=topbar-sync-20260805"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1224,6 +1224,13 @@
       .choice-cta{bottom:14px !important;background:#fff !important;color:var(--badiani-blue,#1e398d) !important;box-shadow:0 12px 28px rgba(0,0,0,.24) !important;}
     }
 
+    /* ===== Woosh senza stacchi: la sezione parte da y=0 e passa DIETRO la
+       barra fissa, così lo sfondo non può mai "finire" sotto la barra ===== */
+    body{ padding-top:0; }
+    .choice-section{ min-height:100vh; padding-top:calc(var(--topbar-h) + clamp(22px, 4vw, 54px)); }
+    @media(max-width:760px){
+      .choice-section{ padding-top:calc(var(--topbar-h) + 24px); }
+    }
   </style>
 </head>
 <body>

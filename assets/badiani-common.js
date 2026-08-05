@@ -39,6 +39,26 @@
   });
 })();
 
+/* ── Sincronizza --topbar-h con l'altezza reale della barra ──
+   Il valore in CSS è una stima (menu-polish cambia padding e logo):
+   il disallineamento lasciava una striscia di sfondo scoperta
+   tra la barra fissa e l'inizio dei contenuti. */
+(function () {
+  var bar = document.querySelector('.topbar');
+  if (!bar) return;
+  function syncTopbarH() {
+    var h = bar.offsetHeight;
+    if (h) document.documentElement.style.setProperty('--topbar-h', h + 'px');
+  }
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(syncTopbarH).observe(bar);
+  } else {
+    window.addEventListener('resize', syncTopbarH, { passive: true });
+  }
+  window.addEventListener('load', syncTopbarH);
+  syncTopbarH();
+})();
+
 /* ── Global horizontal-lock hardening ──
    Prevents mobile Safari/Chrome side-panning from exposing white gutters. */
 (function () {
