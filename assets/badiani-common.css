@@ -120,7 +120,9 @@ body, html {
   overflow-x: hidden;
   overflow-x: clip;
   overscroll-behavior-x: none;
-  overscroll-behavior-y: none;
+  /* NB: niente overscroll-behavior-y qui — sul body bloccherebbe lo scroll
+     quando il body diventa scroll container (es. overflow-x:hidden inline).
+     La regola sta solo su html, più sopra. */
 }
 
 body {

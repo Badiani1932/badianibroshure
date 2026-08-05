@@ -28,7 +28,7 @@
   <link rel="alternate" hreflang="es" href="https://brochure.badiani1932.com/eventi/" />
   <link rel="alternate" hreflang="x-default" href="https://brochure.badiani1932.com/eventi/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <link rel="stylesheet" href="../assets/badiani-common.css?v=overscroll-fix-20260805" />
+  <link rel="stylesheet" href="../assets/badiani-common.css?v=scrollfix-20260805b" />
   <link rel="stylesheet" href="../assets/menu-polish.css?v=nav-blue-20260613" />
   <script defer src="../assets/badiani-common.js?v=final-polish-20260613"></script>
   <script type="application/ld+json">
@@ -63,9 +63,12 @@
       max-width:100%;
       overflow-x:hidden !important;
       overscroll-behavior-x:none;
-      overscroll-behavior-y:none;
       /* Tinta unita anche su html: l'overscroll non deve mai rivelare il bordo dello sfondo */
       background:var(--badiani-blue);
+    }
+    /* Solo su html: sul body (scroll container senza overflow) bloccherebbe lo scroll della pagina */
+    html{
+      overscroll-behavior-y:none;
     }
     body{
       position:relative;

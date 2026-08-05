@@ -30,7 +30,7 @@
   <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="preload" href="../../assets/images/categories/coolbox.webp" as="image" type="image/webp" />
   <link rel="preload" href="../../assets/images/eventi/carretto_gelato/foto1.webp" as="image" type="image/webp" />
-  <link rel="stylesheet" href="../../assets/badiani-common.css?v=overscroll-fix-20260805" />
+  <link rel="stylesheet" href="../../assets/badiani-common.css?v=scrollfix-20260805b" />
   <link rel="stylesheet" href="../../assets/menu-polish.css?v=nav-blue-20260613" />
   <script defer src="../../assets/badiani-common.js?v=final-polish-20260613"></script>
   <script type="application/ld+json">
@@ -1186,6 +1186,9 @@
     body{
       /* Tinta unita: niente immagine "fixed" sul body (si rivelava nell'overscroll ed è rotta su iOS) */
       background:var(--badiani-blue);
+    }
+    /* Solo su html: sul body bloccherebbe lo scroll della pagina */
+    html{
       overscroll-behavior-y:none;
     }
     .ext-hero{
